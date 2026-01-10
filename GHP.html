@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Globo Hydro Power™ (GHP™) for Ethiopia - Strategic Proposal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, #1a4d3a 0%, #2d8659 50%, #97bc62 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg " viewBox="0 0 100 100"><polygon points="0,100 100,0 100,100" fill="rgba(255,255,255,255,0.05)"/></svg>');
+            background-size: cover;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .ethiopia-flag {
+            width: 100px;
+            height: 60px;
+            margin: 0 auto 30px;
+            background: linear-gradient(to bottom, #078930 33%, #FCDD09 33% 67%, #da121a 67%);
+            border-radius: 8px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .ethiopia-flag::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            background: #0000ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header h1 {
+            font-size: 3.8em;
+            margin-bottom: 25px;
+            font-weight: 800;
+            text-shadow: 3px 3px 8px rgba(0,0,0,0,0.4);
+            line-height: 1.1;
+        }
+
+        .header .subtitle {
+            font-size: 2em;
+            margin-bottom: 35px;
+            font-weight: 300;
+            opacity: 0.95;
+        }
+
+        .challenge-solution {
+            background: rgba(255,255,255,255,0.15);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 50px auto;
+            max-width: 900px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .challenge-solution h3 {
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .challenge-solution p {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section:nth-child(even) {
+            background: white;
+        }
+
+        .section h2 {
+            font-size: 3em;
+            color: #1a4d3a;
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            display: block;
+            width: 120px;
+            height: 5px;
+            background: linear-gradient(to right, #2d8659, #97bc62);
+            margin: 25px auto 0;
+            border-radius: 3px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.4em;
+            color: #666;
+            margin-bottom: 60px;
+        }
+
+        /* Fuel Mix Graphic */
+        .fuel-mix-container {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0,0.1);
+            margin: 50px 0;
+        }
+
+        .fuel-mix {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        }
+
+        .fuel-gauge {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: conic-gradient(#da121a 0deg 252deg, #00ff88 252deg 360deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 10px 35px rgba(0,0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .fuel-gauge:hover {
+            transform: scale(1.05);
+        }
+
+        .fuel-gauge::before {
+            content: '';
+            width: 150px;
+            height: 150px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0,0.1);
+        }
+
+        .fuel-labels {
+            position: absolute;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .fuel-labels .percentage {
+            font-size: 3em;
+            font-weight: 800;
+            color: #1a4d3a;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0,0.1);
+        }
+
+        .fuel-labels .type {
+            font-size: 1.1em;
+            color: #666;
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        .fuel-plus {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #2d8659;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0,0.1);
+        }
+
+        .fuel-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .fuel-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fuel-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+        }
+
+        .fuel-card.fossil::before {
+            background: linear-gradient(to right, #da121a, #b71c1c);
+        }
+
+        .fuel-card.hydrogen::before {
+            background: linear-gradient(to right, #00ff88, #00cc6a);
+        }
+
+        .fuel-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 45px rgba(0,0,0,0,0.15);
+        }
+
+        .fuel-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #1a4d3a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .price {
+            font-size: 2.5em;
+            font-weight: 800;
+            margin: 15px 0;
+            color: #1a4d3a;
+        }
+
+        .currency-group {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 25px;
+            font-size: 1em;
+            color: #666;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        /* Impact Metrics */
+        .impact-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin: 60px 0;
+        }
+
+        .impact-card {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .impact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+        }
+
+        .impact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(to right, #2d8659, #97bc62);
+        }
+
+        .impact-icon {
+            font-size: 4em;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .impact-number {
+            font-size: 4em;
+            font-weight: 800;
+            color: #2d8659;
+            margin-bottom: 15px;
+            line-height: 1;
+        }
+
+        .impact-unit {
+            font-size: 0.4em;
+            color: #666;
+            font-weight: 400;
+        }
+
+        .impact-label {
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .impact-description {
+            font-size: 1em;
+            color: #888;
+            line-height: 1.5;
+        }
+
+        /* Benefits Grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            border-color: #2d8659;
+            box-shadow: 0 12px 40px rgba(0,0,0,0,0.15);
+        }
+
+        .benefit-icon {
+            font-size: 3.5em;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.4em;
+            color: #1a4d3a;
+            margin-bottom: 20px;
+        }
+
+        /* Industry Grid */
+        .industry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .industry-card {
+            background: white;
+            padding: 40px 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .industry-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, #2d8659, #97bc62);
+        }
+
+        .industry-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 45px rgba(0,0,0,0,0.15);
+            border-color: #2d8659;
+        }
+
+        .industry-icon {
+            font-size: 4em;
+            margin-bottom: 25px;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .industry-card:hover .industry-icon {
+            transform: scale(1.1);
+        }
+
+        .industry-card h3 {
+            font-size: 1.3em;
+            color: #1a4d3a;
+            margin-bottom: 15px;
+        }
+
+        .industry-card p {
+            font-size: 1em;
+            color: #666;
+            font-style: italic;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, #1a4d3a 0%, #2d8659 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 3em;
+            margin-bottom: 30px;
+        }
+
+        .cta p {
+            font-size: 1.4em;
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 20px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            margin: 10px;
+            min-width: 220px;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #1a4d3a;
+        }
+
+        .btn-primary:hover {
+            background: #f0f7f0;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #1a4d3a;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: #97bc62;
+        }
+
+        .footer-disclaimer {
+            font-size: 1em;
+            color: #999;
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.8em;
+            }
+            
+            .header .subtitle {
+                font-size: 1.5em;
+            }
+            
+            .fuel-mix {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .impact-number {
+                font-size: 3em;
+            }
+            
+            .section h2 {
+                font-size: 2.4em;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="ethiopia-flag"></div>
+                <h1>ETHIOPIA'S GREEN LEAP FORWARD</h1>
+                <p class="subtitle">Strategic Proposal: Globo Hydro Power™ (GHP™)</p>
+                <p style="font-size: 1.3em; margin-top: 30px; opacity: 0.9;">A Transformative Technology Transfer for Sustainable Growth</p>
+                
+                <div class="challenge-solution">
+                    <h3><span>⚠️</span> Challenge:</h3>
+                    <p>High fossil fuel dependency, rising costs, and environmental impact.</p>
+                    
+                    <h3 style="margin-top: 30px;"><span>✅</span> Solution:</h3>
+                    <p>GHP™ - an <strong>Engine Upgrade Technology</strong> for existing engines, converting them into <strong>Hydrogen-Hybrid Systems</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- How It Works Section -->
+    <section class="section">
+        <div class="container">
+            <h2>The GHP™ System: How It Works</h2>
+            <p class="section-subtitle">GHP™: POWERING THE FUTURE, TODAY</p>
+            
+            <div class="fuel-mix-container">
+                <h3 style="text-align: center; margin-bottom: 40px; color: #1a4d3a;">Fuel Protocol: 70% Fossil Fuel + 30% Hydrogen</h3>
+                
+                <div class="fuel-mix">
+                    <div class="fuel-gauge">
+                        <div class="fuel-labels">
+                            <div class="percentage">70%</div>
+                            <div class="type">Fossil Fuel</div>
+                        </div>
+                    </div>
+                    
+                    <div class="fuel-plus">+</div>
+                    
+                    <div class="fuel-gauge" style="background: conic-gradient(#00ff88 0deg 108deg, #f0f0f0 108deg 360deg);">
+                        <div class="fuel-labels">
+                            <div class="percentage">30%</div>
+                            <div class="type">Hydrogen</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <p style="text-align: center; font-size: 1.2em; margin-top: 30px; color: #666;">
+                    <strong>Smart Blend:</strong> Optimizes performance while maximizing environmental benefits
+                </p>
+            </div>
+            
+            <div class="fuel-comparison">
+                <div class="fuel-card fossil">
+                    <h3>🔴 Diesel/Fossil Fuel</h3>
+                    <div class="price">$1.24 <span style="font-size: 0.6em; color: #666;">USD/L</span></div>
+                    <div class="currency-group">
+                        <div><strong>AUD:</strong> $1.90</div>
+                        <div><strong>ETB:</strong> 190.50</div>
+                    </div>
+                </div>
+                
+                <div class="fuel-card hydrogen">
+                    <h3>🟢 Hydrogen Gas</h3>
+                    <div class="price">$0.46 <span style="font-size: 0.6em; color: #666;">USD/L</span></div>
+                    <div class="currency-group">
+                        <div><strong>AUD:</strong> $0.70</div>
+                        <div><strong>ETB:</strong> 70.18</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="highlight-box">
+                <h3>💡 Key Benefit</h3>
+                <p style="font-size: 1.2em; line-height: 1.7;">No need to buy new engines - just an aftermarket addition, reducing capital expenditure by up to 70% compared to fleet replacement.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section">
+        <div class="container">
+            <h2>Ethiopia's Benefits: Green & Growth</h2>
+            <p class="section-subtitle">ETHIOPIA'S TWIN ADVANTAGE: ENVIRONMENT & ECONOMY</p>
+            
+            <div class="highlight-box">
+                <h3>🌱 A. Progressive Decarbonisation (Environmental Impact)</h3>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <span class="benefit-icon">⚡</span>
+                        <h3>Immediate Start</h3>
+                        <p>Decarbonisation begins immediately upon installation - no waiting period required</p>
+                    </div>
+                    <div class="benefit-card">
+                        <span class="benefit-icon">🍃</span>
+                        <h3>Significant Abatement</h3>
+                        <p>Abates <strong>2.7KG Carbon</strong> & <strong>17gm NOx</strong> per 1 litre fossil fuel replaced</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 style="text-align: center; margin: 70px 0 40px; color: #1a4d3a; font-size: 1.8em;">Real-World Impact</h3>
+            <div class="impact-metrics">
+                <div class="impact-card">
+                    <span class="impact-icon">🚛</span>
+                    <div class="impact-number">20.25<span class="impact-unit">Tonnes</span></div>
+                    <div class="impact-label">Carbon Reduction</div>
+                    <div class="impact-description">Per Heavy Transport Truck (100,000 KM/year)</div>
+                </div>
+                <div class="impact-card">
+                    <span class="impact-icon">🚛🚛🚛</span>
+                    <div class="impact-number">2,025<span class="impact-unit">Tonnes</span></div>
+                    <div class="impact-label">Carbon Reduction</div>
+                    <div class="impact-description">100 Trucks Annually!</div>
+                </div>
+            </div>
+            
+            <div class="highlight-box">
+                <h3>💰 B. Strategic Economic Growth</h3>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <span class="benefit-icon">🏭</span>
+                        <h3>New Industry</h3>
+                        <p>Globo Hydro Power Technology Transfer (Australia to Ethiopia) launches <strong>The New Hydrogen Industry</strong></p>
+                    </div>
+                    <div class="benefit-card">
+                        <span class="benefit-icon">👷</span>
+                        <h3>Job Creation</h3>
+                        <p>Directly creates <strong>New Jobs</strong> across the entire supply chain</p>
+                    </div>
+                    <div class="benefit-card">
+                        <span class="benefit-icon">🎓</span>
+                        <h3>Skills Development</h3>
+                        <p>Develops a crucial <strong>New Skills Base</strong> for the Ethiopian workforce</p>
+                    </div>
+                    <div class="benefit-card">
+                        <span class="benefit-icon">🔒</span>
+                        <h3>Energy Security</h3>
+                        <p>Reduces dependency on fossil fuel imports for national electricity generation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Industries Section -->
+    <section class="section">
+        <div class="container">
+            <h2>Key Industries for Implementation</h2>
+            <p class="section-subtitle">POWERING ETHIOPIA'S CRITICAL SECTORS</p>
+            
+            <div class="industry-grid">
+                <div class="industry-card">
+                    <span class="industry-icon">🚛</span>
+                    <h3>Transport Industry</h3>
+                    <p>Trucks, Buses</p>
+                </div>
+                <div class="industry-card">
+                    <span class="industry-icon">🚜</span>
+                    <h3>Agricultural Industry</h3>
+                    <p>Tractors, Farm Equipment</p>
+                </div>
+                <div class="industry-card">
+                    <span class="industry-icon">⛏️</span>
+                    <h3>Mining Industry</h3>
+                    <p>Heavy Machinery</p>
+                </div>
+                <div class="industry-card">
+                    <span class="industry-icon">🚂</span>
+                    <h3>Locomotive Industry</h3>
+                    <p>Trains</p>
+                </div>
+                <div class="industry-card">
+                    <span class="industry-icon">🚢</span>
+                    <h3>Shipping Industry</h3>
+                    <p>Vessels, Port Equipment</p>
+                </div>
+                <div class="industry-card">
+                    <span class="industry-icon">⚡</span>
+                    <h3>Power Generation</h3>
+                    <p>Generators</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Transform Ethiopia's Energy Future?</h2>
+            <p>Join us in implementing GHP™ technology and lead Africa's green energy revolution</p>
+            <div class="cta-buttons">
+                <a href="mailto:mussie@equaltradeglobal.org" class="btn btn-primary">Request Full Proposal</a>
+                <a href="mailto:mussie@equaltradeglobal.org" class="btn btn-secondary">Schedule a Meeting</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <strong>Ministry of Transportation and Logistics</strong><br>
+                    Federal Democratic Republic of Ethiopia
+                </div>
+                <div class="footer-logo">
+                    <strong>In partnership with</strong><br>
+                    Globo Hydro Power Ethiopia™
+                </div>
+            </div>
+            <div class="footer-disclaimer">
+                Disclaimer: This infographic is based on information provided in the original flyer and public data for currency conversion. Specific financial and implementation details are subject to official agreements.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
