@@ -28,6 +28,25 @@
     .speaker-info {margin-top: 10px;}
     .speaker-info h3 {font-family: 'STXingkai', serif; font-size: 1.2em; color: #2d5a27;}
     .speaker-info p {font-size: 1em;color: #555;} 
+
+    .animated-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: url('background-images/wind-farm.jpg') no-repeat center center;
+      background-size: cover;
+      animation: slide 20s infinite;
+    }
+@keyframes slide {
+      0% { background-image: url('background-images/wind-farm.jpg'); }
+      25% { background-image: url('background-images/solar-farm.jpg'); }
+      50% { background-image: url('background-images/cooking-stove.jpg'); }
+      75% { background-image: url('background-images/tree-planting.jpg'); }
+      100% { background-image: url('background-images/wind-farm.jpg'); }
+    }    
                               
     .tech-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px;margin:20px 0}
     .tech-item{text-align:center;padding:20px;background:rgba(255,255,255,.7);border-radius:15px;border:1px solid rgba(46,139,87,.1);transition:all .3s ease}
@@ -88,6 +107,7 @@
 <body>
   <div class="container">
     <div class="header">
+      <div class="animated-background"></div>
       <h1>African First Ladies Initiative for Emission Reduction and Poverty Alleviation Forum</h1>
       <div class="subtitle">Championing Clean Energy for Sustainable Development Through Women and Youth</div>
     </div>
@@ -328,6 +348,7 @@
 </body>
 
 </html>
+
 
 
 
