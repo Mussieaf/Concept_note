@@ -36,18 +36,19 @@
       width: 100%;
       height: 100%;
       z-index: -1;
-      background: url('background-images/wind-farm.jpg') no-repeat center center;
+      background: url('wind-farm.jpg') no-repeat center center;
       background-size: cover;
       animation: slide 20s infinite;
     }
+    
 @keyframes slide {
-      0% { background-image: url('/background-images/wind-farm.jpg'); }
-      25% { background-image: url('/background-images/solar-farm.jpg'); }
-      50% { background-image: url('/background-images/cooking-stove.jpg'); }
-      75% { background-image: url('/background-images/tree-planting.jpg'); }
-      100% { background-image: url('/background-images/wind-farm.jpg'); }
-    }    
-                              
+      0% { background-image: url('wind-farm.jpg'); }
+      25% { background-image: url('solar-farm.jpg'); }
+      50% { background-image: url('cooking-stove.jpg'); }
+      75% { background-image: url('tree-planting.jpg'); }
+      100% { background-image: url('wind-farm.jpg'); }
+    }      
+    
     .tech-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px;margin:20px 0}
     .tech-item{text-align:center;padding:20px;background:rgba(255,255,255,.7);border-radius:15px;border:1px solid rgba(46,139,87,.1);transition:all .3s ease}
     .tech-item:hover{transform:translateY(-5px);box-shadow:0 10px 20px rgba(0,0,0,.05);background:rgba(255,255,255,.9)}
@@ -348,6 +349,7 @@
 </body>
 
 </html>
+
 
 
 
