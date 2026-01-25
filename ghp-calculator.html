@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Globo Hydro Power – Fuel Savings Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root{
+      --brand:#00a651;
+      --light:#d9f2e6;
+      --dark:#004d26;
+      --accent:#ffc107;
+    }
+    body{
+      margin:0;
+      font-family:"Segoe UI",Arial,Helvetica,sans-serif;
+      background:linear-gradient(135deg, var(--light) 0%, #fff 100%);
+      color:#222;
+    }
+    header{
+      background:var(--brand);
+      color:#fff;
+      padding:30px 20px;
+      text-align:center;
+    }
+    header h1{
+      margin:0;
+      font-size:2.2em;
+    }
+    header p{
+      margin:5px 0 0;
+      font-size:1.1em;
+      opacity:.9;
+    }
+    .container{
+      max-width:960px;
+      margin:auto;
+      padding:20px;
+    }
+    .card{
+      background:#fff;
+      border-radius:8px;
+      padding:25px;
+      margin-bottom:25px;
+      box-shadow:0 2px 8px rgba(0,0,0,.08);
+    }
+    h2{
+      margin-top:0;
+      color:var(--dark);
+    }
+    label{
+      display:block;
+      margin:15px 0 5px;
+      font-weight:600;
+    }
+    input[type=number],input[type=text],select{
+      width:100%;
+      padding:10px;
+      border:1px solid #bbb;
+      border-radius:4px;
+      font-size:1em;
+    }
+    .row{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+    .row > div{
+      flex:1 1 260px;
+    }
+    button{
+      background:var(--brand);
+      color:#fff;
+      border:none;
+      padding:12px 25px;
+      font-size:1.1em;
+      border-radius:4px;
+      cursor:pointer;
+      margin-top:20px;
+    }
+    button:hover{
+      background:var(--dark);
+    }
+    .results{
+      margin-top:25px;
+    }
+    .results div{
+      margin:8px 0;
+    }
+    .bar{
+      height:22px;
+      border-radius:4px;
+      margin:6px 0;
+      background:var(--accent);
+      text-align:right;
+      padding-right:8px;
+      color:#000;
+      font-size:.85em;
+      line-height:22px;
+    }
+    footer{
+      text-align:center;
+      font-size:.8em;
+      color:#555;
+      padding:20px;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Globo Hydro Power</h1>
+  <p>Fuel Savings Calculator – Diesel Generators (15–125 kVA @ 75 % Load)</p>
+</header>
+
+<div class="container">
+  <div class="card">
+    <h2>Part A – Fuel Comparison</h2>
+    <div class="row">
+      <div>
+        <label>Plant Make & Model</label>
+        <input type="text" id="make" placeholder="e.g. Cummins 75 kVA">
+      </div>
+      <div>
+        <label>Plant Type Range</label>
+        <select id="range">
+          <option>15–125 kVA</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <label>Fuel Consumption (L/hr) – Normal</label>
+        <input type="number" id="normLph" value="14.50" step="0.01">
+      </div>
+      <div>
+        <label>Fuel Consumption (L/hr) – With GHP Kit</label>
+        <input type="number" id="ghpLph" value="10.88" step="0.01">
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <label>Hours per Day</label>
+        <input type="number" id="hrsDay" value="12" step="1">
+      </div>
+      <div>
+        <label>Days per Year</label>
+        <input type="number" id="daysYr" value="365" step="1">
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <label>Fuel Type</label>
+        <select id="fuelType">
+          <option>Diesel</option>
+          <option>Petrol/Gasoline</option>
+        </select>
+      </div>
+      <div>
+        <label>Cost per Litre (local currency)</label>
+        <input type="number" id="costLitre" value="1.50" step="0.01">
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <label>Hydrogen consumed (L/yr) – estimate</label>
+        <input type="number" id="h2Lyr" value="15878" step="1">
+      </div>
+      <div>
+        <label>Cost Hydrogen (cents/L)</label>
+        <input type="number" id="h2cost" value="0.15" step="0.01">
+      </div>
+    </div>
+
+    <button onclick="calculate()">Calculate Savings</button>
+  </div>
+
+  <div class="card results" id="results" style="display:none;">
+    <h2>Your Results</h2>
+    <div class="row">
+      <div>
+        <h3>Annual Fuel Use (Litres)</h3>
+        <div>Normal: <strong id="normLyr">-</strong> L</div>
+        <div>With GHP: <strong id="ghpLyr">-</strong> L</div>
+        <div class="bar" id="barNorm" style="width:100%;">Normal</div>
+        <div class="bar" id="barGhp" style="width:0%;">With GHP</div>
+      </div>
+      <div>
+        <h3>Annual Fuel Cost</h3>
+        <div>Normal: <strong id="normCost">-</strong></div>
+        <div>With GHP: <strong id="ghpCost">-</strong></div>
+        <div>Fuel Saving: <strong id="saveCost">-</strong> / yr</div>
+        <div>Percentage Saved: <strong id="savePct">-</strong> %</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <h3>Greenhouse Gas Emissions</h3>
+        <div>Normal: <strong id="normGHG">-</strong> t CO₂-e</div>
+        <div>With GHP: <strong id="ghpGHG">-</strong> t CO₂-e</div>
+        <div>GHG Saved: <strong id="saveGHG">-</strong> t CO₂-e / yr</div>
+      </div>
+      <div>
+        <h3>Part B – Payback on GHP Kit</h3>
+        <div>Kit + Install (est.): <strong id="kitCost">$36,286</strong></div>
+        <div>Net Annual Saving: <strong id="netSave">-</strong></div>
+        <div>Simple Payback: <strong id="payback">-</strong> months</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    DISCLAIMER: Results are indicative only. Actual savings depend on fuel quality, maintenance, operating conditions, etc.  
+    Globo Hydro Power Ltd accepts no liability for errors or omissions.
+  </footer>
+</div>
+
+<script>
+  function $(id){return document.getElementById(id);}
+  function calculate(){
+    const normLph  = parseFloat($('normLph').value),
+          ghpLph   = parseFloat($('ghpLph').value),
+          hrsDay   = parseFloat($('hrsDay').value),
+          daysYr   = parseFloat($('daysYr').value),
+          costL    = parseFloat($('costLitre').value),
+          h2Lyr    = parseFloat($('h2Lyr').value),
+          h2cost   = parseFloat($('h2cost').value);
+
+    const normLyr = Math.round(normLph * hrsDay * daysYr),
+          ghpLyr  = Math.round(ghpLph  * hrsDay * daysYr),
+          saveLyr = normLyr - ghpLyr;
+
+    const normCost = Math.round(normLyr * costL),
+          ghpCost  = Math.round(ghpLyr * costL + h2Lyr * h2cost / 100),
+          saveCost = normCost - ghpCost,
+          savePct  = ((saveCost / normCost) * 100).toFixed(1);
+
+    // GHG factors (approx Diesel: 2.7 kg CO₂-e / L)
+    const normGHG = (normLyr * 2.7 / 1000).toFixed(0),
+          ghpGHG  = (ghpLyr  * 2.7 / 1000).toFixed(0),
+          saveGHG = (normGHG - ghpGHG).toFixed(0);
+
+    const kitCost = 36286,
+          netSave = saveCost,
+          payback = (kitCost / netSave * 12).toFixed(1);
+
+    // Inject results
+    $('normLyr').textContent  = normLyr.toLocaleString();
+    $('ghpLyr').textContent   = ghpLyr.toLocaleString();
+    $('normCost').textContent = '$' + normCost.toLocaleString();
+    $('ghpCost').textContent  = '$' + ghpCost.toLocaleString();
+    $('saveCost').textContent = '$' + saveCost.toLocaleString();
+    $('savePct').textContent  = savePct;
+    $('normGHG').textContent  = normGHG;
+    $('ghpGHG').textContent   = ghpGHG;
+    $('saveGHG').textContent  = saveGHG;
+    $('netSave').textContent  = '$' + netSave.toLocaleString();
+    $('payback').textContent  = payback;
+
+    // Simple bars
+    const maxL = Math.max(normLyr, ghpLyr);
+    $('barNorm').style.width = (normLyr / maxL * 100) + '%';
+    $('barGhp').style.width  = (ghpLyr  / maxL * 100) + '%';
+
+    $('results').style.display = 'block';
+    window.scrollTo({top: $('results').offsetTop - 20, behavior:'smooth'});
+  }
+</script>
+</body>
+</html>
