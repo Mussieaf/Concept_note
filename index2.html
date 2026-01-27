@@ -203,6 +203,108 @@
     .form-group input,.form-group textarea{padding:12px 15px;border:1px solid #c8e6d2;border-radius:8px;font-size:14px}
     .form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 2px rgba(46,139,87,.2)}
     #formResp{font-size:13px;color:var(--green);margin-top:8px}
+
+    /* Sponsorship Accordion */
+    .sponsors-section {
+      margin-top: 30px;
+    }
+
+    .sponsors-section h2 {
+      color: var(--green);
+      font-size: 22px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sponsor-tier {
+      margin-bottom: 12px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .sponsor-header {
+      padding: 16px 20px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s;
+    }
+
+    .sponsor-header:hover {
+      opacity: 0.9;
+    }
+
+    .sponsor-header::after {
+      content: '▼';
+      font-size: 0.8em;
+      transition: transform 0.3s;
+    }
+
+    .sponsor-tier.active .sponsor-header::after {
+      transform: rotate(180deg);
+    }
+
+    .sponsor-tier.platinum .sponsor-header {
+      background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+    }
+
+    .sponsor-tier.diamond .sponsor-header {
+      background: linear-gradient(135deg, #3498db, #2c3e50);
+    }
+
+    .sponsor-tier.gold .sponsor-header {
+      background: linear-gradient(135deg, #f39c12, #d35400);
+    }
+
+    .sponsor-tier.silver .sponsor-header {
+      background: linear-gradient(135deg, #bdc3c7, #95a5a6);
+    }
+
+    .sponsor-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s;
+      background: #f8fdf9;
+    }
+
+    .sponsor-tier.active .sponsor-content {
+      max-height: 500px;
+      padding: 20px;
+    }
+
+    .sponsor-content ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sponsor-content li {
+      padding: 8px 0;
+      border-bottom: 1px dashed #ddd;
+      color: #444;
+    }
+
+    .sponsor-content li:before {
+      content: '✓';
+      color: var(--green);
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .sponsor-content li:last-child {
+      border-bottom: none;
+    }
+
+    .sponsor-cta {
+      text-align: center;
+      margin-top: 20px;
+    }
+    
     /* =====  SPONSORSHIP ACCORDION (email-safe)  ===== */
     .sponsors-email{margin-top:30px;font-size:14px;color:#333}
     .sponsors-email table{width:100%;border-collapse:collapse}
@@ -590,6 +692,7 @@
 </body>
 
 </html>
+
 
 
 
