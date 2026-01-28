@@ -13,37 +13,55 @@
     *{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif,STXingkai}
      body{background:linear-gradient(135deg,#f0f9f0 0%,#e6f4f1 100%);padding:25px;line-height:1.6}
 
-    /* Top Navigation */
-    .top-nav {
-      background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+/* ===== NAVIGATION ===== */
+    .navbar {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+      padding: 10px 20px;
       z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 0 20px;
+      justify-content: space-between;
+      height: 70px;
     }
 
     .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .icon-acacia-tree::before {
+      content: "🌳";
+      font-size: 40px;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    }
+
+    .nav-logo-text {
       color: white;
-      font-size: 1.2em;
       font-weight: bold;
-      padding: 15px 0;
+      font-size: 16px;
+      line-height: 1.2;
+    }
+
+    .nav-logo-text small {
+      display: block;
+      font-size: 11px;
+      font-weight: 400;
+      opacity: 0.9;
     }
 
     .nav-menu {
       display: flex;
       list-style: none;
-      gap: 0;
+      gap: 5px;
+      margin: 0;
+      padding: 0;
     }
 
     .nav-item {
@@ -53,14 +71,16 @@
     .nav-link {
       color: white;
       text-decoration: none;
-      padding: 15px 20px;
+      padding: 10px 15px;
       display: block;
-      transition: background 0.3s;
-      cursor: pointer;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      font-size: 14px;
+      font-weight: 500;
     }
 
-    .nav-link:hover {
-      background: rgba(255,255,255,0.1);
+    .nav-link:hover, .nav-link.active {
+      background: rgba(255,255,255,0.2);
     }
 
     /* Dropdown */
@@ -70,68 +90,69 @@
       left: 0;
       background: white;
       min-width: 200px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      border-radius: 0 0 8px 8px;
+      border-radius: 8px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
       opacity: 0;
       visibility: hidden;
       transform: translateY(-10px);
       transition: all 0.3s ease;
       list-style: none;
+      padding: 10px 0;
+      margin-top: 5px;
     }
 
-    .nav-item:hover .dropdown,
-    .nav-item.active .dropdown {
+    .nav-item:hover .dropdown {
       opacity: 1;
       visibility: visible;
       transform: translateY(0);
     }
 
     .dropdown li {
-      border-bottom: 1px solid #eee;
-    }
-
-    .dropdown li:last-child {
-      border-bottom: none;
+      width: 100%;
     }
 
     .dropdown a {
       color: #333;
       text-decoration: none;
-      padding: 12px 20px;
+      padding: 10px 20px;
       display: block;
-      transition: all 0.3s;
+      transition: all 0.3s ease;
+      font-size: 13px;
     }
 
     .dropdown a:hover {
-      background: var(--green-light);
-      color: white;
+      background: #f0f9f0;
+      color: var(--green);
+      padding-left: 25px;
     }
 
     /* Mobile menu toggle */
-    .menu-toggle {
+    .nav-toggle {
       display: none;
+      background: none;
+      border: none;
       color: white;
-      font-size: 1.5em;
+      font-size: 24px;
       cursor: pointer;
-      padding: 15px;
     }
 
     @media (max-width: 768px) {
-      .menu-toggle {
+      .nav-toggle {
         display: block;
       }
       
       .nav-menu {
         position: absolute;
-        top: 100%;
+        top: 70px;
         left: 0;
         right: 0;
-        background: var(--green);
+        background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
         flex-direction: column;
+        padding: 20px;
         opacity: 0;
         visibility: hidden;
         transform: translateY(-10px);
-        transition: all 0.3s;
+        transition: all 0.3s ease;
       }
       
       .nav-menu.active {
@@ -145,13 +166,30 @@
         opacity: 1;
         visibility: visible;
         transform: none;
-        display: none;
         box-shadow: none;
-        border-radius: 0;
+        background: rgba(255,255,255,0.1);
+        display: none;
       }
       
-      .nav-item.active .dropdown {
+      .nav-item:hover .dropdown {
         display: block;
+      }
+      
+      .dropdown a {
+        color: white;
+      }
+      
+      .dropdown a:hover {
+        background: rgba(255,255,255,0.2);
+        color: white;
+      }
+      
+      .icon-acacia-tree::before {
+        font-size: 32px;
+      }
+      
+      .nav-logo-text {
+        font-size: 14px;
       }
     }
     
@@ -341,42 +379,46 @@
 </head>
 <body>
 
-<!-- Top Navigation -->
-  <nav class="top-nav">
-    <div class="nav-container">
-      <div class="nav-logo"> Acacia Trading - AFLIERPA 2026</div>
-      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-      <ul class="nav-menu" id="navMenu">
-        <li class="nav-item">
-          <span class="nav-link" onclick="toggleDropdown(this)">About ▼</span>
-          <ul class="dropdown">
-            <li><a href="#about" onclick="closeDropdowns()">Mission</a></li>
-            <li><a href="#objectives" onclick="closeDropdowns()">Objectives</a></li>
-            <li><a href="#technologies" onclick="closeDropdowns()">Technologies</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <span class="nav-link" onclick="toggleDropdown(this)">Speakers ▼</span>
-          <ul class="dropdown">
-            <li><a href="#keynote" onclick="closeDropdowns()">Keynote Speakers</a></li>
-            <li><a href="#guest" onclick="closeDropdowns()">Guest Speakers</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a href="#sponsorship" class="nav-link" onclick="closeDropdowns()">Sponsorship</a>
-        </li>
-        <li class="nav-item">
-          <a href="#register" class="nav-link" onclick="closeDropdowns()">Register</a>
-        </li>
-        <li class="nav-item">
-          <span class="nav-link" onclick="toggleDropdown(this)">Partners ▼</span>
-          <ul class="dropdown">
-            <li><a href="#media" onclick="closeDropdowns()">Media Partners</a></li>
-            <li><a href="#sponsors" onclick="closeDropdowns()">Sponsors</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
+<!-- ===== NAVIGATION ===== -->
+  <nav class="navbar">
+    <a href="#home" class="nav-logo" onclick="closeMenu()">
+      <span class="icon-acacia-tree"></span>
+      <div class="nav-logo-text">
+        Acacia Trading
+        <small>Green Legacy Initiative</small>
+      </div>
+    </a>
+    
+    <button class="nav-toggle" onclick="toggleMenu()">☰</button>
+    
+    <ul class="nav-menu" id="navMenu">
+      <li class="nav-item">
+        <a href="#home" class="nav-link" onclick="closeMenu()">Home</a>
+      </li>
+      <li class="nav-item">
+        <a href="#about" class="nav-link" onclick="closeMenu()">About</a>
+        <ul class="dropdown">
+          <li><a href="#objectives" onclick="closeMenu()">Forum Objectives</a></li>
+          <li><a href="#technologies" onclick="closeMenu()">Key Technologies</a></li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a href="#speakers" class="nav-link" onclick="closeMenu()">Speakers</a>
+        <ul class="dropdown">
+          <li><a href="#keynote" onclick="closeMenu()">Keynote Speakers</a></li>
+          <li><a href="#guest" onclick="closeMenu()">Guest Speakers</a></li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a href="#sponsorship" class="nav-link" onclick="closeMenu()">Sponsorship</a>
+      </li>
+      <li class="nav-item">
+        <a href="#media" class="nav-link" onclick="closeMenu()">Media</a>
+      </li>
+      <li class="nav-item">
+        <a href="#contact" class="nav-link" onclick="closeMenu()">Contact</a>
+      </li>
+    </ul>
   </nav>
   
   <div class="container" id="home">
@@ -676,6 +718,7 @@
 </body>
 
 </html>
+
 
 
 
