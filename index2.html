@@ -886,66 +886,6 @@
       }
     }
     
-<!-- Scripts -->
-  <script>
-    // Mobile menu toggle
-    function toggleMenu() {
-      const navMenu = document.getElementById('navMenu');
-      navMenu.classList.toggle('active');
-    }
-
-    // Close menu when link clicked
-    function closeMenu() {
-      const navMenu = document.getElementById('navMenu');
-      navMenu.classList.remove('active');
-    }
-
-    // Accordion functionality
-    function toggleAccordion(header) {
-      const item = header.parentElement;
-      const isActive = item.classList.contains('active');
-      
-      // Close all accordion items
-      document.querySelectorAll('.accordion-item').forEach(acc => {
-        acc.classList.remove('active');
-      });
-      
-      // Open clicked item if it wasn't active
-      if (!isActive) {
-        item.classList.add('active');
-      }
-    }
-
-    // Slider dots functionality
-    let currentIndex = 0;
-    const slides = document.querySelectorAll('.slide');
-    const dots = document.querySelectorAll('.dot');
-    const totalSlides = slides.length;
-
-    function currentSlide(n) {
-      currentIndex = n - 1;
-      updateSlider();
-    }
-
-    function updateSlider() {
-      const sliderContainer = document.querySelector('.slider-container');
-      sliderContainer.style.animation = 'none';
-      sliderContainer.style.transform = `translateX(-${currentIndex * 25}%)`;
-      
-      dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentIndex);
-      });
-    }
-
-    // Auto-update dots based on animation
-    setInterval(() => {
-      currentIndex = (currentIndex + 1) % totalSlides;
-      dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentIndex);
-      });
-    }, 5000);
-    
-  
   // Form submission
   
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwf5DfSYEBzRWw2xL7NAGn8ss5Jq4XvVYxx3fISvH8lbT9L8jk56iwvRL2A4kEWzL5MRw/exec'; // ← PASTE YOUR URL HERE
@@ -990,6 +930,7 @@
 </body>
 
 </html>
+
 
 
 
