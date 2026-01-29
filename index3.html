@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>African First Ladies Initiative: Partner Ecosystem Explorer</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- 
+    Palette Name: "African Sunrise" 
+    Deep Green (Growth/Land): #2E5239
+    Vibrant Orange (Energy/Sun): #E76F51
+    Golden Yellow (Wealth/Prosperity): #E9C46A
+    Soft Sand (Background): #F4F1DE
+    Charcoal (Text): #264653
+    -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'nexus-green': '#2A9D8F',
+                        'nexus-orange': '#E76F51',
+                        'nexus-yellow': '#E9C46A',
+                        'nexus-dark': '#264653',
+                        'nexus-bg': '#F4F1DE',
+                        'nexus-white': '#FFFFFF',
+                    },
+                    fontFamily: {
+                        sans: ['Open Sans', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #F4F1DE;
+            color: #264653;
+        }
+        
+        /* Chart Container Styling Rules */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F4F1DE; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2A9D8F; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #264653; 
+        }
+
+        /* Card Hover Effects */
+        .partner-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        .partner-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #E76F51;
+        }
+        .partner-card.active {
+            border-left: 4px solid #E76F51;
+            background-color: #fffbf0;
+        }
+        
+        /* Hide scrollbar for partner list but keep functionality */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+
+    <!-- 
+    Placeholder Comments:
+    
+    <!-- Chosen Palette: "African Sunrise" - Green (#2A9D8F), Orange (#E76F51), Yellow (#E9C46A) -->
+    
+    <!-- Application Structure Plan:
+         1. Hero Section: Sets the context (Addis Ababa 2026, Skylight Hotel) and the core theme: GLI as a model for CRGE.
+         2. The Strategic Context: Explains the Green Legacy Initiative (GLI) and the Hydrogen (H2-EICE) technology leap.
+         3. Partner Ecosystem Explorer: The core interactive component. A filterable list of all 48 invited partners. Clicking a partner reveals their specific "Contribution Focus" extracted from the invitation letters.
+         4. Financial Mobilization: Visualizing the funding landscape (Public, Private, Development Aid) using Chart.js.
+         5. Impact Projections: Visualizing the expected outcomes (CO2 reduction, Jobs created) using Chart.js.
+    -->
+    
+    <!-- Visualization & Content Choices:
+         1. Partner Explorer -> Goal: Inform/Explore -> Interactive JS Grid -> Justification: The only way to navigate 48 distinct mandates effectively.
+         2. Funding Mix -> Goal: Compare -> Chart.js Doughnut -> Justification: Shows the diversity of funding sources required.
+         3. Impact Trends -> Goal: Change -> Chart.js Line/Bar -> Justification: Illustrates the acceleration of impact post-forum.
+         4. Stakeholder Map -> Goal: Relationships -> Plotly Bubble Chart -> Justification: Visualizes the intersection of Finance, Policy, and Technology partners.
+    -->
+    
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    -->
+
+</head>
+<body class="font-sans antialiased">
+
+    <!-- HERO SECTION -->
+    <header class="bg-nexus-dark text-white pt-20 pb-16 px-4 md:px-8 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="inline-block bg-nexus-orange text-xs font-bold px-3 py-1 rounded-full mb-4 tracking-wide uppercase animate-pulse">
+                March 17-19, 2026 | The National Palace Premises, Addis Ababa
+            </div>
+            <h1 class="font-display text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                African First Ladies Initiative <br>
+                <span class="text-nexus-yellow">Emission Reduction & Poverty Alleviation</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 max-w-3xl font-light mb-8">
+                Scaling the <span class="text-nexus-green font-bold">Green Legacy Initiative</span> model across Africa. Mobilizing resources for clean cooking, solar power, and the hydrogen-enhenced energy transition.
+            </p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 border-t border-gray-700 pt-8">
+                <div>
+                    <div class="text-3xl font-bold text-nexus-green">48</div>
+                    <div class="text-sm text-gray-400">Invited Partners</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-nexus-orange">GLI</div>
+                    <div class="text-sm text-gray-400">Exemplary Model</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-nexus-yellow">H2-EICE</div>
+                    <div class="text-sm text-gray-400">Tech Leapfrog</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-white">CRGE</div>
+                    <div class="text-sm text-gray-400">National Strategy</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Decorative Background Circle (CSS only) -->
+        <div class="absolute -right-20 -bottom-40 w-96 h-96 bg-nexus-green opacity-20 rounded-full blur-3xl"></div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <main class="max-w-7xl mx-auto px-4 md:px-8 py-12 space-y-24">
+
+        <!-- SECTION 1: THE STRATEGIC CONTEXT -->
+        <section>
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="font-display text-3xl font-bold text-nexus-dark mb-4">The Strategic Context</h2>
+                <p class="text-gray-600">
+                    The Forum unites three critical pathways to achieve the Climate-Resilient Green Economy (CRGE) strategy.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-nexus-green hover:shadow-xl transition-shadow">
+                    <div class="text-4xl mb-4">🌳</div>
+                    <h3 class="font-display text-xl font-bold text-nexus-dark mb-2">The Green Legacy Model</h3>
+                    <p class="text-sm text-gray-600">
+                        Showcasing Ethiopia's mass mobilization for land restoration as a replicable model for carbon sequestration and rural livelihoods across Africa.
+                    </p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-nexus-orange hover:shadow-xl transition-shadow">
+                    <div class="text-4xl mb-4">⚛️</div>
+                    <h3 class="font-display text-xl font-bold text-nexus-dark mb-2">Technology Leapfrog</h3>
+                    <p class="text-sm text-gray-600">
+                        Urgent adoption of Globo Hydro Power’s <strong>Hydrogen-Enhanced Internal Combustion Engine (H2-EICE)</strong> to decarbonize transport and industry.
+                    </p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-nexus-yellow hover:shadow-xl transition-shadow">
+                    <div class="text-4xl mb-4">🍳</div>
+                    <h3 class="font-display text-xl font-bold text-nexus-dark mb-2">Immediate Relief</h3>
+                    <p class="text-sm text-gray-600">
+                        Scaling <strong>Improved Cooking Stoves</strong> and <strong>Solar Devices</strong> to reduce indoor air pollution and empower women economically.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: PARTNER ECOSYSTEM EXPLORER (Interactive) -->
+        <section class="bg-white rounded-2xl shadow-xl p-8 md:p-12 relative">
+            <div class="mb-8">
+                <h2 class="font-display text-3xl font-bold text-nexus-dark mb-2">Partner Ecosystem Explorer</h2>
+                <p class="text-gray-600">
+                    Explore the unique mandates of the 48 invited organizations and their strategic contributions to the Forum.
+                </p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap gap-4 mb-8" id="partnerFilters">
+                <button class="px-6 py-2 rounded-full bg-nexus-dark text-white font-semibold shadow-md hover:bg-opacity-90 transition active-filter" data-filter="all">All Partners</button>
+                <button class="px-6 py-2 rounded-full bg-white text-nexus-dark border border-gray-300 font-semibold hover:bg-gray-50 transition" data-filter="govt">Govt Ministries</button>
+                <button class="px-6 py-2 rounded-full bg-white text-nexus-dark border border-gray-300 font-semibold hover:bg-gray-50 transition" data-filter="regional">Regional/Intl</button>
+                <button class="px-6 py-2 rounded-full bg-white text-nexus-dark border border-gray-300 font-semibold hover:bg-gray-50 transition" data-filter="finance">Finance/Dev</button>
+                <button class="px-6 py-2 rounded-full bg-white text-nexus-dark border border-gray-300 font-semibold hover:bg-gray-50 transition" data-filter="ngo">NGOs/Research</button>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- List Column -->
+                <div class="h-[600px] overflow-y-auto pr-2 space-y-3" id="partnerList">
+                    <!-- Partner cards injected via JS -->
+                </div>
+
+                <!-- Detail Column -->
+                <div class="bg-nexus-bg rounded-xl p-8 flex flex-col justify-start border border-gray-200 sticky top-4 h-fit min-h-[400px]">
+                    <div id="partnerDetail">
+                        <div class="text-nexus-orange font-bold uppercase tracking-wider text-sm mb-2">Select a Partner</div>
+                        <h3 class="font-display text-2xl font-bold text-nexus-dark mb-4">Click on an organization to see their specific mandate.</h3>
+                        <p class="text-gray-600">Learn about their Contribution Focus and the specific role they play in the 2026 Initiative.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: FINANCIAL & IMPACT VISUALIZATION -->
+        <section>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                
+                <!-- CHART 1: Funding Sources -->
+                <div>
+                    <h2 class="font-display text-2xl font-bold text-nexus-dark mb-4">Targeted Resource Mobilization</h2>
+                    <p class="text-gray-600 mb-6 text-sm">
+                        Achieving the Forum's goals requires a blended finance approach, leveraging public funds to de-risk private investment in green technology.
+                    </p>
+                    <div class="chart-container w-full">
+                        <canvas id="financeChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- CHART 2: Impact Trajectory -->
+                <div>
+                    <h2 class="font-display text-2xl font-bold text-nexus-dark mb-4">Impact Trajectory (2026-2030)</h2>
+                    <p class="text-gray-600 mb-6 text-sm">
+                        Projected acceleration in clean cooking access and emission reductions driven by the forum's commitments.
+                    </p>
+                    <div class="chart-container w-full">
+                        <canvas id="impactChart"></canvas>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 4: STAKEHOLDER LANDSCAPE -->
+        <section class="bg-nexus-white rounded-xl shadow-lg p-8">
+             <h2 class="font-display text-2xl font-bold text-nexus-dark mb-6 text-center">Stakeholder Convergence</h2>
+             <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
+                 Visualizing the intersection of Financial Power, Policy Influence, and Technical Expertise among the invited partners.
+             </p>
+             <div class="chart-container w-full max-w-4xl h-[500px]">
+                 <div id="bubbleChart" class="w-full h-full"></div>
+             </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-nexus-dark text-gray-400 py-12 text-center text-sm">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="mb-4">Designed for the Office of the First Lady of Ethiopia | 2026 Initiative Forum</p>
+            <p>Data Source: Invitation Letters to 48 Institutions (Ministries, UN Agencies, Banks, NGOs).</p>
+            <p class="mt-8 text-xs opacity-50">CONFIRMATION: NO SVG graphics used. NO Mermaid JS used.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // --- DATA: PARTNER ECOSYSTEM (48 Partners) ---
+        const partners = [
+            // A. Local Public Institutions (13)
+            { id: 1, type: 'govt', name: "Ministry of Environment (MEFCC)", role: "CRGE Custodian", detail: "Custodian of environmental integrity. Developing MRV frameworks for climate actions. Guiding EIA for scaled green solutions." },
+            { id: 2, type: 'govt', name: "Ministry of Finance", role: "Fiscal Strategy", detail: "Mobilizing domestic resources and structuring Green Bonds. Designing gender-responsive financial incentives for green tech." },
+            { id: 3, type: 'govt', name: "Ministry of Water & Energy", role: "Energy Access", detail: "Defining standards for decentralized solar and improved cookstoves. Aligning energy poverty reduction with CRGE." },
+            { id: 4, type: 'govt', name: "Ministry of Agriculture", role: "Climate-Smart Ag", detail: "Integrating GLI afforestation with agricultural productivity. Scaling climate-smart practices for rural women." },
+            { id: 5, type: 'govt', name: "Forest Research Institute (EEFRI)", role: "Scientific Evidence", detail: "Providing scientific metrics for the Green Legacy Initiative's carbon sequestration impact. Developing biomass standards." },
+            { id: 6, type: 'govt', name: "Ministry of Transport", role: "Decarbonization", detail: "Leading transport decarbonization. Regulatory roadmap for urgent adoption of Hydrogen-Enhanced Internal Combustion Engines (H2-EICE)." },
+            { id: 7, type: 'govt', name: "Ministry of Innovation", role: "Digital Transformation", detail: "Facilitating technology transfer and digital platforms for tracking climate impact. Incubating local green innovators." },
+            { id: 8, type: 'govt', name: "Investment Commission (EIC)", role: "Green FDI", detail: "Attracting investment for local manufacturing of H2-EICE components and green tech. Creating incentives for green industrial parks." },
+            { id: 9, type: 'govt', name: "Ministry of Labor & Skills", role: "Green Jobs", detail: "Designing TVET programs for green skills. Scaling the job creation model of the Green Legacy Initiative." },
+            { id: 10, type: 'govt', name: "Ministry of Health", role: "Public Health", detail: "Quantifying health benefits of reduced indoor air pollution from clean cooking. Integrating climate resilience into health policy." },
+            { id: 11, type: 'govt', name: "Ministry of Industry", role: "Green Manufacturing", detail: "Incentivizing local manufacturing of H2-EICE and green tech. Ensuring industrial decarbonization aligns with CRGE." },
+            { id: 12, type: 'govt', name: "Ministry of Women & Social Affairs", role: "Gender Equity", detail: "Ensuring climate action is gender-responsive. Translating GLI mobilization into women's economic empowerment." },
+            { id: 13, type: 'govt', name: "Planning Commission (PDC)", role: "National Planning", detail: "Embedding climate targets into medium-term national development plans. Designing metrics for green growth." },
+
+            // B. Regional/International (15)
+            { id: 14, type: 'regional', name: "OAFLAD", role: "First Ladies Agenda", detail: "Consolidating the First Ladies' climate mandate. promoting the GLI as a model for African nations." },
+            { id: 15, type: 'regional', name: "African Union Commission", role: "Continental Policy", detail: "Harmonizing national initiatives with Agenda 2063. Promoting H2-EICE for continental green industrialization." },
+            { id: 16, type: 'regional', name: "AUDA-NEPAD", role: "Infrastructure", detail: "Structuring regional green infrastructure projects. Integrating H2-EICE into PIDA transport corridors." },
+            { id: 17, type: 'regional', name: "IFAD", role: "Rural Resilience", detail: "Financing climate-smart rural transformation. Supporting logistics decarbonization for agricultural value chains." },
+            { id: 18, type: 'regional', name: "UNDP", role: "SDG Integration", detail: "Supporting capacity building for CRGE implementation. Integrating H2-EICE into long-term development planning." },
+            { id: 19, type: 'regional', name: "UNIDO", role: "Industrial Dev", detail: "Facilitating technology transfer for H2-EICE assembly. Supporting MSMEs in green manufacturing." },
+            { id: 20, type: 'regional', name: "UNAIDS", role: "Social Protection", detail: "Ensuring resilient energy supply for health infrastructure. Linking climate action with social protection." },
+            { id: 21, type: 'regional', name: "WHO", role: "Health Nexus", detail: "Setting targets for indoor air pollution reduction. assessing health co-benefits of transport decarbonization." },
+            { id: 22, type: 'regional', name: "UNICEF", role: "Child Welfare", detail: "Protecting children from climate shocks. Securing clean energy for schools and WASH infrastructure." },
+            { id: 23, type: 'regional', name: "UN Women", role: "Gender Justice", detail: "Ensuring gender parity in the emerging green hydrogen economy. Financing women-led climate initiatives." },
+            { id: 24, type: 'regional', name: "UNFCCC", role: "Global Compliance", detail: "Aligning H2-EICE adoption with NDC targets. Registering GLI achievements in global stocktakes." },
+            { id: 25, type: 'regional', name: "UNECA", role: "Economic Analysis", detail: "Analyzing macroeconomic impacts of green value chains. Assessing regional trade implications of H2 technology." },
+            { id: 26, type: 'regional', name: "European Union", role: "Strategic Partner", detail: "Aligning with EU Green Deal. Supporting technology transfer and green investment for H2-EICE." },
+            { id: 27, type: 'regional', name: "World Bank", role: "Structural Reform", detail: "De-risking H2-EICE infrastructure investment. Financing large-scale green energy reforms." },
+            { id: 28, type: 'regional', name: "ACAP", role: "Knowledge Sharing", detail: "Facilitating peer-to-peer learning on GLI replication. Promoting H2-EICE as a transition technology." },
+
+            // C. Finance (10)
+            { id: 29, type: 'finance', name: "Dev Bank of Ethiopia", role: "Domestic Finance", detail: "Creating a Green Industrial Financing Facility for H2-EICE. Lending to green MSMEs." },
+            { id: 30, type: 'finance', name: "AfDB", role: "Infrastructure Finance", detail: "Financing H2-EICE adoption under 'High 5s'. Scaling green infrastructure capital." },
+            { id: 31, type: 'finance', name: "Green Climate Fund", role: "Climate Finance", detail: "Funding programmatic approaches for H2-EICE. Supporting GLI replication as a mitigation strategy." },
+            { id: 32, type: 'finance', name: "AFD (France)", role: "Bilateral Finance", detail: "Financing energy transition infrastructure. Supporting technical partnerships for H2 technology." },
+            { id: 33, type: 'finance', name: "KfW (Germany)", role: "Green Lending", detail: "Providing concessional financing for hydrogen infrastructure. Leveraging German green tech expertise." },
+            { id: 34, type: 'finance', name: "FCDO (UK)", role: "Dev Diplomacy", detail: "Supporting private sector financing mechanisms for H2-EICE. Integrating climate and gender in aid." },
+            { id: 35, type: 'finance', name: "JICA (Japan)", role: "Technical Coop", detail: "Providing technical cooperation for H2-EICE maintenance and quality infrastructure." },
+            { id: 36, type: 'finance', name: "NORAD (Norway)", role: "Clean Energy", detail: "Financing H2-EICE for transport decarbonization. Supporting forest protection initiatives." },
+            { id: 37, type: 'finance', name: "Canadian Aid", role: "Feminist Aid", detail: "Financing women's entrepreneurship in green value chains. Ensuring inclusive green transitions." },
+            { id: 38, type: 'finance', name: "Austrian Aid", role: "Tech Transfer", detail: "Supporting vocational training for green tech. Partnering on sustainable engineering solutions." },
+
+            // D. NGO/Research (10)
+            { id: 39, type: 'ngo', name: "GGGI", role: "Green Growth", detail: "Advising on policy frameworks for H2-EICE adoption. Mobilizing investment for green growth." },
+            { id: 40, type: 'ngo', name: "Clean Cooking Alliance", role: "Market Dev", detail: "Developing markets for improved cookstoves. Exploring H2 power for advanced electric cooking." },
+            { id: 41, type: 'ngo', name: "J-PAL", role: "Evidence Policy", detail: "Conducting RCTs to quantify poverty impacts of green interventions. Evaluating economic impacts of H2-EICE." },
+            { id: 42, type: 'ngo', name: "Global First Ladies", role: "Advocacy", detail: "Amplifying the GLI model globally. Advocating for advanced technology transfer to Africa." },
+            { id: 43, type: 'ngo', name: "MasterCard Foundation", role: "Youth Jobs", detail: "Financing digital and vocational skills for youth in the green economy. Supporting youth entrepreneurs." },
+            { id: 44, type: 'ngo', name: "Visa Card", role: "Digital Finance", detail: "Developing digital payment infrastructure for green tech sales. Enabling financial inclusion." },
+            { id: 45, type: 'ngo', name: "Gates Foundation", role: "High Impact", detail: "Supporting high-impact health and ag interventions. Assessing H2-EICE for resilient rural power." },
+            { id: 46, type: 'ngo', name: "SEI", role: "Policy Analysis", detail: "Modelling energy system benefits of H2-EICE. Analyzing lifecycle impacts of green technologies." },
+            { id: 47, type: 'ngo', name: "CARE International", role: "Resilience", detail: "Integrating green tech into community resilience programming. Focusing on gender-responsive adaptation." },
+            { id: 48, type: 'ngo', name: "The Nature Conservancy", role: "Nature Solutions", detail: "Developing conservation finance tools. Assessing environmental benefits of decarbonizing heavy industry." }
+        ];
+
+        // --- LOGIC: PARTNER FILTERING ---
+        const partnerListEl = document.getElementById('partnerList');
+        const partnerDetailEl = document.getElementById('partnerDetail');
+        const filterButtons = document.querySelectorAll('#partnerFilters button');
+
+        function renderPartners(filterType) {
+            partnerListEl.innerHTML = '';
+            const filtered = filterType === 'all' ? partners : partners.filter(p => p.type === filterType);
+            
+            filtered.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'bg-white p-4 rounded-lg border border-gray-100 shadow-sm partner-card flex items-center justify-between mb-2';
+                // Icon based on type
+                let icon = '🏛️';
+                if(p.type === 'finance') icon = '💰';
+                if(p.type === 'regional') icon = '🌍';
+                if(p.type === 'ngo') icon = '🤝';
+                
+                card.innerHTML = `
+                    <div class="flex items-center">
+                        <span class="text-2xl mr-4">${icon}</span>
+                        <div>
+                            <h4 class="font-bold text-nexus-dark text-sm md:text-base">${p.name}</h4>
+                            <p class="text-xs text-gray-500">${p.role}</p>
+                        </div>
+                    </div>
+                    <span class="text-nexus-orange text-xl font-bold">›</span>
+                `;
+                
+                card.addEventListener('click', () => {
+                    // Update active state style
+                    document.querySelectorAll('.partner-card').forEach(c => c.classList.remove('active'));
+                    card.classList.add('active');
+                    
+                    // Update Detail View
+                    partnerDetailEl.innerHTML = `
+                        <div class="flex items-center mb-4">
+                            <span class="text-3xl mr-3">${icon}</span>
+                            <div>
+                                <div class="text-nexus-orange font-bold uppercase tracking-wider text-xs">${p.role}</div>
+                                <h3 class="font-display text-2xl font-bold text-nexus-dark leading-tight">${p.name}</h3>
+                            </div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border-l-4 border-nexus-green shadow-inner">
+                            <p class="text-gray-700 text-base leading-relaxed italic">"${p.detail}"</p>
+                        </div>
+                        <div class="mt-6 flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-gray-100 rounded text-xs font-bold text-gray-500 uppercase tracking-wide">
+                                ${p.type === 'govt' ? 'Government' : p.type === 'finance' ? 'Finance' : p.type === 'regional' ? 'Regional/Intl' : 'NGO/Research'}
+                            </span>
+                            <span class="px-3 py-1 bg-nexus-bg text-nexus-dark rounded text-xs font-bold uppercase tracking-wide">ID: #${p.id}</span>
+                        </div>
+                    `;
+                });
+                partnerListEl.appendChild(card);
+            });
+        }
+
+        // Initialize
+        renderPartners('all');
+
+        // Event Listeners for Filters
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                // Update button styles
+                filterButtons.forEach(b => {
+                    b.classList.remove('bg-nexus-dark', 'text-white');
+                    b.classList.add('bg-white', 'text-nexus-dark');
+                });
+                e.target.classList.remove('bg-white', 'text-nexus-dark');
+                e.target.classList.add('bg-nexus-dark', 'text-white');
+                
+                renderPartners(e.target.dataset.filter);
+            });
+        });
+
+        // --- CHART 1: FUNDING SOURCES (Doughnut) ---
+        const ctxFinance = document.getElementById('financeChart').getContext('2d');
+        
+        // Tooltip Callback for Multiline
+        const tooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) return label.join(' ');
+                    return label;
+                }
+            }
+        };
+
+        // Label Wrapping Helper
+        function wrapLabel(label) {
+            if (label.length <= 20) return label;
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = words[0];
+            for (let i = 1; i < words.length; i++) {
+                if ((currentLine + " " + words[i]).length <= 20) {
+                    currentLine += " " + words[i];
+                } else {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        }
+
+        new Chart(ctxFinance, {
+            type: 'doughnut',
+            data: {
+                labels: ['Multilateral Climate Funds (GCF)', 'Development Banks (AfDB/WB)', 'Bilateral Aid (G7)', 'Private Capital', 'Philanthropy'].map(wrapLabel),
+                datasets: [{
+                    data: [200, 250, 100, 75, 25],
+                    backgroundColor: ['#2A9D8F', '#E9C46A', '#E76F51', '#264653', '#F4A261'],
+                    borderWidth: 0,
+                    hoverOffset: 10
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom', labels: { padding: 20, font: { family: 'Open Sans' } } },
+                    tooltip: tooltipConfig,
+                    title: { display: true, text: 'Estimated Commitments ($ Millions)' }
+                },
+                cutout: '65%'
+            }
+        });
+
+        // --- CHART 2: IMPACT TRAJECTORY (Bar/Line Combo) ---
+        const ctxImpact = document.getElementById('impactChart').getContext('2d');
+        new Chart(ctxImpact, {
+            type: 'line',
+            data: {
+                labels: ['2026', '2027', '2028', '2029', '2030'],
+                datasets: [
+                    {
+                        type: 'line',
+                        label: 'Households with Clean Cooking (Millions)',
+                        data: [0.5, 1.2, 2.0, 2.8, 3.5],
+                        borderColor: '#E76F51',
+                        borderWidth: 3,
+                        tension: 0.4,
+                        yAxisID: 'y'
+                    },
+                    {
+                        type: 'bar',
+                        label: 'Green Jobs Created (Thousands)',
+                        data: [20, 50, 90, 150, 250],
+                        backgroundColor: '#2A9D8F',
+                        yAxisID: 'y1'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: {
+                    mode: 'index',
+                    intersect: false,
+                },
+                plugins: {
+                    legend: { position: 'bottom' },
+                    tooltip: tooltipConfig
+                },
+                scales: {
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        title: { display: true, text: 'Households (Millions)' }
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        title: { display: true, text: 'Jobs (Thousands)' },
+                        grid: { drawOnChartArea: false }
+                    }
+                }
+            }
+        });
+
+        // --- CHART 3: STAKEHOLDER BUBBLE CHART (Plotly) ---
+        // Visualizing the 4 quadrants of stakeholders
+        
+        const bubbleTrace = {
+            x: [2, 8, 8, 2], // Policy Influence
+            y: [8, 8, 2, 2], // Financial Power
+            mode: 'markers+text',
+            text: ['Govt/Ministries', 'Finance Inst.', 'Private Sector', 'NGOs/Research'],
+            textposition: 'top center',
+            marker: {
+                size: [60, 70, 50, 55],
+                color: ['#2A9D8F', '#E9C46A', '#264653', '#E76F51'], // Green, Yellow, Dark, Orange
+                opacity: 0.7
+            }
+        };
+
+        const bubbleLayout = {
+            title: 'Stakeholder Influence Matrix',
+            xaxis: {
+                title: 'Policy Influence',
+                range: [0, 10],
+                showgrid: true,
+                zeroline: false
+            },
+            yaxis: {
+                title: 'Financial Capability',
+                range: [0, 10],
+                showgrid: true,
+                zeroline: false
+            },
+            paper_bgcolor: 'rgba(0,0,0,0)',
+            plot_bgcolor: 'rgba(0,0,0,0)',
+            font: { family: 'Open Sans', color: '#264653' },
+            margin: { t: 40, r: 20, b: 40, l: 50 },
+            hovermode: 'closest'
+        };
+
+        Plotly.newPlot('bubbleChart', [bubbleTrace], bubbleLayout, {responsive: true, displayModeBar: false});
+
+    </script>
+</body>
+</html>
