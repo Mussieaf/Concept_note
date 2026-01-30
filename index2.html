@@ -415,104 +415,29 @@
       scroll-margin-top: 80px;
     }
 
-    /* ===== GALLERY WITH PROPORTIONAL HEIGHT ===== */
+/* ===== GALLERY WITH PROPORTIONAL HEIGHT ===== */
     .gallery {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
-      width: 100%;
-      align-items: flex-start;
-    }    
-   
-    /* Speaker cards with proportional images */
+    }
+    
+    /* Speaker images - maintain aspect ratio naturally */
     .speaker {
       text-align: center;
-      flex: 1 1 280px;
-      max-width: 380px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      flex: 1 1 300px;
+      max-width: 400px;
     }
-
+    
     .speaker img {
-      width: 85%;
-      max-width: 320px;
-      aspect-ratio: 4 / 3; /* Height = 75% of width */
-      object-fit: cover;
-      object-position: center top;
-      border-radius: 16px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-      transition: all 0.3s ease;
-    }
-
-    .speaker img:hover {
-      transform: scale(1.03);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      max-width: 80%;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
     }
     
-     /* Media/Sponsor logos - different proportion */
-    .gallery > img:not(.speaker img) {
-      width: 28%;
-      min-width: 120px;
-      max-width: 180px;
-      aspect-ratio: 3 / 2; /* Height = 66.67% of width */
-      object-fit: contain;
-      padding: 10px;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-      transition: all 0.3s ease;
-    }
-
-    .gallery > img:not(.speaker img):hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-    }
-
-    /* Fallback for browsers without aspect-ratio support */
-    @supports not (aspect-ratio: 1 / 1) {
-      .speaker {
-        position: relative;
-      }
-      
-      .speaker img {
-        height: auto;
-        max-height: 240px;
-      }
-    }
-    
-   /* Responsive */
-    @media (max-width: 768px) {
-      .speaker {
-        flex: 1 1 100%;
-        max-width: 100%;
-      }
-      
-      .speaker img {
-        width: 90%;
-        max-width: 400px;
-        aspect-ratio: 4 / 3;
-      }
-      
-      .gallery > img:not(.speaker img) {
-        width: 42%;
-        aspect-ratio: 3 / 2;
-      }
-    }
-
-        @media (max-width: 480px) {
-      .speaker img {
-        width: 95%;
-        aspect-ratio: 1 / 1; /* Square on very small screens */
-      }
-      
-      .gallery > img:not(.speaker img) {
-        width: 85%;
-        aspect-ratio: 16 / 9;
-      }
-    }
-
     .speaker img:hover {
       transform: scale(1.02);
     }
@@ -523,6 +448,7 @@
     }
     
     .speaker-info h3 {
+      font-family: 'STXingkai', serif;
       font-size: 1.3em;
       color: #2d5a27;
       margin-bottom: 8px;
@@ -534,6 +460,52 @@
       line-height: 1.5;
     } 
 
+    /* Media and Sponsor images with proportional height */
+    /* Height is calculated as: max-width% × ratio (0.6 = 3:5 aspect ratio) */
+    #media .gallery img,
+    #sponsors .gallery img {
+      max-width: 60%;
+      height: calc(60vw * 0.6); /* 60% of viewport width × 0.6 ratio */
+      max-height: 200px; /* Cap maximum height */
+      min-height: 100px; /* Minimum height */
+      object-fit: contain;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      background: #f8f9fa;
+      padding: 10px;
+    }
+
+    /* Constrain to container width on larger screens */
+    @media (min-width: 800px) {
+      #media .gallery img,
+      #sponsors .gallery img {
+        height: calc(800px * 0.6 * 0.6); /* container width × max-width% × ratio */
+        max-height: 288px;
+      }
+    }
+
+    /* Tablet adjustments */
+    @media (max-width: 768px) {
+      #media .gallery img,
+      #sponsors .gallery img {
+        max-width: 70%;
+        height: calc(70vw * 0.55);
+        max-height: 180px;
+      }
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 480px) {
+      #media .gallery img,
+      #sponsors .gallery img {
+        max-width: 85%;
+        height: calc(85vw * 0.5);
+        max-height: 150px;
+        min-height: 80px;
+      }
+    }
+    
     .tech-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
