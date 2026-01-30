@@ -733,6 +733,85 @@
         flex: 1 1 100%;
       }
     }
+
+/* ===== VIDEO SECTION STYLES ===== */
+    .video-showcase {
+      background: linear-gradient(135deg, #f8fdf9 0%, #e8f5e9 100%);
+      border-radius: 20px;
+      padding: 30px;
+      margin: 30px 0;
+      border: 2px solid rgba(46,139,87,0.15);
+      box-shadow: 0 8px 25px rgba(46,139,87,0.1);
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    .video-container video {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 15px;
+    }
+
+    .video-caption {
+      text-align: center;
+      margin-top: 20px;
+      padding: 0 10px;
+    }
+
+    .video-caption h4 {
+      color: var(--green);
+      font-size: 20px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .video-caption p {
+      color: #555;
+      font-size: 15px;
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .video-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+      color: white;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .video-showcase {
+        padding: 20px 15px;
+      }
+      
+      .video-caption h4 {
+        font-size: 18px;
+      }
+      
+      .video-caption p {
+        font-size: 14px;
+      }
+    }  
+    
   </style>
 </head>
 <body>
@@ -849,6 +928,21 @@
       </div>
     </div>
 
+<!-- VIDEO SHOWCASE SECTION - IMPROVED COOKING STOVE -->
+    <div class="video-showcase" id="cooking-stove-video">
+      <div class="video-container">
+        <video controls poster="background-images/cooking-stove.jpg">
+          <source src="videos/improved-cooking-stove.mp4" type="video/mp4">
+          Your browser does not support the video tag. Please upgrade your browser to view this content.
+        </video>
+      </div>
+      <div class="video-caption">
+        <span class="video-badge">Featured Technology</span>
+        <h4><span>🔥</span> Improved Cooking Stove in Action</h4>
+        <p>Watch how this innovative clean cooking solution reduces fuel consumption by up to 70%, minimizes harmful emissions, and improves household health. Developed by ECCA, this technology represents a transformative approach to sustainable energy access for millions of families across Africa.</p>
+      </div>
+    </div>
+    
     <div class="section" id="technologies">
       <h2><span>🔧</span>Key Technologies Showcase</h2>
       <div class="tech-grid">    
