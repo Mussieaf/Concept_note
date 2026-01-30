@@ -415,42 +415,104 @@
       scroll-margin-top: 80px;
     }
 
+    /* ===== GALLERY WITH PROPORTIONAL HEIGHT ===== */
     .gallery {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
-    }
-
-    .small-gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-    }
-    
+      width: 100%;
+      align-items: flex-start;
+    }    
+   
+    /* Speaker cards with proportional images */
     .speaker {
       text-align: center;
-      flex: 1 1 300px;
-      max-width: 400px;
-    }
-    
-    .speaker img, .gallery img {
-      max-width: 80%;
-      height: auto;
-      border-radius: 20px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
+      flex: 1 1 280px;
+      max-width: 380px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    .small-gallery img {
-      max-width: 20%;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
+    .speaker img {
+      width: 85%;
+      max-width: 320px;
+      aspect-ratio: 4 / 3; /* Height = 75% of width */
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+      transition: all 0.3s ease;
+    }
+
+    .speaker img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     }
     
+     /* Media/Sponsor logos - different proportion */
+    .gallery > img:not(.speaker img) {
+      width: 28%;
+      min-width: 120px;
+      max-width: 180px;
+      aspect-ratio: 3 / 2; /* Height = 66.67% of width */
+      object-fit: contain;
+      padding: 10px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+
+    .gallery > img:not(.speaker img):hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    }
+
+    /* Fallback for browsers without aspect-ratio support */
+    @supports not (aspect-ratio: 1 / 1) {
+      .speaker {
+        position: relative;
+      }
+      
+      .speaker img {
+        height: auto;
+        max-height: 240px;
+      }
+    }
+    
+   /* Responsive */
+    @media (max-width: 768px) {
+      .speaker {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+      
+      .speaker img {
+        width: 90%;
+        max-width: 400px;
+        aspect-ratio: 4 / 3;
+      }
+      
+      .gallery > img:not(.speaker img) {
+        width: 42%;
+        aspect-ratio: 3 / 2;
+      }
+    }
+
+        @media (max-width: 480px) {
+      .speaker img {
+        width: 95%;
+        aspect-ratio: 1 / 1; /* Square on very small screens */
+      }
+      
+      .gallery > img:not(.speaker img) {
+        width: 85%;
+        aspect-ratio: 16 / 9;
+      }
+    }
+
     .speaker img:hover {
       transform: scale(1.02);
     }
@@ -965,7 +1027,7 @@
   <!-- Forum Invited Midea Section Link -->
   <div class="section" id="media">
     <h2><span>🎙️</span>Media Partners</h2>
-    <div class="small-gallery">
+    <div class="gallery">
       <img src="Media/Media1.jpeg" alt="Media Outlet 1">
       <img src="Media/Media2.jpeg" alt="Media Outlet 2">
       <img src="Media/Media3.jpeg" alt="Media Outlet 3">
@@ -975,7 +1037,7 @@
   <!-- Forum Invited Sponsors Section Link -->
   <div class="section" id="sponsors">
     <h2><span>💰</span>Sponsors</h2>
-    <div class="small-gallery">
+    <div class="gallery">
       <img src="Sponsors/Sponsor1.jpeg" alt="Sponsor 1">
       <img src="Sponsors/Sponsor2.jpeg" alt="Sponsor 2">
       <img src="Sponsors/Sponsor3.jpeg" alt="Sponsor 3">
