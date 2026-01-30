@@ -415,15 +415,56 @@
       scroll-margin-top: 80px;
     }
 
-/* ===== GALLERY WITH PROPORTIONAL HEIGHT ===== */
+
+
+/* ===== RESPONSIVE GALLERY WITH DYNAMIC HEIGHT ===== */
     .gallery {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      align-items: flex-start;
       gap: 20px;
+      width: 100%;
     }
     
-    /* Speaker images - maintain aspect ratio naturally */
+    /* Media and Sponsor images - maintain aspect ratio without whitespace */
+    .gallery img {
+      width: 30%; /* Maximum width */
+      height: auto; /* Height adjusts proportionally */
+      aspect-ratio: 3 / 2; /* Maintain consistent aspect ratio */
+      object-fit: contain; /* Show full image without cropping */
+      border-radius: 15px;
+      display: block;
+      background: transparent;
+    }
+    
+    /* Alternative: If images have different aspect ratios, use object-fit: cover */
+    .gallery.cover-style img {
+      object-fit: cover;
+      aspect-ratio: 16 / 9;
+    }
+    
+    /* For square logos */
+    .gallery.square-style img {
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+    }
+    
+    /* Responsive breakpoints */
+    @media (max-width: 768px) {
+      .gallery img {
+        width: 45%;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .gallery img {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+    
+    /* Speaker gallery - different styling */
     .speaker {
       text-align: center;
       flex: 1 1 300px;
@@ -431,79 +472,12 @@
     }
     
     .speaker img {
-      max-width: 80%;
+      width: 80%;
       height: auto;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
       border-radius: 20px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-    
-    .speaker img:hover {
-      transform: scale(1.02);
-    }
-    
-    .speaker-info {
-      margin-top: 15px;
-      padding: 0 10px;
-    }
-    
-    .speaker-info h3 {
-      font-family: 'STXingkai', serif;
-      font-size: 1.3em;
-      color: #2d5a27;
-      margin-bottom: 8px;
-    }
-    
-    .speaker-info p {
-      font-size: 0.95em;
-      color: #555;
-      line-height: 1.5;
-    } 
-
-    /* Media and Sponsor images with proportional height */
-    /* Height is calculated as: max-width% × ratio (0.6 = 3:5 aspect ratio) */
-    #media .gallery img,
-    #sponsors .gallery img {
-      max-width: 60%;
-      height: calc(60vw * 0.6); /* 60% of viewport width × 0.6 ratio */
-      max-height: 200px; /* Cap maximum height */
-      min-height: 100px; /* Minimum height */
-      object-fit: contain;
-      border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      transition: all 0.3s ease;
-      background: #f8f9fa;
-      padding: 1px;
-    }
-
-    /* Constrain to container width on larger screens */
-    @media (min-width: 800px) {
-      #media .gallery img,
-      #sponsors .gallery img {
-        height: calc(800px * 0.6 * 0.6); /* container width × max-width% × ratio */
-        max-height: 288px;
-      }
-    }
-
-    /* Tablet adjustments */
-    @media (max-width: 768px) {
-      #media .gallery img,
-      #sponsors .gallery img {
-        max-width: 70%;
-        height: calc(70vw * 0.55);
-        max-height: 180px;
-      }
-    }
-
-    /* Mobile adjustments */
-    @media (max-width: 480px) {
-      #media .gallery img,
-      #sponsors .gallery img {
-        max-width: 85%;
-        height: calc(85vw * 0.5);
-        max-height: 150px;
-        min-height: 80px;
-      }
     }
     
     .tech-grid {
