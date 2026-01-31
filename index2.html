@@ -223,16 +223,14 @@
       }
     }
 
-/* ===== WHITE SEPARATOR STRIP ===== */
-    .nav-separator {
-      position: fixed;
-      top: 70px;
-      left: 0;
-      right: 0;
-      height: 4px;
+    /* ===== WHITE STRIP ===== */
+    .white-strip {
       background: white;
-      z-index: 999;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      height: 8px;
+      width: 100%;
+      position: relative;
+      z-index: 100;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
     
     /* ===== IMAGE SLIDER ===== */
@@ -1085,9 +1083,6 @@
   </ul>
 </nav>
 
-<!-- ===== WHITE SEPARATOR STRIP ===== -->
-<div class="nav-separator"></div>
-
 <!-- ===== HERO IMAGE SLIDER ===== -->
 <div class="hero-slider" id="home">
   <div class="slider-container" id="sliderContainer">
@@ -1128,8 +1123,8 @@
   </div>
 </div>
 
-<!-- ===== WHITE SEPARATOR STRIP ===== -->
-<div class="nav-separator"></div>
+<!-- ===== WHITE STRIP ===== -->
+<div class="white-strip"></div>
   
 <!-- ===== LATEST NEWS TICKER ===== -->
 <div class="news-ticker" id="news">
