@@ -5,13 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/50f9f10aa0.js" crossorigin="anonymous"></script>
-  <meta name="description" content="AFLI 2026 News - Latest updates on climate action, green energy, and sustainable development in Africa">
+  <meta name="description" content="AFLI 2026 News - African First Ladies Initiative Forum">
   <title>News & Updates | AFLI 2026</title>
   <style>
     :root {
       --green: #2e8b57;
       --green-light: #3cb371;
-      --green-dark: #1a5f3f;
     }
 
     * {
@@ -27,6 +26,7 @@
 
     body {
       background: linear-gradient(135deg, #f0f9f0 0%, #e6f4f1 100%);
+      padding: 0;
       line-height: 1.6;
     }
 
@@ -74,298 +74,184 @@
       opacity: 0.9;
     }
 
-    .nav-menu {
-      display: flex;
-      list-style: none;
-      gap: 5px;
-      margin: 0;
-      padding: 0;
-    }
-
-    .nav-link {
+    .back-link {
       color: white;
       text-decoration: none;
-      padding: 10px 15px;
-      display: block;
-      border-radius: 5px;
+      padding: 10px 20px;
+      border-radius: 25px;
+      background: rgba(255,255,255,0.2);
       transition: all 0.3s ease;
       font-size: 14px;
-      font-weight: 500;
     }
 
-    .nav-link:hover {
-      background: rgba(255,255,255,0.2);
-    }
-
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
+    .back-link:hover {
+      background: rgba(255,255,255,0.3);
+      text-decoration: none;
       color: white;
-      font-size: 24px;
-      cursor: pointer;
     }
 
-    @media (max-width: 768px) {
-      .nav-toggle {
-        display: block;
-      }
-      
-      .nav-menu {
-        position: fixed;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
-        flex-direction: column;
-        padding: 20px;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-10px);
-        transition: all 0.3s ease;
-      }
-      
-      .nav-menu.active {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-      }
-    }
-
-    /* Hero Section */
-    .hero {
-      margin-top: 70px;
-      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 100%);
-      color: white;
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 36px;
-      margin-bottom: 15px;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    }
-
-    .hero p {
-      font-size: 18px;
-      opacity: 0.95;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    /* Main Layout */
+    /* Main Container */
     .main-container {
-      max-width: 1200px;
-      margin: 0 auto;
+      max-width: 900px;
+      margin: 90px auto 40px;
+      padding: 0 20px;
+    }
+
+    .page-header {
+      text-align: center;
       padding: 40px 20px;
-      display: grid;
-      grid-template-columns: 1fr 300px;
-      gap: 40px;
-    }
-
-    @media (max-width: 968px) {
-      .main-container {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* News Articles */
-    .news-article {
-      background: white;
-      border-radius: 15px;
-      padding: 30px;
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+      border-radius: 20px;
+      color: white;
       margin-bottom: 30px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-      scroll-margin-top: 90px;
-      border-left: 5px solid var(--green);
     }
 
-    .news-article:hover {
-      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-    }
-
-    .article-header {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 15px;
-    }
-
-    .article-icon {
-      font-size: 40px;
-    }
-
-    .article-meta {
-      flex: 1;
-    }
-
-    .article-date {
-      color: #888;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .article-title {
-      color: var(--green-dark);
-      font-size: 22px;
-      margin: 5px 0 0;
-      line-height: 1.3;
-    }
-
-    .article-content {
-      color: #555;
-      line-height: 1.8;
-    }
-
-    .article-content p {
-      margin-bottom: 15px;
-    }
-
-    .article-content ul {
-      margin: 15px 0;
-      padding-left: 25px;
-    }
-
-    .article-content li {
-      margin-bottom: 8px;
-    }
-
-    .article-tag {
-      display: inline-block;
-      background: rgba(46,139,87,0.1);
-      color: var(--green);
-      padding: 5px 12px;
-      border-radius: 15px;
-      font-size: 12px;
-      font-weight: 600;
-      margin-top: 15px;
-      text-transform: uppercase;
-    }
-
-    /* Sidebar */
-    .sidebar {
-      position: sticky;
-      top: 90px;
-      height: fit-content;
-    }
-
-    .sidebar-box {
-      background: white;
-      border-radius: 15px;
-      padding: 25px;
-      margin-bottom: 25px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    }
-
-    .sidebar-box h3 {
-      color: var(--green);
-      font-size: 18px;
-      margin-bottom: 15px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid rgba(46,139,87,0.2);
-    }
-
-    .quick-links {
-      list-style: none;
-      padding: 0;
-    }
-
-    .quick-links li {
+    .page-header h1 {
+      font-size: 32px;
       margin-bottom: 10px;
     }
 
-    .quick-links a {
-      color: #555;
-      text-decoration: none;
+    .page-header p {
+      font-size: 16px;
+      opacity: 0.95;
+    }
+
+    /* News List */
+    .news-list {
       display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px;
-      border-radius: 8px;
-      transition: all 0.3s;
-      font-size: 14px;
+      flex-direction: column;
+      gap: 20px;
     }
 
-    .quick-links a:hover {
-      background: #f0f9f0;
-      color: var(--green);
-      padding-left: 15px;
+    .news-card {
+      background: white;
+      border-radius: 15px;
+      padding: 25px 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      scroll-margin-top: 90px;
     }
 
-    .quick-links .icon {
-      font-size: 20px;
-    }
-
-    /* External Link Box */
-    .external-box {
-      background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
-      border: 1px solid #ffc107;
-    }
-
-    .external-box a {
-      color: #856404;
-      font-weight: 500;
-    }
-
-    /* Back to Top */
-    .back-to-top {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: var(--green);
-      color: white;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      transition: all 0.3s;
-      opacity: 0;
-      visibility: hidden;
-    }
-
-    .back-to-top.visible {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .back-to-top:hover {
-      background: var(--green-dark);
+    .news-card:hover {
       transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    }
+
+    .news-card:target {
+      animation: highlight 2s ease;
+      border-left: 4px solid var(--green);
+    }
+
+    @keyframes highlight {
+      0% { background: #e8f5e9; }
+      100% { background: white; }
+    }
+
+    .news-meta {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .news-category {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+      color: white;
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .news-date {
+      color: #888;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .news-card h2 {
+      color: #2d5a27;
+      font-size: 22px;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .news-card p {
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 15px;
+    }
+
+    .read-more {
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .read-more:hover {
+      color: var(--green-light);
+      gap: 12px;
+    }
+
+    /* External link badge */
+    .external-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: #f0f0f0;
+      padding: 4px 10px;
+      border-radius: 15px;
+      font-size: 12px;
+      color: #666;
+      margin-left: 10px;
     }
 
     /* Footer */
     .footer {
-      background: linear-gradient(135deg,var(--green) 0%,var(--green-light) 100%);
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
       color: #fff;
       text-align: center;
-      padding: 40px 20px;
-      margin-top: 40px;
+      padding: 40px 30px;
+      margin-top: 50px;
+    }
+
+    .footer p {
+      margin-bottom: 8px;
+      opacity: 0.95;
     }
 
     .footer a {
       color: white;
       text-decoration: none;
-      margin: 0 10px;
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 28px;
+      .page-header h1 {
+        font-size: 24px;
       }
-      
-      .news-article {
+
+      .news-card {
         padding: 20px;
       }
-      
-      .article-title {
+
+      .news-card h2 {
         font-size: 18px;
+      }
+
+      .icon-acacia-tree::before {
+        font-size: 32px;
+      }
+
+      .nav-logo-text {
+        font-size: 14px;
       }
     }
   </style>
@@ -374,330 +260,143 @@
 
 <!-- Navigation -->
 <nav class="navbar">
-  <a href="../index.html" class="nav-logo">
+  <a href="index.html" class="nav-logo">
     <span class="icon-acacia-tree"></span>
     <div class="nav-logo-text">
       Acacia Trading
-      <small>Back to Main Site</small>
+      <small>African First Ladies Initiative 2026</small>
     </div>
   </a>
-  
-  <button class="nav-toggle" onclick="toggleMenu()">☰</button>
-  
-  <ul class="nav-menu" id="navMenu">
-    <li><a href="../index.html" class="nav-link">🏠 Home</a></li>
-    <li><a href="../index.html#about" class="nav-link">📖 About</a></li>
-    <li><a href="../index.html#sponsorship" class="nav-link">💎 Sponsor</a></li>
-    <li><a href="../index.html#register" class="nav-link">✍️ Register</a></li>
-  </ul>
+  <a href="index.html" class="back-link">← Back to Home</a>
 </nav>
-
-<!-- Hero Section -->
-<section class="hero">
-  <h1>📰 News & Updates</h1>
-  <p>Stay informed with the latest developments in climate action, sustainable development, and green innovation across Africa</p>
-</section>
 
 <!-- Main Content -->
 <div class="main-container">
   
-  <!-- News Articles -->
+  <div class="page-header">
+    <h1>📰 News & Updates</h1>
+    <p>Stay informed with the latest developments in climate action, sustainable development, and the African First Ladies Initiative</p>
+  </div>
+
   <div class="news-list">
-    
-    <!-- Article 1: COP32 Finance -->
-    <article class="news-article" id="cop32-finance">
-      <div class="article-header">
-        <span class="article-icon">🌍</span>
-        <div class="article-meta">
-          <div class="article-date">December 2024</div>
-          <h2 class="article-title">New Climate Finance Commitments Announced at COP29 for African Renewable Energy Projects</h2>
-        </div>
+
+    <!-- News Item 1: COP32 -->
+    <article class="news-card" id="cop32-finance">
+      <div class="news-meta">
+        <span class="news-category">Climate Summit</span>
+        <span class="news-date">📅 January 2025</span>
       </div>
-      <div class="article-content">
-        <p>At the 29th Conference of the Parties (COP29) to the UN Framework Convention on Climate Change, world leaders announced unprecedented financial commitments totaling over $15 billion specifically earmarked for African renewable energy projects.</p>
-        <p>The funding package, spearheaded by the Green Climate Fund and multilateral development banks, will support:</p>
-        <ul>
-          <li>Solar and wind farm installations across 25 African nations</li>
-          <li>Grid modernization and energy storage infrastructure</li>
-          <li>Technical assistance for policy and regulatory frameworks</li>
-          <li>Capacity building for local renewable energy technicians</li>
-        </ul>
-        <p>"This represents a watershed moment for Africa's clean energy transition," said the UNFCCC Executive Director. "These investments will help leapfrog fossil fuel dependency and build resilient, low-carbon economies."</p>
-        <span class="article-tag">Climate Finance</span>
-        <span class="article-tag">COP29</span>
-        <span class="article-tag">Renewable Energy</span>
-      </div>
+      <h2>🌍 Ethiopia Wins Bid to Host COP32 in 2027, Edging Out Nigeria</h2>
+      <p>Ethiopia has been selected to host the 32nd Conference of the Parties (COP32) to the UN Framework Convention on Climate Change in 2027, beating Nigeria in the final round of voting. This landmark decision positions Ethiopia as a leading voice in African climate diplomacy and underscores the international community's recognition of the country's ambitious green initiatives, including the Green Legacy Initiative.</p>
+      <p>The conference is expected to draw over 50,000 delegates and generate significant momentum for climate finance commitments to African renewable energy projects. Ethiopia's successful bid highlights its growing influence in shaping continental environmental policy.</p>
+      <a href="https://www.reuters.com/sustainability/cop/ethiopia-be-approved-host-cop32-climate-summit-2027-2025-11-11/" class="read-more" target="_blank">
+        Read Full Story <span>→</span>
+        <span class="external-badge"><i class="fas fa-external-link-alt"></i> External</span>
+      </a>
     </article>
 
-    <!-- Article 2: Green Legacy -->
-    <article class="news-article" id="green-legacy-50b">
-      <div class="article-header">
-        <span class="article-icon">🌱</span>
-        <div class="article-meta">
-          <div class="article-date">November 2024</div>
-          <h2 class="article-title">Ethiopia's Green Legacy Initiative Surpasses 50 Billion Tree Planting Milestone</h2>
-        </div>
+    <!-- News Item 2: Green Legacy -->
+    <article class="news-card" id="green-legacy-50b">
+      <div class="news-meta">
+        <span class="news-category">Reforestation</span>
+        <span class="news-date">📅 December 2024</span>
       </div>
-      <div class="article-content">
-        <p>Ethiopia's ambitious Green Legacy Initiative has achieved a historic milestone, with over 50 billion trees planted since the program's launch in 2019. The initiative, championed by Her Excellency First Lady Zinash Tayachew, has become Africa's largest reforestation effort.</p>
-        <p>Key achievements include:</p>
-        <ul>
-          <li>Restoration of 15 million hectares of degraded land</li>
-          <li>Creation of over 500,000 green jobs, predominantly for women and youth</li>
-          <li>Significant improvement in watershed protection and soil fertility</li>
-          <li>Enhanced carbon sequestration capacity equivalent to removing 10 million cars annually</li>
-        </ul>
-        <p>The program has inspired similar initiatives across the continent, with Kenya, Rwanda, and Uganda launching their own national tree-planting campaigns modeled on Ethiopia's success.</p>
-        <span class="article-tag">Reforestation</span>
-        <span class="article-tag">Green Legacy</span>
-        <span class="article-tag">Ethiopia</span>
-      </div>
+      <h2>🌱 Ethiopia's Green Legacy Initiative Surpasses 50 Billion Tree Planting Milestone</h2>
+      <p>Ethiopia's ambitious Green Legacy Initiative has reached an extraordinary milestone, with over 50 billion trees planted since the program's launch in 2019. The initiative, spearheaded by the Office of the First Lady, has become Africa's largest reforestation effort and a model for continental ecological restoration.</p>
+      <p>Recent satellite imagery confirms that approximately 15% of these plantings have matured into established forest cover, significantly enhancing carbon sequestration capacity and restoring degraded watersheds. The program has created over 750,000 green jobs, with 60% held by women and youth.</p>
+      <a href="https://www.ebc.et/english/Home/NewsDetails?NewsId=255" class="read-more" target="_blank">
+        Read Full Story <span>→</span>
+        <span class="external-badge"><i class="fas fa-external-link-alt"></i> External</span>
+      </a>
     </article>
 
-    <!-- Article 3: Hydrogen Breakthrough -->
-    <article class="news-article" id="hydrogen-breakthrough">
-      <div class="article-header">
-        <span class="article-icon">⚡</span>
-        <div class="article-meta">
-          <div class="article-date">October 2024</div>
-          <h2 class="article-title">Breakthrough in Hydrogen-Enhanced Engine Technology Promises 40% Emission Reduction</h2>
-        </div>
+    <!-- News Item 3: Hydrogen Breakthrough -->
+    <article class="news-card" id="hydrogen-breakthrough">
+      <div class="news-meta">
+        <span class="news-category">Clean Technology</span>
+        <span class="news-date">📅 November 2024</span>
       </div>
-      <div class="article-content">
-        <p>Researchers at the African Clean Energy Institute have announced a breakthrough in hydrogen-enhanced internal combustion engine (H-ICE) technology that could reduce emissions from existing vehicle fleets by up to 40% without requiring complete engine replacement.</p>
-        <p>The innovative retrofit system works by:</p>
-        <ul>
-          <li>Injecting hydrogen gas into the combustion chamber to improve fuel efficiency</li>
-          <li>Reducing particulate matter emissions by 60%</li>
-          <li>Lowering nitrogen oxide (NOx) output by 45%</li>
-          <li>Enabling use of existing diesel infrastructure with minimal modification</li>
-        </ul>
-        <p>Pilot programs are already underway in Addis Ababa and Nairobi, with plans to expand to major transport corridors across East Africa. The technology is particularly promising for heavy-duty trucks and public bus fleets.</p>
-        <span class="article-tag">Clean Technology</span>
-        <span class="article-tag">Hydrogen</span>
-        <span class="article-tag">Transport</span>
-      </div>
+      <h2>⚡ Breakthrough Reduces Harmful Emissions from Hydrogen Engines</h2>
+      <p>Researchers at the Addis Ababa Institute of Technology, in partnership with international collaborators, have announced a significant breakthrough in hydrogen-enhanced internal combustion engine (H-ICE) technology. The new system reduces nitrogen oxide emissions by 85% while improving fuel efficiency by 40%.</p>
+      <p>This innovation is particularly significant for African nations seeking to retrofit existing vehicle fleets and power generation equipment. The technology will be showcased at the AFLI 2026 Forum, with pilot projects planned for public transport systems in Addis Ababa and Nairobi.</p>
+      <a href="https://www.watertechsh.com/breakthrough-reduces-harmful-emissions-from-hydrogen-engines/" class="read-more" target="_blank">
+        Read Full Story <span>→</span>
+        <span class="external-badge"><i class="fas fa-external-link-alt"></i> External</span>
+      </a>
     </article>
 
-    <!-- Article 4: Wind Power Project -->
-    <article class="news-article" id="wind-power-project">
-      <div class="article-header">
-        <span class="article-icon">👩‍🌾</span>
-        <div class="article-meta">
-          <div class="article-date">September 2024</div>
-          <h2 class="article-title">Women-Led Climate-Smart Agriculture Programs Lift 100,000 Households Out of Poverty</h2>
-        </div>
+    <!-- News Item 4: Wind Power -->
+    <article class="news-card" id="wind-power-project">
+      <div class="news-meta">
+        <span class="news-category">Renewable Energy</span>
+        <span class="news-date">📅 October 2024</span>
       </div>
-      <div class="article-content">
-        <p>A comprehensive five-year study released by the African Development Bank reveals that women-led climate-smart agriculture initiatives have successfully lifted over 100,000 households across six countries out of extreme poverty.</p>
-        <p>The programs, which combine traditional agricultural knowledge with modern sustainable practices, have achieved:</p>
-        <ul>
-          <li>35% increase in crop yields through conservation agriculture techniques</li>
-          <li>50% reduction in post-harvest losses via improved storage solutions</li>
-          <li>Establishment of 5,000 women's agricultural cooperatives</li>
-          <li>Access to climate-resilient seed varieties for 250,000 farmers</li>
-        </ul>
-        <p>"Women are not just beneficiaries of climate action—they are essential leaders in building resilient food systems," noted the report's lead author. The study recommends scaling these models across the continent.</p>
-        <span class="article-tag">Gender Equality</span>
-        <span class="article-tag">Agriculture</span>
-        <span class="article-tag">Poverty Alleviation</span>
-      </div>
+      <h2>👩‍🌾 Ethiopia Inaugurates Landmark Aysha-II Wind Power Project</h2>
+      <p>Ethiopia has officially commissioned the Aysha-II Wind Power Project, a 300-megawatt facility located in the Somali Regional State near the Djibouti border. The $450 million project, funded through a consortium of international development banks, represents the largest wind energy installation in East Africa.</p>
+      <p>The project incorporates innovative battery storage technology and is expected to power approximately 3 million households. Notably, 40% of the engineering and technical positions are held by women, setting a new standard for gender inclusion in African energy infrastructure.</p>
+      <a href="https://www.ena.et/web/eng/w/eng_8218732/" class="read-more" target="_blank">
+        Read Full Story <span>→</span>
+        <span class="external-badge"><i class="fas fa-external-link-alt"></i> External</span>
+      </a>
     </article>
 
-    <!-- Article 5: Solar Mini-Grids -->
-    <article class="news-article" id="solar-minigrids">
-      <div class="article-header">
-        <span class="article-icon">☀️</span>
-        <div class="article-meta">
-          <div class="article-date">August 2024</div>
-          <h2 class="article-title">Solar Mini-Grids Expand to 500 Rural Communities Across East Africa</h2>
-        </div>
+    <!-- News Item 5: Solar Mini-grids -->
+    <article class="news-card" id="solar-minigrids">
+      <div class="news-meta">
+        <span class="news-category">Solar Energy</span>
+        <span class="news-date">📅 September 2024</span>
       </div>
-      <div class="article-content">
-        <p>The Regional Solar Access Program has successfully deployed solar mini-grid systems to 500 previously off-grid rural communities across Kenya, Tanzania, Uganda, and Ethiopia, bringing clean electricity to over 2 million people for the first time.</p>
-        <p>Each installation includes:</p>
-        <ul>
-          <li>50-100 kW solar photovoltaic arrays with battery storage</li>
-          <li>Smart metering systems for efficient energy management</li>
-          <li>Training programs for local technicians and operators</li>
-          <li>Productive use equipment such as irrigation pumps and cold storage</li>
-        </ul>
-        <p>The $400 million initiative, funded by a consortium of development finance institutions, demonstrates the viability of decentralized renewable energy solutions for rural electrification in Africa.</p>
-        <span class="article-tag">Solar Energy</span>
-        <span class="article-tag">Rural Development</span>
-        <span class="article-tag">Energy Access</span>
-      </div>
+      <h2>☀️ Solar Mini-grids Projects in Ethiopia - Solar Financed Africa</h2>
+      <p>The Solar Financed Africa initiative has launched a $200 million program to deploy solar mini-grids across 200 rural Ethiopian communities. The project combines innovative pay-as-you-go financing with community ownership models, ensuring sustainable long-term operation.</p>
+      <p>Each mini-grid installation includes capacity for agricultural processing equipment, enabling rural cooperatives to add value to their produce. The program targets communities currently without grid electricity, prioritizing areas with high concentrations of women-led agricultural enterprises.</p>
+      <a href="https://solarfinancedafrica.com/projects/ethiopia-minigrids/" class="read-more" target="_blank">
+        Read Full Story <span>→</span>
+        <span class="external-badge"><i class="fas fa-external-link-alt"></i> External</span>
+      </a>
     </article>
 
-    <!-- External Link: Clean Cooking -->
-    <article class="news-article external-box" id="clean-cooking-funding">
-      <div class="article-header">
-        <span class="article-icon">🔥</span>
-        <div class="article-meta">
-          <div class="article-date">July 2024</div>
-          <h2 class="article-title">Clean Cooking Stove Initiative Receives $200M Funding Boost from Global Partners</h2>
-        </div>
+    <!-- News Item 6: Clean Cooking -->
+    <article class="news-card" id="clean-cooking-funding">
+      <div class="news-meta">
+        <span class="news-category">Clean Cooking</span>
+        <span class="news-date">📅 August 2024</span>
       </div>
-      <div class="article-content">
-        <p>The Global Alliance for Clean Cookstoves has secured $200 million in new funding to accelerate the deployment of efficient, low-emission cooking solutions across sub-Saharan Africa.</p>
-        <p>This major investment will support:</p>
-        <ul>
-          <li>Distribution of 10 million improved cookstoves by 2027</li>
-          <li>Research and development of next-generation biomass and ethanol stoves</li>
-          <li>Behavior change campaigns to promote clean cooking adoption</li>
-          <li>Carbon credit programs to sustain market-based distribution models</li>
-        </ul>
-        <p><strong>🔗 Read the full article on the Clean Cooking Alliance website:</strong></p>
-        <a href="https://cleancooking.org/news/" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: var(--green); color: white; padding: 12px 24px; border-radius: 25px; text-decoration: none; margin-top: 10px;">
-          Visit CleanCooking.org →
-        </a>
-        <span class="article-tag">External Link</span>
-        <span class="article-tag">Clean Cooking</span>
-        <span class="article-tag">Health</span>
-      </div>
+      <h2>🔥 Clean Cooking Alternative Financing Project Launched in Addis Ababa</h2>
+      <p>The Ministry of Finance, in partnership with the World Bank and African Development Bank, has launched a $150 million Clean Cooking Alternative Financing Project. The initiative aims to distribute 2 million improved cookstoves and 500,000 biogas systems over the next three years.</p>
+      <p>The project introduces an innovative results-based financing mechanism where manufacturers receive payments based on verified health and environmental outcomes. This approach has already attracted 12 local manufacturing companies, creating a domestic clean cooking industry expected to employ 5,000 people.</p>
+      <a href="https://techreviewafrica.com/news/3596/clean-cooking-alternative-financing-project-launched-in-addis-ababa" class="read-more" target="_blank">
+        Read Full Story <span>→</span>
+        <span class="external-badge"><i class="fas fa-external-link-alt"></i> External</span>
+      </a>
     </article>
 
   </div>
 
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    
-    <!-- Quick Links -->
-    <div class="sidebar-box">
-      <h3>📋 Quick Navigation</h3>
-      <ul class="quick-links">
-        <li>
-          <a href="#cop29-finance">
-            <span class="icon">🌍</span>
-            <span>COP29 Climate Finance</span>
-          </a>
-        </li>
-        <li>
-          <a href="#green-legacy-50b">
-            <span class="icon">🌱</span>
-            <span>50B Trees Milestone</span>
-          </a>
-        </li>
-        <li>
-          <a href="#hydrogen-breakthrough">
-            <span class="icon">⚡</span>
-            <span>Hydrogen Engine Tech</span>
-          </a>
-        </li>
-        <li>
-          <a href="#women-climate-agriculture">
-            <span class="icon">👩‍🌾</span>
-            <span>Women in Agriculture</span>
-          </a>
-        </li>
-        <li>
-          <a href="#solar-minigrids">
-            <span class="icon">☀️</span>
-            <span>Solar Mini-Grids</span>
-          </a>
-        </li>
-        <li>
-          <a href="#clean-cooking-funding">
-            <span class="icon">🔥</span>
-            <span>Clean Cooking Fund</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-
-    <!-- Archive -->
-    <div class="sidebar-box">
-      <h3>📅 Archive</h3>
-      <ul class="quick-links">
-        <li>
-          <a href="#">
-            <span class="icon">📆</span>
-            <span>December 2024</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <span class="icon">📆</span>
-            <span>November 2024</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <span class="icon">📆</span>
-            <span>October 2024</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <span class="icon">📆</span>
-            <span>September 2024</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-
-    <!-- Newsletter -->
-    <div class="sidebar-box" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);">
-      <h3>📧 Stay Updated</h3>
-      <p style="font-size: 14px; color: #555; margin-bottom: 15px;">Subscribe to receive the latest news and updates about the forum.</p>
-      <a href="../index.html#register" class="nav-link" style="background: var(--green); color: white; text-align: center; border-radius: 25px;">
-        Subscribe Now
-      </a>
-    </div>
-
-  </aside>
-
 </div>
-
-<!-- Back to Top Button -->
-<a href="#" class="back-to-top" id="backToTop">↑</a>
 
 <!-- Footer -->
 <div class="footer">
   <p>&copy; 2026 African First Ladies Initiative for Emission Reduction and Poverty Alleviation.</p>
-  <p>
-    <a href="../index.html">Home</a> |
-    <a href="../index.html#about">About</a> |
-    <a href="../index.html#sponsorship">Sponsor</a> |
-    <a href="../index.html#register">Contact</a>
-  </p>
-  <div style="margin-top: 15px;">
-    <a href="https://www.linkedin.com/company/acacia-trading-plc/"><i class="fa-brands fa-linkedin" style="font-size: 1.5em;"></i></a>
-    <a href="https://wa.me/251922466797"><i class="fa-brands fa-whatsapp" style="font-size: 1.5em;"></i></a>
-    <a href="https://x.com/@AcaciaPlc"><i class="fab fa-twitter" style="font-size: 1.5em;"></i></a>
-    <a href="https://web.facebook.com/raeyafrica"><i class="fa-brands fa-facebook" style="font-size: 1.5em;"></i></a>
+  <p>All rights reserved.</p>
+  <p>Organized by Acacia Trading Plc in collaboration with the Office of the First Lady.</p>
+  <div style="margin-top: 20px;">
+    <a href="https://www.linkedin.com/company/acacia-trading-plc/"><i class="fa-brands fa-linkedin" style="font-size: 1.5em; margin: 0 8px;"></i></a>         
+    <a href="https://wa.me/251922466797"><i class="fa-brands fa-whatsapp" style="font-size: 1.5em; margin: 0 8px;"></i></a>
+    <a href="https://x.com/@AcaciaPlc"><i class="fab fa-twitter" style="font-size: 1.5em; margin: 0 8px;"></i></a> 
+    <a href="https://web.facebook.com/raeyafrica"><i class="fa-brands fa-facebook" style="font-size: 1.5em; margin: 0 8px;"></i></a>
+    <a href="https://www.instagram.com/mussieafe/"><i class="fa-brands fa-square-instagram" style="font-size: 1.5em; margin: 0 8px;"></i></a>
   </div>
 </div>
 
 <script>
-  // Mobile menu toggle
-  function toggleMenu() {
-    document.getElementById('navMenu').classList.toggle('active');
-  }
-
-  // Back to top button visibility
-  const backToTop = document.getElementById('backToTop');
-  
-  window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) {
-      backToTop.classList.add('visible');
-    } else {
-      backToTop.classList.remove('visible');
-    }
-  });
-
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
+  // Highlight news item if URL has hash
+  window.addEventListener('load', () => {
+    if (window.location.hash) {
+      const target = document.querySelector(window.location.hash);
       if (target) {
-        target.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
-    });
+    }
   });
 </script>
 
