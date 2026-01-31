@@ -811,6 +811,119 @@
         font-size: 14px;
       }
     }  
+
+/* ===== LATEST NEWS TICKER ===== */
+.news-ticker {
+  background: linear-gradient(135deg, #1a5f3f 0%, var(--green) 100%);
+  padding: 15px 20px;
+  margin-top: 70px;
+  position: relative;
+  z-index: 100;
+}
+
+.news-container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.news-label {
+  background: rgba(255,255,255,0.2);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.news-icon {
+  font-size: 18px;
+}
+
+.news-content {
+  flex: 1;
+  min-width: 250px;
+}
+
+.news-link {
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  display: block;
+  transition: all 0.3s ease;
+  line-height: 1.4;
+}
+
+.news-link:hover {
+  color: #90EE90;
+  text-decoration: underline;
+}
+
+.news-caption {
+  color: rgba(255,255,255,0.8);
+  font-size: 12px;
+  margin-top: 5px;
+  font-style: italic;
+}
+
+.news-archive-link {
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.news-archive-link:hover {
+  background: rgba(255,255,255,0.2);
+  border-color: white;
+}
+
+/* Update hero-slider margin since news ticker is now below nav */
+.hero-slider {
+  margin-top: 0;
+}
+
+@media (max-width: 768px) {
+  .news-ticker {
+    padding: 12px 15px;
+  }
+  
+  .news-container {
+    gap: 12px;
+  }
+  
+  .news-label {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+  
+  .news-link {
+    font-size: 13px;
+  }
+  
+  .news-caption {
+    font-size: 11px;
+  }
+  
+  .news-archive-link {
+    font-size: 12px;
+    padding: 5px 12px;
+  }
+}
     
   </style>
 </head>
@@ -903,7 +1016,24 @@
     <span class="dot" onclick="goToSlide(3)"></span>
   </div>
 </div>
-
+  
+<!-- ===== LATEST NEWS TICKER ===== -->
+<div class="news-ticker" id="news">
+  <div class="news-container">
+    <div class="news-label">
+      <span class="news-icon">📰</span>
+      <strong>Latest News</strong>
+    </div>
+    <div class="news-content">
+      <a href="news.html" class="news-link" id="dynamicNewsLink">
+        🌍 New climate finance commitments announced at COP29 for African renewable energy projects
+      </a>
+      <p class="news-caption">Stay updated with the latest developments in climate action, sustainable development, and green innovation across Africa and beyond</p>
+    </div>
+    <a href="news-archive.html" class="news-archive-link">View All →</a>
+  </div>
+</div>  
+  
 <div class="container">
   <div class="header-content" id="about">
     <h1>African First Ladies Initiative for Emission Reduction and Poverty Alleviation Forum</h1>
@@ -1248,7 +1378,76 @@
       closeAllMenus();
     }
   });
-</script>
 
+  // ===== DYNAMIC NEWS UPDATES =====
+const newsUpdates = [
+  {
+    headline: "🌍 New climate finance commitments announced at COP29 for African renewable energy projects",
+    link: "news.html#cop29-finance"
+  },
+  {
+    headline: "🌱 Ethiopia's Green Legacy Initiative surpasses 50 billion tree planting milestone",
+    link: "news.html#green-legacy-50b"
+  },
+  {
+    headline: "⚡ Breakthrough in hydrogen-enhanced engine technology promises 40% emission reduction",
+    link: "news.html#hydrogen-breakthrough"
+  },
+  {
+    headline: "👩‍🌾 Women-led climate-smart agriculture programs lift 100,000 households out of poverty",
+    link: "news.html#women-climate-agriculture"
+  },
+  {
+    headline: "☀️ Solar mini-grids expand to 500 rural communities across East Africa",
+    link: "news.html#solar-minigrids"
+  },
+  {
+    headline: "🔥 Clean cooking stove initiative receives $200M funding boost from global partners",
+    link: "news.html#clean-cooking-funding"
+  }
+];
+
+// Rotate news every 8 seconds
+let currentNewsIndex = 0;
+const newsLink = document.getElementById('dynamicNewsLink');
+
+function rotateNews() {
+  currentNewsIndex = (currentNewsIndex + 1) % newsUpdates.length;
+  newsLink.style.opacity = '0';
+  
+  setTimeout(() => {
+    newsLink.textContent = newsUpdates[currentNewsIndex].headline;
+    newsLink.href = newsUpdates[currentNewsIndex].link;
+    newsLink.style.opacity = '1';
+  }, 300);
+}
+
+// Apply transition in CSS
+newsLink.style.transition = 'opacity 0.3s ease';
+
+// Start rotation
+setInterval(rotateNews, 8000);
+
+// Optional: Fetch news from external API (uncomment to use)
+/*
+async function fetchLatestNews() {
+  try {
+    const response = await fetch('https://your-news-api.com/climate-news');
+    const data = await response.json();
+    if (data && data.headline) {
+      newsLink.textContent = data.headline;
+      newsLink.href = data.url;
+    }
+  } catch (error) {
+    console.log('Using fallback news rotation');
+  }
+}
+
+// Fetch on load and every 5 minutes
+fetchLatestNews();
+setInterval(fetchLatestNews, 300000);
+*/
+</script>
+  
 </body>
 </html>
