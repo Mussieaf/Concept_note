@@ -223,6 +223,47 @@
       }
     }
 
+   /* Event Logo Section */
+    .event-logo-section {
+      background: white;
+      padding: 40px 20px;
+      text-align: center;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    
+    .event-logo-section img {
+      max-width: 700px;
+      width: 95%;
+      height: auto;
+      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.1));
+    }
+    
+    /* Acacia Logo in Nav */
+    .nav-logo img {
+      height: 45px;
+      width: 45px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(255,255,255,0.3);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+    
+    .nav-logo:hover img {
+      transform: scale(1.05);
+    }
+    
+    @media (max-width: 768px) {
+      .event-logo-section {
+        padding: 25px 15px;
+      }
+      
+      .nav-logo img {
+        height: 38px;
+        width: 38px;
+      }
+    }
+    
     /* ===== WHITE STRIP ===== */
     .white-strip {
       background: white;
@@ -1125,6 +1166,11 @@
 
 <!-- ===== WHITE STRIP ===== -->
 <div class="white-strip"></div>
+
+<!-- ===== EVENT LOGO SECTION ===== -->
+  <div class="event-logo-section">
+    <img src="background-images/event_logo.png" alt="AFLI Forum 2026 - African First Ladies Initiative for Emission Reduction and Poverty Alleviation">
+  </div>
   
 <!-- ===== LATEST NEWS TICKER ===== -->
 <div class="news-ticker" id="news">
