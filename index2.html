@@ -785,6 +785,187 @@
       text-align: center;
       margin-top: 30px;
     }
+
+    /* ===== PARTICIPANTS & MODERATORS GRID SECTIONS ===== */
+    .participants-section {
+      margin: 30px 0;
+      border: 1px solid rgba(46,139,87,0.2);
+      border-radius: 15px;
+      overflow: hidden;
+      background: #f8fdf9;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .participants-header {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+      color: white;
+      padding: 20px 24px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+      font-size: 18px;
+      font-weight: 600;
+      border: none;
+      width: 100%;
+      text-align: left;
+    }
+
+    .participants-header:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+    }
+
+    .participants-header::after {
+      content: '▼';
+      font-size: 14px;
+      transition: transform 0.3s ease;
+      margin-left: 10px;
+    }
+
+    .participants-section.active .participants-header::after {
+      transform: rotate(180deg);
+    }
+
+    .participants-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, padding 0.4s;
+      background: #f8fdf9;
+    }
+
+    .participants-section.active .participants-content {
+      max-height: 3000px; /* Large enough for many participants */
+      padding: 30px;
+    }
+
+    .participant-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .participant-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 25px 20px;
+      border: 1px solid rgba(46,139,87,0.1);
+      position: relative;
+    }
+
+    .participant-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--green) 0%, var(--green-light) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .participant-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(46,139,87,0.15);
+    }
+
+    .participant-card:hover::before {
+      opacity: 1;
+    }
+
+    .participant-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(46,139,87,0.15);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin-bottom: 15px;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .participant-card:hover .participant-photo {
+      transform: scale(1.05);
+      border-color: var(--green-light);
+    }
+
+    .participant-info h3 {
+      color: var(--green);
+      font-size: 18px;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    .participant-role {
+      color: var(--green-light);
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .participant-bio {
+      color: #555;
+      font-size: 14px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .moderator-badge {
+      background: linear-gradient(135deg, #f39c12 0%, #e74c3c 100%);
+      color: white;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 700;
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .mc-badge {
+      background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+    }
+
+    .panelist-badge {
+      background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    }
+
+    @media (max-width: 768px) {
+      .participant-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 20px;
+      }
+      
+      .participant-photo {
+        width: 120px;
+        height: 120px;
+      }
+      
+      .participants-section.active .participants-content {
+        padding: 20px 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .participant-grid {
+        grid-template-columns: 1fr;
+      }
+    }
     
     /* Footer */
     .footer {
@@ -1181,6 +1362,7 @@
       <ul class="dropdown">
         <li><a href="#keynote" onclick="closeAllMenus()">Keynote Speakers</a></li>
         <li><a href="#guest" onclick="closeAllMenus()">Guest Speakers</a></li>
+        <li><a href="#moderators-panelists" onclick="closeAllMenus()">Moderators Panelists</a></li>
       </ul>
     </li>
     <li class="nav-item">
@@ -1464,6 +1646,148 @@
     </div>
   </div>
 
+    <!-- CONFIRMED FORUM PARTICIPANTS SECTION -->
+    <div class="section" id="confirmed-participants">
+      <div class="participants-section" id="participants-accordion">
+        <button class="participants-header" onclick="toggleParticipants('participants-accordion')">
+          <span><span style="margin-right: 10px;">👥</span>Confirmed Forum Participants</span>
+        </button>
+        <div class="participants-content">
+          <div class="participant-grid">
+            
+            <div class="participant-card">
+              <img src="Participants/participant1.jpg" alt="Participant Name" class="participant-photo">
+              <div class="participant-info">
+                <h3>Dr. Abebe Kebede</h3>
+                <span class="participant-role">Ministry of Environment</span>
+                <p class="participant-bio">Leading expert in climate policy with over 15 years of experience in sustainable development initiatives across East Africa.</p>
+              </div>
+            </div>
+
+            <div class="participant-card">
+              <img src="Participants/participant2.jpg" alt="Participant Name" class="participant-photo">
+              <div class="participant-info">
+                <h3>Sarah Mensah</h3>
+                <span class="participant-role">Green Legacy Initiative</span>
+                <p class="participant-bio">Program Director coordinating reforestation efforts and community engagement for Ethiopia's ambitious tree planting campaign.</p>
+              </div>
+            </div>
+
+            <div class="participant-card">
+              <img src="Participants/participant3.jpg" alt="Participant Name" class="participant-photo">
+              <div class="participant-info">
+                <h3>James Oduor</h3>
+                <span class="participant-role">Clean Energy Advocate</span>
+                <p class="participant-bio">Renewable energy specialist focusing on solar micro-grid implementations in rural communities.</p>
+              </div>
+            </div>
+
+            <div class="participant-card">
+              <img src="Participants/participant4.jpg" alt="Participant Name" class="participant-photo">
+              <div class="participant-info">
+                <h3>Dr. Fatima Al-Hassan</h3>
+                <span class="participant-role">UN Climate Research</span>
+                <p class="participant-bio">Research scientist specializing in carbon sequestration technologies and emission reduction strategies.</p>
+              </div>
+            </div>
+
+            <div class="participant-card">
+              <img src="Participants/participant5.jpg" alt="Participant Name" class="participant-photo">
+              <div class="participant-info">
+                <h3>Michael Tesfaye</h3>
+                <span class="participant-role">Youth Climate Coalition</span>
+                <p class="participant-bio">Youth representative advocating for climate education and green entrepreneurship among young Africans.</p>
+              </div>
+            </div>
+
+            <div class="participant-card">
+              <img src="Participants/participant6.jpg" alt="Participant Name" class="participant-photo">
+              <div class="participant-info">
+                <h3>Grace Nwosu</h3>
+                <span class="participant-role">Women in Energy</span>
+                <p class="participant-bio">Founder of Women in Clean Energy Alliance, promoting gender equality in the renewable energy sector.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODERATORS & PANELISTS SECTION -->
+    <div class="section" id="moderators-panelists">
+      <div class="participants-section" id="moderators-accordion">
+        <button class="participants-header" onclick="toggleParticipants('moderators-accordion')">
+          <span><span style="margin-right: 10px;">🎤</span>Master of Ceremony, Moderators & Panelists</span>
+        </button>
+        <div class="participants-content">
+          <div class="participant-grid">
+            
+            <div class="participant-card">
+              <span class="moderator-badge mc-badge">Master of Ceremony</span>
+              <img src="Moderators/mc1.jpg" alt="MC Name" class="participant-photo">
+              <div class="participant-info">
+                <h3>Amina Mohammed</h3>
+                <span class="participant-role">Broadcast Journalist</span>
+                <p class="participant-bio">Award-winning presenter with 10+ years experience facilitating high-level international conferences and diplomatic events.</p>
+              </div>
+            </div>
+
+            <div class="participant-card">
+              <span class="moderator-badge">Firechat Moderator</span>
+              <img src="Moderators/moderator1.jpg" alt="Moderator Name" class="participant-photo">
+              <div class="participant-info">
+                <h3>David Chen</h3>
+                <span class="participant-role">Climate Policy Expert</span>
+                <p class="participant-bio">Senior advisor specializing in facilitating dialogue between policymakers and environmental stakeholders.</p>
+              </div>
+            </div>
+
+            <div class="participant-card">
+              <span class="moderator-badge panelist-badge">Panelist</span>
+              <img src="Panelists/panelist1.jpg" alt="Panelist Name" class="participant-photo">
+              <div class="participant-info">
+                <h3>Dr. Laura Schmidt</h3>
+                <span class="participant-role">Hydrogen Technology</span>
+                <p class="participant-bio">Leading researcher in hydrogen fuel cell technology and sustainable transportation solutions.</p>
+              </div>
+            </div>
+
+            <div class="participant-card">
+              <span class="moderator-badge panelist-badge">Panelist</span>
+              <img src="Panelists/panelist2.jpg" alt="Panelist Name" class="participant-photo">
+              <div class="participant-info">
+                <h3>Robert Kimani</h3>
+                <span class="participant-role">Solar Innovation</span>
+                <p class="participant-bio">CEO of SunPower Africa, pioneering affordable solar solutions for off-grid communities.</p>
+              </div>
+            </div>
+
+            <div class="participant-card">
+              <span class="moderator-badge panelist-badge">Panelist</span>
+              <img src="Panelists/panelist3.jpg" alt="Panelist Name" class="participant-photo">
+              <div class="participant-info">
+                <h3>Dr. Helen Okonkwo</h3>
+                <span class="participant-role">Circular Economy</span>
+                <p class="participant-bio">Expert in waste-to-energy systems and circular economy practices for developing nations.</p>
+              </div>
+            </div>
+
+            <div class="participant-card">
+              <span class="moderator-badge">Firechat Moderator</span>
+              <img src="Moderators/moderator2.jpg" alt="Moderator Name" class="participant-photo">
+              <div class="participant-info">
+                <h3>Thomas Mueller</h3>
+                <span class="participant-role">International Relations</span>
+                <p class="participant-bio">Diplomat specializing in EU-Africa climate partnerships and green energy financing mechanisms.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  
   <!-- MEDIA PARTNERS -->
   <div class="section" id="media">
     <h2><span>🎙️</span>Media Partners</h2>
@@ -1555,6 +1879,23 @@
   function toggleMarkdown() {
     const section = document.getElementById('markdown-section');
     section.classList.toggle('active');
+  }
+
+  // ===== PARTICIPANTS TOGGLE FUNCTION =====
+  function toggleParticipants(sectionId) {
+    const section = document.getElementById(sectionId);
+    const isActive = section.classList.contains('active');
+    
+    // Close all other participant sections if you want accordion behavior
+    // document.querySelectorAll('.participants-section').forEach(s => {
+    //   s.classList.remove('active');
+    // });
+    
+    if (!isActive) {
+      section.classList.add('active');
+    } else {
+      section.classList.remove('active');
+    }
   }
 
   // ===== SLIDER FUNCTIONS =====
