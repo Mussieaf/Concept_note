@@ -967,36 +967,149 @@
       }
     }
 
-    /* ===== COUNTRY FLAG BADGES ===== */
-    .flag-badge {
+
+
+/* ===== ARTISTIC FLAG STYLES ===== */
+    .flag-container {
       position: absolute;
-      bottom: 10px;
-      right: 10px;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid white;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-      z-index: 2;
-      background: white;
-      padding: 2px;
+      top: -10px;
+      right: -10px;
+      width: 80px;
+      height: 50px;
+      z-index: 5;
+      transform: rotate(5deg);
+      filter: drop-shadow(0 3px 6px rgba(0,0,0,0.2));
+      transition: transform 0.3s ease;
     }
 
-    .participant-photo-wrapper {
+    .participant-card:hover .flag-container {
+      transform: rotate(0deg) scale(1.05);
+    }
+
+    .flag-sketch {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* Watercolor/sketch effect */
+      filter: contrast(1.1) saturate(1.2);
+      /* Ragged edges mask */
+      -webkit-mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60"><path d="M5,5 Q15,0 25,5 T45,3 T65,6 T85,4 T95,8 L98,25 Q90,30 95,40 L92,55 Q80,58 70,55 T50,57 T30,54 T10,56 L2,45 Q8,35 3,25 Z" fill="white"/></svg>');
+      mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60"><path d="M5,5 Q15,0 25,5 T45,3 T65,6 T85,4 T95,8 L98,25 Q90,30 95,40 L92,55 Q80,58 70,55 T50,57 T30,54 T10,56 L2,45 Q8,35 3,25 Z" fill="white"/></svg>');
+      -webkit-mask-size: cover;
+      mask-size: cover;
+      border-radius: 3px;
+    }
+
+    /* Alternative: Using clip-path for brush stroke effect */
+    .flag-brush {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      clip-path: polygon(
+        0% 15%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 100% 15%,
+        100% 85%, 85% 85%, 85% 100%, 15% 100%, 15% 85%, 0% 85%,
+        5% 50%, 0% 15%
+      );
+      /* Additional rough edges using multiple clip-paths would require pseudo elements */
+    }
+
+    /* Enhanced artistic flag with texture overlay */
+    .flag-artistic {
+      width: 100%;
+      height: 100%;
       position: relative;
-      display: inline-block;
-      margin-bottom: 15px;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 
+        2px 2px 0 rgba(0,0,0,0.1),
+        -1px -1px 0 rgba(255,255,255,0.3) inset;
+    }
+
+    .flag-artistic::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: 
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 2px,
+          rgba(0,0,0,0.03) 2px,
+          rgba(0,0,0,0.03) 4px
+        );
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .flag-artistic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(1.1) contrast(1.05);
+      /* Subtle brush stroke mask */
+      -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 5%,
+        black 95%,
+        transparent 100%
+      );
+      mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 5%,
+        black 95%,
+        transparent 100%
+      );
+    }
+
+    /* Paper texture overlay for sketch effect */
+    .flag-artistic::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
+      opacity: 0.4;
+      pointer-events: none;
+      z-index: 3;
+      mix-blend-mode: multiply;
+    }
+
+    /* Decorative pin/staple effect */
+    .flag-pin {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px;
+      height: 8px;
+      background: radial-gradient(circle at 30% 30%, #ddd, #666);
+      border-radius: 50%;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+      z-index: 10;
+    }
+
+    /* Adjust card padding to accommodate flag */
+    .participant-card {
+      position: relative;
+      padding-top: 35px; /* Extra space for flag */
     }
 
     @media (max-width: 768px) {
-      .flag-badge {
-        width: 32px;
-        height: 32px;
-        bottom: 8px;
-        right: 8px;
+      .flag-container {
+        width: 60px;
+        height: 38px;
+        top: -8px;
+        right: -8px;
+      }
+      
+      .participant-card {
+        padding-top: 30px;
       }
     }
+
+    
+
     
     /* Footer */
     .footer {
@@ -1688,8 +1801,14 @@
           <div class="participant-grid">
             
             <div class="participant-card">
+              <!-- Country Flag - Artistic Style -->
+              <div class="flag-container">
+                <div class="flag-artistic">
+                  <img src="flags/Burkina_Faso.png" alt="Ethiopia">
+                  <div class="flag-pin"></div>
+                </div>
+              </div>
               <img src="Participants/participant1.jpg" alt="Participant Name" class="participant-photo">
-              <img src="flags/Burkina_Faso.png" alt="Burkina Faso Flag" class="flag-badge">
               <div class="participant-info">
                 <h3>Mr. ABUNDANCE Williams</h3>
                 <span class="participant-role">International Relation Advisor - the State of Burkina Faso</span>
