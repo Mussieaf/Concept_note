@@ -1339,6 +1339,33 @@
       border-radius: 10px;
       text-align: center;
     }
+
+    .sdg-icons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .sdg-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .sdg-icon:hover {
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 600px) {
+      .sdg-icon {
+        width: 45px;
+        height: 45px;
+      }
+    }  
   </style>
 </head>
 <body>
@@ -1467,6 +1494,12 @@
   <div class="header-content" id="about">
     <h1>African First Ladies Initiative for Emission Reduction and Poverty Alleviation Forum</h1>
     <div class="subtitle">Championing Clean Energy for Sustainable Development Through Women and Youth</div>
+      <div class="sdg-icons">
+      <img src="sdg/sdg1.png" alt="SDG 1: No Poverty" class="sdg-icon" title="No Poverty">
+      <img src="sdg/sdg7.png" alt="SDG 7: Affordable and Clean Energy" class="sdg-icon" title="Affordable and Clean Energy">
+      <img src="sdg/sdg9.png" alt="SDG 9: Industry, Innovation and Infrastructure" class="sdg-icon" title="Industry, Innovation and Infrastructure">
+      <img src="sdg/sdg13.png" alt="SDG 13: Climate Action" class="sdg-icon" title="Climate Action">
+    </div>
   </div>
   
   <div class="date-location"><span>📅</span> March 17-19, 2026 | The National Palace | Addis Ababa, Ethiopia</div>
