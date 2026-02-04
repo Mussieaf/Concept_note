@@ -16,98 +16,66 @@
       --error: #e74c3c;
     }
 
-    /* ===== COUNTDOWN TIMER ===== */
+    /* ===== EVENT COUNTDOWN CALENDAR ===== */
     .countdown-section {
       background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
-      padding: 40px 20px;
+      padding: 25px 20px;
+      margin: 20px 0;
+      border-radius: 15px;
       text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .countdown-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
-      background-size: 50px 50px;
-      opacity: 0.3;
+      box-shadow: 0 8px 25px rgba(46,139,87,0.2);
     }
 
     .countdown-title {
       color: white;
-      font-size: 24px;
-      font-weight: 600;
-      margin-bottom: 30px;
-      position: relative;
-      z-index: 1;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+      opacity: 0.9;
     }
 
     .countdown-container {
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 15px;
       flex-wrap: wrap;
-      position: relative;
-      z-index: 1;
     }
 
     .countdown-box {
       background: rgba(255,255,255,0.15);
       backdrop-filter: blur(10px);
-      border-radius: 16px;
-      padding: 20px 25px;
-      min-width: 80px;
+      border-radius: 10px;
+      padding: 12px 18px;
+      min-width: 60px;
       border: 1px solid rgba(255,255,255,0.2);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     }
 
     .countdown-number {
-      font-size: 48px;
-      font-weight: 700;
       color: white;
+      font-size: 28px;
+      font-weight: 700;
       line-height: 1;
-      margin-bottom: 8px;
+      display: block;
       font-family: 'Courier New', monospace;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
 
     .countdown-label {
-      color: rgba(255,255,255,0.9);
-      font-size: 12px;
+      color: rgba(255,255,255,0.8);
+      font-size: 10px;
       text-transform: uppercase;
       letter-spacing: 1px;
-      font-weight: 500;
-    }
-
-    @media (max-width: 768px) {
-      .countdown-box {
-        padding: 15px 20px;
-        min-width: 65px;
-      }
-      
-      .countdown-number {
-        font-size: 36px;
-      }
-      
-      .countdown-title {
-        font-size: 20px;
-      }
+      margin-top: 5px;
+      display: block;
     }
 
     @media (max-width: 480px) {
-      .countdown-container {
-        gap: 10px;
-      }
-      
       .countdown-box {
-        padding: 12px 15px;
-        min-width: 55px;
+        padding: 10px 14px;
+        min-width: 50px;
       }
-      
       .countdown-number {
-        font-size: 28px;
+        font-size: 22px;
       }
     }
     
@@ -1594,29 +1562,29 @@
       <img src="sdg/sdg7.png" alt="SDG 7: Affordable and Clean Energy" class="sdg-icon" title="Affordable and Clean Energy">
       <img src="sdg/sdg9.png" alt="SDG 9: Industry, Innovation and Infrastructure" class="sdg-icon" title="Industry, Innovation and Infrastructure">
       <img src="sdg/sdg13.png" alt="SDG 13: Climate Action" class="sdg-icon" title="Climate Action">
-
-      <!-- ===== COUNTDOWN TIMER SECTION ===== -->
-        <div class="countdown-section" id="countdown">
-          <h2 class="countdown-title">🌍 Forum Begins In</h2>
-          <div class="countdown-container">
-            <div class="countdown-box">
-              <div class="countdown-number" id="days">000</div>
-              <div class="countdown-label">Days</div>
-            </div>
-            <div class="countdown-box">
-              <div class="countdown-number" id="hours">00</div>
-              <div class="countdown-label">Hours</div>
-            </div>
-            <div class="countdown-box">
-              <div class="countdown-number" id="minutes">00</div>
-              <div class="countdown-label">Minutes</div>
-            </div>
-            <div class="countdown-box">
-              <div class="countdown-number" id="seconds">00</div>
-              <div class="countdown-label">Seconds</div>
-            </div>
+        
+      <!-- EVENT COUNTDOWN CALENDAR -->
+      <div class="countdown-section" id="countdown">
+        <div class="countdown-title">🗓️ Countdown to AFLI Forum 2026</div>
+        <div class="countdown-container">
+          <div class="countdown-box">
+            <span class="countdown-number" id="days">00</span>
+            <span class="countdown-label">Days</span>
+          </div>
+          <div class="countdown-box">
+            <span class="countdown-number" id="hours">00</span>
+            <span class="countdown-label">Hours</span>
+          </div>
+          <div class="countdown-box">
+            <span class="countdown-number" id="minutes">00</span>
+            <span class="countdown-label">Mins</span>
+          </div>
+          <div class="countdown-box">
+            <span class="countdown-number" id="seconds">00</span>
+            <span class="countdown-label">Secs</span>
           </div>
         </div>
+      </div>       
     </div>
   </div>
   
@@ -2274,35 +2242,28 @@
   }
 
   newsLink.style.transition = 'opacity 0.3s ease'
-  setInterval(rotateNews, 8000);
+  setInterval(rotateNews, 8000);  
 
-    // ===== COUNTDOWN TIMER =====
+  // Countdown to March 17, 2026
+  const eventDate = new Date('March 17, 2026 00:00:00').getTime();
+  
   function updateCountdown() {
-    const eventDate = new Date('March 17, 2026 09:00:00').getTime();
     const now = new Date().getTime();
     const distance = eventDate - now;
-  
+    
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-  
-    document.getElementById('days').textContent = days.toString().padStart(3, '0');
-    document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-    document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-    document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-  
-    if (distance < 0) {
-      document.querySelector('.countdown-title').textContent = '🎉 Forum Has Begun!';
-      document.getElementById('days').textContent = '000';
-      document.getElementById('hours').textContent = '00';
-      document.getElementById('minutes').textContent = '00';
-      document.getElementById('seconds').textContent = '00';
-    }
+    
+    document.getElementById('days').textContent = String(days).padStart(2, '0');
+    document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+    document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+    document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
   }
   
+  updateCountdown();
   setInterval(updateCountdown, 1000);
-  updateCountdown();  
   
 </script>
 
