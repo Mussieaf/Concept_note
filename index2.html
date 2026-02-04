@@ -16,6 +16,238 @@
       --error: #e74c3c;
     }
 
+        /* ===== CARTOON ANIMATION SECTION ===== */
+    .cartoon-scene {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      height: 200px;
+      margin: 30px auto 0;
+      overflow: hidden;
+      background: linear-gradient(to bottom, #87CEEB 0%, #E0F6FF 60%, #90EE90 60%, #228B22 100%);
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .sun {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      width: 60px;
+      height: 60px;
+      background: #FFD700;
+      border-radius: 50%;
+      box-shadow: 0 0 40px #FFD700;
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.1); opacity: 1; }
+    }
+
+    .wind-turbine {
+      position: absolute;
+      bottom: 60px;
+      left: 15%;
+      width: 8px;
+      height: 80px;
+      background: #666;
+      border-radius: 4px;
+    }
+
+    .wind-turbine::before {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 60px;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="48" y="10" width="4" height="40" fill="%23fff" transform="rotate(0 50 50)"/><rect x="48" y="10" width="4" height="40" fill="%23fff" transform="rotate(120 50 50)"/><rect x="48" y="10" width="4" height="40" fill="%23fff" transform="rotate(240 50 50)"/><circle cx="50" cy="50" r="5" fill="%23666"/></svg>');
+      animation: spin 4s linear infinite;
+    }
+
+    @keyframes spin {
+      from { transform: translateX(-50%) rotate(0deg); }
+      to { transform: translateX(-50%) rotate(360deg); }
+    }
+
+    .solar-panel {
+      position: absolute;
+      bottom: 60px;
+      left: 35%;
+      width: 50px;
+      height: 30px;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      transform: skewX(-20deg);
+      border: 2px solid #fff;
+    }
+
+    .solar-panel::after {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      right: 5px;
+      bottom: 5px;
+      background: repeating-linear-gradient(90deg, transparent, transparent 8px, rgba(255,255,255,0.3) 8px, rgba(255,255,255,0.3) 10px);
+    }
+
+    .woman-character {
+      position: absolute;
+      bottom: 50px;
+      right: 25%;
+      width: 50px;
+      height: 80px;
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .woman-head {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 22px;
+      height: 22px;
+      background: #8B4513;
+      border-radius: 50%;
+    }
+
+    .woman-body {
+      position: absolute;
+      top: 22px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 28px;
+      height: 35px;
+      background: #FF6B9D;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .woman-skirt {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-top: 30px solid #228B22;
+    }
+
+    .woman-arm {
+      position: absolute;
+      top: 28px;
+      right: -8px;
+      width: 20px;
+      height: 6px;
+      background: #8B4513;
+      border-radius: 3px;
+      transform: rotate(-30deg);
+      animation: wave 1.5s ease-in-out infinite;
+    }
+
+    @keyframes wave {
+      0%, 100% { transform: rotate(-30deg); }
+      50% { transform: rotate(-10deg); }
+    }
+
+    .youth-character {
+      position: absolute;
+      bottom: 50px;
+      right: 10%;
+      width: 40px;
+      height: 70px;
+      animation: bounce 2s ease-in-out infinite 0.5s;
+    }
+
+    .youth-head {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 20px;
+      background: #D2691E;
+      border-radius: 50%;
+    }
+
+    .youth-body {
+      position: absolute;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 24px;
+      height: 30px;
+      background: #4169E1;
+      border-radius: 8px 8px 0 0;
+    }
+
+    .youth-legs {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 24px;
+      height: 22px;
+      background: #654321;
+      border-radius: 0 0 5px 5px;
+    }
+
+    .leaf-particle {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: #32CD32;
+      border-radius: 0 50% 0 50%;
+      opacity: 0.8;
+    }
+
+    .leaf-1 { top: 40%; left: 20%; animation: float 3s ease-in-out infinite; }
+    .leaf-2 { top: 30%; left: 60%; animation: float 3.5s ease-in-out infinite 0.5s; }
+    .leaf-3 { top: 50%; left: 80%; animation: float 4s ease-in-out infinite 1s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+      50% { transform: translateY(-20px) rotate(180deg); opacity: 0.4; }
+    }
+
+    .energy-arc {
+      position: absolute;
+      top: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 60px;
+      border: 3px dashed #FFD700;
+      border-radius: 50% 50% 0 0;
+      border-bottom: none;
+      opacity: 0.6;
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.8; }
+    }
+
+    @media (max-width: 768px) {
+      .cartoon-scene {
+        height: 160px;
+        max-width: 100%;
+      }
+      .sun { width: 40px; height: 40px; right: 20px; }
+      .woman-character { right: 30%; transform: scale(0.8); }
+      .youth-character { right: 5%; transform: scale(0.8); }
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -1499,6 +1731,30 @@
       <img src="sdg/sdg7.png" alt="SDG 7: Affordable and Clean Energy" class="sdg-icon" title="Affordable and Clean Energy">
       <img src="sdg/sdg9.png" alt="SDG 9: Industry, Innovation and Infrastructure" class="sdg-icon" title="Industry, Innovation and Infrastructure">
       <img src="sdg/sdg13.png" alt="SDG 13: Climate Action" class="sdg-icon" title="Climate Action">
+      <!-- Cartoon Animation Scene -->
+        <div class="cartoon-scene">
+          <div class="sun"></div>
+          <div class="energy-arc"></div>
+          <div class="wind-turbine"></div>
+          <div class="solar-panel"></div>
+          
+          <div class="leaf-particle leaf-1"></div>
+          <div class="leaf-particle leaf-2"></div>
+          <div class="leaf-particle leaf-3"></div>
+          
+          <div class="woman-character">
+            <div class="woman-head"></div>
+            <div class="woman-body"></div>
+            <div class="woman-skirt"></div>
+            <div class="woman-arm"></div>
+          </div>
+          
+          <div class="youth-character">
+            <div class="youth-head"></div>
+            <div class="youth-body"></div>
+            <div class="youth-legs"></div>
+          </div>
+        </div>
     </div>
   </div>
   
