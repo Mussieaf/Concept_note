@@ -1150,6 +1150,166 @@
       }
     }  
 
+        /* ===== ECD THEMATIC SECTION - CO-HOST ===== */
+    .ecd-showcase {
+      background: linear-gradient(135deg, #ffffff 0%, #f0f9f4 100%);
+      border-radius: 20px;
+      padding: 0;
+      margin: 30px 0;
+      border: 2px solid rgba(46,139,87,0.2);
+      box-shadow: 0 10px 30px rgba(46,139,87,0.1);
+      overflow: hidden;
+    }
+
+    .ecd-header {
+      background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 100%);
+      padding: 20px 30px;
+      text-align: center;
+      position: relative;
+    }
+
+    .co-host-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.15);
+      color: white;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .co-host-icon {
+      font-size: 16px;
+    }
+
+    .ecd-title {
+      color: white;
+      font-size: 22px;
+      font-weight: 600;
+      margin: 0;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .ecd-divider {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--green-light), transparent);
+      margin: 15px auto 0;
+      border-radius: 2px;
+    }
+
+    .ecd-content {
+      padding: 35px 30px;
+      text-align: center;
+    }
+
+    .ecd-icon-main {
+      font-size: 50px;
+      margin-bottom: 15px;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+    }
+
+    .ecd-content h2 {
+      color: var(--green);
+      font-size: 26px;
+      margin-bottom: 5px;
+      font-weight: 700;
+    }
+
+    .ecd-content h4 {
+      color: var(--green-light);
+      font-size: 14px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .ecd-description {
+      color: #555;
+      font-size: 15px;
+      line-height: 1.8;
+      max-width: 600px;
+      margin: 0 auto 25px;
+    }
+
+    .ecd-pillars {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin: 25px 0;
+    }
+
+    .ecd-pillar {
+      background: white;
+      border: 1px solid rgba(46,139,87,0.15);
+      border-radius: 25px;
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .ecd-pillar:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(46,139,87,0.15);
+      border-color: var(--green-light);
+    }
+
+    .pillar-icon {
+      font-size: 18px;
+    }
+
+    .pillar-text {
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .ecd-cta {
+      margin-top: 25px;
+    }
+
+    .ecd-button {
+      background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 100%) !important;
+      box-shadow: 0 4px 15px rgba(30,58,95,0.3) !important;
+    }
+
+    .ecd-button:hover {
+      box-shadow: 0 6px 20px rgba(30,58,95,0.4) !important;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .ecd-header {
+        padding: 18px 20px;
+      }
+      .ecd-title {
+        font-size: 18px;
+      }
+      .ecd-content {
+        padding: 25px 20px;
+      }
+      .ecd-content h2 {
+        font-size: 22px;
+      }
+      .ecd-pillars {
+        gap: 10px;
+      }
+      .ecd-pillar {
+        padding: 8px 14px;
+      }
+    } 
+    
     /* ===== LATEST NEWS TICKER ===== */
     .news-ticker {
       background: linear-gradient(135deg, #1a5f3f 0%, var(--green) 100%);
@@ -1581,7 +1741,7 @@
           </div>
         </div>
       </div>  
-  </div>
+  </div>  
   
   <div class="date-location"><span>📅</span> March 17-19, 2026 | The National Palace | Addis Ababa, Ethiopia</div>
 
@@ -1602,6 +1762,57 @@
       </div>
     </div>
 
+    <!-- EARLY CHILDHOOD DEVELOPMENT (ECD) THEMATIC SECTION - CO-HOST: ADDIS ABABA CITY MAYOR'S OFFICE -->
+    <div class="section" id="ecd-thematic">
+      <div class="ecd-showcase">
+        <div class="ecd-header">
+          <div class="co-host-badge">
+            <span class="co-host-icon">🏛️</span>
+            <span>Co-Host</span>
+          </div>
+          <h3 class="ecd-title">Addis Ababa City Mayor's Office</h3>
+          <div class="ecd-divider"></div>
+        </div>
+        
+        <div class="ecd-content">
+          <div class="ecd-icon-main">🧸</div>
+          <h2>Early Childhood Development (ECD)</h2>
+          <h4>Thematic Focus Area</h4>
+          
+          <p class="ecd-description">
+            Integrating green infrastructure and sustainable environments for early childhood development. 
+            The Addis Ababa City Administration joins as Co-host to advance climate-resilient ECD facilities, 
+            clean air initiatives for children, and green spaces that nurture the next generation of environmental stewards.
+          </p>
+          
+          <div class="ecd-pillars">
+            <div class="ecd-pillar">
+              <span class="pillar-icon">🌳</span>
+              <span class="pillar-text">Green Play Spaces</span>
+            </div>
+            <div class="ecd-pillar">
+              <span class="pillar-icon">💨</span>
+              <span class="pillar-text">Clean Air for Children</span>
+            </div>
+            <div class="ecd-pillar">
+              <span class="pillar-icon">🏫</span>
+              <span class="pillar-text">Sustainable ECD Centers</span>
+            </div>
+            <div class="ecd-pillar">
+              <span class="pillar-icon">👶</span>
+              <span class="pillar-text">Climate-Resilient Futures</span>
+            </div>
+          </div>
+          
+          <div class="ecd-cta">
+            <a href="#register" class="button ecd-button">
+              <span>🤝</span> Partner with Mayor's Office on ECD
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
     <!-- VIDEO SHOWCASE SECTION -->
     <div class="video-showcase" id="AFLIERPA">
       <div class="video-container">
