@@ -376,13 +376,13 @@
 
     .slider-container {
       display: flex;
-      width: 400%;
+      width: 600%; /* Changed from 400% to 600% for 6 slides */
       height: 100%;
-      animation: slide 20s infinite;
+      animation: slide 30s infinite; /* Increased duration for 6 slides */
     }
 
     .slide {
-      width: 25%;
+      width: 16.666%; /* Changed from 25% to 16.666% for 6 slides */
       height: 100%;
       position: relative;
     }
@@ -418,16 +418,20 @@
 
     @keyframes slide {
       0% { transform: translateX(0); }
-      20% { transform: translateX(0); }
-      25% { transform: translateX(-25%); }
-      45% { transform: translateX(-25%); }
+      13.33% { transform: translateX(0); }
+      16.66% { transform: translateX(-16.666%); }
+      30% { transform: translateX(-16.666%); }
+      33.33% { transform: translateX(-33.333%); }
+      46.66% { transform: translateX(-33.333%); }
       50% { transform: translateX(-50%); }
-      70% { transform: translateX(-50%); }
-      75% { transform: translateX(-75%); }
-      95% { transform: translateX(-75%); }
+      63.33% { transform: translateX(-50%); }
+      66.66% { transform: translateX(-66.666%); }
+      80% { transform: translateX(-66.666%); }
+      83.33% { transform: translateX(-83.333%); }
+      96.66% { transform: translateX(-83.333%); }
       100% { transform: translateX(0); }
     }
-
+    
     .slider-dots {
       position: absolute;
       bottom: 20px;
@@ -1673,15 +1677,31 @@
         <p>Women and youth leading environmental transformation across the continent</p>
       </div>
     </div>
+    <div class="slide">
+      <img src="background-images/addis-transport.jpg" alt="Addis Ababa Transportation Decarbonization">
+      <div class="slide-overlay">
+        <h3>Addis Ababa Transport</h3>
+        <p>Decarbonizing urban mobility through electric buses and sustainable transit systems</p>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="background-images/addis-corridor.jpg" alt="Addis Ababa Corridor Development">
+      <div class="slide-overlay">
+        <h3>Addis Ababa Corridor</h3>
+        <p>Green corridor development connecting economic zones with sustainable infrastructure</p>
+      </div>
+    </div>
   </div>
   <div class="slider-dots">
     <span class="dot active" onclick="goToSlide(0)"></span>
     <span class="dot" onclick="goToSlide(1)"></span>
     <span class="dot" onclick="goToSlide(2)"></span>
     <span class="dot" onclick="goToSlide(3)"></span>
+    <span class="dot" onclick="goToSlide(4)"></span>
+    <span class="dot" onclick="goToSlide(5)"></span>
   </div>
-</div>
-
+</div>  
+  
 <!-- ===== WHITE STRIP ===== -->
 <div class="white-strip"></div>
 
@@ -2272,7 +2292,7 @@
       section.classList.remove('active');
     }
   }
-
+ 
   // ===== SLIDER FUNCTIONS =====
   let currentSlideIndex = 0;
   const sliderContainer = document.getElementById('sliderContainer');
@@ -2286,7 +2306,7 @@
 
   function goToSlide(index) {
     currentSlideIndex = index;
-    const offset = -index * 25;
+    const offset = -index * 16.666; /* Changed from 25 to 16.666 for 6 slides */
     sliderContainer.style.animation = 'none';
     sliderContainer.style.transform = `translateX(${offset}%)`;
     updateDots();
@@ -2298,10 +2318,10 @@
   }
 
   setInterval(() => {
-    currentSlideIndex = (currentSlideIndex + 1) % 4;
+    currentSlideIndex = (currentSlideIndex + 1) % 6; /* Changed from 4 to 6 */
     updateDots();
   }, 5000);
-
+  
   // ===== MARKDOWN LOADING =====
   async function loadMarkdown() {
     const container = document.getElementById('markdown-container');
