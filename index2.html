@@ -1782,6 +1782,49 @@
       </div>
     </div>
 
+        <!-- EARLY CHILDHOOD DEVELOPMENT SECTION -->
+    <div class="section" id="ecd-section">
+      <div class="markdown-section" id="ecd-accordion">
+        <button class="markdown-header" onclick="toggleMarkdown('ecd-accordion')">
+          <span>👶 Early Childhood Development</span>
+        </button>
+        <div class="markdown-content">
+          <div class="ecd-content">
+            <h3>Nurturing Africa's Future Generation</h3>
+            <p>The AFLI Forum 2026 recognizes that sustainable development begins with investing in our youngest citizens. Early Childhood Development (ECD) programs integrate environmental awareness, health, nutrition, and education to build resilient communities.</p>
+            
+            <div class="tech-grid" style="margin-top: 20px;">
+              <div class="tech-item">
+                <div class="tech-icon">🍼</div>
+                <h4>Clean Environment</h4>
+                <p>Safe spaces free from pollution for healthy child development</p>
+              </div>
+              <div class="tech-item">
+                <div class="tech-icon">📚</div>
+                <h4>Green Education</h4>
+                <p>Early environmental literacy and nature-based learning</p>
+              </div>
+              <div class="tech-item">
+                <div class="tech-icon">🥗</div>
+                <h4>Nutrition Security</h4>
+                <p>Sustainable food systems ensuring child nutrition</p>
+              </div>
+              <div class="tech-item">
+                <div class="tech-icon">🏥</div>
+                <h4>Health & Wellness</h4>
+                <p>Clean energy for healthcare facilities serving mothers and children</p>
+              </div>
+            </div>
+            
+            <div class="cta-section" style="margin-top: 25px;">
+              <p style="margin-bottom: 15px;">Join our initiative to integrate ECD with climate action across Africa.</p>
+              <a href="#register" class="button">Get Involved</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- EARLY CHILDHOOD DEVELOPMENT (ECD) THEMATIC SECTION - CO-HOST: ADDIS ABABA CITY MAYOR'S OFFICE -->
     <div class="section" id="ecd-thematic">
       <div class="ecd-showcase">
@@ -2379,6 +2422,12 @@
 
   // Load markdown when page loads
   loadMarkdown();
+
+    // ===== MARKDOWN TOGGLE FUNCTION =====
+  function toggleMarkdown(sectionId) {
+    const section = document.getElementById(sectionId);
+    section.classList.toggle('active');
+  }
 
   // ===== FORM SUBMISSION =====
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwf5DfSYEBzRWw2xL7NAGn8ss5Jq4XvVYxx3fISvH8lbT9L8jk56iwvRL2A4kEWzL5MRw/exec';
