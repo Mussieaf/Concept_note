@@ -2372,8 +2372,8 @@
   }
 
   // ===== MARKDOWN TOGGLE FUNCTION =====
-  function toggleMarkdown() {
-    const section = document.getElementById('markdown-section');
+  function toggleMarkdown(sectionId) {
+    const section = document.getElementById(sectionId);
     section.classList.toggle('active');
   }
 
@@ -2381,11 +2381,6 @@
   function toggleParticipants(sectionId) {
     const section = document.getElementById(sectionId);
     const isActive = section.classList.contains('active');
-    
-    // Close all other participant sections if you want accordion behavior
-    // document.querySelectorAll('.participants-section').forEach(s => {
-    //   s.classList.remove('active');
-    // });
     
     if (!isActive) {
       section.classList.add('active');
@@ -2407,7 +2402,7 @@
 
   function goToSlide(index) {
     currentSlideIndex = index;
-    const offset = -index * 16.666; /* Changed from 25 to 16.666 for 6 slides */
+    const offset = -index * 16.666;
     sliderContainer.style.animation = 'none';
     sliderContainer.style.transform = `translateX(${offset}%)`;
     updateDots();
@@ -2419,7 +2414,7 @@
   }
 
   setInterval(() => {
-    currentSlideIndex = (currentSlideIndex + 1) % 6; /* Changed from 4 to 6 */
+    currentSlideIndex = (currentSlideIndex + 1) % 6;
     updateDots();
   }, 5000);
   
@@ -2428,7 +2423,6 @@
     const container = document.getElementById('markdown-container');
     
     try {
-      // Try to load from multiple possible locations
       const possiblePaths = [
         'content/news.md',
         'news.md',
@@ -2437,7 +2431,6 @@
       ];
       
       let response = null;
-      let lastError = null;
       
       for (const path of possiblePaths) {
         try {
@@ -2446,12 +2439,11 @@
             break;
           }
         } catch (e) {
-          lastError = e;
+          // Continue to next path
         }
       }
       
       if (!response || !response.ok) {
-        // If no MD file found, show default content
         container.innerHTML = `
           <h3>🌍 Forum Updates</h3>
           <p>Welcome to the African First Ladies Initiative Forum 2026. Stay tuned for the latest updates on climate action, sustainable development, and green innovation across Africa.</p>
@@ -2479,14 +2471,7 @@
     }
   }
 
-  // Load markdown when page loads
   loadMarkdown();
-
-    // ===== MARKDOWN TOGGLE FUNCTION =====
-  function toggleMarkdown(sectionId) {
-    const section = document.getElementById(sectionId);
-    section.classList.toggle('active');
-  }
 
   // ===== FORM SUBMISSION =====
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwf5DfSYEBzRWw2xL7NAGn8ss5Jq4XvVYxx3fISvH8lbT9L8jk56iwvRL2A4kEWzL5MRw/exec';
@@ -2534,31 +2519,31 @@
 
   // ===== DYNAMIC NEWS UPDATES =====
   const newsUpdates = [
-  {
-    headline: "🌍 Ethiopia wins bid to host Cop32 in 2027, edging out Nigeria",
-    link: "content/news.html#cop32-finance"
-  },
-  {
-    headline: "🌱 Ethiopia's Green Legacy Initiative surpasses 50 billion tree planting milestone",
-    link: "content/news.html#green-legacy-50b"
-  },
-  {
-    headline: "⚡ Breakthrough Reduces Harmful Emissions from Hydrogen Engines",
-    link: "content/news.html#hydrogen-breakthrough"
-  },
-  {
-    headline: "👩‍🌾 Ethiopia Inaugurates Landmark Aysha-II Wind Power Project",
-    link: "content/news.html#wind-power-project"
-  },
-  {
-    headline: "☀️ Solar Mini-grids Projects in Ethiopia - Solar Financed Africa",
-    link: "content/news.html#solar-minigrids"
-  },
-  {
-    headline: "🔥 Clean Cooking Alternative Financing Project launched in Addis Ababa",
-    link: "content/news.html#clean-cooking-funding"
-  }
-];
+    {
+      headline: "🌍 Ethiopia wins bid to host Cop32 in 2027, edging out Nigeria",
+      link: "content/news.html#cop32-finance"
+    },
+    {
+      headline: "🌱 Ethiopia's Green Legacy Initiative surpasses 50 billion tree planting milestone",
+      link: "content/news.html#green-legacy-50b"
+    },
+    {
+      headline: "⚡ Breakthrough Reduces Harmful Emissions from Hydrogen Engines",
+      link: "content/news.html#hydrogen-breakthrough"
+    },
+    {
+      headline: "👩‍🌾 Ethiopia Inaugurates Landmark Aysha-II Wind Power Project",
+      link: "content/news.html#wind-power-project"
+    },
+    {
+      headline: "☀️ Solar Mini-grids Projects in Ethiopia - Solar Financed Africa",
+      link: "content/news.html#solar-minigrids"
+    },
+    {
+      headline: "🔥 Clean Cooking Alternative Financing Project launched in Addis Ababa",
+      link: "content/news.html#clean-cooking-funding"
+    }
+  ];
 
   let currentNewsIndex = 0;
   const newsLink = document.getElementById('dynamicNewsLink');
@@ -2574,10 +2559,10 @@
     }, 300);
   }
 
-  newsLink.style.transition = 'opacity 0.3s ease'
+  newsLink.style.transition = 'opacity 0.3s ease';
   setInterval(rotateNews, 8000);  
 
-  // Countdown to March 17, 2026
+  // ===== COUNTDOWN TIMER =====
   const eventDate = new Date('March 17, 2026 00:00:00').getTime();
   
   function updateCountdown() {
@@ -2597,8 +2582,7 @@
   
   updateCountdown();
   setInterval(updateCountdown, 1000);
-  
 </script>
-
+  
 </body>
 </html>
