@@ -899,10 +899,24 @@
     }
 
     .participants-section.active .participants-content {
-      max-height: 3000px; /* Large enough for many participants */
+      max-height: 10000px; /* Much larger for mobile */
       padding: 30px;
+      overflow-y: auto; /* Enable scroll if content exceeds */
     }
 
+        @media (max-width: 480px) {
+      .participant-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      
+      .participants-section.active .participants-content {
+        max-height: none;
+        overflow-y: visible;
+        padding: 20px 15px;
+      }
+    }
+    
     .participant-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
