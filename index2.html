@@ -2373,12 +2373,21 @@
 
   // ===== MARKDOWN TOGGLE FUNCTION =====
   function toggleMarkdown(sectionId) {
-    // If no sectionId provided, default to 'markdown-section' (for backward compatibility)
     const targetId = sectionId || 'markdown-section';
     const section = document.getElementById(targetId);
     
-    if (section) {
-      section.classList.toggle('active');
+    if (!section) return;
+    
+    const isActive = section.classList.contains('active');
+    
+    // Close all markdown sections (accordion behavior)
+    document.querySelectorAll('.markdown-section').forEach(s => {
+      s.classList.remove('active');
+    });
+    
+    // Toggle the clicked section
+    if (!isActive) {
+      section.classList.add('active');
     }
   }
 
