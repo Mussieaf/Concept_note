@@ -2902,25 +2902,24 @@
 
     // ===== DYNAMIC COUNTER ANIMATION =====
   function animateCounters() {
-    const counters = document.querySelectorAll('.stat-number[data-target]');
+    const counters = document.querySelectorAll('.counter[data-target]');
     
     counters.forEach(counter => {
       const target = parseInt(counter.getAttribute('data-target'));
-      const duration = 2000; // 2 seconds
-      const step = target / (duration / 16); // 60fps
+      const duration = 2000;
+      const step = target / (duration / 16);
       let current = 0;
       
       const updateCounter = () => {
         current += step;
         if (current < target) {
-          counter.innerHTML = Math.floor(current) + counter.innerHTML.replace(/[0-9]+/, '');
+          counter.textContent = Math.floor(current);
           requestAnimationFrame(updateCounter);
         } else {
-          counter.innerHTML = target + counter.innerHTML.replace(/[0-9]+/, '');
+          counter.textContent = target;
         }
       };
       
-      // Start animation when element is in view
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -2934,8 +2933,6 @@
     });
   }
 
-  // Initialize counters on page load
-  document.addEventListener('DOMContentLoaded', animateCounters);
   
 </script>
   
