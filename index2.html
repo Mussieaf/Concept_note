@@ -1712,6 +1712,135 @@
       color: #888;
       font-size: 12px;
     }
+
+        /* ===== DYNAMIC STATS INFOGRAPHICS ===== */
+    .stats-showcase {
+      background: white;
+      border-radius: 20px;
+      padding: 40px 30px;
+      margin: 30px 0;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+      border: 1px solid rgba(46,139,87,0.1);
+    }
+
+    .stats-header {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .stats-header h2 {
+      color: #333;
+      font-size: 28px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 0;
+    }
+
+    .stats-header span {
+      color: var(--green);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 30px;
+      justify-items: center;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .stat-item:hover {
+      transform: translateY(-8px);
+    }
+
+    .stat-icon {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      border-radius: 50%;
+      background: rgba(46,139,87,0.05);
+      transition: all 0.3s ease;
+    }
+
+    .stat-item:hover .stat-icon {
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    /* Icon-specific colors */
+    .stat-delegates .stat-icon { color: #c0392b; background: rgba(192,57,43,0.08); }
+    .stat-investment .stat-icon { color: var(--green); background: rgba(46,139,87,0.08); }
+    .stat-projects .stat-icon { color: #3498db; background: rgba(52,152,219,0.08); }
+    .stat-investors .stat-icon { color: #8e44ad; background: rgba(142,68,173,0.08); }
+    .stat-countries .stat-icon { color: #f39c12; background: rgba(243,156,18,0.08); }
+
+    .stat-number {
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 8px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .stat-delegates .stat-number { color: #c0392b; }
+    .stat-investment .stat-number { color: var(--green); }
+    .stat-projects .stat-number { color: #3498db; }
+    .stat-investors .stat-number { color: #8e44ad; }
+    .stat-countries .stat-number { color: #f39c12; }
+
+    .stat-label {
+      color: #666;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      line-height: 1.4;
+    }
+
+    .stat-suffix {
+      font-size: 24px;
+      font-weight: 600;
+      vertical-align: super;
+    }
+
+    @media (max-width: 768px) {
+      .stats-showcase {
+        padding: 30px 20px;
+      }
+      .stats-header h2 {
+        font-size: 22px;
+      }
+      .stat-number {
+        font-size: 32px;
+      }
+      .stat-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 32px;
+      }
+      .stats-grid {
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+      .stat-item {
+        padding: 15px 10px;
+      }
+    }
     
   </style>
 </head>
@@ -1738,6 +1867,7 @@
       <button class="nav-link" onclick="toggleDropdown('nav-about')">About ▼</button>
       <ul class="dropdown">
         <li><a href="#news" onclick="closeAllMenus()">Latest News</a></li>
+        <li><a href="#stats" onclick="closeAllMenus()">Forum Statistics</a></li>
         <li><a href="#objectives" onclick="closeAllMenus()">Forum Objectives</a></li>
         <li><a href="#AFLIERPA" onclick="closeAllMenus()">Forum Concise Overview</a></li>
         <li><a href="#md-content" onclick="closeAllMenus()">Forum Latest Update</a></li>
@@ -1888,6 +2018,46 @@
           </div>
         </div>
       </div>  
+
+    <!-- DYNAMIC STATS INFOGRAPHICS SECTION -->
+    <div class="stats-showcase" id="stats">
+      <div class="stats-header">
+        <h2>What to <span>Expect</span></h2>
+      </div>
+      <div class="stats-grid">
+        
+        <div class="stat-item stat-delegates">
+          <div class="stat-icon">👥</div>
+          <div class="stat-number" data-target="580">0<span class="stat-suffix">+</span></div>
+          <div class="stat-label">Confirmed<br>Delegates</div>
+        </div>
+
+        <div class="stat-item stat-investment">
+          <div class="stat-icon">💰</div>
+          <div class="stat-number" data-target="5">$<span class="counter" data-target="5">0</span><span class="stat-suffix">Bn</span></div>
+          <div class="stat-label">Investment<br>Pipeline</div>
+        </div>
+
+        <div class="stat-item stat-projects">
+          <div class="stat-icon">📋</div>
+          <div class="stat-number" data-target="40">0<span class="stat-suffix">+</span></div>
+          <div class="stat-label">Projects to<br>be Matched</div>
+        </div>
+
+        <div class="stat-item stat-investors">
+          <div class="stat-icon">🐷</div>
+          <div class="stat-number" data-target="150">0<span class="stat-suffix">+</span></div>
+          <div class="stat-label">Confirmed<br>Investors</div>
+        </div>
+
+        <div class="stat-item stat-countries">
+          <div class="stat-icon">🌍</div>
+          <div class="stat-number" data-target="45">0</div>
+          <div class="stat-label">Participating<br>Countries</div>
+        </div>
+
+      </div>
+    </div>
   </div>  
   
   <div class="date-location"><span>📅</span> March 17-19, 2026 | The National Palace | Addis Ababa, Ethiopia</div>
@@ -2729,6 +2899,44 @@
   
   updateCountdown();
   setInterval(updateCountdown, 1000);
+
+    // ===== DYNAMIC COUNTER ANIMATION =====
+  function animateCounters() {
+    const counters = document.querySelectorAll('.stat-number[data-target]');
+    
+    counters.forEach(counter => {
+      const target = parseInt(counter.getAttribute('data-target'));
+      const duration = 2000; // 2 seconds
+      const step = target / (duration / 16); // 60fps
+      let current = 0;
+      
+      const updateCounter = () => {
+        current += step;
+        if (current < target) {
+          counter.innerHTML = Math.floor(current) + counter.innerHTML.replace(/[0-9]+/, '');
+          requestAnimationFrame(updateCounter);
+        } else {
+          counter.innerHTML = target + counter.innerHTML.replace(/[0-9]+/, '');
+        }
+      };
+      
+      // Start animation when element is in view
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            updateCounter();
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      observer.observe(counter);
+    });
+  }
+
+  // Initialize counters on page load
+  document.addEventListener('DOMContentLoaded', animateCounters);
+  
 </script>
   
 </body>
