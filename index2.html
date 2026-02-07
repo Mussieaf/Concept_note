@@ -1657,6 +1657,14 @@
       }
     }
 
+      .stat-prefix, .stat-number, .stat-suffix {
+        font-size: 48px;
+        font-weight: 700;
+        color: var(--green);
+      }
+      .stat-prefix { color: #888; }
+      .stat-suffix { color: #888; font-size: 32px; }
+
   </style>
 </head>
 <body>
@@ -1847,7 +1855,7 @@
       
           <div class="stat-item">
             <span class="stat-icon">💰</span>
-            <span class="stat-number" data-target="50" data-prefix="$" data-suffix="Bn">$0<span>Bn</span></span>
+            <span class="stat-prefix">$</span><span class="stat-number" data-target="50">0</span><span class="stat-suffix">Bn</span>
             <span class="stat-label">Investment Pipeline</span>
           </div>
       
