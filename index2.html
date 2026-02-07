@@ -20,27 +20,71 @@
       --error: #e74c3c;
     }
 
-    /* Alternative: Max-width centering for larger screens */
-    @media (min-width: 1024px) {
+    /* ===== CONTAINER MARGINS FOR ALL DEVICES ===== */
+    body {
+      /* Add horizontal padding to create margins on all screen sizes */
+      padding: 0 15px; /* Mobile default: 15px left/right margins */
+    }
+    
+    @media (min-width: 768px) {
+      /* Tablets: wider margins */
       body {
-        padding: 0;
+        padding: 0 40px;
       }
-      
-      .container,
-      .main-container,
-      .content {
-        max-width: 900px;
-        margin-left: auto;
-        margin-right: auto;
+    }
+    
+    @media (min-width: 1024px) {
+      /* Laptops: standard margins */
+      body {
+        padding: 0 80px;
       }
-      
-      /* Full-width sections that should extend to edges */
-      .navbar,
-      .hero-slider,
-      .news-ticker,
-      .event-logo-section {
-        max-width: 100%;
+    }
+    
+    @media (min-width: 1400px) {
+      /* Large desktops: max-width constraint with auto margins */
+      body {
+        padding: 0 120px;
       }
+    }
+    
+    /* Ensure the navbar stays full-width but content respects margins */
+    .navbar {
+      /* Keep navbar fixed to viewport edges, not body padding */
+      left: 0;
+      right: 0;
+      width: 100%;
+    }
+    
+    /* Container adjustments to work with body padding */
+    .container {
+      /* Remove max-width constraint on mobile to use full available width */
+      max-width: 100%;
+      width: 100%;
+    }
+    
+    @media (min-width: 1024px) {
+      .container {
+        max-width: 900px; /* Slightly reduced from 800px to account for padding */
+      }
+    }
+    
+    @media (min-width: 1400px) {
+      .container {
+        max-width: 1000px;
+      }
+    }
+    
+    /* Ensure full-width sections stay within bounds */
+    .hero-slider,
+    .news-ticker,
+    .event-logo-section,
+    .white-strip {
+      width: 100%;
+      max-width: 100%;
+      /* Negative margin to extend to edges if needed, 
+         or keep contained based on your design preference */
+      margin-left: 0;
+      margin-right: 0;
     }
     
     /* ===== EVENT COUNTDOWN CALENDAR - COMPACT ===== */
