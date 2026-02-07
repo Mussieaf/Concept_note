@@ -1516,7 +1516,7 @@
       text-align: center;
     }
 
-        .downloads-grid {
+    .downloads-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       gap: 15px;
@@ -1658,12 +1658,19 @@
         color: var(--white);
       }
     }
-      .stat-prefix, .stat-suffix {
+      .stat-prefix, {
         font-size: 18px;
         font-weight: 500;
         color: var(--white);
       }
-
+    
+      .stat-suffix {
+        font-size: 32px;
+        font-weight: 700;
+        color: var(--green);
+        margin-left: 2px;
+    }
+    
   </style>
 </head>
 <body>
@@ -1843,36 +1850,36 @@
 
       <!-- DYNAMIC STATS INFOGRAPHICS SECTION -->
       <div class="stats-section" id="stats">
-        <div class="stats-title">📊 Forum Impact at a Glance</div>
+        <div class="stats-title">📊 <strong>Forum Impact at a Glance</strong></div>
         <div class="stats-grid">
           
           <div class="stat-item">
             <span class="stat-icon">📁</span>
-            <span class="stat-number" data-target="14">0<span>+</span></span>
+            <span class="stat-number" data-target="14">0</span>
             <span class="stat-label">Projects</span>
           </div>
       
           <div class="stat-item">
             <span class="stat-icon">💰</span>
-            <span class="stat-prefix">$</span><span class="stat-number" data-target="50">0</span><span class="stat-suffix">B</span>
+            <span class="stat-prefix">$</span><span class="stat-number" data-target="50">0</span><span class="stat-suffix">Bn</span>
             <span class="stat-label">Investment Pipeline</span>
           </div>
       
           <div class="stat-item">
             <span class="stat-icon">👥</span>
-            <span class="stat-number" data-target="50">0<span>+</span></span>
+            <span class="stat-number" data-target="50">0</span><span class="stat-suffix">+</span>
             <span class="stat-label">Confirmed Participants</span>
           </div>
       
           <div class="stat-item">
             <span class="stat-icon">🏦</span>
-            <span class="stat-number" data-target="4">0<span>+</span></span>
+            <span class="stat-number" data-target="4">0</span>
             <span class="stat-label">Investors</span>
           </div>
       
           <div class="stat-item">
             <span class="stat-icon">🌍</span>
-            <span class="stat-number" data-target="6">0<span>+</span></span>
+            <span class="stat-number" data-target="6">0</span><span class="stat-suffix">+</span>
             <span class="stat-label">Participating Countries</span>
           </div>
       
@@ -2769,6 +2776,17 @@
         const statsSection = document.getElementById('stats');
         if (statsSection) statsObserver.observe(statsSection);
       });
+  
+      // Only add + suffix for participants and countries
+      const statsWithPlus = ['delegates', 'countries']; // identifiers
+        
+      function animateNumber(element) {
+        const target = parseInt(element.getAttribute('data-target'));
+        const type = element.getAttribute('data-type'); // 'delegates', 'investment', etc.
+        const suffix = statsWithPlus.includes(type) ? '+' : '';
+          
+        // animate and append suffix only for appropriate types
+        }
 
 </script>
   
