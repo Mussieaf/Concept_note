@@ -1684,7 +1684,37 @@
         font-size: 12px;
       }
     }
-    
+
+      /* Performance optimizations */
+      img {
+        content-visibility: auto;
+      }
+      
+      /* Reduce paint complexity */
+      .participant-card,
+      .tech-item,
+      .stat-item,
+      .download-card {
+        will-change: transform;
+        contain: layout style paint;
+      }
+      
+      /* Optimize animations */
+      .slider-container {
+        will-change: transform;
+      }
+      
+      /* Reduce motion for accessibility and performance */
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+  
   </style>
 </head>
 <body>
@@ -1944,7 +1974,7 @@
     <!-- VIDEO SHOWCASE SECTION -->
     <div class="video-showcase" id="AFLIERPA">
       <div class="video-container">
-        <video controls poster="background-images/AFLIERPA-2026-Overview.jpg">
+        <video controls poster="background-images/AFLIERPA-2026-Overview.jpg" preload="none">
           <source src="video/AFLIERPA-2026.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
