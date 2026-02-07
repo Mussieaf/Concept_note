@@ -20,6 +20,29 @@
       --error: #e74c3c;
     }
 
+    /* Alternative: Max-width centering for larger screens */
+    @media (min-width: 1024px) {
+      body {
+        padding: 0;
+      }
+      
+      .container,
+      .main-container,
+      .content {
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      /* Full-width sections that should extend to edges */
+      .navbar,
+      .hero-slider,
+      .news-ticker,
+      .event-logo-section {
+        max-width: 100%;
+      }
+    }
+    
     /* ===== EVENT COUNTDOWN CALENDAR - COMPACT ===== */
     .countdown-section {
       background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
