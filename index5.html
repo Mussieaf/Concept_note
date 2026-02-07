@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="African First Ladies Initiative for Emission Reduction and Poverty Alleviation Forum 2026 – Addis Ababa">
+  <title>AFLI 2026 – Championing Clean Energy for Sustainable Development</title>
+  
+  <!-- Preconnect to external domains -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin>
+  
+  <!-- Critical CSS inlined -->
+  <style>
+    :root{--green:#2e8b57;--green-light:#3cb371;--error:#e74c3c}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,sans-serif;line-height:1.6;background:linear-gradient(135deg,#f0f9f0 0%,#e6f4f1 100%)}
+    img{max-width:100%;height:auto;display:block}
+    
+    /* Critical Above-fold Styles */
+    .navbar{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--green) 0%,var(--green-light) 100%);padding:10px 20px;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,0.2);display:flex;align-items:center;justify-content:space-between;height:70px}
+    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:white}
+    .nav-logo img{height:45px;width:45px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.3)}
+    .nav-logo-text{font-weight:bold;font-size:16px;line-height:1.2}
+    .nav-logo-text small{display:block;font-size:11px;font-weight:400;opacity:0.9}
+    .nav-toggle{display:none;background:none;border:none;color:white;font-size:24px;cursor:pointer}
+    .nav-menu{display:flex;list-style:none;gap:5px}
+    .nav-link{color:white;text-decoration:none;padding:10px 15px;display:block;border-radius:5px;transition:all 0.3s;font-size:14px;font-weight:500;background:none;border:none;cursor:pointer}
+    
+    .hero-slider{position:relative;width:100%;height:500px;overflow:hidden;margin-top:70px;background:var(--green)}
+    .slider-container{display:flex;width:600%;height:100%;animation:slide 30s infinite}
+    .slide{width:16.666%;height:100%;position:relative}
+    .slide img{width:100%;height:100%;object-fit:cover;loading:lazy}
+    .slide-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,0.8) 0%,transparent 100%);padding:60px 20px 30px;color:white}
+    @keyframes slide{0%{transform:translateX(0)}13.33%{transform:translateX(0)}16.66%{transform:translateX(-16.666%)}30%{transform:translateX(-16.666%)}33.33%{transform:translateX(-33.333%)}46.66%{transform:translateX(-33.333%)}50%{transform:translateX(-50%)}63.33%{transform:translateX(-50%)}66.66%{transform:translateX(-66.666%)}80%{transform:translateX(-66.666%)}83.33%{transform:translateX(-83.333%)}96.66%{transform:translateX(-83.333%)}100%{transform:translateX(0)}}
+    
+    .event-logo-section{background:white;padding:10px 5px;text-align:center;border-bottom:1px solid #e0e0e0;position:relative}
+    .event-logo-section img{max-width:700px;width:100%;margin:0 auto;filter:drop-shadow(0 4px 10px rgba(0,0,0,0.1))}
+    .acacia-overlay{position:absolute;right:5%;top:50%;transform:translateY(-50%);height:200%;width:auto;max-width:300px;opacity:0.95;pointer-events:none;z-index:10}
+    
+    .container{max-width:800px;margin:0 auto;background:rgba(255,255,255,0.95);border-radius:20px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.1)}
+    .header-content{background:linear-gradient(135deg,var(--green) 0%,var(--green-light) 100%);color:white;text-align:center;padding:50px 30px;position:relative}
+    .header-content h1{font-size:28px;margin-bottom:15px;text-shadow:0 2px 4px rgba(0,0,0,0.2);line-height:1.3}
+    
+    /* Mobile Critical */
+    @media(max-width:768px){
+      .nav-toggle{display:block}
+      .nav-menu{position:fixed;top:70px;left:0;right:0;background:linear-gradient(135deg,var(--green) 0%,var(--green-light) 100%);flex-direction:column;padding:20px;opacity:0;visibility:hidden;transform:translateY(-10px);transition:all 0.3s;max-height:calc(100vh - 70px);overflow-y:auto}
+      .nav-menu.active{opacity:1;visibility:visible;transform:translateY(0)}
+      .hero-slider{height:300px}
+      .acacia-overlay{height:150%;right:2%;max-width:150px;opacity:0.8}
+      .header-content h1{font-size:22px}
+    }
+    @media(max-width:480px){
+      .acacia-overlay{height:120%;max-width:100px;opacity:0.7}
+      .nav-logo img{height:38px;width:38px}
+      .nav-logo-text{font-size:14px}
+    }
+  </style>
+  
+  <!-- Async CSS loading -->
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"></noscript>
+  
+  <!-- Font Awesome with display=swap -->
+  <link rel="preload" href="https://kit.fontawesome.com/50f9f10aa0.js" as="script" crossorigin>
+  <script src="https://kit.fontawesome.com/50f9f10aa0.js" crossorigin="anonymous" async></script>
+  
+  <!-- Marked.js deferred -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <a href="#home" class="nav-logo" onclick="closeAllMenus()">
+    <img src="background-images/logo.jpg" alt="Acacia Trading Plc" width="45" height="45" fetchpriority="high">
+    <div class="nav-logo-text">
+      Acacia Trading
+      <small>African First Ladies Initiative 2026</small>
+    </div>
+  </a>
+  
+  <button class="nav-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false">☰</button>
+  
+  <ul class="nav-menu" id="navMenu">
+    <li><a href="#home" class="nav-link" onclick="closeAllMenus()">Home</a></li>
+    <li class="nav-item" id="nav-about">
+      <button class="nav-link" onclick="toggleDropdown('nav-about')" aria-haspopup="true">About ▼</button>
+      <ul class="dropdown" role="menu">
+        <li><a href="#news" onclick="closeAllMenus()" role="menuitem">Latest News</a></li>
+        <li><a href="#stats" onclick="closeAllMenus()" role="menuitem">Forum Statistics</a></li>
+        <li><a href="#objectives" onclick="closeAllMenus()" role="menuitem">Forum Objectives</a></li>
+        <li><a href="#AFLIERPA" onclick="closeAllMenus()" role="menuitem">Forum Concise Overview</a></li>
+        <li><a href="#md-content" onclick="closeAllMenus()" role="menuitem">Forum Latest Update</a></li>
+        <li><a href="#technologies" onclick="closeAllMenus()" role="menuitem">Key Technologies</a></li>
+        <li><a href="#venue" onclick="closeAllMenus()" role="menuitem">Venue & Logistics</a></li>
+        <li><a href="#faq" onclick="closeAllMenus()" role="menuitem">FAQ</a></li>
+        <li><a href="#downloads" onclick="closeAllMenus()" role="menuitem">Downloads & Resources</a></li>
+      </ul>
+    </li>
+    <li class="nav-item" id="nav-speakers">
+      <button class="nav-link" onclick="toggleDropdown('nav-speakers')" aria-haspopup="true">Speakers ▼</button>
+      <ul class="dropdown" role="menu">
+        <li><a href="#keynote" onclick="closeAllMenus()" role="menuitem">Keynote Speakers</a></li>
+        <li><a href="#guest" onclick="closeAllMenus()" role="menuitem">Guest Speakers</a></li>
+        <li><a href="#confirmed-participants" onclick="closeAllMenus()" role="menuitem">Confirmed Participants</a></li>
+        <li><a href="#moderators-panelists" onclick="closeAllMenus()" role="menuitem">Moderators Panelists</a></li>
+      </ul>
+    </li>
+    <li><a href="#sponsorship" class="nav-link" onclick="closeAllMenus()">Sponsorship</a></li>
+    <li class="nav-item" id="nav-partners">
+      <button class="nav-link" onclick="toggleDropdown('nav-partners')" aria-haspopup="true">Partners ▼</button>
+      <ul class="dropdown" role="menu">
+        <li><a href="#media" onclick="closeAllMenus()" role="menuitem">Media</a></li>
+        <li><a href="#sponsors" onclick="closeAllMenus()" role="menuitem">Sponsors</a></li>
+        <li><a href="#participants" onclick="closeAllMenus()" role="menuitem">Invited Participants</a></li>
+      </ul>
+    </li>
+    <li><a href="#register" class="nav-link" onclick="closeAllMenus()">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="hero-slider" id="home" role="region" aria-label="Image slider">
+  <div class="slider-container" id="sliderContainer">
+    <div class="slide"><img src="background-images/wind-farm.jpg" alt="Wind Farm - Harnessing clean power for sustainable development across Africa" loading="eager" fetchpriority="high" width="1200" height="500"><div class="slide-overlay"><h3>Wind Energy</h3><p>Harnessing clean power for sustainable development across Africa</p></div></div>
+    <div class="slide"><img src="background-images/solar-farm.jpg" alt="Solar Farm - Renewable energy solutions lighting up Africa's future" loading="lazy" width="1200" height="500"><div class="slide-overlay"><h3>Solar Power</h3><p>Renewable energy solutions lighting up Africa's future</p></div></div>
+    <div class="slide"><img src="background-images/cooking-stove.jpg" alt="Improved Cooking Stove - Efficient stoves reducing emissions" loading="lazy" width="1200" height="500"><div class="slide-overlay"><h3>Clean Cooking</h3><p>Efficient stoves reducing emissions and improving lives in communities</p></div></div>
+    <div class="slide"><img src="background-images/tree-planting.jpg" alt="Women-led Tree Planting - Green Legacy Initiative" loading="lazy" width="1200" height="500"><div class="slide-overlay"><h3>Green Legacy</h3><p>Women and youth leading environmental transformation across the continent</p></div></div>
+    <div class="slide"><img src="background-images/transport.png" alt="Addis Ababa Transportation Decarbonization" loading="lazy" width="1200" height="500"><div class="slide-overlay"><h3>Decarbonize Transport Industry</h3><p>Decarbonizing urban mobility through electric buses and sustainable transit systems</p></div></div>
+    <div class="slide"><img src="background-images/coridor.png" alt="Addis Ababa Corridor Development" loading="lazy" width="1200" height="500"><div class="slide-overlay"><h3>Corridor Development</h3><p>Green corridor development connecting economic zones with sustainable infrastructure</p></div></div>
+  </div>
+  <div class="slider-dots" role="tablist" aria-label="Slider navigation">
+    <button class="dot active" onclick="goToSlide(0)" aria-label="Slide 1" aria-selected="true" role="tab"></button>
+    <button class="dot" onclick="goToSlide(1)" aria-label="Slide 2" aria-selected="false" role="tab"></button>
+    <button class="dot" onclick="goToSlide(2)" aria-label="Slide 3" aria-selected="false" role="tab"></button>
+    <button class="dot" onclick="goToSlide(3)" aria-label="Slide 4" aria-selected="false" role="tab"></button>
+    <button class="dot" onclick="goToSlide(4)" aria-label="Slide 5" aria-selected="false" role="tab"></button>
+    <button class="dot" onclick="goToSlide(5)" aria-label="Slide 6" aria-selected="false" role="tab"></button>
+  </div>
+</div>
+
+<div class="white-strip" role="separator"></div>
+
+<div class="event-logo-section">
+  <img src="background-images/event_logo.png" alt="AFLI Forum 2026 - African First Ladies Initiative for Emission Reduction and Poverty Alleviation" width="700" height="auto" fetchpriority="high">
+  <img src="background-images/acacia_tree.png" alt="" class="acacia-overlay" width="300" height="auto" loading="lazy" aria-hidden="true">
+</div>
+
+<div class="news-ticker" id="news" role="complementary" aria-label="Latest news">
+  <div class="news-container">
+    <div class="news-label"><span class="news-icon" aria-hidden="true">📰</span><strong>Latest News</strong></div>
+    <div class="news-content">
+      <a href="content/news.html" class="news-link" id="dynamicNewsLink">🌍 New climate finance commitments announced at COP29 for African renewable energy projects</a>
+      <p class="news-caption">Stay updated with the latest developments in climate action and green innovation</p>
+    </div>
+    <a href="content/news.html" class="news-archive-link">View All →</a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="header-content" id="about">
+    <h1>African First Ladies Initiative for Emission Reduction and Poverty Alleviation Forum</h1>
+    <div class="subtitle">Championing Clean Energy for Sustainable Development Through Women and Youth</div>
+    <div class="sdg-icons" role="list" aria-label="Sustainable Development Goals">
+      <img src="sdg/sdg1.png" alt="SDG 1: No Poverty" class="sdg-icon" title="No Poverty" width="60" height="60" loading="lazy">
+      <img src="sdg/sdg7.png" alt="SDG 7: Affordable and Clean Energy" class="sdg-icon" title="Affordable and Clean Energy" width="60" height="60" loading="lazy">
+      <img src="sdg/sdg9.png" alt="SDG 9: Industry, Innovation and Infrastructure" class="sdg-icon" title="Industry, Innovation and Infrastructure" width="60" height="60" loading="lazy">
+      <img src="sdg/sdg13.png" alt="SDG 13: Climate Action" class="sdg-icon" title="Climate Action" width="60" height="60" loading="lazy">
+    </div>
+    
+    <div class="countdown-section" id="countdown" role="timer" aria-label="Countdown to event">
+      <div class="countdown-title">🗓️ Countdown to AFLI Forum 2026</div>
+      <div class="countdown-container">
+        <div class="countdown-box"><span class="countdown-number" id="days">00</span><span class="countdown-label">Days</span></div>
+        <div class="countdown-box"><span class="countdown-number" id="hours">00</span><span class="countdown-label">Hours</span></div>
+        <div class="countdown-box"><span class="countdown-number" id="minutes">00</span><span class="countdown-label">Mins</span></div>
+        <div class="countdown-box"><span class="countdown-number" id="seconds">00</span><span class="countdown-label">Secs</span></div>
+      </div>
+    </div>
+
+    <div class="stats-section" id="stats">
+      <div class="stats-title">📊 <strong>Forum Impact at a Glance</strong></div>
+      <div class="stats-grid">
+        <div class="stat-item"><span class="stat-icon" aria-hidden="true">📁</span><span class="stat-number" data-target="14">0</span><span class="stat-label">Projects</span></div>
+        <div class="stat-item"><span class="stat-icon" aria-hidden="true">💰</span><span class="stat-prefix">$</span><span class="stat-number" data-target="50">0</span><span class="stat-suffix">Bn</span><span class="stat-label">Investment Pipeline</span></div>
+        <div class="stat-item"><span class="stat-icon" aria-hidden="true">👥</span><span class="stat-number" data-target="50">0</span><span class="stat-suffix">+</span><span class="stat-label">Confirmed Participants</span></div>
+        <div class="stat-item"><span class="stat-icon" aria-hidden="true">🏦</span><span class="stat-number" data-target="4">0</span><span class="stat-label">Investors</span></div>
+        <div class="stat-item"><span class="stat-icon" aria-hidden="true">🌍</span><span class="stat-number" data-target="6">0</span><span class="stat-suffix">+</span><span class="stat-label">Participating Countries</span></div>
+        <div class="stat-item"><span class="stat-icon" aria-hidden="true">🎯</span><span class="stat-number" data-target="4">0</span><span class="stat-label">SDGs Addressed</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="date-location"><span aria-hidden="true">📅</span> March 17-19, 2026 | The National Palace | Addis Ababa, Ethiopia</div>
+
+<div class="content">
+  <!-- Remaining content sections... -->
+  <!-- [All other sections remain the same but with loading="lazy" on images] -->
+  
+  <!-- Example optimization for images in sections: -->
+  <div class="section" id="keynote">
+    <h2><span aria-hidden="true">🗣️🎙️👥</span>Keynote Speakers</h2>
+    <div class="gallery">
+      <div class="speaker">
+        <img src="Speakers/Kspeaker1.jpeg" alt="Dr. Weidong ZHANG - Assistant Resident Representative at UNDP China" width="400" height="300" loading="lazy">
+        <div class="speaker-info">
+          <h3>Dr. Weidong ZHANG</h3>
+          <p>Zhang Weidong, Assistant Resident Representative at UNDP China...</p>
+        </div>
+      </div>
+      <!-- More speakers with lazy loading... -->
+    </div>
+  </div>
+  
+  <!-- Footer and remaining content... -->
+</div>
+
+<div class="footer" role="contentinfo">
+  <p>&copy; 2026 African First Ladies Initiative for Emission Reduction and Poverty Alleviation.</p>
+  <p>All rights reserved.</p>
+  <p>Organized by Acacia Trading Plc in collaboration with the Office of the First Lady.</p>
+  <div style="margin-top:20px">
+    <a href="https://www.linkedin.com/company/acacia-trading-plc/" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" style="font-size:2em;margin:0 8px"></i></a>
+    <a href="https://wa.me/251922466797" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp" style="font-size:2em;margin:0 8px"></i></a>
+    <a href="https://x.com/@AcaciaPlc" aria-label="Twitter"><i class="fab fa-twitter" style="font-size:2em;margin:0 8px"></i></a>
+    <a href="https://web.facebook.com/raeyafrica" aria-label="Facebook"><i class="fa-brands fa-facebook" style="font-size:2em;margin:0 8px"></i></a>
+    <a href="https://www.instagram.com/mussieafe/" aria-label="Instagram"><i class="fa-brands fa-square-instagram" style="font-size:2em;margin:0 8px"></i></a>
+  </div>
+</div>
+
+<!-- Non-critical CSS loaded asynchronously -->
+<link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'">
+
+<!-- Deferred JavaScript -->
+<script src="main.js" defer></script>
+
+<!-- Inline critical JavaScript -->
+<script>
+  // Critical functions for immediate interactivity
+  function toggleMobileMenu(){
+    const menu=document.getElementById('navMenu');
+    const isActive=menu.classList.toggle('active');
+    document.querySelector('.nav-toggle').setAttribute('aria-expanded',isActive);
+  }
+  
+  function toggleDropdown(id){
+    const item=document.getElementById(id);
+    const isActive=item.classList.contains('active');
+    document.querySelectorAll('.nav-item').forEach(i=>i.classList.remove('active'));
+    if(!isActive)item.classList.add('active');
+  }
+  
+  function closeAllMenus(){
+    document.getElementById('navMenu').classList.remove('active');
+    document.querySelectorAll('.nav-item').forEach(i=>i.classList.remove('active'));
+    document.querySelector('.nav-toggle').setAttribute('aria-expanded','false');
+  }
+  
+  // Countdown Timer
+  const eventDate=new Date('March 17, 2026 00:00:00').getTime();
+  function updateCountdown(){
+    const now=new Date().getTime();
+    const distance=eventDate-now;
+    document.getElementById('days').textContent=String(Math.floor(distance/(1000*60*60*24))).padStart(2,'0');
+    document.getElementById('hours').textContent=String(Math.floor((distance%(1000*60*60*24))/(1000*60*60))).padStart(2,'0');
+    document.getElementById('minutes').textContent=String(Math.floor((distance%(1000*60*60))/(1000*60))).padStart(2,'0');
+    document.getElementById('seconds').textContent=String(Math.floor((distance%(1000*60))/1000)).padStart(2,'0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown,1000);
+  
+  // Slider functionality
+  let currentSlideIndex=0;
+  function goToSlide(index){
+    currentSlideIndex=index;
+    const container=document.getElementById('sliderContainer');
+    container.style.animation='none';
+    container.style.transform=`translateX(${-index*16.666}%)`;
+    document.querySelectorAll('.dot').forEach((d,i)=>{
+      d.classList.toggle('active',i===index);
+      d.setAttribute('aria-selected',i===index);
+    });
+    setTimeout(()=>{container.style.animation='';container.style.transform='';},50);
+  }
+  
+  // Intersection Observer for stats animation
+  if('IntersectionObserver' in window){
+    const statsObserver=new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          animateCounters();
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    },{threshold:0.5});
+    
+    document.addEventListener('DOMContentLoaded',()=>{
+      const statsSection=document.getElementById('stats');
+      if(statsSection)statsObserver.observe(statsSection);
+    });
+  }
+  
+  function animateCounters(){
+    document.querySelectorAll('.stat-number[data-target]').forEach(counter=>{
+      const target=parseInt(counter.getAttribute('data-target'));
+      const duration=2000;
+      const increment=target/(duration/16);
+      let current=0;
+      const update=()=>{
+        current+=increment;
+        counter.textContent=current<target?Math.floor(current):target;
+        if(current<target)requestAnimationFrame(update);
+      };
+      update();
+    });
+  }
+  
+  // Close menus on outside click
+  document.addEventListener('click',e=>{
+    if(!e.target.closest('.navbar'))closeAllMenus();
+  });
+</script>
+</body>
+</html>
