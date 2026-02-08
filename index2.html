@@ -566,6 +566,36 @@
         font-size: 13px;
       }
     }
+
+      /* Hero Overlay Text Styles */
+      .hero-overlay-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: 'Brush Script MT', 'Lucida Handwriting', 'Segoe Script', cursive;
+        font-size: 5rem;
+        color: rgba(255, 255, 255, 0.85); /* High transparency */
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        z-index: 5;
+        pointer-events: none; /* Allows clicking through to slider */
+        white-space: nowrap;
+        text-align: center;
+        width: 100%;
+      }
+      
+      /* Responsive adjustments for the overlay text */
+      @media (max-width: 768px) {
+        .hero-overlay-text {
+          font-size: 2.5rem;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .hero-overlay-text {
+          font-size: 1.8rem;
+        }
+      }
     
     /* ===== MAIN CONTAINER ===== */
     .main-container {
@@ -1861,6 +1891,8 @@
 
 <!-- ===== HERO IMAGE SLIDER ===== -->
 <div class="hero-slider" id="home">
+  <!-- Hero Overlay Text -->
+  <div class="hero-overlay-text">Green Legacy Initiative</div>
   <div class="slider-container" id="sliderContainer">
     <div class="slide">
       <img src="background-images/wind-farm.jpg" alt="Wind Farm" decoding="async">
