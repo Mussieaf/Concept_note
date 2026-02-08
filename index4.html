@@ -1307,324 +1307,136 @@
 
 
 
-/* ===== INVITED PARTICIPANTS SECTION - VISUAL REDESIGN ===== */
-#participants {
-  margin: 40px auto;
-  padding: 0;
-}
-
-.participants-hero {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 0;
-  background: linear-gradient(135deg, #faf8f5 0%, #f5f0e8 100%);
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 20px 60px rgba(46, 139, 87, 0.15);
-  border: 1px solid rgba(46, 139, 87, 0.1);
-  position: relative;
-}
-
-/* Left side - Image */
-.participants-visual {
-  position: relative;
-  min-height: 500px;
-  overflow: hidden;
-}
-
-.participants-image-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  min-height: 500px;
-}
-
-.participants-main-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transition: transform 0.6s ease;
-}
-
-.participants-hero:hover .participants-main-image {
-  transform: scale(1.03);
-}
-
-.image-overlay-gradient {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to right,
-    transparent 0%,
-    transparent 60%,
-    rgba(250, 248, 245, 0.4) 80%,
-    rgba(250, 248, 245, 0.95) 100%
-  );
-  pointer-events: none;
-}
-
-.floating-badge {
-  position: absolute;
-  bottom: 30px;
-  left: 30px;
-  background: rgba(46, 139, 87, 0.95);
-  backdrop-filter: blur(10px);
-  padding: 12px 20px;
-  border-radius: 50px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  box-shadow: 0 8px 32px rgba(46, 139, 87, 0.3);
-  animation: float 3s ease-in-out infinite;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-}
-
-.badge-icon {
-  font-size: 20px;
-}
-
-.badge-text {
-  color: white;
-  font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 0.5px;
-}
-
-/* Right side - Content */
-.participants-content {
-  padding: 50px 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-  z-index: 2;
-}
-
-.section-header {
-  margin-bottom: 25px;
-}
-
-.section-header h2 {
-  color: var(--green);
-  font-size: 32px;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-weight: 700;
-  line-height: 1.2;
-}
-
-.header-icon {
-  font-size: 36px;
-  filter: drop-shadow(0 2px 4px rgba(46, 139, 87, 0.2));
-}
-
-.header-line {
-  width: 60px;
-  height: 4px;
-  background: linear-gradient(90deg, var(--green) 0%, var(--green-light) 100%);
-  border-radius: 2px;
-  margin-top: 15px;
-}
-
-.participants-lead {
-  font-size: 17px;
-  line-height: 1.7;
-  color: #555;
-  margin-bottom: 30px;
-  font-weight: 400;
-}
-
-/* Mini stats */
-.participants-stats {
-  display: flex;
-  gap: 25px;
-  margin-bottom: 35px;
-  padding: 20px 0;
-  border-top: 1px solid rgba(46, 139, 87, 0.1);
-  border-bottom: 1px solid rgba(46, 139, 87, 0.1);
-}
-
-.mini-stat {
-  text-align: center;
-}
-
-.mini-stat-number {
-  display: block;
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--green);
-  line-height: 1;
-  margin-bottom: 5px;
-  font-family: 'Segoe UI', sans-serif;
-}
-
-.mini-stat-label {
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #777;
-  font-weight: 600;
-}
-
-/* CTA */
-.cta-wrapper {
-  margin-top: 10px;
-}
-
-.participants-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
-  color: white;
-  padding: 16px 28px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 15px;
-  box-shadow: 0 8px 25px rgba(46, 139, 87, 0.3);
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-  position: relative;
-  overflow: hidden;
-}
-
-.participants-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  transition: left 0.5s ease;
-}
-
-.participants-button:hover::before {
-  left: 100%;
-}
-
-.participants-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(46, 139, 87, 0.4);
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-.btn-icon {
-  font-size: 18px;
-}
-
-.btn-text {
-  letter-spacing: 0.3px;
-}
-
-.btn-arrow {
-  transition: transform 0.3s ease;
-  font-size: 18px;
-}
-
-.participants-button:hover .btn-arrow {
-  transform: translateX(4px);
-}
-
-.cta-caption {
-  margin-top: 15px;
-  font-size: 13px;
-  color: #888;
-  font-style: italic;
-}
-
-/* Responsive Design */
-@media (max-width: 992px) {
-  .participants-hero {
-    grid-template-columns: 1fr;
+/* INVITED PARTICIPANTS SECTION SPECIFIC STYLES */
+  .invited-participants-showcase {
+    padding: 20px;
   }
-  
-  .participants-visual {
-    min-height: 300px;
+
+  .discussion-image-wrapper {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 25px rgba(46, 139, 87, 0.15);
   }
-  
-  .participants-image-container {
-    min-height: 300px;
+
+  .discussion-image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
   }
-  
+
+  .discussion-image-wrapper:hover img {
+    transform: scale(1.02);
+  }
+
   .image-overlay-gradient {
-    background: linear-gradient(
-      to bottom,
-      transparent 0%,
-      transparent 50%,
-      rgba(250, 248, 245, 0.8) 80%,
-      rgba(250, 248, 245, 0.98) 100%
-    );
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60%;
+    background: linear-gradient(to top, rgba(46, 139, 87, 0.9) 0%, rgba(60, 179, 113, 0.6) 50%, transparent 100%);
+    pointer-events: none;
   }
-  
-  .floating-badge {
-    bottom: 20px;
-    left: 20px;
-    padding: 10px 16px;
-  }
-  
-  .participants-content {
-    padding: 35px 30px;
+
+  .discussion-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 30px;
+    color: white;
     text-align: center;
   }
-  
-  .section-header h2 {
-    justify-content: center;
-    font-size: 28px;
-  }
-  
-  .header-line {
-    margin: 15px auto 0;
-  }
-  
-  .participants-stats {
-    justify-content: center;
-  }
-}
 
-@media (max-width: 576px) {
-  .participants-content {
-    padding: 25px 20px;
-  }
-  
-  .section-header h2 {
+  .discussion-caption h3 {
     font-size: 24px;
-    flex-direction: column;
-    gap: 8px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   }
-  
-  .participants-stats {
-    flex-direction: column;
-    gap: 15px;
+
+  .discussion-caption p {
+    font-size: 15px;
+    opacity: 0.95;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
   }
-  
-  .mini-stat {
-    display: flex;
+
+  .participants-intro-text {
+    text-align: center;
+    padding: 10px 20px;
+  }
+
+  .participants-intro-text p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 auto 25px auto;
+  }
+
+  .participants-cta {
+    margin-top: 20px;
+  }
+
+  .participants-cta .button {
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
     gap: 8px;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(46, 139, 87, 0.3);
   }
-  
-  .mini-stat-number {
-    font-size: 24px;
-  }
-  
-  .participants-button {
-    width: 100%;
-    justify-content: center;
-    padding: 14px 20px;
-  }
-}
 
+  .participants-cta .button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(46, 139, 87, 0.4);
+  }
+
+  @media (max-width: 768px) {
+    .invited-participants-showcase {
+      padding: 15px;
+    }
+
+    .discussion-caption {
+      padding: 20px;
+    }
+
+    .discussion-caption h3 {
+      font-size: 20px;
+    }
+
+    .discussion-caption p {
+      font-size: 13px;
+    }
+
+    .participants-intro-text {
+      padding: 10px;
+    }
+
+    .participants-intro-text p {
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .discussion-caption h3 {
+      font-size: 18px;
+    }
+
+    .discussion-caption p {
+      font-size: 12px;
+    }
+  }
     
 
     
@@ -2981,55 +2793,34 @@
 
 
 
-<!-- INVITED PARTICIPANTS -->
+<!-- INVITED PARTICIPANTS SECTION -->
 <div class="section" id="participants">
-  <div class="participants-hero">
-    <div class="participants-visual">
-      <div class="participants-image-container">
-        <img src="projects/discussion.png" alt="Distinguished participants in discussion" class="participants-main-image" decoding="async" loading="lazy">
-        <div class="image-overlay-gradient"></div>
-        <div class="floating-badge">
-          <span class="badge-icon">👥</span>
-          <span class="badge-text">50+ Confirmed</span>
-        </div>
-      </div>
-    </div>
-    
+  <div class="participants-section" id="invited-participants-accordion">
+    <button class="participants-header" onclick="toggleParticipants('invited-participants-accordion')">
+      <span><span style="margin-right: 10px;">👥</span>Invited Participants</span>
+    </button>
     <div class="participants-content">
-      <div class="section-header">
-        <h2><span class="header-icon">🤝</span> Invited Participants</h2>
-        <div class="header-line"></div>
-      </div>
-      
-      <p class="participants-lead">A distinguished gathering of African First Ladies, policymakers, industry leaders, and change-makers united for sustainable development.</p>
-      
-      <div class="participants-stats">
-        <div class="mini-stat">
-          <span class="mini-stat-number">15+</span>
-          <span class="mini-stat-label">First Ladies</span>
+      <div class="invited-participants-showcase">
+        <div class="discussion-image-wrapper">
+          <img src="projects/discussion.png" alt="Distinguished invited participants engaged in strategic discussion" decoding="async" loading="lazy">
+          <div class="image-overlay-gradient"></div>
+          <div class="discussion-caption">
+            <h3>Strategic Dialogue & Partnership</h3>
+            <p>First Ladies, policymakers, and global leaders convening to shape Africa's sustainable future</p>
+          </div>
         </div>
-        <div class="mini-stat">
-          <span class="mini-stat-number">30+</span>
-          <span class="mini-stat-label">Countries</span>
+        <div class="participants-intro-text">
+          <p>Explore the distinguished list of invited participants joining us for the African First Ladies Initiative Forum 2026. Our gathering brings together visionary leaders committed to emission reduction and poverty alleviation across the continent.</p>
+          <div class="participants-cta">
+            <a href="index3.html" class="button">
+              <span>📋</span> View Complete Participant List
+            </a>
+          </div>
         </div>
-        <div class="mini-stat">
-          <span class="mini-stat-number">200+</span>
-          <span class="mini-stat-label">Delegates</span>
-        </div>
-      </div>
-      
-      <div class="cta-wrapper">
-        <a href="index3.html" class="participants-button">
-          <span class="btn-icon">📋</span>
-          <span class="btn-text">View Full Participant List</span>
-          <span class="btn-arrow">→</span>
-        </a>
-        <p class="cta-caption">Explore profiles of confirmed attendees from across Africa and beyond</p>
       </div>
     </div>
   </div>
 </div>
-  
 
 
  <!-- ===== PROJECTS SECTION ===== -->
