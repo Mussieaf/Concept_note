@@ -1303,6 +1303,331 @@
         grid-template-columns: 1fr;
       }
     }
+
+
+
+
+/* ===== INVITED PARTICIPANTS SECTION - VISUAL REDESIGN ===== */
+#participants {
+  margin: 40px auto;
+  padding: 0;
+}
+
+.participants-hero {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 0;
+  background: linear-gradient(135deg, #faf8f5 0%, #f5f0e8 100%);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(46, 139, 87, 0.15);
+  border: 1px solid rgba(46, 139, 87, 0.1);
+  position: relative;
+}
+
+/* Left side - Image */
+.participants-visual {
+  position: relative;
+  min-height: 500px;
+  overflow: hidden;
+}
+
+.participants-image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+}
+
+.participants-main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s ease;
+}
+
+.participants-hero:hover .participants-main-image {
+  transform: scale(1.03);
+}
+
+.image-overlay-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    transparent 60%,
+    rgba(250, 248, 245, 0.4) 80%,
+    rgba(250, 248, 245, 0.95) 100%
+  );
+  pointer-events: none;
+}
+
+.floating-badge {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  background: rgba(46, 139, 87, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 12px 20px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 8px 32px rgba(46, 139, 87, 0.3);
+  animation: float 3s ease-in-out infinite;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.badge-icon {
+  font-size: 20px;
+}
+
+.badge-text {
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+/* Right side - Content */
+.participants-content {
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.section-header {
+  margin-bottom: 25px;
+}
+
+.section-header h2 {
+  color: var(--green);
+  font-size: 32px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.header-icon {
+  font-size: 36px;
+  filter: drop-shadow(0 2px 4px rgba(46, 139, 87, 0.2));
+}
+
+.header-line {
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--green) 0%, var(--green-light) 100%);
+  border-radius: 2px;
+  margin-top: 15px;
+}
+
+.participants-lead {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 30px;
+  font-weight: 400;
+}
+
+/* Mini stats */
+.participants-stats {
+  display: flex;
+  gap: 25px;
+  margin-bottom: 35px;
+  padding: 20px 0;
+  border-top: 1px solid rgba(46, 139, 87, 0.1);
+  border-bottom: 1px solid rgba(46, 139, 87, 0.1);
+}
+
+.mini-stat {
+  text-align: center;
+}
+
+.mini-stat-number {
+  display: block;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--green);
+  line-height: 1;
+  margin-bottom: 5px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.mini-stat-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #777;
+  font-weight: 600;
+}
+
+/* CTA */
+.cta-wrapper {
+  margin-top: 10px;
+}
+
+.participants-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+  color: white;
+  padding: 16px 28px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  box-shadow: 0 8px 25px rgba(46, 139, 87, 0.3);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.participants-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.participants-button:hover::before {
+  left: 100%;
+}
+
+.participants-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(46, 139, 87, 0.4);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-icon {
+  font-size: 18px;
+}
+
+.btn-text {
+  letter-spacing: 0.3px;
+}
+
+.btn-arrow {
+  transition: transform 0.3s ease;
+  font-size: 18px;
+}
+
+.participants-button:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+.cta-caption {
+  margin-top: 15px;
+  font-size: 13px;
+  color: #888;
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .participants-hero {
+    grid-template-columns: 1fr;
+  }
+  
+  .participants-visual {
+    min-height: 300px;
+  }
+  
+  .participants-image-container {
+    min-height: 300px;
+  }
+  
+  .image-overlay-gradient {
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      transparent 50%,
+      rgba(250, 248, 245, 0.8) 80%,
+      rgba(250, 248, 245, 0.98) 100%
+    );
+  }
+  
+  .floating-badge {
+    bottom: 20px;
+    left: 20px;
+    padding: 10px 16px;
+  }
+  
+  .participants-content {
+    padding: 35px 30px;
+    text-align: center;
+  }
+  
+  .section-header h2 {
+    justify-content: center;
+    font-size: 28px;
+  }
+  
+  .header-line {
+    margin: 15px auto 0;
+  }
+  
+  .participants-stats {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .participants-content {
+    padding: 25px 20px;
+  }
+  
+  .section-header h2 {
+    font-size: 24px;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .participants-stats {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .mini-stat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .mini-stat-number {
+    font-size: 24px;
+  }
+  
+  .participants-button {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 20px;
+  }
+}
+
+    
+
+    
     
     /* Footer */
     .footer {
@@ -2653,6 +2978,59 @@
       </a>
     </div>
   </div>
+
+
+
+<!-- INVITED PARTICIPANTS -->
+<div class="section" id="participants">
+  <div class="participants-hero">
+    <div class="participants-visual">
+      <div class="participants-image-container">
+        <img src="projects/discussion.png" alt="Distinguished participants in discussion" class="participants-main-image" decoding="async" loading="lazy">
+        <div class="image-overlay-gradient"></div>
+        <div class="floating-badge">
+          <span class="badge-icon">👥</span>
+          <span class="badge-text">50+ Confirmed</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="participants-content">
+      <div class="section-header">
+        <h2><span class="header-icon">🤝</span> Invited Participants</h2>
+        <div class="header-line"></div>
+      </div>
+      
+      <p class="participants-lead">A distinguished gathering of African First Ladies, policymakers, industry leaders, and change-makers united for sustainable development.</p>
+      
+      <div class="participants-stats">
+        <div class="mini-stat">
+          <span class="mini-stat-number">15+</span>
+          <span class="mini-stat-label">First Ladies</span>
+        </div>
+        <div class="mini-stat">
+          <span class="mini-stat-number">30+</span>
+          <span class="mini-stat-label">Countries</span>
+        </div>
+        <div class="mini-stat">
+          <span class="mini-stat-number">200+</span>
+          <span class="mini-stat-label">Delegates</span>
+        </div>
+      </div>
+      
+      <div class="cta-wrapper">
+        <a href="index3.html" class="participants-button">
+          <span class="btn-icon">📋</span>
+          <span class="btn-text">View Full Participant List</span>
+          <span class="btn-arrow">→</span>
+        </a>
+        <p class="cta-caption">Explore profiles of confirmed attendees from across Africa and beyond</p>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
 
  <!-- ===== PROJECTS SECTION ===== -->
   <div class="projects-section" id="projects">
