@@ -58,7 +58,7 @@
       .tech-grid,
       .footer,
       .projects-section {
-        max-width: 900px;
+        max-width: 1000px;
         margin-left: auto;
         margin-right: auto;
       }
@@ -98,7 +98,7 @@
       .tech-grid,
       .footer,
       .projects-section {
-        max-width: 1000px;
+        max-width: 1200px;
       }
     }
 
@@ -1111,7 +1111,7 @@
     .artistic-section {
       background: linear-gradient(135deg, rgba(46,139,87,0.05) 0%, rgba(60,179,113,0.08) 100%);
       border-radius: 24px;
-      padding: 50px 40px;
+      padding: 50px 45px;
       margin: 40px auto;
       position: relative;
       overflow: hidden;
@@ -1142,8 +1142,8 @@
       background: rgba(255,255,255,0.7);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      padding: 20px 30px;
-      margin: -50px -40px 30px -40px;
+      padding: 20px 45px;
+      margin: -50px -45px 30px -45px;
       border-bottom: 1px solid rgba(46,139,87,0.1);
       display: flex;
       align-items: center;
@@ -1155,7 +1155,7 @@
 
     .section-header-glass:hover {
       background: rgba(255,255,255,0.9);
-      padding-left: 40px;
+      padding-left: 55px;
     }
 
     .section-header-glass h2 {
@@ -1259,7 +1259,7 @@
     /* Gallery Enhancements */
     .gallery-enhanced {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
       gap: 25px;
       padding: 20px 0;
     }
@@ -1272,6 +1272,11 @@
       border: 1px solid rgba(46,139,87,0.1);
       transition: all 0.4s ease;
       position: relative;
+      aspect-ratio: 3/2;  
+      display: flex;  
+      align-items: center;  
+      justify-content: center;  
+      padding: 15px;  
     }
 
     .gallery-item-glass::after {
@@ -1294,8 +1299,9 @@
 
     .gallery-item-glass img {
       width: 100%;
-      height: 150px;
-      object-fit: cover;
+      height: 100px;
+      object-fit: contain;
+      max-height: 120px;
       transition: transform 0.5s ease;
     }
 
@@ -1382,20 +1388,38 @@
     /* Participant Cards Enhancement */
     .participant-grid-enhanced {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));  
       gap: 25px;
+      max-height: 800px;  
+      overflow-y: auto;  
+      padding-right: 10px;  
+    }
+
+    .participant-grid-enhanced::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .participant-grid-enhanced::-webkit-scrollbar-track {
+      background: rgba(46,139,87,0.1);
+      border-radius: 4px;
+    }
+
+    .participant-grid-enhanced::-webkit-scrollbar-thumb {
+      background: var(--green-light);
+      border-radius: 4px;
     }
 
     .participant-card-glass {
       background: rgba(255,255,255,0.8);
       backdrop-filter: blur(10px);
       border-radius: 20px;
-      padding: 30px;
+      padding: 30px 25px;
       text-align: center;
       border: 1px solid rgba(46,139,87,0.1);
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
       overflow: hidden;
+      min-height: 320px;
     }
 
     .participant-card-glass::before {
@@ -3019,13 +3043,13 @@
     /* Responsive adjustments for artistic sections */
     @media (max-width: 768px) {
       .artistic-section {
-        padding: 35px 25px;
+        padding: 35px 20px;
         margin: 30px auto;
       }
 
       .section-header-glass {
-        margin: -35px -25px 25px -25px;
-        padding: 18px 25px;
+        margin: -35px -20px 25px -20px;  
+        padding: 18px 20px;  
       }
 
       .section-header-glass h2 {
@@ -3039,6 +3063,20 @@
 
       .gallery-enhanced {
         grid-template-columns: repeat(2, 1fr);
+        gap: 15px; 
+      }
+
+      .gallery-item-glass {
+        padding: 10px; 
+      }
+
+      .gallery-item-glass img {
+        max-height: 80px;  
+      }
+
+      .participant-grid-enhanced {
+        grid-template-columns: 1fr;
+        max-height: 600px;  
       }
 
       .downloads-grid-enhanced {
@@ -3055,6 +3093,33 @@
 
       .cta-section-glass {
         padding: 35px 25px;
+      }
+    }
+
+    /* ADDED extra small screen adjustments */
+    @media (max-width: 480px) {
+      .artistic-section {
+        padding: 30px 15px;  
+        margin: 25px auto;
+      }
+
+      .section-header-glass {
+        margin: -30px -15px 20px -15px;
+        padding: 15px 15px;
+      }
+
+      .gallery-enhanced {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .gallery-item-glass {
+        padding: 8px;
+        border-radius: 12px;
+      }
+
+      .participant-grid-enhanced {
+        max-height: 500px;  /* Smaller scroll area on very small screens */
       }
     }
   </style>
