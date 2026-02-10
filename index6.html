@@ -2343,6 +2343,25 @@
       z-index: 2;
     }
 
+    /* ADDED: Mobile responsive fix for flags */
+  @media (max-width: 768px) {
+    .country-flag {
+      position: static;          /* Remove absolute positioning */
+      display: block;            /* Make it block level */
+      width: 60px;               /* Smaller size */
+      height: 30px;              /* Maintain aspect ratio */
+      margin: 0 auto 10px auto;  /* Center below photo */
+      border-radius: 4px;
+      order: -1;                 /* Move above photo in flex order */
+    }
+
+    .participant-card-glass {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+     }
+   }
+
     .moderator-badge {
       background: linear-gradient(135deg, #f39c12 0%, #e74c3c 100%);
       color: white;
