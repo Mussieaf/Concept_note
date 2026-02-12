@@ -1385,6 +1385,122 @@
       line-height: 1.7;
     }
 
+
+
+
+
+      /* Participant Cards Enhancement - Fixed Flag Layout */
+      .participant-card-glass {
+        background: rgba(255,255,255,0.8);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 30px 25px;
+        text-align: center;
+        border: 1px solid rgba(46,139,87,0.1);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+        min-height: 320px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .participant-card-glass::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--green), var(--green-light));
+        transform: scaleX(0);
+        transition: transform 0.4s ease;
+      }
+      
+      .participant-card-glass:hover::before {
+        transform: scaleX(1);
+      }
+      
+      .participant-card-glass:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(46,139,87,0.12);
+      }
+      
+      /* Header area for flag - consistent positioning */
+      .participant-header-glass {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 10px;
+        padding: 0 10px;
+        height: 40px;
+        align-items: center;
+      }
+      
+      /* Flag styling - fixed size, no overlap */
+      .country-flag {
+        width: 60px;
+        height: 36px;
+        object-fit: cover;
+        border-radius: 4px;
+        filter: contrast(1.1) saturate(1.2);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        border: 2px solid rgba(255,255,255,0.8);
+        transition: transform 0.3s ease;
+      }
+      
+      .participant-card-glass:hover .country-flag {
+        transform: scale(1.05);
+      }
+      
+      .participant-photo-glass {
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid rgba(46,139,87,0.2);
+        margin-bottom: 20px;
+        transition: all 0.4s ease;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      }
+      
+      .participant-card-glass:hover .participant-photo-glass {
+        transform: scale(1.1);
+        border-color: var(--green-light);
+        box-shadow: 0 12px 35px rgba(46,139,87,0.2);
+      }
+      
+      /* Mobile responsive adjustments */
+      @media (max-width: 768px) {
+        .participant-header-glass {
+          justify-content: center;
+          height: auto;
+          margin-bottom: 15px;
+        }
+        
+        .country-flag {
+          width: 50px;
+          height: 30px;
+        }
+        
+        .participant-card-glass {
+          min-height: 280px;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .country-flag {
+          width: 45px;
+          height: 28px;
+        }
+      }
+    
+
+
+
+    
+
     /* Participant Cards Enhancement */
     .participant-grid-enhanced {
       display: grid;
@@ -3967,6 +4083,133 @@
       </div>
     </div>
   </div>
+
+
+
+<!-- CONFIRMED FORUM PARTICIPANTS -->
+<div class="artistic-section" id="confirmed-participants">
+  <div class="section-header-glass" onclick="toggleArtisticSection('confirmed-participants')">
+    <h2><span>👥</span>Confirmed Forum Participants</h2>
+    <span class="section-toggle-icon">▼</span>
+  </div>
+  <div class="section-content-glass">
+    <div class="participant-grid-enhanced">
+      
+      <div class="participant-card-glass">
+        <div class="participant-header-glass">
+          <img src="flags/Burkina_Faso.png" alt="Burkina Faso" class="country-flag" decoding="async" loading="lazy">
+        </div>
+        <img src="Participants/participant1.jpeg" alt="Mr. ABUNDANCE Williams" class="participant-photo-glass" decoding="async" loading="lazy">
+        <h3>Mr. ABUNDANCE Williams</h3>
+        <span class="participant-role">International Relation Advisor - Burkina Faso</span>
+        <p>Leading expert in climate policy with over 15 years of experience in sustainable development initiatives across the Sahel.</p>
+      </div>
+
+      <div class="participant-card-glass">
+        <div class="participant-header-glass">
+          <img src="flags/Ethiopia.png" alt="Ethiopia" class="country-flag" decoding="async" loading="lazy">
+        </div>
+        <img src="Participants/participant2.jpg" alt="Dr. Solomon Belay" class="participant-photo-glass" decoding="async" loading="lazy">
+        <h3>Dr. Solomon Belay</h3>
+        <span class="participant-role">Ministry of Innovation & Technology</span>
+        <p>Senior Scientist and Innovation advisor at Space Science and Geospatial Institute and Ministry of Innovation and Technology.</p>
+      </div>
+
+      <div class="participant-card-glass">
+        <div class="participant-header-glass">
+          <img src="flags/Rumania.jpg" alt="Romania" class="country-flag" decoding="async" loading="lazy">
+        </div>
+        <img src="Participants/participant3.jpg" alt="Laurentiu Ursu" class="participant-photo-glass" decoding="async" loading="lazy">
+        <h3>Laurentiu Ursu</h3>
+        <span class="participant-role">Green Energy Expert</span>
+        <p>Founder of a Romanian consultancy specialized in green energy to facilitate international market entry and business development for major infrastructure projects.</p>
+      </div>
+
+      <div class="participant-card-glass">
+        <div class="participant-header-glass">
+          <img src="flags/Kenya.png" alt="Kenya" class="country-flag" decoding="async" loading="lazy">
+        </div>
+        <img src="Participants/participant4.jpg" alt="Tobias Nauruki" class="participant-photo-glass" decoding="async" loading="lazy">
+        <h3>Tobias Nauruki</h3>
+        <span class="participant-role">Strategic Policy Advisor</span>
+        <p>Multilingual expert, AIPRC CEO, leverages 10+ years advising global institutions on governance and development finance to deliver sustainable, high-level strategic impact.</p>
+      </div>
+
+      <div class="participant-card-glass">
+        <div class="participant-header-glass">
+          <img src="flags/Ethiopia.png" alt="Ethiopia" class="country-flag" decoding="async" loading="lazy">
+        </div>
+        <img src="Participants/participant5.jpg" alt="Dr. Kalkidan Esayas" class="participant-photo-glass" decoding="async" loading="lazy">
+        <h3>Dr. Kalkidan Esayas</h3>
+        <span class="participant-role">Climate and Environment Consultant</span>
+        <p>A climate change and environmental consultant, gender and youth advocate, experienced working across Africa and internationally on climate action and sustainable development.</p>
+      </div>
+
+      <div class="participant-card-glass">
+        <div class="participant-header-glass">
+          <img src="flags/Kenya.png" alt="Kenya" class="country-flag" decoding="async" loading="lazy">
+        </div>
+        <img src="Participants/participant6.jpg" alt="Julius Motaroki" class="participant-photo-glass" decoding="async" loading="lazy">
+        <h3>Julius Motaroki</h3>
+        <span class="participant-role">Group COO, RentCo Africa</span>
+        <p>RentCo Africa's Group COO and Kenya Country Head. He leads operations, structures deals, and enables access to assets, driving RentCo's growth and efficiency in Kenya.</p>
+      </div>
+
+      <div class="participant-card-glass">
+        <div class="participant-header-glass">
+          <img src="flags/China.jpg" alt="China" class="country-flag" decoding="async" loading="lazy">
+        </div>
+        <img src="Participants/participant7.jpg" alt="Grace Nwosu" class="participant-photo-glass" decoding="async" loading="lazy">
+        <h3>Grace Nwosu</h3>
+        <span class="participant-role">Women in Energy</span>
+        <p>Women in Clean Energy Alliance, promoting gender equality in the renewable energy sector.</p>
+      </div>
+
+      <div class="participant-card-glass">
+        <div class="participant-header-glass">
+          <img src="flags/China.jpg" alt="China" class="country-flag" decoding="async" loading="lazy">
+        </div>
+        <img src="Participants/participant8.jpg" alt="Alice Norman" class="participant-photo-glass" decoding="async" loading="lazy">
+        <h3>Alice Norman</h3>
+        <span class="participant-role">Women in Energy</span>
+        <p>Women in Carbon Markets, promoting gender-inclusive climate finance through female leadership in high-integrity carbon credits.</p>
+      </div>
+
+      <div class="participant-card-glass">
+        <div class="participant-header-glass">
+          <img src="flags/Australia.jpg" alt="Australia" class="country-flag" decoding="async" loading="lazy">
+        </div>
+        <img src="Participants/participant9.jpeg" alt="Gonzalez Duran Jaime" class="participant-photo-glass" decoding="async" loading="lazy">
+        <h3>Gonzalez Duran Jaime</h3>
+        <span class="participant-role">Sustainable Energy Systems Engineer</span>
+        <p>Develops water-based electrolysis for on-demand hydrogen generation, optimizing integration with combustion engines to boost fuel efficiency and cut emissions.</p>
+      </div>
+
+      <div class="participant-card-glass">
+        <div class="participant-header-glass">
+          <img src="flags/Australia.jpg" alt="Australia" class="country-flag" decoding="async" loading="lazy">
+        </div>
+        <img src="Participants/participant10.jpeg" alt="Coakes Jordan Cameron" class="participant-photo-glass" decoding="async" loading="lazy">
+        <h3>Coakes Jordan Cameron</h3>
+        <span class="participant-role">Certified Hydrogen Systems Technician</span>
+        <p>Installs and calibrates on-demand hydrogen generation kits, integrating water-based electrolysis units with engine intake manifolds for fuel efficiency and emission reduction.</p>
+      </div>
+
+      <div class="participant-card-glass">
+        <div class="participant-header-glass">
+          <img src="flags/Australia.jpg" alt="Australia" class="country-flag" decoding="async" loading="lazy">
+        </div>
+        <img src="Participants/participant11.jpeg" alt="Shaun Mitchell" class="participant-photo-glass" decoding="async" loading="lazy">
+        <h3>Shaun Mitchell</h3>
+        <span class="participant-role">Certified Hydrogen Systems Technician</span>
+        <p>Installs and calibrates on-demand hydrogen generation kits, integrating water-based electrolysis units with engine intake manifolds for fuel efficiency and emission reduction.</p>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+    
 
     <!-- CONFIRMED FORUM PARTICIPANTS -->
     <div class="artistic-section" id="confirmed-participants">
