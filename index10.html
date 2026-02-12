@@ -1,0 +1,5786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin>
+  <link rel="preconnect" href="https://www.google.com">
+  <link rel="dns-prefetch" href="https://script.google.com">
+  <script src="https://kit.fontawesome.com/50f9f10aa0.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <meta name="description" content="African First Ladies Initiative for Emission Reduction and Poverty Alleviation Forum 2026 – Addis Ababa">
+  <title>AFLI 2026 – Championing Clean Energy for Sustainable Development</title>
+  <style>
+    :root {
+      --green: #2e8b57;
+      --green-light: #3cb371;
+      --green-dark: #1e5c3a;
+      --green-glow: rgba(46, 139, 87, 0.4);
+      --error: #e74c3c;
+      --glass-bg: rgba(255, 255, 255, 0.65);
+      --glass-border: rgba(255, 255, 255, 0.4);
+      --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    }
+
+    /* ===== GLOBAL MARGINS FOR ALL DEVICES ===== */
+    body {
+      padding: 0;
+    }
+
+    @media (min-width: 768px) {
+      body {
+        padding: 0 10px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      body {
+        padding: 0;
+      }
+      
+      .container,
+      .main-container,
+      .content,
+      .header-content,
+      .date-location,
+      .event-logo-section,
+      .countdown-section,
+      .stats-section,
+      .video-showcase,
+      .markdown-section,
+      .sponsors-section,
+      .participants-section,
+      .cta-section,
+      .section,
+      .gallery,
+      .tech-grid,
+      .footer,
+      .projects-section {
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .navbar, .news-ticker, .hero-slider, .white-strip {
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-width: 100%;
+      }
+      
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+
+    @media (min-width: 1400px) {
+      .container,
+      .main-container,
+      .content,
+      .header-content,
+      .date-location,
+      .white-strip,
+      .event-logo-section,
+      .news-ticker,
+      .hero-slider,
+      .countdown-section,
+      .stats-section,
+      .video-showcase,
+      .markdown-section,
+      .sponsors-section,
+      .participants-section,
+      .cta-section,
+      .section,
+      .gallery,
+      .tech-grid,
+      .footer,
+      .projects-section {
+        max-width: 1200px;
+      }
+    }
+
+    /* ===== EVENT COUNTDOWN CALENDAR - COMPACT ===== */
+    .countdown-section {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+      padding: 12px 10px;
+      margin: 15px auto;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .countdown-title {
+      color: white;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      opacity: 0.9;
+    }
+
+    .countdown-container {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .countdown-box {
+      background: rgba(255,255,255,0.15);
+      border-radius: 6px;
+      padding: 6px 8px;
+      min-width: 45px;
+    }
+
+    .countdown-number {
+      color: white;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1;
+      display: block;
+      font-family: 'Courier New', monospace;
+    }
+
+    .countdown-label {
+      color: rgba(255,255,255,0.8);
+      font-size: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+      display: block;
+    }
+
+    @media (max-width: 480px) {
+      .countdown-box {
+        padding: 10px 14px;
+        min-width: 50px;
+      }
+      .countdown-number {
+        font-size: 22px;
+      }
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f5f9f5 0%, #eef6f3 100%);
+      line-height: 1.6;
+    }
+
+    /* ===== NAVIGATION ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+      padding: 10px 20px;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: white;
+    }
+
+    .icon-acacia-tree::before {
+      content: "🌳";
+      font-size: 40px;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    }
+
+    .nav-logo-text {
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 1.2;
+    }
+
+    .nav-logo-text small {
+      display: block;
+      font-size: 11px;
+      font-weight: 400;
+      opacity: 0.9;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 5px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      padding: 10px 15px;
+      display: block;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      font-size: 14px;
+      font-weight: 500;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .nav-link:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      min-width: 200px;
+      border-radius: 8px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      list-style: none;
+      padding: 10px 0;
+      margin-top: 5px;
+      z-index: 1001;
+    }
+
+    .nav-item:hover .dropdown,
+    .nav-item.active .dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown li {
+      width: 100%;
+    }
+
+    .dropdown a {
+      color: #333;
+      text-decoration: none;
+      padding: 10px 20px;
+      display: block;
+      transition: all 0.3s ease;
+      font-size: 13px;
+    }
+
+    .dropdown a:hover {
+      background: #f0f9f0;
+      color: var(--green);
+      padding-left: 25px;
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: block;
+      }
+      
+      .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+        flex-direction: column;
+        padding: 20px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
+      }
+      
+      .nav-menu.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+      
+      .dropdown {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background: rgba(255,255,255,0.15);
+        display: none;
+        margin-top: 0;
+        border-radius: 5px;
+      }
+      
+      .nav-item.active .dropdown {
+        display: block;
+      }
+      
+      .dropdown a {
+        color: white;
+        padding-left: 30px;
+      }
+      
+      .dropdown a:hover {
+        background: rgba(255,255,255,0.2);
+        color: white;
+        padding-left: 35px;
+      }
+      
+      .icon-acacia-tree::before {
+        font-size: 32px;
+      }
+      
+      .nav-logo-text {
+        font-size: 14px;
+      }
+    }
+
+   /* Event Logo Section */
+    .event-logo-section {
+      background: white;
+      padding: 10px 5px;
+      text-align: center;
+      border-bottom: 1px solid #e0e0e0;
+      position: relative;
+      overflow: visible;
+    }
+    
+    .event-logo-section img {
+      max-width: 700px;
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.1));
+    }
+    
+    .acacia-overlay {
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 200%;
+      width: auto;
+      max-width: 300px;
+      opacity: 0.95;
+      pointer-events: none;
+      z-index: 10;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+    }
+    
+    .nav-logo img {
+      height: 45px;
+      width: 45px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(255,255,255,0.3);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+    
+    .nav-logo:hover img {
+      transform: scale(1.05);
+    }
+    
+    @media (max-width: 768px) {
+      .event-logo-section {
+        padding: 25px 15px;
+      }
+      
+      .acacia-overlay {
+        height: 150%;
+        right: 2%;
+        max-width: 150px;
+        opacity: 0.8;
+      }
+      
+      .nav-logo img {
+        height: 38px;
+        width: 38px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .acacia-overlay {
+        height: 120%;
+        max-width: 100px;
+        opacity: 0.7;
+      }
+    }
+    
+    .white-strip {
+      background: white;
+      height: 0px;
+      position: relative;
+      z-index: 100;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    
+    .hero-slider {
+      position: relative;
+      height: 500px;
+      overflow: hidden;
+      margin-top: 70px;
+    }
+
+    .slider-container {
+      display: flex;
+      width: 600%;
+      height: 100%;
+      animation: slide 30s infinite;
+    }
+
+    .slide {
+      width: 16.666%;
+      height: 100%;
+      position: relative;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .slide-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+      padding: 60px 20px 30px;
+      color: white;
+    }
+
+    .slide-overlay h3 {
+      font-size: 28px;
+      margin-bottom: 8px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+      font-weight: 600;
+    }
+
+    .slide-overlay p {
+      font-size: 16px;
+      opacity: 0.95;
+      max-width: 600px;
+    }
+
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      13.33% { transform: translateX(0); }
+      16.66% { transform: translateX(-16.666%); }
+      30% { transform: translateX(-16.666%); }
+      33.33% { transform: translateX(-33.333%); }
+      46.66% { transform: translateX(-33.333%); }
+      50% { transform: translateX(-50%); }
+      63.33% { transform: translateX(-50%); }
+      66.66% { transform: translateX(-66.666%); }
+      80% { transform: translateX(-66.666%); }
+      83.33% { transform: translateX(-83.333%); }
+      96.66% { transform: translateX(-83.333%); }
+      100% { transform: translateX(0); }
+    }
+    
+    .slider-dots {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 12px;
+      z-index: 10;
+    }
+
+    .dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.4);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .dot:hover {
+      background: rgba(255,255,255,0.7);
+    }
+
+    .dot.active {
+      background: white;
+      transform: scale(1.2);
+      border-color: var(--green);
+    }
+
+    .hero-slider:hover .slider-container {
+      animation-play-state: paused;
+    }
+
+    @media (max-width: 768px) {
+      .hero-slider {
+        height: 300px;
+      }
+      
+      .slide-overlay {
+        padding: 40px 15px 20px;
+      }
+      
+      .slide-overlay h3 {
+        font-size: 20px;
+      }
+      
+      .slide-overlay p {
+        font-size: 13px;
+      }
+    }
+    
+    .main-container {
+      margin-top: 0;
+    }  
+    
+    .container {
+      margin: 0 auto;
+      background: rgba(255,255,255,.95);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,.1);
+      position: relative;
+    }
+    
+    .header-content {
+      background: linear-gradient(135deg,var(--green) 0%,var(--green-light) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 50px 30px;
+      position: relative;
+    }
+
+    .header-content::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="40" cy="40" r="1.5" fill="rgba(255,255,255,.15)"/><circle cx="100" cy="140" r="2.5" fill="rgba(255,255,255,.15)"/><circle cx="160" cy="80" r="3.5" fill="rgba(255,255,255,.15)"/></svg>');
+      background-size: 100px 100px;
+      opacity: .3;
+    }
+
+    .header-content h1 {
+      font-size: 28px;
+      margin-bottom: 15px;
+      text-shadow: 0 2px 4px rgba(0,0,0,.2);
+      position: relative;
+      z-index: 1;
+      line-height: 1.3;
+    }
+
+    .header-content .subtitle {
+      font-size: 18px;
+      font-weight: 300;
+      opacity: .95;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .date-location {
+      background: rgba(46,139,87,.1);
+      padding: 20px;
+      text-align: center;
+      font-size: 16px;
+      color: var(--green);
+      font-weight: 500;
+    }
+    
+    .content {
+      padding: 30px;
+    }
+    
+    .section h2 {
+      color: var(--green);
+      font-size: 24px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+    }
+    
+    .section {
+      margin-bottom: 40px;
+      scroll-margin-top: 80px;
+    }
+
+    /* ===== HORIZONTAL ACCORDION PROJECTS SECTION ===== */
+    .projects-section {
+      background: linear-gradient(135deg, #f8fdf9 0%, #e8f5e9 100%);
+      padding: 60px 20px;
+      margin: 40px auto;
+      border-radius: 24px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 
+        0 20px 60px rgba(0,0,0,0.08),
+        inset 0 1px 0 rgba(255,255,255,0.8);
+      border: 1px solid rgba(46,139,87,0.1);
+    }
+
+    .projects-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(46,139,87,0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(60,179,113,0.06) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(46,139,87,0.03) 0%, transparent 30%);
+      animation: ambientPulse 8s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes ambientPulse {
+      0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.5; }
+      50% { transform: scale(1.1) rotate(5deg); opacity: 0.8; }
+    }
+
+    .projects-intro {
+      text-align: center;
+      margin-bottom: 50px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .projects-intro h2 {
+      color: var(--green);
+      font-size: 32px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      text-shadow: 0 2px 20px rgba(46,139,87,0.2);
+      font-weight: 700;
+    }
+
+    .funding-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #f39c12 0%, #e74c3c 100%);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 25px;
+      box-shadow: 
+        0 4px 20px rgba(243,156,18,0.3),
+        0 0 40px rgba(243,156,18,0.15);
+      animation: badgeGlow 3s ease-in-out infinite;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .funding-badge::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255,255,255,0.3) 50%,
+        transparent 70%
+      );
+      animation: shimmer 3s infinite;
+    }
+
+    @keyframes shimmer {
+      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+      100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+    }
+
+    @keyframes badgeGlow {
+      0%, 100% { box-shadow: 0 4px 20px rgba(243,156,18,0.3), 0 0 40px rgba(243,156,18,0.15); }
+      50% { box-shadow: 0 4px 30px rgba(243,156,18,0.5), 0 0 60px rgba(243,156,18,0.25); }
+    }
+
+    .projects-intro p {
+      color: #555;
+      font-size: 16px;
+      line-height: 1.8;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Accordion Container */
+    .accordion-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+      height: 320px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .accordion-item {
+      flex: 1;
+      min-width: 60px;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 
+        0 4px 24px rgba(0,0,0,0.08),
+        inset 0 1px 0 rgba(255,255,255,0.6);
+    }
+
+    .accordion-item:hover {
+      border-color: rgba(46,139,87,0.4);
+      box-shadow: 
+        0 8px 32px rgba(46,139,87,0.2),
+        inset 0 1px 0 rgba(255,255,255,0.8);
+      transform: translateY(-2px);
+    }
+
+    .accordion-item.active {
+      flex: 5;
+      background: rgba(46,139,87,0.08);
+      border-color: rgba(46,139,87,0.5);
+      box-shadow: 
+        0 0 40px rgba(46,139,87,0.25),
+        inset 0 1px 0 rgba(255,255,255,0.8);
+    }
+
+    .accordion-item.active::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      background: linear-gradient(135deg, var(--green-light), var(--green));
+      border-radius: 18px;
+      z-index: -1;
+      opacity: 0.4;
+      filter: blur(20px);
+      animation: pulseGlow 2s ease-in-out infinite;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.02); }
+    }
+
+    /* Collapsed State */
+    .accordion-collapsed {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      padding: 20px 10px;
+      transition: opacity 0.3s ease;
+    }
+
+    .accordion-item.active .accordion-collapsed {
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+    }
+
+    .collapsed-icon {
+      font-size: 32px;
+      margin-bottom: 12px;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+      transition: transform 0.3s ease;
+    }
+
+    .accordion-item:hover .collapsed-icon {
+      transform: scale(1.2);
+    }
+
+    .collapsed-title {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      color: var(--green-dark);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      white-space: nowrap;
+      transition: all 0.3s ease;
+    }
+
+    .accordion-item:hover .collapsed-title {
+      color: var(--green);
+      text-shadow: 0 0 10px rgba(60,179,113,0.3);
+    }
+
+    /* Expanded State */
+    .accordion-expanded {
+      opacity: 0;
+      transform: translateX(20px);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      pointer-events: none;
+      position: absolute;
+      inset: 0;
+    }
+
+    .accordion-item.active .accordion-expanded {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+      position: relative;
+    }
+
+    .expanded-image {
+      width: 100%;
+      height: 140px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .expanded-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+
+    .accordion-item.active .expanded-image img {
+      transform: scale(1.1);
+    }
+
+    .expanded-content {
+      flex: 1;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, transparent 100%);
+    }
+
+    .project-category {
+      display: inline-block;
+      background: rgba(46,139,87,0.15);
+      color: var(--green);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      width: fit-content;
+      opacity: 0;
+      transform: translateY(-10px);
+      animation: fadeInDown 0.4s ease forwards;
+      animation-delay: 0.1s;
+    }
+
+    .accordion-item.active .project-category {
+      animation: fadeInDown 0.4s ease forwards;
+      animation-delay: 0.2s;
+    }
+
+    .project-title {
+      color: var(--green-dark);
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      line-height: 1.3;
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    .accordion-item.active .project-title {
+      animation: fadeInDown 0.4s ease forwards;
+      animation-delay: 0.3s;
+    }
+
+    .project-description {
+      color: #555;
+      font-size: 13px;
+      line-height: 1.6;
+      margin-bottom: 15px;
+      flex: 1;
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    .accordion-item.active .project-description {
+      animation: fadeInDown 0.4s ease forwards;
+      animation-delay: 0.4s;
+    }
+
+    @keyframes fadeInDown {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .project-stats-row {
+      display: flex;
+      gap: 15px;
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    .accordion-item.active .project-stats-row {
+      animation: fadeInUp 0.4s ease forwards;
+      animation-delay: 0.5s;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .stat-box {
+      background: rgba(255,255,255,0.6);
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(46,139,87,0.15);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: #444;
+    }
+
+    .stat-box i {
+      color: var(--green);
+      font-size: 14px;
+    }
+
+    /* Progress Ring */
+    .progress-ring {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 50px;
+      height: 50px;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.4s ease;
+    }
+
+    .accordion-item.active .progress-ring {
+      opacity: 1;
+      transform: scale(1);
+      transition-delay: 0.6s;
+    }
+
+    .progress-ring svg {
+      transform: rotate(-90deg);
+      width: 100%;
+      height: 100%;
+    }
+
+    .progress-ring-circle {
+      fill: none;
+      stroke: rgba(46,139,87,0.1);
+      stroke-width: 4;
+    }
+
+    .progress-ring-progress {
+      fill: none;
+      stroke: var(--green-light);
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-dasharray: 126;
+      stroke-dashoffset: 126;
+      transition: stroke-dashoffset 1s ease;
+    }
+
+    .accordion-item.active .progress-ring-progress {
+      stroke-dashoffset: 30;
+      transition-delay: 0.8s;
+    }
+
+    .progress-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--green-dark);
+    }
+
+    /* Row Indicators */
+    .row-indicator {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .row-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(46,139,87,0.2);
+      transition: all 0.3s ease;
+    }
+
+    .row-dot.active {
+      background: var(--green-light);
+      box-shadow: 0 0 10px rgba(60,179,113,0.4);
+      transform: scale(1.3);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .accordion-row {
+        flex-direction: column;
+        height: auto;
+        gap: 10px;
+      }
+
+      .accordion-item {
+        min-height: 80px;
+        min-width: 100%;
+      }
+
+      .accordion-item.active {
+        min-height: 400px;
+      }
+
+      .accordion-collapsed {
+        flex-direction: row;
+        padding: 20px;
+        justify-content: flex-start;
+        gap: 15px;
+      }
+
+      .collapsed-title {
+        writing-mode: horizontal-tb;
+        font-size: 16px;
+      }
+
+      .expanded-image {
+        height: 180px;
+      }
+
+      .projects-intro h2 {
+        font-size: 24px;
+      }
+    }
+
+    /* ===== ARTISTIC SECTION STYLES WITH GLASSMORPHISM ===== */
+    .artistic-section {
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 24px;
+      padding: 50px 45px;
+      margin: 40px auto;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--glass-border);
+      box-shadow: 
+        0 10px 40px rgba(46,139,87,0.08),
+        inset 0 1px 0 rgba(255,255,255,0.8);
+    }
+
+    .artistic-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--green), var(--green-light), var(--green));
+      background-size: 200% 100%;
+      animation: gradientFlow 3s linear infinite;
+    }
+
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+
+    .section-header-glass {
+      background: rgba(255,255,255,0.5);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 20px 45px;
+      margin: -50px -45px 30px -45px;
+      border-bottom: 1px solid rgba(46,139,87,0.1);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      user-select: none;
+    }
+
+    .section-header-glass:hover {
+      background: rgba(255,255,255,0.7);
+      padding-left: 55px;
+    }
+
+    .section-header-glass h2 {
+      margin: 0;
+      font-size: 26px;
+      color: var(--green);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-toggle-icon {
+      margin-left: auto;
+      font-size: 20px;
+      color: var(--green);
+      transition: transform 0.4s ease;
+    }
+
+    .artistic-section.active .section-toggle-icon {
+      transform: rotate(180deg);
+    }
+
+    .section-content-glass {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+                  padding 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                  opacity 0.4s ease;
+      opacity: 0;
+    }
+
+    .artistic-section.active .section-content-glass {
+      max-height: 2000px;
+      opacity: 1;
+      padding-top: 20px;
+    }
+
+    /* Tech Grid Enhancements */
+    .tech-grid-enhanced {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin: 30px 0;
+    }
+
+    .tech-card-glass {
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(46,139,87,0.15);
+      border-radius: 20px;
+      padding: 30px 25px;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tech-card-glass::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .tech-card-glass:hover::before {
+      left: 100%;
+    }
+
+    .tech-card-glass:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 
+        0 20px 40px rgba(46,139,87,0.12),
+        0 0 0 1px rgba(46,139,87,0.15);
+      background: rgba(255,255,255,0.9);
+    }
+
+    .tech-icon-glass {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      margin: 0 auto 20px;
+      box-shadow: 0 10px 30px rgba(46,139,87,0.25);
+      transition: all 0.3s ease;
+    }
+
+    .tech-card-glass:hover .tech-icon-glass {
+      transform: rotate(10deg) scale(1.1);
+      box-shadow: 0 15px 40px rgba(46,139,87,0.3);
+    }
+
+    /* Gallery Enhancements */
+    .gallery-enhanced {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 25px;
+      padding: 20px 0;
+    }
+
+    .gallery-item-glass {
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(5px);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(46,139,87,0.1);
+      transition: all 0.4s ease;
+      position: relative;
+      aspect-ratio: 3/2;  
+      display: flex;  
+      align-items: center;  
+      justify-content: center;  
+      padding: 15px;  
+    }
+
+    .gallery-item-glass::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent 0%, rgba(46,139,87,0.08) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-item-glass:hover::after {
+      opacity: 1;
+    }
+
+    .gallery-item-glass:hover {
+      transform: translateY(-5px) scale(1.03);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    }
+
+    .gallery-item-glass img {
+      width: 100%;
+      height: 100px;
+      object-fit: contain;
+      max-height: 120px;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item-glass:hover img {
+      transform: scale(1.1);
+    }
+
+    /* Speaker Cards Enhancement */
+    .speaker-card-glass {
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(10px);
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(46,139,87,0.1);
+      transition: all 0.4s ease;
+      position: relative;
+    }
+
+    .speaker-card-glass:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 50px rgba(46,139,87,0.12);
+    }
+
+    .speaker-image-wrapper {
+      position: relative;
+      overflow: hidden;
+      height: 280px;
+    }
+
+    .speaker-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .speaker-card-glass:hover .speaker-image-wrapper img {
+      transform: scale(1.1);
+    }
+
+    .speaker-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 50%;
+      background: linear-gradient(to top, rgba(46,139,87,0.9), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .speaker-card-glass:hover .speaker-overlay {
+      opacity: 1;
+    }
+
+    .speaker-info-glass {
+      padding: 25px;
+      position: relative;
+    }
+
+    .speaker-info-glass h3 {
+      color: var(--green);
+      font-size: 20px;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .speaker-role {
+      color: var(--green-light);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .speaker-info-glass p {
+      color: #555;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    
+      /* Participant Cards Enhancement - Fixed Flag Layout */
+      .participant-card-glass {
+        background: rgba(255,255,255,0.85);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 30px 25px;
+        text-align: center;
+        border: 1px solid rgba(46,139,87,0.1);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+        min-height: 320px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .participant-card-glass::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--green), var(--green-light));
+        transform: scaleX(0);
+        transition: transform 0.4s ease;
+      }
+      
+      .participant-card-glass:hover::before {
+        transform: scaleX(1);
+      }
+      
+      .participant-card-glass:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(46,139,87,0.1);
+      }
+      
+      /* Header area for flag - consistent positioning */
+      .participant-header-glass {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 10px;
+        padding: 0 10px;
+        height: 40px;
+        align-items: center;
+      }
+      
+      /* Flag styling - fixed size, no overlap */
+      .country-flag {
+        width: 60px;
+        height: 36px;
+        object-fit: cover;
+        border-radius: 4px;
+        filter: contrast(1.1) saturate(1.2);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        border: 2px solid rgba(255,255,255,0.8);
+        transition: transform 0.3s ease;
+      }
+      
+      .participant-card-glass:hover .country-flag {
+        transform: scale(1.05);
+      }
+      
+      .participant-photo-glass {
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid rgba(46,139,87,0.15);
+        margin-bottom: 20px;
+        transition: all 0.4s ease;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      }
+      
+      .participant-card-glass:hover .participant-photo-glass {
+        transform: scale(1.1);
+        border-color: var(--green-light);
+        box-shadow: 0 12px 35px rgba(46,139,87,0.15);
+      }
+      
+      /* Mobile responsive adjustments */
+      @media (max-width: 768px) {
+        .participant-header-glass {
+          justify-content: center;
+          height: auto;
+          margin-bottom: 15px;
+        }
+        
+        .country-flag {
+          width: 50px;
+          height: 30px;
+        }
+        
+        .participant-card-glass {
+          min-height: 280px;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .country-flag {
+          width: 45px;
+          height: 28px;
+        }
+      }  
+
+    /* Participant Cards Enhancement */
+    .participant-grid-enhanced {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));  
+      gap: 25px;
+      max-height: 800px;  
+      overflow-y: auto;  
+      padding-right: 10px;  
+    }
+
+    .participant-grid-enhanced::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .participant-grid-enhanced::-webkit-scrollbar-track {
+      background: rgba(46,139,87,0.08);
+      border-radius: 4px;
+    }
+
+    .participant-grid-enhanced::-webkit-scrollbar-thumb {
+      background: var(--green-light);
+      border-radius: 4px;
+    }
+
+    .participant-card-glass {
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 30px 25px;
+      text-align: center;
+      border: 1px solid rgba(46,139,87,0.1);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      min-height: 320px;
+    }
+
+    .participant-card-glass::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--green), var(--green-light));
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .participant-card-glass:hover::before {
+      transform: scaleX(1);
+    }
+
+    .participant-card-glass:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(46,139,87,0.1);
+    }
+
+    .participant-photo-glass {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(46,139,87,0.15);
+      margin-bottom: 20px;
+      transition: all 0.4s ease;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    .participant-card-glass:hover .participant-photo-glass {
+      transform: scale(1.1);
+      border-color: var(--green-light);
+      box-shadow: 0 12px 35px rgba(46,139,87,0.15);
+    }
+
+    /* Badge Styles */
+    .badge-glass {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 15px;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .badge-moderator {
+      background: linear-gradient(135deg, rgba(243,156,18,0.9), rgba(231,76,60,0.9));
+      color: white;
+    }
+
+    .badge-mc {
+      background: linear-gradient(135deg, rgba(155,89,182,0.9), rgba(142,68,173,0.9));
+      color: white;
+    }
+
+    .badge-panelist {
+      background: linear-gradient(135deg, rgba(52,152,219,0.9), rgba(41,128,185,0.9));
+      color: white;
+    }
+
+    /* Download Cards */
+    .downloads-grid-enhanced {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .download-card-glass {
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(46,139,87,0.15);
+      border-radius: 16px;
+      padding: 30px 20px;
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .download-card-glass::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--green), var(--green-light));
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .download-card-glass:hover::before {
+      transform: scaleX(1);
+    }
+
+    .download-card-glass:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(46,139,87,0.12);
+      background: rgba(255,255,255,0.9);
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .download-icon-glass {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, rgba(46,139,87,0.1), rgba(60,179,113,0.1));
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin: 0 auto 15px;
+      transition: all 0.3s ease;
+    }
+
+    .download-card-glass:hover .download-icon-glass {
+      transform: scale(1.1) rotate(-5deg);
+      background: linear-gradient(135deg, rgba(46,139,87,0.15), rgba(60,179,113,0.15));
+    }
+
+    /* FAQ Enhancement */
+    .faq-item-glass {
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(5px);
+      border-radius: 16px;
+      padding: 25px;
+      margin-bottom: 15px;
+      border: 1px solid rgba(46,139,87,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .faq-item-glass:hover {
+      background: rgba(255,255,255,0.85);
+      transform: translateX(5px);
+      box-shadow: 0 10px 25px rgba(46,139,87,0.08);
+    }
+
+    .faq-item-glass h5 {
+      color: var(--green);
+      font-size: 17px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .faq-item-glass h5::before {
+      content: 'Q';
+      background: var(--green);
+      color: white;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .faq-item-glass p {
+      color: #555;
+      line-height: 1.8;
+      padding-left: 38px;
+      margin: 0;
+    }
+
+    /* Venue Enhancement */
+    .venue-map-glass {
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(5px);
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(46,139,87,0.1);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .venue-details-glass {
+      background: rgba(46,139,87,0.05);
+      border-radius: 16px;
+      padding: 25px;
+      margin: 20px 0;
+      border: 1px solid rgba(46,139,87,0.1);
+    }
+
+    .venue-item-glass {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(46,139,87,0.1);
+      font-size: 15px;
+      color: #444;
+    }
+
+    .venue-item-glass:last-child {
+      border-bottom: none;
+    }
+
+    .venue-item-glass i {
+      color: var(--green);
+      font-size: 18px;
+      width: 24px;
+    }
+
+    .venue-item-glass strong {
+      color: var(--green);
+      min-width: 80px;
+    }
+
+    /* Sponsor Tier Enhancement */
+    .sponsor-tier-glass {
+      margin-bottom: 15px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(46,139,87,0.1);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+
+    .sponsor-tier-glass:hover {
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    .sponsor-header-glass {
+      padding: 22px 28px;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s;
+      font-size: 17px;
+      border: none;
+      width: 100%;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sponsor-header-glass::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .sponsor-header-glass:hover::before {
+      opacity: 1;
+    }
+
+    .sponsor-tier-glass.platinum .sponsor-header-glass {
+      background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+    }
+
+    .sponsor-tier-glass.diamond .sponsor-header-glass {
+      background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+    }
+
+    .sponsor-tier-glass.gold .sponsor-header-glass {
+      background: linear-gradient(135deg, #f39c12 0%, #d35400 100%);
+    }
+
+    .sponsor-tier-glass.silver .sponsor-header-glass {
+      background: linear-gradient(135deg, #bdc3c7 0%, #95a5a6 100%);
+    }
+
+    .sponsor-content-glass {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                  padding 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      background: rgba(255,255,255,0.4);
+    }
+
+    .sponsor-tier-glass.active .sponsor-content-glass {
+      max-height: 600px;
+      padding: 25px 28px;
+    }
+
+    .sponsor-content-glass ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sponsor-content-glass li {
+      padding: 12px 0;
+      border-bottom: 1px dashed rgba(46,139,87,0.2);
+      color: #444;
+      position: relative;
+      padding-left: 32px;
+      font-size: 15px;
+      transition: all 0.2s ease;
+    }
+
+    .sponsor-content-glass li:hover {
+      padding-left: 38px;
+      color: var(--green);
+    }
+
+    .sponsor-content-glass li:before {
+      content: '✓';
+      color: var(--green);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+      font-size: 20px;
+      transition: all 0.2s ease;
+    }
+
+    .sponsor-content-glass li:hover:before {
+      transform: scale(1.3);
+    }
+
+    /* CTA Section Enhancement */
+    .cta-section-glass {
+      background: linear-gradient(135deg, rgba(46,139,87,0.08) 0%, rgba(60,179,113,0.08) 100%);
+      border-radius: 24px;
+      padding: 50px 40px;
+      text-align: center;
+      border: 1px solid rgba(46,139,87,0.12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section-glass::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(46,139,87,0.08) 0%, transparent 70%);
+      animation: rotate 20s linear infinite;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .form-glass {
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 35px;
+      border: 1px solid rgba(46,139,87,0.1);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    .form-group-glass {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .form-group-glass input,
+    .form-group-glass textarea {
+      padding: 14px 18px;
+      border: 2px solid rgba(46,139,87,0.1);
+      border-radius: 12px;
+      font-size: 15px;
+      background: rgba(255,255,255,0.8);
+      transition: all 0.3s ease;
+    }
+
+    .form-group-glass input:focus,
+    .form-group-glass textarea:focus {
+      outline: none;
+      border-color: var(--green-light);
+      box-shadow: 0 0 0 4px rgba(46,139,87,0.08);
+      background: white;
+    }
+
+    .button-glass {
+      display: inline-block;
+      padding: 16px 40px;
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(46,139,87,0.25);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .button-glass::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .button-glass:hover::before {
+      left: 100%;
+    }
+
+    .button-glass:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(46,139,87,0.35);
+    }
+
+    /* Video Showcase Enhancement */
+    .video-showcase-glass {
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(10px);
+      border-radius: 24px;
+      padding: 40px;
+      border: 1px solid rgba(46,139,87,0.1);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+    }
+
+    .video-container-glass {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+    }
+
+    .video-container-glass video {
+      width: 100%;
+      display: block;
+    }
+
+    .video-caption-glass {
+      margin-top: 25px;
+      text-align: center;
+    }
+
+    .video-badge-glass {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 15px rgba(46,139,87,0.25);
+    }
+
+    /* Existing styles maintained */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    
+    .speaker {
+      text-align: center;
+      flex: 1 1 300px;
+      max-width: 400px;
+    }
+    
+    .speaker img {
+      max-width: 80%;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .speaker img:hover {
+      transform: scale(1.02);
+    }
+    
+    .speaker-info {
+      margin-top: 15px;
+      padding: 0 10px;
+    }
+    
+    .speaker-info h3 {
+      font-family: 'STXingkai', serif;
+      font-size: 1.3em;
+      color: #2d5a27;
+      margin-bottom: 8px;
+    }
+    
+    .speaker-info p {
+      font-size: 0.95em;
+      color: #555;
+      line-height: 1.5;
+    } 
+
+    #media .gallery,
+    #sponsors .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      padding: 20px 0;
+    }
+
+    #media .gallery img,
+    #sponsors .gallery img {
+      width: auto;
+      height: auto;
+      max-width: 180px;
+      max-height: 120px;
+      object-fit: contain;
+      border-radius: 12px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      filter: grayscale(20%);
+    }
+
+    #media .gallery img:hover,
+    #sponsors .gallery img:hover {
+      transform: scale(1.08);
+      filter: grayscale(0%);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    }
+
+    @media (max-width: 768px) {
+      #media .gallery img,
+      #sponsors .gallery img {
+        max-width: 140px;
+        max-height: 100px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #media .gallery img,
+      #sponsors .gallery img {
+        max-width: 120px;
+        max-height: 85px;
+      }
+      
+      #media .gallery,
+      #sponsors .gallery {
+        gap: 20px;
+      }
+    }
+    
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+      gap: 20px;
+      margin: 20px 0;
+    }
+    
+    .tech-item {
+      text-align: center;
+      padding: 25px 20px;
+      background: rgba(255,255,255,.7);
+      border-radius: 15px;
+      border: 1px solid rgba(46,139,87,.1);
+      transition: all .3s ease;
+    }
+    
+    .tech-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,.05);
+      background: rgba(255,255,255,.9);
+    }
+    
+    .tech-icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+    
+    .button {
+      display: inline-block;
+      padding: 14px 32px;
+      background: linear-gradient(135deg,var(--green) 0%,var(--green-light) 100%);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all .3s ease;
+      box-shadow: 0 4px 10px rgba(46,139,87,.3);
+    }
+    
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(46,139,87,.4);
+    }
+    
+    .cta-section {
+      text-align: center;
+      padding: 40px 30px;
+      background: linear-gradient(135deg,rgba(46,139,87,.05) 0%,rgba(60,179,113,.05) 100%);
+      border-radius: 20px;
+      margin: 30px auto;
+      border: 1px solid rgba(46,139,87,.1);
+    }
+    
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 420px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    
+    .form-group input, .form-group textarea {
+      padding: 12px 15px;
+      border: 1px solid #c8e6d2;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    
+    .form-group input:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(46,139,87,.15);
+    }
+
+    #formResp {
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    .sponsors-section {
+      margin-top: 30px;
+    }
+
+    .sponsors-section h2 {
+      color: var(--green);
+      font-size: 24px;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sponsor-tier {
+      margin-bottom: 12px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .sponsor-tier.platinum .sponsor-header {
+      background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+    }
+
+    .sponsor-tier.diamond .sponsor-header {
+      background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+    }
+
+    .sponsor-tier.gold .sponsor-header {
+      background: linear-gradient(135deg, #f39c12 0%, #d35400 100%);
+    }
+
+    .sponsor-tier.silver .sponsor-header {
+      background: linear-gradient(135deg, #bdc3c7 0%, #95a5a6 100%);
+    }
+
+    .sponsor-header {
+      padding: 18px 24px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s;
+      font-size: 16px;
+      border: none;
+      width: 100%;
+      text-align: left;
+    }
+
+    .sponsor-header:hover {
+      filter: brightness(1.1);
+    }
+
+    .sponsor-header::after {
+      content: '▼';
+      font-size: 12px;
+      transition: transform 0.3s ease;
+    }
+
+    .sponsor-tier.active .sponsor-header::after {
+      transform: rotate(180deg);
+    }
+
+    .sponsor-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s;
+      background: #f8fdf9;
+    }
+
+    .sponsor-tier.active .sponsor-content {
+      max-height: 500px;
+      padding: 20px 24px;
+    }
+
+    .sponsor-content ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sponsor-content li {
+      padding: 10px 0;
+      border-bottom: 1px dashed #ddd;
+      color: #444;
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .sponsor-content li:before {
+      content: '✓';
+      color: var(--green);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+      font-size: 18px;
+    }
+
+    .sponsor-content li:last-child {
+      border-bottom: none;
+    }
+
+    .sponsor-cta {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .participants-section {
+      margin: 30px auto;
+      border: 1px solid rgba(46,139,87,0.2);
+      border-radius: 15px;
+      overflow: hidden;
+      background: #f8fdf9;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .participants-header {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+      color: white;
+      padding: 20px 24px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+      font-size: 18px;
+      font-weight: 600;
+      border: none;
+      width: 100%;
+      text-align: left;
+    }
+
+    .participants-header:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+    }
+
+    .participants-header::after {
+      content: '▼';
+      font-size: 14px;
+      transition: transform 0.3s ease;
+      margin-left: 10px;
+    }
+
+    .participants-section.active .participants-header::after {
+      transform: rotate(180deg);
+    }
+
+    .participants-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, padding 0.4s;
+      background: #f8fdf9;
+    }
+
+    .participants-section.active .participants-content {
+      max-height: 10000px;
+      padding: 30px;
+      overflow-y: auto;
+    }
+
+    @media (max-width: 480px) {
+      .participant-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      
+      .participants-section.active .participants-content {
+        max-height: none;
+        overflow-y: visible;
+        padding: 20px 15px;
+      }
+    }
+    
+    .participant-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .participant-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 25px 20px;
+      border: 1px solid rgba(46,139,87,0.1);
+      position: relative;
+    }
+
+    .participant-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--green) 0%, var(--green-light) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .participant-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(46,139,87,0.15);
+    }
+
+    .participant-card:hover::before {
+      opacity: 1;
+    }
+
+    .participant-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(46,139,87,0.15);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin-bottom: 15px;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .participant-card:hover .participant-photo {
+      transform: scale(1.05);
+      border-color: var(--green-light);
+    }
+
+    .participant-info h3 {
+      color: var(--green);
+      font-size: 18px;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    .participant-role {
+      color: var(--green-light);
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .participant-bio {
+      color: #555;
+      font-size: 14px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+/* ===== CONFIRMED PARTICIPANTS FLAG FIX ===== */
+    .country-flag {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 60px;
+      height: 36px;
+      object-fit: cover;
+      border-radius: 4px;
+      filter: contrast(1.1) saturate(1.2);
+      opacity: 0.9;
+      z-index: 2;
+      box-shadow: none;
+      border: none;
+    }
+    
+  /* Mobile responsive for flags */
+  @media (max-width: 768px) {
+    .country-flag {
+      position: static;
+      display: block;
+      width: 50px;
+      height: 30px;
+      margin: 0 auto 10px auto;
+      border-radius: 4px;
+      order: -1;
+    }
+  }
+
+    .participant-card-glass {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+     }
+   }     
+
+    .moderator-badge {
+      background: linear-gradient(135deg, #f39c12 0%, #e74c3c 100%);
+      color: white;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 700;
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .mc-badge {
+      background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+    }
+
+    .panelist-badge {
+      background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    }
+
+    @media (max-width: 768px) {
+      .participant-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 20px;
+      }
+      
+      .participant-photo {
+        width: 120px;
+        height: 120px;
+      }
+      
+      .participants-section.active .participants-content {
+        padding: 20px 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .participant-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .footer {
+      background: linear-gradient(135deg,var(--green) 0%,var(--green-light) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 50px 30px;
+    }
+    
+    .footer p {
+      margin-bottom: 8px;
+      opacity: 0.95;
+    }
+
+    .footer a {
+      color: white;
+      text-decoration: none;
+    }
+    
+    .no-underline {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    @media (max-width: 600px) {
+      .header-content h1 {
+        font-size: 22px;
+      }
+      
+      .speaker {
+        flex: 1 1 100%;
+      }
+    }
+
+    .video-showcase {
+      background: linear-gradient(135deg, #f8fdf9 0%, #e8f5e9 100%);
+      border-radius: 20px;
+      padding: 30px;
+      margin: 30px auto;
+      border: 2px solid rgba(46,139,87,0.15);
+      box-shadow: 0 8px 25px rgba(46,139,87,0.1);
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    .video-container video {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 15px;
+    }
+
+    .video-caption {
+      text-align: center;
+      margin-top: 20px;
+      padding: 0 10px;
+    }
+
+    .video-caption h4 {
+      color: var(--green);
+      font-size: 20px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .video-caption p {
+      color: #555;
+      font-size: 15px;
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .video-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+      color: white;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .video-showcase {
+        padding: 20px 15px;
+      }
+      
+      .video-caption h4 {
+        font-size: 18px;
+      }
+      
+      .video-caption p {
+        font-size: 14px;
+      }
+    }  
+         
+    .news-ticker {
+      background: linear-gradient(135deg, #1a5f3f 0%, var(--green) 100%);
+      padding: 15px 20px;
+      position: relative;
+      z-index: 100;
+    }
+
+    .news-container {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .news-label {
+      background: rgba(255,255,255,0.2);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .news-icon {
+      font-size: 18px;
+    }
+
+    .news-content {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .news-link {
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      display: block;
+      transition: all 0.3s ease;
+      line-height: 1.4;
+    }
+
+    .news-link:hover {
+      color: #90EE90;
+      text-decoration: underline;
+    }
+
+    .news-caption {
+      color: rgba(255,255,255,0.8);
+      font-size: 12px;
+      margin-top: 5px;
+      font-style: italic;
+    }
+
+    .news-archive-link {
+      color: white;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .news-archive-link:hover {
+      background: rgba(255,255,255,0.2);
+      border-color: white;
+    }
+
+    .hero-slider {
+      margin-top: 0;
+    }
+
+    @media (max-width: 768px) {
+      .news-ticker {
+        padding: 12px 15px;
+      }
+      
+      .news-container {
+        gap: 12px;
+      }
+      
+      .news-label {
+        font-size: 12px;
+        padding: 6px 12px;
+      }
+      
+      .news-link {
+        font-size: 13px;
+      }
+      
+      .news-caption {
+        font-size: 11px;
+      }
+      
+      .news-archive-link {
+        font-size: 12px;
+        padding: 5px 12px;
+      }
+    }
+
+    .markdown-section {
+      border: 1px solid rgba(46,139,87,0.2);
+      border-radius: 15px;
+      overflow: hidden;
+      margin: 30px auto;
+      background: #f8fdf9;
+    }
+
+    .markdown-header {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+      color: white;
+      padding: 18px 24px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+      font-size: 18px;
+      font-weight: 600;
+      border: none;
+      width: 100%;
+      text-align: left;
+    }
+
+    .markdown-header:hover {
+      filter: brightness(1.1);
+    }
+
+    .markdown-header::after {
+      content: '▼';
+      font-size: 14px;
+      transition: transform 0.3s ease;
+    }
+
+    .markdown-section.active .markdown-header::after {
+      transform: rotate(180deg);
+    }
+
+    .markdown-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s;
+      background: #f8fdf9;
+    }
+
+    .markdown-section.active .markdown-content {
+      max-height: 2000px;
+      padding: 30px;
+      overflow-y: auto;
+    }
+
+    .markdown-content h1,
+    .markdown-content h2,
+    .markdown-content h3 {
+      color: var(--green);
+      margin-top: 0;
+    }
+
+    .markdown-content h1 {
+      font-size: 28px;
+      border-bottom: 2px solid var(--green-light);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    .markdown-content h2 {
+      font-size: 22px;
+      margin-top: 25px;
+    }
+
+    .markdown-content h3 {
+      font-size: 18px;
+    }
+
+    .markdown-content p {
+      line-height: 1.8;
+      color: #444;
+      margin-bottom: 15px;
+    }
+
+    .markdown-content ul,
+    .markdown-content ol {
+      padding-left: 25px;
+      margin-bottom: 15px;
+    }
+
+    .markdown-content li {
+      margin-bottom: 8px;
+      color: #555;
+    }
+
+    .markdown-content a {
+      color: var(--green);
+      text-decoration: none;
+    }
+
+    .markdown-content a:hover {
+      text-decoration: underline;
+    }
+
+    .markdown-content blockquote {
+      border-left: 4px solid var(--green-light);
+      padding-left: 20px;
+      margin: 20px 0;
+      color: #666;
+      font-style: italic;
+    }
+
+    .markdown-content code {
+      background: #e8f5e9;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+      color: var(--green);
+    }
+
+    .markdown-content pre {
+      background: #f0f0f0;
+      padding: 15px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+    .loading-md {
+      text-align: center;
+      padding: 40px;
+      color: var(--green);
+    }
+
+    .error-md {
+      background: #fee;
+      color: var(--error);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .sdg-icons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .sdg-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .sdg-icon:hover {
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 600px) {
+      .sdg-icon {
+        width: 45px;
+        height: 45px;
+      }
+    }  
+
+    .venue-info h4 {
+      color: var(--green);
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .venue-details {
+      margin: 20px 0;
+      padding: 20px;
+      background: rgba(46,139,87,0.05);
+      border-radius: 10px;
+    }
+    .venue-item {
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      font-size: 14px;
+    }
+    .venue-item:last-child {
+      border-bottom: none;
+    }
+    .venue-item strong {
+      color: var(--green);
+      display: inline-block;
+      min-width: 80px;
+    }
+    .map-placeholder {
+      margin-top: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .faq-item {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .faq-item h5 {
+      color: var(--green);
+      font-size: 16px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .faq-item h5::before {
+      content: 'Q: ';
+      color: var(--green-light);
+    }
+    .faq-item p {
+      margin: 0;
+      padding-left: 20px;
+      color: #555;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .map-container {
+      margin-top: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .map-container iframe {
+      display: block;
+      filter: grayscale(20%) contrast(1.1);
+    }
+    .map-link {
+      text-align: center;
+    }
+
+    .downloads-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+    }
+    .download-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      text-decoration: none;
+      border: 1px solid rgba(46,139,87,0.15);
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+    .download-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(46,139,87,0.15);
+      border-color: var(--green-light);
+    }
+    .download-icon {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+    .download-name {
+      color: var(--green);
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+    .download-size {
+      color: #888;
+      font-size: 12px;
+    }
+
+    .stats-section {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+      padding: 25px 15px;
+      margin: 20px auto;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(46,139,87,0.2);
+      overflow: hidden;
+    }
+
+    .stats-title {
+      color: white;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-align: center;
+      margin-bottom: 20px;
+      opacity: 0.9;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .stat-item {
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 15px 8px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.15);
+      transition: transform 0.3s ease;
+      min-width: 0;
+    }
+
+    .stat-item:hover {
+      transform: translateY(-3px);
+      background: rgba(255,255,255,0.2);
+    }
+
+    .stat-icon {
+      font-size: 22px;
+      margin-bottom: 8px;
+      display: block;
+      line-height: 1;
+    }
+
+    .stat-value {
+      color: white;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      margin-bottom: 4px;
+      font-family: 'Segoe UI', sans-serif;
+      white-space: nowrap;
+    }
+
+    .stat-prefix {
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .stat-number {
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .stat-suffix {
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .stat-label {
+      color: rgba(255,255,255,0.85);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      line-height: 1.3;
+      display: block;
+    }
+
+    @media (min-width: 768px) {
+      .stats-grid {
+        grid-template-columns: repeat(6, 1fr);
+        gap: 10px;
+      }
+      .stat-item {
+        padding: 18px 10px;
+      }
+      .stat-icon {
+        font-size: 26px;
+      }
+      .stat-value {
+        font-size: 24px;
+      }
+      .stat-number {
+        font-size: 26px;
+      }
+      .stat-label {
+        font-size: 10px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .stats-grid {
+        gap: 8px;
+      }
+      .stat-item {
+        padding: 12px 6px;
+      }
+      .stat-icon {
+        font-size: 18px;
+      }
+      .stat-value {
+        font-size: 16px;
+      }
+      .stat-number {
+        font-size: 18px;
+      }
+      .stat-prefix, .stat-suffix {
+        font-size: 12px;
+      }
+    }
+
+    img {
+      content-visibility: auto;
+      max-width: 100%;
+      height: auto;
+    }
+    
+    .participant-card,
+    .tech-item,
+    .stat-item,
+    .download-card,
+    .accordion-item {
+      will-change: transform;
+      contain: layout style paint;
+    }
+    
+    .slider-container {
+      will-change: transform;
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* Responsive adjustments for artistic sections */
+    @media (max-width: 768px) {
+      .artistic-section {
+        padding: 35px 20px;
+        margin: 30px auto;
+      }
+
+      .section-header-glass {
+        margin: -35px -20px 25px -20px;  
+        padding: 18px 20px;  
+      }
+
+      .section-header-glass h2 {
+        font-size: 22px;
+      }
+
+      .tech-grid-enhanced,
+      .participant-grid-enhanced {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-enhanced {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px; 
+      }
+
+      .gallery-item-glass {
+        padding: 10px; 
+      }
+
+      .gallery-item-glass img {
+        max-height: 80px;  
+      }
+
+      .participant-grid-enhanced {
+        grid-template-columns: 1fr;
+        max-height: 600px;  
+      }
+
+      .downloads-grid-enhanced {
+        grid-template-columns: 1fr;
+      }
+
+      .video-showcase-glass {
+        padding: 25px;
+      }
+
+      .form-glass {
+        padding: 25px;
+      }
+
+      .cta-section-glass {
+        padding: 35px 25px;
+      }
+    }
+
+    /* ADDED extra small screen adjustments */
+    @media (max-width: 480px) {
+      .artistic-section {
+        padding: 30px 15px;  
+        margin: 25px auto;
+      }
+
+      .section-header-glass {
+        margin: -30px -15px 20px -15px;
+        padding: 15px 15px;
+      }
+
+      .gallery-enhanced {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .gallery-item-glass {
+        padding: 8px;
+        border-radius: 12px;
+      }
+
+      .participant-grid-enhanced {
+        max-height: 500px;  /* Smaller scroll area on very small screens */
+      }
+    }
+
+    /* ===== VERTICAL ACCORDION FOR FORUM OBJECTIVES ===== */
+    .vertical-accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 30px 0;
+    }
+
+    .v-accordion-item {
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(46,139,87,0.15);
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    }
+
+    .v-accordion-item:hover {
+      border-color: rgba(46,139,87,0.35);
+      box-shadow: 0 8px 25px rgba(46,139,87,0.12);
+      transform: translateX(5px);
+    }
+
+    .v-accordion-item.active {
+      background: rgba(46,139,87,0.06);
+      border-color: rgba(46,139,87,0.4);
+      box-shadow: 0 12px 35px rgba(46,139,87,0.15);
+    }
+
+    .v-accordion-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 20px 25px;
+      background: linear-gradient(135deg, rgba(46,139,87,0.05), transparent);
+      transition: all 0.3s ease;
+    }
+
+    .v-accordion-item:hover .v-accordion-header {
+      background: linear-gradient(135deg, rgba(46,139,87,0.08), transparent);
+    }
+
+    .v-accordion-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 15px rgba(46,139,87,0.25);
+    }
+
+    .v-accordion-item.active .v-accordion-icon {
+      transform: rotate(360deg) scale(1.1);
+      box-shadow: 0 6px 20px rgba(46,139,87,0.3);
+    }
+
+    .v-accordion-title {
+      flex: 1;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--green);
+      transition: all 0.3s ease;
+    }
+
+    .v-accordion-item:hover .v-accordion-title {
+      color: var(--green-dark);
+    }
+
+    .v-accordion-toggle {
+      font-size: 20px;
+      color: var(--green);
+      transition: transform 0.4s ease;
+    }
+
+    .v-accordion-item.active .v-accordion-toggle {
+      transform: rotate(180deg);
+    }
+
+    .v-accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                  padding 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                  opacity 0.3s ease;
+      opacity: 0;
+      padding: 0 25px;
+    }
+
+    .v-accordion-item.active .v-accordion-content {
+      max-height: 300px;
+      padding: 0 25px 25px 25px;
+      opacity: 1;
+    }
+
+    .v-accordion-content p {
+      color: #555;
+      line-height: 1.8;
+      margin: 0;
+      font-size: 15px;
+    }
+
+    .v-accordion-content .highlight {
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    /* Staggered animation for items */
+    .v-accordion-item:nth-child(1) { animation: slideInLeft 0.6s ease 0.1s both; }
+    .v-accordion-item:nth-child(2) { animation: slideInLeft 0.6s ease 0.2s both; }
+    .v-accordion-item:nth-child(3) { animation: slideInLeft 0.6s ease 0.3s both; }
+    .v-accordion-item:nth-child(4) { animation: slideInLeft 0.6s ease 0.4s both; }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+     /* ===== ENHANCED FOOTER - MATCHING HEADER COLOR ===== */
+    .footer-enhanced {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+      color: white;
+      padding: 50px 0 30px;
+      position: relative;
+      overflow: hidden;
+      width: 100vw;
+      margin: 0;
+      left: 50%;
+      right: 50%;
+      transform: translateX(-50%);
+      box-sizing: border-box;
+    }
+
+    .footer-enhanced::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.3), rgba(255,255,255,0.6), rgba(255,255,255,0.3));
+      background-size: 200% 100%;
+      animation: gradientFlow 3s linear infinite;
+    }
+
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-section h4 {
+      color: rgba(255,255,255,0.95);
+      font-size: 18px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+    }
+
+    .footer-section p, .footer-section a {
+      color: rgba(255,255,255,0.85);
+      font-size: 14px;
+      line-height: 1.8;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: white;
+      padding-left: 5px;
+    }
+
+    .footer-address {
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .footer-address p {
+      margin: 8px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-address i {
+      color: rgba(255,255,255,0.9);
+      width: 20px;
+    }
+
+    .quick-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .quick-links li {
+      margin-bottom: 10px;
+    }
+
+    .quick-links a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .quick-links a::before {
+      content: '→';
+      color: rgba(255,255,255,0.7);
+      transition: transform 0.3s ease;
+    }
+
+    .quick-links a:hover::before {
+      transform: translateX(5px);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      width: 45px;
+      height: 45px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: white;
+    }
+
+    .social-links a:hover {
+      background: rgba(255,255,255,0.3);
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-bottom p {
+      color: rgba(255,255,255,0.8);
+      font-size: 13px;
+      margin: 5px 0;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      
+      .footer-enhanced {
+        padding: 40px 0 20px;
+        width: 100vw;
+      }
+      
+      .footer-container {
+        padding: 0 15px;
+      }
+    }
+
+          /* ===== GREEN LEGACY GALLERY - HORIZONTAL ACCORDION ===== */
+      .legacy-gallery-section {
+        margin: 30px 0;
+        padding: 20px 0;
+      }
+      
+      .legacy-gallery-row {
+        display: flex;
+        gap: 8px;
+        height: 280px;
+        margin-bottom: 20px;
+      }
+      
+      .legacy-gallery-item {
+        flex: 1;
+        min-width: 60px;
+        background: var(--glass-bg);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid var(--glass-border);
+        border-radius: 16px;
+        overflow: hidden;
+        cursor: pointer;
+        position: relative;
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      }
+      
+      .legacy-gallery-item:hover {
+        border-color: rgba(46,139,87,0.4);
+        box-shadow: 0 8px 32px rgba(46,139,87,0.2);
+      }
+      
+      .legacy-gallery-item.active {
+        flex: 4;
+      }
+      
+      .legacy-gallery-collapsed {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        padding: 20px 10px;
+        transition: opacity 0.3s ease;
+        background: linear-gradient(135deg, rgba(46,139,87,0.08), rgba(60,179,113,0.08));
+      }
+      
+      .legacy-gallery-item.active .legacy-gallery-collapsed {
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+      }
+      
+      .legacy-collapsed-number {
+        font-size: 36px;
+        font-weight: 700;
+        color: var(--green);
+        margin-bottom: 8px;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      
+      .legacy-collapsed-title {
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        color: var(--green-dark);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+      
+      .legacy-gallery-expanded {
+        opacity: 0;
+        transform: translateX(20px);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        pointer-events: none;
+        position: absolute;
+        inset: 0;
+      }
+      
+      .legacy-gallery-item.active .legacy-gallery-expanded {
+        opacity: 1;
+        transform: translateX(0);
+        pointer-events: all;
+        position: relative;
+      }
+      
+      .legacy-expanded-image {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .legacy-expanded-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        transition: transform 0.8s ease;
+      }
+      
+      .legacy-gallery-item.active .legacy-expanded-image img {
+        transform: scale(1.05);
+      }
+      
+      .legacy-image-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+        padding: 60px 20px 20px;
+        color: white;
+      }
+      
+      .legacy-image-overlay h4 {
+        font-size: 18px;
+        margin-bottom: 5px;
+        font-weight: 600;
+      }
+      
+      .legacy-image-overlay p {
+        font-size: 13px;
+        opacity: 0.9;
+        margin: 0;
+        line-height: 1.4;
+      }
+      
+      /* Mobile Responsive for Gallery */
+      @media (max-width: 768px) {
+        .legacy-gallery-row {
+          flex-direction: column;
+          height: auto;
+          gap: 10px;
+        }
+      
+        .legacy-gallery-item {
+          min-height: 80px;
+          min-width: 100%;
+          width: 100%;
+        }
+      
+        .legacy-gallery-item.active {
+          min-height: 250px;
+          flex: none;
+          width: 100%;
+        }
+      
+        .legacy-gallery-collapsed {
+          flex-direction: row;
+          padding: 20px;
+          justify-content: flex-start;
+          gap: 15px;
+        }
+      
+        .legacy-collapsed-title {
+          writing-mode: horizontal-tb;
+          font-size: 14px;
+        }
+      
+        .legacy-collapsed-number {
+          font-size: 24px;
+          margin-bottom: 0;
+        }
+      
+        .legacy-expanded-image {
+          height: 250px;
+          min-height: 250px;
+        }
+      
+        .legacy-expanded-image img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          object-position: center center;
+        }
+      
+        .legacy-image-overlay {
+          padding: 40px 15px 15px;
+        }
+      
+        .legacy-image-overlay h4 {
+          font-size: 16px;
+        }
+      
+        .legacy-image-overlay p {
+          font-size: 12px;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .legacy-gallery-item.active {
+          min-height: 200px;
+        }
+      
+        .legacy-expanded-image {
+          height: 200px;
+          min-height: 200px;
+        }
+      
+        .legacy-gallery-collapsed {
+          padding: 15px;
+        }
+      
+        .legacy-collapsed-number {
+          font-size: 20px;
+        }
+      
+        .legacy-collapsed-title {
+          font-size: 12px;
+        }
+      
+        .legacy-image-overlay {
+          padding: 30px 12px 12px;
+        }
+      
+        .legacy-image-overlay h4 {
+          font-size: 14px;
+        }
+      
+        .legacy-image-overlay p {
+          font-size: 11px;
+          line-height: 1.3;
+        }
+      } 
+  </style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="navbar">
+  <a href="#home" class="nav-logo" onclick="closeAllMenus()">
+    <img src="background-images/logo.jpg" alt="Acacia Trading Plc" decoding="async">
+    <div class="nav-logo-text">
+      Acacia Trading
+      <small>African First Ladies Initiative 2026</small>
+    </div>
+  </a>
+  
+  <button class="nav-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">☰</button>
+  
+  <ul class="nav-menu" id="navMenu">
+    <li class="nav-item">
+      <a href="#home" class="nav-link" onclick="closeAllMenus()">Home</a>
+    </li>
+    <li class="nav-item" id="nav-about">
+      <button class="nav-link" onclick="toggleDropdown('nav-about')">About ▼</button>
+      <ul class="dropdown">
+        <li><a href="#news" onclick="closeAllMenus()">Latest News</a></li>
+        <li><a href="#stats" onclick="closeAllMenus()">Forum Statistics</a></li>
+        <li><a href="#objectives" onclick="closeAllMenus()">Forum Objectives</a></li>
+        <li><a href="#AFLIERPA" onclick="closeAllMenus()">Forum Concise Overview</a></li>
+        <li><a href="#md-content" onclick="closeAllMenus()">Forum Latest Update</a></li>
+        <li><a href="#technologies" onclick="closeAllMenus()">Key Technologies</a></li>
+        <li><a href="#venue" onclick="closeAllMenus()">Venue & Logistics</a></li>
+        <li><a href="#faq" onclick="closeAllMenus()">FAQ</a></li> 
+        <li><a href="#downloads" onclick="closeAllMenus()">Downloads & Resources</a></li>
+      </ul>
+    </li>
+    <li class="nav-item" id="nav-speakers">
+      <button class="nav-link" onclick="toggleDropdown('nav-speakers')">Speakers ▼</button>
+      <ul class="dropdown">
+        <li><a href="#keynote" onclick="closeAllMenus()">Keynote Speakers</a></li>
+        <li><a href="#guest" onclick="closeAllMenus()">Guest Speakers</a></li>
+        <li><a href="#confirmed-participants" onclick="closeAllMenus()">Confirmed Participants</a></li>
+        <li><a href="#moderators-panelists" onclick="closeAllMenus()">Moderators Panelists</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a href="#sponsorship" class="nav-link" onclick="closeAllMenus()">Sponsorship</a>
+    </li>
+    <li class="nav-item" id="nav-partners">
+      <button class="nav-link" onclick="toggleDropdown('nav-partners')">Stakeholders ▼</button>
+      <ul class="dropdown">
+        <li><a href="#media" onclick="closeAllMenus()">Media</a></li>
+        <li><a href="#sponsors" onclick="closeAllMenus()">Sponsors</a></li>  
+        <li><a href="#participants" onclick="closeAllMenus()">Invited Participants</a></li>
+        <li><a href="#projects" onclick="closeAllMenus()">Project Portfolio</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a href="#register" class="nav-link" onclick="closeAllMenus()">Contact</a>
+    </li>
+  </ul>
+</nav>
+
+<!-- ===== HERO IMAGE SLIDER ===== -->
+<div class="hero-slider" id="home">
+  <div class="slider-container" id="sliderContainer">
+    <div class="slide">
+      <img src="background-images/wind-farm.jpg" alt="Wind Farm" decoding="async">
+      <div class="slide-overlay">
+        <h3>Wind Energy</h3>
+        <p>Harnessing clean power for sustainable development across Africa</p>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="background-images/solar-farm.jpg" alt="Solar Farm" decoding="async">
+      <div class="slide-overlay">
+        <h3>Solar Power</h3>
+        <p>Renewable energy solutions lighting up Africa's future</p>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="background-images/cooking-stove.jpg" alt="Improved Cooking Stove" decoding="async">
+      <div class="slide-overlay">
+        <h3>Clean Cooking</h3>
+        <p>Efficient stoves reducing emissions and improving lives in communities</p>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="background-images/tree-planting.jpg" alt="Women-led Tree Planting" decoding="async">
+      <div class="slide-overlay">
+        <h3>Green Legacy</h3>
+        <p>Women and youth leading environmental transformation across the continent</p>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="background-images/transport.png" alt="Addis Ababa Transportation Decarbonization" decoding="async">
+      <div class="slide-overlay">
+        <h3>Decarbonize Transport Industry</h3>
+        <p>Decarbonizing urban mobility through electric buses and sustainable transit systems</p>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="background-images/coridor.png" alt="Addis Ababa Corridor Development" decoding="async">
+      <div class="slide-overlay">
+        <h3>Corridor Development</h3>
+        <p>Green corridor development connecting economic zones with sustainable infrastructure</p>
+      </div>
+    </div>
+  </div>
+  <div class="slider-dots">
+    <span class="dot active" onclick="goToSlide(0)"></span>
+    <span class="dot" onclick="goToSlide(1)"></span>
+    <span class="dot" onclick="goToSlide(2)"></span>
+    <span class="dot" onclick="goToSlide(3)"></span>
+    <span class="dot" onclick="goToSlide(4)"></span>
+    <span class="dot" onclick="goToSlide(5)"></span>
+  </div>
+</div>  
+  
+<div class="white-strip"></div>
+
+<div class="event-logo-section">
+  <img src="background-images/event_logo.png" alt="AFLI Forum 2026 - African First Ladies Initiative for Emission Reduction and Poverty Alleviation" loading="eager">
+  <img src="background-images/acacia_tree.png" alt="Acacia Tree" class="acacia-overlay" loading="eager" decoding="async">
+</div>
+  
+<div class="news-ticker" id="news">
+  <div class="news-container">
+    <div class="news-label">
+      <span class="news-icon">📰</span>
+      <strong>Latest News</strong>
+    </div>
+    <div class="news-content">
+      <a href="content/news.html" class="news-link" id="dynamicNewsLink">
+        🌍 New climate finance commitments announced at COP29 for African renewable energy projects
+      </a>
+      <p class="news-caption">Stay updated with the latest developments in climate action and green innovation</p>
+    </div>
+    <a href="content/news.html" class="news-archive-link">View All →</a>
+  </div>
+</div>  
+  
+<div class="container">
+  <div class="header-content" id="about">
+    <h1>African First Ladies Initiative for Emission Reduction and Poverty Alleviation Forum</h1>
+    <div class="subtitle">Championing Clean Energy for Sustainable Development Through Women and Youth</div>
+      <div class="sdg-icons">
+      <img src="sdg/sdg1.png" alt="SDG 1: No Poverty" class="sdg-icon" title="No Poverty" decoding="async" loading="lazy">
+      <img src="sdg/sdg7.png" alt="SDG 7: Affordable and Clean Energy" class="sdg-icon" title="Affordable and Clean Energy" decoding="async" loading="lazy">
+      <img src="sdg/sdg9.png" alt="SDG 9: Industry, Innovation and Infrastructure" class="sdg-icon" title="Industry, Innovation and Infrastructure" decoding="async" loading="lazy">
+      <img src="sdg/sdg13.png" alt="SDG 13: Climate Action" class="sdg-icon" title="Climate Action" decoding="async" loading="lazy">       
+    </div>
+      <div class="countdown-section" id="countdown">
+        <div class="countdown-title">🗓️ Countdown to AFLI Forum 2026</div>
+        <div class="countdown-container">
+          <div class="countdown-box">
+            <span class="countdown-number" id="days">00</span>
+            <span class="countdown-label">Days</span>
+          </div>
+          <div class="countdown-box">
+            <span class="countdown-number" id="hours">00</span>
+            <span class="countdown-label">Hours</span>
+          </div>
+          <div class="countdown-box">
+            <span class="countdown-number" id="minutes">00</span>
+            <span class="countdown-label">Mins</span>
+          </div>
+          <div class="countdown-box">
+            <span class="countdown-number" id="seconds">00</span>
+            <span class="countdown-label">Secs</span>
+          </div>
+        </div>
+      </div>  
+
+        <div class="stats-section" id="stats">
+          <div class="stats-title">📊 <strong>Forum Impact at a Glance</strong></div>
+          <div class="stats-grid">
+            
+            <div class="stat-item">
+              <span class="stat-icon">📁</span>
+              <div class="stat-value">
+                <span class="stat-number" data-target="14">0</span>
+              </div>
+              <span class="stat-label">Projects</span>
+            </div>
+        
+            <div class="stat-item">
+              <span class="stat-icon">💰</span>
+              <div class="stat-value">
+                <span class="stat-prefix">$</span><span class="stat-number" data-target="50">0</span><span class="stat-suffix">Bn</span>
+              </div>
+              <span class="stat-label">Investment Pipeline</span>
+            </div>
+        
+            <div class="stat-item">
+              <span class="stat-icon">👥</span>
+              <div class="stat-value">
+                <span class="stat-number" data-target="50">0</span><span class="stat-suffix">+</span>
+              </div>
+              <span class="stat-label">Confirmed Participants</span>
+            </div>
+        
+            <div class="stat-item">
+              <span class="stat-icon">🏦</span>
+              <div class="stat-value">
+                <span class="stat-number" data-target="4">0</span>
+              </div>
+              <span class="stat-label">Investors</span>
+            </div>
+        
+            <div class="stat-item">
+              <span class="stat-icon">🌍</span>
+              <div class="stat-value">
+                <span class="stat-number" data-target="6">0</span><span class="stat-suffix">+</span>
+              </div>
+              <span class="stat-label">Participating Countries</span>
+            </div>
+        
+            <div class="stat-item">
+              <span class="stat-icon">🎯</span>
+              <div class="stat-value">
+                <span class="stat-number" data-target="4">0</span>
+              </div>
+              <span class="stat-label">SDGs Addressed</span>
+            </div>
+        
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>  
+  
+  <div class="date-location"><span>📅</span> March 17-19, 2026 | The National Palace | Addis Ababa, Ethiopia</div>
+
+  <div class="content">
+    <div class="section">
+      <h2><span>🌿</span>Transforming Africa Through Green Innovation</h2>
+      <h3>Building a Sustainable Future Together</h3><br>
+      <p>Join African First Ladies, policymakers, and leaders in a global partnership to synchronize environmental stewardship with economic empowerment. The forum will scale Ethiopia's Green Legacy Initiative, showcase clean energy technologies, and empower women and youth as agents of green transformation, uniting leaders to integrate climate-smart entrepreneurship with poverty alleviation.</p>
+    </div>
+         
+    <!-- FORUM OBJECTIVES - Vertical Accordion with Glassmorphism -->
+    <div class="artistic-section" id="objectives">
+      <div class="section-header-glass" onclick="toggleArtisticSection('objectives')">
+        <h2><span>🎯</span>Forum Objectives</h2>
+        <span class="section-toggle-icon">▼</span>
+      </div>
+      <div class="section-content-glass">
+        <div class="vertical-accordion">
+          <div class="v-accordion-item" onclick="toggleVAccordion(this)">
+            <div class="v-accordion-header">
+              <div class="v-accordion-icon">🌱</div>
+              <span class="v-accordion-title">Green Legacy Initiative</span>
+              <span class="v-accordion-toggle">▼</span>
+            </div>
+            <div class="v-accordion-content">
+              <p>Join Ethiopia's transformative movement that has planted over <span class="highlight">47.5 billion seedlings</span>, creating green economic opportunities and environmental resilience across the nation. This initiative serves as a model for continent-wide reforestation efforts.</p>
+            </div>
+          </div>
+
+          <div class="v-accordion-item" onclick="toggleVAccordion(this)">
+            <div class="v-accordion-header">
+              <div class="v-accordion-icon">💡</div>
+              <span class="v-accordion-title">Clean Energy Solutions</span>
+              <span class="v-accordion-toggle">▼</span>
+            </div>
+            <div class="v-accordion-content">
+              <p>Explore innovative technologies including <span class="highlight">hydrogen-enhanced engines</span>, improved cooking stoves, and solar systems designed for sustainable development in African contexts. These solutions reduce emissions while creating economic opportunities.</p>
+            </div>
+          </div>
+
+          <div class="v-accordion-item" onclick="toggleVAccordion(this)">
+            <div class="v-accordion-header">
+              <div class="v-accordion-icon">🌍</div>
+              <span class="v-accordion-title">Global Partnership</span>
+              <span class="v-accordion-toggle">▼</span>
+            </div>
+            <div class="v-accordion-content">
+              <p>Unite First Ladies from <span class="highlight">Africa, Middle East, and Asia</span> to develop coordinated emission reduction and poverty alleviation strategies. Build lasting partnerships between governments, NGOs, and private sector entities.</p>
+            </div>
+          </div>
+
+          <div class="v-accordion-item" onclick="toggleVAccordion(this)">
+            <div class="v-accordion-header">
+              <div class="v-accordion-icon">🤝</div>
+              <span class="v-accordion-title">Women Empowerment</span>
+              <span class="v-accordion-toggle">▼</span>
+            </div>
+            <div class="v-accordion-content">
+              <p>Empower <span class="highlight">women and youth</span> as agents of green transformation through climate-smart agriculture, entrepreneurship training, and leadership development programs tailored for sustainable impact.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- GREEN LEGACY GALLERY - Horizontal Accordion with 5 Pictures -->
+        <div class="legacy-gallery-section">
+          <h3 style="color: var(--green); text-align: center; margin-bottom: 20px; font-size: 20px;">
+            <span>🌳</span> Green Legacy Initiative Gallery
+          </h3>
+          <div class="legacy-gallery-row">
+            <!-- Gallery Item 1 -->
+            <div class="legacy-gallery-item" onclick="toggleLegacyGallery(this)" tabindex="0" role="button" aria-expanded="false">
+              <div class="legacy-gallery-collapsed">
+                <span class="legacy-collapsed-number">01</span>
+                <span class="legacy-collapsed-title">Friendship Park</span>
+              </div>
+              <div class="legacy-gallery-expanded">
+                <div class="legacy-expanded-image">
+                  <img src="background-images/Friendship.jpg" alt="Friendship Park" decoding="async" loading="lazy">
+                  <div class="legacy-image-overlay">
+                    <h4>Friendship Park: Addis Ababa's Green Lung</h4>
+                    <p>The Friendship Park, a jewel of the Sheger Project, has transformed the heart of Addis Ababa into a lush urban oasis.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Gallery Item 2 -->
+            <div class="legacy-gallery-item" onclick="toggleLegacyGallery(this)" tabindex="0" role="button" aria-expanded="false">
+              <div class="legacy-gallery-collapsed">
+                <span class="legacy-collapsed-number">02</span>
+                <span class="legacy-collapsed-title">Gorgora</span>
+              </div>
+              <div class="legacy-gallery-expanded">
+                <div class="legacy-expanded-image">
+                  <img src="background-images/Gorgora.jpg" alt="Gorgora" decoding="async" loading="lazy">
+                  <div class="legacy-image-overlay">
+                    <h4>Gorgora: Lakeside Luxury & Sustainable</h4>
+                    <p>Imagine a breathtaking lakeside resort development nestled on the shores of Lake Tana.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Gallery Item 3 -->
+            <div class="legacy-gallery-item" onclick="toggleLegacyGallery(this)" tabindex="0" role="button" aria-expanded="false">
+              <div class="legacy-gallery-collapsed">
+                <span class="legacy-collapsed-number">03</span>
+                <span class="legacy-collapsed-title">Wonchi</span>
+              </div>
+              <div class="legacy-gallery-expanded">
+                <div class="legacy-expanded-image">
+                  <img src="background-images/Wonchi.jpg" alt="Gorgora" decoding="async" loading="lazy">
+                  <div class="legacy-image-overlay">
+                    <h4>Wonchi: Crater Lake Conservation</h4>
+                    <p>High in the Ethiopian highlands, the Wonchi project unveils a stunning volcanic crater lake surrounded by dense, newly reforested slopes.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Gallery Item 4 -->
+            <div class="legacy-gallery-item" onclick="toggleLegacyGallery(this)" tabindex="0" role="button" aria-expanded="false">
+              <div class="legacy-gallery-collapsed">
+                <span class="legacy-collapsed-number">04</span>
+                <span class="legacy-collapsed-title">Benuna</span>
+              </div>
+              <div class="legacy-gallery-expanded">
+                <div class="legacy-expanded-image">
+                  <img src="background-images/Benuna.jpg" alt="Benuna" decoding="async" loading="lazy">
+                  <div class="legacy-image-overlay">
+                    <h4>Benuna Eco-Lounge</h4>
+                    <p>The seamless blend of luxury bamboo-and-stone architecture with the surrounding forest.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Gallery Item 5 -->
+            <div class="legacy-gallery-item" onclick="toggleLegacyGallery(this)" tabindex="0" role="button" aria-expanded="false">
+              <div class="legacy-gallery-collapsed">
+                <span class="legacy-collapsed-number">05</span>
+                <span class="legacy-collapsed-title">Entoto Natural Park</span>
+              </div>
+              <div class="legacy-gallery-expanded">
+                <div class="legacy-expanded-image">
+                  <img src="background-images/Entoto.jpg" alt="Entoto Natural Park" decoding="async" loading="lazy">
+                  <div class="legacy-image-overlay">
+                    <h4>Entoto Natural Park: Urban Green Transformation</h4>
+                    <p>In Addis Ababa, Entoto Natural Park represents a remarkable urban transformation.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+    <!-- VIDEO SHOWCASE SECTION -->
+    <div class="video-showcase-glass" id="AFLIERPA">
+      <div class="video-container-glass">
+        <video controls poster="background-images/AFLIERPA-2026-Overview.jpg" preload="none">
+          <source src="video/AFLIERPA-2026.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-caption-glass">
+        <span class="video-badge-glass">Green Legacy Initiative</span>
+        <h4>African First Ladies' Initiative: A Concise Overview</h4>
+        <p>Scheduled for mid-March 2026, this forum mobilizes African First Ladies and multilateral UN organizations to champion climate-smart development. It focuses on reducing emissions and poverty through the adoption of improved Cooking Stoves, Solar Devices, and Hydrogen-Enhanced Internal Combustion Engine (H-ICE) technology.</p>
+      </div>
+    </div>
+    
+    <!-- MARKDOWN CONTENT SECTION - EXPANDABLE -->
+    <div class="artistic-section" id="md-content">
+      <div class="section-header-glass" onclick="toggleArtisticSection('md-content')">
+        <h2><span>🗣📢</span>Forum Latest Update</h2>
+        <span class="section-toggle-icon">▼</span>
+      </div>
+      <div class="section-content-glass">
+        <div id="markdown-container">
+          <div class="loading-md">Loading content...</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- KEY TECHNOLOGIES SHOWCASE -->
+    <div class="artistic-section" id="technologies">
+      <div class="section-header-glass" onclick="toggleArtisticSection('technologies')">
+        <h2><span>🔧</span>Key Technologies Showcase</h2>
+        <span class="section-toggle-icon">▼</span>
+      </div>
+      <div class="section-content-glass">
+        <div class="tech-grid-enhanced">    
+          <div class="tech-card-glass">
+            <div class="tech-icon-glass">🔥</div>
+            <h4><a href="https://www.ecca-et.org" target="_blank" class="no-underline">Improved Cooking Stoves</a></h4>
+            <p>Clean, efficient household energy solutions reducing indoor air pollution and deforestation.</p>
+          </div>
+          <div class="tech-card-glass">
+            <div class="tech-icon-glass">☀️</div>
+            <h4><a href="https://www.toyo-solar.com" target="_blank" class="no-underline">Solar Power Devices</a></h4>
+            <p>Renewable energy solutions for off-grid communities and urban applications.</p>
+          </div>
+          <div class="tech-card-glass">
+            <div class="tech-icon-glass">⛽</div>
+            <h4><a href="https://mussieaf.github.io/Concept_note/GHP.html" target="_blank" class="no-underline">H₂-Enhanced Engines</a></h4>
+            <p>Next-gen clean transport & gensets reducing emissions by up to 40%.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIDEO SHOWCASE SECTION -->
+    <div class="video-showcase-glass" id="GHP">
+      <div class="video-container-glass">
+        <video controls poster="background-images/GHP_HYDROGEN.jpg" preload="none">
+          <source src="video/Hydrogen_Truck.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-caption-glass">
+        <span class="video-badge-glass">Hydrogen-enhanced Internal Combustion Engine</span>
+        <h4>The Future We Envision</h4>
+        <p>Globo Hydrogen Power™ (GHP™) is a fuel enhancement system that converts traditional petrol and diesel engines in trucks, buses, and power generators into cost-saving, emissions-reducing hydrogen hybrids.</p>
+      </div>
+    </div>
+
+    <!-- FUEL SAVING CALCULATION -->
+    <div class="artistic-section" id="calculator">
+      <div class="section-header-glass" onclick="toggleArtisticSection('calculator')">
+        <h2><span>📊</span>Fuel Saving and Carbon Credit Calculation</h2>
+        <span class="section-toggle-icon">▼</span>
+      </div>
+      <div class="section-content-glass">
+        <p style="text-align: center; color: #555; margin-bottom: 25px;">Calculate your potential fuel savings and carbon credits with our advanced tools.</p>
+        <div style="text-align: center;">
+          <a href="https://mussieaf.github.io/Concept_note/ghp-calculator" class="button-glass" target="_blank" rel="noopener noreferrer">
+            <span>🔍</span> Calculate Now
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- REGISTRATION CTA -->
+    <div class="cta-section-glass" id="register">
+      <div class="cta-content">
+        <h3>Be Part of the Green Revolution!</h3>
+        <form id="leadForm" class="form-glass">
+          <div class="form-group-glass">
+            <input name="name" placeholder="Full name *" required>
+            <input name="email" placeholder="Email *" type="email" required>
+            <input name="phone" placeholder="Telephone number (optional)">
+            <input name="interest" placeholder="Interest / Organisation">
+            <textarea name="message" placeholder="Message (optional)" rows="3"></textarea>
+            <button type="submit" class="button-glass">Register Interest <span>ᝰ﹏🖋</span></button>
+            <span id="formResp"></span>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- SPONSORSHIP SECTION -->
+    <div class="artistic-section" id="sponsorship">
+      <div class="section-header-glass" onclick="toggleArtisticSection('sponsorship')">
+        <h2><span>💎</span>Sponsorship Opportunities</h2>
+        <span class="section-toggle-icon">▼</span>
+      </div>
+      <div class="section-content-glass">
+
+        <div class="sponsor-tier-glass platinum" id="tier-platinum-glass">
+          <div class="sponsor-header-glass" onclick="toggleSponsorGlass('tier-platinum-glass')">
+            <span>🏆 PLATINUM – $250,000</span>
+            <span>▼</span>
+          </div>
+          <div class="sponsor-content-glass">
+            <ul>
+              <li>Logo on all digital & print assets</li>
+              <li>15-min keynote slot</li>
+              <li>Premium exhibition space</li>
+              <li>Media interview coordination</li>
+              <li>Get 25% of carbon credits from future projects</li>
+              <li>Year-long web banner</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sponsor-tier-glass diamond" id="tier-diamond-glass">
+          <div class="sponsor-header-glass" onclick="toggleSponsorGlass('tier-diamond-glass')">
+            <span>💎 DIAMOND – $150,000</span>
+            <span>▼</span>
+          </div>
+          <div class="sponsor-content-glass">
+            <ul>
+              <li>Logo on main-stage backdrop</li>
+              <li>Panel-seat guarantee</li>
+              <li>Table exhibition booth</li>
+              <li>Get 15% of carbon credits from future projects</li>
+              <li>VIP networking lunch seats (4)</li>
+              <li>Social-media spotlights</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sponsor-tier-glass gold" id="tier-gold-glass">
+          <div class="sponsor-header-glass" onclick="toggleSponsorGlass('tier-gold-glass')">
+            <span>🥇 GOLD – $80,000</span>
+            <span>▼</span>
+          </div>
+          <div class="sponsor-content-glass">
+            <ul>
+              <li>Logo in conference booklet</li>
+              <li>Speaking role in breakout</li>
+              <li>Table-top exhibit</li>
+              <li>Get 10% of carbon credits from future projects</li>
+              <li>Delegate passes (3)</li>
+              <li>Post-event delegate list</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sponsor-tier-glass silver" id="tier-silver-glass">
+          <div class="sponsor-header-glass" onclick="toggleSponsorGlass('tier-silver-glass')">
+            <span>🥈 SILVER – $40,000</span>
+            <span>▼</span>
+          </div>
+          <div class="sponsor-content-glass">
+            <ul>
+              <li>Name on signage</li>
+              <li>Table-top exhibit</li>
+              <li>Get 5% of carbon credits from future projects</li>
+              <li>Delegate passes (2)</li>
+              <li>Access to app networking</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+          <a href="mailto:mussie@equaltradeglobal.org?subject=Sponsorship%20Inquiry%20-%20AFLI%202026" class="button-glass">💼 Become a Sponsor</a>
+        </div>
+      </div>
+    </div>
+  
+  <!-- KEYNOTE SPEAKERS -->
+  <div class="artistic-section" id="keynote">
+    <div class="section-header-glass" onclick="toggleArtisticSection('keynote')">
+      <h2><span>🗣️🎙️👥</span>Keynote Speakers</h2>
+      <span class="section-toggle-icon">▼</span>
+    </div>
+    <div class="section-content-glass">
+      <div class="participant-grid-enhanced">
+        <div class="speaker-card-glass">
+          <div class="speaker-image-wrapper">
+            <img src="Speakers/Kspeaker1.jpeg" alt="Dr. Weidong ZHANG" decoding="async" loading="lazy">
+            <div class="speaker-overlay"></div>
+          </div>
+          <div class="speaker-info-glass">
+            <h3>Dr. Weidong ZHANG</h3>
+            <span class="speaker-role">Assistant Resident Representative, UNDP China</span>
+            <p>A driving force behind innovation, partnerships, and tech-driven development. Previously a Programme Manager, his work focuses on SDG innovation, AI policy, climate action, and gender equality. He holds advanced degrees from Stanford University and Beijing Foreign Studies University.</p>
+          </div>
+        </div>
+        <div class="speaker-card-glass">
+          <div class="speaker-image-wrapper">
+            <img src="Speakers/Kspeaker2.jpeg" alt="Dr. Mena Mofed Sabet Gharsa" decoding="async" loading="lazy">
+            <div class="speaker-overlay"></div>
+          </div>
+          <div class="speaker-info-glass">
+            <h3>Dr. Mena Mofed Sabet Gharsa</h3>
+            <span class="speaker-role">Chairman, TOP WORLD TRUST FOUNDATIONS</span>
+            <p>An eye surgeon and scientist with over 30 years of executive leadership in global finance. As CEO of multinational investment firms, he manages substantial assets and directs project finance for infrastructure, petrochemical complexes, and renewable energy.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- GUEST SPEAKERS -->
+  <div class="artistic-section" id="guest">
+    <div class="section-header-glass" onclick="toggleArtisticSection('guest')">
+      <h2><span>🎤</span>Guest Speakers</h2>
+      <span class="section-toggle-icon">▼</span>
+    </div>
+    <div class="section-content-glass">
+      <div class="participant-grid-enhanced">
+        <div class="speaker-card-glass">
+          <div class="speaker-image-wrapper">
+            <img src="Speakers/Gspeaker1.jpeg" alt="Elaine Johns" decoding="async" loading="lazy">
+            <div class="speaker-overlay"></div>
+          </div>
+          <div class="speaker-info-glass">
+            <h3>Elaine Johns</h3>
+            <span class="speaker-role">Managing Director, Globo Hydro Power Pty Ltd</span>
+            <p>A leader driving economic, sociological, and environmental advancement. She is the first female Club Director of the Enfield Returned Services League Club and the first female NSW Returned Services League Clubs Association Counselor.</p>
+          </div>
+        </div>
+        <div class="speaker-card-glass">
+          <div class="speaker-image-wrapper">
+            <img src="Speakers/Gspeaker2.jpeg" alt="Rev. Dolly Nengushe" decoding="async" loading="lazy">
+            <div class="speaker-overlay"></div>
+          </div>
+          <div class="speaker-info-glass">
+            <h3>Rev. Dolly Nengushe</h3>
+            <span class="speaker-role">Executive Chairperson, ACCN Namibia</span>
+            <p>A Namibian faith leader and community development advocate focused on inclusive development, ethical leadership, and social cohesion.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+
+    <!-- CONFIRMED FORUM PARTICIPANTS -->
+    <div class="artistic-section" id="confirmed-participants">
+      <div class="section-header-glass" onclick="toggleArtisticSection('confirmed-participants')">
+        <h2><span>👥</span>Confirmed Forum Participants</h2>
+        <span class="section-toggle-icon">▼</span>
+      </div>
+      <div class="section-content-glass">
+        <div class="participant-grid-enhanced">
+          
+          <div class="participant-card-glass">
+            <img src="flags/Burkina_Faso.png" alt="Burkina Faso" class="country-flag" decoding="async" loading="lazy">
+            <img src="Participants/participant1.jpeg" alt="Mr. ABUNDANCE Williams" class="participant-photo-glass" decoding="async" loading="lazy">
+            <h3>Mr. ABUNDANCE Williams</h3>
+            <span class="participant-role">International Relation Advisor - Burkina Faso</span>
+            <p>Leading expert in climate policy with over 15 years of experience in sustainable development initiatives across the Sahel.</p>
+          </div>
+
+          <div class="participant-card-glass">
+            <img src="flags/Ethiopia.png" alt="Ethiopia" class="country-flag" decoding="async" loading="lazy">
+            <img src="Participants/participant2.jpg" alt="Dr. Solomon Belay" class="participant-photo-glass" decoding="async" loading="lazy">
+            <h3>Dr. Solomon Belay</h3>
+            <span class="participant-role">Ministry of Innovation & Technology</span>
+            <p>Senior Scientist and Innovation advisor at Space Science and Geospatial Institute and Ministry of Innovation and Technology.</p>
+          </div>
+
+          <div class="participant-card-glass">
+            <img src="flags/Rumania.jpg" alt="Romania" class="country-flag" decoding="async" loading="lazy">
+            <img src="Participants/participant3.jpg" alt="Laurentiu Ursu" class="participant-photo-glass" decoding="async" loading="lazy">
+            <h3>Laurentiu Ursu</h3>
+            <span class="participant-role">Green Energy Expert</span>
+            <p>Founder of a Romanian consultancy specialized in green energy to facilitate international market entry and business development for major infrastructure projects.</p>
+          </div>
+
+          <div class="participant-card-glass">
+            <img src="flags/Kenya.png" alt="Kenya" class="country-flag" decoding="async" loading="lazy">
+            <img src="Participants/participant4.jpg" alt="Tobias Nauruki" class="participant-photo-glass" decoding="async" loading="lazy">
+            <h3>Tobias Nauruki</h3>
+            <span class="participant-role">Strategic Policy Advisor</span>
+            <p>Multilingual expert, AIPRC CEO, leverages 10+ years advising global institutions on governance and development finance to deliver sustainable, high-level strategic impact.</p>
+          </div>
+
+          <div class="participant-card-glass">
+            <img src="flags/Ethiopia.png" alt="Ethiopia" class="country-flag" decoding="async" loading="lazy">
+            <img src="Participants/participant5.jpg" alt="Dr. Kalkidan Esayas" class="participant-photo-glass" decoding="async" loading="lazy">
+            <h3>Dr. Kalkidan Esayas</h3>
+            <span class="participant-role">Climate and Environment Consultant</span>
+            <p>A climate change and environmental consultant, gender and youth advocate, experienced working across Africa and internationally on climate action and sustainable development.</p>
+          </div>
+
+          <div class="participant-card-glass">
+            <img src="flags/Kenya.png" alt="Kenya" class="country-flag" decoding="async" loading="lazy">
+            <img src="Participants/participant6.jpg" alt="Julius Motaroki" class="participant-photo-glass" decoding="async" loading="lazy">
+            <h3>Julius Motaroki</h3>
+            <span class="participant-role">Group COO, RentCo Africa</span>
+            <p>RentCo Africa's Group COO and Kenya Country Head. He leads operations, structures deals, and enables access to assets, driving RentCo's growth and efficiency in Kenya.</p>
+          </div>
+
+          <div class="participant-card-glass">
+            <img src="flags/China.jpg" alt="China" class="country-flag" decoding="async" loading="lazy">
+            <img src="Participants/participant7.jpg" alt="Grace Nwosu" class="participant-photo-glass" decoding="async" loading="lazy">
+            <h3>Grace Nwosu</h3>
+            <span class="participant-role">Women in Energy</span>
+            <p>Women in Clean Energy Alliance, promoting gender equality in the renewable energy sector.</p>
+          </div>
+
+          <div class="participant-card-glass">
+            <img src="flags/China.jpg" alt="China" class="country-flag" decoding="async" loading="lazy">
+            <img src="Participants/participant8.jpg" alt="Alice Norman" class="participant-photo-glass" decoding="async" loading="lazy">
+            <h3>Alice Norman</h3>
+            <span class="participant-role">Women in Energy</span>
+            <p>Women in Carbon Markets, promoting gender-inclusive climate finance through female leadership in high-integrity carbon credits.</p>
+          </div>
+
+          <div class="participant-card-glass">
+            <img src="flags/Australia.jpg" alt="Australia" class="country-flag" decoding="async" loading="lazy">
+            <img src="Participants/participant9.jpeg" alt="Gonzalez Duran Jaime" class="participant-photo-glass" decoding="async" loading="lazy">
+            <h3>Gonzalez Duran Jaime</h3>
+            <span class="participant-role">Sustainable Energy Systems Engineer</span>
+            <p>Develops water-based electrolysis for on-demand hydrogen generation, optimizing integration with combustion engines to boost fuel efficiency and cut emissions.</p>
+          </div>
+
+          <div class="participant-card-glass">
+            <img src="flags/Australia.jpg" alt="Australia" class="country-flag" decoding="async" loading="lazy">
+            <img src="Participants/participant10.jpeg" alt="Coakes Jordan Cameron" class="participant-photo-glass" decoding="async" loading="lazy">
+            <h3>Coakes Jordan Cameron</h3>
+            <span class="participant-role">Certified Hydrogen Systems Technician</span>
+            <p>Installs and calibrates on-demand hydrogen generation kits, integrating water-based electrolysis units with engine intake manifolds for fuel efficiency and emission reduction.</p>
+          </div>
+
+          <div class="participant-card-glass">
+            <img src="flags/Australia.jpg" alt="Australia" class="country-flag" decoding="async" loading="lazy">
+            <img src="Participants/participant11.jpeg" alt="Shaun Mitchell" class="participant-photo-glass" decoding="async" loading="lazy">
+            <h3>Shaun Mitchell</h3>
+            <span class="participant-role">Certified Hydrogen Systems Technician</span>
+            <p>Installs and calibrates on-demand hydrogen generation kits, integrating water-based electrolysis units with engine intake manifolds for fuel efficiency and emission reduction.</p>
+          </div>
+          
+        </div>
+      </div>
+    </div> 
+
+    <!-- MODERATORS & PANELISTS -->
+    <div class="artistic-section" id="moderators-panelists">
+      <div class="section-header-glass" onclick="toggleArtisticSection('moderators-panelists')">
+        <h2><span>🎤</span>MC, Moderators & Panelists</h2>
+        <span class="section-toggle-icon">▼</span>
+      </div>
+      <div class="section-content-glass">
+        <div class="participant-grid-enhanced">
+
+          <div class="participant-card-glass">
+            <span class="badge-glass badge-moderator">Firechat Moderator</span>
+            <img src="Moderators/moderator1.jpg" alt="Hannah Mariam M. Selassie" class="participant-photo-glass" decoding="async" loading="lazy">
+            <h3>Hannah Mariam M. Selassie</h3>
+            <span class="participant-role">Communication Professor</span>
+            <p>Professor of Communication and senior PR/Brand Consultant with extensive experience as a published author. Expert moderator for the UN and UNECA.</p>
+          </div>
+
+          <div class="participant-card-glass">
+            <span class="badge-glass badge-mc">Master of Ceremony</span>
+            <img src="Moderators/moderator3.jpg" alt="Eskinder Ayele" class="participant-photo-glass" decoding="async" loading="lazy">
+            <h3>Eskinder Ayele</h3>
+            <span class="participant-role">Africa Strategy and Partnership</span>
+            <p>Social Development Practitioner, Cross-Cultural Expert, Business Development Specialist, AIESEC Alumnus, IEP Ambassador, UPG Sustainability Leader.</p>
+          </div>           
+          
+          <div class="participant-card-glass">
+            <span class="badge-glass badge-mc">Panel Moderator</span>
+            <img src="Moderators/moderator2.jpg" alt="Harriet Nartey" class="participant-photo-glass" decoding="async" loading="lazy">
+            <h3>Harriet Nartey</h3>
+            <span class="participant-role">International Relations Correspondent</span>
+            <p>Award-winning presenter with 10+ years experience facilitating high-level international conferences and diplomatic events.</p>
+          </div>
+
+          <div class="participant-card-glass">
+            <span class="badge-glass badge-panelist">Panelist</span>
+            <img src="Panelists/panelist1.jpg" alt="Dr. Laura Schmidt" class="participant-photo-glass" decoding="async" loading="lazy">
+            <h3>Dr. Laura Schmidt</h3>
+            <span class="participant-role">Hydrogen Technology</span>
+            <p>Leading researcher in hydrogen fuel cell technology and sustainable transportation solutions.</p>
+          </div>
+
+          <div class="participant-card-glass">
+            <span class="badge-glass badge-panelist">Panelist</span>
+            <img src="Panelists/panelist2.jpg" alt="Robert Kimani" class="participant-photo-glass" decoding="async" loading="lazy">
+            <h3>Robert Kimani</h3>
+            <span class="participant-role">Solar Innovation</span>
+            <p>CEO of SunPower Africa, pioneering affordable solar solutions for off-grid communities.</p>
+          </div>
+
+          <div class="participant-card-glass">
+            <span class="badge-glass badge-panelist">Panelist</span>
+            <img src="Panelists/panelist3.jpg" alt="Dr. Helen Okonkwo" class="participant-photo-glass" decoding="async" loading="lazy">
+            <h3>Dr. Helen Okonkwo</h3>
+            <span class="participant-role">Circular Economy</span>
+            <p>Expert in waste-to-energy systems and circular economy practices for developing nations.</p>
+          </div>
+
+          <div class="participant-card-glass">
+            <span class="badge-glass badge-moderator">Firechat Moderator</span>
+            <img src="Moderators/moderator4.jpg" alt="Thomas Mueller" class="participant-photo-glass" decoding="async" loading="lazy">
+            <h3>Thomas Mueller</h3>
+            <span class="participant-role">International Relations</span>
+            <p>Diplomat specializing in EU-Africa climate partnerships and green energy financing mechanisms.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  
+  <!-- MEDIA PARTNERS -->
+  <div class="artistic-section" id="media">
+    <div class="section-header-glass" onclick="toggleArtisticSection('media')">
+      <h2><span>🎙️</span>Media Partners</h2>
+      <span class="section-toggle-icon">▼</span>
+    </div>
+    <div class="section-content-glass">
+      <div class="gallery-enhanced">
+        <div class="gallery-item-glass">
+          <img src="Media/Media1.jpeg" alt="Media Outlet 1" decoding="async" loading="lazy">
+        </div>
+        <div class="gallery-item-glass">
+          <img src="Media/Media2.jpeg" alt="Media Outlet 2" decoding="async" loading="lazy">
+        </div>
+        <div class="gallery-item-glass">
+          <img src="Media/Media3.jpeg" alt="Media Outlet 3" decoding="async" loading="lazy">
+        </div>
+        <div class="gallery-item-glass">
+          <img src="Media/Media4.png" alt="Media Outlet 4" decoding="async" loading="lazy">
+        </div>
+        <div class="gallery-item-glass">
+          <img src="Media/Media5.jpeg" alt="Media Outlet 5" decoding="async" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SPONSORS -->
+  <div class="artistic-section" id="sponsors">
+    <div class="section-header-glass" onclick="toggleArtisticSection('sponsors')">
+      <h2><span>💰</span>Sponsors</h2>
+      <span class="section-toggle-icon">▼</span>
+    </div>
+    <div class="section-content-glass">
+      <div class="gallery-enhanced">
+        <div class="gallery-item-glass">
+          <img src="Sponsors/Sponsor1.jpeg" alt="Sponsor 1" decoding="async" loading="lazy">
+        </div>
+        <div class="gallery-item-glass">
+          <img src="Sponsors/Sponsor2.jpeg" alt="Sponsor 2" decoding="async" loading="lazy">
+        </div>
+        <div class="gallery-item-glass">
+          <img src="Sponsors/Sponsor3.jpeg" alt="Sponsor 3" decoding="async" loading="lazy">
+        </div>
+        <div class="gallery-item-glass">
+          <img src="Sponsors/Sponsor4.jpeg" alt="Sponsor 4" decoding="async" loading="lazy">
+        </div>
+        <div class="gallery-item-glass">
+          <img src="Sponsors/Sponsor5.jpeg" alt="Sponsor 5" decoding="async" loading="lazy">
+        </div>
+        <div class="gallery-item-glass">
+          <img src="Sponsors/Sponsor6.jpeg" alt="Sponsor 6" decoding="async" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INVITED PARTICIPANTS -->
+  <div class="artistic-section" id="participants">
+    <div class="section-header-glass" onclick="toggleArtisticSection('participants')">
+      <h2><span>👥</span>Invited Participants</h2>
+      <span class="section-toggle-icon">▼</span>
+    </div>
+    <div class="section-content-glass">
+      <img src="projects/discussion.png" alt="discussion" decoding="async" loading="lazy" style="width: 100%; border-radius: 16px; margin-bottom: 20px;">
+      <p style="text-align: center; color: #555; margin-bottom: 25px;">Explore the distinguished list of invited participants joining us for the African First Ladies Initiative Forum 2026.</p>
+      <div style="text-align: center;">
+        <a href="index3.html" class="button-glass">
+          <span>📋</span> View Invited Participants
+        </a>
+      </div>
+    </div>
+  </div>
+
+ <!-- ===== HORIZONTAL ACCORDION PROJECTS SECTION ===== -->
+  <div class="projects-section" id="projects">
+    <div class="projects-intro">
+      <h2><span>🚀</span> Strategic Investment Portfolio <span>💼</span></h2>
+      <div class="funding-badge">$50 Billion USD Funding Platform</div>
+      <p>The Invesators hereby confirm their commitment to establishing a primary $50 Billion USD funding platform. This platform is designed to provide rolls and extensions for your infrastructure projects and large-scale public-private partnerships across diverse sectors spanning sustainability, industrial development, social infrastructure, logistics, and community enhancement initiatives.</p>
+    </div>
+    
+    <!-- Row 1: Projects 1-5 -->
+    <div class="accordion-row" data-row="1">
+      <!-- Project 1: Clean Energy -->
+      <div class="accordion-item" onclick="toggleAccordion(this)" tabindex="0" role="button" aria-expanded="false">
+        <div class="accordion-collapsed">
+          <span class="collapsed-icon">⚡</span>
+          <span class="collapsed-title">Clean Energy</span>
+        </div>
+        <div class="accordion-expanded">
+          <div class="expanded-image">
+            <img src="projects/clean-energy.png" alt="Clean Energy Infrastructure" decoding="async" loading="lazy">
+            <div class="progress-ring">
+              <svg viewBox="0 0 44 44">
+                <circle class="progress-ring-circle" cx="22" cy="22" r="20"></circle>
+                <circle class="progress-ring-progress" cx="22" cy="22" r="20"></circle>
+              </svg>
+              <span class="progress-text">85%</span>
+            </div>
+          </div>
+          <div class="expanded-content">
+            <span class="project-category">Sustainability</span>
+            <h3 class="project-title">Clean Energy Infrastructure</h3>
+            <p class="project-description">Large-scale renewable energy projects including solar farms, wind power installations, and hydroelectric facilities to power sustainable development across Africa.</p>
+            <div class="project-stats-row">
+              <div class="stat-box">
+                <i class="fas fa-bolt"></i>
+                <span>5,000 MW</span>
+              </div>
+              <div class="stat-box">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>12 Countries</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2: Clean Water -->
+      <div class="accordion-item" onclick="toggleAccordion(this)" tabindex="0" role="button" aria-expanded="false">
+        <div class="accordion-collapsed">
+          <span class="collapsed-icon">💧</span>
+          <span class="collapsed-title">Clean Water</span>
+        </div>
+        <div class="accordion-expanded">
+          <div class="expanded-image">
+            <img src="projects/clean-water.png" alt="Clean Water Access" decoding="async" loading="lazy">
+            <div class="progress-ring">
+              <svg viewBox="0 0 44 44">
+                <circle class="progress-ring-circle" cx="22" cy="22" r="20"></circle>
+                <circle class="progress-ring-progress" cx="22" cy="22" r="20"></circle>
+              </svg>
+              <span class="progress-text">78%</span>
+            </div>
+          </div>
+          <div class="expanded-content">
+            <span class="project-category">Resource Management</span>
+            <h3 class="project-title">Clean Water & Sanitation</h3>
+            <p class="project-description">Comprehensive water treatment facilities, distribution networks, and sanitation systems ensuring access to clean water for 50 million people.</p>
+            <div class="project-stats-row">
+              <div class="stat-box">
+                <i class="fas fa-tint"></i>
+                <span>2.5M m³/day</span>
+              </div>
+              <div class="stat-box">
+                <i class="fas fa-users"></i>
+                <span>50M Beneficiaries</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3: Agriculture -->
+      <div class="accordion-item" onclick="toggleAccordion(this)" tabindex="0" role="button" aria-expanded="false">
+        <div class="accordion-collapsed">
+          <span class="collapsed-icon">🌾</span>
+          <span class="collapsed-title">Agriculture</span>
+        </div>
+        <div class="accordion-expanded">
+          <div class="expanded-image">
+            <img src="projects/agriculture.png" alt="Sustainable Agriculture" decoding="async" loading="lazy">
+            <div class="progress-ring">
+              <svg viewBox="0 0 44 44">
+                <circle class="progress-ring-circle" cx="22" cy="22" r="20"></circle>
+                <circle class="progress-ring-progress" cx="22" cy="22" r="20"></circle>
+              </svg>
+              <span class="progress-text">92%</span>
+            </div>
+          </div>
+          <div class="expanded-content">
+            <span class="project-category">Agriculture</span>
+            <h3 class="project-title">Sustainable Agriculture Development</h3>
+            <p class="project-description">Modern farming systems, irrigation infrastructure, and climate-resilient crop programs to enhance food security and rural livelihoods.</p>
+            <div class="project-stats-row">
+              <div class="stat-box">
+                <i class="fas fa-seedling"></i>
+                <span>100K Hectares</span>
+              </div>
+              <div class="stat-box">
+                <i class="fas fa-tractor"></i>
+                <span>25,000 Farms</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4: Agro-Industrial -->
+      <div class="accordion-item" onclick="toggleAccordion(this)" tabindex="0" role="button" aria-expanded="false">
+        <div class="accordion-collapsed">
+          <span class="collapsed-icon">🏭</span>
+          <span class="collapsed-title">Agro-Industry</span>
+        </div>
+        <div class="accordion-expanded">
+          <div class="expanded-image">
+            <img src="projects/agro-industrial.png" alt="Agro-Industrial Complex" decoding="async" loading="lazy">
+            <div class="progress-ring">
+              <svg viewBox="0 0 44 44">
+                <circle class="progress-ring-circle" cx="22" cy="22" r="20"></circle>
+                <circle class="progress-ring-progress" cx="22" cy="22" r="20"></circle>
+              </svg>
+              <span class="progress-text">65%</span>
+            </div>
+          </div>
+          <div class="expanded-content">
+            <span class="project-category">Agro-Industry</span>
+            <h3 class="project-title">Agro-Industrial Complexes</h3>
+            <p class="project-description">Integrated processing facilities for agricultural products, cold chain logistics, and value-addition centers to boost export capacity.</p>
+            <div class="project-stats-row">
+              <div class="stat-box">
+                <i class="fas fa-industry"></i>
+                <span>15 Complexes</span>
+              </div>
+              <div class="stat-box">
+                <i class="fas fa-chart-line"></i>
+                <span>$2B Value Add</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 5: Industrial Hubs -->
+      <div class="accordion-item" onclick="toggleAccordion(this)" tabindex="0" role="button" aria-expanded="false">
+        <div class="accordion-collapsed">
+          <span class="collapsed-icon">🏗️</span>
+          <span class="collapsed-title">Industrial</span>
+        </div>
+        <div class="accordion-expanded">
+          <div class="expanded-image">
+            <img src="projects/industrial.png" alt="Industrial Complex" decoding="async" loading="lazy">
+            <div class="progress-ring">
+              <svg viewBox="0 0 44 44">
+                <circle class="progress-ring-circle" cx="22" cy="22" r="20"></circle>
+                <circle class="progress-ring-progress" cx="22" cy="22" r="20"></circle>
+              </svg>
+              <span class="progress-text">70%</span>
+            </div>
+          </div>
+          <div class="expanded-content">
+            <span class="project-category">Industrial Development</span>
+            <h3 class="project-title">Industrial & Manufacturing Hubs</h3>
+            <p class="project-description">State-of-the-art industrial parks with special economic zones, manufacturing facilities, and technology incubators for job creation.</p>
+            <div class="project-stats-row">
+              <div class="stat-box">
+                <i class="fas fa-building"></i>
+                <span>8 Hubs</span>
+              </div>
+              <div class="stat-box">
+                <i class="fas fa-briefcase"></i>
+                <span>500K Jobs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 2: Projects 6-10 -->
+    <div class="accordion-row" data-row="2">
+      <!-- Project 6: Petrochemical -->
+      <div class="accordion-item" onclick="toggleAccordion(this)" tabindex="0" role="button" aria-expanded="false">
+        <div class="accordion-collapsed">
+          <span class="collapsed-icon">🛢️</span>
+          <span class="collapsed-title">Petrochemical</span>
+        </div>
+        <div class="accordion-expanded">
+          <div class="expanded-image">
+            <img src="projects/petrochemical.png" alt="Petrochemical Complex" decoding="async" loading="lazy">
+            <div class="progress-ring">
+              <svg viewBox="0 0 44 44">
+                <circle class="progress-ring-circle" cx="22" cy="22" r="20"></circle>
+                <circle class="progress-ring-progress" cx="22" cy="22" r="20"></circle>
+              </svg>
+              <span class="progress-text">55%</span>
+            </div>
+          </div>
+          <div class="expanded-content">
+            <span class="project-category">Petrochemical</span>
+            <h3 class="project-title">Petrochemical Complexes</h3>
+            <p class="project-description">Modern refineries and petrochemical plants utilizing green technologies to produce fertilizers, plastics, and industrial chemicals sustainably.</p>
+            <div class="project-stats-row">
+              <div class="stat-box">
+                <i class="fas fa-flask"></i>
+                <span>3 Complexes</span>
+              </div>
+              <div class="stat-box">
+                <i class="fas fa-leaf"></i>
+                <span>40% Carbon Reduction</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 7: Real Estate -->
+      <div class="accordion-item" onclick="toggleAccordion(this)" tabindex="0" role="button" aria-expanded="false">
+        <div class="accordion-collapsed">
+          <span class="collapsed-icon">🏢</span>
+          <span class="collapsed-title">Real Estate</span>
+        </div>
+        <div class="accordion-expanded">
+          <div class="expanded-image">
+            <img src="projects/real-estate.png" alt="Sustainable Real Estate" decoding="async" loading="lazy">
+            <div class="progress-ring">
+              <svg viewBox="0 0 44 44">
+                <circle class="progress-ring-circle" cx="22" cy="22" r="20"></circle>
+                <circle class="progress-ring-progress" cx="22" cy="22" r="20"></circle>
+              </svg>
+              <span class="progress-text">88%</span>
+            </div>
+          </div>
+          <div class="expanded-content">
+            <span class="project-category">Real Estate</span>
+            <h3 class="project-title">Sustainable Real Estate Development</h3>
+            <p class="project-description">Green building projects featuring energy-efficient residential towers, commercial centers, and mixed-use developments with LEED certification.</p>
+            <div class="project-stats-row">
+              <div class="stat-box">
+                <i class="fas fa-home"></i>
+                <span>50K Units</span>
+              </div>
+              <div class="stat-box">
+                <i class="fas fa-award"></i>
+                <span>LEED Platinum</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 8: Smart Cities -->
+      <div class="accordion-item" onclick="toggleAccordion(this)" tabindex="0" role="button" aria-expanded="false">
+        <div class="accordion-collapsed">
+          <span class="collapsed-icon">🏙️</span>
+          <span class="collapsed-title">Smart Cities</span>
+        </div>
+        <div class="accordion-expanded">
+          <div class="expanded-image">
+            <img src="projects/smart-city.png" alt="Smart City Initiative" decoding="async" loading="lazy">
+            <div class="progress-ring">
+              <svg viewBox="0 0 44 44">
+                <circle class="progress-ring-circle" cx="22" cy="22" r="20"></circle>
+                <circle class="progress-ring-progress" cx="22" cy="22" r="20"></circle>
+              </svg>
+              <span class="progress-text">72%</span>
+            </div>
+          </div>
+          <div class="expanded-content">
+            <span class="project-category">Smart Cities</span>
+            <h3 class="project-title">Smart City Initiatives</h3>
+            <p class="project-description">Technology-integrated urban centers with IoT infrastructure, digital governance, smart grids, and automated transportation systems.</p>
+            <div class="project-stats-row">
+              <div class="stat-box">
+                <i class="fas fa-city"></i>
+                <span>5 Cities</span>
+              </div>
+              <div class="stat-box">
+                <i class="fas fa-wifi"></i>
+                <span>100% Connectivity</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 9: Healthcare -->
+      <div class="accordion-item" onclick="toggleAccordion(this)" tabindex="0" role="button" aria-expanded="false">
+        <div class="accordion-collapsed">
+          <span class="collapsed-icon">🏥</span>
+          <span class="collapsed-title">Healthcare</span>
+        </div>
+        <div class="accordion-expanded">
+          <div class="expanded-image">
+            <img src="projects/healthcare.png" alt="Advanced Healthcare" decoding="async" loading="lazy">
+            <div class="progress-ring">
+              <svg viewBox="0 0 44 44">
+                <circle class="progress-ring-circle" cx="22" cy="22" r="20"></circle>
+                <circle class="progress-ring-progress" cx="22" cy="22" r="20"></circle>
+              </svg>
+              <span class="progress-text">95%</span>
+            </div>
+          </div>
+          <div class="expanded-content">
+            <span class="project-category">Healthcare</span>
+            <h3 class="project-title">Advanced Healthcare Centers</h3>
+            <p class="project-description">World-class hospitals, specialized treatment centers, and telemedicine networks equipped with cutting-edge medical technology.</p>
+            <div class="project-stats-row">
+              <div class="stat-box">
+                <i class="fas fa-hospital"></i>
+                <span>20 Centers</span>
+              </div>
+              <div class="stat-box">
+                <i class="fas fa-user-md"></i>
+                <span>5,000 Beds</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 10: Education -->
+      <div class="accordion-item" onclick="toggleAccordion(this)" tabindex="0" role="button" aria-expanded="false">
+        <div class="accordion-collapsed">
+          <span class="collapsed-icon">🎓</span>
+          <span class="collapsed-title">Education</span>
+        </div>
+        <div class="accordion-expanded">
+          <div class="expanded-image">
+            <img src="projects/education.png" alt="Educational Projects" decoding="async" loading="lazy">
+            <div class="progress-ring">
+              <svg viewBox="0 0 44 44">
+                <circle class="progress-ring-circle" cx="22" cy="22" r="20"></circle>
+                <circle class="progress-ring-progress" cx="22" cy="22" r="20"></circle>
+              </svg>
+              <span class="progress-text">82%</span>
+            </div>
+          </div>
+          <div class="expanded-content">
+            <span class="project-category">Education</span>
+            <h3 class="project-title">Educational Infrastructure</h3>
+            <p class="project-description">Universities, vocational training centers, and STEM institutes fostering innovation and human capital development for the future economy.</p>
+            <div class="project-stats-row">
+              <div class="stat-box">
+                <i class="fas fa-graduation-cap"></i>
+                <span>15 Institutes</span>
+              </div>
+              <div class="stat-box">
+                <i class="fas fa-book"></i>
+                <span>100K Students</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 3: Projects 11-14 -->
+    <div class="accordion-row" data-row="3">
+      <!-- Project 11: Transportation -->
+      <div class="accordion-item" onclick="toggleAccordion(this)" tabindex="0" role="button" aria-expanded="false">
+        <div class="accordion-collapsed">
+          <span class="collapsed-icon">🚄</span>
+          <span class="collapsed-title">Transport</span>
+        </div>
+        <div class="accordion-expanded">
+          <div class="expanded-image">
+            <img src="projects/transportation.png" alt="Transportation Network" decoding="async" loading="lazy">
+            <div class="progress-ring">
+              <svg viewBox="0 0 44 44">
+                <circle class="progress-ring-circle" cx="22" cy="22" r="20"></circle>
+                <circle class="progress-ring-progress" cx="22" cy="22" r="20"></circle>
+              </svg>
+              <span class="progress-text">68%</span>
+            </div>
+          </div>
+          <div class="expanded-content">
+            <span class="project-category">Transportation</span>
+            <h3 class="project-title">Transportation Infrastructure</h3>
+            <p class="project-description">Modern rail networks, highways, airports, and ports connecting economic zones with efficient, low-carbon mobility solutions.</p>
+            <div class="project-stats-row">
+              <div class="stat-box">
+                <i class="fas fa-road"></i>
+                <span>2,000 KM</span>
+              </div>
+              <div class="stat-box">
+                <i class="fas fa-ship"></i>
+                <span>4 Ports</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 12: Supply Chain -->
+      <div class="accordion-item" onclick="toggleAccordion(this)" tabindex="0" role="button" aria-expanded="false">
+        <div class="accordion-collapsed">
+          <span class="collapsed-icon">📦</span>
+          <span class="collapsed-title">Logistics</span>
+        </div>
+        <div class="accordion-expanded">
+          <div class="expanded-image">
+            <img src="projects/supply-chain.png" alt="Supply Chain Solutions" decoding="async" loading="lazy">
+            <div class="progress-ring">
+              <svg viewBox="0 0 44 44">
+                <circle class="progress-ring-circle" cx="22" cy="22" r="20"></circle>
+                <circle class="progress-ring-progress" cx="22" cy="22" r="20"></circle>
+              </svg>
+              <span class="progress-text">75%</span>
+            </div>
+          </div>
+          <div class="expanded-content">
+            <span class="project-category">Logistics</span>
+            <h3 class="project-title">Full-Chain Supply Solutions</h3>
+            <p class="project-description">Integrated logistics parks, warehousing facilities, and digital supply chain platforms optimizing trade and distribution networks.</p>
+            <div class="project-stats-row">
+              <div class="stat-box">
+                <i class="fas fa-warehouse"></i>
+                <span>10 Hubs</span>
+              </div>
+              <div class="stat-box">
+                <i class="fas fa-truck"></i>
+                <span>24/7 Operations</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 13: Family Support -->
+      <div class="accordion-item" onclick="toggleAccordion(this)" tabindex="0" role="button" aria-expanded="false">
+        <div class="accordion-collapsed">
+          <span class="collapsed-icon">👨‍👩‍👧‍👦</span>
+          <span class="collapsed-title">Community</span>
+        </div>
+        <div class="accordion-expanded">
+          <div class="expanded-image">
+            <img src="projects/family-support.png" alt="Family Support" decoding="async" loading="lazy">
+            <div class="progress-ring">
+              <svg viewBox="0 0 44 44">
+                <circle class="progress-ring-circle" cx="22" cy="22" r="20"></circle>
+                <circle class="progress-ring-progress" cx="22" cy="22" r="20"></circle>
+              </svg>
+              <span class="progress-text">90%</span>
+            </div>
+          </div>
+          <div class="expanded-content">
+            <span class="project-category">Community</span>
+            <h3 class="project-title">Small Family Support Projects</h3>
+            <p class="project-description">Microfinance initiatives, community centers, and social welfare programs empowering families and small entrepreneurs.</p>
+            <div class="project-stats-row">
+              <div class="stat-box">
+                <i class="fas fa-hand-holding-heart"></i>
+                <span>100K Families</span>
+              </div>
+              <div class="stat-box">
+                <i class="fas fa-dollar-sign"></i>
+                <span>$500M Microfinance</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 14: Sports & Leisure -->
+      <div class="accordion-item" onclick="toggleAccordion(this)" tabindex="0" role="button" aria-expanded="false">
+        <div class="accordion-collapsed">
+          <span class="collapsed-icon">🏟️</span>
+          <span class="collapsed-title">Sports</span>
+        </div>
+        <div class="accordion-expanded">
+          <div class="expanded-image">
+            <img src="projects/olympic-city.png" alt="Sport & Olympic City" decoding="async" loading="lazy">
+            <div class="progress-ring">
+              <svg viewBox="0 0 44 44">
+                <circle class="progress-ring-circle" cx="22" cy="22" r="20"></circle>
+                <circle class="progress-ring-progress" cx="22" cy="22" r="20"></circle>
+              </svg>
+              <span class="progress-text">60%</span>
+            </div>
+          </div>
+          <div class="expanded-content">
+            <span class="project-category">Sports & Leisure</span>
+            <h3 class="project-title">Sport Cities & Olympic Facilities</h3>
+            <p class="project-description">World-class stadiums, training academies, and sports complexes promoting health, tourism, and international athletic events.</p>
+            <div class="project-stats-row">
+              <div class="stat-box">
+                <i class="fas fa-running"></i>
+                <span>3 Olympic Cities</span>
+              </div>
+              <div class="stat-box">
+                <i class="fas fa-medal"></i>
+                <span>50 Sports</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Spacer for 5th item in last row -->
+      <div class="accordion-item" style="opacity: 0; pointer-events: none; flex: 1;"></div>
+    </div>
+
+    <div class="row-indicator">
+      <span class="row-dot active" data-row="1"></span>
+      <span class="row-dot" data-row="2"></span>
+      <span class="row-dot" data-row="3"></span>
+    </div>
+  </div>
+  
+    <!-- VENUE & LOGISTICS -->
+    <div class="artistic-section" id="venue">
+      <div class="section-header-glass" onclick="toggleArtisticSection('venue')">
+        <h2><span>📍</span>Venue & Logistics</h2>
+        <span class="section-toggle-icon">▼</span>
+      </div>
+      <div class="section-content-glass">
+        <div class="venue-details-glass">
+          <h4 style="color: var(--green); margin-bottom: 15px; font-size: 22px;">The National Palace, Addis Ababa</h4>
+          <p style="color: #555; margin-bottom: 20px;">Located in the heart of Ethiopia's capital, the National Palace offers a prestigious setting for high-level diplomatic engagement.</p>
+          
+          <div class="venue-item-glass">
+            <i class="fas fa-map-marker-alt"></i>
+            <strong>Address:</strong>
+            <span>Yohanis St, Addis Ababa, Ethiopia</span>
+          </div>
+          <div class="venue-item-glass">
+            <i class="fas fa-plane"></i>
+            <strong>Airport:</strong>
+            <span>8km from Bole International Airport (30 min drive)</span>
+          </div>
+          <div class="venue-item-glass">
+            <i class="fas fa-hotel"></i>
+            <strong>Hotels:</strong>
+            <span>Partner rates available at Sheraton Addis, Hilton, Radisson Blu</span>
+          </div>
+          <div class="venue-item-glass">
+            <i class="fas fa-passport"></i>
+            <strong>Visa:</strong>
+            <span>e-Visa on arrival available for most nationalities</span>
+          </div>
+        </div>
+        
+        <div class="venue-map-glass">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.762!2d38.763611075914!3d9.013888993185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85f0f9a06d85%3A0x4331551f2e0d5c6d!2sNational%20Palace!5e0!3m2!1sen!2set!4v1704067200000!5m2!1sen!2set" 
+            width="100%" 
+            height="350" 
+            style="border:0; border-radius:16px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+        
+        <div style="text-align: center; margin-top: 25px;">
+          <a href="https://www.google.com/maps/dir//National+Palace,+Addis+Ababa,+Ethiopia" target="_blank" rel="noopener noreferrer" class="button-glass">
+            <span>🗺️</span> Get Directions on Google Maps
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ SECTION -->
+    <div class="artistic-section" id="faq">
+      <div class="section-header-glass" onclick="toggleArtisticSection('faq')">
+        <h2><span>❓</span>Frequently Asked Questions</h2>
+        <span class="section-toggle-icon">▼</span>
+      </div>
+      <div class="section-content-glass">
+        <div class="faq-item-glass">
+          <h5>Who can attend the forum?</h5>
+          <p>The forum is open to government delegates, UN agencies, private sector partners, NGOs, researchers, and invited guests. Registration is required for all attendees.</p>
+        </div>
+        <div class="faq-item-glass">
+          <h5>Is there a registration fee?</h5>
+          <p>No registration fee. Sponsorship is encouraged to support the forum's sustainability goals.</p>
+        </div>
+        <div class="faq-item-glass">
+          <h5>Will sessions be livestreamed?</h5>
+          <p>Yes, plenary sessions will be broadcast live with simultaneous translation in English, French, and Arabic. Registered virtual attendees receive full access.</p>
+        </div>
+        <div class="faq-item-glass">
+          <h5>What is the dress code?</h5>
+          <p>Business formal for all sessions. Traditional African attire is encouraged for the opening and closing ceremonies.</p>
+        </div>
+        <div class="faq-item-glass">
+          <h5>How can I become a speaker?</h5>
+          <p>Speaker applications closed on February 20, 2026. For late inquiries, contact mussie@equaltradeglobal.org with your proposed topic and bio.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- DOWNLOADS & RESOURCES -->
+    <div class="artistic-section" id="downloads">
+      <div class="section-header-glass" onclick="toggleArtisticSection('downloads')">
+        <h2><span>📥</span>Downloads & Resources</h2>
+        <span class="section-toggle-icon">▼</span>
+      </div>
+      <div class="section-content-glass">
+        <div class="downloads-grid-enhanced">
+          <a href="downloads/Company_Profile.pdf" class="download-card-glass" download>
+            <div class="download-icon-glass">📄</div>
+            <span class="download-name">Company Profile</span>
+            <span class="download-size">PDF, 2.13 MB</span>
+          </a>
+          <a href="downloads/program-brochure.pdf" class="download-card-glass" download>
+            <div class="download-icon-glass">📋</div>
+            <span class="download-name">Program Brochure</span>
+            <span class="download-size">PDF, 5.1 MB</span>
+          </a>
+          <a href="downloads/speaker-bios.pdf" class="download-card-glass" download>
+            <div class="download-icon-glass">👤</div>
+            <span class="download-name">Speaker Biographies</span>
+            <span class="download-size">PDF, 1.8 MB</span>
+          </a>
+          <a href="downloads/sponsorship-prospectus.pdf" class="download-card-glass" download>
+            <div class="download-icon-glass">💼</div>
+            <span class="download-name">Sponsorship Prospectus</span>
+            <span class="download-size">PDF, 3.2 MB</span>
+          </a>
+          <a href="downloads/visa-letter-template.docx" class="download-card-glass" download>
+            <div class="download-icon-glass">✈️</div>
+            <span class="download-name">Visa Invitation Letter</span>
+            <span class="download-size">DOCX, 45 KB</span>
+          </a>
+          <a href="downloads/press-kit.zip" class="download-card-glass" download>
+            <div class="download-icon-glass">📦</div>
+            <span class="download-name">Media Press Kit</span>
+            <span class="download-size">ZIP, 15 MB</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+<!-- ENHANCED FOOTER -->
+<footer class="footer-enhanced">
+  <div class="footer-container">
+    <div class="footer-grid">
+      <!-- Acacia Trading Address Section -->
+      <div class="footer-section">
+        <h4><i class="fas fa-building"></i> <a href="https://acaciatradingplc.com" target="_blank" style="color: inherit; text-decoration: none;">Acacia Trading PLC</a></h4>
+        <div class="footer-address">
+          <p><i class="fas fa-map-marker-alt"></i> Mexico Square, Chamber Building, Room 405, Addis Ababa, Ethiopia. </p>
+          <p><i class="fas fa-envelope"></i> <a href="mailto:mussie@equaltradeglobal.org" style="color: inherit;">mussie@equaltradeglobal.org</a></p>
+          <p><i class="fas fa-phone"></i> <a href="tel:+251922466797" style="color: inherit;">+251 922 466 797</a></p>
+          <p><i class="fas fa-globe"></i> <a href="https://acaciatradingplc.com" target="_blank" style="color: inherit;">www.acaciatradingplc.com</a></p> 
+        </div>
+      </div>
+
+      <!-- Quick Links Section -->
+      <div class="footer-section">
+        <h4><i class="fas fa-link"></i> Quick Links</h4>
+        <ul class="quick-links">
+          <li><a href="#objectives">Forum Objectives</a></li>
+          <li><a href="#technologies">Key Technologies</a></li>
+          <li><a href="#keynote">Keynote Speakers</a></li>
+          <li><a href="#sponsorship">Sponsorship</a></li>
+          <li><a href="#venue">Venue & Logistics</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#downloads">Downloads</a></li>
+          <li><a href="#register">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Forum Info Section -->
+      <div class="footer-section">
+        <h4><i class="fas fa-info-circle"></i> Forum Info</h4>
+        <p><strong>AFLIERPA 2026</strong></p>
+        <p>March 17-19, 2026</p>
+        <p>The National Palace</p>
+        <p>Addis Ababa, Ethiopia</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/company/acacia-trading-plc/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://wa.me/251922466797" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://x.com/@AcaciaPlc" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://web.facebook.com/raeyafrica" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/mussieafe/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 African First Ladies Initiative for Emission Reduction and Poverty Alleviation. All rights reserved.</p>
+      <p>Organized by <a href="https://acaciatradingplc.com" target="_blank" style="color: rgba(255,255,255,0.9); text-decoration: underline;">Acacia Trading Plc</a> in collaboration with the Office of the First Lady.</p>
+    </div>
+  </div>
+</footer>
+</div>
+
+<script>
+  // ===== NAVIGATION FUNCTIONS =====
+  function toggleMobileMenu() {
+    document.getElementById('navMenu').classList.toggle('active');
+  }
+
+  function toggleDropdown(navItemId) {
+    const navItem = document.getElementById(navItemId);
+    const isActive = navItem.classList.contains('active');
+    
+    document.querySelectorAll('.nav-item').forEach(item => {
+      item.classList.remove('active');
+    });
+    
+    if (!isActive) {
+      navItem.classList.add('active');
+    }
+  }
+
+  function closeAllMenus() {
+    document.getElementById('navMenu').classList.remove('active');
+    document.querySelectorAll('.nav-item').forEach(item => {
+      item.classList.remove('active');
+    });
+  }
+
+  // ===== ARTISTIC SECTION TOGGLE =====
+  function toggleArtisticSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    const isActive = section.classList.contains('active');
+    
+    // Close all artistic sections (optional accordion behavior)
+    // Uncomment below to make sections mutually exclusive
+    // document.querySelectorAll('.artistic-section').forEach(s => s.classList.remove('active'));
+    
+    if (!isActive) {
+      section.classList.add('active');
+    } else {
+      section.classList.remove('active');
+    }
+  }
+
+  // ===== VERTICAL ACCORDION TOGGLE =====
+  function toggleVAccordion(item) {
+    const isActive = item.classList.contains('active');
+    
+    // Close all vertical accordion items in the same container
+    const container = item.closest('.vertical-accordion');
+    container.querySelectorAll('.v-accordion-item').forEach(i => {
+      i.classList.remove('active');
+    });
+    
+    // Open clicked item if it wasn't active
+    if (!isActive) {
+      item.classList.add('active');
+    }
+  }
+
+  // ===== GREEN LEGACY GALLERY TOGGLE =====
+  function toggleLegacyGallery(clickedItem) {
+    const row = clickedItem.closest('.legacy-gallery-row');
+    const items = row.querySelectorAll('.legacy-gallery-item');
+    const isActive = clickedItem.classList.contains('active');
+    
+    // Close all items in this row
+    items.forEach(item => {
+      item.classList.remove('active');
+      item.setAttribute('aria-expanded', 'false');
+    });
+    
+    // Open clicked item if it wasn't active
+    if (!isActive) {
+      clickedItem.classList.add('active');
+      clickedItem.setAttribute('aria-expanded', 'true');
+    }
+  }
+
+  // Keyboard navigation for legacy gallery
+  document.querySelectorAll('.legacy-gallery-item').forEach(item => {
+    item.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleLegacyGallery(item);
+      } else if (e.key === 'Escape') {
+        item.classList.remove('active');
+        item.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+
+  // ===== SPONSOR GLASS TOGGLE =====
+  function toggleSponsorGlass(tierId) {
+    const tier = document.getElementById(tierId);
+    const isActive = tier.classList.contains('active');
+    
+    document.querySelectorAll('.sponsor-tier-glass').forEach(t => {
+      t.classList.remove('active');
+    });
+    
+    if (!isActive) {
+      tier.classList.add('active');
+    }
+  }
+
+  // ===== HORIZONTAL ACCORDION LOGIC =====
+  function toggleAccordion(clickedItem) {
+    const row = clickedItem.closest('.accordion-row');
+    const items = row.querySelectorAll('.accordion-item');
+    const isActive = clickedItem.classList.contains('active');
+    
+    // Close all items in this row
+    items.forEach(item => {
+      item.classList.remove('active');
+      item.setAttribute('aria-expanded', 'false');
+    });
+    
+    // Open clicked item if it wasn't active
+    if (!isActive) {
+      clickedItem.classList.add('active');
+      clickedItem.setAttribute('aria-expanded', 'true');
+      
+      // Animate progress ring
+      const progressCircle = clickedItem.querySelector('.progress-ring-progress');
+      if (progressCircle) {
+        const percentage = clickedItem.querySelector('.progress-text').textContent;
+        const value = parseInt(percentage);
+        const circumference = 2 * Math.PI * 20;
+        const offset = circumference - (value / 100) * circumference;
+        setTimeout(() => {
+          progressCircle.style.strokeDashoffset = offset;
+        }, 300);
+      }
+    }
+    
+    // Update row indicator
+    updateRowIndicator(row);
+  }
+
+  function updateRowIndicator(row) {
+    const rowNum = row.dataset.row;
+    const hasActive = row.querySelector('.accordion-item.active') !== null;
+    
+    document.querySelectorAll('.row-dot').forEach(dot => {
+      if (dot.dataset.row === rowNum && hasActive) {
+        dot.classList.add('active');
+      } else if (dot.dataset.row === rowNum) {
+        dot.classList.remove('active');
+      }
+    });
+  }
+
+  // Keyboard navigation for accordion
+  document.querySelectorAll('.accordion-item').forEach(item => {
+    item.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleAccordion(item);
+      } else if (e.key === 'Escape') {
+        item.classList.remove('active');
+        item.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+
+  // ===== SLIDER FUNCTIONS =====
+  let currentSlideIndex = 0;
+  const sliderContainer = document.getElementById('sliderContainer');
+  const dots = document.querySelectorAll('.dot');
+
+  function updateDots() {
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === currentSlideIndex);
+    });
+  }
+
+  function goToSlide(index) {
+    currentSlideIndex = index;
+    const offset = -index * 16.666;
+    sliderContainer.style.animation = 'none';
+    sliderContainer.style.transform = `translateX(${offset}%)`;
+    updateDots();
+    
+    setTimeout(() => {
+      sliderContainer.style.animation = '';
+      sliderContainer.style.transform = '';
+    }, 50);
+  }
+
+  setInterval(() => {
+    currentSlideIndex = (currentSlideIndex + 1) % 6;
+    updateDots();
+  }, 5000);
+  
+  // ===== MARKDOWN LOADING =====
+  async function loadMarkdown() {
+    const container = document.getElementById('markdown-container');
+    
+    try {
+      const possiblePaths = [
+        'content/news.md',
+        'news.md',
+        'CONTENT/news.md',
+        'Content/news.md'
+      ];
+      
+      let response = null;
+      
+      for (const path of possiblePaths) {
+        try {
+          response = await fetch(path);
+          if (response.ok) {
+            break;
+          }
+        } catch (e) {
+          // Continue to next path
+        }
+      }
+      
+      if (!response || !response.ok) {
+        container.innerHTML = `
+          <h3>🌍 Forum Updates</h3>
+          <p>Welcome to the African First Ladies Initiative Forum 2026. Stay tuned for the latest updates on climate action, sustainable development, and green innovation across Africa.</p>
+          <ul>
+            <li>📅 <strong>March 17-19, 2026</strong> - Forum dates confirmed</li>
+            <li>🏛️ <strong>Venue:</strong> The National Palace, Addis Ababa</li>
+            <li>🌱 <strong>Focus:</strong> Emission reduction and poverty alleviation</li>
+          </ul>
+          <p><em>Create a <code>content/news.md</code> file in your repository to display dynamic content here.</em></p>
+        `;
+        return;
+      }
+      
+      const markdown = await response.text();
+      const html = marked.parse(markdown);
+      container.innerHTML = html;
+      
+    } catch (error) {
+      container.innerHTML = `
+        <div class="error-md">
+          <p>⚠️ Unable to load content</p>
+          <p><small>${error.message}</small></p>
+        </div>
+      `;
+    }
+  }
+
+  loadMarkdown();
+
+  // ===== FORM SUBMISSION =====
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwf5DfSYEBzRWw2xL7NAGn8ss5Jq4XvVYxx3fISvH8lbT9L8jk56iwvRL2A4kEWzL5MRw/exec';
+  const form = document.getElementById('leadForm');
+  const resp = document.getElementById('formResp');
+  
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const btn = form.querySelector('button');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    
+    fetch(SCRIPT_URL, {method: 'POST', body: new FormData(form)})
+      .then(r => r.json())
+      .then(obj => {
+        if (obj.result === 'ok') {
+          btn.textContent = '✓ Sent!';
+          btn.style.background = '#3cb371';
+          resp.textContent = 'Thank you! We\'ll be in touch soon.';
+          resp.style.color = 'var(--green)';
+          form.reset();
+          setTimeout(() => {
+            btn.disabled = false;
+            btn.textContent = 'Register Interest';
+            btn.style.background = '';
+          }, 2500);
+        } else {
+          throw new Error(obj.error || 'Unknown server error');
+        }
+      })
+      .catch(err => {
+        btn.disabled = false;
+        btn.textContent = 'Register Interest';
+        resp.style.color = 'var(--error)';
+        resp.textContent = err.message;
+      });
+  });
+
+  // Close menus when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.navbar')) {
+      closeAllMenus();
+    }
+  });
+
+  // ===== DYNAMIC NEWS UPDATES =====
+  const newsUpdates = [
+    {
+      headline: "🌍 Ethiopia wins bid to host Cop32 in 2027, edging out Nigeria",
+      link: "content/news.html#cop32-finance"
+    },
+    {
+      headline: "🌱 Ethiopia's Green Legacy Initiative surpasses 50 billion tree planting milestone",
+      link: "content/news.html#green-legacy-50b"
+    },
+    {
+      headline: "⚡ Breakthrough Reduces Harmful Emissions from Hydrogen Engines",
+      link: "content/news.html#hydrogen-breakthrough"
+    },
+    {
+      headline: "👩‍🌾 Ethiopia Inaugurates Landmark Aysha-II Wind Power Project",
+      link: "content/news.html#wind-power-project"
+    },
+    {
+      headline: "☀️ Solar Mini-grids Projects in Ethiopia - Solar Financed Africa",
+      link: "content/news.html#solar-minigrids"
+    },
+    {
+      headline: "🔥 Clean Cooking Alternative Financing Project launched in Addis Ababa",
+      link: "content/news.html#clean-cooking-funding"
+    }
+  ];
+
+  let currentNewsIndex = 0;
+  const newsLink = document.getElementById('dynamicNewsLink');
+
+  function rotateNews() {
+    currentNewsIndex = (currentNewsIndex + 1) % newsUpdates.length;
+    newsLink.style.opacity = '0';
+    
+    setTimeout(() => {
+      newsLink.textContent = newsUpdates[currentNewsIndex].headline;
+      newsLink.href = newsUpdates[currentNewsIndex].link;
+      newsLink.style.opacity = '1';
+    }, 300);
+  }
+
+  newsLink.style.transition = 'opacity 0.3s ease';
+  setInterval(rotateNews, 15000); 
+
+  // ===== COUNTDOWN TIMER =====
+  const eventDate = new Date('March 17, 2026 00:00:00').getTime();
+  
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+    
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    document.getElementById('days').textContent = String(days).padStart(2, '0');
+    document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+    document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+    document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+  }
+  
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // ===== DYNAMIC COUNTER ANIMATION =====
+  function animateCounters() {
+    const counters = document.querySelectorAll('.stat-number');
+    
+    counters.forEach(counter => {
+      const target = parseInt(counter.getAttribute('data-target'));
+      const duration = 2000;
+      const increment = target / (duration / 16);
+      let current = 0;
+      
+      const updateCounter = () => {
+        current += increment;
+        if (current < target) {
+          counter.textContent = Math.floor(current);
+          requestAnimationFrame(updateCounter);
+        } else {
+          counter.textContent = target;
+        }
+      };
+      
+      updateCounter();
+    });
+  }
+
+  // Trigger animation when section is visible
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounters();
+        statsObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const statsSection = document.getElementById('stats');
+    if (statsSection) statsObserver.observe(statsSection);
+    
+    // Initialize first artistic section as open (optional)
+    // document.getElementById('objectives').classList.add('active');
+  });
+
+</script>
+  
+</body>
+</html>
