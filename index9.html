@@ -3385,7 +3385,7 @@
     }
 
      /* ===== ENHANCED FOOTER - MATCHING HEADER COLOR ===== */
-    .footer-enhanced {
+ /*   .footer-enhanced {
       background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
       color: white;
       padding: 50px 0 30px;
@@ -3541,7 +3541,6 @@
       margin: 5px 0;
     }
 
-    /* Responsive adjustments */
     @media (max-width: 992px) {
       .footer-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -3563,7 +3562,621 @@
       .footer-container {
         padding: 0 15px;
       }
-    }
+    }     */
+
+
+
+
+
+    /* ===== ENHANCED FOOTER WITH HIGH-TECH SIDE DECORATIONS ===== */
+      .footer-enhanced {
+        background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+        color: white;
+        padding: 50px 0 30px;
+        position: relative;
+        overflow: hidden;
+        width: 100vw;
+        margin: 0;
+        left: 50%;
+        right: 50%;
+        transform: translateX(-50%);
+        box-sizing: border-box;
+        min-height: 400px;
+      }
+      
+      /* Animated Top Border */
+      .footer-enhanced::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, 
+          rgba(255,255,255,0) 0%,
+          rgba(255,255,255,0.6) 20%,
+          rgba(255,255,255,1) 50%,
+          rgba(255,255,255,0.6) 80%,
+          rgba(255,255,255,0) 100%
+        );
+        background-size: 200% 100%;
+        animation: gradientFlow 3s linear infinite;
+        z-index: 10;
+      }
+      
+      @keyframes gradientFlow {
+        0% { background-position: 200% 50%; }
+        100% { background-position: -200% 50%; }
+      }
+      
+      /* Side Decorations Container */
+      .footer-side-decoration {
+        position: absolute;
+        top: 0;
+        width: 180px;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0.6;
+      }
+      
+      .footer-side-decoration.left {
+        left: 0;
+      }
+      
+      .footer-side-decoration.right {
+        right: 0;
+        transform: scaleX(-1);
+      }
+      
+      /* Tech Circuit SVG */
+      .tech-circuit {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+      }
+      
+      .tech-circuit svg {
+        width: 100%;
+        height: 100%;
+      }
+      
+      .circuit-line {
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+        animation: drawCircuit 4s ease-out forwards, pulseCircuit 3s ease-in-out infinite 4s;
+      }
+      
+      @keyframes drawCircuit {
+        to { stroke-dashoffset: 0; }
+      }
+      
+      @keyframes pulseCircuit {
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 0.8; }
+      }
+      
+      .circuit-node {
+        animation: nodePulse 2s ease-in-out infinite;
+      }
+      
+      .circuit-node:nth-child(2n) { animation-delay: 0.3s; }
+      .circuit-node:nth-child(3n) { animation-delay: 0.6s; }
+      .circuit-node:nth-child(4n) { animation-delay: 0.9s; }
+      
+      @keyframes nodePulse {
+        0%, 100% { 
+          transform: scale(1);
+          opacity: 0.5;
+        }
+        50% { 
+          transform: scale(1.5);
+          opacity: 1;
+          filter: drop-shadow(0 0 8px rgba(255,255,255,0.8));
+        }
+      }
+      
+      .pulse-ring {
+        animation: ringExpand 2s ease-out infinite;
+        transform-origin: center;
+      }
+      
+      .pulse-ring:nth-child(2) { animation-delay: 1s; }
+      
+      @keyframes ringExpand {
+        0% {
+          transform: scale(1);
+          opacity: 0.6;
+        }
+        100% {
+          transform: scale(3);
+          opacity: 0;
+        }
+      }
+      
+      /* Floating Geometric Shapes */
+      .geo-shape {
+        position: absolute;
+        border: 2px solid rgba(255,255,255,0.2);
+        animation: floatShape 6s ease-in-out infinite;
+      }
+      
+      .geo-shape::before {
+        content: '';
+        position: absolute;
+        inset: -5px;
+        border: 1px solid rgba(255,255,255,0.1);
+        animation: rotateShape 10s linear infinite;
+      }
+      
+      .shape-1 {
+        width: 60px;
+        height: 60px;
+        top: 15%;
+        left: 20%;
+        border-radius: 50%;
+        animation-delay: 0s;
+      }
+      
+      .shape-2 {
+        width: 40px;
+        height: 40px;
+        top: 45%;
+        left: 60%;
+        transform: rotate(45deg);
+        animation-delay: 2s;
+      }
+      
+      .shape-3 {
+        width: 80px;
+        height: 80px;
+        bottom: 20%;
+        left: 30%;
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        animation-delay: 4s;
+      }
+      
+      .shape-4 {
+        width: 50px;
+        height: 50px;
+        top: 25%;
+        left: 25%;
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        animation-delay: 1s;
+      }
+      
+      .shape-5 {
+        width: 70px;
+        height: 70px;
+        top: 55%;
+        left: 15%;
+        border-radius: 50%;
+        border-style: dashed;
+        animation-delay: 3s;
+      }
+      
+      .shape-6 {
+        width: 35px;
+        height: 35px;
+        bottom: 30%;
+        left: 50%;
+        transform: rotate(30deg);
+        animation-delay: 5s;
+      }
+      
+      @keyframes floatShape {
+        0%, 100% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 0.3;
+        }
+        50% {
+          transform: translateY(-20px) rotate(10deg);
+          opacity: 0.6;
+        }
+      }
+      
+      @keyframes rotateShape {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      
+      /* Data Stream Effect */
+      .data-stream {
+        position: absolute;
+        top: 0;
+        width: 100px;
+        height: 100%;
+        overflow: hidden;
+        pointer-events: none;
+        z-index: 2;
+        opacity: 0.4;
+      }
+      
+      .data-stream.left-stream {
+        left: 180px;
+      }
+      
+      .data-stream.right-stream {
+        right: 180px;
+      }
+      
+      .data-packet {
+        position: absolute;
+        font-family: 'Courier New', monospace;
+        font-size: 11px;
+        color: rgba(255,255,255,0.6);
+        font-weight: bold;
+        letter-spacing: 2px;
+        animation: dataFlow 8s linear infinite;
+        text-shadow: 0 0 10px rgba(255,255,255,0.3);
+      }
+      
+      .data-packet:nth-child(1) { animation-delay: 0s; left: 20%; }
+      .data-packet:nth-child(2) { animation-delay: 1.3s; left: 50%; }
+      .data-packet:nth-child(3) { animation-delay: 2.6s; left: 30%; }
+      .data-packet:nth-child(4) { animation-delay: 3.9s; left: 70%; }
+      .data-packet:nth-child(5) { animation-delay: 5.2s; left: 40%; }
+      .data-packet:nth-child(6) { animation-delay: 6.5s; left: 60%; }
+      
+      @keyframes dataFlow {
+        0% {
+          transform: translateY(-100%);
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        90% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(600px);
+          opacity: 0;
+        }
+      }
+      
+      /* Particle Network Canvas */
+      .particle-network {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+        opacity: 0.3;
+      }
+      
+      /* Main Footer Content */
+      .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 220px;
+        width: 100%;
+        box-sizing: border-box;
+        position: relative;
+        z-index: 5;
+      }
+      
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        margin-bottom: 40px;
+        position: relative;
+        z-index: 1;
+      }
+      
+      /* Glow Effect on Hover for Sections */
+      .footer-section {
+        position: relative;
+        padding: 20px;
+        border-radius: 16px;
+        transition: all 0.4s ease;
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.05);
+      }
+      
+      .footer-section::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 16px;
+        padding: 1px;
+        background: linear-gradient(135deg, transparent, rgba(255,255,255,0.2), transparent);
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+      
+      .footer-section:hover::before {
+        opacity: 1;
+      }
+      
+      .footer-section:hover {
+        background: rgba(255,255,255,0.08);
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      }
+      
+      .footer-section h4 {
+        color: rgba(255,255,255,0.95);
+        font-size: 18px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 600;
+        position: relative;
+      }
+      
+      .footer-section h4::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 40px;
+        height: 2px;
+        background: linear-gradient(90deg, rgba(255,255,255,0.8), transparent);
+        transition: width 0.3s ease;
+      }
+      
+      .footer-section:hover h4::after {
+        width: 60px;
+      }
+      
+      .footer-section p, .footer-section a {
+        color: rgba(255,255,255,0.85);
+        font-size: 14px;
+        line-height: 1.8;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      
+      .footer-section a:hover {
+        color: white;
+        padding-left: 5px;
+        text-shadow: 0 0 10px rgba(255,255,255,0.3);
+      }
+      
+      .footer-address {
+        background: rgba(255,255,255,0.08);
+        border-radius: 12px;
+        padding: 20px;
+        border: 1px solid rgba(255,255,255,0.1);
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .footer-address::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+        transition: left 0.6s ease;
+      }
+      
+      .footer-address:hover::before {
+        left: 100%;
+      }
+      
+      .footer-address p {
+        margin: 8px 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      
+      .footer-address i {
+        color: rgba(255,255,255,0.9);
+        width: 20px;
+        transition: all 0.3s ease;
+      }
+      
+      .footer-address:hover i {
+        transform: scale(1.2);
+        color: white;
+      }
+      
+      .quick-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .quick-links li {
+        margin-bottom: 10px;
+        position: relative;
+        padding-left: 15px;
+      }
+      
+      .quick-links li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 6px;
+        height: 6px;
+        background: rgba(255,255,255,0.4);
+        border-radius: 50%;
+        transition: all 0.3s ease;
+      }
+      
+      .quick-links li:hover::before {
+        background: white;
+        box-shadow: 0 0 10px rgba(255,255,255,0.5);
+        transform: translateY(-50%) scale(1.3);
+      }
+      
+      .quick-links a {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        position: relative;
+      }
+      
+      .quick-links a::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: rgba(255,255,255,0.6);
+        transition: width 0.3s ease;
+      }
+      
+      .quick-links a:hover::after {
+        width: 100%;
+      }
+      
+      .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+      }
+      
+      .social-links a {
+        width: 45px;
+        height: 45px;
+        background: rgba(255,255,255,0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        border: 1px solid rgba(255,255,255,0.2);
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .social-links a::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      
+      .social-links a:hover::before {
+        opacity: 1;
+      }
+      
+      .social-links a:hover {
+        background: rgba(255,255,255,0.25);
+        transform: translateY(-8px) scale(1.1);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.3), 0 0 20px rgba(255,255,255,0.2);
+        border-color: rgba(255,255,255,0.4);
+      }
+      
+      .footer-bottom {
+        text-align: center;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255,255,255,0.15);
+        position: relative;
+        z-index: 1;
+        margin-top: 20px;
+      }
+      
+      .footer-bottom::before {
+        content: '◆';
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgba(255,255,255,0.3);
+        font-size: 12px;
+        animation: diamondPulse 2s ease-in-out infinite;
+      }
+      
+      @keyframes diamondPulse {
+        0%, 100% { opacity: 0.3; transform: translateX(-50%) scale(1); }
+        50% { opacity: 0.8; transform: translateX(-50%) scale(1.2); }
+      }
+      
+      .footer-bottom p {
+        color: rgba(255,255,255,0.8);
+        font-size: 13px;
+        margin: 5px 0;
+      }
+      
+      /* Responsive adjustments */
+      @media (max-width: 1400px) {
+        .footer-container {
+          padding: 0 200px;
+        }
+        .footer-side-decoration {
+          width: 150px;
+        }
+        .data-stream.left-stream {
+          left: 150px;
+        }
+        .data-stream.right-stream {
+          right: 150px;
+        }
+      }
+      
+      @media (max-width: 1200px) {
+        .footer-container {
+          padding: 0 180px;
+        }
+        .footer-side-decoration {
+          width: 120px;
+          opacity: 0.4;
+        }
+        .data-stream {
+          display: none;
+        }
+      }
+      
+      @media (max-width: 992px) {
+        .footer-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 30px;
+        }
+        .footer-container {
+          padding: 0 140px;
+        }
+        .footer-side-decoration {
+          width: 100px;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+        .footer-enhanced {
+          padding: 40px 0 20px;
+          width: 100vw;
+        }
+        .footer-container {
+          padding: 0 20px;
+        }
+        .footer-side-decoration {
+          display: none;
+        }
+        .footer-section {
+          padding: 15px;
+        }
+      }
+
+
+
+    
 
           /* ===== GREEN LEGACY GALLERY - HORIZONTAL ACCORDION ===== */
       .legacy-gallery-section {
@@ -5323,18 +5936,95 @@
       </div>
     </div>
 
-<!-- ENHANCED FOOTER -->
+
+    <!-- ENHANCED FOOTER WITH CREATIVE SIDE ELEMENTS -->
 <footer class="footer-enhanced">
+  <!-- Animated Side Decorations -->
+  <div class="footer-side-decoration left">
+    <div class="tech-circuit">
+      <svg viewBox="0 0 200 600" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="circuitGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:rgba(255,255,255,0);stop-opacity:0" />
+            <stop offset="20%" style="stop-color:rgba(255,255,255,0.3);stop-opacity:1" />
+            <stop offset="80%" style="stop-color:rgba(255,255,255,0.3);stop-opacity:1" />
+            <stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:0" />
+          </linearGradient>
+        </defs>
+        <!-- Circuit Lines -->
+        <path class="circuit-line" d="M100,0 L100,100 L50,150 L50,250 L100,300 L100,400 L150,450 L150,600" fill="none" stroke="url(#circuitGradient)" stroke-width="2"/>
+        <path class="circuit-line" d="M150,0 L150,80 L100,130 L100,220 L150,270 L150,350 L100,400 L100,600" fill="none" stroke="url(#circuitGradient)" stroke-width="1.5"/>
+        <path class="circuit-line" d="M50,0 L50,60 L100,110 L100,180 L50,230 L50,320 L100,370 L100,600" fill="none" stroke="url(#circuitGradient)" stroke-width="1"/>
+        <!-- Nodes -->
+        <circle class="circuit-node" cx="100" cy="100" r="4" fill="rgba(255,255,255,0.6)"/>
+        <circle class="circuit-node" cx="50" cy="150" r="3" fill="rgba(255,255,255,0.5)"/>
+        <circle class="circuit-node" cx="50" cy="250" r="5" fill="rgba(255,255,255,0.7)"/>
+        <circle class="circuit-node" cx="100" cy="300" r="4" fill="rgba(255,255,255,0.6)"/>
+        <circle class="circuit-node" cx="100" cy="400" r="6" fill="rgba(255,255,255,0.8)"/>
+        <circle class="circuit-node" cx="150" cy="450" r="3" fill="rgba(255,255,255,0.5)"/>
+        <!-- Animated Pulse Rings -->
+        <circle class="pulse-ring" cx="100" cy="300" r="8" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+        <circle class="pulse-ring" cx="100" cy="400" r="10" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+      </svg>
+    </div>
+    <!-- Floating Geometric Shapes -->
+    <div class="geo-shape shape-1"></div>
+    <div class="geo-shape shape-2"></div>
+    <div class="geo-shape shape-3"></div>
+  </div>
+
+  <div class="footer-side-decoration right">
+    <div class="tech-circuit">
+      <svg viewBox="0 0 200 600" preserveAspectRatio="none">
+        <path class="circuit-line" d="M100,0 L100,80 L150,130 L150,200 L100,250 L100,350 L50,400 L50,600" fill="none" stroke="url(#circuitGradient)" stroke-width="2"/>
+        <path class="circuit-line" d="M50,0 L50,100 L100,150 L100,280 L50,330 L50,450 L100,500 L100,600" fill="none" stroke="url(#circuitGradient)" stroke-width="1.5"/>
+        <path class="circuit-line" d="M150,0 L150,50 L100,100 L100,180 L150,230 L150,380 L100,430 L100,600" fill="none" stroke="url(#circuitGradient)" stroke-width="1"/>
+        <circle class="circuit-node" cx="100" cy="80" r="4" fill="rgba(255,255,255,0.6)"/>
+        <circle class="circuit-node" cx="150" cy="130" r="3" fill="rgba(255,255,255,0.5)"/>
+        <circle class="circuit-node" cx="150" cy="200" r="5" fill="rgba(255,255,255,0.7)"/>
+        <circle class="circuit-node" cx="100" cy="250" r="4" fill="rgba(255,255,255,0.6)"/>
+        <circle class="circuit-node" cx="50" cy="400" r="6" fill="rgba(255,255,255,0.8)"/>
+        <circle class="circuit-node" cx="100" cy="500" r="3" fill="rgba(255,255,255,0.5)"/>
+        <circle class="pulse-ring" cx="100" cy="250" r="8" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+        <circle class="pulse-ring" cx="50" cy="400" r="10" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+      </svg>
+    </div>
+    <div class="geo-shape shape-4"></div>
+    <div class="geo-shape shape-5"></div>
+    <div class="geo-shape shape-6"></div>
+  </div>
+
+  <!-- Data Stream Effect -->
+  <div class="data-stream left-stream">
+    <div class="data-packet">10101</div>
+    <div class="data-packet">AFLI</div>
+    <div class="data-packet">2026</div>
+    <div class="data-packet">GREEN</div>
+    <div class="data-packet">CLEAN</div>
+    <div class="data-packet">ENERGY</div>
+  </div>
+  <div class="data-stream right-stream">
+    <div class="data-packet">AFRICA</div>
+    <div class="data-packet">FUTURE</div>
+    <div class="data-packet">SUSTAIN</div>
+    <div class="data-packet">CLIMATE</div>
+    <div class="data-packet">ACTION</div>
+    <div class="data-packet">HOPE</div>
+  </div>
+
+  <!-- Particle Network -->
+  <canvas id="particleCanvas" class="particle-network"></canvas>
+
   <div class="footer-container">
     <div class="footer-grid">
       <!-- Acacia Trading Address Section -->
       <div class="footer-section">
-        <h3><i class="fas fa-building"></i> <a href="https://acaciatradingplc.com " target="_blank" style="color: inherit; text-decoration: none;">Acacia Trading PLC</a></h3>
+        <h4><i class="fas fa-building"></i> <a href="https://acaciatradingplc.com" target="_blank" style="color: inherit; text-decoration: none;">Acacia Trading PLC</a></h4>
         <div class="footer-address">
           <p><i class="fas fa-map-marker-alt"></i> Mexico Square, Chamber Building, Room 405, Addis Ababa, Ethiopia. </p>
           <p><i class="fas fa-envelope"></i> <a href="mailto:mussie@equaltradeglobal.org" style="color: inherit;">mussie@equaltradeglobal.org</a></p>
           <p><i class="fas fa-phone"></i> <a href="tel:+251922466797" style="color: inherit;">+251 922 466 797</a></p>
-          <p><i class="fas fa-globe"></i> <a href="https://acaciatradingplc.com " target="_blank" style="color: inherit;">www.acaciatradingplc.com</a></p> 
+          <p><i class="fas fa-globe"></i> <a href="https://acaciatradingplc.com" target="_blank" style="color: inherit;">www.acaciatradingplc.com</a></p> 
         </div>
       </div>
 
@@ -5361,18 +6051,18 @@
         <p>The National Palace</p>
         <p>Addis Ababa, Ethiopia</p>
         <div class="social-links">
-          <a href="https://www.linkedin.com/company/acacia-trading-plc/ " target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://wa.me/251922466797 " target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-          <a href="https://x.com/@AcaciaPlc " target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-          <a href="https://web.facebook.com/raeyafrica " target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/mussieafe/ " target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/acacia-trading-plc/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://wa.me/251922466797" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://x.com/@AcaciaPlc" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://web.facebook.com/raeyafrica" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/mussieafe/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
     </div>
 
     <div class="footer-bottom">
       <p>&copy; 2026 African First Ladies Initiative for Emission Reduction and Poverty Alleviation. All rights reserved.</p>
-      <p>Organized by <a href="https://acaciatradingplc.com " target="_blank" style="color: rgba(255,255,255,0.9); text-decoration: underline;">Acacia Trading Plc</a> in collaboration with the Office of the First Lady.</p>
+      <p>Organized by <a href="https://acaciatradingplc.com" target="_blank" style="color: rgba(255,255,255,0.9); text-decoration: underline;">Acacia Trading Plc</a> in collaboration with the Office of the First Lady.</p>
     </div>
   </div>
 </footer>
@@ -5777,6 +6467,100 @@
     // Initialize first artistic section as open (optional)
     // document.getElementById('objectives').classList.add('active');
   });
+
+  // Particle Network Animation
+(function() {
+  const canvas = document.getElementById('particleCanvas');
+  if (!canvas) return;
+  
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  let animationId;
+  
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = canvas.parentElement.offsetHeight;
+  }
+  
+  class Particle {
+    constructor() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.vx = (Math.random() - 0.5) * 0.5;
+      this.vy = (Math.random() - 0.5) * 0.5;
+      this.radius = Math.random() * 2 + 1;
+    }
+    
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+      
+      if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+      if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+    }
+    
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(255,255,255,0.5)';
+      ctx.fill();
+    }
+  }
+  
+  function init() {
+    particles = [];
+    const particleCount = Math.floor(canvas.width / 50);
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
+  }
+  
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    particles.forEach((particle, i) => {
+      particle.update();
+      particle.draw();
+      
+      // Connect particles
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[j].x - particle.x;
+        const dy = particles[j].y - particle.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        
+        if (distance < 100) {
+          ctx.beginPath();
+          ctx.moveTo(particle.x, particle.y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = `rgba(255,255,255,${0.2 * (1 - distance / 100)})`;
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
+      }
+    });
+    
+    animationId = requestAnimationFrame(animate);
+  }
+  
+  window.addEventListener('resize', () => {
+    resize();
+    init();
+  });
+  
+  // Initialize
+  resize();
+  init();
+  animate();
+  
+  // Cleanup on page hide
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      cancelAnimationFrame(animationId);
+    } else {
+      animate();
+    }
+  });
+})();
 
 </script>
   
