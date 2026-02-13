@@ -3798,6 +3798,277 @@
           line-height: 1.3;
         }
       } 
+
+      /* ===== DYNAMIC WIND TURBINE FOOTER BACKGROUND ===== */
+        .wind-turbine-bg {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          pointer-events: none;
+          z-index: 0;
+          background: linear-gradient(135deg, rgba(46,139,87,0.95) 0%, rgba(60,179,113,0.95) 50%, rgba(30,92,58,0.98) 100%);
+        }
+        
+        /* Turbine Base Styles */
+        .turbine {
+          position: absolute;
+          bottom: 0;
+          transform-origin: bottom center;
+          opacity: 0.15;
+        }
+        
+        .turbine-tower {
+          width: 4px;
+          height: 180px;
+          background: linear-gradient(to right, rgba(255,255,255,0.4), rgba(255,255,255,0.8), rgba(255,255,255,0.4));
+          margin: 0 auto;
+          border-radius: 2px;
+          position: relative;
+        }
+        
+        .turbine-tower::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+          animation: towerShimmer 4s ease-in-out infinite;
+        }
+        
+        @keyframes towerShimmer {
+          0%, 100% { transform: translateX(-100%); }
+          50% { transform: translateX(100%); }
+        }
+        
+        .turbine-head {
+          position: absolute;
+          top: -15px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 20px;
+          height: 20px;
+          background: radial-gradient(circle, rgba(255,255,255,0.9), rgba(255,255,255,0.5));
+          border-radius: 50%;
+          box-shadow: 0 0 20px rgba(255,255,255,0.3);
+          z-index: 2;
+        }
+        
+        .turbine-blades {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 120px;
+          height: 120px;
+          animation: spin 8s linear infinite;
+        }
+        
+        .turbine-blades:hover {
+          animation-duration: 4s;
+        }
+        
+        @keyframes spin {
+          from { transform: translate(-50%, -50%) rotate(0deg); }
+          to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        .blade {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 4px;
+          height: 60px;
+          background: linear-gradient(to top, rgba(255,255,255,0.3), rgba(255,255,255,0.9));
+          transform-origin: bottom center;
+          border-radius: 2px 2px 50% 50%;
+          box-shadow: 0 0 10px rgba(255,255,255,0.2);
+        }
+        
+        .blade::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 12px;
+          height: 40px;
+          background: linear-gradient(to top, rgba(255,255,255,0.2), rgba(255,255,255,0.6));
+          border-radius: 50% 50% 2px 2px;
+          clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+        }
+        
+        .blade-1 { transform: translate(-50%, -100%) rotate(0deg); }
+        .blade-2 { transform: translate(-50%, -100%) rotate(120deg); }
+        .blade-3 { transform: translate(-50%, -100%) rotate(240deg); }
+        
+        /* Individual Turbine Positions */
+        .turbine-1 {
+          left: 5%;
+          transform: scale(0.8);
+          animation: sway1 6s ease-in-out infinite;
+        }
+        
+        .turbine-2 {
+          left: 15%;
+          transform: scale(1.2);
+          animation: sway2 7s ease-in-out infinite;
+        }
+        
+        .turbine-3 {
+          right: 10%;
+          transform: scale(0.9);
+          animation: sway3 5s ease-in-out infinite;
+        }
+        
+        .turbine-2 .turbine-blades {
+          animation-duration: 6s;
+          animation-direction: reverse;
+        }
+        
+        .turbine-3 .turbine-blades {
+          animation-duration: 10s;
+        }
+        
+        @keyframes sway1 {
+          0%, 100% { transform: scale(0.8) rotate(-2deg); }
+          50% { transform: scale(0.8) rotate(2deg); }
+        }
+        
+        @keyframes sway2 {
+          0%, 100% { transform: scale(1.2) rotate(1deg); }
+          50% { transform: scale(1.2) rotate(-1deg); }
+        }
+        
+        @keyframes sway3 {
+          0%, 100% { transform: scale(0.9) rotate(-1.5deg); }
+          50% { transform: scale(0.9) rotate(1.5deg); }
+        }
+        
+        /* Floating Particles */
+        .particles {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+        
+        .particle {
+          position: absolute;
+          width: 4px;
+          height: 4px;
+          background: rgba(255,255,255,0.4);
+          border-radius: 50%;
+          animation: float 15s infinite ease-in-out;
+          box-shadow: 0 0 10px rgba(255,255,255,0.5);
+        }
+        
+        .particle:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 12s; }
+        .particle:nth-child(2) { left: 20%; animation-delay: 2s; animation-duration: 15s; }
+        .particle:nth-child(3) { left: 30%; animation-delay: 4s; animation-duration: 10s; }
+        .particle:nth-child(4) { left: 40%; animation-delay: 1s; animation-duration: 18s; }
+        .particle:nth-child(5) { left: 50%; animation-delay: 3s; animation-duration: 14s; }
+        .particle:nth-child(6) { left: 60%; animation-delay: 5s; animation-duration: 16s; }
+        .particle:nth-child(7) { left: 70%; animation-delay: 2.5s; animation-duration: 11s; }
+        .particle:nth-child(8) { left: 80%; animation-delay: 4.5s; animation-duration: 13s; }
+        .particle:nth-child(9) { left: 90%; animation-delay: 1.5s; animation-duration: 17s; }
+        .particle:nth-child(10) { left: 95%; animation-delay: 3.5s; animation-duration: 12s; }
+        
+        @keyframes float {
+          0% {
+            transform: translateY(100%) scale(0);
+            opacity: 0;
+          }
+          10% {
+            opacity: 1;
+            transform: translateY(90%) scale(1);
+          }
+          90% {
+            opacity: 1;
+            transform: translateY(10%) scale(1);
+          }
+          100% {
+            transform: translateY(-10%) scale(0);
+            opacity: 0;
+          }
+        }
+        
+        /* Wind Lines */
+        .wind-lines {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+        
+        .wind-line {
+          position: absolute;
+          height: 2px;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+          border-radius: 1px;
+          animation: windFlow 8s linear infinite;
+        }
+        
+        .wind-line:nth-child(1) {
+          top: 20%;
+          width: 100px;
+          animation-delay: 0s;
+          animation-duration: 6s;
+        }
+        
+        .wind-line:nth-child(2) {
+          top: 40%;
+          width: 150px;
+          animation-delay: 2s;
+          animation-duration: 8s;
+        }
+        
+        .wind-line:nth-child(3) {
+          top: 60%;
+          width: 80px;
+          animation-delay: 4s;
+          animation-duration: 7s;
+        }
+        
+        .wind-line:nth-child(4) {
+          top: 30%;
+          width: 120px;
+          animation-delay: 1s;
+          animation-duration: 9s;
+        }
+        
+        .wind-line:nth-child(5) {
+          top: 70%;
+          width: 90px;
+          animation-delay: 3s;
+          animation-duration: 5s;
+        }
+        
+        @keyframes windFlow {
+          0% {
+            transform: translateX(-100vw);
+            opacity: 0;
+          }
+          10% {
+            opacity: 1;
+          }
+          90% {
+            opacity: 1;
+          }
+          100% {
+            transform: translateX(100vw);
+            opacity: 0;
+          }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+          .turbine {
+            opacity: 0.1;
+          }
+          .turbine-1 { left: 2%; transform: scale(0.6); }
+          .turbine-2 { left: 25%; transform: scale(0.8); }
+          .turbine-3 { right: 5%; transform: scale(0.6); }
+          .turbine-tower { height: 120px; }
+          .turbine-blades { width: 80px; height: 80px; }
+          .blade { height: 40px; }
+        }
   </style>
 </head>
 <body>
@@ -5325,59 +5596,115 @@
       </div>
     </div>
 
-<!-- ENHANCED FOOTER -->
-<footer class="footer-enhanced">
-  <div class="footer-container">
-    <div class="footer-grid">
-      <!-- Acacia Trading Address Section -->
-      <div class="footer-section">
-        <h4><i class="fas fa-building"></i> <a href="https://acaciatradingplc.com" target="_blank" style="color: inherit; text-decoration: none;">Acacia Trading PLC</a></h4>
-        <div class="footer-address">
-          <p><i class="fas fa-map-marker-alt"></i> Mexico Square, Chamber Building, Room 405, Addis Ababa, Ethiopia. </p>
-          <p><i class="fas fa-envelope"></i> <a href="mailto:mussie@equaltradeglobal.org" style="color: inherit;">mussie@equaltradeglobal.org</a></p>
-          <p><i class="fas fa-phone"></i> <a href="tel:+251922466797" style="color: inherit;">+251 922 466 797</a></p>
-          <p><i class="fas fa-globe"></i> <a href="https://acaciatradingplc.com" target="_blank" style="color: inherit;">www.acaciatradingplc.com</a></p> 
+    <!-- ENHANCED FOOTER -->
+    <footer class="footer-enhanced">
+
+      <!-- Dynamic Wind Turbine Background -->
+      <div class="wind-turbine-bg">
+        <div class="turbine turbine-1">
+          <div class="turbine-tower"></div>
+          <div class="turbine-head">
+            <div class="turbine-blades">
+              <div class="blade blade-1"></div>
+              <div class="blade blade-2"></div>
+              <div class="blade blade-3"></div>
+            </div>
+          </div>
+        </div>
+        <div class="turbine turbine-2">
+          <div class="turbine-tower"></div>
+          <div class="turbine-head">
+            <div class="turbine-blades">
+              <div class="blade blade-1"></div>
+              <div class="blade blade-2"></div>
+              <div class="blade blade-3"></div>
+            </div>
+          </div>
+        </div>
+        <div class="turbine turbine-3">
+          <div class="turbine-tower"></div>
+          <div class="turbine-head">
+            <div class="turbine-blades">
+              <div class="blade blade-1"></div>
+              <div class="blade blade-2"></div>
+              <div class="blade blade-3"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Floating particles -->
+        <div class="particles">
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+        </div>
+        <!-- Wind lines -->
+        <div class="wind-lines">
+          <div class="wind-line"></div>
+          <div class="wind-line"></div>
+          <div class="wind-line"></div>
+          <div class="wind-line"></div>
+          <div class="wind-line"></div>
         </div>
       </div>
-
-      <!-- Quick Links Section -->
-      <div class="footer-section">
-        <h4><i class="fas fa-link"></i> Quick Links</h4>
-        <ul class="quick-links">
-          <li><a href="#objectives">Forum Objectives</a></li>
-          <li><a href="#technologies">Key Technologies</a></li>
-          <li><a href="#keynote">Keynote Speakers</a></li>
-          <li><a href="#sponsorship">Sponsorship</a></li>
-          <li><a href="#venue">Venue & Logistics</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#downloads">Downloads</a></li>
-          <li><a href="#register">Contact Us</a></li>
-        </ul>
-      </div>
-
-      <!-- Forum Info Section -->
-      <div class="footer-section">
-        <h4><i class="fas fa-info-circle"></i> Forum Info</h4>
-        <p><strong>AFLIERPA 2026</strong></p>
-        <p>March 17-19, 2026</p>
-        <p>The National Palace</p>
-        <p>Addis Ababa, Ethiopia</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/company/acacia-trading-plc/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://wa.me/251922466797" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-          <a href="https://x.com/@AcaciaPlc" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-          <a href="https://web.facebook.com/raeyafrica" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/mussieafe/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+      
+      <div class="footer-container">
+        <div class="footer-grid">
+          <!-- Acacia Trading Address Section -->
+          <div class="footer-section">
+            <h3><i class="fas fa-building"></i> <a href="https://acaciatradingplc.com" target="_blank" style="color: inherit; text-decoration: none;">Acacia Trading PLC</a></h3>
+            <div class="footer-address">
+              <p><i class="fas fa-map-marker-alt"></i> Mexico Square, Chamber Building, Room 405, Addis Ababa, Ethiopia. </p>
+              <p><i class="fas fa-envelope"></i> <a href="mailto:mussie@equaltradeglobal.org" style="color: inherit;">mussie@equaltradeglobal.org</a></p>
+              <p><i class="fas fa-phone"></i> <a href="tel:+251922466797" style="color: inherit;">+251 922 466 797</a></p>
+              <p><i class="fas fa-globe"></i> <a href="https://acaciatradingplc.com" target="_blank" style="color: inherit;">www.acaciatradingplc.com</a></p> 
+            </div>
+          </div>
+    
+          <!-- Quick Links Section -->
+          <div class="footer-section">
+            <h4><i class="fas fa-link"></i> Quick Links</h4>
+            <ul class="quick-links">
+              <li><a href="#objectives">Forum Objectives</a></li>
+              <li><a href="#technologies">Key Technologies</a></li>
+              <li><a href="#keynote">Keynote Speakers</a></li>
+              <li><a href="#sponsorship">Sponsorship</a></li>
+              <li><a href="#venue">Venue & Logistics</a></li>
+              <li><a href="#faq">FAQ</a></li>
+              <li><a href="#downloads">Downloads</a></li>
+              <li><a href="#register">Contact Us</a></li>
+            </ul>
+          </div>
+    
+          <!-- Forum Info Section -->
+          <div class="footer-section">
+            <h4><i class="fas fa-info-circle"></i> Forum Info</h4>
+            <p><strong>AFLIERPA 2026</strong></p>
+            <p>March 17-19, 2026</p>
+            <p>The National Palace</p>
+            <p>Addis Ababa, Ethiopia</p>
+            <div class="social-links">
+              <a href="https://www.linkedin.com/company/acacia-trading-plc/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="https://wa.me/251922466797" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+              <a href="https://x.com/@AcaciaPlc" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="https://web.facebook.com/raeyafrica" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/mussieafe/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+    
+        <div class="footer-bottom">
+          <p>&copy; 2026 African First Ladies Initiative for Emission Reduction and Poverty Alleviation. All rights reserved.</p>
+          <p>Organized by <a href="https://acaciatradingplc.com" target="_blank" style="color: rgba(255,255,255,0.9); text-decoration: underline;">Acacia Trading Plc</a> in collaboration with the Office of the First Lady.</p>
         </div>
       </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p>&copy; 2026 African First Ladies Initiative for Emission Reduction and Poverty Alleviation. All rights reserved.</p>
-      <p>Organized by <a href="https://acaciatradingplc.com" target="_blank" style="color: rgba(255,255,255,0.9); text-decoration: underline;">Acacia Trading Plc</a> in collaboration with the Office of the First Lady.</p>
-    </div>
-  </div>
-</footer>
+    </footer>
 </div>
 
 <script>
