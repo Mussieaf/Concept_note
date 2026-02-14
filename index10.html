@@ -3591,7 +3591,66 @@
       }
     }
 
-          /* ===== GREEN LEGACY GALLERY - HORIZONTAL ACCORDION ===== */
+    /* Footer Quick Links Mobile Toggle */
+      .footer-links-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        user-select: none;
+        transition: all 0.3s ease;
+      }
+      
+      .footer-links-header:hover {
+        opacity: 0.9;
+      }
+      
+      .footer-toggle-icon {
+        display: none;
+        font-size: 14px;
+        color: rgba(255,255,255,0.9);
+        transition: transform 0.3s ease;
+      }
+      
+      .footer-links-content {
+        overflow: hidden;
+        transition: max-height 0.4s ease, opacity 0.3s ease;
+      }
+      
+      /* Mobile Styles */
+      @media (max-width: 768px) {
+        .footer-toggle-icon {
+          display: block;
+        }
+        
+        .footer-links-content {
+          max-height: 0;
+          opacity: 0;
+        }
+        
+        .footer-links-section.active .footer-links-content {
+          max-height: 500px;
+          opacity: 1;
+          margin-top: 15px;
+        }
+        
+        .footer-links-section.active .footer-toggle-icon {
+          transform: rotate(180deg);
+        }
+        
+        .footer-links-header h4 {
+          margin: 0;
+        }
+      }
+      
+      /* Desktop Styles - Always Expanded */
+      @media (min-width: 769px) {
+        .footer-links-content {
+          max-height: none !important;
+          opacity: 1 !important;
+        }
+      }
+      /* ===== GREEN LEGACY GALLERY - HORIZONTAL ACCORDION ===== */
       .legacy-gallery-section {
         margin: 30px 0;
         padding: 20px 0;
@@ -5730,18 +5789,23 @@
           </div>
     
           <!-- Quick Links Section -->
-          <div class="footer-section">
-            <h4><i class="fas fa-link"></i> Quick Links</h4>
-            <ul class="quick-links">
-              <li><a href="#objectives">Forum Objectives</a></li>
-              <li><a href="#technologies">Key Technologies</a></li>
-              <li><a href="#keynote">Keynote Speakers</a></li>
-              <li><a href="#sponsorship">Sponsorship</a></li>
-              <li><a href="#venue">Venue & Logistics</a></li>
-              <li><a href="#faq">FAQ</a></li>
-              <li><a href="#downloads">Downloads</a></li>
-              <li><a href="#register">Contact Us</a></li>
-            </ul>
+          <div class="footer-section footer-links-section" id="footer-links">
+            <div class="footer-links-header" onclick="toggleFooterLinks()">
+              <h4><i class="fas fa-link"></i> Quick Links</h4>
+              <span class="footer-toggle-icon" id="footer-toggle-icon">▼</span>
+            </div>
+            <div class="footer-links-content" id="footer-links-content">
+              <ul class="quick-links">
+                <li><a href="#objectives">Forum Objectives</a></li>
+                <li><a href="#technologies">Key Technologies</a></li>
+                <li><a href="#keynote">Keynote Speakers</a></li>
+                <li><a href="#sponsorship">Sponsorship</a></li>
+                <li><a href="#venue">Venue & Logistics</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#downloads">Downloads</a></li>
+                <li><a href="#register">Contact Us</a></li>
+              </ul>
+            </div>
           </div>
     
           <!-- Forum Info Section -->
@@ -6168,6 +6232,25 @@
     // Initialize first artistic section as open (optional)
     // document.getElementById('objectives').classList.add('active');
   });
+
+// ===== FOOTER QUICK LINKS TOGGLE =====
+function toggleFooterLinks() {
+  const linksSection = document.getElementById('footer-links');
+  const isActive = linksSection.classList.contains('active');
+  
+  if (!isActive) {
+    linksSection.classList.add('active');
+  } else {
+    linksSection.classList.remove('active');
+  }
+}
+
+// Auto-expand on desktop resize
+window.addEventListener('resize', function() {
+  if (window.innerWidth > 768) {
+    document.getElementById('footer-links').classList.remove('active');
+  }
+});
 
 </script>
   
