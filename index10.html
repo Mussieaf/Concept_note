@@ -1598,6 +1598,30 @@
       color: white;
     }
 
+    /* Speaker Badges */
+    .badge-keynote {
+      background: linear-gradient(135deg, rgba(231,76,60,0.9), rgba(192,57,43,0.9));
+      color: white;
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      z-index: 10;
+    }
+    
+    .badge-guest {
+      background: linear-gradient(135deg, rgba(52,152,219,0.9), rgba(41,128,185,0.9));
+      color: white;
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      z-index: 10;
+    }
+    
+    /* Ensure speaker card has position relative for badge positioning */
+    .speaker-card-glass {
+      position: relative;
+    }
+
     /* Download Cards */
     .downloads-grid-enhanced {
       display: grid;
@@ -4709,6 +4733,78 @@
       </div>
     </div>
   </div>
+
+  <!-- KEYNOTE SPEAKERS -->
+  <div class="artistic-section" id="keynote">
+    <div class="section-header-glass" onclick="toggleArtisticSection('keynote')">
+      <h2><span>🗣️🎙️👥</span>Keynote Speakers</h2>
+      <span class="section-toggle-icon">▼</span>
+    </div>
+    <div class="section-content-glass">
+      <div class="participant-grid-enhanced">
+        <div class="speaker-card-glass">
+          <span class="badge-glass badge-keynote">Keynote Speaker</span>
+          <div class="speaker-image-wrapper">
+            <img src="Speakers/Kspeaker1.jpeg" alt="Dr. Weidong ZHANG" decoding="async" loading="lazy">
+            <div class="speaker-overlay"></div>
+          </div>
+          <div class="speaker-info-glass">
+            <h3>Dr. Weidong ZHANG</h3>
+            <span class="speaker-role">Assistant Resident Representative, UNDP China</span>
+            <p>A driving force behind innovation, partnerships, and tech-driven development. Previously a Programme Manager, his work focuses on SDG innovation, AI policy, climate action, and gender equality. He holds advanced degrees from Stanford University and Beijing Foreign Studies University.</p>
+          </div>
+        </div>
+        <div class="speaker-card-glass">
+          <span class="badge-glass badge-keynote">Keynote Speaker</span>
+          <div class="speaker-image-wrapper">
+            <img src="Speakers/Kspeaker2.jpeg" alt="Dr. Mena Mofed Sabet Gharsa" decoding="async" loading="lazy">
+            <div class="speaker-overlay"></div>
+          </div>
+          <div class="speaker-info-glass">
+            <h3>Dr. Mena Mofed Sabet Gharsa</h3>
+            <span class="speaker-role">Chairman, TOP WORLD TRUST FOUNDATIONS</span>
+            <p>An eye surgeon and scientist with over 30 years of executive leadership in global finance. As CEO of multinational investment firms, he manages substantial assets and directs project finance for infrastructure, petrochemical complexes, and renewable energy.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GUEST SPEAKERS -->
+  <div class="artistic-section" id="guest">
+    <div class="section-header-glass" onclick="toggleArtisticSection('guest')">
+      <h2><span>🎤</span>Guest Speakers</h2>
+      <span class="section-toggle-icon">▼</span>
+    </div>
+    <div class="section-content-glass">
+      <div class="participant-grid-enhanced">
+        <div class="speaker-card-glass">
+          <span class="badge-glass badge-guest">Guest Speaker</span>
+          <div class="speaker-image-wrapper">
+            <img src="Speakers/Gspeaker1.jpeg" alt="Elaine Johns" decoding="async" loading="lazy">
+            <div class="speaker-overlay"></div>
+          </div>
+          <div class="speaker-info-glass">
+            <h3>Elaine Johns</h3>
+            <span class="speaker-role">Managing Director, Globo Hydro Power Pty Ltd</span>
+            <p>A leader driving economic, sociological, and environmental advancement. She is the first female Club Director of the Enfield Returned Services League Club and the first female NSW Returned Services League Clubs Association Counselor.</p>
+          </div>
+        </div>
+        <div class="speaker-card-glass">
+          <span class="badge-glass badge-guest">Guest Speaker</span>
+          <div class="speaker-image-wrapper">
+            <img src="Speakers/Gspeaker2.jpeg" alt="Rev. Dolly Nengushe" decoding="async" loading="lazy">
+            <div class="speaker-overlay"></div>
+          </div>
+          <div class="speaker-info-glass">
+            <h3>Rev. Dolly Nengushe</h3>
+            <span class="speaker-role">Executive Chairperson, ACCN Namibia</span>
+            <p>A Namibian faith leader and community development advocate focused on inclusive development, ethical leadership, and social cohesion.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
   
   <!-- GUEST SPEAKERS -->
   <div class="artistic-section" id="guest">
