@@ -1819,6 +1819,102 @@
   }
 }
 
+    /* ===== TECHNOLOGY SHOWCASE GALLERY - RESPONSIVE FIXES ===== */
+    .tech-accordion-gallery {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                  padding 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      background: rgba(255,255,255,0.4);
+    }
+    
+    .tech-accordion-item.active .tech-accordion-gallery {
+      max-height: 2000px;
+      padding: 25px;
+      overflow-y: auto;
+    }
+    
+    .tech-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      width: 100%;
+    }
+    
+    .tech-gallery-item {
+      background: rgba(255,255,255,0.8);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(46,139,87,0.15);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      height: fit-content;
+      min-height: 0;
+    }
+    
+    .tech-gallery-item img {
+      width: 100%;
+      height: auto;
+      max-height: none;
+      object-fit: contain;
+      display: block;
+      background: linear-gradient(135deg, #f8fdf9 0%, #e8f5e9 100%);
+    }
+    
+    .tech-gallery-full {
+      grid-column: 1 / -1;
+    }
+    
+    .tech-image-caption {
+      padding: 12px 15px;
+      background: rgba(46,139,87,0.05);
+      color: var(--green-dark);
+      font-size: 13px;
+      text-align: center;
+      border-top: 1px solid rgba(46,139,87,0.1);
+      line-height: 1.4;
+    }
+    
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .tech-gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+      
+      .tech-accordion-item.active .tech-accordion-gallery {
+        max-height: 80vh;
+        padding: 15px;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+      }
+      
+      .tech-gallery-item {
+        border-radius: 12px;
+      }
+      
+      .tech-image-caption {
+        padding: 10px 12px;
+        font-size: 12px;
+      }
+    }
+    
+    /* Ensure gallery is scrollable when content exceeds viewport */
+    .tech-accordion-gallery::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    .tech-accordion-gallery::-webkit-scrollbar-track {
+      background: rgba(46,139,87,0.08);
+      border-radius: 4px;
+    }
+    
+    .tech-accordion-gallery::-webkit-scrollbar-thumb {
+      background: var(--green-light);
+      border-radius: 4px;
+    }
+
     /* Speaker Cards Enhancement */
     .speaker-card-glass {
       background: rgba(255,255,255,0.8);
