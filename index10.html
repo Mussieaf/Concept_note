@@ -1819,90 +1819,77 @@
   }
 }
 
-    /* ===== TECHNOLOGY SHOWCASE GALLERY - RESPONSIVE FIXES ===== */
+ /* ===== TECHNOLOGY SHOWCASE GALLERY - RESPONSIVE SCROLL ===== */
     .tech-accordion-gallery {
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
-                  padding 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                  padding 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                  opacity 0.3s ease;
+      opacity: 0;
       background: rgba(255,255,255,0.4);
+      border-top: 1px solid rgba(46,139,87,0.1);
     }
     
     .tech-accordion-item.active .tech-accordion-gallery {
-      max-height: 2000px;
-      padding: 25px;
-      overflow-y: auto;
+      max-height: 600px;
+      opacity: 1;
+      padding: 20px;
+      overflow-x: auto;
+      overflow-y: hidden;
     }
     
-    .tech-gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      width: 100%;
-    }
-    
-    .tech-gallery-item {
-      background: rgba(255,255,255,0.8);
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid rgba(46,139,87,0.15);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    /* Horizontal scrolling container */
+    .tech-gallery-scroll {
       display: flex;
-      flex-direction: column;
-      height: fit-content;
-      min-height: 0;
+      gap: 15px;
+      padding-bottom: 15px;
+      min-width: min-content;
     }
     
+    /* Individual gallery items */
+    .tech-gallery-item {
+      flex: 0 0 auto;
+      width: 280px;
+      background: rgba(255,255,255,0.8);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(46,139,87,0.1);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .tech-gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(46,139,87,0.15);
+    }
+    
+    /* Images - fully visible without cropping */
     .tech-gallery-item img {
       width: 100%;
       height: auto;
-      max-height: none;
+      max-height: 200px;
       object-fit: contain;
+      object-position: center;
       display: block;
       background: linear-gradient(135deg, #f8fdf9 0%, #e8f5e9 100%);
+      padding: 10px;
     }
     
-    .tech-gallery-full {
-      grid-column: 1 / -1;
-    }
-    
+    /* Captions */
     .tech-image-caption {
       padding: 12px 15px;
-      background: rgba(46,139,87,0.05);
-      color: var(--green-dark);
       font-size: 13px;
+      color: #444;
       text-align: center;
+      background: rgba(255,255,255,0.9);
       border-top: 1px solid rgba(46,139,87,0.1);
       line-height: 1.4;
     }
     
-    /* Mobile Responsive */
-    @media (max-width: 768px) {
-      .tech-gallery-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-      }
-      
-      .tech-accordion-item.active .tech-accordion-gallery {
-        max-height: 80vh;
-        padding: 15px;
-        overflow-y: scroll;
-        -webkit-overflow-scrolling: touch;
-      }
-      
-      .tech-gallery-item {
-        border-radius: 12px;
-      }
-      
-      .tech-image-caption {
-        padding: 10px 12px;
-        font-size: 12px;
-      }
-    }
-    
-    /* Ensure gallery is scrollable when content exceeds viewport */
+    /* Custom scrollbar for gallery */
     .tech-accordion-gallery::-webkit-scrollbar {
-      width: 8px;
+      height: 8px;
     }
     
     .tech-accordion-gallery::-webkit-scrollbar-track {
@@ -1913,6 +1900,53 @@
     .tech-accordion-gallery::-webkit-scrollbar-thumb {
       background: var(--green-light);
       border-radius: 4px;
+    }
+    
+    .tech-accordion-gallery::-webkit-scrollbar-thumb:hover {
+      background: var(--green);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .tech-accordion-item.active .tech-accordion-gallery {
+        max-height: 400px;
+        padding: 15px;
+      }
+      
+      .tech-gallery-item {
+        width: 240px;
+      }
+      
+      .tech-gallery-item img {
+        max-height: 160px;
+        padding: 8px;
+      }
+      
+      .tech-image-caption {
+        font-size: 12px;
+        padding: 10px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .tech-gallery-item {
+        width: 200px;
+      }
+      
+      .tech-gallery-item img {
+        max-height: 140px;
+        padding: 6px;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .tech-gallery-item {
+        width: 320px;
+      }
+      
+      .tech-gallery-item img {
+        max-height: 220px;
+      }
     }
 
     /* Speaker Cards Enhancement */
@@ -5206,122 +5240,111 @@
       </div>
     </div>
     
-    <!-- KEY TECHNOLOGIES SHOWCASE -->
-    <div class="artistic-section" id="technologies">
-      <div class="section-header-glass" onclick="toggleArtisticSection('technologies')">
-        <h2><span>🔧</span>Key Technologies Showcase</h2>
-        <span class="section-toggle-icon">▼</span>
+    <!-- Technology 1: Improved Cooking Stoves -->
+    <div class="tech-accordion-item" onclick="toggleTechAccordion(this)">
+      <div class="tech-accordion-header">
+        <div class="tech-icon-glass">🔥</div>
+        <div class="tech-header-content">
+          <h4><a href="https://www.ecca-et.org" target="_blank" class="no-underline">Improved Cooking Stoves</a></h4>
+          <p class="tech-description-text">Clean, efficient household energy solutions reducing indoor air pollution and deforestation by up to 60%. Our advanced biomass stoves feature enhanced combustion chambers, ceramic insulation, and optimized airflow systems that significantly reduce fuel consumption while improving cooking efficiency for rural and urban households across Africa.</p>
+        </div>
+        <span class="tech-accordion-toggle">▼</span>
       </div>
-      <div class="section-content-glass">
-        
-        <!-- Technology 1: Improved Cooking Stoves -->
-        <div class="tech-accordion-item" onclick="toggleTechAccordion(this)">
-          <div class="tech-accordion-header">
-            <div class="tech-icon-glass">🔥</div>
-            <div class="tech-header-content">
-              <h4><a href="https://www.ecca-et.org" target="_blank" class="no-underline">Improved Cooking Stoves</a></h4>
-              <p class="tech-description-text">Clean, efficient household energy solutions reducing indoor air pollution and deforestation by up to 60%. Our advanced biomass stoves feature enhanced combustion chambers, ceramic insulation, and optimized airflow systems that significantly reduce fuel consumption while improving cooking efficiency for rural and urban households across Africa.</p>
-            </div>
-            <span class="tech-accordion-toggle">▼</span>
+      <div class="tech-accordion-gallery">
+        <div class="tech-gallery-scroll">
+          <div class="tech-gallery-item">
+            <img src="technologies/Stove1.jpg" alt="Improved Cooking Stove - Main" decoding="async" loading="lazy">
+            <div class="tech-image-caption">Advanced biomass stove with enhanced combustion chamber</div>
           </div>
-          <div class="tech-accordion-gallery">
-            <div class="tech-gallery-grid">
-              <div class="tech-gallery-item tech-gallery-full">
-                <img src="technologies/Stove1.jpg" alt="Improved Cooking Stove - Main" decoding="async" loading="lazy">
-                <div class="tech-image-caption">Advanced biomass stove with enhanced combustion chamber</div>
-              </div>
-              <div class="tech-gallery-item">
-                <img src="technologies/Stove2.jpg" alt="Cooking Stove in Use" decoding="async" loading="lazy">
-                <div class="tech-image-caption">Rural household implementation</div>
-              </div>
-              <div class="tech-gallery-item">
-                <img src="technologies/Stove3.jpg" alt="Stove Components" decoding="async" loading="lazy">
-                <div class="tech-image-caption">Ceramic insulation technology</div>
-              </div>
-              <div class="tech-gallery-item">
-                <img src="technologies/Stove4.jpg" alt="Manufacturing Process" decoding="async" loading="lazy">
-                <div class="tech-image-caption">Local manufacturing facility</div>
-              </div>
-              <div class="tech-gallery-item">
-                <img src="technologies/Stove5.jpg" alt="Community Training" decoding="async" loading="lazy">
-                <div class="tech-image-caption">Community training program</div>
-              </div>
-            </div>
+          <div class="tech-gallery-item">
+            <img src="technologies/Stove2.jpg" alt="Cooking Stove in Use" decoding="async" loading="lazy">
+            <div class="tech-image-caption">Rural household implementation</div>
+          </div>
+          <div class="tech-gallery-item">
+            <img src="technologies/Stove3.jpg" alt="Stove Components" decoding="async" loading="lazy">
+            <div class="tech-image-caption">Ceramic insulation technology</div>
+          </div>
+          <div class="tech-gallery-item">
+            <img src="technologies/Stove4.jpg" alt="Manufacturing Process" decoding="async" loading="lazy">
+            <div class="tech-image-caption">Loaves production</div>
+          </div>
+          <div class="tech-gallery-item">
+            <img src="technologies/Stove5.jpg" alt="Community Training" decoding="async" loading="lazy">
+            <div class="tech-image-caption">Community training program</div>
           </div>
         </div>
+      </div>
+    </div>
     
-        <!-- Technology 2: Solar Power Devices -->
-        <div class="tech-accordion-item" onclick="toggleTechAccordion(this)">
-          <div class="tech-accordion-header">
-            <div class="tech-icon-glass">☀️</div>
-            <div class="tech-header-content">
-              <h4><a href="https://www.toyo-solar.com" target="_blank" class="no-underline">Solar Power Devices</a></h4>
-              <p class="tech-description-text">Renewable energy solutions for off-grid communities and urban applications. Our solar systems range from portable lanterns and home systems to large-scale mini-grids, providing reliable electricity to power homes, schools, health centers, and small businesses. Featuring high-efficiency photovoltaic panels, lithium battery storage, and smart monitoring systems.</p>
-            </div>
-            <span class="tech-accordion-toggle">▼</span>
+    <!-- Technology 2: Solar Power Devices -->
+    <div class="tech-accordion-item" onclick="toggleTechAccordion(this)">
+      <div class="tech-accordion-header">
+        <div class="tech-icon-glass">☀️</div>
+        <div class="tech-header-content">
+          <h4><a href="https://www.toyo-solar.com" target="_blank" class="no-underline">Solar Power Devices</a></h4>
+          <p class="tech-description-text">Renewable energy solutions for off-grid communities and urban applications. Our solar systems range from portable lanterns and home systems to large-scale mini-grids, providing reliable electricity to power homes, schools, health centers, and small businesses. Featuring high-efficiency photovoltaic panels, lithium battery storage, and smart monitoring systems.</p>
+        </div>
+        <span class="tech-accordion-toggle">▼</span>
+      </div>
+      <div class="tech-accordion-gallery">
+        <div class="tech-gallery-scroll">
+          <div class="tech-gallery-item">
+            <img src="technologies/Solar1.jpg" alt="Walker Solar Bakery" decoding="async" loading="lazy">
+            <div class="tech-image-caption">Large-scale solar farm installation</div>
           </div>
-          <div class="tech-accordion-gallery">
-            <div class="tech-gallery-grid">
-              <div class="tech-gallery-item tech-gallery-full">
-                <img src="technologies/Solar1.jpg" alt="Walker Solar Bakery" decoding="async" loading="lazy">
-                <div class="tech-image-caption">Large-scale solar farm installation</div>
-              </div>
-              <div class="tech-gallery-item">
-                <img src="technologies/Solar2.jpg" alt="Home Solar System" decoding="async" loading="lazy">
-                <div class="tech-image-caption">Residential home solar system</div>
-              </div>
-              <div class="tech-gallery-item">
-                <img src="technologies/Solar3.jpg" alt="Solar Mini-grid" decoding="async" loading="lazy">
-                <div class="tech-image-caption">Community mini-grid power station</div>
-              </div>
-              <div class="tech-gallery-item">
-                <img src="technologies/Solar4.jpg" alt="Solar Lanterns" decoding="async" loading="lazy">
-                <div class="tech-image-caption">Portable solar lanterns distribution</div>
-              </div>
-              <div class="tech-gallery-item">
-                <img src="technologies/Solar5.jpg" alt="Solar Panel Manufacturing" decoding="async" loading="lazy">
-                <div class="tech-image-caption">Local assembly facility</div>
-              </div>
-            </div>
+          <div class="tech-gallery-item">
+            <img src="technologies/Solar2.jpg" alt="Home Solar System" decoding="async" loading="lazy">
+            <div class="tech-image-caption">Residential home solar system</div>
+          </div>
+          <div class="tech-gallery-item">
+            <img src="technologies/Solar3.jpg" alt="Solar Mini-grid" decoding="async" loading="lazy">
+            <div class="tech-image-caption">Community mini-grid power station</div>
+          </div>
+          <div class="tech-gallery-item">
+            <img src="technologies/Solar4.jpg" alt="Solar Lanterns" decoding="async" loading="lazy">
+            <div class="tech-image-caption">Portable solar lanterns distribution</div>
+          </div>
+          <div class="tech-gallery-item">
+            <img src="technologies/Solar5.jpg" alt="Solar Panel Manufacturing" decoding="async" loading="lazy">
+            <div class="tech-image-caption">Local assembly facility</div>
           </div>
         </div>
+      </div>
+    </div>
     
-        <!-- Technology 3: H₂-Enhanced Engines -->
-        <div class="tech-accordion-item" onclick="toggleTechAccordion(this)">
-          <div class="tech-accordion-header">
-            <div class="tech-icon-glass">⛽</div>
-            <div class="tech-header-content">
-              <h4><a href="https://mussieaf.github.io/Concept_note/GHP.html" target="_blank" class="no-underline">H₂-Enhanced Engines</a></h4>
-              <p class="tech-description-text">Next-generation clean transport and power generation solutions reducing emissions by up to 46%. Our Hydrogen-Enhanced Internal Combustion Engine (H-ICE) technology integrates on-demand hydrogen generation with traditional diesel and petrol engines, significantly improving fuel efficiency while dramatically reducing harmful exhaust emissions for trucks, buses, and generators.</p>
-            </div>
-            <span class="tech-accordion-toggle">▼</span>
+    <!-- Technology 3: H₂-Enhanced Engines -->
+    <div class="tech-accordion-item" onclick="toggleTechAccordion(this)">
+      <div class="tech-accordion-header">
+        <div class="tech-icon-glass">⛽</div>
+        <div class="tech-header-content">
+          <h4><a href="https://mussieaf.github.io/Concept_note/GHP.html" target="_blank" class="no-underline">H₂-Enhanced Engines</a></h4>
+          <p class="tech-description-text">Next-generation clean transport and power generation solutions reducing emissions by up to 46%. Our Hydrogen-Enhanced Internal Combustion Engine (H-ICE) technology integrates on-demand hydrogen generation with traditional diesel and petrol engines, significantly improving fuel efficiency while dramatically reducing harmful exhaust emissions for trucks, buses, and generators.</p>
+        </div>
+        <span class="tech-accordion-toggle">▼</span>
+      </div>
+      <div class="tech-accordion-gallery">
+        <div class="tech-gallery-scroll">
+          <div class="tech-gallery-item">
+            <img src="technologies/Hydrogen1.jpg" alt="H2 Engine System" decoding="async" loading="lazy">
+            <div class="tech-image-caption">Hydrogen enhancement system installation</div>
           </div>
-          <div class="tech-accordion-gallery">
-            <div class="tech-gallery-grid">
-              <div class="tech-gallery-item tech-gallery-full">
-                <img src="technologies/Hydrogen1.jpg" alt="H2 Engine System" decoding="async" loading="lazy">
-                <div class="tech-image-caption">Hydrogen enhancement system installation</div>
-              </div>
-              <div class="tech-gallery-item">
-                <img src="technologies/Hydrogen2.jpg" alt="Truck Application" decoding="async" loading="lazy">
-                <div class="tech-image-caption">Heavy-duty truck implementation</div>
-              </div>
-              <div class="tech-gallery-item">
-                <img src="technologies/Hydrogen3.jpg" alt="Bus Fleet" decoding="async" loading="lazy">
-                <div class="tech-image-caption">Public transport bus fleet conversion</div>
-              </div>
-              <div class="tech-gallery-item">
-                <img src="technologies/Hydrogen4.jpg" alt="Generator Unit" decoding="async" loading="lazy">
-                <div class="tech-image-caption">Industrial generator application</div>
-              </div>
-              <div class="tech-gallery-item">
-                <img src="technologies/Hydrogen5.jpg" alt="Emissions Testing" decoding="async" loading="lazy">
-                <div class="tech-image-caption">Real-time emissions monitoring</div>
-              </div>
-            </div>
+          <div class="tech-gallery-item">
+            <img src="technologies/Hydrogen2.jpg" alt="Truck Application" decoding="async" loading="lazy">
+            <div class="tech-image-caption">Heavy-duty truck implementation</div>
+          </div>
+          <div class="tech-gallery-item">
+            <img src="technologies/Hydrogen3.jpg" alt="Bus Fleet" decoding="async" loading="lazy">
+            <div class="tech-image-caption">Public transport bus fleet conversion</div>
+          </div>
+          <div class="tech-gallery-item">
+            <img src="technologies/Hydrogen4.jpg" alt="Generator Unit" decoding="async" loading="lazy">
+            <div class="tech-image-caption">Industrial generator application</div>
+          </div>
+          <div class="tech-gallery-item">
+            <img src="technologies/Hydrogen5.jpg" alt="Emissions Testing" decoding="async" loading="lazy">
+            <div class="tech-image-caption">Real-time emissions monitoring</div>
           </div>
         </div>
-    
       </div>
     </div>
     
