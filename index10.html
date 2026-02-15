@@ -1311,6 +1311,130 @@
       transform: scale(1.1);
     }
 
+    /* ===== TECHNOLOGY GALLERY VERTICAL ACCORDION ===== */
+    .tech-with-gallery {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .tech-gallery-accordion {
+      margin-top: auto;
+      border-top: 1px solid rgba(46,139,87,0.1);
+      padding-top: 15px;
+    }
+    
+    .gallery-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 15px;
+      background: rgba(46,139,87,0.08);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--green);
+    }
+    
+    .gallery-header:hover {
+      background: rgba(46,139,87,0.15);
+      transform: translateX(5px);
+    }
+    
+    .gallery-toggle-icon {
+      transition: transform 0.4s ease;
+      font-size: 12px;
+    }
+    
+    .tech-gallery-accordion.active .gallery-toggle-icon {
+      transform: rotate(180deg);
+    }
+    
+    .gallery-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                  padding 0.4s ease,
+                  opacity 0.3s ease;
+      opacity: 0;
+    }
+    
+    .tech-gallery-accordion.active .gallery-content {
+      max-height: 400px;
+      padding-top: 15px;
+      opacity: 1;
+    }
+    
+    .tech-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    
+    .tech-gallery-item {
+      aspect-ratio: 1;
+      border-radius: 10px;
+      overflow: hidden;
+      background: rgba(46,139,87,0.05);
+      border: 1px solid rgba(46,139,87,0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .tech-gallery-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(46,139,87,0.2);
+      border-color: var(--green-light);
+    }
+    
+    .tech-gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    
+    .tech-gallery-item:hover img {
+      transform: scale(1.1);
+    }
+    
+    /* Staggered animation for gallery items */
+    .tech-gallery-accordion.active .tech-gallery-item:nth-child(1) { animation: fadeInUp 0.4s ease 0.1s both; }
+    .tech-gallery-accordion.active .tech-gallery-item:nth-child(2) { animation: fadeInUp 0.4s ease 0.2s both; }
+    .tech-gallery-accordion.active .tech-gallery-item:nth-child(3) { animation: fadeInUp 0.4s ease 0.3s both; }
+    .tech-gallery-accordion.active .tech-gallery-item:nth-child(4) { animation: fadeInUp 0.4s ease 0.4s both; }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .tech-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+      }
+      
+      .tech-gallery-accordion.active .gallery-content {
+        max-height: 350px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .gallery-header {
+        padding: 10px 12px;
+        font-size: 12px;
+      }
+    }
+
     /* Speaker Cards Enhancement */
     .speaker-card-glass {
       background: rgba(255,255,255,0.8);
@@ -4629,6 +4753,112 @@
       </div>
     </div>
 
+    <!-- KEY TECHNOLOGIES SHOWCASE -->
+    <div class="artistic-section" id="technologies">
+      <div class="section-header-glass" onclick="toggleArtisticSection('technologies')">
+        <h2><span>🔧</span>Key Technologies Showcase</h2>
+        <span class="section-toggle-icon">▼</span>
+      </div>
+      <div class="section-content-glass">
+        <div class="tech-grid-enhanced">    
+          
+          <!-- Improved Cooking Stoves -->
+          <div class="tech-card-glass tech-with-gallery">
+            <div class="tech-icon-glass">🔥</div>
+            <h4><a href="https://www.ecca-et.org" target="_blank" class="no-underline">Improved Cooking Stoves</a></h4>
+            <p>Clean, efficient household energy solutions reducing indoor air pollution and deforestation.</p>
+            
+            <!-- Vertical Accordion Gallery -->
+            <div class="tech-gallery-accordion" id="gallery-stoves">
+              <div class="gallery-header" onclick="toggleTechGallery('gallery-stoves')">
+                <span>📸 View Gallery</span>
+                <span class="gallery-toggle-icon">▼</span>
+              </div>
+              <div class="gallery-content">
+                <div class="tech-gallery-grid">
+                  <div class="tech-gallery-item">
+                    <img src="technologies/stove1.jpg" alt="Improved Cooking Stove 1" decoding="async" loading="lazy">
+                  </div>
+                  <div class="tech-gallery-item">
+                    <img src="technologies/stove2.jpg" alt="Improved Cooking Stove 2" decoding="async" loading="lazy">
+                  </div>
+                  <div class="tech-gallery-item">
+                    <img src="technologies/stove3.jpg" alt="Improved Cooking Stove 3" decoding="async" loading="lazy">
+                  </div>
+                  <div class="tech-gallery-item">
+                    <img src="technologies/stove4.jpg" alt="Improved Cooking Stove 4" decoding="async" loading="lazy">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Solar Power Devices -->
+          <div class="tech-card-glass tech-with-gallery">
+            <div class="tech-icon-glass">☀️</div>
+            <h4><a href="https://www.toyo-solar.com" target="_blank" class="no-underline">Solar Power Devices</a></h4>
+            <p>Renewable energy solutions for off-grid communities and urban applications.</p>
+            
+            <!-- Vertical Accordion Gallery -->
+            <div class="tech-gallery-accordion" id="gallery-solar">
+              <div class="gallery-header" onclick="toggleTechGallery('gallery-solar')">
+                <span>📸 View Gallery</span>
+                <span class="gallery-toggle-icon">▼</span>
+              </div>
+              <div class="gallery-content">
+                <div class="tech-gallery-grid">
+                  <div class="tech-gallery-item">
+                    <img src="technologies/solar1.jpg" alt="Solar Panel Installation 1" decoding="async" loading="lazy">
+                  </div>
+                  <div class="tech-gallery-item">
+                    <img src="technologies/solar2.jpg" alt="Solar Panel Installation 2" decoding="async" loading="lazy">
+                  </div>
+                  <div class="tech-gallery-item">
+                    <img src="technologies/solar3.jpg" alt="Solar Panel Installation 3" decoding="async" loading="lazy">
+                  </div>
+                  <div class="tech-gallery-item">
+                    <img src="technologies/solar4.jpg" alt="Solar Panel Installation 4" decoding="async" loading="lazy">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <!-- H2-Enhanced Engines -->
+          <div class="tech-card-glass tech-with-gallery">
+            <div class="tech-icon-glass">⛽</div>
+            <h4><a href="https://mussieaf.github.io/Concept_note/GHP.html" target="_blank" class="no-underline">H₂-Enhanced Engines</a></h4>
+            <p>Next-gen clean transport & gensets reducing emissions by up to 40%.</p>
+            
+            <!-- Vertical Accordion Gallery -->
+            <div class="tech-gallery-accordion" id="gallery-hydrogen">
+              <div class="gallery-header" onclick="toggleTechGallery('gallery-hydrogen')">
+                <span>📸 View Gallery</span>
+                <span class="gallery-toggle-icon">▼</span>
+              </div>
+              <div class="gallery-content">
+                <div class="tech-gallery-grid">
+                  <div class="tech-gallery-item">
+                    <img src="technologies/hydrogen1.jpg" alt="Hydrogen Engine 1" decoding="async" loading="lazy">
+                  </div>
+                  <div class="tech-gallery-item">
+                    <img src="technologies/hydrogen2.jpg" alt="Hydrogen Engine 2" decoding="async" loading="lazy">
+                  </div>
+                  <div class="tech-gallery-item">
+                    <img src="technologies/hydrogen3.jpg" alt="Hydrogen Engine 3" decoding="async" loading="lazy">
+                  </div>
+                  <div class="tech-gallery-item">
+                    <img src="technologies/hydrogen4.jpg" alt="Hydrogen Engine 4" decoding="async" loading="lazy">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
     <!-- VIDEO SHOWCASE SECTION -->
     <div class="video-showcase-glass" id="GHP">
       <div class="video-container-glass">
@@ -6265,6 +6495,31 @@ function toggleFooterLinks() {
 window.addEventListener('resize', function() {
   if (window.innerWidth > 768) {
     document.getElementById('footer-links').classList.remove('active');
+  }
+});
+
+// ===== TECHNOLOGY GALLERY TOGGLE =====
+function toggleTechGallery(galleryId) {
+  const gallery = document.getElementById(galleryId);
+  const isActive = gallery.classList.contains('active');
+  
+  // Close all other tech galleries
+  document.querySelectorAll('.tech-gallery-accordion').forEach(g => {
+    g.classList.remove('active');
+  });
+  
+  // Open clicked gallery if it wasn't active
+  if (!isActive) {
+    gallery.classList.add('active');
+  }
+}
+
+// Close galleries when clicking outside
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.tech-gallery-accordion')) {
+    document.querySelectorAll('.tech-gallery-accordion').forEach(g => {
+      g.classList.remove('active');
+    });
   }
 });
 
