@@ -1415,6 +1415,150 @@
         transform: translateY(0);
       }
     }
+
+        /* ===== TECHNOLOGY GALLERY - FIT IMAGES WITHOUT WHITE SPACE ===== */
+    .tech-gallery-scrollable {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      padding: 20px 10px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: var(--green-light) rgba(46,139,87,0.1);
+    }
+    
+    .tech-gallery-scrollable::-webkit-scrollbar {
+      height: 8px;
+    }
+    
+    .tech-gallery-scrollable::-webkit-scrollbar-track {
+      background: rgba(46,139,87,0.1);
+      border-radius: 4px;
+    }
+    
+    .tech-gallery-scrollable::-webkit-scrollbar-thumb {
+      background: var(--green-light);
+      border-radius: 4px;
+    }
+    
+    .tech-card-glass.tech-card-image {
+      flex: 0 0 auto;
+      width: 320px;
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      overflow: hidden;
+      background: rgba(255,255,255,0.9);
+    }
+    
+    .tech-image-container {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+      background: var(--green-dark);
+    }
+    
+    .tech-image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    
+    .tech-card-glass.tech-card-image:hover .tech-image-container img {
+      transform: scale(1.1);
+    }
+    
+    .tech-card-content {
+      padding: 25px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .tech-card-content .tech-icon-glass {
+      margin: 0 0 15px 0;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+    }
+    
+    .tech-card-content h4 {
+      margin: 0 0 10px 0;
+      font-size: 18px;
+    }
+    
+    .tech-card-content p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #555;
+    }
+    
+    /* Tablet */
+    @media (max-width: 992px) {
+      .tech-card-glass.tech-card-image {
+        width: 280px;
+      }
+      .tech-image-container {
+        height: 180px;
+      }
+    }
+    
+    /* Mobile */
+    @media (max-width: 768px) {
+      .tech-gallery-scrollable {
+        gap: 15px;
+        padding: 15px 10px;
+      }
+      .tech-card-glass.tech-card-image {
+        width: 260px;
+      }
+      .tech-image-container {
+        height: 160px;
+      }
+      .tech-card-content {
+        padding: 20px;
+      }
+      .tech-card-content .tech-icon-glass {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+      }
+    }
+    
+    /* Small Mobile */
+    @media (max-width: 480px) {
+      .tech-card-glass.tech-card-image {
+        width: 240px;
+      }
+      .tech-image-container {
+        height: 150px;
+      }
+      .tech-card-content {
+        padding: 18px;
+      }
+      .tech-card-content h4 {
+        font-size: 16px;
+      }
+    }
+    
+    /* Hide scrollbar on touch devices for cleaner look */
+    @media (hover: none) and (pointer: coarse) {
+      .tech-gallery-scrollable::-webkit-scrollbar {
+        display: none;
+      }
+      .tech-gallery-scrollable {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    }
     
     /* Mobile Responsive */
     @media (max-width: 768px) {
@@ -5026,7 +5170,7 @@
             <div class="tech-icon-glass">⛽</div>
             <div class="tech-header-content">
               <h4><a href="https://mussieaf.github.io/Concept_note/GHP.html" target="_blank" class="no-underline">H₂-Enhanced Engines</a></h4>
-              <p class="tech-description-text">Next-generation clean transport and power generation solutions reducing emissions by up to 40%. Our Hydrogen-Enhanced Internal Combustion Engine (H-ICE) technology integrates on-demand hydrogen generation with traditional diesel and petrol engines, significantly improving fuel efficiency while dramatically reducing harmful exhaust emissions for trucks, buses, and generators.</p>
+              <p class="tech-description-text">Next-generation clean transport and power generation solutions reducing emissions by up to 46%. Our Hydrogen-Enhanced Internal Combustion Engine (H-ICE) technology integrates on-demand hydrogen generation with traditional diesel and petrol engines, significantly improving fuel efficiency while dramatically reducing harmful exhaust emissions for trucks, buses, and generators.</p>
             </div>
             <span class="tech-accordion-toggle">▼</span>
           </div>
