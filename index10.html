@@ -4910,6 +4910,378 @@
           .turbine-blades { width: 80px; height: 80px; }
           .blade { height: 40px; }
         }
+
+
+
+        /* ===== CIRCULAR INFOGRAPHIC GALLERY ===== */
+        .circular-gallery-container {
+          position: relative;
+          width: 100%;
+          max-width: 700px;
+          height: 600px;
+          margin: 0 auto;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+        }
+        
+        /* Central Hub */
+        .circular-hub {
+          position: relative;
+          width: 180px;
+          height: 180px;
+          z-index: 10;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        
+        .hub-content {
+          position: relative;
+          z-index: 2;
+          text-align: center;
+          background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+          width: 140px;
+          height: 140px;
+          border-radius: 50%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 10px 40px rgba(46,139,87,0.4);
+          animation: hubPulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes hubPulse {
+          0%, 100% { transform: scale(1); box-shadow: 0 10px 40px rgba(46,139,87,0.4); }
+          50% { transform: scale(1.05); box-shadow: 0 15px 50px rgba(46,139,87,0.6); }
+        }
+        
+        .hub-icon {
+          font-size: 36px;
+          margin-bottom: 5px;
+        }
+        
+        .hub-content h3 {
+          color: white;
+          font-size: 18px;
+          margin: 0;
+          font-weight: 700;
+        }
+        
+        .hub-content p {
+          color: rgba(255,255,255,0.9);
+          font-size: 12px;
+          margin: 0;
+        }
+        
+        /* Animated Rings */
+        .hub-ring {
+          position: absolute;
+          border-radius: 50%;
+          border: 2px solid rgba(46,139,87,0.3);
+          animation: ringExpand 3s ease-out infinite;
+        }
+        
+        .ring-1 {
+          width: 180px;
+          height: 180px;
+          animation-delay: 0s;
+        }
+        
+        .ring-2 {
+          width: 220px;
+          height: 220px;
+          animation-delay: 1s;
+          opacity: 0.6;
+        }
+        
+        .ring-3 {
+          width: 260px;
+          height: 260px;
+          animation-delay: 2s;
+          opacity: 0.3;
+        }
+        
+        @keyframes ringExpand {
+          0% { transform: scale(0.8); opacity: 0.8; }
+          100% { transform: scale(1.2); opacity: 0; }
+        }
+        
+        /* Orbit Container */
+        .orbit-container {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          animation: slowRotate 60s linear infinite;
+        }
+        
+        @keyframes slowRotate {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        
+        /* Orbit Cards */
+        .orbit-card {
+          position: absolute;
+          width: 120px;
+          height: 120px;
+          left: 50%;
+          top: 50%;
+          margin-left: -60px;
+          margin-top: -60px;
+          transform: rotate(var(--orbit-angle)) translateX(220px) rotate(calc(-1 * var(--orbit-angle)));
+          animation: cardFloat 4s ease-in-out infinite;
+          animation-delay: var(--orbit-delay);
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+        
+        @keyframes cardFloat {
+          0%, 100% { transform: rotate(var(--orbit-angle)) translateX(220px) rotate(calc(-1 * var(--orbit-angle))) translateY(0); }
+          50% { transform: rotate(var(--orbit-angle)) translateX(220px) rotate(calc(-1 * var(--orbit-angle))) translateY(-10px); }
+        }
+        
+        .orbit-card:hover {
+          z-index: 20;
+          transform: rotate(var(--orbit-angle)) translateX(220px) rotate(calc(-1 * var(--orbit-angle))) scale(1.15);
+        }
+        
+        .orbit-inner {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          overflow: hidden;
+          box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+          border: 3px solid white;
+          transition: all 0.3s ease;
+        }
+        
+        .orbit-card:hover .orbit-inner {
+          box-shadow: 0 15px 40px rgba(46,139,87,0.3);
+          border-color: var(--green-light);
+        }
+        
+        .orbit-inner img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.5s ease;
+        }
+        
+        .orbit-card:hover .orbit-inner img {
+          transform: scale(1.1);
+        }
+        
+        /* Overlay on hover */
+        .orbit-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(135deg, rgba(46,139,87,0.95), rgba(60,179,113,0.95));
+          border-radius: 50%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          opacity: 0;
+          transform: scale(0.8);
+          transition: all 0.4s ease;
+          text-align: center;
+          padding: 10px;
+        }
+        
+        .orbit-card:hover .orbit-overlay {
+          opacity: 1;
+          transform: scale(1);
+        }
+        
+        .orbit-overlay h4 {
+          color: white;
+          font-size: 13px;
+          margin: 0 0 5px 0;
+          font-weight: 600;
+        }
+        
+        .orbit-stat {
+          color: #fff;
+          font-size: 20px;
+          font-weight: 700;
+          display: block;
+          margin-bottom: 3px;
+        }
+        
+        .orbit-overlay p {
+          color: rgba(255,255,255,0.9);
+          font-size: 10px;
+          margin: 0;
+        }
+        
+        /* Connection Lines SVG */
+        .connection-lines {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+          z-index: 1;
+        }
+        
+        .orbit-line {
+          animation: dashRotate 20s linear infinite;
+        }
+        
+        @keyframes dashRotate {
+          to { stroke-dashoffset: -100; }
+        }
+        
+        /* Floating Particles */
+        .gallery-particles {
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          overflow: hidden;
+        }
+        
+        .gallery-particles span {
+          position: absolute;
+          width: 6px;
+          height: 6px;
+          background: var(--green-light);
+          border-radius: 50%;
+          opacity: 0.4;
+          animation: particleFloat 15s infinite;
+        }
+        
+        .gallery-particles span:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
+        .gallery-particles span:nth-child(2) { left: 80%; top: 30%; animation-delay: 2s; }
+        .gallery-particles span:nth-child(3) { left: 30%; top: 70%; animation-delay: 4s; }
+        .gallery-particles span:nth-child(4) { left: 70%; top: 60%; animation-delay: 6s; }
+        .gallery-particles span:nth-child(5) { left: 50%; top: 10%; animation-delay: 8s; }
+        .gallery-particles span:nth-child(6) { left: 20%; top: 80%; animation-delay: 10s; }
+        .gallery-particles span:nth-child(7) { left: 90%; top: 50%; animation-delay: 12s; }
+        .gallery-particles span:nth-child(8) { left: 40%; top: 40%; animation-delay: 14s; }
+        .gallery-particles span:nth-child(9) { left: 60%; top: 80%; animation-delay: 1s; }
+        .gallery-particles span:nth-child(10) { left: 15%; top: 50%; animation-delay: 3s; }
+        
+        @keyframes particleFloat {
+          0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+          25% { transform: translate(30px, -30px) scale(1.2); opacity: 0.6; }
+          50% { transform: translate(-20px, 20px) scale(0.8); opacity: 0.3; }
+          75% { transform: translate(20px, 10px) scale(1.1); opacity: 0.5; }
+        }
+        
+        /* Mobile Version */
+        .mobile-circular-gallery {
+          display: none;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          -webkit-overflow-scrolling: touch;
+          padding: 20px 0;
+          scrollbar-width: none;
+        }
+        
+        .mobile-circular-gallery::-webkit-scrollbar {
+          display: none;
+        }
+        
+        .mobile-orbit-track {
+          display: flex;
+          gap: 20px;
+          padding: 0 20px;
+        }
+        
+        .mobile-orbit-card {
+          flex: 0 0 280px;
+          scroll-snap-align: center;
+          background: rgba(255,255,255,0.9);
+          border-radius: 20px;
+          overflow: hidden;
+          box-shadow: 0 8px 25px rgba(46,139,87,0.15);
+          transition: transform 0.3s ease;
+        }
+        
+        .mobile-orbit-card:active {
+          transform: scale(0.98);
+        }
+        
+        .mobile-orbit-card img {
+          width: 100%;
+          height: 180px;
+          object-fit: cover;
+        }
+        
+        .mobile-card-info {
+          padding: 20px;
+          text-align: center;
+        }
+        
+        .mobile-card-info h4 {
+          color: var(--green);
+          font-size: 18px;
+          margin: 0 0 10px 0;
+        }
+        
+        .mobile-stat {
+          display: inline-block;
+          background: linear-gradient(135deg, var(--green), var(--green-light));
+          color: white;
+          padding: 8px 16px;
+          border-radius: 20px;
+          font-size: 14px;
+          font-weight: 700;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+          .circular-gallery-container {
+            display: none;
+          }
+          
+          .mobile-circular-gallery {
+            display: block;
+          }
+          
+          .orbit-card {
+            width: 90px;
+            height: 90px;
+            margin-left: -45px;
+            margin-top: -45px;
+          }
+          
+          .orbit-card {
+            transform: rotate(var(--orbit-angle)) translateX(150px) rotate(calc(-1 * var(--orbit-angle)));
+          }
+          
+          @keyframes cardFloat {
+            0%, 100% { transform: rotate(var(--orbit-angle)) translateX(150px) rotate(calc(-1 * var(--orbit-angle))) translateY(0); }
+            50% { transform: rotate(var(--orbit-angle)) translateX(150px) rotate(calc(-1 * var(--orbit-angle))) translateY(-10px); }
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .circular-hub {
+            width: 120px;
+            height: 120px;
+          }
+          
+          .hub-content {
+            width: 100px;
+            height: 100px;
+          }
+          
+          .hub-icon {
+            font-size: 24px;
+          }
+          
+          .hub-content h3 {
+            font-size: 14px;
+          }
+          
+          .hub-content p {
+            font-size: 10px;
+          }
+        }
   </style>
 </head>
 <body>
@@ -5486,6 +5858,151 @@
     
     </div>
     </div>
+
+
+    <!-- CIRCULAR INFOGRAPHIC GALLERY -->
+    <div class="artistic-section" id="circular-infographic">
+      <div class="section-header-glass" onclick="toggleArtisticSection('circular-infographic')">
+        <h2><span>🎯</span>Impact Overview</h2>
+        <span class="section-toggle-icon">▼</span>
+      </div>
+      <div class="section-content-glass">
+        <div class="circular-gallery-container">
+          <!-- Central Hub -->
+          <div class="circular-hub">
+            <div class="hub-content">
+              <span class="hub-icon">🌍</span>
+              <h3>AFLI 2026</h3>
+              <p>Green Legacy</p>
+            </div>
+            <div class="hub-ring ring-1"></div>
+            <div class="hub-ring ring-2"></div>
+            <div class="hub-ring ring-3"></div>
+          </div>
+    
+          <!-- Orbiting Cards -->
+          <div class="orbit-container">
+            <div class="orbit-card" style="--orbit-angle: 0deg; --orbit-delay: 0s;">
+              <div class="orbit-inner">
+                <img src="technologies/Stove1.jpg" alt="Clean Cooking">
+                <div class="orbit-overlay">
+                  <h4>Clean Cooking</h4>
+                  <span class="orbit-stat">60% ↓</span>
+                  <p>Emissions Reduction</p>
+                </div>
+              </div>
+            </div>
+    
+            <div class="orbit-card" style="--orbit-angle: 72deg; --orbit-delay: 0.2s;">
+              <div class="orbit-inner">
+                <img src="technologies/Solar1.jpg" alt="Solar Power">
+                <div class="orbit-overlay">
+                  <h4>Solar Power</h4>
+                  <span class="orbit-stat">5GW</span>
+                  <p>Capacity Target</p>
+                </div>
+              </div>
+            </div>
+    
+            <div class="orbit-card" style="--orbit-angle: 144deg; --orbit-delay: 0.4s;">
+              <div class="orbit-inner">
+                <img src="technologies/Hydrogen1.jpg" alt="H2 Engines">
+                <div class="orbit-overlay">
+                  <h4>H₂ Engines</h4>
+                  <span class="orbit-stat">46% ↓</span>
+                  <p>Fuel Savings</p>
+                </div>
+              </div>
+            </div>
+    
+            <div class="orbit-card" style="--orbit-angle: 216deg; --orbit-delay: 0.6s;">
+              <div class="orbit-inner">
+                <img src="background-images/tree-planting.jpg" alt="Reforestation">
+                <div class="orbit-overlay">
+                  <h4>Green Legacy</h4>
+                  <span class="orbit-stat">50B+</span>
+                  <p>Trees Planted</p>
+                </div>
+              </div>
+            </div>
+    
+            <div class="orbit-card" style="--orbit-angle: 288deg; --orbit-delay: 0.8s;">
+              <div class="orbit-inner">
+                <img src="projects/clean-energy.png" alt="Investment">
+                <div class="orbit-overlay">
+                  <h4>Investment</h4>
+                  <span class="orbit-stat">$50B</span>
+                  <p>Funding Platform</p>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Connection Lines -->
+          <svg class="connection-lines" viewBox="0 0 600 600">
+            <defs>
+              <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:var(--green);stop-opacity:0.2" />
+                <stop offset="50%" style="stop-color:var(--green-light);stop-opacity:0.6" />
+                <stop offset="100%" style="stop-color:var(--green);stop-opacity:0.2" />
+              </linearGradient>
+            </defs>
+            <circle cx="300" cy="300" r="200" fill="none" stroke="url(#lineGradient)" stroke-width="1" stroke-dasharray="5,5" class="orbit-line"/>
+            <circle cx="300" cy="300" r="150" fill="none" stroke="url(#lineGradient)" stroke-width="1" opacity="0.5"/>
+            <circle cx="300" cy="300" r="250" fill="none" stroke="url(#lineGradient)" stroke-width="1" opacity="0.3"/>
+          </svg>
+    
+          <!-- Floating Particles -->
+          <div class="gallery-particles">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+    
+        <!-- Mobile Scrollable Version -->
+        <div class="mobile-circular-gallery">
+          <div class="mobile-orbit-track">
+            <div class="mobile-orbit-card">
+              <img src="technologies/Stove1.jpg" alt="Clean Cooking">
+              <div class="mobile-card-info">
+                <h4>Clean Cooking</h4>
+                <span class="mobile-stat">60% ↓ Emissions</span>
+              </div>
+            </div>
+            <div class="mobile-orbit-card">
+              <img src="technologies/Solar1.jpg" alt="Solar Power">
+              <div class="mobile-card-info">
+                <h4>Solar Power</h4>
+                <span class="mobile-stat">5GW Capacity</span>
+              </div>
+            </div>
+            <div class="mobile-orbit-card">
+              <img src="technologies/Hydrogen1.jpg" alt="H2 Engines">
+              <div class="mobile-card-info">
+                <h4>H₂ Engines</h4>
+                <span class="mobile-stat">46% ↓ Fuel Use</span>
+              </div>
+            </div>
+            <div class="mobile-orbit-card">
+              <img src="background-images/tree-planting.jpg" alt="Reforestation">
+              <div class="mobile-card-info">
+                <h4>Green Legacy</h4>
+                <span class="mobile-stat">50B+ Trees</span>
+              </div>
+            </div>
+            <div class="mobile-orbit-card">
+              <img src="projects/clean-energy.png" alt="Investment">
+              <div class="mobile-card-info">
+                <h4>Investment</h4>
+                <span class="mobile-stat">$50B Platform</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
     
     <!-- VIDEO SHOWCASE SECTION -->
     <div class="video-showcase-glass" id="GHP">
