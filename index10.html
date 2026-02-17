@@ -7720,330 +7720,358 @@ function toggleTechAccordion(item) {
 
 </script>
 
-<!-- ===== SUBSCRIPTION & MAILING BOX OVERLAY ===== -->
-<div id="subscription-overlay" class="subscription-overlay">
-  <div class="subscription-box glass-panel">
-    <button class="close-btn" onclick="closeSubscription()" aria-label="Close">×</button>
+<!-- SUBSCRIPTION & MAILING LIST MODAL - Add immediately after <body> tag -->
+<div id="subscriptionModal" class="subscription-modal">
+  <div class="modal-overlay" onclick="closeSubscriptionModal()"></div>
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeSubscriptionModal()" aria-label="Close">×</button>
     
-    <div class="subscription-header">
-      <span class="sub-icon">📧</span>
-      <h3>Stay Connected</h3>
+    <div class="modal-header">
+      <span class="modal-icon">🌿</span>
+      <h2>Join the Green Revolution</h2>
+      <p>Stay updated with AFLI 2026 news and opportunities</p>
     </div>
     
-    <div class="subscription-tabs">
-      <button class="tab-btn active" onclick="switchTab('subscribe')">Newsletter</button>
-      <button class="tab-btn" onclick="switchTab('mailing')">Mailing List</button>
+    <div class="modal-body">
+      <!-- Subscription Box -->
+      <div class="subscription-box">
+        <h3>📧 Subscribe to Updates</h3>
+        <p>Get the latest news about the forum, speakers, and green energy initiatives.</p>
+        <form id="subscriptionForm" onsubmit="handleSubscription(event)">
+          <div class="input-group">
+            <input type="email" id="subEmail" placeholder="Enter your email address" required>
+            <button type="submit" class="btn-subscribe">Subscribe</button>
+          </div>
+          <input type="hidden" name="recipient" value="mussie@equaltradeglobal.org">
+        </form>
+        <div id="subMessage" class="message"></div>
+      </div>
+      
+      <!-- Mailing List Box -->
+      <div class="mailing-list-box">
+        <h3>📬 Join Our Mailing List</h3>
+        <p>Receive exclusive reports, event invitations, and partnership opportunities.</p>
+        <form id="mailingForm" onsubmit="handleMailingList(event)">
+          <div class="input-group">
+            <input type="email" id="mailEmail" placeholder="Enter your email address" required>
+            <button type="submit" class="btn-join">Join List</button>
+          </div>
+          <div class="checkbox-group">
+            <label>
+              <input type="checkbox" id="partnership" name="interests" value="partnership">
+              Partnership Opportunities
+            </label>
+            <label>
+              <input type="checkbox" id="sponsorship" name="interests" value="sponsorship">
+              Sponsorship Information
+            </label>
+            <label>
+              <input type="checkbox" id="speaking" name="interests" value="speaking">
+              Speaking Opportunities
+            </label>
+          </div>
+          <input type="hidden" name="recipient" value="mussie@equaltradeglobal.org">
+        </form>
+        <div id="mailMessage" class="message"></div>
+      </div>
     </div>
     
-    <!-- Newsletter Subscription Form -->
-    <div id="subscribe-panel" class="tab-panel active">
-      <p class="sub-description">Get the latest updates on AFLI 2026, green energy innovations, and climate action delivered to your inbox.</p>
-      <form id="newsletterForm" onsubmit="handleNewsletterSubmit(event)">
-        <div class="input-group">
-          <input type="email" id="newsletterEmail" placeholder="Enter your email address" required>
-          <button type="submit" class="sub-submit-btn">
-            <span>Subscribe</span>
-            <i class="fas fa-paper-plane"></i>
-          </button>
-        </div>
-        <label class="consent-check">
-          <input type="checkbox" required>
-          <span>I agree to receive updates about AFLI 2026 and related initiatives</span>
-        </label>
-      </form>
-      <div id="newsletterResp" class="form-response"></div>
-    </div>
-    
-    <!-- Mailing List Form -->
-    <div id="mailing-panel" class="tab-panel">
-      <p class="sub-description">Join our priority mailing list for exclusive invitations, early bird registration, and VIP event access.</p>
-      <form id="mailingForm" onsubmit="handleMailingSubmit(event)">
-        <div class="input-group stacked">
-          <input type="text" id="mailingName" placeholder="Full name" required>
-          <input type="email" id="mailingEmail" placeholder="Email address" required>
-          <input type="text" id="mailingOrg" placeholder="Organization (optional)">
-          <button type="submit" class="sub-submit-btn wide">
-            <span>Join Mailing List</span>
-            <i class="fas fa-envelope-open-text"></i>
-          </button>
-        </div>
-        <label class="consent-check">
-          <input type="checkbox" required>
-          <span>I consent to receiving priority communications and event invitations</span>
-        </label>
-      </form>
-      <div id="mailingResp" class="form-response"></div>
-    </div>
-    
-    <div class="subscription-footer">
-      <span class="privacy-note">🔒 We respect your privacy. Unsubscribe anytime.</span>
+    <div class="modal-footer">
+      <p>🔒 Your email is safe with us. Unsubscribe anytime.</p>
     </div>
   </div>
 </div>
 
 <style>
-/* ===== SUBSCRIPTION OVERLAY STYLES ===== */
-.subscription-overlay {
+/* Subscription Modal Styles */
+.subscription-modal {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 9999;
-  animation: slideInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(100px) scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-.subscription-box {
-  width: 380px;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 24px;
-  border: 1px solid rgba(46, 139, 87, 0.2);
-  box-shadow: 
-    0 20px 60px rgba(0, 0, 0, 0.15),
-    0 0 0 1px rgba(255, 255, 255, 0.5) inset;
-  padding: 28px;
-  position: relative;
-  overflow: hidden;
-}
-
-.subscription-box::before {
-  content: '';
-  position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--green), var(--green-light), var(--green));
-  background-size: 200% 100%;
-  animation: gradientFlow 3s linear infinite;
-}
-
-.close-btn {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(46, 139, 87, 0.1);
-  color: var(--green);
-  font-size: 20px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+}
+
+.subscription-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  position: relative;
+  background: linear-gradient(135deg, #f8fdf9 0%, #e8f5e9 100%);
+  border-radius: 24px;
+  padding: 0;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 80px rgba(46, 139, 87, 0.4);
+  transform: translateY(30px) scale(0.95);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(46, 139, 87, 0.2);
+}
+
+.subscription-modal.active .modal-content {
+  transform: translateY(0) scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: rgba(46, 139, 87, 0.1);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 24px;
+  color: var(--green);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
   z-index: 10;
 }
 
-.close-btn:hover {
+.modal-close:hover {
   background: var(--green);
   color: white;
   transform: rotate(90deg);
 }
 
-.subscription-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 20px;
+.modal-header {
+  background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+  color: white;
+  padding: 40px 30px 30px;
+  text-align: center;
+  border-radius: 24px 24px 0 0;
+  position: relative;
+  overflow: hidden;
 }
 
-.sub-icon {
-  font-size: 28px;
+.modal-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.modal-icon {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 15px;
   animation: bounce 2s infinite;
 }
 
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
+  50% { transform: translateY(-10px); }
 }
 
-.subscription-header h3 {
-  color: var(--green);
-  font-size: 22px;
-  margin: 0;
+.modal-header h2 {
+  margin: 0 0 10px 0;
+  font-size: 28px;
   font-weight: 700;
+  position: relative;
+  z-index: 1;
 }
 
-.subscription-tabs {
-  display: flex;
-  gap: 8px;
+.modal-header p {
+  margin: 0;
+  opacity: 0.95;
+  font-size: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.modal-body {
+  padding: 30px;
+}
+
+.subscription-box,
+.mailing-list-box {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  padding: 25px;
   margin-bottom: 20px;
-  background: rgba(46, 139, 87, 0.08);
-  padding: 4px;
-  border-radius: 12px;
-}
-
-.tab-btn {
-  flex: 1;
-  padding: 10px 16px;
-  border: none;
-  background: transparent;
-  color: var(--green-dark);
-  font-size: 13px;
-  font-weight: 600;
-  border-radius: 8px;
-  cursor: pointer;
+  border: 1px solid rgba(46, 139, 87, 0.15);
   transition: all 0.3s ease;
 }
 
-.tab-btn.active {
-  background: white;
+.subscription-box:hover,
+.mailing-list-box:hover {
+  box-shadow: 0 8px 25px rgba(46, 139, 87, 0.1);
+  transform: translateY(-2px);
+}
+
+.subscription-box h3,
+.mailing-list-box h3 {
   color: var(--green);
-  box-shadow: 0 2px 8px rgba(46, 139, 87, 0.15);
+  margin: 0 0 10px 0;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.tab-panel {
-  display: none;
-  animation: fadeIn 0.3s ease;
-}
-
-.tab-panel.active {
-  display: block;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.sub-description {
+.subscription-box p,
+.mailing-list-box p {
   color: #555;
+  margin: 0 0 20px 0;
   font-size: 14px;
   line-height: 1.6;
-  margin-bottom: 16px;
 }
 
 .input-group {
   display: flex;
-  gap: 8px;
-  margin-bottom: 12px;
-}
-
-.input-group.stacked {
-  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
 }
 
 .input-group input {
   flex: 1;
-  padding: 12px 16px;
-  border: 2px solid rgba(46, 139, 87, 0.15);
+  padding: 14px 18px;
+  border: 2px solid rgba(46, 139, 87, 0.2);
   border-radius: 12px;
-  font-size: 14px;
-  background: rgba(255, 255, 255, 0.9);
+  font-size: 15px;
+  background: white;
   transition: all 0.3s ease;
 }
 
 .input-group input:focus {
   outline: none;
   border-color: var(--green-light);
-  box-shadow: 0 0 0 4px rgba(46, 139, 87, 0.08);
+  box-shadow: 0 0 0 4px rgba(46, 139, 87, 0.1);
 }
 
-.sub-submit-btn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 20px;
+.btn-subscribe,
+.btn-join {
+  padding: 14px 28px;
   background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
   color: white;
   border: none;
   border-radius: 12px;
-  font-size: 14px;
   font-weight: 600;
+  font-size: 15px;
   cursor: pointer;
   transition: all 0.3s ease;
   white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(46, 139, 87, 0.3);
 }
 
-.sub-submit-btn.wide {
-  justify-content: center;
-  width: 100%;
-}
-
-.sub-submit-btn:hover {
+.btn-subscribe:hover,
+.btn-join:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(46, 139, 87, 0.3);
+  box-shadow: 0 6px 20px rgba(46, 139, 87, 0.4);
 }
 
-.sub-submit-btn i {
-  font-size: 12px;
-  transition: transform 0.3s ease;
-}
-
-.sub-submit-btn:hover i {
-  transform: translateX(3px);
-}
-
-.consent-check {
+.checkbox-group {
   display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  font-size: 11px;
-  color: #666;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(46, 139, 87, 0.1);
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #444;
+  font-size: 14px;
   cursor: pointer;
-  margin-top: 12px;
+  transition: all 0.2s ease;
 }
 
-.consent-check input {
-  margin-top: 2px;
-  accent-color: var(--green);
-}
-
-.form-response {
-  margin-top: 12px;
-  font-size: 13px;
-  font-weight: 500;
-  min-height: 20px;
-}
-
-.form-response.success {
+.checkbox-group label:hover {
   color: var(--green);
 }
 
-.form-response.error {
-  color: var(--error);
+.checkbox-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--green);
+  cursor: pointer;
 }
 
-.subscription-footer {
-  margin-top: 16px;
-  padding-top: 16px;
-  border-top: 1px solid rgba(46, 139, 87, 0.1);
+.message {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  display: none;
+}
+
+.message.success {
+  display: block;
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.message.error {
+  display: block;
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.modal-footer {
   text-align: center;
+  padding: 20px 30px;
+  background: rgba(46, 139, 87, 0.05);
+  border-radius: 0 0 24px 24px;
+  border-top: 1px solid rgba(46, 139, 87, 0.1);
 }
 
-.privacy-note {
-  font-size: 11px;
-  color: #888;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
+.modal-footer p {
+  margin: 0;
+  color: #666;
+  font-size: 13px;
 }
 
 /* Mobile Responsive */
-@media (max-width: 480px) {
-  .subscription-overlay {
-    bottom: 10px;
-    right: 10px;
-    left: 10px;
+@media (max-width: 600px) {
+  .modal-content {
+    width: 95%;
+    max-height: 95vh;
   }
   
-  .subscription-box {
-    width: 100%;
+  .modal-header {
+    padding: 30px 20px 25px;
+  }
+  
+  .modal-header h2 {
+    font-size: 22px;
+  }
+  
+  .modal-body {
     padding: 20px;
   }
   
@@ -8051,110 +8079,91 @@ function toggleTechAccordion(item) {
     flex-direction: column;
   }
   
-  .subscription-header h3 {
-    font-size: 18px;
+  .btn-subscribe,
+  .btn-join {
+    width: 100%;
+  }
+  
+  .subscription-box,
+  .mailing-list-box {
+    padding: 20px;
   }
 }
 
-/* Hide on scroll down (optional - can be removed if you want it always visible) */
-.subscription-overlay.hidden {
-  animation: slideOutDown 0.4s ease forwards;
-}
-
-@keyframes slideOutDown {
-  to {
-    opacity: 0;
-    transform: translateY(100px) scale(0.9);
-    pointer-events: none;
-  }
+/* Scroll-triggered appearance */
+.subscription-modal.scroll-triggered {
+  display: flex;
 }
 </style>
 
 <script>
-// ===== SUBSCRIPTION BOX FUNCTIONS =====
-function closeSubscription() {
-  const overlay = document.getElementById('subscription-overlay');
-  overlay.classList.add('hidden');
-  // Store in session so it doesn't reappear immediately
-  sessionStorage.setItem('subscriptionClosed', 'true');
+// Show modal on page load
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    document.getElementById('subscriptionModal').classList.add('active');
+  }, 1000); // Show after 1 second
+});
+
+// Close modal function
+function closeSubscriptionModal() {
+  document.getElementById('subscriptionModal').classList.remove('active');
+  // Set cookie to not show again for 24 hours
+  document.cookie = "subscriptionModalShown=true; max-age=86400; path=/";
 }
 
-function switchTab(tab) {
-  // Update buttons
-  document.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.classList.remove('active');
-  });
-  event.target.classList.add('active');
-  
-  // Update panels
-  document.querySelectorAll('.tab-panel').forEach(panel => {
-    panel.classList.remove('active');
-  });
-  document.getElementById(tab + '-panel').classList.add('active');
+// Check if modal was recently shown
+if (document.cookie.includes('subscriptionModalShown=true')) {
+  document.getElementById('subscriptionModal').style.display = 'none';
 }
 
-function handleNewsletterSubmit(e) {
+// Handle subscription form
+function handleSubscription(e) {
   e.preventDefault();
-  const btn = e.target.querySelector('.sub-submit-btn');
-  const resp = document.getElementById('newsletterResp');
-  const email = document.getElementById('newsletterEmail').value;
+  const email = document.getElementById('subEmail').value;
+  const messageDiv = document.getElementById('subMessage');
   
-  btn.disabled = true;
-  btn.innerHTML = '<span>Sending...</span><i class="fas fa-spinner fa-spin"></i>';
+  // Simulate sending to mussie@equaltradeglobal.org
+  console.log('Subscription email:', email, 'to: mussie@equaltradeglobal.org');
   
-  // Simulate API call - replace with actual endpoint
+  messageDiv.className = 'message success';
+  messageDiv.textContent = '✓ Thank you for subscribing! Check your inbox for confirmation.';
+  messageDiv.style.display = 'block';
+  
+  document.getElementById('subscriptionForm').reset();
+  
   setTimeout(() => {
-    btn.disabled = false;
-    btn.innerHTML = '<span>Subscribed!</span><i class="fas fa-check"></i>';
-    btn.style.background = '#3cb371';
-    resp.textContent = '✓ Successfully subscribed to newsletter!';
-    resp.className = 'form-response success';
-    e.target.reset();
-    
-    setTimeout(() => {
-      btn.innerHTML = '<span>Subscribe</span><i class="fas fa-paper-plane"></i>';
-      btn.style.background = '';
-      resp.textContent = '';
-    }, 3000);
-  }, 1500);
+    messageDiv.style.display = 'none';
+  }, 5000);
 }
 
-function handleMailingSubmit(e) {
+// Handle mailing list form
+function handleMailingList(e) {
   e.preventDefault();
-  const btn = e.target.querySelector('.sub-submit-btn');
-  const resp = document.getElementById('mailingResp');
+  const email = document.getElementById('mailEmail').value;
+  const interests = Array.from(document.querySelectorAll('#mailingForm input[name="interests"]:checked'))
+    .map(cb => cb.value);
+  const messageDiv = document.getElementById('mailMessage');
   
-  btn.disabled = true;
-  btn.innerHTML = '<span>Joining...</span><i class="fas fa-spinner fa-spin"></i>';
+  // Simulate sending to mussie@equaltradeglobal.org
+  console.log('Mailing list email:', email, 'Interests:', interests, 'to: mussie@equaltradeglobal.org');
   
-  // Simulate API call - replace with actual endpoint
+  messageDiv.className = 'message success';
+  messageDiv.textContent = '✓ You\'ve been added to our mailing list! Welcome aboard.';
+  messageDiv.style.display = 'block';
+  
+  document.getElementById('mailingForm').reset();
+  
   setTimeout(() => {
-    btn.disabled = false;
-    btn.innerHTML = '<span>Joined!</span><i class="fas fa-check"></i>';
-    btn.style.background = '#3cb371';
-    resp.textContent = '✓ Added to priority mailing list!';
-    resp.className = 'form-response success';
-    e.target.reset();
-    
-    setTimeout(() => {
-      btn.innerHTML = '<span>Join Mailing List</span><i class="fas fa-envelope-open-text"></i>';
-      btn.style.background = '';
-      resp.textContent = '';
-    }, 3000);
-  }, 1500);
+    messageDiv.style.display = 'none';
+  }, 5000);
 }
 
-// Check if previously closed
-if (sessionStorage.getItem('subscriptionClosed') === 'true') {
-  document.getElementById('subscription-overlay').classList.add('hidden');
-}
-
-// Optional: Auto-show after 5 seconds if not previously closed
-setTimeout(() => {
-  if (sessionStorage.getItem('subscriptionClosed') !== 'true') {
-    document.getElementById('subscription-overlay').classList.remove('hidden');
+// Close on Escape key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closeSubscriptionModal();
   }
-}, 100);
+});
 </script>
 
 
