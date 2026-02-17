@@ -7737,42 +7737,53 @@ function toggleTechAccordion(item) {
       <div class="subscription-box">
         <h3>📧 Subscribe to Updates</h3>
         <p>Get the latest news about the forum, speakers, and green energy initiatives.</p>
-        <form id="subscriptionForm" onsubmit="handleSubscription(event)">
+        <form id="subscriptionForm" action="https://formspree.io/f/mussie@equaltradeglobal.org" method="POST">
+          <input type="hidden" name="_subject" value="AFLI 2026 - New Subscription">
+          <input type="hidden" name="_replyto" value="mussie@equaltradeglobal.org">
           <div class="input-group">
-            <input type="email" id="subEmail" placeholder="Enter your email address" required>
-            <button type="submit" class="btn-subscribe">Subscribe</button>
+            <input type="email" name="email" id="subEmail" placeholder="Enter your email address" required>
+            <button type="submit" class="btn-subscribe" id="subBtn">Subscribe</button>
           </div>
-          <input type="hidden" name="recipient" value="mussie@equaltradeglobal.org">
+          <div id="subMessage" class="message"></div>
         </form>
-        <div id="subMessage" class="message"></div>
+        <!-- Fallback mailto link -->
+        <div class="fallback-email" style="margin-top: 10px; text-align: center; font-size: 12px; color: #666;">
+          Or email directly: <a href="mailto:mussie@equaltradeglobal.org?subject=AFLI%202026%20Subscription&body=Please%20subscribe%20me%20to%20AFLI%202026%20updates." style="color: var(--green);">mussie@equaltradeglobal.org</a>
+        </div>
       </div>
       
       <!-- Mailing List Box -->
       <div class="mailing-list-box">
         <h3>📬 Join Our Mailing List</h3>
         <p>Receive exclusive reports, event invitations, and partnership opportunities.</p>
-        <form id="mailingForm" onsubmit="handleMailingList(event)">
+        <form id="mailingForm" action="https://formspree.io/f/mussie@equaltradeglobal.org" method="POST">
+          <input type="hidden" name="_subject" value="AFLI 2026 - Mailing List Request">
+          <input type="hidden" name="_replyto" value="mussie@equaltradeglobal.org">
+          <input type="hidden" name="form_type" value="mailing_list">
           <div class="input-group">
-            <input type="email" id="mailEmail" placeholder="Enter your email address" required>
-            <button type="submit" class="btn-join">Join List</button>
+            <input type="email" name="email" id="mailEmail" placeholder="Enter your email address" required>
+            <button type="submit" class="btn-join" id="mailBtn">Join List</button>
           </div>
           <div class="checkbox-group">
             <label>
-              <input type="checkbox" id="partnership" name="interests" value="partnership">
+              <input type="checkbox" name="interests" value="partnership">
               Partnership Opportunities
             </label>
             <label>
-              <input type="checkbox" id="sponsorship" name="interests" value="sponsorship">
+              <input type="checkbox" name="interests" value="sponsorship">
               Sponsorship Information
             </label>
             <label>
-              <input type="checkbox" id="speaking" name="interests" value="speaking">
+              <input type="checkbox" name="interests" value="speaking">
               Speaking Opportunities
             </label>
           </div>
-          <input type="hidden" name="recipient" value="mussie@equaltradeglobal.org">
+          <div id="mailMessage" class="message"></div>
         </form>
-        <div id="mailMessage" class="message"></div>
+        <!-- Fallback mailto link -->
+        <div class="fallback-email" style="margin-top: 10px; text-align: center; font-size: 12px; color: #666;">
+          Or email directly: <a href="mailto:mussie@equaltradeglobal.org?subject=AFLI%202026%20Mailing%20List&body=Please%20add%20me%20to%20the%20AFLI%202026%20mailing%20list." style="color: var(--green);">mussie@equaltradeglobal.org</a>
+        </div>
       </div>
     </div>
     
@@ -7984,10 +7995,16 @@ function toggleTechAccordion(item) {
   box-shadow: 0 4px 15px rgba(46, 139, 87, 0.3);
 }
 
-.btn-subscribe:hover,
-.btn-join:hover {
+.btn-subscribe:hover:not(:disabled),
+.btn-join:hover:not(:disabled) {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(46, 139, 87, 0.4);
+}
+
+.btn-subscribe:disabled,
+.btn-join:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
 
 .checkbox-group {
@@ -8022,7 +8039,7 @@ function toggleTechAccordion(item) {
 
 .message {
   margin-top: 10px;
-  padding: 10px;
+  padding: 12px;
   border-radius: 8px;
   font-size: 14px;
   display: none;
@@ -8042,6 +8059,13 @@ function toggleTechAccordion(item) {
   border: 1px solid #f5c6cb;
 }
 
+.message.sending {
+  display: block;
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeaa7;
+}
+
 .modal-footer {
   text-align: center;
   padding: 20px 30px;
@@ -8054,6 +8078,10 @@ function toggleTechAccordion(item) {
   margin: 0;
   color: #666;
   font-size: 13px;
+}
+
+.fallback-email a:hover {
+  text-decoration: underline;
 }
 
 /* Mobile Responsive */
@@ -8089,19 +8117,17 @@ function toggleTechAccordion(item) {
     padding: 20px;
   }
 }
-
-/* Scroll-triggered appearance */
-.subscription-modal.scroll-triggered {
-  display: flex;
-}
 </style>
 
 <script>
 // Show modal on page load
 window.addEventListener('load', function() {
-  setTimeout(function() {
-    document.getElementById('subscriptionModal').classList.add('active');
-  }, 1000); // Show after 1 second
+  // Check if modal was recently shown
+  if (!document.cookie.includes('subscriptionModalShown=true')) {
+    setTimeout(function() {
+      document.getElementById('subscriptionModal').classList.add('active');
+    }, 1000);
+  }
 });
 
 // Close modal function
@@ -8111,51 +8137,170 @@ function closeSubscriptionModal() {
   document.cookie = "subscriptionModalShown=true; max-age=86400; path=/";
 }
 
-// Check if modal was recently shown
-if (document.cookie.includes('subscriptionModalShown=true')) {
-  document.getElementById('subscriptionModal').style.display = 'none';
-}
-
-// Handle subscription form
-function handleSubscription(e) {
+// Handle subscription form submission
+document.getElementById('subscriptionForm').addEventListener('submit', function(e) {
   e.preventDefault();
-  const email = document.getElementById('subEmail').value;
+  
+  const form = this;
+  const btn = document.getElementById('subBtn');
   const messageDiv = document.getElementById('subMessage');
+  const email = document.getElementById('subEmail').value;
   
-  // Simulate sending to mussie@equaltradeglobal.org
-  console.log('Subscription email:', email, 'to: mussie@equaltradeglobal.org');
+  // Show sending message
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+  messageDiv.className = 'message sending';
+  messageDiv.textContent = '⏳ Sending your subscription request...';
   
-  messageDiv.className = 'message success';
-  messageDiv.textContent = '✓ Thank you for subscribing! Check your inbox for confirmation.';
-  messageDiv.style.display = 'block';
+  // Prepare form data
+  const formData = new FormData(form);
+  formData.append('_replyto', email);
   
-  document.getElementById('subscriptionForm').reset();
-  
-  setTimeout(() => {
-    messageDiv.style.display = 'none';
-  }, 5000);
-}
+  // Send using fetch API
+  fetch(form.action, {
+    method: 'POST',
+    body: formData,
+    headers: {
+      'Accept': 'application/json'
+    }
+  })
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error('Network response was not ok');
+    }
+  })
+  .then(data => {
+    // Success
+    messageDiv.className = 'message success';
+    messageDiv.textContent = '✓ Thank you for subscribing! Please check your inbox for confirmation.';
+    form.reset();
+    
+    // Track successful submission
+    console.log('Subscription sent to mussie@equaltradeglobal.org:', email);
+    
+    // Optional: Send to Google Sheets as backup
+    sendToGoogleSheets(email, 'subscription');
+  })
+  .catch(error => {
+    // Error - try alternative method
+    console.error('Formspree error:', error);
+    
+    // Try mailto fallback
+    const mailtoLink = `mailto:mussie@equaltradeglobal.org?subject=AFLI%202026%20Subscription&body=Please%20subscribe%20me%20to%20AFLI%202026%20updates.%0D%0A%0D%0AEmail:%20${encodeURIComponent(email)}`;
+    window.location.href = mailtoLink;
+    
+    messageDiv.className = 'message success';
+    messageDiv.textContent = '✓ Opening your email client to complete subscription...';
+  })
+  .finally(() => {
+    btn.disabled = false;
+    btn.textContent = 'Subscribe';
+    
+    // Hide message after 5 seconds
+    setTimeout(() => {
+      messageDiv.style.display = 'none';
+    }, 5000);
+  });
+});
 
-// Handle mailing list form
-function handleMailingList(e) {
+// Handle mailing list form submission
+document.getElementById('mailingForm').addEventListener('submit', function(e) {
   e.preventDefault();
-  const email = document.getElementById('mailEmail').value;
-  const interests = Array.from(document.querySelectorAll('#mailingForm input[name="interests"]:checked'))
-    .map(cb => cb.value);
+  
+  const form = this;
+  const btn = document.getElementById('mailBtn');
   const messageDiv = document.getElementById('mailMessage');
+  const email = document.getElementById('mailEmail').value;
   
-  // Simulate sending to mussie@equaltradeglobal.org
-  console.log('Mailing list email:', email, 'Interests:', interests, 'to: mussie@equaltradeglobal.org');
+  // Collect interests
+  const interests = Array.from(form.querySelectorAll('input[name="interests"]:checked'))
+    .map(cb => cb.value)
+    .join(', ');
   
-  messageDiv.className = 'message success';
-  messageDiv.textContent = '✓ You\'ve been added to our mailing list! Welcome aboard.';
-  messageDiv.style.display = 'block';
+  // Add interests to form data
+  const formData = new FormData(form);
+  formData.append('interests_list', interests);
+  formData.append('_replyto', email);
   
-  document.getElementById('mailingForm').reset();
+  // Show sending message
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+  messageDiv.className = 'message sending';
+  messageDiv.textContent = '⏳ Adding you to our mailing list...';
   
-  setTimeout(() => {
-    messageDiv.style.display = 'none';
-  }, 5000);
+  // Send using fetch API
+  fetch(form.action, {
+    method: 'POST',
+    body: formData,
+    headers: {
+      'Accept': 'application/json'
+    }
+  })
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error('Network response was not ok');
+    }
+  })
+  .then(data => {
+    // Success
+    messageDiv.className = 'message success';
+    messageDiv.textContent = '✓ You\'ve been added to our mailing list! Welcome aboard.';
+    form.reset();
+    
+    // Track successful submission
+    console.log('Mailing list signup sent to mussie@equaltradeglobal.org:', email, 'Interests:', interests);
+    
+    // Optional: Send to Google Sheets as backup
+    sendToGoogleSheets(email, 'mailing_list', interests);
+  })
+  .catch(error => {
+    // Error - try alternative method
+    console.error('Formspree error:', error);
+    
+    // Try mailto fallback
+    const mailtoLink = `mailto:mussie@equaltradeglobal.org?subject=AFLI%202026%20Mailing%20List&body=Please%20add%20me%20to%20the%20AFLI%202026%20mailing%20list.%0D%0A%0D%0AEmail:%20${encodeURIComponent(email)}%0D%0AInterests:%20${encodeURIComponent(interests || 'General updates')}`;
+    window.location.href = mailtoLink;
+    
+    messageDiv.className = 'message success';
+    messageDiv.textContent = '✓ Opening your email client to complete signup...';
+  })
+  .finally(() => {
+    btn.disabled = false;
+    btn.textContent = 'Join List';
+    
+    // Hide message after 5 seconds
+    setTimeout(() => {
+      messageDiv.style.display = 'none';
+    }, 5000);
+  });
+});
+
+// Backup function to send to Google Sheets (optional)
+function sendToGoogleSheets(email, type, interests = '') {
+  // Replace with your Google Apps Script URL if you have one
+  const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+  
+  // Only attempt if configured
+  if (GOOGLE_SCRIPT_URL.includes('YOUR_SCRIPT_ID')) return;
+  
+  fetch(GOOGLE_SCRIPT_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      email: email,
+      type: type,
+      interests: interests,
+      timestamp: new Date().toISOString(),
+      recipient: 'mussie@equaltradeglobal.org'
+    })
+  }).catch(err => console.log('Google Sheets backup failed (optional):', err));
 }
 
 // Close on Escape key
@@ -8164,6 +8309,26 @@ document.addEventListener('keydown', function(e) {
     closeSubscriptionModal();
   }
 });
+
+// Alternative: Direct email using your existing Google Apps Script
+// Uncomment and configure this if you prefer using your existing script
+
+/*
+function sendViaGoogleScript(email, type, interests) {
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwf5DfSYEBzRWw2xL7NAGn8ss5Jq4XvVYxx3fISvH8lbT9L8jk56iwvRL2A4kEWzL5MRw/exec';
+  
+  const data = new FormData();
+  data.append('email', email);
+  data.append('type', type);
+  data.append('interests', interests);
+  data.append('recipient', 'mussie@equaltradeglobal.org');
+  
+  return fetch(SCRIPT_URL, {
+    method: 'POST',
+    body: data
+  });
+}
+*/
 </script>
 
 
