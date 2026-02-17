@@ -7719,6 +7719,444 @@ function toggleTechAccordion(item) {
 }
 
 </script>
+
+<!-- ===== SUBSCRIPTION & MAILING BOX OVERLAY ===== -->
+<div id="subscription-overlay" class="subscription-overlay">
+  <div class="subscription-box glass-panel">
+    <button class="close-btn" onclick="closeSubscription()" aria-label="Close">×</button>
+    
+    <div class="subscription-header">
+      <span class="sub-icon">📧</span>
+      <h3>Stay Connected</h3>
+    </div>
+    
+    <div class="subscription-tabs">
+      <button class="tab-btn active" onclick="switchTab('subscribe')">Newsletter</button>
+      <button class="tab-btn" onclick="switchTab('mailing')">Mailing List</button>
+    </div>
+    
+    <!-- Newsletter Subscription Form -->
+    <div id="subscribe-panel" class="tab-panel active">
+      <p class="sub-description">Get the latest updates on AFLI 2026, green energy innovations, and climate action delivered to your inbox.</p>
+      <form id="newsletterForm" onsubmit="handleNewsletterSubmit(event)">
+        <div class="input-group">
+          <input type="email" id="newsletterEmail" placeholder="Enter your email address" required>
+          <button type="submit" class="sub-submit-btn">
+            <span>Subscribe</span>
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+        <label class="consent-check">
+          <input type="checkbox" required>
+          <span>I agree to receive updates about AFLI 2026 and related initiatives</span>
+        </label>
+      </form>
+      <div id="newsletterResp" class="form-response"></div>
+    </div>
+    
+    <!-- Mailing List Form -->
+    <div id="mailing-panel" class="tab-panel">
+      <p class="sub-description">Join our priority mailing list for exclusive invitations, early bird registration, and VIP event access.</p>
+      <form id="mailingForm" onsubmit="handleMailingSubmit(event)">
+        <div class="input-group stacked">
+          <input type="text" id="mailingName" placeholder="Full name" required>
+          <input type="email" id="mailingEmail" placeholder="Email address" required>
+          <input type="text" id="mailingOrg" placeholder="Organization (optional)">
+          <button type="submit" class="sub-submit-btn wide">
+            <span>Join Mailing List</span>
+            <i class="fas fa-envelope-open-text"></i>
+          </button>
+        </div>
+        <label class="consent-check">
+          <input type="checkbox" required>
+          <span>I consent to receiving priority communications and event invitations</span>
+        </label>
+      </form>
+      <div id="mailingResp" class="form-response"></div>
+    </div>
+    
+    <div class="subscription-footer">
+      <span class="privacy-note">🔒 We respect your privacy. Unsubscribe anytime.</span>
+    </div>
+  </div>
+</div>
+
+<style>
+/* ===== SUBSCRIPTION OVERLAY STYLES ===== */
+.subscription-overlay {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  animation: slideInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(100px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.subscription-box {
+  width: 380px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  border: 1px solid rgba(46, 139, 87, 0.2);
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.subscription-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--green), var(--green-light), var(--green));
+  background-size: 200% 100%;
+  animation: gradientFlow 3s linear infinite;
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(46, 139, 87, 0.1);
+  color: var(--green);
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.close-btn:hover {
+  background: var(--green);
+  color: white;
+  transform: rotate(90deg);
+}
+
+.subscription-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.sub-icon {
+  font-size: 28px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.subscription-header h3 {
+  color: var(--green);
+  font-size: 22px;
+  margin: 0;
+  font-weight: 700;
+}
+
+.subscription-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  background: rgba(46, 139, 87, 0.08);
+  padding: 4px;
+  border-radius: 12px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 10px 16px;
+  border: none;
+  background: transparent;
+  color: var(--green-dark);
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+  background: white;
+  color: var(--green);
+  box-shadow: 0 2px 8px rgba(46, 139, 87, 0.15);
+}
+
+.tab-panel {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.sub-description {
+  color: #555;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.input-group {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.input-group.stacked {
+  flex-direction: column;
+}
+
+.input-group input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 2px solid rgba(46, 139, 87, 0.15);
+  border-radius: 12px;
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: var(--green-light);
+  box-shadow: 0 0 0 4px rgba(46, 139, 87, 0.08);
+}
+
+.sub-submit-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.sub-submit-btn.wide {
+  justify-content: center;
+  width: 100%;
+}
+
+.sub-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(46, 139, 87, 0.3);
+}
+
+.sub-submit-btn i {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+.sub-submit-btn:hover i {
+  transform: translateX(3px);
+}
+
+.consent-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 11px;
+  color: #666;
+  cursor: pointer;
+  margin-top: 12px;
+}
+
+.consent-check input {
+  margin-top: 2px;
+  accent-color: var(--green);
+}
+
+.form-response {
+  margin-top: 12px;
+  font-size: 13px;
+  font-weight: 500;
+  min-height: 20px;
+}
+
+.form-response.success {
+  color: var(--green);
+}
+
+.form-response.error {
+  color: var(--error);
+}
+
+.subscription-footer {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(46, 139, 87, 0.1);
+  text-align: center;
+}
+
+.privacy-note {
+  font-size: 11px;
+  color: #888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+  .subscription-overlay {
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+  }
   
+  .subscription-box {
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .input-group {
+    flex-direction: column;
+  }
+  
+  .subscription-header h3 {
+    font-size: 18px;
+  }
+}
+
+/* Hide on scroll down (optional - can be removed if you want it always visible) */
+.subscription-overlay.hidden {
+  animation: slideOutDown 0.4s ease forwards;
+}
+
+@keyframes slideOutDown {
+  to {
+    opacity: 0;
+    transform: translateY(100px) scale(0.9);
+    pointer-events: none;
+  }
+}
+</style>
+
+<script>
+// ===== SUBSCRIPTION BOX FUNCTIONS =====
+function closeSubscription() {
+  const overlay = document.getElementById('subscription-overlay');
+  overlay.classList.add('hidden');
+  // Store in session so it doesn't reappear immediately
+  sessionStorage.setItem('subscriptionClosed', 'true');
+}
+
+function switchTab(tab) {
+  // Update buttons
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  event.target.classList.add('active');
+  
+  // Update panels
+  document.querySelectorAll('.tab-panel').forEach(panel => {
+    panel.classList.remove('active');
+  });
+  document.getElementById(tab + '-panel').classList.add('active');
+}
+
+function handleNewsletterSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.sub-submit-btn');
+  const resp = document.getElementById('newsletterResp');
+  const email = document.getElementById('newsletterEmail').value;
+  
+  btn.disabled = true;
+  btn.innerHTML = '<span>Sending...</span><i class="fas fa-spinner fa-spin"></i>';
+  
+  // Simulate API call - replace with actual endpoint
+  setTimeout(() => {
+    btn.disabled = false;
+    btn.innerHTML = '<span>Subscribed!</span><i class="fas fa-check"></i>';
+    btn.style.background = '#3cb371';
+    resp.textContent = '✓ Successfully subscribed to newsletter!';
+    resp.className = 'form-response success';
+    e.target.reset();
+    
+    setTimeout(() => {
+      btn.innerHTML = '<span>Subscribe</span><i class="fas fa-paper-plane"></i>';
+      btn.style.background = '';
+      resp.textContent = '';
+    }, 3000);
+  }, 1500);
+}
+
+function handleMailingSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.sub-submit-btn');
+  const resp = document.getElementById('mailingResp');
+  
+  btn.disabled = true;
+  btn.innerHTML = '<span>Joining...</span><i class="fas fa-spinner fa-spin"></i>';
+  
+  // Simulate API call - replace with actual endpoint
+  setTimeout(() => {
+    btn.disabled = false;
+    btn.innerHTML = '<span>Joined!</span><i class="fas fa-check"></i>';
+    btn.style.background = '#3cb371';
+    resp.textContent = '✓ Added to priority mailing list!';
+    resp.className = 'form-response success';
+    e.target.reset();
+    
+    setTimeout(() => {
+      btn.innerHTML = '<span>Join Mailing List</span><i class="fas fa-envelope-open-text"></i>';
+      btn.style.background = '';
+      resp.textContent = '';
+    }, 3000);
+  }, 1500);
+}
+
+// Check if previously closed
+if (sessionStorage.getItem('subscriptionClosed') === 'true') {
+  document.getElementById('subscription-overlay').classList.add('hidden');
+}
+
+// Optional: Auto-show after 5 seconds if not previously closed
+setTimeout(() => {
+  if (sessionStorage.getItem('subscriptionClosed') !== 'true') {
+    document.getElementById('subscription-overlay').classList.remove('hidden');
+  }
+}, 100);
+</script>
+
+
 </body>
 </html>
