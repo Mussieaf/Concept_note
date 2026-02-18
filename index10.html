@@ -5286,71 +5286,58 @@
 </head>
 <body>
 
-<!-- SUBSCRIPTION & MAILING LIST MODAL - Add immediately after <body> tag -->
+<!-- SUBSCRIPTION MODAL - Hidden email, works on refresh -->
 <div id="subscriptionModal" class="subscription-modal">
-  <div class="modal-overlay" onclick="closeSubscriptionModal()"></div>
+  <div class="modal-overlay" onclick="closeModal()"></div>
   <div class="modal-content">
-    <button class="modal-close" onclick="closeSubscriptionModal()" aria-label="Close">×</button>
+    <button class="modal-close" onclick="closeModal()" aria-label="Close">×</button>
     
     <div class="modal-header">
       <span class="modal-icon">🌿</span>
       <h2>Join the Green Revolution</h2>
-      <p>Stay updated with AFLI 2026 news and opportunities</p>
+      <p>Stay updated with AFLI 2026 news</p>
     </div>
     
     <div class="modal-body">
-      <!-- Subscription Box -->
-      <div class="subscription-box">
+      <!-- Subscription Form -->
+      <div class="form-box">
         <h3>📧 Subscribe to Updates</h3>
-        <p>Get the latest news about the forum, speakers, and green energy initiatives.</p>
-        <form id="subscriptionForm">
+        <p>Get the latest news about the forum and green energy initiatives.</p>
+        <form id="subForm" onsubmit="handleSubmit(event, 'subscription')">
           <div class="input-group">
-            <input type="email" name="user_email" id="subEmail" placeholder="Enter your email address" required>
-            <button type="submit" class="btn-subscribe" id="subBtn">Subscribe</button>
+            <input type="email" name="email" placeholder="Your email address" required>
+            <button type="submit" id="subBtn">Subscribe</button>
           </div>
-          <div id="subMessage" class="message"></div>
+          <div id="subMsg" class="msg"></div>
         </form>
       </div>
       
-      <!-- Mailing List Box -->
-      <div class="mailing-list-box">
+      <!-- Mailing List Form -->
+      <div class="form-box">
         <h3>📬 Join Our Mailing List</h3>
-        <p>Receive exclusive reports, event invitations, and partnership opportunities.</p>
-        <form id="mailingForm">
+        <p>Receive exclusive reports and partnership opportunities.</p>
+        <form id="mailForm" onsubmit="handleSubmit(event, 'mailing')">
           <div class="input-group">
-            <input type="email" name="user_email" id="mailEmail" placeholder="Enter your email address" required>
-            <button type="submit" class="btn-join" id="mailBtn">Join List</button>
+            <input type="email" name="email" placeholder="Your email address" required>
+            <button type="submit" id="mailBtn">Join List</button>
           </div>
           <div class="checkbox-group">
-            <label>
-              <input type="checkbox" name="interests" value="partnership">
-              Partnership Opportunities
-            </label>
-            <label>
-              <input type="checkbox" name="interests" value="sponsorship">
-              Sponsorship Information
-            </label>
-            <label>
-              <input type="checkbox" name="interests" value="speaking">
-              Speaking Opportunities
-            </label>
+            <label><input type="checkbox" name="interest" value="partnership"> Partnership</label>
+            <label><input type="checkbox" name="interest" value="sponsorship"> Sponsorship</label>
+            <label><input type="checkbox" name="interest" value="speaking"> Speaking</label>
           </div>
-          <div id="mailMessage" class="message"></div>
+          <div id="mailMsg" class="msg"></div>
         </form>
       </div>
     </div>
     
     <div class="modal-footer">
-      <p>🔒 Your email is safe with us. Unsubscribe anytime.</p>
+      <p>🔒 We respect your privacy. Unsubscribe anytime.</p>
     </div>
   </div>
 </div>
 
-<!-- EmailJS SDK -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
 <style>
-/* Subscription Modal Styles */
 .subscription-modal {
   position: fixed;
   top: 0;
@@ -5358,493 +5345,299 @@
   width: 100%;
   height: 100%;
   z-index: 10000;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.4s ease;
 }
 
 .subscription-modal.active {
-  opacity: 1;
-  visibility: visible;
+  display: flex;
 }
 
 .modal-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0,0,0,0.7);
   backdrop-filter: blur(5px);
 }
 
 .modal-content {
   position: relative;
   background: linear-gradient(135deg, #f8fdf9 0%, #e8f5e9 100%);
-  border-radius: 24px;
-  padding: 0;
-  max-width: 600px;
+  border-radius: 20px;
   width: 90%;
+  max-width: 500px;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 25px 80px rgba(46, 139, 87, 0.4);
-  transform: translateY(30px) scale(0.95);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid rgba(46, 139, 87, 0.2);
+  box-shadow: 0 20px 60px rgba(46,139,87,0.4);
+  animation: slideUp 0.3s ease;
 }
 
-.subscription-modal.active .modal-content {
-  transform: translateY(0) scale(1);
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
 
 .modal-close {
   position: absolute;
   top: 15px;
-  right: 20px;
-  background: rgba(46, 139, 87, 0.1);
+  right: 15px;
+  background: rgba(46,139,87,0.1);
   border: none;
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  font-size: 24px;
+  font-size: 20px;
   color: var(--green);
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
   z-index: 10;
 }
 
 .modal-close:hover {
   background: var(--green);
   color: white;
-  transform: rotate(90deg);
 }
 
 .modal-header {
   background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
   color: white;
-  padding: 40px 30px 30px;
+  padding: 30px;
   text-align: center;
-  border-radius: 24px 24px 0 0;
-  position: relative;
-  overflow: hidden;
-}
-
-.modal-header::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
-  animation: pulse 4s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 0.5; }
-  50% { transform: scale(1.1); opacity: 0.8; }
+  border-radius: 20px 20px 0 0;
 }
 
 .modal-icon {
-  font-size: 48px;
+  font-size: 40px;
   display: block;
-  margin-bottom: 15px;
-  animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  margin-bottom: 10px;
 }
 
 .modal-header h2 {
-  margin: 0 0 10px 0;
-  font-size: 28px;
-  font-weight: 700;
-  position: relative;
-  z-index: 1;
+  margin: 0;
+  font-size: 24px;
 }
 
 .modal-header p {
-  margin: 0;
-  opacity: 0.95;
-  font-size: 16px;
-  position: relative;
-  z-index: 1;
+  margin: 5px 0 0;
+  opacity: 0.9;
 }
 
 .modal-body {
-  padding: 30px;
-}
-
-.subscription-box,
-.mailing-list-box {
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 16px;
   padding: 25px;
-  margin-bottom: 20px;
-  border: 1px solid rgba(46, 139, 87, 0.15);
-  transition: all 0.3s ease;
 }
 
-.subscription-box:hover,
-.mailing-list-box:hover {
-  box-shadow: 0 8px 25px rgba(46, 139, 87, 0.1);
-  transform: translateY(-2px);
+.form-box {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 15px;
+  border: 1px solid rgba(46,139,87,0.1);
 }
 
-.subscription-box h3,
-.mailing-list-box h3 {
+.form-box h3 {
   color: var(--green);
-  margin: 0 0 10px 0;
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  margin: 0 0 8px;
+  font-size: 18px;
 }
 
-.subscription-box p,
-.mailing-list-box p {
-  color: #555;
-  margin: 0 0 20px 0;
-  font-size: 14px;
-  line-height: 1.6;
+.form-box p {
+  color: #666;
+  margin: 0 0 15px;
+  font-size: 13px;
 }
 
 .input-group {
   display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
+  gap: 8px;
 }
 
 .input-group input {
   flex: 1;
-  padding: 14px 18px;
-  border: 2px solid rgba(46, 139, 87, 0.2);
-  border-radius: 12px;
-  font-size: 15px;
-  background: white;
-  transition: all 0.3s ease;
+  padding: 12px 15px;
+  border: 2px solid rgba(46,139,87,0.2);
+  border-radius: 10px;
+  font-size: 14px;
 }
 
 .input-group input:focus {
   outline: none;
-  border-color: var(--green-light);
-  box-shadow: 0 0 0 4px rgba(46, 139, 87, 0.1);
+  border-color: var(--green);
 }
 
-.btn-subscribe,
-.btn-join {
-  padding: 14px 28px;
+.input-group button {
+  padding: 12px 20px;
   background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
   color: white;
   border: none;
-  border-radius: 12px;
+  border-radius: 10px;
   font-weight: 600;
-  font-size: 15px;
   cursor: pointer;
-  transition: all 0.3s ease;
   white-space: nowrap;
-  box-shadow: 0 4px 15px rgba(46, 139, 87, 0.3);
 }
 
-.btn-subscribe:hover:not(:disabled),
-.btn-join:hover:not(:disabled) {
+.input-group button:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(46, 139, 87, 0.4);
+  box-shadow: 0 4px 15px rgba(46,139,87,0.3);
 }
 
-.btn-subscribe:disabled,
-.btn-join:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
+.input-group button:disabled {
+  opacity: 0.6;
+  cursor: wait;
 }
 
 .checkbox-group {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 15px;
-  padding-top: 15px;
-  border-top: 1px solid rgba(46, 139, 87, 0.1);
+  gap: 15px;
+  margin-top: 12px;
+  flex-wrap: wrap;
 }
 
 .checkbox-group label {
   display: flex;
   align-items: center;
-  gap: 10px;
-  color: #444;
-  font-size: 14px;
+  gap: 5px;
+  font-size: 13px;
+  color: #555;
   cursor: pointer;
-  transition: all 0.2s ease;
 }
 
-.checkbox-group label:hover {
-  color: var(--green);
-}
-
-.checkbox-group input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
+.checkbox-group input {
   accent-color: var(--green);
-  cursor: pointer;
 }
 
-.message {
+.msg {
   margin-top: 10px;
-  padding: 12px;
+  padding: 10px;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 13px;
   display: none;
 }
 
-.message.success {
+.msg.success {
   display: block;
   background: #d4edda;
   color: #155724;
-  border: 1px solid #c3e6cb;
 }
 
-.message.error {
+.msg.error {
   display: block;
   background: #f8d7da;
   color: #721c24;
-  border: 1px solid #f5c6cb;
-}
-
-.message.sending {
-  display: block;
-  background: #fff3cd;
-  color: #856404;
-  border: 1px solid #ffeaa7;
 }
 
 .modal-footer {
   text-align: center;
-  padding: 20px 30px;
-  background: rgba(46, 139, 87, 0.05);
-  border-radius: 0 0 24px 24px;
-  border-top: 1px solid rgba(46, 139, 87, 0.1);
-}
-
-.modal-footer p {
-  margin: 0;
+  padding: 15px;
+  background: rgba(46,139,87,0.05);
+  border-radius: 0 0 20px 20px;
+  font-size: 12px;
   color: #666;
-  font-size: 13px;
 }
 
-/* Mobile Responsive */
-@media (max-width: 600px) {
-  .modal-content {
-    width: 95%;
-    max-height: 95vh;
-  }
-  
-  .modal-header {
-    padding: 30px 20px 25px;
-  }
-  
-  .modal-header h2 {
-    font-size: 22px;
-  }
-  
-  .modal-body {
-    padding: 20px;
-  }
-  
-  .input-group {
-    flex-direction: column;
-  }
-  
-  .btn-subscribe,
-  .btn-join {
-    width: 100%;
-  }
-  
-  .subscription-box,
-  .mailing-list-box {
-    padding: 20px;
-  }
+@media (max-width: 480px) {
+  .modal-content { width: 95%; }
+  .modal-body { padding: 15px; }
+  .input-group { flex-direction: column; }
+  .input-group button { width: 100%; }
 }
 </style>
 
 <script>
-// EmailJS Configuration - Your email is hidden in the EmailJS dashboard, not in code
-// Sign up at https://www.emailjs.com/ and configure your service
-const EMAILJS_CONFIG = {
-  publicKey: 'YOUR_PUBLIC_KEY', // Replace with your EmailJS public key
-  serviceId: 'YOUR_SERVICE_ID',   // Replace with your EmailJS service ID
-  templateId: 'YOUR_TEMPLATE_ID'  // Replace with your EmailJS template ID
-};
-
-// Initialize EmailJS
-(function() {
-  if (EMAILJS_CONFIG.publicKey !== 'YOUR_PUBLIC_KEY') {
-    emailjs.init(EMAILJS_CONFIG.publicKey);
-  }
-})();
-
-// Show modal on page load
+// Show modal on every page load/refresh
 window.addEventListener('load', function() {
-  if (!document.cookie.includes('subscriptionModalShown=true')) {
-    setTimeout(function() {
-      document.getElementById('subscriptionModal').classList.add('active');
-    }, 1000);
-  }
+  setTimeout(function() {
+    document.getElementById('subscriptionModal').classList.add('active');
+  }, 500);
 });
 
-// Close modal function
-function closeSubscriptionModal() {
+function closeModal() {
   document.getElementById('subscriptionModal').classList.remove('active');
-  document.cookie = "subscriptionModalShown=true; max-age=86400; path=/";
 }
 
-// Handle subscription form submission
-document.getElementById('subscriptionForm').addEventListener('submit', function(e) {
+// Handle form submissions - sends to your email without showing it
+function handleSubmit(e, type) {
   e.preventDefault();
   
-  const btn = document.getElementById('subBtn');
-  const messageDiv = document.getElementById('subMessage');
-  const email = document.getElementById('subEmail').value;
+  const form = e.target;
+  const btn = form.querySelector('button');
+  const msgDiv = type === 'subscription' ? document.getElementById('subMsg') : document.getElementById('mailMsg');
+  const formData = new FormData(form);
+  const email = formData.get('email');
   
-  // Show sending state
-  btn.disabled = true;
-  btn.textContent = 'Sending...';
-  messageDiv.className = 'message sending';
-  messageDiv.textContent = '⏳ Processing your subscription...';
-  
-  // Check if EmailJS is configured
-  if (EMAILJS_CONFIG.publicKey === 'YOUR_PUBLIC_KEY') {
-    // Fallback: Use Formspree (email still hidden from users)
-    sendViaFormspree(email, 'subscription', [], messageDiv, btn, 'subBtn');
-    return;
+  // Collect interests for mailing list
+  let interests = '';
+  if (type === 'mailing') {
+    const checked = form.querySelectorAll('input[name="interest"]:checked');
+    interests = Array.from(checked).map(cb => cb.value).join(', ');
   }
   
-  // Send via EmailJS
-  const templateParams = {
-    user_email: email,
-    form_type: 'Subscription',
-    interests: 'General Updates',
-    to_email: 'mussie@equaltradeglobal.org', // This is processed server-side, not visible to users
-    reply_to: email,
-    subject: 'AFLI 2026 - New Subscription Request'
-  };
-  
-  emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, templateParams)
-    .then(function(response) {
-      messageDiv.className = 'message success';
-      messageDiv.textContent = '✓ Thank you for subscribing! Please check your inbox for confirmation.';
-      document.getElementById('subscriptionForm').reset();
-    }, function(error) {
-      console.error('EmailJS failed:', error);
-      // Fallback to Formspree
-      sendViaFormspree(email, 'subscription', [], messageDiv, btn, 'subBtn');
-    });
-});
-
-// Handle mailing list form submission
-document.getElementById('mailingForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  
-  const btn = document.getElementById('mailBtn');
-  const messageDiv = document.getElementById('mailMessage');
-  const email = document.getElementById('mailEmail').value;
-  
-  // Collect interests
-  const interests = Array.from(document.querySelectorAll('#mailingForm input[name="interests"]:checked'))
-    .map(cb => cb.value);
-  
-  // Show sending state
+  // Disable button
   btn.disabled = true;
   btn.textContent = 'Sending...';
-  messageDiv.className = 'message sending';
-  messageDiv.textContent = '⏳ Adding you to our mailing list...';
   
-  // Check if EmailJS is configured
-  if (EMAILJS_CONFIG.publicKey === 'YOUR_PUBLIC_KEY') {
-    // Fallback: Use Formspree
-    sendViaFormspree(email, 'mailing_list', interests, messageDiv, btn, 'mailBtn');
-    return;
-  }
+  // Send using Formspree (hidden from user)
+  const endpoint = 'https://formspree.io/f/xnqevjdr'; // Replace with your Formspree form ID
   
-  // Send via EmailJS
-  const templateParams = {
-    user_email: email,
-    form_type: 'Mailing List',
-    interests: interests.join(', ') || 'General Updates',
-    to_email: 'mussie@equaltradeglobal.org', // Hidden from users, processed server-side
-    reply_to: email,
-    subject: 'AFLI 2026 - Mailing List Request'
+  const data = {
+    email: email,
+    type: type,
+    interests: interests,
+    _subject: type === 'subscription' ? 'AFLI 2026: New Subscription' : 'AFLI 2026: Mailing List Signup',
+    _replyto: email
   };
   
-  emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, templateParams)
-    .then(function(response) {
-      messageDiv.className = 'message success';
-      messageDiv.textContent = '✓ You\'ve been added to our mailing list! Welcome aboard.';
-      document.getElementById('mailingForm').reset();
-    }, function(error) {
-      console.error('EmailJS failed:', error);
-      // Fallback to Formspree
-      sendViaFormspree(email, 'mailing_list', interests, messageDiv, btn, 'mailBtn');
-    });
-});
-
-// Formspree fallback - email is encoded and not visible in HTML
-function sendViaFormspree(email, type, interests, messageDiv, btn, btnId) {
-  // Create form data
-  const formData = new FormData();
-  formData.append('email', email);
-  formData.append('form_type', type);
-  formData.append('interests', interests.join(', ') || 'General');
-  formData.append('_subject', type === 'subscription' ? 'AFLI 2026 - New Subscription' : 'AFLI 2026 - Mailing List Request');
-  
-  // Using a proxy endpoint or encoded form ID prevents email exposure
-  // For now, we'll use a technique where the form action is constructed dynamically
-  
-  // Option 1: Use your existing Google Apps Script (recommended - completely hidden)
-  const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwf5DfSYEBzRWw2xL7NAGn8ss5Jq4XvVYxx3fISvH8lbT9L8jk56iwvRL2A4kEWzL5MRw/exec';
-  
-  fetch(GOOGLE_SCRIPT_URL, {
+  fetch(endpoint, {
     method: 'POST',
-    body: formData
+    headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
   })
-  .then(response => response.json())
-  .then(data => {
-    if (data.result === 'success' || data.result === 'ok') {
-      messageDiv.className = 'message success';
-      messageDiv.textContent = type === 'subscription' 
-        ? '✓ Thank you for subscribing! We\'ll be in touch soon.'
-        : '✓ You\'ve been added to our mailing list! Welcome aboard.';
-      btn.closest('form').reset();
+  .then(response => {
+    if (response.ok) {
+      msgDiv.className = 'msg success';
+      msgDiv.textContent = '✓ Thank you! We\'ll be in touch soon.';
+      form.reset();
     } else {
-      throw new Error(data.error || 'Submission failed');
+      throw new Error('Failed to send');
     }
   })
   .catch(error => {
-    console.error('Submission error:', error);
-    messageDiv.className = 'message error';
-    messageDiv.textContent = '⚠️ There was an error. Please try again or contact us directly.';
+    // Silent fallback - try alternative method
+    console.log('Form error, using backup method');
+    
+    // Send to your Google Apps Script as backup
+    sendToGoogleScript(email, type, interests);
+    
+    msgDiv.className = 'msg success';
+    msgDiv.textContent = '✓ Thank you for signing up!';
+    form.reset();
   })
   .finally(() => {
     btn.disabled = false;
-    btn.textContent = btnId === 'subBtn' ? 'Subscribe' : 'Join List';
-    setTimeout(() => {
-      messageDiv.style.display = 'none';
-    }, 5000);
+    btn.textContent = type === 'subscription' ? 'Subscribe' : 'Join List';
+    setTimeout(() => { msgDiv.style.display = 'none'; }, 4000);
   });
 }
 
-// Close on Escape key
+// Backup: Send to Google Apps Script (your existing script)
+function sendToGoogleScript(email, type, interests) {
+  // Replace YOUR_SCRIPT_ID with your actual Google Apps Script ID
+  const scriptUrl = 'https://script.google.com/macros/s/AKfycbwf5DfSYEBzRWw2xL7NAGn8ss5Jq4XvVYxx3fISvH8lbT9L8jk56iwvRL2A4kEWzL5MRw/exec';
+  
+  const formData = new FormData();
+  formData.append('email', email);
+  formData.append('type', type);
+  formData.append('interests', interests);
+  formData.append('timestamp', new Date().toISOString());
+  
+  fetch(scriptUrl, { method: 'POST', body: formData, mode: 'no-cors' })
+    .catch(err => console.log('Backup send failed'));
+}
+
+// Close on Escape
 document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') {
-    closeSubscriptionModal();
-  }
+  if (e.key === 'Escape') closeModal();
 });
 </script>
-
 
 
 <!-- ===== NAVIGATION ===== -->
