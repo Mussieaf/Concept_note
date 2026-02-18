@@ -510,7 +510,7 @@
       96.66% { transform: translateX(-83.333%); }
       100% { transform: translateX(0); }
     }
-    
+  
     .slider-dots {
       position: absolute;
       bottom: 20px;
@@ -5485,16 +5485,98 @@
             .input-group { flex-direction: column; }
             .input-group button { width: 100%; }
           }
+
+          /* Enhanced close button styles */
+          .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 14px;
+            color: white;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+            transition: all 0.3s ease;
+            animation: pulseClose 2s infinite;
+          }
+          
+          @keyframes pulseClose {
+            0%, 100% { box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4); }
+            50% { box-shadow: 0 4px 25px rgba(231, 76, 60, 0.7); }
+          }
+          
+          .modal-close:hover {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.6);
+          }
+          
+          .close-text {
+            font-size: 12px;
+            font-weight: 800;
+          }
+          
+          .close-arrow {
+            font-size: 16px;
+            animation: arrowPoint 1s infinite;
+          }
+          
+          @keyframes arrowPoint {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(3px); }
+          }
+          
+          .close-x {
+            font-size: 20px;
+            font-weight: 700;
+            margin-left: 2px;
+          }
+          
+          /* Mobile responsive */
+          @media (max-width: 480px) {
+            .modal-close {
+              padding: 6px 12px;
+              font-size: 12px;
+              top: 10px;
+              right: 10px;
+            }
+            
+            .close-text {
+              font-size: 10px;
+            }
+            
+            .close-arrow {
+              font-size: 14px;
+            }
+            
+            .close-x {
+              font-size: 18px;
+            }
+          }
     
   </style>
 </head>
 <body>
 
-<!-- SUBSCRIPTION MODAL - Hidden email, works on refresh -->
+<!-- SUBSCRIPTION MODAL - Enhanced close button visibility -->
 <div id="subscriptionModal" class="subscription-modal">
   <div class="modal-overlay" onclick="closeModal()"></div>
   <div class="modal-content">
-    <button class="modal-close" onclick="closeModal()" aria-label="Close">×</button>
+    <button class="modal-close" onclick="closeModal()" aria-label="Close">
+      <span class="close-text">CLOSE</span>
+      <span class="close-arrow">→</span>
+      <span class="close-x">×</span>
+    </button>
     
     <div class="modal-header">
       <span class="modal-icon">🌿</span>
@@ -5540,7 +5622,6 @@
     </div>
   </div>
 </div>
-
   
 <!-- ===== NAVIGATION ===== -->
 <nav class="navbar">
