@@ -5282,6 +5282,210 @@
             font-size: 10px;
           }
         }
+
+          .subscription-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+          }
+          
+          .subscription-modal.active {
+            display: flex;
+          }
+          
+          .modal-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(5px);
+          }
+          
+          .modal-content {
+            position: relative;
+            background: linear-gradient(135deg, #f8fdf9 0%, #e8f5e9 100%);
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(46,139,87,0.4);
+            animation: slideUp 0.3s ease;
+          }
+          
+          @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+          }
+          
+          .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(46,139,87,0.1);
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            font-size: 20px;
+            color: var(--green);
+            cursor: pointer;
+            z-index: 10;
+          }
+          
+          .modal-close:hover {
+            background: var(--green);
+            color: white;
+          }
+          
+          .modal-header {
+            background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 20px 20px 0 0;
+          }
+          
+          .modal-icon {
+            font-size: 40px;
+            display: block;
+            margin-bottom: 10px;
+          }
+          
+          .modal-header h2 {
+            margin: 0;
+            font-size: 24px;
+          }
+          
+          .modal-header p {
+            margin: 5px 0 0;
+            opacity: 0.9;
+          }
+          
+          .modal-body {
+            padding: 25px;
+          }
+          
+          .form-box {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(46,139,87,0.1);
+          }
+          
+          .form-box h3 {
+            color: var(--green);
+            margin: 0 0 8px;
+            font-size: 18px;
+          }
+          
+          .form-box p {
+            color: #666;
+            margin: 0 0 15px;
+            font-size: 13px;
+          }
+          
+          .input-group {
+            display: flex;
+            gap: 8px;
+          }
+          
+          .input-group input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid rgba(46,139,87,0.2);
+            border-radius: 10px;
+            font-size: 14px;
+          }
+          
+          .input-group input:focus {
+            outline: none;
+            border-color: var(--green);
+          }
+          
+          .input-group button {
+            padding: 12px 20px;
+            background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+          }
+          
+          .input-group button:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(46,139,87,0.3);
+          }
+          
+          .input-group button:disabled {
+            opacity: 0.6;
+            cursor: wait;
+          }
+          
+          .checkbox-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+          }
+          
+          .checkbox-group label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 13px;
+            color: #555;
+            cursor: pointer;
+          }
+          
+          .checkbox-group input {
+            accent-color: var(--green);
+          }
+          
+          .msg {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 13px;
+            display: none;
+          }
+          
+          .msg.success {
+            display: block;
+            background: #d4edda;
+            color: #155724;
+          }
+          
+          .msg.error {
+            display: block;
+            background: #f8d7da;
+            color: #721c24;
+          }
+          
+          .modal-footer {
+            text-align: center;
+            padding: 15px;
+            background: rgba(46,139,87,0.05);
+            border-radius: 0 0 20px 20px;
+            font-size: 12px;
+            color: #666;
+          }
+          
+          @media (max-width: 480px) {
+            .modal-content { width: 95%; }
+            .modal-body { padding: 15px; }
+            .input-group { flex-direction: column; }
+            .input-group button { width: 100%; }
+          }
+    
   </style>
 </head>
 <body>
@@ -5337,309 +5541,7 @@
   </div>
 </div>
 
-<style>
-.subscription-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 10000;
-  display: none;
-  align-items: center;
-  justify-content: center;
-}
-
-.subscription-modal.active {
-  display: flex;
-}
-
-.modal-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.7);
-  backdrop-filter: blur(5px);
-}
-
-.modal-content {
-  position: relative;
-  background: linear-gradient(135deg, #f8fdf9 0%, #e8f5e9 100%);
-  border-radius: 20px;
-  width: 90%;
-  max-width: 500px;
-  max-height: 90vh;
-  overflow-y: auto;
-  box-shadow: 0 20px 60px rgba(46,139,87,0.4);
-  animation: slideUp 0.3s ease;
-}
-
-@keyframes slideUp {
-  from { transform: translateY(30px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-.modal-close {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: rgba(46,139,87,0.1);
-  border: none;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  font-size: 20px;
-  color: var(--green);
-  cursor: pointer;
-  z-index: 10;
-}
-
-.modal-close:hover {
-  background: var(--green);
-  color: white;
-}
-
-.modal-header {
-  background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
-  color: white;
-  padding: 30px;
-  text-align: center;
-  border-radius: 20px 20px 0 0;
-}
-
-.modal-icon {
-  font-size: 40px;
-  display: block;
-  margin-bottom: 10px;
-}
-
-.modal-header h2 {
-  margin: 0;
-  font-size: 24px;
-}
-
-.modal-header p {
-  margin: 5px 0 0;
-  opacity: 0.9;
-}
-
-.modal-body {
-  padding: 25px;
-}
-
-.form-box {
-  background: white;
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 15px;
-  border: 1px solid rgba(46,139,87,0.1);
-}
-
-.form-box h3 {
-  color: var(--green);
-  margin: 0 0 8px;
-  font-size: 18px;
-}
-
-.form-box p {
-  color: #666;
-  margin: 0 0 15px;
-  font-size: 13px;
-}
-
-.input-group {
-  display: flex;
-  gap: 8px;
-}
-
-.input-group input {
-  flex: 1;
-  padding: 12px 15px;
-  border: 2px solid rgba(46,139,87,0.2);
-  border-radius: 10px;
-  font-size: 14px;
-}
-
-.input-group input:focus {
-  outline: none;
-  border-color: var(--green);
-}
-
-.input-group button {
-  padding: 12px 20px;
-  background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
-  color: white;
-  border: none;
-  border-radius: 10px;
-  font-weight: 600;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.input-group button:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(46,139,87,0.3);
-}
-
-.input-group button:disabled {
-  opacity: 0.6;
-  cursor: wait;
-}
-
-.checkbox-group {
-  display: flex;
-  gap: 15px;
-  margin-top: 12px;
-  flex-wrap: wrap;
-}
-
-.checkbox-group label {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 13px;
-  color: #555;
-  cursor: pointer;
-}
-
-.checkbox-group input {
-  accent-color: var(--green);
-}
-
-.msg {
-  margin-top: 10px;
-  padding: 10px;
-  border-radius: 8px;
-  font-size: 13px;
-  display: none;
-}
-
-.msg.success {
-  display: block;
-  background: #d4edda;
-  color: #155724;
-}
-
-.msg.error {
-  display: block;
-  background: #f8d7da;
-  color: #721c24;
-}
-
-.modal-footer {
-  text-align: center;
-  padding: 15px;
-  background: rgba(46,139,87,0.05);
-  border-radius: 0 0 20px 20px;
-  font-size: 12px;
-  color: #666;
-}
-
-@media (max-width: 480px) {
-  .modal-content { width: 95%; }
-  .modal-body { padding: 15px; }
-  .input-group { flex-direction: column; }
-  .input-group button { width: 100%; }
-}
-</style>
-
-<script>
-// Show modal on every page load/refresh
-window.addEventListener('load', function() {
-  setTimeout(function() {
-    document.getElementById('subscriptionModal').classList.add('active');
-  }, 500);
-});
-
-function closeModal() {
-  document.getElementById('subscriptionModal').classList.remove('active');
-}
-
-// Handle form submissions - sends to your email without showing it
-function handleSubmit(e, type) {
-  e.preventDefault();
   
-  const form = e.target;
-  const btn = form.querySelector('button');
-  const msgDiv = type === 'subscription' ? document.getElementById('subMsg') : document.getElementById('mailMsg');
-  const formData = new FormData(form);
-  const email = formData.get('email');
-  
-  // Collect interests for mailing list
-  let interests = '';
-  if (type === 'mailing') {
-    const checked = form.querySelectorAll('input[name="interest"]:checked');
-    interests = Array.from(checked).map(cb => cb.value).join(', ');
-  }
-  
-  // Disable button
-  btn.disabled = true;
-  btn.textContent = 'Sending...';
-  
-  // Send using Formspree (hidden from user)
-  const endpoint = 'https://formspree.io/f/xnqevjdr'; // Replace with your Formspree form ID
-  
-  const data = {
-    email: email,
-    type: type,
-    interests: interests,
-    _subject: type === 'subscription' ? 'AFLI 2026: New Subscription' : 'AFLI 2026: Mailing List Signup',
-    _replyto: email
-  };
-  
-  fetch(endpoint, {
-    method: 'POST',
-    headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
-  })
-  .then(response => {
-    if (response.ok) {
-      msgDiv.className = 'msg success';
-      msgDiv.textContent = '✓ Thank you! We\'ll be in touch soon.';
-      form.reset();
-    } else {
-      throw new Error('Failed to send');
-    }
-  })
-  .catch(error => {
-    // Silent fallback - try alternative method
-    console.log('Form error, using backup method');
-    
-    // Send to your Google Apps Script as backup
-    sendToGoogleScript(email, type, interests);
-    
-    msgDiv.className = 'msg success';
-    msgDiv.textContent = '✓ Thank you for signing up!';
-    form.reset();
-  })
-  .finally(() => {
-    btn.disabled = false;
-    btn.textContent = type === 'subscription' ? 'Subscribe' : 'Join List';
-    setTimeout(() => { msgDiv.style.display = 'none'; }, 4000);
-  });
-}
-
-// Backup: Send to Google Apps Script (your existing script)
-function sendToGoogleScript(email, type, interests) {
-  // Replace YOUR_SCRIPT_ID with your actual Google Apps Script ID
-  const scriptUrl = 'https://script.google.com/macros/s/AKfycbwf5DfSYEBzRWw2xL7NAGn8ss5Jq4XvVYxx3fISvH8lbT9L8jk56iwvRL2A4kEWzL5MRw/exec';
-  
-  const formData = new FormData();
-  formData.append('email', email);
-  formData.append('type', type);
-  formData.append('interests', interests);
-  formData.append('timestamp', new Date().toISOString());
-  
-  fetch(scriptUrl, { method: 'POST', body: formData, mode: 'no-cors' })
-    .catch(err => console.log('Backup send failed'));
-}
-
-// Close on Escape
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeModal();
-});
-</script>
-
-
 <!-- ===== NAVIGATION ===== -->
 <nav class="navbar">
   <a href="#home" class="nav-logo" onclick="closeAllMenus()">
@@ -8071,6 +7973,101 @@ function toggleTechAccordion(item) {
     item.classList.add('active');
   }
 }
+
+// Show modal on every page load/refresh
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    document.getElementById('subscriptionModal').classList.add('active');
+  }, 500);
+});
+
+function closeModal() {
+  document.getElementById('subscriptionModal').classList.remove('active');
+}
+
+// Handle form submissions - sends to your email without showing it
+function handleSubmit(e, type) {
+  e.preventDefault();
+  
+  const form = e.target;
+  const btn = form.querySelector('button');
+  const msgDiv = type === 'subscription' ? document.getElementById('subMsg') : document.getElementById('mailMsg');
+  const formData = new FormData(form);
+  const email = formData.get('email');
+  
+  // Collect interests for mailing list
+  let interests = '';
+  if (type === 'mailing') {
+    const checked = form.querySelectorAll('input[name="interest"]:checked');
+    interests = Array.from(checked).map(cb => cb.value).join(', ');
+  }
+  
+  // Disable button
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+  
+  // Send using Formspree (hidden from user)
+  const endpoint = 'https://formspree.io/f/xnqevjdr'; // Replace with your Formspree form ID
+  
+  const data = {
+    email: email,
+    type: type,
+    interests: interests,
+    _subject: type === 'subscription' ? 'AFLI 2026: New Subscription' : 'AFLI 2026: Mailing List Signup',
+    _replyto: email
+  };
+  
+  fetch(endpoint, {
+    method: 'POST',
+    headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  })
+  .then(response => {
+    if (response.ok) {
+      msgDiv.className = 'msg success';
+      msgDiv.textContent = '✓ Thank you! We\'ll be in touch soon.';
+      form.reset();
+    } else {
+      throw new Error('Failed to send');
+    }
+  })
+  .catch(error => {
+    // Silent fallback - try alternative method
+    console.log('Form error, using backup method');
+    
+    // Send to your Google Apps Script as backup
+    sendToGoogleScript(email, type, interests);
+    
+    msgDiv.className = 'msg success';
+    msgDiv.textContent = '✓ Thank you for signing up!';
+    form.reset();
+  })
+  .finally(() => {
+    btn.disabled = false;
+    btn.textContent = type === 'subscription' ? 'Subscribe' : 'Join List';
+    setTimeout(() => { msgDiv.style.display = 'none'; }, 4000);
+  });
+}
+
+// Backup: Send to Google Apps Script (your existing script)
+function sendToGoogleScript(email, type, interests) {
+  // Replace YOUR_SCRIPT_ID with your actual Google Apps Script ID
+  const scriptUrl = 'https://script.google.com/macros/s/AKfycbwf5DfSYEBzRWw2xL7NAGn8ss5Jq4XvVYxx3fISvH8lbT9L8jk56iwvRL2A4kEWzL5MRw/exec';
+  
+  const formData = new FormData();
+  formData.append('email', email);
+  formData.append('type', type);
+  formData.append('interests', interests);
+  formData.append('timestamp', new Date().toISOString());
+  
+  fetch(scriptUrl, { method: 'POST', body: formData, mode: 'no-cors' })
+    .catch(err => console.log('Backup send failed'));
+}
+
+// Close on Escape
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModal();
+});
 
 </script>
 
