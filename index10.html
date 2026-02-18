@@ -1562,7 +1562,7 @@
       }
     }
 
-        /* ===== TECHNOLOGY GALLERY - FIT IMAGES WITHOUT WHITE SPACE ===== */
+    /* ===== TECHNOLOGY GALLERY - FIT IMAGES WITHOUT WHITE SPACE ===== */
     .tech-gallery-scrollable {
       display: flex;
       gap: 20px;
@@ -2191,7 +2191,7 @@
         margin-bottom: 10px;
         padding: 0 10px;
         height: 40px;
-        align-items: center;
+        align-items: right;
       }
       
       /* Flag styling - fixed size, no overlap */
@@ -2441,6 +2441,150 @@
     .download-card-glass:hover .download-icon-glass {
       transform: scale(1.1) rotate(-5deg);
       background: linear-gradient(135deg, rgba(46,139,87,0.15), rgba(60,179,113,0.15));
+    }
+
+    /* First Ladies Section Styles */
+    .first-ladies-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 20px 0;
+    }
+    
+    .first-lady-card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(46, 139, 87, 0.15);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    }
+    
+    .first-lady-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(46, 139, 87, 0.15);
+      border-color: rgba(46, 139, 87, 0.3);
+    }
+    
+    .flag-container {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      z-index: 10;
+    }
+    
+    .country-flag-large {
+      width: 70px;
+      height: 45px;
+      object-fit: cover;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      border: 2px solid white;
+      transition: transform 0.3s ease;
+    }
+    
+    .first-lady-card:hover .country-flag-large {
+      transform: scale(1.1);
+    }
+    
+    .photo-wrapper {
+      position: relative;
+      height: 320px;
+      overflow: hidden;
+    }
+    
+    .first-lady-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    
+    .first-lady-card:hover .first-lady-photo {
+      transform: scale(1.08);
+    }
+    
+    .honor-badge {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: linear-gradient(135deg, #f39c12 0%, #e74c3c 100%);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 15px rgba(243, 156, 18, 0.4);
+      animation: badgePulse 2s infinite;
+    }
+    
+    @keyframes badgePulse {
+      0%, 100% { box-shadow: 0 4px 15px rgba(243, 156, 18, 0.4); }
+      50% { box-shadow: 0 4px 25px rgba(243, 156, 18, 0.7); }
+    }
+    
+    .first-lady-info {
+      padding: 25px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(46, 139, 87, 0.05) 0%, transparent 100%);
+    }
+    
+    .first-lady-info h3 {
+      color: var(--green);
+      font-size: 18px;
+      margin: 0 0 8px 0;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    
+    .country-name {
+      color: #444;
+      font-size: 16px;
+      margin: 0;
+      font-weight: 500;
+    }
+    
+    /* Decorative crown on header */
+    #first-ladies .section-header-glass h2::before {
+      content: '👑';
+      margin-right: 10px;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    }
+    
+    /* Mobile responsive */
+    @media (max-width: 768px) {
+      .first-ladies-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+      
+      .photo-wrapper {
+        height: 280px;
+      }
+      
+      .country-flag-large {
+        width: 60px;
+        height: 38px;
+      }
+      
+      .honor-badge {
+        font-size: 11px;
+        padding: 8px 16px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .first-ladies-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .photo-wrapper {
+        height: 300px;
+      }
     }
 
     /* FAQ Enhancement */
@@ -6467,6 +6611,113 @@
 
         <div style="text-align: center; margin-top: 30px;">
           <a href="mailto:mussie@equaltradeglobal.org?subject=Sponsorship%20Inquiry%20-%20AFLI%202026" class="button-glass">💼 Become a Sponsor</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- FIRST LADIES GUEST OF HONOR SECTION -->
+    <div class="artistic-section" id="first-ladies">
+      <div class="section-header-glass" onclick="toggleArtisticSection('first-ladies')">
+        <h2><span>👑</span>Distinguished Guests of Honor</h2>
+        <span class="section-toggle-icon">▼</span>
+      </div>
+      <div class="section-content-glass">
+        <p style="text-align: center; color: #555; margin-bottom: 30px; font-size: 16px;">
+          Her Excellencies, the First Ladies of participating nations, grace the AFLI 2026 Forum with their presence and commitment to sustainable development.
+        </p>
+        
+        <div class="first-ladies-grid">
+          
+          <!-- Ethiopia -->
+          <div class="first-lady-card">
+            <div class="flag-container">
+              <img src="flags/Ethiopia.png" alt="Ethiopia" class="country-flag-large" decoding="async" loading="lazy">
+            </div>
+            <div class="photo-wrapper">
+              <img src="FirstLadies/ethiopia_first_lady.jpg" alt="First Lady of Ethiopia" class="first-lady-photo" decoding="async" loading="lazy">
+              <span class="honor-badge">Guest of Honor</span>
+            </div>
+            <div class="first-lady-info">
+              <h3>Her Excellency</h3>
+              <p class="country-name">Federal Democratic Republic of Ethiopia</p>
+            </div>
+          </div>
+    
+          <!-- Kenya -->
+          <div class="first-lady-card">
+            <div class="flag-container">
+              <img src="flags/Kenya.png" alt="Kenya" class="country-flag-large" decoding="async" loading="lazy">
+            </div>
+            <div class="photo-wrapper">
+              <img src="FirstLadies/kenya_first_lady.jpg" alt="First Lady of Kenya" class="first-lady-photo" decoding="async" loading="lazy">
+              <span class="honor-badge">Guest of Honor</span>
+            </div>
+            <div class="first-lady-info">
+              <h3>Her Excellency</h3>
+              <p class="country-name">Republic of Kenya</p>
+            </div>
+          </div>
+    
+          <!-- Burkina Faso -->
+          <div class="first-lady-card">
+            <div class="flag-container">
+              <img src="flags/Burkina_Faso.png" alt="Burkina Faso" class="country-flag-large" decoding="async" loading="lazy">
+            </div>
+            <div class="photo-wrapper">
+              <img src="FirstLadies/burkina_faso_first_lady.jpg" alt="First Lady of Burkina Faso" class="first-lady-photo" decoding="async" loading="lazy">
+              <span class="honor-badge">Guest of Honor</span>
+            </div>
+            <div class="first-lady-info">
+              <h3>Her Excellency</h3>
+              <p class="country-name">Burkina Faso</p>
+            </div>
+          </div>
+    
+          <!-- Liberia -->
+          <div class="first-lady-card">
+            <div class="flag-container">
+              <img src="flags/Liberia.png" alt="Liberia" class="country-flag-large" decoding="async" loading="lazy">
+            </div>
+            <div class="photo-wrapper">
+              <img src="FirstLadies/liberia_first_lady.jpg" alt="First Lady of Liberia" class="first-lady-photo" decoding="async" loading="lazy">
+              <span class="honor-badge">Guest of Honor</span>
+            </div>
+            <div class="first-lady-info">
+              <h3>Her Excellency</h3>
+              <p class="country-name">Republic of Liberia</p>
+            </div>
+          </div>
+    
+          <!-- Lesotho -->
+          <div class="first-lady-card">
+            <div class="flag-container">
+              <img src="flags/Lesotho.png" alt="Lesotho" class="country-flag-large" decoding="async" loading="lazy">
+            </div>
+            <div class="photo-wrapper">
+              <img src="FirstLadies/lesotho_first_lady.jpg" alt="First Lady of Lesotho" class="first-lady-photo" decoding="async" loading="lazy">
+              <span class="honor-badge">Guest of Honor</span>
+            </div>
+            <div class="first-lady-info">
+              <h3>Her Excellency</h3>
+              <p class="country-name">Kingdom of Lesotho</p>
+            </div>
+          </div>
+    
+          <!-- Ghana -->
+          <div class="first-lady-card">
+            <div class="flag-container">
+              <img src="flags/Ghana.png" alt="Ghana" class="country-flag-large" decoding="async" loading="lazy">
+            </div>
+            <div class="photo-wrapper">
+              <img src="FirstLadies/ghana_first_lady.jpg" alt="First Lady of Ghana" class="first-lady-photo" decoding="async" loading="lazy">
+              <span class="honor-badge">Guest of Honor</span>
+            </div>
+            <div class="first-lady-info">
+              <h3>Her Excellency</h3>
+              <p class="country-name">Republic of Ghana</p>
+            </div>
+          </div>
+    
         </div>
       </div>
     </div>
