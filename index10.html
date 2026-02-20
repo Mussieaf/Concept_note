@@ -3216,6 +3216,57 @@
       margin-top: 30px;
     }
 
+    /* Hyatt Sponsor Item in Gallery */
+    .hyatt-sponsor-item {
+      position: relative;
+      cursor: pointer;
+      border: 3px solid #c9a227;
+      box-shadow: 0 8px 25px rgba(201, 162, 39, 0.3);
+      transform: scale(1.05);
+    }
+    
+    .hyatt-sponsor-item:hover {
+      transform: scale(1.1);
+      box-shadow: 0 15px 40px rgba(201, 162, 39, 0.5);
+    }
+    
+    .sponsor-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26,26,46,0.9) 0%, transparent 50%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 15px;
+      opacity: 1;
+      transition: all 0.3s ease;
+    }
+    
+    .premium-badge {
+      background: linear-gradient(135deg, #c9a227 0%, #d4af37 100%);
+      color: #1a1a2e;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    
+    .click-hint {
+      color: white;
+      font-size: 12px;
+      font-weight: 500;
+      opacity: 0.9;
+    }
+    
+    .hyatt-sponsor-item:hover .click-hint {
+      opacity: 1;
+      transform: translateY(-2px);
+    }
+
     .participants-section {
       margin: 30px auto;
       border: 1px solid rgba(46,139,87,0.2);
@@ -5054,8 +5105,6 @@
           .turbine-blades { width: 80px; height: 80px; }
           .blade { height: 40px; }
         }
-
-
 
         /* ===== CIRCULAR INFOGRAPHIC GALLERY ===== */
         .circular-gallery-container {
@@ -6999,6 +7048,46 @@
     </div>
   </div>
 
+  <!-- SPONSORS SECTION -->
+  <div class="artistic-section" id="sponsors">
+    <div class="section-header-glass" onclick="toggleArtisticSection('sponsors')">
+      <h2><span>💰</span>Sponsors</h2>
+      <span class="section-toggle-icon">▼</span>
+    </div>
+    <div class="section-content-glass">
+      <div class="gallery-enhanced">
+        
+        <!-- Hyatt Regency Premium Sponsor -->
+        <div class="gallery-item-glass hyatt-sponsor-item" onclick="openHyattSection()">
+          <img src="/mnt/kimi/upload/Hayatt.jpg" alt="Hyatt Regency Addis Ababa - Premium Hospitality Partner" decoding="async" loading="lazy">
+          <div class="sponsor-overlay">
+            <span class="premium-badge">🏨 Premium Partner</span>
+            <span class="click-hint">Click to view →</span>
+          </div>
+        </div>
+        
+        <div class="gallery-item-glass">
+          <img src="Sponsors/Sponsor1.jpeg" alt="Sponsor 1" decoding="async" loading="lazy">
+        </div>
+        <div class="gallery-item-glass">
+          <img src="Sponsors/Sponsor2.jpeg" alt="Sponsor 2" decoding="async" loading="lazy">
+        </div>
+        <div class="gallery-item-glass">
+          <img src="Sponsors/Sponsor3.jpeg" alt="Sponsor 3" decoding="async" loading="lazy">
+        </div>
+        <div class="gallery-item-glass">
+          <img src="Sponsors/Sponsor4.jpeg" alt="Sponsor 4" decoding="async" loading="lazy">
+        </div>
+        <div class="gallery-item-glass">
+          <img src="Sponsors/Sponsor5.jpeg" alt="Sponsor 5" decoding="async" loading="lazy">
+        </div>
+        <div class="gallery-item-glass">
+          <img src="Sponsors/Sponsor6.jpeg" alt="Sponsor 6" decoding="async" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- INVITED PARTICIPANTS -->
   <div class="artistic-section" id="participants">
     <div class="section-header-glass" onclick="toggleArtisticSection('participants')">
@@ -8342,6 +8431,37 @@ function sendToGoogleScript(email, type, interests) {
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeModal();
 });
+
+// Open Hyatt section from sponsors gallery
+function openHyattSection() {
+  const hyattSection = document.getElementById('hyatt-sponsor');
+  
+  if (hyattSection) {
+    // Expand the section if collapsed
+    if (!hyattSection.classList.contains('active')) {
+      hyattSection.classList.add('active');
+    }
+    
+    // Smooth scroll to section
+    hyattSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    
+    // Highlight effect
+    hyattSection.style.animation = 'highlightSection 2s ease';
+    setTimeout(() => {
+      hyattSection.style.animation = '';
+    }, 2000);
+  }
+}
+
+// Add highlight animation
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes highlightSection {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(201, 162, 39, 0); }
+    50% { box-shadow: 0 0 30px 10px rgba(201, 162, 39, 0.3); }
+  }
+`;
+document.head.appendChild(style);
 
 </script>
 
