@@ -1729,218 +1729,218 @@
     }
 
     /* ===== TECHNOLOGY VERTICAL ACCORDION WITH GALLERY ===== */
-.tech-accordion-item {
-  background: rgba(255,255,255,0.6);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(46,139,87,0.15);
-  border-radius: 20px;
-  margin-bottom: 20px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-}
-
-.tech-accordion-item:hover {
-  border-color: rgba(46,139,87,0.35);
-  box-shadow: 0 8px 25px rgba(46,139,87,0.12);
-  transform: translateX(5px);
-}
-
-.tech-accordion-item.active {
-  background: rgba(46,139,87,0.06);
-  border-color: rgba(46,139,87,0.4);
-  box-shadow: 0 12px 35px rgba(46,139,87,0.15);
-}
-
-.tech-accordion-header {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  padding: 25px;
-  background: linear-gradient(135deg, rgba(46,139,87,0.05), transparent);
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.tech-accordion-item:hover .tech-accordion-header {
-  background: linear-gradient(135deg, rgba(46,139,87,0.08), transparent);
-}
-
-.tech-accordion-header .tech-icon-glass {
-  flex-shrink: 0;
-  margin: 0;
-  width: 60px;
-  height: 60px;
-  font-size: 28px;
-}
-
-.tech-header-content {
-  flex: 1;
-}
-
-.tech-header-content h4 {
-  color: var(--green);
-  font-size: 20px;
-  margin: 0 0 12px 0;
-  font-weight: 600;
-}
-
-.tech-description-text {
-  color: #555;
-  font-size: 14px;
-  line-height: 1.7;
-  margin: 0;
-  max-width: 90%;
-}
-
-.tech-accordion-toggle {
-  font-size: 20px;
-  color: var(--green);
-  transition: transform 0.4s ease;
-  margin-left: 10px;
-  align-self: center;
-}
-
-.tech-accordion-item.active .tech-accordion-toggle {
-  transform: rotate(180deg);
-}
-
-/* Gallery Styles */
-.tech-accordion-gallery {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
-              padding 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-              opacity 0.4s ease;
-  opacity: 0;
-  padding: 0 25px;
-}
-
-.tech-accordion-item.active .tech-accordion-gallery {
-  max-height: 2000px;
-  opacity: 1;
-  padding: 0 25px 25px 25px;
-}
-
-.tech-gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-}
-
-.tech-gallery-item {
-  position: relative;
-  border-radius: 12px;
-  overflow: hidden;
-  background: rgba(255,255,255,0.8);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: all 0.3s ease;
-}
-
-.tech-gallery-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(46,139,87,0.15);
-}
-
-.tech-gallery-item img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.5s ease;
-}
-
-.tech-gallery-item:hover img {
-  transform: scale(1.08);
-}
-
-/* Full width first image */
-.tech-gallery-full {
-  grid-column: 1 / -1;
-}
-
-.tech-gallery-full img {
-  height: 250px;
-}
-
-.tech-image-caption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-  color: white;
-  padding: 20px 12px 12px;
-  font-size: 12px;
-  font-weight: 500;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.3s ease;
-}
-
-.tech-gallery-item:hover .tech-image-caption {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Staggered animation */
-.tech-accordion-item:nth-child(1) { animation: slideInLeft 0.6s ease 0.1s both; }
-.tech-accordion-item:nth-child(2) { animation: slideInLeft 0.6s ease 0.2s both; }
-.tech-accordion-item:nth-child(3) { animation: slideInLeft 0.6s ease 0.3s both; }
-
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .tech-accordion-header {
-    flex-direction: column;
-    gap: 15px;
-    padding: 20px;
-  }
-  
-  .tech-accordion-header .tech-icon-glass {
-    width: 50px;
-    height: 50px;
-    font-size: 24px;
-  }
-  
-  .tech-header-content h4 {
-    font-size: 18px;
-  }
-  
-  .tech-description-text {
-    font-size: 13px;
-    max-width: 100%;
-  }
-  
-  .tech-gallery-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-  
-  .tech-gallery-full {
-    grid-column: 1;
-  }
-  
-  .tech-gallery-item img,
-  .tech-gallery-full img {
-    height: 200px;
-  }
-  
-  .tech-accordion-item.active .tech-accordion-gallery {
-    padding: 0 20px 20px 20px;
-  }
-}
+    .tech-accordion-item {
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(46,139,87,0.15);
+      border-radius: 20px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    }
+    
+    .tech-accordion-item:hover {
+      border-color: rgba(46,139,87,0.35);
+      box-shadow: 0 8px 25px rgba(46,139,87,0.12);
+      transform: translateX(5px);
+    }
+    
+    .tech-accordion-item.active {
+      background: rgba(46,139,87,0.06);
+      border-color: rgba(46,139,87,0.4);
+      box-shadow: 0 12px 35px rgba(46,139,87,0.15);
+    }
+    
+    .tech-accordion-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 25px;
+      background: linear-gradient(135deg, rgba(46,139,87,0.05), transparent);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .tech-accordion-item:hover .tech-accordion-header {
+      background: linear-gradient(135deg, rgba(46,139,87,0.08), transparent);
+    }
+    
+    .tech-accordion-header .tech-icon-glass {
+      flex-shrink: 0;
+      margin: 0;
+      width: 60px;
+      height: 60px;
+      font-size: 28px;
+    }
+    
+    .tech-header-content {
+      flex: 1;
+    }
+    
+    .tech-header-content h4 {
+      color: var(--green);
+      font-size: 20px;
+      margin: 0 0 12px 0;
+      font-weight: 600;
+    }
+    
+    .tech-description-text {
+      color: #555;
+      font-size: 14px;
+      line-height: 1.7;
+      margin: 0;
+      max-width: 90%;
+    }
+    
+    .tech-accordion-toggle {
+      font-size: 20px;
+      color: var(--green);
+      transition: transform 0.4s ease;
+      margin-left: 10px;
+      align-self: center;
+    }
+    
+    .tech-accordion-item.active .tech-accordion-toggle {
+      transform: rotate(180deg);
+    }
+    
+    /* Gallery Styles */
+    .tech-accordion-gallery {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+                  padding 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                  opacity 0.4s ease;
+      opacity: 0;
+      padding: 0 25px;
+    }
+    
+    .tech-accordion-item.active .tech-accordion-gallery {
+      max-height: 2000px;
+      opacity: 1;
+      padding: 0 25px 25px 25px;
+    }
+    
+    .tech-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+    
+    .tech-gallery-item {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.8);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+    
+    .tech-gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(46,139,87,0.15);
+    }
+    
+    .tech-gallery-item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    
+    .tech-gallery-item:hover img {
+      transform: scale(1.08);
+    }
+    
+    /* Full width first image */
+    .tech-gallery-full {
+      grid-column: 1 / -1;
+    }
+    
+    .tech-gallery-full img {
+      height: 250px;
+    }
+    
+    .tech-image-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      color: white;
+      padding: 20px 12px 12px;
+      font-size: 12px;
+      font-weight: 500;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+    }
+    
+    .tech-gallery-item:hover .tech-image-caption {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Staggered animation */
+    .tech-accordion-item:nth-child(1) { animation: slideInLeft 0.6s ease 0.1s both; }
+    .tech-accordion-item:nth-child(2) { animation: slideInLeft 0.6s ease 0.2s both; }
+    .tech-accordion-item:nth-child(3) { animation: slideInLeft 0.6s ease 0.3s both; }
+    
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .tech-accordion-header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+      }
+      
+      .tech-accordion-header .tech-icon-glass {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+      }
+      
+      .tech-header-content h4 {
+        font-size: 18px;
+      }
+      
+      .tech-description-text {
+        font-size: 13px;
+        max-width: 100%;
+      }
+      
+      .tech-gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      
+      .tech-gallery-full {
+        grid-column: 1;
+      }
+      
+      .tech-gallery-item img,
+      .tech-gallery-full img {
+        height: 200px;
+      }
+      
+      .tech-accordion-item.active .tech-accordion-gallery {
+        padding: 0 20px 20px 20px;
+      }
+    }
 
  /* ===== TECHNOLOGY SHOWCASE GALLERY - RESPONSIVE SCROLL ===== */
     .tech-accordion-gallery {
@@ -3219,109 +3219,259 @@
       margin-top: 30px;
     }
 
-    /* Hyatt Sponsor Item in Gallery */
-    .hyatt-sponsor-item {
-      position: relative;
-      cursor: pointer;
-      border: 3px solid #c9a227;
-      box-shadow: 0 8px 25px rgba(201, 162, 39, 0.3);
-      transform: scale(1.05);
-    }
-    
-    .hyatt-sponsor-item:hover {
-      transform: scale(1.1);
-      box-shadow: 0 15px 40px rgba(201, 162, 39, 0.5);
-    }
-    
-    .sponsor-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(26,26,46,0.9) 0%, transparent 50%);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: center;
-      padding: 15px;
-      opacity: 1;
-      transition: all 0.3s ease;
-    }
-    
-    .premium-badge {
-      background: linear-gradient(135deg, #c9a227 0%, #d4af37 100%);
-      color: #1a1a2e;
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 8px;
-    }
-    
-    .click-hint {
-      color: white;
-      font-size: 12px;
-      font-weight: 500;
-      opacity: 0.9;
-    }
-    
-    .hyatt-sponsor-item:hover .click-hint {
-      opacity: 1;
-      transform: translateY(-2px);
-    }
 
-    /* Hyatt Sponsor Link Styles */
-    .hyatt-sponsor-link {
+
+     /* ===== UNIFIED SPONSOR DROPDOWN STYLES ===== */
+    .sponsor-dropdown-container {
+      margin-bottom: 1.5rem;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(102, 78, 161, 0.15);
+    }
+    
+    .sponsor-dropdown-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #f8f6ff 0%, #f0edfc 100%);
+      border: 2px solid rgba(102, 78, 161, 0.2);
+      border-radius: 16px;
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+      transition: all 0.4s ease;
       position: relative;
+    }
+    
+    .sponsor-dropdown-btn:hover {
+      background: linear-gradient(135deg, #f0edfc 0%, #e8e4f7 100%);
+      border-color: rgba(102, 78, 161, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(102, 78, 161, 0.2);
+    }
+    
+    .sponsor-dropdown-btn.active {
+      border-radius: 16px 16px 0 0;
+      border-bottom-color: transparent;
+    }
+    
+    .sponsor-btn-content {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      width: 100%;
+    }
+    
+    .sponsor-btn-logo {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      border-radius: 12px;
+      flex-shrink: 0;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    }
+    
+    .sponsor-btn-text {
+      flex: 1;
+      text-align: left;
+    }
+    
+    .sponsor-dropdown-arrow {
+      font-size: 1.2rem;
+      color: #664ea1;
+      transition: transform 0.4s ease;
+      flex-shrink: 0;
+      width: 30px;
+      height: 30px;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
-      transition: all 0.4s ease;
-      border: 2px solid transparent;
+      background: rgba(102, 78, 161, 0.1);
+      border-radius: 50%;
     }
     
-    .hyatt-sponsor-link:hover {
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: 0 15px 35px rgba(201, 162, 39, 0.25);
-      border-color: #c9a227;
+    .sponsor-dropdown-btn.active .sponsor-dropdown-arrow {
+      transform: rotate(180deg);
+      background: rgba(102, 78, 161, 0.2);
     }
     
-    .hyatt-sponsor-link::after {
-      content: '★ Premium Partner';
-      position: absolute;
-      bottom: 8px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: linear-gradient(135deg, #c9a227 0%, #d4af37 100%);
-      color: #1a1a2e;
-      padding: 4px 12px;
-      border-radius: 12px;
-      font-size: 10px;
-      font-weight: 700;
+    /* Dropdown Content */
+    .sponsor-dropdown-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                  opacity 0.4s ease,
+                  padding 0.4s ease;
       opacity: 0;
-      transition: all 0.3s ease;
-      white-space: nowrap;
-      pointer-events: none;
+      background: linear-gradient(180deg, #f8f6ff 0%, #ffffff 100%);
+      border: 2px solid rgba(102, 78, 161, 0.2);
+      border-top: none;
+      border-radius: 0 0 16px 16px;
     }
     
-    .hyatt-sponsor-link:hover::after {
+    .sponsor-dropdown-content.active {
+      max-height: 600px;
       opacity: 1;
-      bottom: 12px;
+      padding: 1.5rem;
     }
     
-    .hyatt-sponsor-link img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
+    .sponsor-expanded-content {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    
+    .sponsor-link-enhanced {
+      display: block;
+      text-decoration: none;
+      border-radius: 16px;
+      overflow: hidden;
       transition: transform 0.3s ease;
     }
     
-    .hyatt-sponsor-link:hover img {
+    .sponsor-link-enhanced:hover {
+      transform: scale(1.02);
+    }
+    
+    .sponsor-card {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(102, 78, 161, 0.2);
+    }
+    
+    .sponsor-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    
+    .sponsor-card:hover img {
       transform: scale(1.05);
     }
-
-
+    
+    .sponsor-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(102, 78, 161, 0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .sponsor-card:hover .sponsor-card-overlay {
+      opacity: 1;
+    }
+    
+    .sponsor-view-text {
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border: 2px solid white;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+    }
+    
+    .sponsor-view-text:hover {
+      background: white;
+      color: #664ea1;
+    }
+    
+    .sponsor-details {
+      padding: 0.5rem;
+    }
+    
+    .sponsor-description {
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+    
+    .sponsor-cta {
+      display: inline-block;
+      padding: 0.875rem 1.75rem;
+      background: linear-gradient(135deg, #664ea1 0%, #8a74bc 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(102, 78, 161, 0.3);
+    }
+    
+    .sponsor-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 78, 161, 0.4);
+    }
+    
+    /* Remove old redundant styles */
+    .hyatt-dropdown-container,
+    .hyatt-dropdown-btn,
+    .hyatt-dropdown-content,
+    .hyatt-sponsor-link,
+    .hyatt-hover-overlay,
+    .gallery-enhanced.sponsors-grid-secondary {
+      display: none !important;
+    }
+    
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .sponsor-btn-content {
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      
+      .sponsor-btn-logo {
+        width: 60px;
+        height: 60px;
+      }
+      
+      .sponsor-btn-text {
+        min-width: 200px;
+        flex: 1;
+      }
+      
+      .sponsor-dropdown-content.active {
+        max-height: 800px;
+        padding: 1rem;
+        overflow-y: auto;
+      }
+      
+      .sponsor-expanded-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      .sponsor-link-enhanced {
+        max-width: 250px;
+        margin: 0 auto;
+      }
+      
+      .sponsor-details {
+        text-align: center;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .sponsor-dropdown-btn {
+        padding: 0.75rem;
+      }
+      
+      .sponsor-btn-logo {
+        width: 50px;
+        height: 50px;
+      }
+      
+      .sponsor-dropdown-arrow {
+        width: 25px;
+        height: 25px;
+        font-size: 1rem;
+      }
+    }
+    
 
 
     
@@ -6246,6 +6396,7 @@
       <ul class="dropdown">
         <li><a href="#media" onclick="closeAllMenus()">Media</a></li>
         <li><a href="#sponsors" onclick="closeAllMenus()">Sponsors</a></li>
+        <li><a href="#sponsors_2" onclick="closeAllMenus()">Sponsors_2</a></li>
         <li><a href="#partners" onclick="closeAllMenus()">Partners</a></li>
         <li><a href="#participants" onclick="closeAllMenus()">Invited Participants</a></li>
         <li><a href="#projects" onclick="closeAllMenus()">Project Portfolio</a></li>
@@ -7453,6 +7604,160 @@
         
       </div>
     </div>
+
+
+
+
+    <!-- SPONSORS SECTION WITH EXPANDING DROPDOWNS -->
+    <div class="artistic-section" id="sponsors_2">
+      <div class="section-header-glass" onclick="toggleArtisticSection('sponsors_2')">
+        <h2><span>💰</span>Sponsors_2</h2>
+        <span class="section-toggle-icon">▼</span>
+      </div>
+      <div class="section-content-glass">
+        
+        <!-- Sponsor 1: Globo Hydro Power - Clean Energy Partner -->
+        <div class="sponsor-dropdown-container" id="ghpDropdown">
+          <button class="sponsor-dropdown-btn" onclick="toggleSponsorDropdown(event, 'ghpDropdown')" aria-expanded="false" aria-controls="ghpDropdownContent">
+            <div class="sponsor-btn-content">
+              <img src="Sponsors/Sponsor1.jpeg" alt="Globo Hydro Power" class="sponsor-btn-logo" decoding="async" loading="lazy">
+              <div class="sponsor-btn-text">
+                <span class="handwriting-fancy">Clean Energy Technology Partner</span>
+                <span class="handwriting-formal">Hydrogen-Enhanced Internal Combustion Engine Solutions</span>
+              </div>
+              <span class="sponsor-dropdown-arrow">▼</span>
+            </div>
+          </button>
+          
+          <div class="sponsor-dropdown-content" id="ghpDropdownContent">
+            <div class="sponsor-expanded-content">
+              <a href="https://globohydropower.com/" target="_blank" class="sponsor-link-enhanced" title="Globo Hydro Power - Hydrogen Hybrid Engine Technology">
+                <div class="sponsor-card">
+                  <img src="Sponsors/Sponsor1.jpeg" alt="Globo Hydro Power" decoding="async" loading="lazy">
+                  <div class="sponsor-card-overlay">
+                    <span class="sponsor-view-text">View Details →</span>
+                  </div>
+                </div>
+              </a>
+              
+              <div class="sponsor-details">
+                <h3 class="handwriting-fancy large">Clean Energy Technology Partner</h3>
+                <p class="handwriting-formal medium">Hydrogen-Enhanced Internal Combustion Engine Solutions</p>
+                <p class="sponsor-description">Globo Hydro Power™ (GHP™) is an industry-leading fuel enhancement system that upgrades traditional petrol and diesel engines into cost-saving, emissions-reducing hydrogen hybrids. Their patented technology delivers up to 50% reduced fuel consumption and significant carbon emission reductions for trucks, buses, and power generators [^15^][^19^].</p>
+                <a href="https://globohydropower.com/" target="_blank" class="sponsor-cta">Explore GHP Technology →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Sponsor 2: National Alcohol - Industrial Partner -->
+        <div class="sponsor-dropdown-container" id="nalfDropdown">
+          <button class="sponsor-dropdown-btn" onclick="toggleSponsorDropdown(event, 'nalfDropdown')" aria-expanded="false" aria-controls="nalfDropdownContent">
+            <div class="sponsor-btn-content">
+              <img src="Sponsors/Sponsor2.jpeg" alt="National Alcohol and Liquor Factory" class="sponsor-btn-logo" decoding="async" loading="lazy">
+              <div class="sponsor-btn-text">
+                <span class="handwriting-fancy">Industrial Excellence Partner</span>
+                <span class="handwriting-formal">Pioneering Ethiopian Alcohol Production Since 1906</span>
+              </div>
+              <span class="sponsor-dropdown-arrow">▼</span>
+            </div>
+          </button>
+          
+          <div class="sponsor-dropdown-content" id="nalfDropdownContent">
+            <div class="sponsor-expanded-content">
+              <a href="https://www.nalf.com.et/" target="_blank" class="sponsor-link-enhanced" title="National Alcohol & Liquor Factory - Ethiopia's Premier Alcohol Producer">
+                <div class="sponsor-card">
+                  <img src="Sponsors/Sponsor2.jpeg" alt="National Alcohol and Liquor Factory" decoding="async" loading="lazy">
+                  <div class="sponsor-card-overlay">
+                    <span class="sponsor-view-text">View Details →</span>
+                  </div>
+                </div>
+              </a>
+              
+              <div class="sponsor-details">
+                <h3 class="handwriting-fancy large">Industrial Excellence Partner</h3>
+                <p class="handwriting-formal medium">Pioneering Ethiopian Alcohol Production Since 1906</p>
+                <p class="sponsor-description">National Alcohol & Liquor Factory (NALF) is Ethiopia's largest producer of pure alcohol, denatured alcohol, and premium liquors. With facilities in Sebeta and Mekanissa, NALF produces over 10 million litres annually, supplying both domestic and international markets including the USA, Australia, Israel, and South Sudan [^7^][^20^].</p>
+                <a href="https://www.nalf.com.et/" target="_blank" class="sponsor-cta">Explore NALF Products →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Sponsor 3: Toyo Solar - Renewable Energy Partner -->
+        <div class="sponsor-dropdown-container" id="toyoDropdown">
+          <button class="sponsor-dropdown-btn" onclick="toggleSponsorDropdown(event, 'toyoDropdown')" aria-expanded="false" aria-controls="toyoDropdownContent">
+            <div class="sponsor-btn-content">
+              <img src="Sponsors/Sponsor4.jpeg" alt="Toyo Solar" class="sponsor-btn-logo" decoding="async" loading="lazy">
+              <div class="sponsor-btn-text">
+                <span class="handwriting-fancy">Renewable Energy Partner</span>
+                <span class="handwriting-formal">Advanced Solar Cell & Module Manufacturing</span>
+              </div>
+              <span class="sponsor-dropdown-arrow">▼</span>
+            </div>
+          </button>
+          
+          <div class="sponsor-dropdown-content" id="toyoDropdownContent">
+            <div class="sponsor-expanded-content">
+              <a href="https://www.toyo-solar.com/" target="_blank" class="sponsor-link-enhanced" title="Toyo Solar - Leading Solar Solutions Company">
+                <div class="sponsor-card">
+                  <img src="Sponsors/Sponsor4.jpeg" alt="Toyo Solar" decoding="async" loading="lazy">
+                  <div class="sponsor-card-overlay">
+                    <span class="sponsor-view-text">View Details →</span>
+                  </div>
+                </div>
+              </a>
+              
+              <div class="sponsor-details">
+                <h3 class="handwriting-fancy large">Renewable Energy Partner</h3>
+                <p class="handwriting-formal medium">Advanced Solar Cell & Module Manufacturing</p>
+                <p class="sponsor-description">Toyo Solar is a fast-growing, full-service solar solutions company with 4GW manufacturing capacity in Ethiopia and operations in Vietnam and the USA. Utilizing TOPCon cell technology, Toyo Solar delivers high-efficiency, traceable solar products to utility-scale developers worldwide [^9^][^24^].</p>
+                <a href="https://www.toyo-solar.com/" target="_blank" class="sponsor-cta">Explore Toyo Solar →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Sponsor 4: Hyatt Premium Partner (Original) -->
+        <div class="sponsor-dropdown-container" id="hyattDropdown">
+          <button class="sponsor-dropdown-btn" onclick="toggleSponsorDropdown(event, 'hyattDropdown')" aria-expanded="false" aria-controls="hyattDropdownContent">
+            <div class="sponsor-btn-content">
+              <img src="Sponsors/Sponsor7.jpeg" alt="Hyatt Regency Addis Ababa" class="sponsor-btn-logo" decoding="async" loading="lazy">
+              <div class="sponsor-btn-text">
+                <span class="handwriting-fancy">Premium Hospitality Partner</span>
+                <span class="handwriting-formal">African First Ladies Initiative for Emission Reduction and Poverty Alleviation</span>
+              </div>
+              <span class="sponsor-dropdown-arrow">▼</span>
+            </div>
+          </button>
+          
+          <div class="sponsor-dropdown-content" id="hyattDropdownContent">
+            <div class="sponsor-expanded-content">
+              <a href="https://mussieaf.github.io/Concept_note/haytt.html" target="_blank" class="sponsor-link-enhanced" title="Hyatt Regency Addis Ababa - Premium Hospitality Partner">
+                <div class="sponsor-card">
+                  <img src="Sponsors/Sponsor7.jpeg" alt="Hyatt Regency Addis Ababa" decoding="async" loading="lazy">
+                  <div class="sponsor-card-overlay">
+                    <span class="sponsor-view-text">View Details →</span>
+                  </div>
+                </div>
+              </a>
+              
+              <div class="sponsor-details">
+                <h3 class="handwriting-fancy large">Premium Hospitality Partner</h3>
+                <p class="handwriting-formal medium">African First Ladies Initiative for Emission Reduction and Poverty Alleviation</p>
+                <p class="sponsor-description">Experience unparalleled luxury at Hyatt Regency Addis Ababa, the official accommodation partner for AFLI 2026. Located in the heart of the city with world-class amenities and sustainable hospitality practices.</p>
+                <a href="https://mussieaf.github.io/Concept_note/haytt.html" target="_blank" class="sponsor-cta">Explore Hyatt Regency →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+ 
+    
+
+    
 
   <!-- PARTNERS SECTION -->
   <div class="artistic-section" id="partners">
@@ -8854,19 +9159,19 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// ===== HYATT DROPDOWN TOGGLE - Mobile Responsive =====
-function toggleHyattDropdown(event) {
+// ===== UNIFIED SPONSOR DROPDOWN TOGGLE =====
+function toggleSponsorDropdown(event, containerId) {
   event.stopPropagation();
   const btn = event.currentTarget;
-  const content = document.getElementById('hyattDropdownContent');
+  const content = document.getElementById(containerId + 'Content');
   const isActive = btn.classList.contains('active');
   
-  // Close all other dropdowns
-  document.querySelectorAll('.hyatt-dropdown-btn').forEach(b => {
+  // Close all sponsor dropdowns
+  document.querySelectorAll('.sponsor-dropdown-btn').forEach(b => {
     b.classList.remove('active');
     b.setAttribute('aria-expanded', 'false');
   });
-  document.querySelectorAll('.hyatt-dropdown-content').forEach(c => {
+  document.querySelectorAll('.sponsor-dropdown-content').forEach(c => {
     c.classList.remove('active');
   });
   
@@ -8878,32 +9183,27 @@ function toggleHyattDropdown(event) {
     // Mobile: Smooth scroll to show full expanded content
     if (window.innerWidth <= 768) {
       setTimeout(() => {
-        const container = document.getElementById('hyattDropdown');
+        const container = document.getElementById(containerId);
         const containerRect = container.getBoundingClientRect();
-        const scrollOffset = window.pageYOffset + containerRect.top - 100; // Offset for navbar
+        const scrollOffset = window.pageYOffset + containerRect.top - 100;
         
         window.scrollTo({
           top: scrollOffset,
           behavior: 'smooth'
         });
-        
-        // Ensure full content is visible
-        setTimeout(() => {
-          content.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }, 300);
       }, 100);
     }
   }
 }
 
-// Close dropdown when clicking outside
+// Close dropdowns when clicking outside
 document.addEventListener('click', function(e) {
-  if (!e.target.closest('.hyatt-dropdown-container')) {
-    document.querySelectorAll('.hyatt-dropdown-btn').forEach(btn => {
+  if (!e.target.closest('.sponsor-dropdown-container')) {
+    document.querySelectorAll('.sponsor-dropdown-btn').forEach(btn => {
       btn.classList.remove('active');
       btn.setAttribute('aria-expanded', 'false');
     });
-    document.querySelectorAll('.hyatt-dropdown-content').forEach(content => {
+    document.querySelectorAll('.sponsor-dropdown-content').forEach(content => {
       content.classList.remove('active');
     });
   }
