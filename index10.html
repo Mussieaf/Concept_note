@@ -3,7 +3,7 @@
 <head>      
   <meta charset="UTF-8"> 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">        
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">         
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin>
   <link rel="preconnect" href="https://www.google.com">
@@ -3685,6 +3685,295 @@
         margin-bottom: 1rem;
       }
 
+      /* ===== HYATT EXPANDING DROPDOWN ===== */
+    .hyatt-dropdown-container {
+      margin-bottom: 2rem;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(102, 78, 161, 0.15);
+    }
+    
+    .hyatt-dropdown-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #f8f6ff 0%, #f0edfc 100%);
+      border: 2px solid rgba(102, 78, 161, 0.2);
+      border-radius: 16px;
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      position: relative;
+    }
+    
+    .hyatt-dropdown-btn:hover {
+      background: linear-gradient(135deg, #f0edfc 0%, #e8e4f7 100%);
+      border-color: rgba(102, 78, 161, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(102, 78, 161, 0.2);
+    }
+    
+    .hyatt-dropdown-btn.active {
+      border-radius: 16px 16px 0 0;
+      border-bottom-color: transparent;
+    }
+    
+    .hyatt-btn-content {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      width: 100%;
+    }
+    
+    .hyatt-btn-logo {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      border-radius: 12px;
+      flex-shrink: 0;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    }
+    
+    .hyatt-btn-text {
+      flex: 1;
+      text-align: left;
+    }
+    
+    .hyatt-dropdown-arrow {
+      font-size: 1.2rem;
+      color: #664ea1;
+      transition: transform 0.4s ease;
+      flex-shrink: 0;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(102, 78, 161, 0.1);
+      border-radius: 50%;
+    }
+    
+    .hyatt-dropdown-btn.active .hyatt-dropdown-arrow {
+      transform: rotate(180deg);
+      background: rgba(102, 78, 161, 0.2);
+    }
+    
+    /* Dropdown Content - Expanding/Collapsing */
+    .hyatt-dropdown-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                  opacity 0.4s ease,
+                  padding 0.4s ease;
+      opacity: 0;
+      background: linear-gradient(180deg, #f8f6ff 0%, #ffffff 100%);
+      border: 2px solid rgba(102, 78, 161, 0.2);
+      border-top: none;
+      border-radius: 0 0 16px 16px;
+    }
+    
+    .hyatt-dropdown-content.active {
+      max-height: 600px;
+      opacity: 1;
+      padding: 1.5rem;
+    }
+    
+    .hyatt-expanded-content {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    
+    .hyatt-sponsor-link-enhanced {
+      display: block;
+      text-decoration: none;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+    
+    .hyatt-sponsor-link-enhanced:hover {
+      transform: scale(1.02);
+    }
+    
+    .hyatt-card {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(102, 78, 161, 0.2);
+    }
+    
+    .hyatt-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    
+    .hyatt-card:hover img {
+      transform: scale(1.05);
+    }
+    
+    .hyatt-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(102, 78, 161, 0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .hyatt-card:hover .hyatt-card-overlay {
+      opacity: 1;
+    }
+    
+    .hyatt-view-text {
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border: 2px solid white;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+    }
+    
+    .hyatt-view-text:hover {
+      background: white;
+      color: #664ea1;
+    }
+    
+    .hyatt-sponsor-details {
+      padding: 0.5rem;
+    }
+    
+    .hyatt-description {
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+    
+    .hyatt-cta {
+      display: inline-block;
+      padding: 0.875rem 1.75rem;
+      background: linear-gradient(135deg, #664ea1 0%, #8a74bc 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(102, 78, 161, 0.3);
+    }
+    
+    .hyatt-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 78, 161, 0.4);
+    }
+    
+    .sponsors-grid-secondary {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(102, 78, 161, 0.1);
+    }
+    
+    /* Remove duplicate/redundant CSS from original */
+    .hyatt-sponsor-link,
+    .hyatt-hover-overlay,
+    .hyatt-sponsor-item,
+    .sponsor-overlay,
+    .premium-badge,
+    .click-hint {
+      display: none !important;
+    }
+    
+    /* Mobile Responsive - Scroll to view full container */
+    @media (max-width: 768px) {
+      .handwriting-fancy {
+        font-size: 1.4rem;
+      }
+      
+      .handwriting-formal {
+        font-size: 1.1rem;
+      }
+      
+      .handwriting-fancy.large {
+        font-size: 2rem;
+      }
+      
+      .handwriting-formal.medium {
+        font-size: 1.3rem;
+      }
+      
+      .hyatt-btn-content {
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      
+      .hyatt-btn-logo {
+        width: 60px;
+        height: 60px;
+      }
+      
+      .hyatt-btn-text {
+        min-width: 200px;
+        flex: 1;
+      }
+      
+      .hyatt-dropdown-content.active {
+        max-height: 800px; /* Increased for mobile scroll */
+        padding: 1rem;
+        overflow-y: auto; /* Enable scrolling if content exceeds viewport */
+      }
+      
+      .hyatt-expanded-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      .hyatt-sponsor-link-enhanced {
+        max-width: 250px;
+        margin: 0 auto;
+      }
+      
+      .hyatt-sponsor-details {
+        text-align: center;
+      }
+      
+      /* Smooth scroll behavior for mobile */
+      .hyatt-dropdown-content.active {
+        scroll-behavior: smooth;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hyatt-dropdown-btn {
+        padding: 0.75rem;
+      }
+      
+      .hyatt-btn-logo {
+        width: 50px;
+        height: 50px;
+      }
+      
+      .handwriting-fancy {
+        font-size: 1.2rem;
+      }
+      
+      .handwriting-formal {
+        font-size: 0.95rem;
+      }
+      
+      .hyatt-btn-text {
+        min-width: 150px;
+      }
+      
+      .hyatt-dropdown-arrow {
+        width: 25px;
+        height: 25px;
+        font-size: 1rem;
+      }
+    }
 
 
     
