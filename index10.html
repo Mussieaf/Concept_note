@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>   
+<head>    
   <meta charset="UTF-8"> 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"> 
@@ -3318,6 +3318,476 @@
       transform: scale(1.05);
     }
 
+    /* SPONSOR LINK STYLE */
+    .hyatt-sponsor-link {
+      position: relative;
+      cursor: pointer;
+      display: block;
+      text-decoration: none;
+    }
+    
+    .hyatt-hover-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(102, 78, 161, 0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 16px;
+    }
+    
+    .hyatt-sponsor-link:hover .hyatt-hover-overlay {
+      opacity: 1;
+    }
+    
+    .hyatt-view-text {
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 10px 20px;
+      border: 2px solid white;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+    }
+    
+    .hyatt-view-text:hover {
+      background: white;
+      color: #664ea1;
+    }
+    
+    /* Hyatt Section - No Dropdown */
+    .hyatt-header-static {
+      cursor: default !important;
+      pointer-events: none;
+    }
+    
+    .hyatt-header-static .section-toggle-icon {
+      display: none !important;
+    }
+    
+    .hyatt-content-visible {
+      max-height: none !important;
+      opacity: 1 !important;
+      padding: 30px !important;
+      overflow: visible !important;
+    }
+    
+    /* Hyatt Regency Showcase Styles */
+    .hyatt-showcase {
+      background: linear-gradient(135deg, #f8f6ff 0%, #f0edfc 50%, #e8e4f7 100%);
+      border: 1px solid rgba(102, 78, 161, 0.15);
+    }
+    
+    .hyatt-showcase .section-header-glass {
+      background: linear-gradient(135deg, rgba(102, 78, 161, 0.1) 0%, rgba(138, 116, 188, 0.1) 100%);
+    }
+    
+    .hyatt-showcase .section-header-glass h2 {
+      color: #664ea1;
+    }
+    
+    .hyatt-brand-header {
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(248,246,255,0.5) 100%);
+      border-radius: 20px;
+      margin-bottom: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hyatt-brand-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, #664ea1, #8a74bc, #664ea1, transparent);
+    }
+    
+    .logo-container {
+      margin-bottom: 20px;
+    }
+    
+    .hyatt-logo-main {
+      max-width: 280px;
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 4px 12px rgba(102, 78, 161, 0.2));
+      transition: transform 0.4s ease;
+    }
+    
+    .hyatt-logo-main:hover {
+      transform: scale(1.05);
+    }
+    
+    .hyatt-tagline {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    
+    .elegant-line {
+      color: #8a74bc;
+      font-size: 20px;
+      opacity: 0.6;
+    }
+    
+    .hyatt-tagline p {
+      color: #664ea1;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin: 0;
+    }
+    
+    .hyatt-headline {
+      color: #4a3f7a;
+      font-size: 28px;
+      font-weight: 300;
+      margin: 0 0 10px 0;
+      font-family: 'Georgia', serif;
+      letter-spacing: 1px;
+    }
+    
+    .hyatt-subline {
+      color: #8a74bc;
+      font-size: 16px;
+      margin: 0;
+      font-weight: 500;
+    }
+    
+    /* Pattern Divider */
+    .pattern-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin: 40px 0;
+    }
+    
+    .pattern-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #8a74bc, transparent);
+      max-width: 200px;
+    }
+    
+    .pattern-ornament {
+      color: #664ea1;
+      font-size: 24px;
+      opacity: 0.6;
+    }
+    
+    /* Visual Grid */
+    .hyatt-visual-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, auto);
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+    
+    .hyatt-feature-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(102, 78, 161, 0.1);
+      transition: all 0.4s ease;
+      border: 1px solid rgba(102, 78, 161, 0.08);
+    }
+    
+    .hyatt-feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(102, 78, 161, 0.2);
+    }
+    
+    .hyatt-feature-card.large {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+    
+    .hyatt-feature-card.wide {
+      grid-column: span 2;
+    }
+    
+    .feature-image-wrapper {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+    }
+    
+    .hyatt-feature-card.large .feature-image-wrapper {
+      height: 350px;
+    }
+    
+    .hyatt-feature-card.wide .feature-image-wrapper {
+      height: 220px;
+    }
+    
+    .feature-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    
+    .hyatt-feature-card:hover .feature-image {
+      transform: scale(1.08);
+    }
+    
+    .image-overlay {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+    }
+    
+    .feature-badge {
+      background: linear-gradient(135deg, #664ea1 0%, #8a74bc 100%);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 15px rgba(102, 78, 161, 0.3);
+    }
+    
+    .feature-content {
+      padding: 25px;
+    }
+    
+    .feature-content h4 {
+      color: #4a3f7a;
+      font-size: 20px;
+      margin: 0 0 12px 0;
+      font-weight: 600;
+    }
+    
+    .hyatt-feature-card.large .feature-content h4 {
+      font-size: 24px;
+    }
+    
+    .feature-content p {
+      color: #666;
+      font-size: 14px;
+      line-height: 1.7;
+      margin: 0;
+    }
+    
+    .hyatt-feature-card.large .feature-content p {
+      font-size: 15px;
+    }
+    
+    /* Offer Banner */
+    .hyatt-offer-banner {
+      display: flex;
+      align-items: stretch;
+      background: linear-gradient(135deg, #664ea1 0%, #8a74bc 100%);
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 40px rgba(102, 78, 161, 0.3);
+    }
+    
+    .offer-pattern-left,
+    .offer-pattern-right {
+      width: 80px;
+      background: repeating-linear-gradient(
+        45deg,
+        rgba(255,255,255,0.1),
+        rgba(255,255,255,0.1) 10px,
+        transparent 10px,
+        transparent 20px
+      );
+    }
+    
+    .offer-content {
+      flex: 1;
+      padding: 40px;
+      text-align: center;
+      color: white;
+    }
+    
+    .offer-icon {
+      font-size: 48px;
+      display: block;
+      margin-bottom: 15px;
+    }
+    
+    .offer-content h4 {
+      font-size: 24px;
+      margin: 0 0 15px 0;
+      font-weight: 600;
+    }
+    
+    .offer-content p {
+      font-size: 15px;
+      line-height: 1.7;
+      margin: 0 0 25px 0;
+      opacity: 0.95;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .hyatt-cta-button {
+      display: inline-block;
+      padding: 14px 35px;
+      background: white;
+      color: #664ea1;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    
+    .hyatt-cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      background: #f8f6ff;
+    }
+    
+    /* Exterior Showcase */
+    .hyatt-exterior-showcase {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(102, 78, 161, 0.1);
+    }
+    
+    .exterior-image-container {
+      position: relative;
+      height: 400px;
+      overflow: hidden;
+    }
+    
+    .exterior-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .exterior-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(74, 63, 122, 0.9), transparent);
+      padding: 40px 30px 30px;
+    }
+    
+    .location-badge {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      color: white;
+    }
+    
+    .location-badge span:first-child {
+      font-size: 32px;
+    }
+    
+    .location-badge strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+    
+    .location-badge p {
+      margin: 0;
+      opacity: 0.9;
+      font-size: 14px;
+    }
+    
+    .exterior-details {
+      display: flex;
+      justify-content: space-around;
+      padding: 30px;
+      background: linear-gradient(135deg, #f8f6ff 0%, #f0edfc 100%);
+    }
+    
+    .detail-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #4a3f7a;
+      font-weight: 500;
+      font-size: 14px;
+    }
+    
+    .detail-icon {
+      font-size: 20px;
+    }
+    
+    /* Mobile Responsive */
+    @media (max-width: 1024px) {
+      .hyatt-visual-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .hyatt-feature-card.large {
+        grid-column: span 2;
+        grid-row: span 1;
+      }
+      
+      .hyatt-feature-card.large .feature-image-wrapper {
+        height: 250px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hyatt-headline {
+        font-size: 22px;
+      }
+      
+      .hyatt-visual-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .hyatt-feature-card.large,
+      .hyatt-feature-card.wide {
+        grid-column: span 1;
+      }
+      
+      .offer-pattern-left,
+      .offer-pattern-right {
+        display: none;
+      }
+      
+      .offer-content {
+        padding: 30px 20px;
+      }
+      
+      .exterior-image-container {
+        height: 300px;
+      }
+      
+      .exterior-details {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+      }
+      
+      .exterior-overlay {
+        padding: 30px 20px 20px;
+      }
+      
+      .location-badge {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+    }
     .participants-section {
       margin: 30px auto;
       border: 1px solid rgba(46,139,87,0.2);
