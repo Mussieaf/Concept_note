@@ -3,7 +3,7 @@
 <head>      
   <meta charset="UTF-8">  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">         
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">          
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin>
   <link rel="preconnect" href="https://www.google.com">
@@ -3223,18 +3223,18 @@
 
 
 
-    /* ===== SIDE SCROLLING SPONSORS ===== */
+     /* ===== SIDE SCROLLING SPONSORS - OPTIMIZED FOR LOGOS ===== */
     .sponsors-scroll-wrapper {
       position: relative;
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.75rem;
       margin-bottom: 1.5rem;
     }
     
     .sponsors-scroll-container {
       display: flex;
-      gap: 1.5rem;
+      gap: 1.25rem;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       scroll-behavior: smooth;
@@ -3249,8 +3249,8 @@
     }
     
     .scroll-nav-btn {
-      width: 44px;
-      height: 44px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       border: none;
       background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
@@ -3276,77 +3276,118 @@
       margin-top: -2px;
     }
     
-    /* Sponsor Scroll Items */
+    /* Sponsor Scroll Items - Fixed Width for Consistency */
     .sponsor-scroll-item {
-      flex: 0 0 300px;
+      flex: 0 0 220px;
       scroll-snap-align: start;
     }
     
+    /* Sponsor Card Compact */
     .sponsor-card-compact {
-      background: linear-gradient(135deg, #f8f6ff 0%, #f0edfc 100%);
-      border: 2px solid rgba(102, 78, 161, 0.15);
+      background: linear-gradient(145deg, #ffffff 0%, #f8f6ff 50%, #f0edfc 100%);
+      border: 2px solid rgba(102, 78, 161, 0.12);
       border-radius: 20px;
       overflow: hidden;
       cursor: pointer;
-      transition: all 0.4s ease;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       height: 100%;
       display: flex;
       flex-direction: column;
+      box-shadow: 0 4px 20px rgba(102, 78, 161, 0.08);
     }
     
     .sponsor-card-compact:hover {
-      transform: translateY(-8px);
-      border-color: rgba(102, 78, 161, 0.4);
-      box-shadow: 0 15px 40px rgba(102, 78, 161, 0.2);
+      transform: translateY(-6px);
+      border-color: rgba(102, 78, 161, 0.3);
+      box-shadow: 0 12px 35px rgba(102, 78, 161, 0.18);
     }
     
     .sponsor-card-compact.active {
       border-color: var(--green);
-      box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.2), 0 15px 40px rgba(102, 78, 161, 0.25);
+      box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.15), 0 12px 35px rgba(102, 78, 161, 0.22);
     }
     
-    .sponsor-card-image {
+    /* Logo Container - Perfect Fit */
+    .sponsor-logo-container {
       position: relative;
-      height: 160px;
+      height: 140px;
+      background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
       overflow: hidden;
     }
     
-    .sponsor-card-image img {
+    .sponsor-logo-frame {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
     }
     
-    .sponsor-card-compact:hover .sponsor-card-image img {
+    .sponsor-logo-frame img {
+      max-width: 85%;
+      max-height: 85%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+      transition: transform 0.4s ease;
+    }
+    
+    .sponsor-card-compact:hover .sponsor-logo-frame img {
       transform: scale(1.08);
     }
     
-    .sponsor-card-gradient {
+    /* Shine Effect */
+    .sponsor-logo-shine {
       position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(102, 78, 161, 0.9) 0%, transparent 60%);
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255,255,255,0.4) 50%,
+        transparent 70%
+      );
+      transform: rotate(45deg) translateX(-100%);
+      transition: transform 0.6s ease;
+      z-index: 3;
+      pointer-events: none;
     }
     
+    .sponsor-card-compact:hover .sponsor-logo-shine {
+      transform: rotate(45deg) translateX(100%);
+    }
+    
+    /* Card Info Section */
     .sponsor-card-info {
-      padding: 1.25rem;
+      padding: 1rem 1.25rem 1.25rem;
       flex: 1;
       display: flex;
       flex-direction: column;
-      position: relative;
+      background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(248,246,255,0.95) 100%);
     }
     
     .sponsor-card-info .handwriting-fancy {
-      font-size: 1.4rem;
+      font-size: 1.25rem;
       color: #c9a227;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
       line-height: 1.2;
+      display: block;
     }
     
     .sponsor-card-info .handwriting-formal {
-      font-size: 1.1rem;
-      color: #4a3f7a;
-      line-height: 1.3;
+      font-size: 0.95rem;
+      color: #5a4a7a;
+      line-height: 1.35;
+      display: block;
       flex: 1;
     }
     
@@ -3354,30 +3395,27 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      margin-top: 1rem;
-      padding-top: 1rem;
+      margin-top: 0.875rem;
+      padding-top: 0.875rem;
       border-top: 1px solid rgba(102, 78, 161, 0.1);
       color: var(--green);
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 600;
       transition: all 0.3s ease;
     }
     
     .expand-icon {
-      width: 24px;
-      height: 24px;
+      width: 22px;
+      height: 22px;
       border-radius: 50%;
       background: var(--green);
       color: white;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       transition: all 0.3s ease;
-    }
-    
-    .sponsor-card-compact:hover .expand-hint {
-      color: var(--green-dark);
+      flex-shrink: 0;
     }
     
     .sponsor-card-compact:hover .expand-icon {
@@ -3389,7 +3427,7 @@
     .scroll-dots {
       display: flex;
       justify-content: center;
-      gap: 0.75rem;
+      gap: 0.6rem;
       margin-bottom: 1.5rem;
     }
     
@@ -3404,8 +3442,8 @@
     
     .scroll-dot.active {
       background: var(--green);
-      transform: scale(1.3);
-      box-shadow: 0 0 10px rgba(46, 139, 87, 0.4);
+      transform: scale(1.25);
+      box-shadow: 0 0 8px rgba(46, 139, 87, 0.4);
     }
     
     /* Expanded Area */
@@ -3417,9 +3455,9 @@
     
     .sponsor-expanded-panel {
       display: none;
-      background: linear-gradient(135deg, #f8f6ff 0%, #ffffff 100%);
-      border: 2px solid rgba(102, 78, 161, 0.2);
-      border-radius: 20px;
+      background: linear-gradient(145deg, #ffffff 0%, #f8f6ff 50%, #f0edfc 100%);
+      border: 2px solid rgba(102, 78, 161, 0.15);
+      border-radius: 24px;
       padding: 2rem;
       animation: slideDown 0.4s ease;
     }
@@ -3465,25 +3503,41 @@
     
     .expanded-inner {
       display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 2.5rem;
+      grid-template-columns: 240px 1fr;
+      gap: 2rem;
       align-items: start;
     }
     
+    /* Expanded Logo Frame */
     .expanded-visual {
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(102, 78, 161, 0.2);
+      display: flex;
+      justify-content: center;
     }
     
-    .expanded-visual img {
-      width: 100%;
+    .expanded-logo-frame {
+      width: 220px;
+      height: 220px;
+      background: linear-gradient(145deg, #fafafa 0%, #f0f0f0 100%);
+      border-radius: 20px;
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 30px rgba(102, 78, 161, 0.15);
+      border: 1px solid rgba(102, 78, 161, 0.1);
+    }
+    
+    .expanded-logo-frame img {
+      max-width: 90%;
+      max-height: 90%;
+      width: auto;
       height: auto;
-      display: block;
-      transition: transform 0.5s ease;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+      transition: transform 0.4s ease;
     }
     
-    .expanded-visual:hover img {
+    .expanded-logo-frame:hover img {
       transform: scale(1.05);
     }
     
@@ -3492,48 +3546,50 @@
     }
     
     .expanded-content .handwriting-fancy.large {
-      font-size: 2.2rem;
-      margin-bottom: 0.75rem;
+      font-size: 2rem;
+      margin-bottom: 0.6rem;
+      color: #c9a227;
     }
     
     .expanded-content .handwriting-formal.medium {
-      font-size: 1.5rem;
-      margin-bottom: 1.25rem;
+      font-size: 1.35rem;
+      margin-bottom: 1rem;
       color: #664ea1;
     }
     
     .expanded-description {
       color: #555;
       line-height: 1.8;
-      font-size: 1rem;
-      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      margin-bottom: 1.25rem;
     }
     
     .expanded-stats {
       display: flex;
-      gap: 1.5rem;
-      margin-bottom: 1.5rem;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
       flex-wrap: wrap;
     }
     
     .expanded-stats .stat-item {
-      background: linear-gradient(135deg, rgba(46, 139, 87, 0.1) 0%, rgba(60, 179, 113, 0.1) 100%);
-      padding: 1rem 1.5rem;
+      background: linear-gradient(135deg, rgba(46, 139, 87, 0.08) 0%, rgba(60, 179, 113, 0.08) 100%);
+      padding: 0.875rem 1.25rem;
       border-radius: 12px;
       text-align: center;
-      border: 1px solid rgba(46, 139, 87, 0.15);
+      border: 1px solid rgba(46, 139, 87, 0.12);
+      min-width: 90px;
     }
     
     .expanded-stats .stat-item span {
       display: block;
-      font-size: 1.5rem;
+      font-size: 1.35rem;
       font-weight: 700;
       color: var(--green);
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.2rem;
     }
     
     .expanded-stats .stat-item {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: #666;
       text-transform: uppercase;
       letter-spacing: 0.5px;
@@ -3541,7 +3597,7 @@
     
     .expanded-cta {
       display: inline-block;
-      padding: 1rem 2rem;
+      padding: 0.875rem 1.75rem;
       background: linear-gradient(135deg, #664ea1 0%, #8a74bc 100%);
       color: white;
       text-decoration: none;
@@ -3552,7 +3608,7 @@
     }
     
     .expanded-cta:hover {
-      transform: translateY(-3px);
+      transform: translateY(-2px);
       box-shadow: 0 8px 25px rgba(102, 78, 161, 0.4);
     }
     
@@ -3561,7 +3617,9 @@
     .sponsor-dropdown-btn,
     .sponsor-dropdown-content,
     .hyatt-dropdown-container,
-    .gallery-enhanced.sponsors-grid-secondary {
+    .gallery-enhanced.sponsors-grid-secondary,
+    .sponsor-card-image,
+    .sponsor-card-gradient {
       display: none !important;
     }
     
@@ -3578,23 +3636,33 @@
       }
       
       .sponsor-scroll-item {
-        flex: 0 0 260px;
+        flex: 0 0 180px;
       }
       
-      .sponsor-card-image {
-        height: 140px;
+      .sponsor-logo-container {
+        height: 120px;
+        padding: 0.75rem;
+      }
+      
+      .sponsor-logo-frame img {
+        max-width: 90%;
+        max-height: 90%;
       }
       
       .sponsor-card-info {
-        padding: 1rem;
+        padding: 0.875rem 1rem 1rem;
       }
       
       .sponsor-card-info .handwriting-fancy {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
       }
       
       .sponsor-card-info .handwriting-formal {
-        font-size: 1rem;
+        font-size: 0.85rem;
+      }
+      
+      .expand-hint span:not(.expand-icon) {
+        display: none;
       }
       
       .expanded-inner {
@@ -3602,8 +3670,9 @@
         gap: 1.5rem;
       }
       
-      .expanded-visual {
-        max-width: 280px;
+      .expanded-logo-frame {
+        width: 180px;
+        height: 180px;
         margin: 0 auto;
       }
       
@@ -3612,15 +3681,24 @@
       }
       
       .expanded-content .handwriting-fancy.large {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
       }
       
       .expanded-content .handwriting-formal.medium {
-        font-size: 1.3rem;
+        font-size: 1.15rem;
       }
       
       .expanded-stats {
         justify-content: center;
+      }
+      
+      .expanded-stats .stat-item {
+        padding: 0.75rem 1rem;
+        min-width: 80px;
+      }
+      
+      .expanded-stats .stat-item span {
+        font-size: 1.2rem;
       }
       
       .sponsor-expanded-panel {
@@ -3630,29 +3708,49 @@
     
     @media (max-width: 480px) {
       .sponsor-scroll-item {
-        flex: 0 0 220px;
+        flex: 0 0 160px;
       }
       
-      .sponsor-card-image {
-        height: 120px;
+      .sponsor-logo-container {
+        height: 100px;
       }
       
-      .expand-hint span:not(.expand-icon) {
-        display: none;
+      .sponsor-card-info {
+        padding: 0.75rem;
+      }
+      
+      .sponsor-card-info .handwriting-fancy {
+        font-size: 1rem;
+      }
+      
+      .sponsor-card-info .handwriting-formal {
+        font-size: 0.8rem;
+      }
+      
+      .expand-icon {
+        width: 20px;
+        height: 20px;
+        font-size: 1rem;
+      }
+      
+      .expanded-logo-frame {
+        width: 150px;
+        height: 150px;
+        padding: 1rem;
       }
       
       .expanded-stats {
-        gap: 0.75rem;
+        gap: 0.6rem;
       }
       
       .expanded-stats .stat-item {
-        padding: 0.75rem 1rem;
         flex: 1;
-        min-width: 80px;
+        min-width: 70px;
+        padding: 0.6rem 0.5rem;
       }
       
       .expanded-stats .stat-item span {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
       }
     }
 
@@ -7735,207 +7833,215 @@
 
 
   <!-- SPONSORS SECTION WITH SIDE SCROLLING & EXPANDING DROPDOWNS -->
-    <div class="artistic-section" id="sponsors">
-      <div class="section-header-glass" onclick="toggleArtisticSection('sponsors')">
-        <h2><span>💰</span>Sponsors</h2>
-        <span class="section-toggle-icon">▼</span>
-      </div>
-      <div class="section-content-glass">
-        
-        <!-- Horizontal Scroll Container -->
-        <div class="sponsors-scroll-wrapper">
-          <button class="scroll-nav-btn scroll-prev" onclick="scrollSponsors('left')" aria-label="Previous sponsors">
-            <span>‹</span>
-          </button>
-          
-          <div class="sponsors-scroll-container" id="sponsorsScrollContainer">
-            
-            <!-- Sponsor 1: Globo Hydro Power -->
-            <div class="sponsor-scroll-item" data-sponsor="ghp">
-              <div class="sponsor-card-compact" onclick="expandSponsor('ghp')">
-                <div class="sponsor-card-image">
-                  <img src="Sponsors/Sponsor1.jpeg" alt="Globo Hydro Power" decoding="async" loading="lazy">
-                  <div class="sponsor-card-gradient"></div>
-                </div>
-                <div class="sponsor-card-info">
-                  <span class="handwriting-fancy">Clean Energy Partner</span>
-                  <span class="handwriting-formal">Hydrogen-Enhanced Engine Solutions</span>
-                  <div class="expand-hint">
-                    <span class="expand-icon">+</span>
-                    <span>Click to expand</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-    
-            <!-- Sponsor 2: National Alcohol -->
-            <div class="sponsor-scroll-item" data-sponsor="nalf">
-              <div class="sponsor-card-compact" onclick="expandSponsor('nalf')">
-                <div class="sponsor-card-image">
-                  <img src="Sponsors/Sponsor2.jpeg" alt="National Alcohol" decoding="async" loading="lazy">
-                  <div class="sponsor-card-gradient"></div>
-                </div>
-                <div class="sponsor-card-info">
-                  <span class="handwriting-fancy">Industrial Excellence Partner</span>
-                  <span class="handwriting-formal">Pioneering Ethiopian Alcohol Production</span>
-                  <div class="expand-hint">
-                    <span class="expand-icon">+</span>
-                    <span>Click to expand</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-    
-            <!-- Sponsor 3: Toyo Solar -->
-            <div class="sponsor-scroll-item" data-sponsor="toyo">
-              <div class="sponsor-card-compact" onclick="expandSponsor('toyo')">
-                <div class="sponsor-card-image">
-                  <img src="Sponsors/Sponsor4.jpeg" alt="Toyo Solar" decoding="async" loading="lazy">
-                  <div class="sponsor-card-gradient"></div>
-                </div>
-                <div class="sponsor-card-info">
-                  <span class="handwriting-fancy">Renewable Energy Partner</span>
-                  <span class="handwriting-formal">Advanced Solar Manufacturing</span>
-                  <div class="expand-hint">
-                    <span class="expand-icon">+</span>
-                    <span>Click to expand</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-    
-            <!-- Sponsor 4: Hyatt -->
-            <div class="sponsor-scroll-item" data-sponsor="hyatt">
-              <div class="sponsor-card-compact" onclick="expandSponsor('hyatt')">
-                <div class="sponsor-card-image">
-                  <img src="Sponsors/Sponsor7.jpeg" alt="Hyatt Regency" decoding="async" loading="lazy">
-                  <div class="sponsor-card-gradient"></div>
-                </div>
-                <div class="sponsor-card-info">
-                  <span class="handwriting-fancy">Premium Hospitality Partner</span>
-                  <span class="handwriting-formal">African First Ladies Initiative</span>
-                  <div class="expand-hint">
-                    <span class="expand-icon">+</span>
-                    <span>Click to expand</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-          </div>
-          
-          <button class="scroll-nav-btn scroll-next" onclick="scrollSponsors('right')" aria-label="Next sponsors">
-            <span>›</span>
-          </button>
-        </div>
-    
-        <!-- Scroll Indicators -->
-        <div class="scroll-dots" id="scrollDots">
-          <span class="scroll-dot active" data-index="0"></span>
-          <span class="scroll-dot" data-index="1"></span>
-          <span class="scroll-dot" data-index="2"></span>
-          <span class="scroll-dot" data-index="3"></span>
-        </div>
-    
-        <!-- Expanded Content Area (Below Scroll) -->
-        <div class="sponsor-expanded-area" id="sponsorExpandedArea">
-          
-          <!-- Globo Hydro Power Expanded -->
-          <div class="sponsor-expanded-panel" id="ghp-expanded" data-sponsor="ghp">
-            <button class="close-expanded" onclick="closeExpanded()" aria-label="Close">×</button>
-            <div class="expanded-inner">
-              <div class="expanded-visual">
-                <a href="https://globohydropower.com/" target="_blank">
-                  <img src="Sponsors/Sponsor1.jpeg" alt="Globo Hydro Power" decoding="async" loading="lazy">
-                </a>
-              </div>
-              <div class="expanded-content">
-                <h3 class="handwriting-fancy large">Clean Energy Technology Partner</h3>
-                <p class="handwriting-formal medium">Hydrogen-Enhanced Internal Combustion Engine Solutions</p>
-                <p class="expanded-description">Globo Hydro Power™ (GHP™) is an industry-leading fuel enhancement system that upgrades traditional petrol and diesel engines into cost-saving, emissions-reducing hydrogen hybrids. Their patented technology delivers up to 50% reduced fuel consumption and significant carbon emission reductions for trucks, buses, and power generators.</p>
-                <div class="expanded-stats">
-                  <div class="stat-item"><span>50%</span> Fuel Reduction</div>
-                  <div class="stat-item"><span>46%</span> Emission Cut</div>
-                  <div class="stat-item"><span>Global</span> Deployment</div>
-                </div>
-                <a href="https://globohydropower.com/" target="_blank" class="expanded-cta">Explore GHP Technology →</a>
-              </div>
-            </div>
-          </div>
-    
-          <!-- National Alcohol Expanded -->
-          <div class="sponsor-expanded-panel" id="nalf-expanded" data-sponsor="nalf">
-            <button class="close-expanded" onclick="closeExpanded()" aria-label="Close">×</button>
-            <div class="expanded-inner">
-              <div class="expanded-visual">
-                <a href="https://www.nalf.com.et/" target="_blank">
-                  <img src="Sponsors/Sponsor2.jpeg" alt="National Alcohol" decoding="async" loading="lazy">
-                </a>
-              </div>
-              <div class="expanded-content">
-                <h3 class="handwriting-fancy large">Industrial Excellence Partner</h3>
-                <p class="handwriting-formal medium">Pioneering Ethiopian Alcohol Production Since 1906</p>
-                <p class="expanded-description">National Alcohol & Liquor Factory (NALF) is Ethiopia's largest producer of pure alcohol, denatured alcohol, and premium liquors. With facilities in Sebeta and Mekanissa, NALF produces over 10 million litres annually, supplying both domestic and international markets.</p>
-                <div class="expanded-stats">
-                  <div class="stat-item"><span>10M+</span> Litres/Year</div>
-                  <div class="stat-item"><span>Since</span> 1906</div>
-                  <div class="stat-item"><span>Global</span> Export</div>
-                </div>
-                <a href="https://www.nalf.com.et/" target="_blank" class="expanded-cta">Explore NALF Products →</a>
-              </div>
-            </div>
-          </div>
-    
-          <!-- Toyo Solar Expanded -->
-          <div class="sponsor-expanded-panel" id="toyo-expanded" data-sponsor="toyo">
-            <button class="close-expanded" onclick="closeExpanded()" aria-label="Close">×</button>
-            <div class="expanded-inner">
-              <div class="expanded-visual">
-                <a href="https://www.toyo-solar.com/" target="_blank">
-                  <img src="Sponsors/Sponsor4.jpeg" alt="Toyo Solar" decoding="async" loading="lazy">
-                </a>
-              </div>
-              <div class="expanded-content">
-                <h3 class="handwriting-fancy large">Renewable Energy Partner</h3>
-                <p class="handwriting-formal medium">Advanced Solar Cell & Module Manufacturing</p>
-                <p class="expanded-description">Toyo Solar is a fast-growing, full-service solar solutions company with 4GW manufacturing capacity in Ethiopia and operations in Vietnam and the USA. Utilizing TOPCon cell technology, Toyo Solar delivers high-efficiency, traceable solar products worldwide.</p>
-                <div class="expanded-stats">
-                  <div class="stat-item"><span>4GW</span> Capacity</div>
-                  <div class="stat-item"><span>TOPCon</span> Technology</div>
-                  <div class="stat-item"><span>Global</span> Reach</div>
-                </div>
-                <a href="https://www.toyo-solar.com/" target="_blank" class="expanded-cta">Explore Toyo Solar →</a>
-              </div>
-            </div>
-          </div>
-    
-          <!-- Hyatt Expanded -->
-          <div class="sponsor-expanded-panel" id="hyatt-expanded" data-sponsor="hyatt">
-            <button class="close-expanded" onclick="closeExpanded()" aria-label="Close">×</button>
-            <div class="expanded-inner">
-              <div class="expanded-visual">
-                <a href="https://mussieaf.github.io/Concept_note/haytt.html" target="_blank">
-                  <img src="Sponsors/Sponsor7.jpeg" alt="Hyatt Regency" decoding="async" loading="lazy">
-                </a>
-              </div>
-              <div class="expanded-content">
-                <h3 class="handwriting-fancy large">Premium Hospitality Partner</h3>
-                <p class="handwriting-formal medium">African First Ladies Initiative for Emission Reduction and Poverty Alleviation</p>
-                <p class="expanded-description">Experience unparalleled luxury at Hyatt Regency Addis Ababa, the official accommodation partner for AFLI 2026. Located in the heart of the city with world-class amenities and sustainable hospitality practices.</p>
-                <div class="expanded-stats">
-                  <div class="stat-item"><span>5-Star</span> Luxury</div>
-                  <div class="stat-item"><span>Prime</span> Location</div>
-                  <div class="stat-item"><span>Sustainable</span> Practices</div>
-                </div>
-                <a href="https://mussieaf.github.io/Concept_note/haytt.html" target="_blank" class="expanded-cta">Explore Hyatt Regency →</a>
-              </div>
-            </div>
-          </div>
-          
-        </div>
-    
-      </div>
+  <div class="artistic-section" id="sponsors">
+    <div class="section-header-glass" onclick="toggleArtisticSection('sponsors')">
+      <h2><span>💰</span>Sponsors</h2>
+      <span class="section-toggle-icon">▼</span>
     </div>
+    <div class="section-content-glass">
+      
+      <!-- Horizontal Scroll Container -->
+      <div class="sponsors-scroll-wrapper">
+        <button class="scroll-nav-btn scroll-prev" onclick="scrollSponsors('left')" aria-label="Previous sponsors">
+          <span>‹</span>
+        </button>
+        
+        <div class="sponsors-scroll-container" id="sponsorsScrollContainer">
+          
+          <!-- Sponsor 1: Globo Hydro Power -->
+          <div class="sponsor-scroll-item" data-sponsor="ghp">
+            <div class="sponsor-card-compact" onclick="expandSponsor('ghp')">
+              <div class="sponsor-logo-container">
+                <div class="sponsor-logo-frame">
+                  <img src="Sponsors/Sponsor1.jpeg" alt="Globo Hydro Power" decoding="async" loading="lazy">
+                </div>
+                <div class="sponsor-logo-shine"></div>
+              </div>
+              <div class="sponsor-card-info">
+                <span class="handwriting-fancy">Clean Energy Partner</span>
+                <span class="handwriting-formal">Hydrogen-Enhanced Engine Solutions</span>
+                <div class="expand-hint">
+                  <span class="expand-icon">+</span>
+                  <span>Click to expand</span>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Sponsor 2: National Alcohol -->
+          <div class="sponsor-scroll-item" data-sponsor="nalf">
+            <div class="sponsor-card-compact" onclick="expandSponsor('nalf')">
+              <div class="sponsor-logo-container">
+                <div class="sponsor-logo-frame">
+                  <img src="Sponsors/Sponsor2.jpeg" alt="National Alcohol" decoding="async" loading="lazy">
+                </div>
+                <div class="sponsor-logo-shine"></div>
+              </div>
+              <div class="sponsor-card-info">
+                <span class="handwriting-fancy">Industrial Excellence Partner</span>
+                <span class="handwriting-formal">Pioneering Ethiopian Alcohol Production</span>
+                <div class="expand-hint">
+                  <span class="expand-icon">+</span>
+                  <span>Click to expand</span>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Sponsor 3: Toyo Solar -->
+          <div class="sponsor-scroll-item" data-sponsor="toyo">
+            <div class="sponsor-card-compact" onclick="expandSponsor('toyo')">
+              <div class="sponsor-logo-container">
+                <div class="sponsor-logo-frame">
+                  <img src="Sponsors/Sponsor4.jpeg" alt="Toyo Solar" decoding="async" loading="lazy">
+                </div>
+                <div class="sponsor-logo-shine"></div>
+              </div>
+              <div class="sponsor-card-info">
+                <span class="handwriting-fancy">Renewable Energy Partner</span>
+                <span class="handwriting-formal">Advanced Solar Manufacturing</span>
+                <div class="expand-hint">
+                  <span class="expand-icon">+</span>
+                  <span>Click to expand</span>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Sponsor 4: Hyatt -->
+          <div class="sponsor-scroll-item" data-sponsor="hyatt">
+            <div class="sponsor-card-compact" onclick="expandSponsor('hyatt')">
+              <div class="sponsor-logo-container">
+                <div class="sponsor-logo-frame">
+                  <img src="Sponsors/Sponsor7.jpeg" alt="Hyatt Regency" decoding="async" loading="lazy">
+                </div>
+                <div class="sponsor-logo-shine"></div>
+              </div>
+              <div class="sponsor-card-info">
+                <span class="handwriting-fancy">Premium Hospitality Partner</span>
+                <span class="handwriting-formal">African First Ladies Initiative</span>
+                <div class="expand-hint">
+                  <span class="expand-icon">+</span>
+                  <span>Click to expand</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        
+        <button class="scroll-nav-btn scroll-next" onclick="scrollSponsors('right')" aria-label="Next sponsors">
+          <span>›</span>
+        </button>
+      </div>
+  
+      <!-- Scroll Indicators -->
+      <div class="scroll-dots" id="scrollDots">
+        <span class="scroll-dot active" data-index="0"></span>
+        <span class="scroll-dot" data-index="1"></span>
+        <span class="scroll-dot" data-index="2"></span>
+        <span class="scroll-dot" data-index="3"></span>
+      </div>
+  
+      <!-- Expanded Content Area (Below Scroll) -->
+      <div class="sponsor-expanded-area" id="sponsorExpandedArea">
+        
+        <!-- Globo Hydro Power Expanded -->
+        <div class="sponsor-expanded-panel" id="ghp-expanded" data-sponsor="ghp">
+          <button class="close-expanded" onclick="closeExpanded()" aria-label="Close">×</button>
+          <div class="expanded-inner">
+            <div class="expanded-visual">
+              <div class="expanded-logo-frame">
+                <img src="Sponsors/Sponsor1.jpeg" alt="Globo Hydro Power" decoding="async" loading="lazy">
+              </div>
+            </div>
+            <div class="expanded-content">
+              <h3 class="handwriting-fancy large">Clean Energy Technology Partner</h3>
+              <p class="handwriting-formal medium">Hydrogen-Enhanced Internal Combustion Engine Solutions</p>
+              <p class="expanded-description">Globo Hydro Power™ (GHP™) is an industry-leading fuel enhancement system that upgrades traditional petrol and diesel engines into cost-saving, emissions-reducing hydrogen hybrids. Their patented technology delivers up to 50% reduced fuel consumption and significant carbon emission reductions for trucks, buses, and power generators.</p>
+              <div class="expanded-stats">
+                <div class="stat-item"><span>50%</span> Fuel Reduction</div>
+                <div class="stat-item"><span>46%</span> Emission Cut</div>
+                <div class="stat-item"><span>Global</span> Deployment</div>
+              </div>
+              <a href="https://globohydropower.com/" target="_blank" class="expanded-cta">Explore GHP Technology →</a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- National Alcohol Expanded -->
+        <div class="sponsor-expanded-panel" id="nalf-expanded" data-sponsor="nalf">
+          <button class="close-expanded" onclick="closeExpanded()" aria-label="Close">×</button>
+          <div class="expanded-inner">
+            <div class="expanded-visual">
+              <div class="expanded-logo-frame">
+                <img src="Sponsors/Sponsor2.jpeg" alt="National Alcohol" decoding="async" loading="lazy">
+              </div>
+            </div>
+            <div class="expanded-content">
+              <h3 class="handwriting-fancy large">Industrial Excellence Partner</h3>
+              <p class="handwriting-formal medium">Pioneering Ethiopian Alcohol Production Since 1906</p>
+              <p class="expanded-description">National Alcohol & Liquor Factory (NALF) is Ethiopia's largest producer of pure alcohol, denatured alcohol, and premium liquors. With facilities in Sebeta and Mekanissa, NALF produces over 10 million litres annually, supplying both domestic and international markets.</p>
+              <div class="expanded-stats">
+                <div class="stat-item"><span>10M+</span> Litres/Year</div>
+                <div class="stat-item"><span>Since</span> 1906</div>
+                <div class="stat-item"><span>Global</span> Export</div>
+              </div>
+              <a href="https://www.nalf.com.et/" target="_blank" class="expanded-cta">Explore NALF Products →</a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Toyo Solar Expanded -->
+        <div class="sponsor-expanded-panel" id="toyo-expanded" data-sponsor="toyo">
+          <button class="close-expanded" onclick="closeExpanded()" aria-label="Close">×</button>
+          <div class="expanded-inner">
+            <div class="expanded-visual">
+              <div class="expanded-logo-frame">
+                <img src="Sponsors/Sponsor4.jpeg" alt="Toyo Solar" decoding="async" loading="lazy">
+              </div>
+            </div>
+            <div class="expanded-content">
+              <h3 class="handwriting-fancy large">Renewable Energy Partner</h3>
+              <p class="handwriting-formal medium">Advanced Solar Cell & Module Manufacturing</p>
+              <p class="expanded-description">Toyo Solar is a fast-growing, full-service solar solutions company with 4GW manufacturing capacity in Ethiopia and operations in Vietnam and the USA. Utilizing TOPCon cell technology, Toyo Solar delivers high-efficiency, traceable solar products worldwide.</p>
+              <div class="expanded-stats">
+                <div class="stat-item"><span>4GW</span> Capacity</div>
+                <div class="stat-item"><span>TOPCon</span> Technology</div>
+                <div class="stat-item"><span>Global</span> Reach</div>
+              </div>
+              <a href="https://www.toyo-solar.com/" target="_blank" class="expanded-cta">Explore Toyo Solar →</a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Hyatt Expanded -->
+        <div class="sponsor-expanded-panel" id="hyatt-expanded" data-sponsor="hyatt">
+          <button class="close-expanded" onclick="closeExpanded()" aria-label="Close">×</button>
+          <div class="expanded-inner">
+            <div class="expanded-visual">
+              <div class="expanded-logo-frame">
+                <img src="Sponsors/Sponsor7.jpeg" alt="Hyatt Regency" decoding="async" loading="lazy">
+              </div>
+            </div>
+            <div class="expanded-content">
+              <h3 class="handwriting-fancy large">Premium Hospitality Partner</h3>
+              <p class="handwriting-formal medium">African First Ladies Initiative for Emission Reduction and Poverty Alleviation</p>
+              <p class="expanded-description">Experience unparalleled luxury at Hyatt Regency Addis Ababa, the official accommodation partner for AFLI 2026. Located in the heart of the city with world-class amenities and sustainable hospitality practices.</p>
+              <div class="expanded-stats">
+                <div class="stat-item"><span>5-Star</span> Luxury</div>
+                <div class="stat-item"><span>Prime</span> Location</div>
+                <div class="stat-item"><span>Sustainable</span> Practices</div>
+              </div>
+              <a href="https://mussieaf.github.io/Concept_note/haytt.html" target="_blank" class="expanded-cta">Explore Hyatt Regency →</a>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+  
+    </div>
+  </div>
  
     
 
@@ -9348,7 +9454,7 @@ const totalSponsors = 4;
 function scrollSponsors(direction) {
   const container = document.getElementById('sponsorsScrollContainer');
   const items = container.querySelectorAll('.sponsor-scroll-item');
-  const itemWidth = items[0].offsetWidth + 24; // width + gap
+  const itemWidth = items[0].offsetWidth + 20; // width + gap
   
   if (direction === 'left') {
     currentScrollIndex = Math.max(0, currentScrollIndex - 1);
@@ -9367,7 +9473,7 @@ function scrollSponsors(direction) {
 function updateScrollDots() {
   const container = document.getElementById('sponsorsScrollContainer');
   const scrollLeft = container.scrollLeft;
-  const itemWidth = container.querySelector('.sponsor-scroll-item').offsetWidth + 24;
+  const itemWidth = container.querySelector('.sponsor-scroll-item').offsetWidth + 20;
   const index = Math.round(scrollLeft / itemWidth);
   
   document.querySelectorAll('.scroll-dot').forEach((dot, i) => {
@@ -9388,7 +9494,7 @@ document.querySelectorAll('.scroll-dot').forEach((dot, index) => {
   dot.addEventListener('click', () => {
     const container = document.getElementById('sponsorsScrollContainer');
     const items = container.querySelectorAll('.sponsor-scroll-item');
-    const itemWidth = items[0].offsetWidth + 24;
+    const itemWidth = items[0].offsetWidth + 20;
     
     currentScrollIndex = index;
     container.scrollTo({
