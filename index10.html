@@ -2,7 +2,7 @@
 <html lang="en"> 
 <head>      
   <meta charset="UTF-8"> 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">   
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">     
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin>
@@ -3318,10 +3318,10 @@
       transform: scale(1.05);
     }
 
+
+
+
     /* Sponsor Link Styles */
-    /* Import fancy handwriting font */
-    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Parisienne&family=Tangerine:wght@700&display=swap'); 
-    
     .hyatt-sponsor-link {
       position: relative;
       cursor: pointer;
@@ -3360,6 +3360,23 @@
       color: #664ea1;
     }
     
+    /* Hyatt Section - No Dropdown */
+    .hyatt-header-static {
+      cursor: default !important;
+      pointer-events: none;
+    }
+    
+    .hyatt-header-static .section-toggle-icon {
+      display: none !important;
+    }
+    
+    .hyatt-content-visible {
+      max-height: none !important;
+      opacity: 1 !important;
+      padding: 30px !important;
+      overflow: visible !important;
+    }
+    
     /* Hyatt Regency Showcase Styles */
     .hyatt-showcase {
       background: linear-gradient(135deg, #f8f6ff 0%, #f0edfc 50%, #e8e4f7 100%);
@@ -3368,13 +3385,6 @@
     
     .hyatt-showcase .section-header-glass {
       background: linear-gradient(135deg, rgba(102, 78, 161, 0.1) 0%, rgba(138, 116, 188, 0.1) 100%);
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    
-    .hyatt-showcase .section-header-glass:hover {
-      background: linear-gradient(135deg, rgba(102, 78, 161, 0.2) 0%, rgba(138, 116, 188, 0.2) 100%);
-      padding-left: 55px;
     }
     
     .hyatt-showcase .section-header-glass h2 {
@@ -3440,35 +3450,13 @@
       margin: 0;
     }
     
-    /* Fancy Handwriting Font for Headline */
-    .handwriting-fancy {
-      font-family: 'Great Vibes', 'Parisienne', 'Tangerine', cursive;
+    .hyatt-headline {
       color: #4a3f7a;
-      font-size: 42px;
-      font-weight: 400;
+      font-size: 28px;
+      font-weight: 300;
       margin: 0 0 10px 0;
-      letter-spacing: 2px;
-      text-shadow: 2px 2px 4px rgba(102, 78, 161, 0.1);
-      line-height: 1.3;
-    }
-
-    .handwriting-premium {
-      font-family: 'Great Vibes', cursive;
-      font-size: 42px;
-      color: #c9a227;
-      margin: 0 0 10px 0;
-      font-weight: normal;
-      letter-spacing: 2px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-    }
-    
-    .stxingkai-forum {
-      font-family: 'STXingkai', 'Xingkai SC', 'KaiTi', serif;
-      font-size: 20px;
-      color: #1a1a2e;
-      margin: 0 0 20px 0;
-      font-weight: 500;
-      line-height: 1.5;
+      font-family: 'Georgia', serif;
+      letter-spacing: 1px;
     }
     
     .hyatt-subline {
@@ -3744,7 +3732,7 @@
       font-size: 20px;
     }
     
-    /* Mobile Responsive */
+    /* Mobile Responsive - FIXED */
     @media (max-width: 1024px) {
       .hyatt-visual-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -3758,20 +3746,46 @@
       .hyatt-feature-card.large .feature-image-wrapper {
         height: 250px;
       }
+      
+      .exterior-image-container {
+        height: 350px;
+      }
     }
     
     @media (max-width: 768px) {
-      .handwriting-fancy {
-        font-size: 32px;
+      .hyatt-headline {
+        font-size: 22px;
+      }
+      
+      .hyatt-subline {
+        font-size: 14px;
       }
       
       .hyatt-visual-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
       }
       
       .hyatt-feature-card.large,
       .hyatt-feature-card.wide {
         grid-column: span 1;
+      }
+      
+      .hyatt-feature-card.large .feature-image-wrapper,
+      .hyatt-feature-card.wide .feature-image-wrapper {
+        height: 220px;
+      }
+      
+      .feature-content {
+        padding: 20px;
+      }
+      
+      .feature-content h4 {
+        font-size: 18px;
+      }
+      
+      .hyatt-feature-card.large .feature-content h4 {
+        font-size: 20px;
       }
       
       .offer-pattern-left,
@@ -3783,14 +3797,19 @@
         padding: 30px 20px;
       }
       
+      .offer-content h4 {
+        font-size: 20px;
+      }
+      
       .exterior-image-container {
-        height: 300px;
+        height: 280px;
       }
       
       .exterior-details {
         flex-direction: column;
         gap: 15px;
         align-items: center;
+        padding: 20px;
       }
       
       .exterior-overlay {
@@ -3802,13 +3821,109 @@
         text-align: center;
         gap: 10px;
       }
+      
+      .location-badge strong {
+        font-size: 16px;
+      }
+      
+      .hyatt-brand-header {
+        padding: 30px 15px;
+      }
+      
+      .hyatt-logo-main {
+        max-width: 200px;
+      }
+      
+      .pattern-divider {
+        margin: 30px 0;
+      }
+      
+      .hyatt-content-visible {
+        padding: 20px !important;
+      }
     }
     
     @media (max-width: 480px) {
-      .handwriting-fancy {
-        font-size: 26px;
+      .hyatt-headline {
+        font-size: 18px;
+      }
+      
+      .hyatt-tagline {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .hyatt-tagline p {
+        font-size: 12px;
+        letter-spacing: 2px;
+      }
+      
+      .elegant-line {
+        display: none;
+      }
+      
+      .feature-image-wrapper,
+      .hyatt-feature-card.large .feature-image-wrapper,
+      .hyatt-feature-card.wide .feature-image-wrapper {
+        height: 180px;
+      }
+      
+      .feature-badge {
+        font-size: 10px;
+        padding: 6px 12px;
+      }
+      
+      .exterior-image-container {
+        height: 220px;
+      }
+      
+      .detail-item {
+        font-size: 13px;
+        text-align: center;
+      }
+      
+      .detail-icon {
+        font-size: 18px;
+      }
+      
+      .offer-content {
+        padding: 25px 15px;
+      }
+      
+      .offer-icon {
+        font-size: 36px;
+      }
+      
+      .offer-content h4 {
+        font-size: 18px;
+      }
+      
+      .offer-content p {
+        font-size: 13px;
+      }
+      
+      .hyatt-cta-button {
+        padding: 12px 28px;
+        font-size: 14px;
+      }
+      
+      .hyatt-content-visible {
+        padding: 15px !important;
+      }
+      
+      .hyatt-brand-header {
+        padding: 25px 12px;
+        border-radius: 16px;
+      }
+      
+      .hyatt-logo-main {
+        max-width: 160px;
       }
     }
+
+
+
+    
 
     .participants-section {
       margin: 30px auto;
@@ -7556,6 +7671,177 @@
       </div>
     </div>
   </div>
+
+
+
+
+  <!-- SPONSORS SECTION WITH HYPERLINKED HYATT LOGO -->
+    <div class="artistic-section" id="sponsors">
+      <div class="section-header-glass" onclick="toggleArtisticSection('sponsors')">
+        <h2><span>💰</span>Sponsors</h2>
+        <span class="section-toggle-icon">▼</span>
+      </div>
+      <div class="section-content-glass">
+        <div class="gallery-enhanced">
+          <a href="https://mussieaf.github.io/Concept_note/haytt.html " target="_blank" class="gallery-item-glass hyatt-sponsor-link" title="Hyatt Regency Addis Ababa - Premium Hospitality Partner">
+            <img src="Sponsors/Sponsor7.jpeg" alt="Hyatt Regency Addis Ababa" decoding="async" loading="lazy">
+            <div class="hyatt-hover-overlay">
+              <span class="hyatt-view-text">View Details →</span>
+            </div>
+          </a>
+          <div class="gallery-item-glass">
+            <img src="Sponsors/Sponsor1.jpeg" alt="Sponsor 1" decoding="async" loading="lazy">
+          </div> 
+          <div class="gallery-item-glass">
+            <img src="Sponsors/Sponsor2.jpeg" alt="Sponsor 2" decoding="async" loading="lazy">
+          </div>          
+          <div class="gallery-item-glass">
+            <img src="Sponsors/Sponsor4.jpeg" alt="Sponsor 4" decoding="async" loading="lazy">
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    
+    <!-- HYATT REGENCY SPONSOR SHOWCASE SECTION - NO DROPDOWN -->
+    <div class="artistic-section hyatt-showcase" id="hyatt-sponsor">
+      <div class="section-header-glass hyatt-header-static">
+        <h2><span>🏨</span>Proudly Hosted By</h2>
+      </div>
+      <div class="section-content-glass hyatt-content-visible">
+        
+        <!-- Hyatt Logo & Brand Header -->
+        <div class="hyatt-brand-header">
+          <div class="logo-container">
+            <img src="Sponsors/Sponsor7.jpeg" alt="Hyatt Regency Addis Ababa" class="hyatt-logo-main" decoding="async" loading="lazy">
+          </div>
+          <div class="hyatt-tagline">
+            <span class="elegant-line">✦</span>
+            <p>Premium Accommodation Partner</p>
+            <span class="elegant-line">✦</span>
+          </div>
+          <h3 class="hyatt-headline">Experience Unparalleled Luxury in the Heart of Addis Ababa</h3>
+          <p class="stxingkai-forum">African First Ladies Initiative for Emission Reduction and Poverty Alleviation</p>
+          <h3 class="hyatt-headline handwriting-fancy">Experience Unparalleled Luxury in the Heart of Addis Ababa</h3>
+          <p class="hyatt-subline">March 17-19, 2026 | Meskel Square</p>
+        </div>
+    
+        <!-- Artistic Pattern Divider -->
+        <div class="pattern-divider">
+          <div class="pattern-line"></div>
+          <div class="pattern-ornament">❖</div>
+          <div class="pattern-line"></div>
+        </div>
+    
+        <!-- Visual Showcase Grid -->
+        <div class="hyatt-visual-grid">
+          
+          <!-- Accommodation Feature -->
+          <div class="hyatt-feature-card large">
+            <div class="feature-image-wrapper">
+              <img src="https://kimi-web-img.moonshot.cn/img/assets.hyatt.com/1af61d5f8f98b0e811c2e49ff50e9898bfd6f15c.jpg " alt="Hyatt Regency Presidential Suite" class="feature-image" decoding="async" loading="lazy">
+              <div class="image-overlay">
+                <span class="feature-badge">Luxury Accommodation</span>
+              </div>
+            </div>
+            <div class="feature-content">
+              <h4>Elegant Suites & Rooms</h4>
+              <p>188 meticulously appointed rooms and suites featuring modern Ethiopian design, panoramic city views, and world-class amenities for the discerning AFLI 2026 delegate.</p>
+            </div>
+          </div>
+    
+          <!-- Cuisine Feature -->
+          <div class="hyatt-feature-card">
+            <div class="feature-image-wrapper">
+              <img src="https://kimi-web-img.moonshot.cn/img/dynamic-media-cdn.tripadvisor.com/6e65a23f81fc1e53c890691c59f6f2898c47e477.jpg " alt="The Kitchen Restaurant" class="feature-image" decoding="async" loading="lazy">
+              <div class="image-overlay">
+                <span class="feature-badge">Fine Dining</span>
+              </div>
+            </div>
+            <div class="feature-content">
+              <h4>Exquisite Culinary Journeys</h4>
+              <p>Savor masterfully crafted dishes at The Kitchen, where Western barbecue meets Asian cuisine, complemented by authentic Ethiopian flavors and international gourmet selections.</p>
+            </div>
+          </div>
+    
+          <!-- Wellness Feature -->
+          <div class="hyatt-feature-card">
+            <div class="feature-image-wrapper">
+              <img src="https://kimi-web-img.moonshot.cn/img/ik.imgkit.net/5acdb35e96f091cd09ff85a0ba5bd98b2494b611.jpg " alt="Hyatt Regency Spa" class="feature-image" decoding="async" loading="lazy">
+              <div class="image-overlay">
+                <span class="feature-badge">Wellness & Spa</span>
+              </div>
+            </div>
+            <div class="feature-content">
+              <h4>Tranquil Spa Sanctuary</h4>
+              <p>Rejuvenate at our full-service spa offering traditional Ethiopian treatments, modern therapies, sauna, and steam rooms—perfect for relaxation after forum sessions.</p>
+            </div>
+          </div>
+    
+          <!-- Pool & Recreation Feature -->
+          <div class="hyatt-feature-card wide">
+            <div class="feature-image-wrapper">
+              <img src="https://kimi-web-img.moonshot.cn/img/assets.hyatt.com/2d155b417b82b32113aa4b170bc0c3de700234fc.jpg " alt="Hyatt Regency Swimming Pool" class="feature-image" decoding="async" loading="lazy">
+              <div class="image-overlay">
+                <span class="feature-badge">Recreation</span>
+              </div>
+            </div>
+            <div class="feature-content">
+              <h4>Serene Outdoor Pool & Fitness</h4>
+              <p>Unwind at our stunning outdoor swimming pool surrounded by lush gardens, or maintain your wellness routine at our state-of-the-art fitness center—complimentary for all forum guests.</p>
+            </div>
+          </div>
+    
+        </div>
+    
+        <!-- Special Offer Banner -->
+        <div class="hyatt-offer-banner">
+          <div class="offer-pattern-left"></div>
+          <div class="offer-content">
+            <span class="offer-icon">🎁</span>
+            <h4>Exclusive AFLI 2026 Delegate Rates</h4>
+            <p>Special accommodation packages available for forum participants. Experience 5-star luxury with preferential rates, complimentary breakfast, and exclusive access to Regency Club Lounge.</p>
+            <a href="#register" class="hyatt-cta-button">Reserve Your Stay</a>
+          </div>
+          <div class="offer-pattern-right"></div>
+        </div>
+    
+        <!-- Hotel Exterior Showcase -->
+        <div class="hyatt-exterior-showcase">
+          <div class="exterior-image-container">
+            <img src="https://kimi-web-img.moonshot.cn/img/assets.hyatt.com/74c0df28c1e39d0ee7078980090c29a6bbd0add5.jpg " alt="Hyatt Regency Addis Ababa Exterior" class="exterior-image" decoding="async" loading="lazy">
+            <div class="exterior-overlay">
+              <div class="location-badge">
+                <span>📍</span>
+                <div>
+                  <strong>Prime Location</strong>
+                  <p>Meskel Square, Addis Ababa</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="exterior-details">
+            <div class="detail-item">
+              <span class="detail-icon">✈️</span>
+              <span>15 min from Bole International Airport</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-icon">🏛️</span>
+              <span>Walking distance to National Palace</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-icon">🌟</span>
+              <span>5-Star Luxury Service</span>
+            </div>
+          </div>
+        </div>
+    
+      </div>
+    </div>
+
+
+
+    
 
   <!-- SPONSORS SECTION WITH HYPERLINKED HYATT LOGO -->
   <div class="artistic-section" id="sponsors">
