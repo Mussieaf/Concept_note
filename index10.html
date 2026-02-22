@@ -3,7 +3,7 @@
 <head>      
   <meta charset="UTF-8">  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">          
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">           
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin>
   <link rel="preconnect" href="https://www.google.com">
@@ -4073,7 +4073,217 @@
       }
     }
 
-
+      /* ===== PARTNERS SIDE SCROLLING - SAME AS SPONSORS ===== */
+      .partners-scroll-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .partners-scroll-container {
+        display: flex;
+        gap: 1.25rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        padding: 1rem 0.5rem;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        flex: 1;
+      }
+      
+      .partners-scroll-container::-webkit-scrollbar {
+        display: none;
+      }
+      
+      .partner-scroll-item {
+        flex: 0 0 220px;
+        scroll-snap-align: start;
+      }
+      
+      .partner-card-compact {
+        background: linear-gradient(145deg, #ffffff 0%, #f8f6ff 50%, #f0edfc 100%);
+        border: 2px solid rgba(102, 78, 161, 0.12);
+        border-radius: 20px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 4px 20px rgba(102, 78, 161, 0.08);
+      }
+      
+      .partner-card-compact:hover {
+        transform: translateY(-6px);
+        border-color: rgba(102, 78, 161, 0.3);
+        box-shadow: 0 12px 35px rgba(102, 78, 161, 0.18);
+      }
+      
+      .partner-card-compact.active {
+        border-color: var(--green);
+        box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.15), 0 12px 35px rgba(102, 78, 161, 0.22);
+      }
+      
+      .partner-logo-container {
+        position: relative;
+        height: 140px;
+        background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        overflow: hidden;
+      }
+      
+      .partner-logo-frame {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        z-index: 2;
+      }
+      
+      .partner-logo-frame img {
+        max-width: 85%;
+        max-height: 85%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        transition: transform 0.4s ease;
+      }
+      
+      .partner-card-compact:hover .partner-logo-frame img {
+        transform: scale(1.08);
+      }
+      
+      .partner-logo-shine {
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+          45deg,
+          transparent 30%,
+          rgba(255,255,255,0.4) 50%,
+          transparent 70%
+        );
+        transform: rotate(45deg) translateX(-100%);
+        transition: transform 0.6s ease;
+        z-index: 3;
+        pointer-events: none;
+      }
+      
+      .partner-card-compact:hover .partner-logo-shine {
+        transform: rotate(45deg) translateX(100%);
+      }
+      
+      .partner-card-info {
+        padding: 1rem 1.25rem 1.25rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(248,246,255,0.95) 100%);
+      }
+      
+      .partner-card-info .handwriting-fancy {
+        font-size: 1.25rem;
+        color: #c9a227;
+        margin-bottom: 0.4rem;
+        line-height: 1.2;
+        display: block;
+      }
+      
+      .partner-card-info .handwriting-formal {
+        font-size: 0.95rem;
+        color: #5a4a7a;
+        line-height: 1.35;
+        display: block;
+        flex: 1;
+      }
+      
+      .partner-expanded-area {
+        position: relative;
+        min-height: 0;
+        transition: all 0.5s ease;
+      }
+      
+      .partner-expanded-panel {
+        display: none;
+        background: linear-gradient(145deg, #ffffff 0%, #f8f6ff 50%, #f0edfc 100%);
+        border: 2px solid rgba(102, 78, 161, 0.15);
+        border-radius: 24px;
+        padding: 2rem;
+        animation: slideDown 0.4s ease;
+      }
+      
+      .partner-expanded-panel.active {
+        display: block;
+      }
+      
+      .partners-scroll-dots {
+        display: flex;
+        justify-content: center;
+        gap: 0.6rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      /* Mobile Responsive for Partners */
+      @media (max-width: 768px) {
+        .partner-scroll-item {
+          flex: 0 0 180px;
+        }
+        
+        .partner-logo-container {
+          height: 120px;
+          padding: 0.75rem;
+        }
+        
+        .partner-logo-frame img {
+          max-width: 90%;
+          max-height: 90%;
+        }
+        
+        .partner-card-info {
+          padding: 0.875rem 1rem 1rem;
+        }
+        
+        .partner-card-info .handwriting-fancy {
+          font-size: 1.1rem;
+        }
+        
+        .partner-card-info .handwriting-formal {
+          font-size: 0.85rem;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .partner-scroll-item {
+          flex: 0 0 160px;
+        }
+        
+        .partner-logo-container {
+          height: 100px;
+        }
+        
+        .partner-card-info {
+          padding: 0.75rem;
+        }
+        
+        .partner-card-info .handwriting-fancy {
+          font-size: 1rem;
+        }
+        
+        .partner-card-info .handwriting-formal {
+          font-size: 0.8rem;
+        }
+      }
     
 
     
@@ -8044,34 +8254,261 @@
   </div>
  
     
-
-    
-
-  <!-- PARTNERS SECTION -->
+  <!-- PARTNERS SECTION WITH SIDE SCROLLING & EXPANDING DROPDOWNS -->
   <div class="artistic-section" id="partners">
     <div class="section-header-glass" onclick="toggleArtisticSection('partners')">
       <h2><span>🫂</span>Partners</h2>
       <span class="section-toggle-icon">▼</span>
     </div>
     <div class="section-content-glass">
-      <div class="gallery-enhanced">
+      
+      <!-- Horizontal Scroll Container -->
+      <div class="partners-scroll-wrapper">
+        <button class="scroll-nav-btn scroll-prev" onclick="scrollPartners('left')" aria-label="Previous partners">
+          <span>‹</span>
+        </button>
         
-        <div class="gallery-item-glass hyatt-sponsor-item" onclick="openHyattSection()">
-          <img src="Sponsors/Sponsor8.jpeg" alt="Sponsor 8" decoding="async" loading="lazy">
-        </div>      
-        <div class="gallery-item-glass hyatt-sponsor-item" onclick="openHyattSection()">
-          <img src="Sponsors/Sponsor3.jpeg" alt="Sponsor 2" decoding="async" loading="lazy">
+        <div class="partners-scroll-container" id="partnersScrollContainer">
+          
+          <!-- Partner 1: Africa International Policy Research Center -->
+          <div class="partner-scroll-item" data-partner="aiprc">
+            <div class="partner-card-compact" onclick="expandPartner('aiprc')">
+              <div class="partner-logo-container">
+                <div class="partner-logo-frame">
+                  <img src="Partners/Partner1.jpeg" alt="Africa International Policy Research Center" decoding="async" loading="lazy">
+                </div>
+                <div class="partner-logo-shine"></div>
+              </div>
+              <div class="partner-card-info">
+                <span class="handwriting-fancy">Policy Research Partner</span>
+                <span class="handwriting-formal">Strategic Governance & Development Finance</span>
+                <div class="expand-hint">
+                  <span class="expand-icon">+</span>
+                  <span>Click to expand</span>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Partner 2: MAEC Capital -->
+          <div class="partner-scroll-item" data-partner="maec">
+            <div class="partner-card-compact" onclick="expandPartner('maec')">
+              <div class="partner-logo-container">
+                <div class="partner-logo-frame">
+                  <img src="Partners/Partner2.jpeg" alt="MAEC Capital" decoding="async" loading="lazy">
+                </div>
+                <div class="partner-logo-shine"></div>
+              </div>
+              <div class="partner-card-info">
+                <span class="handwriting-fancy">Investment Partner</span>
+                <span class="handwriting-formal">Sustainable Infrastructure Financing</span>
+                <div class="expand-hint">
+                  <span class="expand-icon">+</span>
+                  <span>Click to expand</span>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Partner 3: Union Global -->
+          <div class="partner-scroll-item" data-partner="union">
+            <div class="partner-card-compact" onclick="expandPartner('union')">
+              <div class="partner-logo-container">
+                <div class="partner-logo-frame">
+                  <img src="Partners/Partner3.jpeg" alt="Union Global" decoding="async" loading="lazy">
+                </div>
+                <div class="partner-logo-shine"></div>
+              </div>
+              <div class="partner-card-info">
+                <span class="handwriting-fancy">Strategic Partner</span>
+                <span class="handwriting-formal">Global Trade & Economic Development</span>
+                <div class="expand-hint">
+                  <span class="expand-icon">+</span>
+                  <span>Click to expand</span>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Partner 4: Ethio Promotion -->
+          <div class="partner-scroll-item" data-partner="ethio">
+            <div class="partner-card-compact" onclick="expandPartner('ethio')">
+              <div class="partner-logo-container">
+                <div class="partner-logo-frame">
+                  <img src="Partners/Partner4.jpeg" alt="Ethio Promotion" decoding="async" loading="lazy">
+                </div>
+                <div class="partner-logo-shine"></div>
+              </div>
+              <div class="partner-card-info">
+                <span class="handwriting-fancy">Promotion Partner</span>
+                <span class="handwriting-formal">Ethiopian Investment & Trade Promotion</span>
+                <div class="expand-hint">
+                  <span class="expand-icon">+</span>
+                  <span>Click to expand</span>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Partner 5: Sweden Environment Institute -->
+          <div class="partner-scroll-item" data-partner="sei">
+            <div class="partner-card-compact" onclick="expandPartner('sei')">
+              <div class="partner-logo-container">
+                <div class="partner-logo-frame">
+                  <img src="Partners/Partner5.jpeg" alt="Sweden Environment Institute" decoding="async" loading="lazy">
+                </div>
+                <div class="partner-logo-shine"></div>
+              </div>
+              <div class="partner-card-info">
+                <span class="handwriting-fancy">Environmental Partner</span>
+                <span class="handwriting-formal">Climate Research & Sustainability Science</span>
+                <div class="expand-hint">
+                  <span class="expand-icon">+</span>
+                  <span>Click to expand</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
         </div>
-        <div class="gallery-item-glass hyatt-sponsor-item" onclick="openHyattSection()">
-          <img src="Sponsors/Sponsor5.jpeg" alt="Sponsor 5" decoding="async" loading="lazy">
-        </div>
-        <div class="gallery-item-glass hyatt-sponsor-item" onclick="openHyattSection()">
-          <img src="Sponsors/Sponsor6.jpeg" alt="Sponsor 6" decoding="async" loading="lazy">
-        </div>
+        
+        <button class="scroll-nav-btn scroll-next" onclick="scrollPartners('right')" aria-label="Next partners">
+          <span>›</span>
+        </button>
       </div>
+  
+      <!-- Scroll Indicators -->
+      <div class="scroll-dots partners-scroll-dots" id="partnersScrollDots">
+        <span class="scroll-dot active" data-index="0"></span>
+        <span class="scroll-dot" data-index="1"></span>
+        <span class="scroll-dot" data-index="2"></span>
+        <span class="scroll-dot" data-index="3"></span>
+        <span class="scroll-dot" data-index="4"></span>
+      </div>
+  
+      <!-- Expanded Content Area (Below Scroll) -->
+      <div class="partner-expanded-area" id="partnerExpandedArea">
+        
+        <!-- AIPRC Expanded -->
+        <div class="partner-expanded-panel" id="aiprc-expanded" data-partner="aiprc">
+          <button class="close-expanded" onclick="closePartnerExpanded()" aria-label="Close">×</button>
+          <div class="expanded-inner">
+            <div class="expanded-visual">
+              <div class="expanded-logo-frame">
+                <img src="Partners/Partner1.jpeg" alt="Africa International Policy Research Center" decoding="async" loading="lazy">
+              </div>
+            </div>
+            <div class="expanded-content">
+              <h3 class="handwriting-fancy large">Policy Research Partner</h3>
+              <p class="handwriting-formal medium">Strategic Governance & Development Finance</p>
+              <p class="expanded-description">Africa International Policy Research Center (AIPRC) is a multilingual expert organization leveraging 10+ years of advising global institutions on governance and development finance. They deliver sustainable, high-level strategic impact across Africa through evidence-based policy research and strategic advisory services.</p>
+              <div class="expanded-stats">
+                <div class="stat-item"><span>10+</span> Years Experience</div>
+                <div class="stat-item"><span>Global</span> Reach</div>
+                <div class="stat-item"><span>Strategic</span> Impact</div>
+              </div>
+              <a href="#" target="_blank" class="expanded-cta">Explore AIPRC →</a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- MAEC Capital Expanded -->
+        <div class="partner-expanded-panel" id="maec-expanded" data-partner="maec">
+          <button class="close-expanded" onclick="closePartnerExpanded()" aria-label="Close">×</button>
+          <div class="expanded-inner">
+            <div class="expanded-visual">
+              <div class="expanded-logo-frame">
+                <img src="Partners/Partner2.jpeg" alt="MAEC Capital" decoding="async" loading="lazy">
+              </div>
+            </div>
+            <div class="expanded-content">
+              <h3 class="handwriting-fancy large">Investment Partner</h3>
+              <p class="handwriting-formal medium">Sustainable Infrastructure Financing</p>
+              <p class="expanded-description">MAEC Capital specializes in sustainable infrastructure financing and investment advisory services. They focus on bridging the gap between development needs and capital markets, facilitating large-scale public-private partnerships across diverse sectors including energy, transportation, and social infrastructure.</p>
+              <div class="expanded-stats">
+                <div class="stat-item"><span>$50B</span> Platform</div>
+                <div class="stat-item"><span>PPP</span> Focus</div>
+                <div class="stat-item"><span>Sustainable</span> Finance</div>
+              </div>
+              <a href="#" target="_blank" class="expanded-cta">Explore MAEC Capital →</a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Union Global Expanded -->
+        <div class="partner-expanded-panel" id="union-expanded" data-partner="union">
+          <button class="close-expanded" onclick="closePartnerExpanded()" aria-label="Close">×</button>
+          <div class="expanded-inner">
+            <div class="expanded-visual">
+              <div class="expanded-logo-frame">
+                <img src="Partners/Partner3.jpeg" alt="Union Global" decoding="async" loading="lazy">
+              </div>
+            </div>
+            <div class="expanded-content">
+              <h3 class="handwriting-fancy large">Strategic Partner</h3>
+              <p class="handwriting-formal medium">Global Trade & Economic Development</p>
+              <p class="expanded-description">Union Global is a strategic partner facilitating international trade and economic development initiatives. They connect markets, enable cross-border investments, and support sustainable economic growth through innovative trade finance solutions and strategic business development services.</p>
+              <div class="expanded-stats">
+                <div class="stat-item"><span>Global</span> Network</div>
+                <div class="stat-item"><span>Trade</span> Finance</div>
+                <div class="stat-item"><span>Economic</span> Growth</div>
+              </div>
+              <a href="#" target="_blank" class="expanded-cta">Explore Union Global →</a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Ethio Promotion Expanded -->
+        <div class="partner-expanded-panel" id="ethio-expanded" data-partner="ethio">
+          <button class="close-expanded" onclick="closePartnerExpanded()" aria-label="Close">×</button>
+          <div class="expanded-inner">
+            <div class="expanded-visual">
+              <div class="expanded-logo-frame">
+                <img src="Partners/Partner4.jpeg" alt="Ethio Promotion" decoding="async" loading="lazy">
+              </div>
+            </div>
+            <div class="expanded-content">
+              <h3 class="handwriting-fancy large">Promotion Partner</h3>
+              <p class="handwriting-formal medium">Ethiopian Investment & Trade Promotion</p>
+              <p class="expanded-description">Ethio Promotion is dedicated to showcasing Ethiopia's investment opportunities and promoting trade relations with international partners. They facilitate business matchmaking, investment facilitation, and market entry services for companies looking to engage with Ethiopia's growing economy.</p>
+              <div class="expanded-stats">
+                <div class="stat-item"><span>Investment</span> Facilitation</div>
+                <div class="stat-item"><span>Trade</span> Promotion</div>
+                <div class="stat-item"><span>Market</span> Entry</div>
+              </div>
+              <a href="#" target="_blank" class="expanded-cta">Explore Ethio Promotion →</a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Sweden Environment Institute Expanded -->
+        <div class="partner-expanded-panel" id="sei-expanded" data-partner="sei">
+          <button class="close-expanded" onclick="closePartnerExpanded()" aria-label="Close">×</button>
+          <div class="expanded-inner">
+            <div class="expanded-visual">
+              <div class="expanded-logo-frame">
+                <img src="Partners/Partner5.jpeg" alt="Sweden Environment Institute" decoding="async" loading="lazy">
+              </div>
+            </div>
+            <div class="expanded-content">
+              <h3 class="handwriting-fancy large">Environmental Partner</h3>
+              <p class="handwriting-formal medium">Climate Research & Sustainability Science</p>
+              <p class="expanded-description">The Stockholm Environment Institute (SEI) is an international non-profit research and policy organization that tackles environment and development challenges. They connect science and decision-making to develop solutions for a sustainable future, with particular expertise in climate change, energy systems, and sustainable development.</p>
+              <div class="expanded-stats">
+                <div class="stat-item"><span>Science</span> Based</div>
+                <div class="stat-item"><span>Policy</span> Focus</div>
+                <div class="stat-item"><span>Global</span> Impact</div>
+              </div>
+              <a href="https://www.sei.org/" target="_blank" class="expanded-cta">Explore SEI →</a>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+  
     </div>
   </div>
-
+    
   <!-- INVITED PARTICIPANTS -->
   <div class="artistic-section" id="participants">
     <div class="section-header-glass" onclick="toggleArtisticSection('participants')">
@@ -9542,6 +9979,97 @@ function closeExpanded() {
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeExpanded();
 });
+
+// ===== PARTNERS SIDE SCROLLING =====
+let currentPartnerScrollIndex = 0;
+const totalPartners = 5;
+
+function scrollPartners(direction) {
+  const container = document.getElementById('partnersScrollContainer');
+  const items = container.querySelectorAll('.partner-scroll-item');
+  const itemWidth = items[0].offsetWidth + 20; // width + gap
+  
+  if (direction === 'left') {
+    currentPartnerScrollIndex = Math.max(0, currentPartnerScrollIndex - 1);
+  } else {
+    currentPartnerScrollIndex = Math.min(totalPartners - 1, currentPartnerScrollIndex + 1);
+  }
+  
+  container.scrollTo({
+    left: currentPartnerScrollIndex * itemWidth,
+    behavior: 'smooth'
+  });
+  
+  updatePartnerScrollDots();
+}
+
+function updatePartnerScrollDots() {
+  const container = document.getElementById('partnersScrollContainer');
+  const scrollLeft = container.scrollLeft;
+  const itemWidth = container.querySelector('.partner-scroll-item').offsetWidth + 20;
+  const index = Math.round(scrollLeft / itemWidth);
+  
+  document.querySelectorAll('#partnersScrollDots .scroll-dot').forEach((dot, i) => {
+    dot.classList.toggle('active', i === index);
+  });
+  
+  currentPartnerScrollIndex = index;
+}
+
+// Scroll event listener for partner dots
+document.getElementById('partnersScrollContainer').addEventListener('scroll', () => {
+  clearTimeout(window.partnerScrollTimeout);
+  window.partnerScrollTimeout = setTimeout(updatePartnerScrollDots, 50);
+});
+
+// Click on partner dots
+document.querySelectorAll('#partnersScrollDots .scroll-dot').forEach((dot, index) => {
+  dot.addEventListener('click', () => {
+    const container = document.getElementById('partnersScrollContainer');
+    const items = container.querySelectorAll('.partner-scroll-item');
+    const itemWidth = items[0].offsetWidth + 20;
+    
+    currentPartnerScrollIndex = index;
+    container.scrollTo({
+      left: index * itemWidth,
+      behavior: 'smooth'
+    });
+  });
+});
+
+// ===== EXPAND PARTNER =====
+function expandPartner(partnerId) {
+  // Close any open expanded panel
+  closePartnerExpanded();
+  
+  // Mark card as active
+  document.querySelectorAll('.partner-card-compact').forEach(card => {
+    card.classList.remove('active');
+  });
+  document.querySelector(`[data-partner="${partnerId}"] .partner-card-compact`).classList.add('active');
+  
+  // Show expanded panel
+  const panel = document.getElementById(partnerId + '-expanded');
+  const area = document.getElementById('partnerExpandedArea');
+  
+  panel.classList.add('active');
+  area.style.minHeight = panel.offsetHeight + 'px';
+  
+  // Smooth scroll to expanded content
+  setTimeout(() => {
+    area.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }, 100);
+}
+
+function closePartnerExpanded() {
+  document.querySelectorAll('.partner-expanded-panel').forEach(panel => {
+    panel.classList.remove('active');
+  });
+  document.querySelectorAll('.partner-card-compact').forEach(card => {
+    card.classList.remove('active');
+  });
+  document.getElementById('partnerExpandedArea').style.minHeight = '0';
+}
 
 </script>
 
