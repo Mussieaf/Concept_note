@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Africa First Ladies Initiative for Emission Reduction and Poverty Alleviation Forum 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Italianno&family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --teal-dark: #0a4a4a;
+            --teal-primary: #0d5c5c;
+            --teal-medium: #1a7a7a;
+            --teal-light: #4db8b8;
+            --teal-accent: #5ccccc;
+            --white: #ffffff;
+            --gray-light: #f5f5f5;
+            --gray-text: #666666;
+            --gold: #c9a227;
+            --purple: #4a3f7a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--gray-light);
+            color: var(--teal-dark);
+            line-height: 1.6;
+        }
+
+        /* Header Section - Exact match to reference */
+        .header-section {
+            background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal-primary) 50%, var(--teal-medium) 100%);
+            color: var(--white);
+            padding: 2rem 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex: 1;
+        }
+
+        /* Africa Icon - White silhouette with globe icon */
+        .africa-icon-wrapper {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            flex-shrink: 0;
+        }
+
+        .africa-silhouette {
+            width: 100%;
+            height: 100%;
+            background: var(--white);
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 120'%3E%3Cpath d='M30 10 C25 15, 20 25, 18 35 C15 45, 12 55, 15 65 C18 75, 25 85, 35 90 C40 92, 45 95, 50 98 C55 100, 60 102, 65 100 C70 98, 75 95, 80 90 C85 85, 88 80, 90 75 C92 70, 90 65, 88 60 C86 55, 82 50, 78 45 C74 40, 70 35, 65 30 C60 25, 55 20, 50 15 C45 10, 40 8, 35 8 C32 8, 30 9, 30 10 Z' fill='white'/%3E%3C/svg%3E") no-repeat center;
+            mask-size: contain;
+            -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 120'%3E%3Cpath d='M30 10 C25 15, 20 25, 18 35 C15 45, 12 55, 15 65 C18 75, 25 85, 35 90 C40 92, 45 95, 50 98 C55 100, 60 102, 65 100 C70 98, 75 95, 80 90 C85 85, 88 80, 90 75 C92 70, 90 65, 88 60 C86 55, 82 50, 78 45 C74 40, 70 35, 65 30 C60 25, 55 20, 50 15 C45 10, 40 8, 35 8 C32 8, 30 9, 30 10 Z' fill='white'/%3E%3C/svg%3E") no-repeat center;
+            -webkit-mask-size: contain;
+            position: relative;
+        }
+
+        .globe-icon {
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            width: 35px;
+            height: 35px;
+            background: #1a1a2e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--white);
+        }
+
+        .globe-icon::before {
+            content: "🌍";
+            font-size: 18px;
+            filter: grayscale(100%) brightness(200%);
+        }
+
+        .header-content h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+            text-transform: none;
+            max-width: 500px;
+        }
+
+        .header-date {
+            font-size: 1rem;
+            font-weight: 500;
+            opacity: 0.9;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Endorsement Section - Right side */
+        .header-right {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-left: 1px solid rgba(255,255,255,0.3);
+            padding-left: 2rem;
+            margin-left: 1rem;
+        }
+
+        .endorsed-text {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+            font-weight: 600;
+        }
+
+        .ministry-logo {
+            width: 60px;
+            height: 60px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+            overflow: hidden;
+            padding: 5px;
+        }
+
+        .ministry-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .ministry-text {
+            font-size: 0.65rem;
+            line-height: 1.3;
+            max-width: 150px;
+            text-transform: uppercase;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Subheader Section - Light teal banner */
+        .subheader-section {
+            background: var(--teal-light);
+            padding: 1.5rem 2rem;
+            text-align: left;
+        }
+
+        .subheader-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: var(--white);
+            line-height: 1.4;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 0;
+        }
+
+        /* Guest of Honor Section */
+        .guest-of-honor-section {
+            background: linear-gradient(135deg, #f8f6ff 0%, #f0edfc 50%, #e8e4f7 100%);
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .guest-of-honor-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--teal-light), var(--gold), var(--teal-light));
+            background-size: 200% 100%;
+            animation: shimmer 3s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+        .guest-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .guest-visual {
+            position: relative;
+        }
+
+        .guest-frame {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(74, 63, 122, 0.3);
+            border: 4px solid var(--white);
+        }
+
+        .guest-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            aspect-ratio: 3/4;
+        }
+
+        .guest-badge {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: linear-gradient(135deg, var(--gold) 0%, #d4af37 100%);
+            color: #1a1a2e;
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(201, 162, 39, 0.4);
+            animation: badgePulse 2s infinite;
+            z-index: 10;
+        }
+
+        @keyframes badgePulse {
+            0%, 100% { box-shadow: 0 4px 15px rgba(201, 162, 39, 0.4); }
+            50% { box-shadow: 0 4px 25px rgba(201, 162, 39, 0.7); }
+        }
+
+        .guest-content {
+            padding: 1rem 0;
+        }
+
+        .guest-label {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .guest-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--purple);
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+
+        .guest-title {
+            font-family: 'Italianno', cursive;
+            font-size: 1.8rem;
+            color: var(--teal-medium);
+            margin-bottom: 1.5rem;
+        }
+
+        .guest-country {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(255,255,255,0.8);
+            padding: 0.75rem 1.25rem;
+            border-radius: 30px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .country-flag {
+            width: 40px;
+            height: 26px;
+            object-fit: cover;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .country-name {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--purple);
+            font-size: 1rem;
+        }
+
+        .guest-description {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1rem;
+            max-width: 500px;
+        }
+
+        /* Speakers Section */
+        .speakers-section {
+            background: var(--white);
+            padding: 3rem 2rem;
+        }
+
+        .speakers-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .speakers-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .speaker-card {
+            text-align: center;
+        }
+
+        .speaker-photo {
+            width: 100%;
+            aspect-ratio: 1;
+            background: var(--teal-light);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .speaker-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .speaker-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--teal-light) 0%, var(--teal-accent) 100%);
+            color: var(--white);
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .speaker-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--teal-dark);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .speaker-title {
+            font-size: 0.75rem;
+            color: var(--teal-medium);
+            line-height: 1.4;
+            font-weight: 500;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--white);
+            padding: 2rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--teal-light);
+            color: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            padding: 1.25rem 3rem;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(26, 122, 122, 0.3);
+        }
+
+        .cta-button:hover {
+            background: var(--teal-medium);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(26, 122, 122, 0.4);
+        }
+
+        /* Footer */
+        .footer-section {
+            background: var(--white);
+            padding: 2rem;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            border: 2px solid var(--teal-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--teal-dark);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: var(--teal-dark);
+            color: var(--white);
+        }
+
+        .hashtag {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--teal-dark);
+            font-size: 0.95rem;
+        }
+
+        .website {
+            color: var(--teal-medium);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .website:hover {
+            text-decoration: underline;
+        }
+
+        .organizer {
+            text-align: right;
+        }
+
+        .organizer-text {
+            font-size: 0.85rem;
+            color: var(--gray-text);
+            margin-bottom: 0.25rem;
+        }
+
+        .organizer-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--teal-dark);
+        }
+
+        .organizer-logo span {
+            color: var(--teal-light);
+        }
+
+        .organizer-location {
+            font-size: 0.75rem;
+            color: var(--gray-text);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .speakers-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .guest-container {
+                grid-template-columns: 300px 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .header-left {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .africa-icon-wrapper {
+                width: 80px;
+                height: 80px;
+            }
+
+            .header-content h1 {
+                font-size: 1.4rem;
+                text-align: center;
+            }
+
+            .header-right {
+                border-left: none;
+                border-top: 1px solid rgba(255,255,255,0.3);
+                padding-left: 0;
+                padding-top: 1.5rem;
+                margin-left: 0;
+                width: 100%;
+            }
+
+            .subheader-section h2 {
+                font-size: 1.3rem;
+                text-align: center;
+            }
+
+            .guest-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .guest-visual {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .guest-badge {
+                right: 10px;
+                top: -10px;
+                font-size: 0.75rem;
+                padding: 0.5rem 1rem;
+            }
+
+            .guest-label {
+                font-size: 2rem;
+            }
+
+            .guest-name {
+                font-size: 1.6rem;
+            }
+
+            .guest-title {
+                font-size: 1.5rem;
+            }
+
+            .guest-country {
+                margin: 0 auto 1.5rem;
+            }
+
+            .guest-description {
+                margin: 0 auto;
+            }
+
+            .speakers-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .cta-button {
+                font-size: 1.25rem;
+                padding: 1rem 2rem;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .organizer {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-section {
+                padding: 1.5rem;
+            }
+
+            .header-content h1 {
+                font-size: 1.2rem;
+            }
+
+            .header-date {
+                font-size: 0.9rem;
+            }
+
+            .guest-of-honor-section {
+                padding: 3rem 1.5rem;
+            }
+
+            .guest-label {
+                font-size: 1.8rem;
+            }
+
+            .guest-name {
+                font-size: 1.4rem;
+            }
+
+            .guest-title {
+                font-size: 1.3rem;
+            }
+
+            .speakers-grid {
+                grid-template-columns: 1fr;
+                max-width: 280px;
+                margin: 0 auto 2rem;
+            }
+
+            .subheader-section {
+                padding: 1.5rem;
+            }
+
+            .subheader-section h2 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+<base target="_blank">
+<base target="_blank">
+</head>
+<body>
+
+    <!-- Header Section - Styled exactly as reference image -->
+    <header class="header-section">
+        <div class="header-container">
+            <div class="header-left">
+                <div class="africa-icon-wrapper">
+                    <div class="africa-silhouette"></div>
+                    <div class="globe-icon"></div>
+                </div>
+                <div class="forum-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Coat_of_arms_of_Nigeria.svg/1200px-Coat_of_arms_of_Nigeria.svg.png" alt="Federal Ministry of Industry, Trade & Investment Logo">
+                </div>
+                <div class="header-content">
+                    <h1>Africa First Ladies Initiative for Emission Reduction and Poverty Alleviation Forum 2026</h1>
+                    <p class="header-date">17 - 19 March 2026 | The National Palace | ETHIOPIA</p>
+                </div>
+            </div>
+            <div class="header-right">
+                <p class="endorsed-text">Endorsed by</p>
+                <div class="ministry-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Coat_of_arms_of_Nigeria.svg/1200px-Coat_of_arms_of_Nigeria.svg.png" alt="Federal Ministry of Industry, Trade & Investment Logo"> 
+                </div>
+                <div class="ministry-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Coat_of_arms_of_Nigeria.svg/1200px-Coat_of_arms_of_Nigeria.svg.png" alt="Federal Ministry of Industry, Trade & Investment Logo">
+                </div>
+                <p class="ministry-text">Federal Ministry of Industry and Ministry of Innovation & Technology</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Subheader Section - Light teal banner -->
+    <section class="subheader-section">
+        <h2>Stakeholders Defining Africa's Emission-Poverty Nexus</h2>
+    </section>
+
+    <!-- Guest of Honor Section with Liberia Second Lady -->
+    <section class="guest-of-honor-section">
+        <div class="guest-container">
+            <div class="guest-visual">
+                <div class="guest-frame">
+                    <img src="/mnt/kimi/upload/liberia_first_lady.jpeg" alt="H.E. Synleseh Stephenie Dahn-Koung, Guest of Honor">
+                    <span class="guest-badge">Guest of Honor</span>
+                </div>
+            </div>
+            <div class="guest-content">
+                <p class="guest-label">Distinguished Guest of Honor</p>
+                <h2 class="guest-name">H.E. Synleseh Stephenie Dahn-Koung</h2>
+                <p class="guest-title">Second Lady of the Republic of Liberia</p>
+                <div class="guest-country">
+                    <img src="https://flagcdn.com/w80/lr.png" alt="Liberia" class="country-flag">
+                    <span class="country-name">Republic of Liberia</span>
+                </div>
+                <p class="guest-description">Join us in welcoming Her Excellency as she graces the Africa First Ladies Initiative for Emission Reduction and Poverty Alleviation Forum 2026 with her distinguished presence and commitment to sustainable emission reduction and poverty alleviation across the African continent.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Speakers Section -->
+    <section class="speakers-section">
+        <div class="speakers-container">
+            <div class="speakers-grid">
+                
+                <!-- Speaker 1 -->
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="Speakers/Kspeaker1.jpeg" alt="George Onafowokan">
+                    </div>
+                    <h3 class="speaker-name">Dr. Weidong ZHANG</h3>
+                    <p class="speaker-title">ASSISTANT RESIDENT REPRESENTATIVE,<br>UNDP CHINA</p>
+                </div>
+
+                <!-- Speaker 2 -->
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="Speakers/Kspeaker2.jpeg" alt="George Onafowokan">
+                    </div>
+                    <h3 class="speaker-name">Dr. Mena Mofed Sabet Gharsa</h3>
+                    <p class="speaker-title">CHAIRMAN, TOP WORLD TRUST FOUNDATIONS,<br>Hong Kong</p>
+                </div>
+
+                <!-- Speaker 3 -->
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="Speakers/Gspeaker1.jpeg" alt="Elaine Johns">
+                    </div>
+                    <h3 class="speaker-name">Elaine Johns</h3>
+                    <p class="speaker-title">MANAGING DIRECTOR,<br>GLOBO HYDRO POWER PTY LTD, Australia</p>
+                </div>
+
+                <!-- Speaker 4 -->
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="Speakers/Gspeaker2.jpeg" alt="Rev. Dolly Nengushe">
+                    </div>
+                    <h3 class="speaker-name">Rev. Dolly Nengushe</h3>
+                    <p class="speaker-title">EXECUTIVE CHAIRPERSON,<br>ACCN NAMIBIA</p>
+                </div>
+
+                <!-- Speaker 5 -->
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="Speakers/Gspeaker3.jpeg" alt="Karabo Motsamai">
+                    </div>
+                    <h3 class="speaker-name">Karabo Motsamai</h3>
+                    <p class="speaker-title">FOUNDER - WALKER SOLAR BAKERY,<br>LESOTHO</p>
+                </div>
+
+                <!-- Speaker 6 -->
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="speakers/george-onafowokan.jpg" alt="George Onafowokan">
+                    </div>
+                    <h3 class="speaker-name">Engr. Felix Omatsola Ogbe</h3>
+                    <p class="speaker-title">Executive Secretary<br>Nigerian Content Development<br>& Monitoring Board (NCDMB)</p>
+                </div>
+
+                <!-- Speaker 7 -->
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="speakers/george-onafowokan.jpg" alt="George Onafowokan">
+                    </div>
+                    <h3 class="speaker-name">Dr. Timi Austen-Peters</h3>
+                    <p class="speaker-title">Chairman<br>Dorman Long</p>
+                </div>
+
+                <!-- Speaker 8 -->
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="speakers/george-onafowokan.jpg" alt="George Onafowokan">
+                    </div>
+                    <h3 class="speaker-name">Mudiaga Mowoe</h3>
+                    <p class="speaker-title">CEO<br>Motto</p>
+                </div>
+
+                <!-- Speaker 9 -->
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="speakers/george-onafowokan.jpg" alt="George Onafowokan">
+                    </div>
+                    <h3 class="speaker-name">Adebisi Abidemi Adebutu</h3>
+                    <p class="speaker-title">Group President<br>828 Holdings</p>
+                </div>
+
+                <!-- Speaker 10 -->
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="speakers/george-onafowokan.jpg" alt="George Onafowokan">
+                    </div>
+                    <h3 class="speaker-name">George Onafowokan, FNSE</h3>
+                    <p class="speaker-title">CEO & MD<br>Coleman Wires & Cables</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <a href="#" class="cta-button">Book Your Delegate Pass</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="footer-container">
+            <div class="footer-left">
+                <div class="social-links">
+                    <a href="https://www.instagram.com/mussieafe/" class="social-icon" aria-label="YouTube">▶</a>
+                    <a href="https://web.facebook.com/raeyafrica" class="social-icon" aria-label="Facebook">f</a>
+                    <a href="https://wa.me/251922466797" class="social-icon" aria-label="Instagram">📷</a>
+                    <a href="https://www.linkedin.com/company/acacia-trading-plc/" class="social-icon" aria-label="LinkedIn">in</a>
+                    <a href="https://x.com/@AcaciaPlc" class="social-icon" aria-label="X">𝕏</a>
+                </div>
+                <p class="hashtag">#AFLIERPA2026 <a href="https://mussieaf.github.io/Concept_note/index10.html" class="website">https://mussieaf.github.io/Concept_note/index10.html</a></p>
+            </div>
+            <div class="organizer">
+                <p class="organizer-text">Brought to you by</p>
+                <p class="organizer-logo">Acacia<span>::</span>Trading PLC</p>
+                <p class="organizer-location">ETHIOPIA</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
