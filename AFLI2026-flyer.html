@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AFLI-ERPA 2026 | African First Ladies Initiative Forum</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        'sdg-green': '#0A6847',
+                        'sdg-light-green': '#4E9F3D',
+                        'sdg-gold': '#D4AF37',
+                        'sdg-dark': '#1A1A1A',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            scroll-behavior: smooth;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .clip-path-slant {
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1A1A1A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0A6847;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4E9F3D;
+        }
+    </style>
+</head>
+<body class="bg-sdg-dark text-gray-100 overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-sdg-gold to-yellow-600 rounded-full flex items-center justify-center text-sdg-dark font-bold text-xl">A</div>
+                    <span class="font-bold text-xl tracking-wider text-white">AFLI-ERPA <span class="text-sdg-gold">2026</span></span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#about" class="hover:text-sdg-gold transition-colors px-3 py-2 rounded-md text-sm font-medium">About</a>
+                        <a href="#speakers" class="hover:text-sdg-gold transition-colors px-3 py-2 rounded-md text-sm font-medium">Speakers</a>
+                        <a href="#agenda" class="hover:text-sdg-gold transition-colors px-3 py-2 rounded-md text-sm font-medium">Agenda</a>
+                        <a href="#tickets" class="bg-sdg-gold text-sdg-dark hover:bg-yellow-500 px-4 py-2 rounded-full text-sm font-bold transition-transform hover:scale-105">Register Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80" alt="Kigali Landscape" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-b from-sdg-dark/90 via-sdg-green/80 to-sdg-dark"></div>
+        </div>
+
+        <!-- Animated Particles (Simulated via CSS) -->
+        <div class="absolute inset-0 z-0 opacity-30" style="background-image: radial-gradient(#D4AF37 1px, transparent 1px); background-size: 50px 50px;"></div>
+
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+            <div class="inline-block mb-4 px-4 py-1 border border-sdg-gold rounded-full text-sdg-gold text-sm font-semibold tracking-widest uppercase animate-fade-in-up">
+                🌍 Save the Date: 17 – 19 March 2026
+            </div>
+            <h1 class="text-5xl md:text-7xl font-serif font-bold mb-6 leading-tight text-white text-shadow animate-fade-in-up" style="animation-delay: 0.2s;">
+                African First Ladies Initiative <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-sdg-gold to-yellow-200">For Emission Reduction</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-200 mb-8 font-light animate-fade-in-up" style="animation-delay: 0.4s;">
+                Kigali Convention Centre | Rwanda
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center animate-fade-in-up" style="animation-delay: 0.6s;">
+                <a href="#tickets" class="bg-sdg-gold text-sdg-dark px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:scale-105 transition-all shadow-lg shadow-yellow-500/20">
+                    Book Delegate Pass
+                </a>
+                <a href="#about" class="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-sdg-dark transition-all">
+                    Learn More
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-white/50">
+            <i class="fas fa-chevron-down text-2xl"></i>
+        </div>
+    </div>
+
+    <!-- Countdown Section -->
+    <div class="bg-sdg-green py-10 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 flex flex-wrap justify-center gap-8 md:gap-16 text-center">
+            <div>
+                <div class="text-4xl font-bold text-white" id="days">00</div>
+                <div class="text-sdg-gold text-sm uppercase tracking-widest">Days</div>
+            </div>
+            <div>
+                <div class="text-4xl font-bold text-white" id="hours">00</div>
+                <div class="text-sdg-gold text-sm uppercase tracking-widest">Hours</div>
+            </div>
+            <div>
+                <div class="text-4xl font-bold text-white" id="minutes">00</div>
+                <div class="text-sdg-gold text-sm uppercase tracking-widest">Minutes</div>
+            </div>
+            <div>
+                <div class="text-4xl font-bold text-white" id="seconds">00</div>
+                <div class="text-sdg-gold text-sm uppercase tracking-widest">Seconds</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-sdg-gold/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="reveal">
+                    <h2 class="text-sdg-gold font-bold tracking-widest uppercase mb-2">About The Forum</h2>
+                    <h3 class="text-4xl font-serif font-bold text-white mb-6">A Groundbreaking Summit for Africa's Future</h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        The African First Ladies Initiative for Emission Reduction and Poverty Alleviation Forum (AFLI-ERPA) is a high-level summit bringing together First Ladies, global leaders, and stakeholders to accelerate climate action and economic empowerment.
+                    </p>
+                    <p class="text-gray-300 mb-8 leading-relaxed">
+                        Building on the success of OAFLAD's 2025-2027 Campaign "Building Resilience for Women and Girls in the Face of Climate Change and Conflict".
+                    </p>
+                    <div class="flex gap-4">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-sdg-gold">3</div>
+                            <div class="text-xs text-gray-400">Days</div>
+                        </div>
+                        <div class="w-px bg-gray-700"></div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-sdg-gold">54+</div>
+                            <div class="text-xs text-gray-400">Nations</div>
+                        </div>
+                        <div class="w-px bg-gray-700"></div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-sdg-gold">$2B</div>
+                            <div class="text-xs text-gray-400">Target</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative reveal">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-sdg-green to-sdg-gold rounded-2xl transform rotate-3 opacity-50"></div>
+                    <img src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="African Leaders Meeting" class="relative rounded-2xl shadow-2xl border border-white/10 grayscale hover:grayscale-0 transition-all duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Objectives / Pillars -->
+    <section class="py-20 bg-sdg-dark relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-4">Forum Objectives</h2>
+                <div class="w-24 h-1 bg-sdg-gold mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
+                <!-- Pillar 1 -->
+                <div class="glass-card p-6 rounded-xl hover:bg-sdg-green/20 transition-all duration-300 group reveal">
+                    <div class="w-14 h-14 bg-sdg-green/30 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-seedling text-2xl text-sdg-light-green"></i>
+                    </div>
+                    <h4 class="font-bold text-lg text-white mb-2">Climate Action</h4>
+                    <p class="text-sm text-gray-400">Accelerate emission reduction strategies with women as key agents.</p>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="glass-card p-6 rounded-xl hover:bg-sdg-green/20 transition-all duration-300 group reveal" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 bg-sdg-gold/20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-hand-holding-usd text-2xl text-sdg-gold"></i>
+                    </div>
+                    <h4 class="font-bold text-lg text-white mb-2">Economic Empowerment</h4>
+                    <p class="text-sm text-gray-400">Drive poverty alleviation through green entrepreneurship.</p>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="glass-card p-6 rounded-xl hover:bg-sdg-green/20 transition-all duration-300 group reveal" style="transition-delay: 200ms;">
+                    <div class="w-14 h-14 bg-blue-500/20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-bolt text-2xl text-blue-400"></i>
+                    </div>
+                    <h4 class="font-bold text-lg text-white mb-2">Clean Energy</h4>
+                    <p class="text-sm text-gray-400">Advance renewable energy access for rural communities.</p>
+                </div>
+
+                <!-- Pillar 4 -->
+                <div class="glass-card p-6 rounded-xl hover:bg-sdg-green/20 transition-all duration-300 group reveal" style="transition-delay: 300ms;">
+                    <div class="w-14 h-14 bg-purple-500/20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-handshake text-2xl text-purple-400"></i>
+                    </div>
+                    <h4 class="font-bold text-lg text-white mb-2">Partnerships</h4>
+                    <p class="text-sm text-gray-400">Secure $2 billion in commitments for women-led initiatives.</p>
+                </div>
+
+                <!-- Pillar 5 -->
+                <div class="glass-card p-6 rounded-xl hover:bg-sdg-green/20 transition-all duration-300 group reveal" style="transition-delay: 400ms;">
+                    <div class="w-14 h-14 bg-red-500/20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-landmark text-2xl text-red-400"></i>
+                    </div>
+                    <h4 class="font-bold text-lg text-white mb-2">Policy Influence</h4>
+                    <p class="text-sm text-gray-400">Shape gender-responsive climate policies at national levels.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Speakers Section -->
+    <section id="speakers" class="py-20 bg-gradient-to-b from-sdg-dark to-[#0f2e24]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-4">Confirmed Speakers</h2>
+                <p class="text-gray-400">Visionary Leaders Driving Change</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Speaker 1 -->
+                <div class="group relative overflow-hidden rounded-xl reveal">
+                    <div class="absolute inset-0 bg-gradient-to-t from-sdg-dark via-transparent to-transparent z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="H.E. Jeannette Kagame" class="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                    <div class="absolute bottom-0 left-0 p-6 z-20 w-full">
+                        <div class="bg-sdg-dark/80 backdrop-blur-sm p-4 rounded-lg border-l-4 border-sdg-gold transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                            <h3 class="text-xl font-bold text-white">H.E. Mrs. Jeannette Kagame</h3>
+                            <p class="text-sdg-gold text-sm">First Lady of Rwanda</p>
+                            <p class="text-gray-300 text-xs mt-2 italic">"When women lead in climate action, communities thrive."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Speaker 2 -->
+                <div class="group relative overflow-hidden rounded-xl reveal" style="transition-delay: 100ms;">
+                    <div class="absolute inset-0 bg-gradient-to-t from-sdg-dark via-transparent to-transparent z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="H.E. Rachel Ruto" class="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                    <div class="absolute bottom-0 left-0 p-6 z-20 w-full">
+                        <div class="bg-sdg-dark/80 backdrop-blur-sm p-4 rounded-lg border-l-4 border-sdg-gold transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                            <h3 class="text-xl font-bold text-white">H.E. Mrs. Rachel Ruto</h3>
+                            <p class="text-sdg-gold text-sm">First Lady of Kenya</p>
+                            <p class="text-gray-300 text-xs mt-2">Champion of Clean Energy Transition</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Speaker 3 -->
+                <div class="group relative overflow-hidden rounded-xl reveal" style="transition-delay: 200ms;">
+                    <div class="absolute inset-0 bg-gradient-to-t from-sdg-dark via-transparent to-transparent z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="H.E. Fatima Maada Bio" class="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                    <div class="absolute bottom-0 left-0 p-6 z-20 w-full">
+                        <div class="bg-sdg-dark/80 backdrop-blur-sm p-4 rounded-lg border-l-4 border-sdg-gold transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                            <h3 class="text-xl font-bold text-white">H.E. Mrs. Fatima Maada Bio</h3>
+                            <p class="text-sdg-gold text-sm">First Lady of Sierra Leone</p>
+                            <p class="text-gray-300 text-xs mt-2">President, OAFLAD</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="text-sdg-gold border-b border-sdg-gold pb-1 hover:text-white hover:border-white transition-colors">View All Speakers</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agenda Section -->
+    <section id="agenda" class="py-20 bg-sdg-dark">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-4">Agenda at a Glance</h2>
+                <div class="flex justify-center space-x-4 mt-8">
+                    <button onclick="switchTab('day1')" id="btn-day1" class="px-6 py-2 rounded-full bg-sdg-gold text-sdg-dark font-bold transition-all">Day 1</button>
+                    <button onclick="switchTab('day2')" id="btn-day2" class="px-6 py-2 rounded-full border border-sdg-gold text-sdg-gold hover:bg-sdg-gold/10 font-bold transition-all">Day 2</button>
+                    <button onclick="switchTab('day3')" id="btn-day3" class="px-6 py-2 rounded-full border border-sdg-gold text-sdg-gold hover:bg-sdg-gold/10 font-bold transition-all">Day 3</button>
+                </div>
+            </div>
+
+            <!-- Day 1 Content -->
+            <div id="day1" class="space-y-4 reveal">
+                <div class="bg-white/5 p-6 rounded-lg border-l-4 border-sdg-gold flex flex-col md:flex-row gap-4 hover:bg-white/10 transition-colors">
+                    <div class="md:w-1/4 text-sdg-gold font-bold">08:00 – 09:30</div>
+                    <div class="md:w-3/4">
+                        <h4 class="text-xl font-bold text-white">Registration & Welcome Coffee</h4>
+                        <p class="text-gray-400 text-sm mt-1">Kigali Convention Centre Lobby</p>
+                    </div>
+                </div>
+                <div class="bg-white/5 p-6 rounded-lg border-l-4 border-sdg-green flex flex-col md:flex-row gap-4 hover:bg-white/10 transition-colors">
+                    <div class="md:w-1/4 text-sdg-gold font-bold">09:30 – 11:00</div>
+                    <div class="md:w-3/4">
+                        <h4 class="text-xl font-bold text-white">Opening Ceremony</h4>
+                        <p class="text-gray-400 text-sm mt-1">Keynote Addresses by Host First Lady & OAFLAD President</p>
+                    </div>
+                </div>
+                <div class="bg-white/5 p-6 rounded-lg border-l-4 border-sdg-green flex flex-col md:flex-row gap-4 hover:bg-white/10 transition-colors">
+                    <div class="md:w-1/4 text-sdg-gold font-bold">11:00 – 12:30</div>
+                    <div class="md:w-3/4">
+                        <h4 class="text-xl font-bold text-white">High-Level Panel</h4>
+                        <p class="text-gray-400 text-sm mt-1">The Climate-Conflict-Gender Nexus in Africa</p>
+                    </div>
+                </div>
+                <div class="bg-white/5 p-6 rounded-lg border-l-4 border-purple-500 flex flex-col md:flex-row gap-4 hover:bg-white/10 transition-colors">
+                    <div class="md:w-1/4 text-sdg-gold font-bold">18:00 – 20:00</div>
+                    <div class="md:w-3/4">
+                        <h4 class="text-xl font-bold text-white">Gala Dinner</h4>
+                        <p class="text-gray-400 text-sm mt-1">Celebrating African Women Climate Champions</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 2 Content (Hidden by default) -->
+            <div id="day2" class="space-y-4 hidden reveal">
+                <div class="bg-white/5 p-6 rounded-lg border-l-4 border-sdg-green flex flex-col md:flex-row gap-4 hover:bg-white/10 transition-colors">
+                    <div class="md:w-1/4 text-sdg-gold font-bold">09:00 – 10:30</div>
+                    <div class="md:w-3/4">
+                        <h4 class="text-xl font-bold text-white">Plenary: Women-Led Green Entrepreneurship</h4>
+                        <p class="text-gray-400 text-sm mt-1">Success Stories from across the continent</p>
+                    </div>
+                </div>
+                <div class="bg-white/5 p-6 rounded-lg border-l-4 border-blue-500 flex flex-col md:flex-row gap-4 hover:bg-white/10 transition-colors">
+                    <div class="md:w-1/4 text-sdg-gold font-bold">10:30 – 12:00</div>
+                    <div class="md:w-3/4">
+                        <h4 class="text-xl font-bold text-white">Innovation Showcase</h4>
+                        <p class="text-gray-400 text-sm mt-1">Clean Cooking & Renewable Energy Solutions</p>
+                    </div>
+                </div>
+                <div class="bg-white/5 p-6 rounded-lg border-l-4 border-sdg-gold flex flex-col md:flex-row gap-4 hover:bg-white/10 transition-colors">
+                    <div class="md:w-1/4 text-sdg-gold font-bold">13:30 – 15:00</div>
+                    <div class="md:w-3/4">
+                        <h4 class="text-xl font-bold text-white">Finance Forum</h4>
+                        <p class="text-gray-400 text-sm mt-1">Unlocking Climate Finance for Women</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 3 Content (Hidden by default) -->
+            <div id="day3" class="space-y-4 hidden reveal">
+                <div class="bg-white/5 p-6 rounded-lg border-l-4 border-red-500 flex flex-col md:flex-row gap-4 hover:bg-white/10 transition-colors">
+                    <div class="md:w-1/4 text-sdg-gold font-bold">09:00 – 11:00</div>
+                    <div class="md:w-3/4">
+                        <h4 class="text-xl font-bold text-white">Drafting Session</h4>
+                        <p class="text-gray-400 text-sm mt-1">The Kigali Declaration on Women, Climate & Development</p>
+                    </div>
+                </div>
+                <div class="bg-white/5 p-6 rounded-lg border-l-4 border-sdg-gold flex flex-col md:flex-row gap-4 hover:bg-white/10 transition-colors">
+                    <div class="md:w-1/4 text-sdg-gold font-bold">11:00 – 12:30</div>
+                    <div class="md:w-3/4">
+                        <h4 class="text-xl font-bold text-white">Closing Plenary</h4>
+                        <p class="text-gray-400 text-sm mt-1">Adoption of Declaration & Announcement of Commitments</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Outcomes / Stats -->
+    <section class="py-20 bg-sdg-green relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-white/10 backdrop-blur-lg rounded-3xl p-8 md:p-12 border border-white/20 shadow-2xl reveal">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold text-white mb-2">Key Outcomes & Targets</h2>
+                    <div class="inline-block bg-sdg-gold text-sdg-dark px-4 py-1 rounded-full font-bold text-lg mt-4">🎯 TARGET: $2 BILLION IN COMMITMENTS</div>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div class="p-4">
+                        <div class="text-4xl font-bold text-white mb-2">500k</div>
+                        <div class="text-sm text-sdg-gold uppercase tracking-wide">Women Trained in Green Skills</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="text-4xl font-bold text-white mb-2">1M</div>
+                        <div class="text-sm text-sdg-gold uppercase tracking-wide">Clean Cooking Solutions</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="text-4xl font-bold text-white mb-2">50 MW</div>
+                        <div class="text-sm text-sdg-gold uppercase tracking-wide">Women-led Renewable Energy</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="text-4xl font-bold text-white mb-2">15</div>
+                        <div class="text-sm text-sdg-gold uppercase tracking-wide">Countries with New Climate Laws</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tickets Section -->
+    <section id="tickets" class="py-20 bg-sdg-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-4">Book Your Delegate Pass</h2>
+                <div class="inline-block bg-red-500/20 text-red-400 border border-red-500/50 px-4 py-2 rounded-lg text-sm font-bold mt-4 animate-pulse">
+                    ✨ EARLY BIRD SPECIAL – 25% OFF UNTIL JANUARY 31, 2026
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Ticket 1 -->
+                <div class="bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-sdg-gold transition-all hover:-translate-y-2 reveal">
+                    <div class="text-sdg-gold text-xl mb-4"><i class="fas fa-crown"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-2">VIP Pass</h3>
+                    <div class="text-gray-400 text-sm mb-4">First Lady / Head of State</div>
+                    <div class="text-2xl font-bold text-white mb-6">Invitation</div>
+                    <ul class="text-sm text-gray-400 space-y-2 mb-8">
+                        <li><i class="fas fa-check text-sdg-green mr-2"></i>All Sessions</li>
+                        <li><i class="fas fa-check text-sdg-green mr-2"></i>Private Dinners</li>
+                        <li><i class="fas fa-check text-sdg-green mr-2"></i>Bilateral Meetings</li>
+                    </ul>
+                    <button class="w-full py-2 rounded-lg border border-sdg-gold text-sdg-gold hover:bg-sdg-gold hover:text-sdg-dark transition-colors">Request Invite</button>
+                </div>
+
+                <!-- Ticket 2 -->
+                <div class="bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-sdg-gold transition-all hover:-translate-y-2 reveal" style="transition-delay: 100ms;">
+                    <div class="text-sdg-gold text-xl mb-4"><i class="fas fa-user-tie"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-2">Government</h3>
+                    <div class="text-gray-400 text-sm mb-4">Ministerial / Delegate</div>
+                    <div class="text-2xl font-bold text-white mb-6">$1,500</div>
+                    <ul class="text-sm text-gray-400 space-y-2 mb-8">
+                        <li><i class="fas fa-check text-sdg-green mr-2"></i>All Plenaries</li>
+                        <li><i class="fas fa-check text-sdg-green mr-2"></i>Ministerial Roundtables</li>
+                        <li><i class="fas fa-check text-sdg-green mr-2"></i>Gala Dinner</li>
+                    </ul>
+                    <button class="w-full py-2 rounded-lg bg-sdg-gold text-sdg-dark font-bold hover:bg-white transition-colors">Register</button>
+                </div>
+
+                <!-- Ticket 3 -->
+                <div class="bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-sdg-gold transition-all hover:-translate-y-2 reveal" style="transition-delay: 200ms;">
+                    <div class="text-sdg-gold text-xl mb-4"><i class="fas fa-briefcase"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-2">Private Sector</h3>
+                    <div class="text-gray-400 text-sm mb-4">NGO / Corporate</div>
+                    <div class="text-2xl font-bold text-white mb-6">$2,500</div>
+                    <ul class="text-sm text-gray-400 space-y-2 mb-8">
+                        <li><i class="fas fa-check text-sdg-green mr-2"></i>All Sessions</li>
+                        <li><i class="fas fa-check text-sdg-green mr-2"></i>Partnership Marketplace</li>
+                        <li><i class="fas fa-check text-sdg-green mr-2"></i>Networking Events</li>
+                    </ul>
+                    <button class="w-full py-2 rounded-lg bg-sdg-gold text-sdg-dark font-bold hover:bg-white transition-colors">Register</button>
+                </div>
+
+                <!-- Ticket 4 -->
+                <div class="bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-sdg-gold transition-all hover:-translate-y-2 reveal" style="transition-delay: 300ms;">
+                    <div class="text-sdg-gold text-xl mb-4"><i class="fas fa-laptop"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-2">Virtual</h3>
+                    <div class="text-gray-400 text-sm mb-4">Remote Access</div>
+                    <div class="text-2xl font-bold text-white mb-6">$300</div>
+                    <ul class="text-sm text-gray-400 space-y-2 mb-8">
+                        <li><i class="fas fa-check text-sdg-green mr-2"></i>Livestream Access</li>
+                        <li><i class="fas fa-check text-sdg-green mr-2"></i>Digital Networking</li>
+                        <li><i class="fas fa-check text-sdg-green mr-2"></i>Recorded Sessions</li>
+                    </ul>
+                    <button class="w-full py-2 rounded-lg border border-sdg-gold text-sdg-gold hover:bg-sdg-gold hover:text-sdg-dark transition-colors">Buy Pass</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black pt-20 pb-10 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-8 h-8 bg-gradient-to-br from-sdg-gold to-yellow-600 rounded-full flex items-center justify-center text-sdg-dark font-bold">A</div>
+                        <span class="font-bold text-xl text-white">AFLI-ERPA 2026</span>
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md">
+                        Together for a greener, prosperous Africa. Join us in Kigali to shape the future of climate action and women's empowerment.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-sdg-gold hover:text-sdg-dark transition-all"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-sdg-gold hover:text-sdg-dark transition-all"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-sdg-gold hover:text-sdg-dark transition-all"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#" class="hover:text-sdg-gold transition-colors">Forum Brochure</a></li>
+                        <li><a href="#" class="hover:text-sdg-gold transition-colors">Speaker Bios</a></li>
+                        <li><a href="#" class="hover:text-sdg-gold transition-colors">Visa Information</a></li>
+                        <li><a href="#" class="hover:text-sdg-gold transition-colors">Venue Map</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-6">Contact</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li class="flex items-start"><i class="fas fa-envelope mt-1 mr-2 text-sdg-gold"></i> register@afli-erpa2026.org</li>
+                        <li class="flex items-start"><i class="fas fa-phone mt-1 mr-2 text-sdg-gold"></i> +250 788 123 456</li>
+                        <li class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-2 text-sdg-gold"></i> Kigali Convention Centre, Rwanda</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 text-center text-gray-500 text-sm">
+                <p>&copy; 2026 African First Ladies Initiative for Emission Reduction and Poverty Alleviation Forum. All Rights Reserved.</p>
+                <p class="mt-2">Organized in partnership with the Government of Rwanda & OAFLAD</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown Timer
+        const eventDate = new Date('March 17, 2026 00:00:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = String(days).padStart(2, '0');
+            document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+            document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Agenda Tabs
+        function switchTab(day) {
+            // Hide all days
+            document.getElementById('day1').classList.add('hidden');
+            document.getElementById('day2').classList.add('hidden');
+            document.getElementById('day3').classList.add('hidden');
+            
+            // Reset buttons
+            const buttons = ['btn-day1', 'btn-day2', 'btn-day3'];
+            buttons.forEach(btn => {
+                const el = document.getElementById(btn);
+                el.classList.remove('bg-sdg-gold', 'text-sdg-dark');
+                el.classList.add('text-sdg-gold', 'border', 'border-sdg-gold');
+            });
+
+            // Show selected day
+            document.getElementById(day).classList.remove('hidden');
+            
+            // Highlight active button
+            const activeBtn = document.getElementById('btn-' + day);
+            activeBtn.classList.remove('text-sdg-gold', 'border', 'border-sdg-gold');
+            activeBtn.classList.add('bg-sdg-gold', 'text-sdg-dark');
+        }
+
+        // Scroll Animation Observer
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-sdg-dark/95', 'backdrop-blur-md', 'shadow-lg');
+            } else {
+                nav.classList.remove('bg-sdg-dark/95', 'backdrop-blur-md', 'shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>
