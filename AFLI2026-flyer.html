@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">                
-    <title>AFLI-ERPA 2026 | African First Ladies Initiative Forum</title>     
-    <script src="https://cdn.tailwindcss.com"></script>  
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AFLI-ERPA 2026 | African First Ladies Initiative Forum</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
@@ -96,7 +97,7 @@
                         <a href="#about" class="hover:text-sdg-gold transition-colors px-3 py-2 rounded-md text-sm font-medium">About</a>
                         <a href="#speakers" class="hover:text-sdg-gold transition-colors px-3 py-2 rounded-md text-sm font-medium">Speakers</a>
                         <a href="#agenda" class="hover:text-sdg-gold transition-colors px-3 py-2 rounded-md text-sm font-medium">Agenda</a>
-                        <a href="#tickets" class="bg-sdg-gold text-sdg-dark hover:bg-yellow-500 px-4 py-2 rounded-full text-sm font-bold transition-transform hover:scale-105">Register Now</a>
+                        <a href="#register" class="bg-sdg-gold text-sdg-dark hover:bg-yellow-500 px-4 py-2 rounded-full text-sm font-bold transition-transform hover:scale-105">Register Now</a>
                     </div>
                 </div>
             </div>
@@ -105,29 +106,26 @@
 
     <!-- Hero Section -->
     <div class="relative h-screen flex items-center justify-center overflow-hidden">
-        <!-- Background Image with Overlay -->
         <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80" alt="Addis Ababa Landscape" class="w-full h-full object-cover">
+            <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80" alt="Ethiopia Landscape" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-b from-sdg-dark/90 via-sdg-green/80 to-sdg-dark"></div>
         </div>
-
-        <!-- Animated Particles (Simulated via CSS) -->
         <div class="absolute inset-0 z-0 opacity-30" style="background-image: radial-gradient(#D4AF37 1px, transparent 1px); background-size: 50px 50px;"></div>
 
         <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
             <div class="inline-block mb-4 px-4 py-1 border border-sdg-gold rounded-full text-sdg-gold text-sm font-semibold tracking-widest uppercase animate-fade-in-up">
-                🌍 Save the Date: 17 – 19 March 2026
+                🌍 Addis Ababa, Ethiopia | March 2026
             </div>
-            <h2 class="text-5xl md:text-7xl font-serif font-bold mb-6 leading-tight text-white text-shadow animate-fade-in-up" style="animation-delay: 0.2s;">
+            <h1 class="text-5xl md:text-7xl font-serif font-bold mb-6 leading-tight text-white text-shadow animate-fade-in-up" style="animation-delay: 0.2s;">
                 African First Ladies Initiative <br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-sdg-gold to-yellow-200">For Emission Reduction & Poverty Alleviation</span>
-            </h2>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-sdg-gold to-yellow-200">For Emission Reduction</span>
+            </h1>
             <p class="text-xl md:text-2xl text-gray-200 mb-8 font-light animate-fade-in-up" style="animation-delay: 0.4s;">
-                Premises of the National Palace | Addis Ababa
+                Skylight Hotel | Addis Ababa, Ethiopia
             </p>
             <div class="flex flex-col md:flex-row gap-4 justify-center animate-fade-in-up" style="animation-delay: 0.6s;">
-                <a href="#tickets" class="bg-sdg-gold text-sdg-dark px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:scale-105 transition-all shadow-lg shadow-yellow-500/20">
-                    Book Delegate Pass
+                <a href="#register" class="bg-sdg-gold text-sdg-dark px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:scale-105 transition-all shadow-lg shadow-yellow-500/20">
+                    Register Now
                 </a>
                 <a href="#about" class="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-sdg-dark transition-all">
                     Learn More
@@ -135,7 +133,6 @@
             </div>
         </div>
         
-        <!-- Scroll Indicator -->
         <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-white/50">
             <i class="fas fa-chevron-down text-2xl"></i>
         </div>
@@ -171,12 +168,12 @@
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="reveal">
                     <h2 class="text-sdg-gold font-bold tracking-widest uppercase mb-2">About The Forum</h2>
-                    <h3 class="text-4xl font-serif font-bold text-white mb-6">A Groundbreaking Forum for Africa's Future</h3>
+                    <h3 class="text-4xl font-serif font-bold text-white mb-6">A Groundbreaking Summit for Africa's Future</h3>
                     <p class="text-gray-300 mb-6 leading-relaxed">
-                        The African First Ladies Initiative for Emission Reduction and Poverty Alleviation Forum (AFLI-ERPA) is a high-level forum bringing together First Ladies, global investors, and stakeholders to accelerate climate action and economic empowerment.
+                        The African First Ladies Initiative for Emission Reduction and Poverty Alleviation Forum (AFLI-ERPA) is a high-level summit bringing together First Ladies, global leaders, and stakeholders to accelerate climate action and economic empowerment.
                     </p>
                     <p class="text-gray-300 mb-8 leading-relaxed">
-                        Building on the success of "Green Legacy Initative".
+                        Building on the success of OAFLAD's 2025-2027 Campaign "Building Resilience for Women and Girls in the Face of Climate Change and Conflict".
                     </p>
                     <div class="flex gap-4">
                         <div class="text-center">
@@ -185,7 +182,7 @@
                         </div>
                         <div class="w-px bg-gray-700"></div>
                         <div class="text-center">
-                            <div class="text-3xl font-bold text-sdg-gold">6+</div>
+                            <div class="text-3xl font-bold text-sdg-gold">54+</div>
                             <div class="text-xs text-gray-400">Nations</div>
                         </div>
                         <div class="w-px bg-gray-700"></div>
@@ -203,7 +200,7 @@
         </div>
     </section>
 
-    <!-- Objectives / Pillars -->
+<!-- Objectives / Pillars -->
     <section class="py-20 bg-sdg-dark relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 reveal">
@@ -260,7 +257,8 @@
         </div>
     </section>
 
-    <!-- Speakers Section -->
+
+<!-- Speakers Section -->
     <section id="speakers" class="py-20 bg-gradient-to-b from-sdg-dark to-[#0f2e24]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 reveal">
@@ -328,7 +326,7 @@
                     <button onclick="switchTab('day3')" id="btn-day3" class="px-6 py-2 rounded-full border border-sdg-gold text-sdg-gold hover:bg-sdg-gold/10 font-bold transition-all">Day 3</button>
                 </div>
             </div>
-    
+
             <!-- Day 1 Content - Arrival & Welcome -->
             <div id="day1" class="space-y-4 reveal">
                 <div class="text-center mb-6">
@@ -364,7 +362,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <!-- Day 2 Content - High-Level Forum -->
             <div id="day2" class="space-y-4 hidden reveal">
                 <div class="text-center mb-6">
@@ -456,7 +454,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <!-- Day 3 Content - Field Visits & Cultural Program -->
             <div id="day3" class="space-y-4 hidden reveal">
                 <div class="text-center mb-6">
@@ -487,7 +485,7 @@
             </div>
         </div>
     </section>
-   
+
     <!-- Key Outcomes / Stats -->
     <section class="py-20 bg-sdg-green relative overflow-hidden">
         <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
@@ -512,7 +510,7 @@
                         <div class="text-sm text-sdg-gold uppercase tracking-wide">Women-led Renewable Energy</div>
                     </div>
                     <div class="p-4">
-                        <div class="text-4xl font-bold text-white mb-2">3</div>
+                        <div class="text-4xl font-bold text-white mb-2">15</div>
                         <div class="text-sm text-sdg-gold uppercase tracking-wide">Countries with New Climate Laws</div>
                     </div>
                 </div>
@@ -584,7 +582,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Footer -->
     <footer class="bg-black pt-20 pb-10 border-t border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -595,7 +593,7 @@
                         <span class="font-bold text-xl text-white">AFLI-ERPA 2026</span>
                     </div>
                     <p class="text-gray-400 mb-6 max-w-md">
-                        Together for a greener, prosperous Africa. Join us in Kigali to shape the future of climate action and women's empowerment.
+                        Together for a greener, prosperous Africa. Join us in Addis Ababa to shape the future of climate action and women's empowerment.
                     </p>
                     <div class="flex space-x-4">
                         <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-sdg-gold hover:text-sdg-dark transition-all"><i class="fab fa-twitter"></i></a>
@@ -617,16 +615,16 @@
                 <div>
                     <h4 class="text-white font-bold mb-6">Contact</h4>
                     <ul class="space-y-3 text-gray-400 text-sm">
-                        <li class="flex items-start"><i class="fas fa-envelope mt-1 mr-2 text-sdg-gold"></i> mussie@equaltradeglobal.org</li>
-                        <li class="flex items-start"><i class="fas fa-phone mt-1 mr-2 text-sdg-gold"></i> +251 902 475 979</li>
-                        <li class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-2 text-sdg-gold"></i> Premises of the National Palace</li>
+                        <li class="flex items-start"><i class="fas fa-envelope mt-1 mr-2 text-sdg-gold"></i> register@afli-erpa2026.org</li>
+                        <li class="flex items-start"><i class="fas fa-phone mt-1 mr-2 text-sdg-gold"></i> +251 911 123 456</li>
+                        <li class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-2 text-sdg-gold"></i> Skylight Hotel, Addis Ababa, Ethiopia</li>
                     </ul>
                 </div>
             </div>
             
             <div class="border-t border-white/10 pt-8 text-center text-gray-500 text-sm">
                 <p>&copy; 2026 African First Ladies Initiative for Emission Reduction and Poverty Alleviation Forum. All Rights Reserved.</p>
-                <p class="mt-2">Organized in partnership with the First Lady's Office</p>
+                <p class="mt-2">Organized in partnership with the Government of Ethiopia & OAFLAD</p>
             </div>
         </div>
     </footer>
@@ -643,7 +641,7 @@
                 correctLevel : QRCode.CorrectLevel.H
             });
         };
-        
+
         // Countdown Timer
         const eventDate = new Date('March 17, 2026 00:00:00').getTime();
 
@@ -667,12 +665,10 @@
 
         // Agenda Tabs
         function switchTab(day) {
-            // Hide all days
             document.getElementById('day1').classList.add('hidden');
             document.getElementById('day2').classList.add('hidden');
             document.getElementById('day3').classList.add('hidden');
             
-            // Reset buttons
             const buttons = ['btn-day1', 'btn-day2', 'btn-day3'];
             buttons.forEach(btn => {
                 const el = document.getElementById(btn);
@@ -680,20 +676,15 @@
                 el.classList.add('text-sdg-gold', 'border', 'border-sdg-gold');
             });
 
-            // Show selected day
             document.getElementById(day).classList.remove('hidden');
             
-            // Highlight active button
             const activeBtn = document.getElementById('btn-' + day);
             activeBtn.classList.remove('text-sdg-gold', 'border', 'border-sdg-gold');
             activeBtn.classList.add('bg-sdg-gold', 'text-sdg-dark');
         }
 
         // Scroll Animation Observer
-        const observerOptions = {
-            threshold: 0.1
-        };
-
+        const observerOptions = { threshold: 0.1 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -715,7 +706,6 @@
                 nav.classList.remove('bg-sdg-dark/95', 'backdrop-blur-md', 'shadow-lg');
             }
         });
-       
     </script>
 </body>
 </html>
