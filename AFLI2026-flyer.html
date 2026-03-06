@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">               
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">                
     <title>AFLI-ERPA 2026 | African First Ladies Initiative Forum</title>     
     <script src="https://cdn.tailwindcss.com"></script>  
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">   
@@ -51,9 +51,6 @@
         .text-shadow {
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
-        .clip-path-slant {
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-        }
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -63,7 +60,12 @@
             opacity: 1;
             transform: translateY(0);
         }
-        /* Custom Scrollbar */
+        #qrcode img, #qrcode canvas {
+            margin: 0 auto;
+            border-radius: 12px;
+            padding: 16px;
+            background: #F5F5DC;
+        }
         ::-webkit-scrollbar {
             width: 10px;
         }
@@ -518,76 +520,71 @@
         </div>
     </section>
 
-    <!-- Tickets Section -->
-    <section id="tickets" class="py-20 bg-sdg-dark">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-4">Book Your Delegate Pass</h2>
-                <div class="inline-block bg-red-500/20 text-red-400 border border-red-500/50 px-4 py-2 rounded-lg text-sm font-bold mt-4 animate-pulse">
-                    ✨ ALL PASSES BY INVITATION ONLY
-                </div>
+    <!-- QR Code Registration Section -->
+    <section id="register" class="py-20 bg-sdg-dark relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-96 h-96 bg-sdg-gold/10 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-4">Register for the Forum</h2>
+                <p class="text-gray-400">All passes by invitation only. Scan the QR code or click below to request your invitation.</p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- VIP Pass -->
-                <div class="bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-sdg-gold transition-all hover:-translate-y-2 reveal">
-                    <div class="text-sdg-gold text-xl mb-4"><i class="fas fa-crown"></i></div>
-                    <h3 class="text-xl font-bold text-white mb-2">VIP Pass</h3>
-                    <div class="text-gray-400 text-sm mb-4">First Lady</div>
-                    <div class="text-2xl font-bold text-white mb-6">Invitation</div>
-                    <ul class="text-sm text-gray-400 space-y-2 mb-8">
-                        <li><i class="fas fa-check text-sdg-green mr-2"></i>All Sessions</li>
-                        <li><i class="fas fa-check text-sdg-green mr-2"></i>Private Dinners</li>
-                        <li><i class="fas fa-check text-sdg-green mr-2"></i>Bilateral Meetings</li>
-                    </ul>
-                    <a href="https://mussieaf.github.io/Concept_note/index10.html#register" target="_blank" class="block w-full py-2 rounded-lg bg-sdg-gold text-sdg-dark font-bold hover:bg-white transition-colors text-center">Request Invite</a>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <!-- QR Code -->
+                <div class="bg-white/5 backdrop-blur-lg rounded-3xl p-8 border border-white/20 shadow-2xl text-center reveal">
+                    <h3 class="text-xl font-bold text-white mb-4">Quick Access</h3>
+                    <p class="text-gray-400 text-sm mb-6">Scan to visit registration portal</p>
+                    
+                    <!-- QR Code Container -->
+                    <div id="qrcode" class="flex justify-center mb-6"></div>
+                    
+                    <div class="text-xs text-gray-500 break-all">
+                        https://mussieaf.github.io/Concept_note/index10.html#register
+                    </div>
                 </div>
 
-                <!-- Government Pass -->
-                <div class="bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-sdg-gold transition-all hover:-translate-y-2 reveal" style="transition-delay: 100ms;">
-                    <div class="text-sdg-gold text-xl mb-4"><i class="fas fa-user-tie"></i></div>
-                    <h3 class="text-xl font-bold text-white mb-2">Government</h3>
-                    <div class="text-gray-400 text-sm mb-4">Ministerial / Delegate</div>
-                    <div class="text-2xl font-bold text-white mb-6">By Invitation</div>
-                    <ul class="text-sm text-gray-400 space-y-2 mb-8">
-                        <li><i class="fas fa-check text-sdg-green mr-2"></i>All Plenaries</li>
-                        <li><i class="fas fa-check text-sdg-green mr-2"></i>Ministerial Roundtables</li>
-                        <li><i class="fas fa-check text-sdg-green mr-2"></i>Gala Dinner</li>
-                    </ul>
-                    <a href="https://mussieaf.github.io/Concept_note/index10.html#register" target="_blank" class="block w-full py-2 rounded-lg border border-sdg-gold text-sdg-gold hover:bg-sdg-gold hover:text-sdg-dark transition-colors text-center font-bold">Register</a>
-                </div>
+                <!-- Registration Options -->
+                <div class="space-y-4 reveal">
+                    <div class="bg-white/5 p-6 rounded-xl border border-white/10 hover:border-sdg-gold transition-all">
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="text-lg font-bold text-white">VIP Pass</h4>
+                            <span class="text-sdg-gold text-sm">By Invitation</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-4">First Lady / Head of State / VIP</p>
+                        <a href="https://mussieaf.github.io/Concept_note/index10.html#register" target="_blank" class="block w-full py-2 rounded-lg bg-sdg-gold text-sdg-dark font-bold hover:bg-white transition-colors text-center">Request Invite</a>
+                    </div>
 
-                <!-- Private Sector Pass -->
-                <div class="bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-sdg-gold transition-all hover:-translate-y-2 reveal" style="transition-delay: 200ms;">
-                    <div class="text-sdg-gold text-xl mb-4"><i class="fas fa-briefcase"></i></div>
-                    <h3 class="text-xl font-bold text-white mb-2">Private Sector</h3>
-                    <div class="text-gray-400 text-sm mb-4">NGO / Corporate</div>
-                    <div class="text-2xl font-bold text-white mb-6">By Invitation</div>
-                    <ul class="text-sm text-gray-400 space-y-2 mb-8">
-                        <li><i class="fas fa-check text-sdg-green mr-2"></i>All Sessions</li>
-                        <li><i class="fas fa-check text-sdg-green mr-2"></i>Partnership Marketplace</li>
-                        <li><i class="fas fa-check text-sdg-green mr-2"></i>Networking Events</li>
-                    </ul>
-                    <a href="https://mussieaf.github.io/Concept_note/index10.html#register" target="_blank" class="block w-full py-2 rounded-lg border border-sdg-gold text-sdg-gold hover:bg-sdg-gold hover:text-sdg-dark transition-colors text-center font-bold">Register</a>
-                </div>
+                    <div class="bg-white/5 p-6 rounded-xl border border-white/10 hover:border-sdg-gold transition-all">
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="text-lg font-bold text-white">Government Delegate</h4>
+                            <span class="text-sdg-gold text-sm">By Invitation</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-4">Ministerial / Official Delegate</p>
+                        <a href="https://mussieaf.github.io/Concept_note/index10.html#register" target="_blank" class="block w-full py-2 rounded-lg border border-sdg-gold text-sdg-gold hover:bg-sdg-gold hover:text-sdg-dark transition-colors text-center">Request Invite</a>
+                    </div>
 
-                <!-- Virtual Pass -->
-                <div class="bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-sdg-gold transition-all hover:-translate-y-2 reveal" style="transition-delay: 300ms;">
-                    <div class="text-sdg-gold text-xl mb-4"><i class="fas fa-laptop"></i></div>
-                    <h3 class="text-xl font-bold text-white mb-2">Virtual</h3>
-                    <div class="text-gray-400 text-sm mb-4">Remote Access</div>
-                    <div class="text-2xl font-bold text-white mb-6">By Invitation</div>
-                    <ul class="text-sm text-gray-400 space-y-2 mb-8">
-                        <li><i class="fas fa-check text-sdg-green mr-2"></i>Livestream Access</li>
-                        <li><i class="fas fa-check text-sdg-green mr-2"></i>Digital Networking</li>
-                        <li><i class="fas fa-check text-sdg-green mr-2"></i>Recorded Sessions</li>
-                    </ul>
-                    <a href="https://mussieaf.github.io/Concept_note/index10.html#register" target="_blank" class="block w-full py-2 rounded-lg border border-sdg-gold text-sdg-gold hover:bg-sdg-gold hover:text-sdg-dark transition-colors text-center font-bold">Register</a>
-                </div>            
+                    <div class="bg-white/5 p-6 rounded-xl border border-white/10 hover:border-sdg-gold transition-all">
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="text-lg font-bold text-white">Private Sector / NGO</h4>
+                            <span class="text-sdg-gold text-sm">By Invitation</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-4">Corporate / Civil Society</p>
+                        <a href="https://mussieaf.github.io/Concept_note/index10.html#register" target="_blank" class="block w-full py-2 rounded-lg border border-sdg-gold text-sdg-gold hover:bg-sdg-gold hover:text-sdg-dark transition-colors text-center">Request Invite</a>
+                    </div>
+
+                    <div class="bg-white/5 p-6 rounded-xl border border-white/10 hover:border-sdg-gold transition-all">
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="text-lg font-bold text-white">Virtual Delegate</h4>
+                            <span class="text-sdg-gold text-sm">By Invitation</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-4">Remote Access / Livestream</p>
+                        <a href="https://mussieaf.github.io/Concept_note/index10.html#register" target="_blank" class="block w-full py-2 rounded-lg border border-sdg-gold text-sdg-gold hover:bg-sdg-gold hover:text-sdg-dark transition-colors text-center">Request Invite</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-
+    
     <!-- Footer -->
     <footer class="bg-black pt-20 pb-10 border-t border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -635,6 +632,18 @@
     </footer>
 
     <script>
+        // Generate QR Code on page load
+        window.onload = function() {
+            const qrcode = new QRCode(document.getElementById("qrcode"), {
+                text: "https://mussieaf.github.io/Concept_note/index10.html#register",
+                width: 200,
+                height: 200,
+                colorDark : "#0A6847",
+                colorLight : "#F5F5DC",
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        };
+        
         // Countdown Timer
         const eventDate = new Date('March 17, 2026 00:00:00').getTime();
 
