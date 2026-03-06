@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">              
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">               
     <title>AFLI-ERPA 2026 | African First Ladies Initiative Forum</title>     
     <script src="https://cdn.tailwindcss.com"></script>  
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">   
@@ -76,12 +76,6 @@
         }
         ::-webkit-scrollbar-thumb:hover {
             background: #4E9F3D;
-        }
-        #qrcode img, #qrcode canvas {
-            margin: 0 auto;
-            border-radius: 12px;
-            padding: 16px;
-            background: #F5F5DC;
         }
     </style>
 </head>
@@ -524,30 +518,6 @@
         </div>
     </section>
 
-            <!-- QR Code Section -->
-            <section id="register" class="py-20 bg-sdg-green relative overflow-hidden">
-                <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <div class="bg-white/10 backdrop-blur-lg rounded-3xl p-8 md:p-12 border border-white/20 shadow-2xl text-center reveal">
-                        <h2 class="text-3xl font-bold text-white mb-4">Quick Registration</h2>
-                        <p class="text-gray-200 mb-8">Scan the QR code below to access the registration portal directly</p>
-                        
-                        <!-- QR Code Container -->
-                        <div id="qrcode" class="flex justify-center mb-6"></div>
-                        
-                        <div class="flex flex-col items-center gap-4">
-                            <p class="text-sdg-gold font-semibold">Or visit:</p>
-                            <a href="https://mussieaf.github.io/Concept_note/index10.html#register" target="_blank" class="text-white hover:text-sdg-gold transition-colors break-all text-sm md:text-base">
-                                https://mussieaf.github.io/Concept_note/index10.html#register
-                            </a>
-                            <a href="https://mussieaf.github.io/Concept_note/index10.html#register" target="_blank" class="mt-4 bg-sdg-gold text-sdg-dark px-8 py-3 rounded-full font-bold hover:bg-white transition-all">
-                                Register Now
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
     <!-- Tickets Section -->
     <section id="tickets" class="py-20 bg-sdg-dark">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -736,19 +706,7 @@
                 nav.classList.remove('bg-sdg-dark/95', 'backdrop-blur-md', 'shadow-lg');
             }
         });
-
-        / Generate QR Code on page load
-        window.onload = function() {
-            const qrcode = new QRCode(document.getElementById("qrcode"), {
-                text: "https://mussieaf.github.io/Concept_note/index10.html#register",
-                width: 256,
-                height: 256,
-                colorDark : "#0A6847",
-                colorLight : "#F5F5DC",
-                correctLevel : QRCode.CorrectLevel.H
-            });
-        };
-        
+       
     </script>
 </body>
 </html>
