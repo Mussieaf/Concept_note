@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">             
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">              
     <title>AFLI-ERPA 2026 | African First Ladies Initiative Forum</title>     
     <script src="https://cdn.tailwindcss.com"></script>  
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">   
@@ -748,30 +748,6 @@
                 correctLevel : QRCode.CorrectLevel.H
             });
         };
-
-        // Scroll Animation Observer
-        const observerOptions = { threshold: 0.1 };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Navbar Scroll Effect
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                nav.classList.add('bg-sdg-dark/95', 'backdrop-blur-md', 'shadow-lg');
-            } else {
-                nav.classList.remove('bg-sdg-dark/95', 'backdrop-blur-md', 'shadow-lg');
-            }
-        });
         
     </script>
 </body>
