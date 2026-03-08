@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Africa First Ladies Initiative for Emission Reduction and Poverty Alleviation Forum 2026</title> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -693,7 +693,60 @@
             object-fit: contain;
         }
 
-    </style>
+        /* QR Code Section */
+        .qr-section {
+            background: var(--white);
+            padding: 2rem;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .qr-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .qr-code {
+            width: 120px;
+            height: 120px;
+            background: var(--white);
+            border: 2px solid var(--teal-light);
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .qr-code img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .qr-text {
+            flex: 1;
+        }
+
+        .qr-text h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            color: var(--teal-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .qr-text p {
+            color: var(--gray-text);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .qr-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+</style>
 <base target="_blank">
 <base target="_blank">
 </head>
@@ -860,6 +913,19 @@
         <a href="https://mussieaf.github.io/Concept_note/index10.html#register" class="cta-button">Book Your Delegate Pass</a>
     </section>
 
+    <!-- QR Code Section -->
+    <section class="qr-section">
+        <div class="qr-container">
+            <div class="qr-code">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://mussieaf.github.io/Concept_note/index10.html#register " alt="Registration QR Code">
+            </div>
+            <div class="qr-text">
+                <h3>Quick Registration</h3>
+                <p>Scan this QR code with your mobile device to register instantly for the Africa First Ladies Initiative for Emission Reduction and Poverty Alleviation Forum 2026.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer-section">
         <div class="footer-container">
@@ -884,5 +950,6 @@
 </body>
 
 </html>
+
 
 
