@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>African First Ladies Initiative - Forum Magazine 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Sans+Pro:wght@300;400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-purple: #2d1b4e;
+            --accent-gold: #c9a227;
+            --text-dark: #1a1a1a;
+            --text-gray: #4a4a4a;
+            --light-gray: #f5f5f5;
+            --border-gray: #ddd;
+            --green-accent: #2d5a3d;
+            --earth-tone: #8b7355;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 10pt;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: #e8e8e8;
+        }
+
+        .magazine-container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: white;
+        }
+
+        .page {
+            width: 210mm;
+            height: 297mm;
+            padding: 15mm;
+            position: relative;
+            page-break-after: always;
+            page-break-inside: avoid;
+            background: white;
+            overflow: hidden;
+        }
+
+        .page:last-child {
+            page-break-after: auto;
+        }
+
+        /* Typography Hierarchy */
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 32pt;
+            line-height: 1.1;
+            color: var(--primary-purple);
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 18pt;
+            color: var(--primary-purple);
+            margin-bottom: 0.5em;
+        }
+
+        h3 {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 700;
+            font-size: 12pt;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary-purple);
+            margin-bottom: 0.5em;
+        }
+
+        .body-text {
+            font-family: 'Crimson Text', serif;
+            font-size: 10.5pt;
+            line-height: 1.7;
+            color: var(--text-dark);
+        }
+
+        /* Header Styles */
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-bottom: 2px solid var(--primary-purple);
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+
+        .header-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24pt;
+            font-weight: 900;
+            color: var(--primary-purple);
+            letter-spacing: -1px;
+        }
+
+        .header-subtitle {
+            font-size: 8pt;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-gray);
+            font-weight: 600;
+        }
+
+        .header-meta {
+            text-align: right;
+            font-size: 8pt;
+            color: var(--text-gray);
+            line-height: 1.4;
+        }
+
+        /* Footer Styles */
+        .page-footer {
+            position: absolute;
+            bottom: 10mm;
+            left: 15mm;
+            right: 15mm;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 9pt;
+            color: var(--text-gray);
+            border-top: 1px solid var(--border-gray);
+            padding-top: 8px;
+        }
+
+        .page-number {
+            font-weight: 700;
+            color: var(--primary-purple);
+        }
+
+        /* Grid Systems */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .three-column {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .sidebar-left {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 20px;
+        }
+
+        .sidebar-right {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+
+        /* Cover Page Specific */
+        .cover-page {
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cover-header {
+            padding: 15mm 15mm 10mm;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .cover-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 36pt;
+            font-weight: 900;
+            color: var(--primary-purple);
+        }
+
+        .cover-meta {
+            text-align: right;
+            font-size: 8pt;
+            color: var(--text-gray);
+            line-height: 1.5;
+        }
+
+        .cover-hero {
+            flex: 1;
+            position: relative;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            margin: 0 15mm;
+            border-top: 4px solid var(--primary-purple);
+            border-bottom: 4px solid var(--primary-purple);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .cover-hero-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+            mix-blend-mode: multiply;
+        }
+
+        .cover-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .cover-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 42pt;
+            font-weight: 900;
+            color: var(--primary-purple);
+            line-height: 1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .cover-subtitle {
+            font-size: 14pt;
+            color: var(--text-gray);
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .cover-date {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-gold);
+            color: white;
+            padding: 10px 30px;
+            font-weight: 700;
+            font-size: 12pt;
+            letter-spacing: 2px;
+        }
+
+        .cover-footer {
+            padding: 10mm 15mm;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 9pt;
+            color: var(--text-gray);
+        }
+
+        /* Message/Editor Page Layout */
+        .message-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+            height: calc(100% - 60px);
+        }
+
+        .message-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .message-header {
+            border-bottom: 1px solid var(--border-gray);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .message-body {
+            columns: 2;
+            column-gap: 20px;
+            text-align: justify;
+        }
+
+        .message-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .portrait-box {
+            background: var(--light-gray);
+            padding: 15px;
+            text-align: center;
+        }
+
+        .portrait-placeholder {
+            width: 100%;
+            height: 180px;
+            background: var(--border-gray);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-gray);
+            font-size: 9pt;
+        }
+
+        .highlight-box {
+            background: var(--primary-purple);
+            color: white;
+            padding: 15px;
+            font-size: 9pt;
+        }
+
+        .highlight-box h4 {
+            color: var(--accent-gold);
+            font-size: 10pt;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 20px;
+            background: var(--light-gray);
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 36pt;
+            font-weight: 900;
+            color: var(--primary-purple);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 8pt;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-gray);
+            margin-top: 5px;
+        }
+
+        /* Article Layouts */
+        .article-header {
+            margin-bottom: 20px;
+        }
+
+        .article-meta {
+            font-size: 9pt;
+            color: var(--text-gray);
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+
+        .drop-cap::first-letter {
+            float: left;
+            font-family: 'Playfair Display', serif;
+            font-size: 48pt;
+            line-height: 0.8;
+            padding-right: 8px;
+            color: var(--primary-purple);
+            font-weight: 900;
+        }
+
+        /* Pull Quotes */
+        .pull-quote {
+            border-left: 4px solid var(--accent-gold);
+            padding: 15px 20px;
+            margin: 20px 0;
+            background: var(--light-gray);
+            font-family: 'Crimson Text', serif;
+            font-size: 14pt;
+            font-style: italic;
+            color: var(--primary-purple);
+            line-height: 1.5;
+        }
+
+        .pull-quote cite {
+            display: block;
+            margin-top: 10px;
+            font-size: 10pt;
+            font-style: normal;
+            color: var(--text-gray);
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        /* Image Placeholders */
+        .image-placeholder {
+            background: var(--light-gray);
+            border: 1px solid var(--border-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-gray);
+            font-size: 9pt;
+            text-align: center;
+        }
+
+        .image-full {
+            width: 100%;
+            height: 200px;
+            margin: 15px 0;
+        }
+
+        .image-sidebar {
+            width: 100%;
+            height: 150px;
+            margin-bottom: 10px;
+        }
+
+        /* Advertisement Blocks */
+        .ad-block {
+            background: linear-gradient(135deg, #f8f8f8 0%, #e8e8e8 100%);
+            border: 2px solid var(--border-gray);
+            padding: 30px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .ad-block h3 {
+            color: var(--green-accent);
+            font-size: 18pt;
+            margin-bottom: 10px;
+        }
+
+        /* Section Dividers */
+        .section-divider {
+            display: flex;
+            align-items: center;
+            margin: 30px 0;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border-gray);
+        }
+
+        .section-divider span {
+            padding: 0 15px;
+            font-family: 'Playfair Display', serif;
+            font-size: 14pt;
+            color: var(--primary-purple);
+            font-style: italic;
+        }
+
+        /* Panel/Session Layouts */
+        .session-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .session-card {
+            border: 1px solid var(--border-gray);
+            padding: 20px;
+            background: white;
+        }
+
+        .session-time {
+            font-size: 9pt;
+            color: var(--accent-gold);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .session-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 14pt;
+            color: var(--primary-purple);
+            margin-bottom: 10px;
+        }
+
+        .session-speaker {
+            font-size: 9pt;
+            color: var(--text-gray);
+        }
+
+        /* List Styles */
+        .content-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .content-list li {
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+            border-bottom: 1px dotted var(--border-gray);
+        }
+
+        .content-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        /* Print Optimization */
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .magazine-container {
+                max-width: none;
+            }
+            
+            .page {
+                width: 210mm;
+                height: 297mm;
+                page-break-after: always;
+                box-shadow: none;
+                margin: 0;
+            }
+        }
+
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .text-right { text-align: right; }
+        .text-uppercase { text-transform: uppercase; }
+        .font-bold { font-weight: 700; }
+        .mb-1 { margin-bottom: 5px; }
+        .mb-2 { margin-bottom: 10px; }
+        .mb-3 { margin-bottom: 15px; }
+        .mt-2 { margin-top: 10px; }
+        .mt-3 { margin-top: 15px; }
+        .gold-text { color: var(--accent-gold); }
+        .purple-text { color: var(--primary-purple); }
+        
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transform: rotate(180deg);
+        }
+
+        .sidebar-label {
+            font-size: 8pt;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-gray);
+            margin-bottom: 10px;
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <div class="magazine-container">
+
+        <!-- PAGE 1: COVER -->
+        <div class="page cover-page">
+            <div class="cover-header">
+                <div>
+                    <div class="cover-brand">AFLI</div>
+                    <div class="header-subtitle">African First Ladies Initiative</div>
+                </div>
+                <div class="cover-meta">
+                    National Palace, Addis Ababa<br>
+                    17–19 March 2026<br>
+                    www.afliforum.org
+                </div>
+            </div>
+            
+            <div class="cover-hero">
+                <div class="image-placeholder" style="position: absolute; width: 100%; height: 100%;">
+                    [Hero Image: African First Ladies at Climate Summit]
+                </div>
+                <div class="cover-hero-content">
+                    <h1 class="cover-title">Empowering<br>Women</h1>
+                    <p class="cover-subtitle">Emission Reduction &<br>Poverty Alleviation</p>
+                </div>
+                <div class="cover-date">17–19 March 2026</div>
+            </div>
+            
+            <div class="cover-footer">
+                <span>Forum Magazine 2026</span>
+                <span>Official Publication</span>
+            </div>
+        </div>
+
+        <!-- PAGE 2: HOST MESSAGE -->
+        <div class="page">
+            <div class="page-header">
+                <div>
+                    <div class="header-title">AFLI</div>
+                    <div class="header-subtitle">Forum Magazine 2026</div>
+                </div>
+                <div class="header-meta">
+                    MARCH 2026 | AFRICAN FIRST LADIES INITIATIVE
+                </div>
+            </div>
+
+            <div class="message-layout">
+                <div class="message-content">
+                    <div class="message-header">
+                        <h2>Message from the Host</h2>
+                        <div class="article-meta">Her Excellency First Lady [Name]</div>
+                    </div>
+                    <div class="message-body body-text drop-cap">
+                        <p>It is with great honor that I welcome you to the inaugural African First Ladies Initiative Forum on Emission Reduction and Poverty Alleviation. This historic gathering represents a pivotal moment in our continent's commitment to sustainable development and women's leadership in climate action.</p>
+                        
+                        <p>As African First Ladies, we possess a unique platform to influence policy, mobilize communities, and champion innovative solutions that address the dual challenges of environmental degradation and economic inequality. This forum serves as a catalyst for transformative change, bringing together visionaries, policymakers, and grassroots leaders.</p>
+                        
+                        <p>The evidence is clear: when women lead in climate action, communities thrive. From clean cooking initiatives to sustainable agriculture, women are at the forefront of emission reduction strategies that simultaneously alleviate poverty. Our role is to amplify these voices and scale these solutions across the continent.</p>
+                        
+                        <p>I extend my deepest gratitude to our partners, sponsors, and delegates who have committed to this noble cause. Together, we will forge partnerships that transcend borders and create lasting impact for generations to come.</p>
+                        
+                        <p>Welcome to Addis Ababa. Welcome to the future of African climate leadership.</p>
+                    </div>
+                    
+                    <div class="mt-3">
+                        <p class="font-bold purple-text">Her Excellency [Name]</p>
+                        <p class="sidebar-label">First Lady of [Country] & Host of AFLI Forum 2026</p>
+                    </div>
+                </div>
+
+                <div class="message-sidebar">
+                    <div class="portrait-box">
+                        <div class="portrait-placeholder">[Host Portrait]</div>
+                        <p class="font-bold purple-text">Host First Lady</p>
+                    </div>
+                    
+                    <div class="highlight-box">
+                        <h4>Forum Highlights</h4>
+                        <ul class="content-list" style="color: white;">
+                            <li style="border-color: rgba(255,255,255,0.2);">High-level policy dialogues</li>
+                            <li style="border-color: rgba(255,255,255,0.2);">Innovation showcase</li>
+                            <li style="border-color: rgba(255,255,255,0.2);">Clean cooking pavilion</li>
+                            <li style="border-color: rgba(255,255,255,0.2);">Green investment forum</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="stat-box">
+                        <div class="stat-number">54</div>
+                        <div class="stat-label">African Nations<br>Represented</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-footer">
+                <span>African First Ladies Initiative</span>
+                <span class="page-number">2</span>
+            </div>
+        </div>
+
+        <!-- PAGE 3: FORUM OVERVIEW -->
+        <div class="page">
+            <div class="page-header">
+                <div>
+                    <div class="header-title">AFLI</div>
+                    <div class="header-subtitle">Forum Magazine 2026</div>
+                </div>
+                <div class="header-meta">
+                    MARCH 2026 | AFRICAN FIRST LADIES INITIATIVE
+                </div>
+            </div>
+
+            <h2 class="article-header">Forum Overview</h2>
+            
+            <div class="two-column" style="margin-bottom: 20px;">
+                <div class="body-text">
+                    <p class="drop-cap">The African First Ladies Initiative Forum represents a groundbreaking convergence of climate leadership and women's economic empowerment. Over three transformative days at the National Palace in Addis Ababa, delegates will engage in strategic dialogues designed to accelerate Africa's transition to a low-carbon economy while lifting millions out of poverty.</p>
+                    
+                    <p>The forum's unique approach recognizes the inextricable link between environmental sustainability and economic development. By focusing on women-led solutions, we aim to unlock the untapped potential of African women as drivers of climate innovation.</p>
+                </div>
+                <div>
+                    <div class="image-placeholder image-sidebar">[Forum Venue]</div>
+                    <div class="pull-quote" style="margin: 0;">
+                        "Climate action is not a burden—it is an opportunity to reimagine Africa's development trajectory."
+                    </div>
+                </div>
+            </div>
+
+            <h3>Strategic Objectives</h3>
+            <div class="three-column" style="margin-top: 15px;">
+                <div class="session-card">
+                    <div class="session-time">Objective 01</div>
+                    <div class="session-title">Policy Alignment</div>
+                    <p class="body-text" style="font-size: 9pt;">Harmonize national climate strategies with gender-responsive poverty alleviation programs.</p>
+                </div>
+                <div class="session-card">
+                    <div class="session-time">Objective 02</div>
+                    <div class="session-title">Technology Transfer</div>
+                    <p class="body-text" style="font-size: 9pt;">Facilitate access to clean technologies for women entrepreneurs and farmers.</p>
+                </div>
+                <div class="session-card">
+                    <div class="session-time">Objective 03</div>
+                    <div class="session-title">Investment Mobilization</div>
+                    <p class="body-text" style="font-size: 9pt;">Connect green enterprises with climate finance and impact investors.</p>
+                </div>
+            </div>
+
+            <div class="section-divider mt-3">
+                <span>Program at a Glance</span>
+            </div>
+
+            <div class="two-column">
+                <div>
+                    <h3>Day 1: March 17</h3>
+                    <ul class="content-list body-text">
+                        <li>Opening Ceremony & Keynote Address</li>
+                        <li>Panel: Emission Reduction & Technological Leap</li>
+                        <li>Evening Reception at National Palace</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Day 2-3: March 18-19</h3>
+                    <ul class="content-list body-text">
+                        <li>Fireside Chat: Clean Cooking Innovation</li>
+                        <li>Panel: Green Livelihoods & Poverty Alleviation</li>
+                        <li>Forum Declaration & Commitments</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="page-footer">
+                <span>African First Ladies Initiative</span>
+                <span class="page-number">3</span>
+            </div>
+        </div>
+
+        <!-- PAGE 4: KEYNOTE ADDRESS -->
+        <div class="page">
+            <div class="page-header">
+                <div>
+                    <div class="header-title">AFLI</div>
+                    <div class="header-subtitle">Forum Magazine 2026</div>
+                </div>
+                <div class="header-meta">
+                    MARCH 2026 | AFRICAN FIRST LADIES INITIATIVE
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-bottom: 30px;">
+                <h2 style="font-size: 24pt;">Keynote Address</h2>
+                <p class="article-meta">Transformative Leadership in the Climate Era</p>
+            </div>
+
+            <div class="sidebar-left">
+                <div style="border-right: 1px solid var(--border-gray); padding-right: 20px;">
+                    <div class="image-placeholder" style="height: 200px; margin-bottom: 15px;">[Keynote Speaker]</div>
+                    <p class="font-bold purple-text">Dr. [Name]</p>
+                    <p class="sidebar-label">Climate Economist & Advisor</p>
+                    
+                    <div class="mt-2" style="font-size: 9pt; color: var(--text-gray);">
+                        <p><strong>Previous:</strong> UN Climate Panel</p>
+                        <p><strong>Focus:</strong> Gender-responsive climate finance</p>
+                    </div>
+                </div>
+                
+                <div class="body-text" style="columns: 2; column-gap: 20px;">
+                    <p>Your Excellencies, distinguished delegates, and champions of African development. We stand at a critical juncture where the decisions we make today will determine the prosperity of our continent for generations to come.</p>
+                    
+                    <p>The statistics are sobering yet motivating: Africa contributes less than 4% of global emissions yet bears the disproportionate burden of climate impacts. Meanwhile, women represent 50% of our agricultural workforce but receive less than 10% of climate adaptation funding.</p>
+                    
+                    <div class="pull-quote" style="column-span: all; margin: 15px 0;">
+                        "The green transition in Africa will be led by women, or it will not succeed. This is not sentiment—it is economics."
+                        <cite>— Dr. [Name], Keynote Speaker</cite>
+                    </div>
+                    
+                    <p>Consider the transformative potential of clean cooking solutions alone. Over 900 million Africans rely on solid biomass for cooking, resulting in 600,000 premature deaths annually—predominantly women and children. The transition to clean cooking represents a $20 billion market opportunity that simultaneously addresses health, climate, and gender equality goals.</p>
+                    
+                    <p>But technology alone is insufficient. We need policy frameworks that recognize women's land rights, financial instruments that de-risk green investments, and leadership that champions inclusive decision-making.</p>
+                    
+                    <p>This forum must be the turning point where commitment translates to action, where pledges become projects, and where African women take their rightful place at the center of the climate solution.</p>
+                </div>
+            </div>
+
+            <div class="page-footer">
+                <span>African First Ladies Initiative</span>
+                <span class="page-number">4</span>
+            </div>
+        </div>
+
+        <!-- PAGE 5: PANEL SESSION I -->
+        <div class="page">
+            <div class="page-header">
+                <div>
+                    <div class="header-title">AFLI</div>
+                    <div class="header-subtitle">Forum Magazine 2026</div>
+                </div>
+                <div class="header-meta">
+                    MARCH 2026 | AFRICAN FIRST LADIES INITIATIVE
+                </div>
+            </div>
+
+            <h3 style="color: var(--accent-gold);">Panel Session I</h3>
+            <h2 style="font-size: 22pt; margin-bottom: 5px;">Emission Reduction & Technological Leap</h2>
+            <p class="article-meta mb-3">Moderated by H.E. [First Lady Name] | March 17, 14:00–16:00</p>
+
+            <div class="two-column" style="margin-bottom: 20px;">
+                <div class="body-text">
+                    <p class="drop-cap">Africa's pathway to carbon neutrality requires technological innovation that leapfrogs traditional development models. This panel explores how women-led initiatives are driving emission reductions across energy, agriculture, and industrial sectors.</p>
+                    
+                    <p>From solar mini-grids in rural Tanzania to precision agriculture in Kenya, African women are deploying climate technologies that reduce emissions while creating economic opportunity. The panel will examine successful models and identify barriers to scaling.</p>
+                </div>
+                <div class="image-placeholder" style="height: 180px;">[Panel Discussion]</div>
+            </div>
+
+            <h3>Distinguished Panelists</h3>
+            <div class="session-grid">
+                <div class="session-card">
+                    <div class="image-placeholder" style="height: 80px; margin-bottom: 10px;">[Photo]</div>
+                    <div class="session-speaker font-bold">Dr. Amina Ibrahim</div>
+                    <p style="font-size: 9pt; color: var(--text-gray);">Director, African Renewable Energy Initiative</p>
+                    <p style="font-size: 9pt; margin-top: 5px;">"Scaling solar access for 300 million women by 2030"</p>
+                </div>
+                <div class="session-card">
+                    <div class="image-placeholder" style="height: 80px; margin-bottom: 10px;">[Photo]</div>
+                    <div class="session-speaker font-bold">Ms. Grace Njoroge</div>
+                    <p style="font-size: 9pt; color: var(--text-gray);">CEO, GreenTech Africa</p>
+                    <p style="font-size: 9pt; margin-top: 5px;">"Electric mobility solutions for urban Africa"</p>
+                </div>
+                <div class="session-card">
+                    <div class="image-placeholder" style="height: 80px; margin-bottom: 10px;">[Photo]</div>
+                    <div class="session-speaker font-bold">Prof. Fatima Al-Mansour</div>
+                    <p style="font-size: 9pt; color: var(--text-gray);">Agricultural Innovation Lab, Morocco</p>
+                    <p style="font-size: 9pt; margin-top: 5px;">"Climate-smart agriculture and carbon sequestration"</p>
+                </div>
+                <div class="session-card">
+                    <div class="image-placeholder" style="height: 80px; margin-bottom: 10px;">[Photo]</div>
+                    <div class="session-speaker font-bold">Hon. Patricia Osei</div>
+                    <p style="font-size: 9pt; color: var(--text-gray);">Minister of Environment, Ghana</p>
+                    <p style="font-size: 9pt; margin-top: 5px;">"Policy frameworks for green industrialization"</p>
+                </div>
+            </div>
+
+            <div class="pull-quote mt-3">
+                "Technology is not gender-neutral. We must design climate solutions with women as users, innovators, and decision-makers."
+                <cite>— Panel Consensus Statement</cite>
+            </div>
+
+            <div class="page-footer">
+                <span>African First Ladies Initiative</span>
+                <span class="page-number">5</span>
+            </div>
+        </div>
+
+        <!-- PAGE 6: FIRESIDE CHAT -->
+        <div class="page">
+            <div class="page-header">
+                <div>
+                    <div class="header-title">AFLI</div>
+                    <div class="header-subtitle">Forum Magazine 2026</div>
+                </div>
+                <div class="header-meta">
+                    MARCH 2026 | AFRICAN FIRST LADIES INITIATIVE
+                </div>
+            </div>
+
+            <div style="background: var(--primary-purple); color: white; padding: 30px; margin: -15mm -15mm 20px -15mm;">
+                <h3 style="color: var(--accent-gold); margin-bottom: 5px;">Fireside Chat</h3>
+                <h2 style="color: white; font-size: 28pt; margin-bottom: 10px;">Clean Cooking Innovation</h2>
+                <p style="font-size: 12pt; opacity: 0.9;">Transforming Household Energy for Health, Climate, and Prosperity</p>
+            </div>
+
+            <div class="sidebar-right">
+                <div class="body-text">
+                    <p class="drop-cap">The clean cooking transition represents one of Africa's most significant opportunities for simultaneous climate mitigation, health improvement, and women's economic empowerment. This intimate fireside chat brings together pioneers who are scaling access to modern energy cooking services across the continent.</p>
+                    
+                    <p>Traditional cooking methods using wood, charcoal, and dung account for approximately 2% of global greenhouse gas emissions—equivalent to the aviation industry. The health impacts are equally staggering, with indoor air pollution causing more deaths than malaria, HIV/AIDS, and tuberculosis combined.</p>
+                    
+                    <h3 style="margin-top: 15px;">Innovation Spotlight</h3>
+                    <p>The chat will feature demonstrations of next-generation electric pressure cookers, ethanol stoves, and biogas systems designed specifically for African cooking practices. These technologies reduce cooking time by 50% and fuel costs by 70%, freeing women for education and income-generating activities.</p>
+                    
+                    <div class="pull-quote" style="background: white; border-left-color: var(--green-accent);">
+                        "A woman who cooks with clean energy gains four hours per week—time she can invest in her children, her business, or her community."
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="image-placeholder image-sidebar" style="height: 200px;">[Clean Cooking Demo]</div>
+                    
+                    <div style="background: var(--light-gray); padding: 15px; margin-bottom: 15px;">
+                        <h4 style="font-size: 10pt; color: var(--green-accent); margin-bottom: 10px;">CHAT PARTICIPANTS</h4>
+                        <p class="font-bold purple-text" style="font-size: 10pt;">H.E. [First Lady Name]</p>
+                        <p style="font-size: 9pt; margin-bottom: 8px;">Champion, Clean Cooking Alliance</p>
+                        
+                        <p class="font-bold purple-text" style="font-size: 10pt;">Mr. [Name]</p>
+                        <p style="font-size: 9pt; margin-bottom: 8px;">CEO, BURN Manufacturing</p>
+                        
+                        <p class="font-bold purple-text" style="font-size: 10pt;">Dr. [Name]</p>
+                        <p style="font-size: 9pt;">Director, Modern Energy Cooking Services</p>
+                    </div>
+                    
+                    <div class="stat-box" style="border-left-color: var(--green-accent);">
+                        <div class="stat-number" style="font-size: 28pt; color: var(--green-accent);">900M</div>
+                        <div class="stat-label">Africans without<br>clean cooking access</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-footer">
+                <span>African First Ladies Initiative</span>
+                <span class="page-number">6</span>
+            </div>
+        </div>
+
+        <!-- PAGE 7: PANEL SESSION II -->
+        <div class="page">
+            <div class="page-header">
+                <div>
+                    <div class="header-title">AFLI</div>
+                    <div class="header-subtitle">Forum Magazine 2026</div>
+                </div>
+                <div class="header-meta">
+                    MARCH 2026 | AFRICAN FIRST LADIES INITIATIVE
+                </div>
+            </div>
+
+            <h3 style="color: var(--accent-gold);">Panel Session II</h3>
+            <h2 style="font-size: 22pt; margin-bottom: 5px;">Green Livelihoods & Poverty Alleviation</h2>
+            <p class="article-meta mb-3">March 18, 09:00–11:00 | National Palace Conference Hall</p>
+
+            <div class="image-placeholder image-full" style="height: 150px; margin-bottom: 20px;">[Panel Session]</div>
+
+            <div class="three-column" style="margin-bottom: 20px;">
+                <div class="body-text" style="font-size: 10pt;">
+                    <p><strong>Climate action and poverty reduction are mutually reinforcing.</strong> This session examines how green economy transitions can create dignified employment for millions of African women currently trapped in subsistence agriculture and informal sector work.</p>
+                </div>
+                <div class="body-text" style="font-size: 10pt;">
+                    <p>From solar entrepreneurship to sustainable forestry, green sectors offer pathways out of poverty that build rather than deplete natural capital. Panelists will share concrete strategies for skills development, market access, and financial inclusion.</p>
+                </div>
+                <div class="body-text" style="font-size: 10pt;">
+                    <p>The session will culminate in the launch of the <strong>AFLI Green Livelihoods Fund</strong>, a $100 million initiative to support women-led climate enterprises across 20 African countries.</p>
+                </div>
+            </div>
+
+            <div class="section-divider">
+                <span>Featured Interventions</span>
+            </div>
+
+            <div class="two-column">
+                <div>
+                    <h3>Great Green Wall</h3>
+                    <p class="body-text" style="font-size: 9pt;">Women's participation in Africa's flagship reforestation initiative has created 1.2 million jobs while restoring 18 million hectares of degraded land. The panel discusses scaling this model.</p>
+                    
+                    <h3 style="margin-top: 15px;">Blue Economy</h3>
+                    <p class="body-text" style="font-size: 9pt;">Sustainable aquaculture and coastal restoration initiatives led by women in Senegal, Madagascar, and Kenya demonstrate the potential of ocean-based climate solutions.</p>
+                </div>
+                <div>
+                    <div class="image-placeholder" style="height: 180px;">[Green Livelihoods]</div>
+                    <p class="text-center" style="font-size: 8pt; color: var(--text-gray); margin-top: 5px;">Women restoring degraded land in the Sahel</p>
+                </div>
+            </div>
+
+            <div class="page-footer">
+                <span>African First Ladies Initiative</span>
+                <span class="page-number">7</span>
+            </div>
+        </div>
+
+        <!-- PAGE 8: CASE STUDIES -->
+        <div class="page">
+            <div class="page-header">
+                <div>
+                    <div class="header-title">AFLI</div>
+                    <div class="header-subtitle">Forum Magazine 2026</div>
+                </div>
+                <div class="header-meta">
+                    MARCH 2026 | AFRICAN FIRST LADIES INITIATIVE
+                </div>
+            </div>
+
+            <h2>Case Studies: Women Farmers & Green Entrepreneurs</h2>
+            <p class="article-meta">Grassroots Leaders Driving Climate Action</p>
+
+            <div class="two-column" style="margin-top: 20px;">
+                <div class="session-card" style="border-left: 4px solid var(--green-accent);">
+                    <div style="display: flex; gap: 15px;">
+                        <div class="image-placeholder" style="width: 100px; height: 100px; flex-shrink: 0;">[Photo]</div>
+                        <div>
+                            <h4 style="color: var(--green-accent); font-size: 10pt; margin-bottom: 5px;">CASE STUDY 01</h4>
+                            <p class="font-bold purple-text">Mama Sarah's Solar Grids</p>
+                            <p class="body-text" style="font-size: 9pt;">Kenya</p>
+                            <p style="font-size: 9pt; margin-top: 8px;">Sarah Okello established a women-owned solar micro-grid serving 5,000 households, reducing emissions by 2,000 tons annually while creating 40 jobs.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="session-card" style="border-left: 4px solid var(--accent-gold);">
+                    <div style="display: flex; gap: 15px;">
+                        <div class="image-placeholder" style="width: 100px; height: 100px; flex-shrink: 0;">[Photo]</div>
+                        <div>
+                            <h4 style="color: var(--accent-gold); font-size: 10pt; margin-bottom: 5px;">CASE STUDY 02</h4>
+                            <p class="font-bold purple-text">Rwanda's Women Coffee Alliance</p>
+                            <p class="body-text" style="font-size: 9pt;">Rwanda</p>
+                            <p style="font-size: 9pt; margin-top: 8px;">A cooperative of 2,400 women farmers transitioned to shade-grown, organic coffee, increasing incomes by 40% while sequestering carbon.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="two-column" style="margin-top: 20px;">
+                <div class="session-card" style="border-left: 4px solid var(--primary-purple);">
+                    <div style="display: flex; gap: 15px;">
+                        <div class="image-placeholder" style="width: 100px; height: 100px; flex-shrink: 0;">[Photo]</div>
+                        <div>
+                            <h4 style="color: var(--primary-purple); font-size: 10pt; margin-bottom: 5px;">CASE STUDY 03</h4>
+                            <p class="font-bold purple-text">Nigeria's Waste-to-Wealth Queens</p>
+                            <p class="body-text" style="font-size: 9pt;">Nigeria</p>
+                            <p style="font-size: 9pt; margin-top: 8px;">Young entrepreneurs converting plastic waste into construction materials, diverting 500 tons from landfills while building affordable housing.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="session-card" style="border-left: 4px solid var(--earth-tone);">
+                    <div style="display: flex; gap: 15px;">
+                        <div class="image-placeholder" style="width: 100px; height: 100px; flex-shrink: 0;">[Photo]</div>
+                        <div>
+                            <h4 style="color: var(--earth-tone); font-size: 10pt; margin-bottom: 5px;">CASE STUDY 04</h4>
+                            <p class="font-bold purple-text">Ethiopia's Bamboo Pioneers</p>
+                            <p class="body-text" style="font-size: 9pt;">Ethiopia</p>
+                            <p style="font-size: 9pt; margin-top: 8px;">Women-led cooperatives cultivating bamboo for construction and charcoal alternatives, restoring watersheds and generating $2M annual revenue.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pull-quote mt-3">
+                "These women are not victims of climate change—they are the solution. Their innovation, resilience, and leadership prove that sustainable development is possible when we invest in those who nurture our communities."
+                <cite>— AFLI Forum Case Study Compilation</cite>
+            </div>
+
+            <div class="page-footer">
+                <span>African First Ladies Initiative</span>
+                <span class="page-number">8</span>
+            </div>
+        </div>
+
+        <!-- PAGE 9: INNOVATION SHOWCASE -->
+        <div class="page">
+            <div class="page-header">
+                <div>
+                    <div class="header-title">AFLI</div>
+                    <div class="header-subtitle">Forum Magazine 2026</div>
+                </div>
+                <div class="header-meta">
+                    MARCH 2026 | AFRICAN FIRST LADIES INITIATIVE
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-bottom: 25px;">
+                <h3 style="color: var(--accent-gold);">Innovation Showcase</h3>
+                <h2 style="font-size: 26pt;">Technologies Transforming Africa</h2>
+                <p class="article-meta">Exhibition Hall | March 17–19</p>
+            </div>
+
+            <div class="three-column" style="margin-bottom: 20px;">
+                <div style="text-align: center;">
+                    <div class="image-placeholder" style="height: 120px; margin-bottom: 10px;">[Solar Tech]</div>
+                    <h4 style="font-size: 11pt; color: var(--primary-purple);">Distributed Solar</h4>
+                    <p style="font-size: 9pt;">Pay-as-you-go systems reaching off-grid households</p>
+                </div>
+                <div style="text-align: center;">
+                    <div class="image-placeholder" style="height: 120px; margin-bottom: 10px;">[AgriTech]</div>
+                    <h4 style="font-size: 11pt; color: var(--primary-purple);">Precision Agriculture</h4>
+                    <p style="font-size: 9pt;">IoT-enabled farming for smallholders</p>
+                </div>
+                <div style="text-align: center;">
+                    <div class="image-placeholder" style="height: 120px; margin-bottom: 10px;">[E-Mobility]</div>
+                    <h4 style="font-size: 11pt; color: var(--primary-purple);">Electric Mobility</h4>
+                    <p style="font-size: 9pt;">Two and three-wheelers for urban transport</p>
+                </div>
+            </div>
+
+            <div class="ad-block" style="background: linear-gradient(135deg, #f0f8f0 0%, #e0f0e0 100%); border-color: var(--green-accent);">
+                <h3 style="color: var(--green-accent);">AFLI Innovation Award 2026</h3>
+                <p style="font-size: 11pt; color: var(--text-gray); max-width: 80%; margin: 10px auto;">
+                    Recognizing outstanding African women developing climate technologies with poverty alleviation impact. 
+                    <strong>Grand Prize: $500,000 seed funding + mentorship.</strong>
+                </p>
+                <p style="font-size: 9pt; color: var(--text-gray);">Finalists announced March 18 | Award Ceremony March 19</p>
+            </div>
+
+            <div class="two-column" style="margin-top: 20px;">
+                <div>
+                    <h3>Startup Pitch Sessions</h3>
+                    <ul class="content-list body-text" style="font-size: 9pt;">
+                        <li>Bio-pesticide alternatives from indigenous plants</li>
+                        <li>Blockchain-enabled carbon credit trading for smallholders</li>
+                        <li>Modular biogas systems for urban households</li>
+                        <li>Recycled plastic roofing tiles</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Research Spotlight</h3>
+                    <div style="background: var(--light-gray); padding: 15px; border-left: 3px solid var(--accent-gold);">
+                        <p style="font-size: 9pt; font-style: italic; margin-bottom: 8px;">"Gender-responsive design increases technology adoption by 300% in rural African communities."</p>
+                        <p style="font-size: 8pt; color: var(--text-gray);">— African Climate Innovation Lab, 2025</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-footer">
+                <span>African First Ladies Initiative</span>
+                <span class="page-number">9</span>
+            </div>
+        </div>
+
+        <!-- PAGE 10: POLICY & STRATEGY -->
+        <div class="page">
+            <div class="page-header">
+                <div>
+                    <div class="header-title">AFLI</div>
+                    <div class="header-subtitle">Forum Magazine 2026</div>
+                </div>
+                <div class="header-meta">
+                    MARCH 2026 | AFRICAN FIRST LADIES INITIATIVE
+                </div>
+            </div>
+
+            <h2>Policy & Climate Strategy</h2>
+            <p class="article-meta">Aligning National Ambitions with Global Frameworks</p>
+
+            <div class="sidebar-left" style="margin-top: 20px;">
+                <div style="border-right: 1px solid var(--border-gray); padding-right: 20px;">
+                    <h3 style="font-size: 11pt;">NDC Enhancement</h3>
+                    <p class="body-text" style="font-size: 9pt; margin-bottom: 15px;">African nations are revising Nationally Determined Contributions to align with 1.5°C pathways. This section analyzes gender-responsive targets in updated climate plans.</p>
+                    
+                    <h3 style="font-size: 11pt;">Climate Finance Access</h3>
+                    <p class="body-text" style="font-size: 9pt; margin-bottom: 15px;">Despite $100B annual commitments, less than 10% reaches local women's organizations. New mechanisms discussed at the forum aim to direct 30% of climate finance to gender-responsive projects.</p>
+                    
+                    <h3 style="font-size: 11pt;">Carbon Markets</h3>
+                    <p class="body-text" style="font-size: 9pt;">The African Carbon Markets Initiative targets 300 million credits annually by 2030, with provisions ensuring 50% of revenues benefit local communities.</p>
+                </div>
+                
+                <div>
+                    <div class="image-placeholder image-sidebar" style="height: 180px; margin-bottom: 15px;">[Policy Session]</div>
+                    
+                    <div style="background: var(--primary-purple); color: white; padding: 15px;">
+                        <h4 style="color: var(--accent-gold); font-size: 10pt; margin-bottom: 10px;">POLICY COMMITMENTS</h4>
+                        <ul style="list-style: none; font-size: 9pt; line-height: 1.8;">
+                            <li>▸ 40% women in climate decision-making</li>
+                            <li>▸ Gender-disaggregated climate data</li>
+                            <li>▸ Women's land rights in NDCs</li>
+                            <li>▸ Green procurement preferences</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pull-quote mt-3">
+                "Policy without implementation is poetry. This forum commits to concrete action plans with measurable targets and accountability mechanisms."
+            </div>
+
+            <div class="page-footer">
+                <span>African First Ladies Initiative</span>
+                <span class="page-number">10</span>
+            </div>
+        </div>
+
+        <!-- PAGE 11: STRATEGIC PARTNERS -->
+        <div class="page">
+            <div class="page-header">
+                <div>
+                    <div class="header-title">AFLI</div>
+                    <div class="header-subtitle">Forum Magazine 2026</div>
+                </div>
+                <div class="header-meta">
+                    MARCH 2026 | AFRICAN FIRST LADIES INITIATIVE
+                </div>
+            </div>
+
+            <h2>Strategic Partners</h2>
+            <p class="article-meta">Collaborating for Transformative Impact</p>
+
+            <div class="section-divider mt-2">
+                <span>Platinum Partners</span>
+            </div>
+
+            <div class="three-column" style="margin: 20px 0;">
+                <div class="text-center">
+                    <div class="image-placeholder" style="height: 80px; margin-bottom: 10px;">[Logo]</div>
+                    <p class="font-bold" style="font-size: 10pt;">African Development Bank</p>
+                </div>
+                <div class="text-center">
+                    <div class="image-placeholder" style="height: 80px; margin-bottom: 10px;">[Logo]</div>
+                    <p class="font-bold" style="font-size: 10pt;">UN Women</p>
+                </div>
+                <div class="text-center">
+                    <div class="image-placeholder" style="height: 80px; margin-bottom: 10px;">[Logo]</div>
+                    <p class="font-bold" style="font-size: 10pt;">Green Climate Fund</p>
+                </div>
+            </div>
+
+            <div class="section-divider">
+                <span>Gold Partners</span>
+            </div>
+
+            <div class="three-column" style="margin: 20px 0;">
+                <div class="text-center">
+                    <div class="image-placeholder" style="height: 60px; margin-bottom: 8px;">[Logo]</div>
+                    <p style="font-size: 9pt;">World Bank Climate Group</p>
+                </div>
+                <div class="text-center">
+                    <div class="image-placeholder" style="height: 60px; margin-bottom: 8px;">[Logo]</div>
+                    <p style="font-size: 9pt;">Clean Cooking Alliance</p>
+                </div>
+                <div class="text-center">
+                    <div class="image-placeholder" style="height: 60px; margin-bottom: 8px;">[Logo]</div>
+                    <p style="font-size: 9pt;">African Union Commission</p>
+                </div>
+            </div>
+
+            <div class="section-divider">
+                <span>Technical Partners</span>
+            </div>
+
+            <div class="two-column" style="margin-top: 20px;">
+                <div>
+                    <h3>Knowledge Partners</h3>
+                    <ul class="content-list body-text" style="font-size: 9pt;">
+                        <li>Climate Policy Research Institute</li>
+                        <li>African Economic Research Consortium</li>
+                        <li>Women's Environment & Development Organization</li>
+                        <li>International Institute for Environment and Development</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Implementation Partners</h3>
+                    <ul class="content-list body-text" style="font-size: 9pt;">
+                        <li>SNV Netherlands Development Organisation</li>
+                        <li>Practical Action</li>
+                        <li>Solar Sister</li>
+                        <li>World Resources Institute</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="ad-block mt-3" style="padding: 20px;">
+                <p style="font-size: 10pt; color: var(--text-gray);">
+                    <strong>Become a Partner:</strong> Join leading organizations committed to African women's climate leadership. 
+                    Contact: partnerships@afliforum.org
+                </p>
+            </div>
+
+            <div class="page-footer">
+                <span>African First Ladies Initiative</span>
+                <span class="page-number">11</span>
+            </div>
+        </div>
+
+        <!-- PAGE 12: SPONSOR AD -->
+        <div class="page">
+            <div class="page-header">
+                <div>
+                    <div class="header-title">AFLI</div>
+                    <div class="header-subtitle">Forum Magazine 2026</div>
+                </div>
+                <div class="header-meta">
+                    MARCH 2026 | AFRICAN FIRST LADIES INITIATIVE
+                </div>
+            </div>
+
+            <div style="height: calc(100% - 60px); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+                <div style="background: linear-gradient(135deg, #1a3a2a 0%, #2d5a3d 100%); color: white; padding: 60px; width: 90%; border-radius: 8px;">
+                    <div style="font-size: 14pt; letter-spacing: 3px; margin-bottom: 20px; opacity: 0.8;">PRESENTING PARTNER</div>
+                    <h2 style="font-size: 36pt; color: white; margin-bottom: 20px;">GreenFuture<br>Africa</h2>
+                    <div style="width: 100px; height: 3px; background: var(--accent-gold); margin: 0 auto 20px;"></div>
+                    <p style="font-size: 14pt; max-width: 400px; margin: 0 auto; line-height: 1.6;">
+                        Investing in women-led climate solutions across the continent. Together, we are building a sustainable, prosperous Africa.
+                    </p>
+                    <div style="margin-top: 30px; font-size: 11pt;">
+                        www.greenfutureafrica.org
+                    </div>
+                </div>
+                
+                <div style="margin-top: 40px;">
+                    <p style="font-size: 10pt; color: var(--text-gray); font-style: italic;">
+                        "Empowering women to lead the green transition"
+                    </p>
+                </div>
+            </div>
+
+            <div class="page-footer">
+                <span>African First Ladies Initiative</span>
+                <span class="page-number">12</span>
+            </div>
+        </div>
+
+        <!-- PAGE 13: DECLARATION -->
+        <div class="page">
+            <div class="page-header">
+                <div>
+                    <div class="header-title">AFLI</div>
+                    <div class="header-subtitle">Forum Magazine 2026</div>
+                </div>
+                <div class="header-meta">
+                    MARCH 2026 | AFRICAN FIRST LADIES INITIATIVE
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-bottom: 30px;">
+                <h3 style="color: var(--accent-gold);">Addis Ababa Declaration</h3>
+                <h2 style="font-size: 24pt;">Forum Declaration</h2>
+                <p class="article-meta">March 19, 2026 | Unanimously Adopted by Delegates</p>
+            </div>
+
+            <div class="body-text" style="columns: 2; column-gap: 30px; text-align: justify;">
+                <p class="drop-cap"><strong>We, the African First Ladies</strong>, gathered at the National Palace in Addis Ababa from 17–19 March 2026, recognizing the existential threat of climate change to our continent and the transformative potential of women's leadership in addressing this crisis, do hereby declare:</p>
+                
+                <p><strong>Article 1:</strong> We commit to championing gender-responsive climate policies in our respective nations, ensuring that National Determined Contributions include specific targets for women's participation in climate decision-making at all levels.</p>
+                
+                <p><strong>Article 2:</strong> We pledge to mobilize resources for women-led climate enterprises, working with financial institutions to de-risk green investments and increase access to climate finance for women entrepreneurs.</p>
+                
+                <p><strong>Article 3:</strong> We resolve to prioritize universal access to clean cooking energy by 2030, recognizing this as both a climate imperative and a fundamental health and gender equality issue.</p>
+                
+                <p><strong>Article 4:</strong> We commit to establishing national AFLI chapters that will sustain the momentum of this forum, tracking progress and holding stakeholders accountable to commitments made.</p>
+                
+                <p><strong>Article 5:</strong> We call upon the international community to honor climate finance commitments, with at least 30% of funding directed to gender-responsive projects designed and implemented by African women.</p>
+                
+                <p><strong>Article 6:</strong> We pledge to amplify the voices of grassroots women—farmers, entrepreneurs, and community leaders—in national and international climate dialogues.</p>
+            </div>
+
+            <div class="pull-quote" style="margin-top: 20px; text-align: center; border: none; background: var(--light-gray);">
+                "The future of Africa is green, and that future will be built by women."
+            </div>
+
+            <div style="margin-top: 30px; text-align: center;">
+                <p style="font-size: 10pt; color: var(--text-gray);">Signed this 19th day of March, 2026</p>
+                <p style="font-size: 11pt; font-weight: 700; color: var(--primary-purple); margin-top: 10px;">Her Excellency [Name] & Delegates</p>
+            </div>
+
+            <div class="page-footer">
+                <span>African First Ladies Initiative</span>
+                <span class="page-number">13</span>
+            </div>
+        </div>
+
+        <!-- PAGE 14: PHOTO ESSAY -->
+        <div class="page">
+            <div class="page-header">
+                <div>
+                    <div class="header-title">AFLI</div>
+                    <div class="header-subtitle">Forum Magazine 2026</div>
+                </div>
+                <div class="header-meta">
+                    MARCH 2026 | AFRICAN FIRST LADIES INITIATIVE
+                </div>
+            </div>
+
+            <h3 style="text-align: center; margin-bottom: 20px;">Forum in Pictures</h3>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 200px 200px; gap: 15px; height: calc(100% - 100px);">
+                <div class="image-placeholder" style="grid-row: span 2;">[Opening Ceremony]</div>
+                <div class="image-placeholder">[Panel Discussion]</div>
+                <div class="image-placeholder">[Networking Session]</div>
+                <div class="image-placeholder" style="grid-column: span 2;">[Group Photo: First Ladies]</div>
+            </div>
+
+            <div class="page-footer">
+                <span>African First Ladies Initiative</span>
+                <span class="page-number">14</span>
+            </div>
+        </div>
+
+        <!-- PAGE 15: NOTES/RESOURCES -->
+        <div class="page">
+            <div class="page-header">
+                <div>
+                    <div class="header-title">AFLI</div>
+                    <div class="header-subtitle">Forum Magazine 2026</div>
+                </div>
+                <div class="header-meta">
+                    MARCH 2026 | AFRICAN FIRST LADIES INITIATIVE
+                </div>
+            </div>
+
+            <div class="two-column">
+                <div>
+                    <h3>Forum Resources</h3>
+                    <div style="background: var(--light-gray); padding: 20px; margin-bottom: 20px;">
+                        <p style="font-size: 10pt; margin-bottom: 10px;"><strong>Website:</strong> www.afliforum.org</p>
+                        <p style="font-size: 10pt; margin-bottom: 10px;"><strong>Contact:</strong> info@afliforum.org</p>
+                        <p style="font-size: 10pt; margin-bottom: 10px;"><strong>Social:</strong> @AFLI_Forum</p>
+                        <p style="font-size: 10pt;"><strong>Hashtag:</strong> #AFLI2026 #WomenLeadClimate</p>
+                    </div>
+
+                    <h3>Key Documents</h3>
+                    <ul class="content-list body-text" style="font-size: 9pt;">
+                        <li>Addis Ababa Declaration (Full Text)</li>
+                        <li>Forum Action Plan 2026-2030</li>
+                        <li>Investment Prospectus: Green Livelihoods Fund</li>
+                        <li>Technical Papers: Clean Cooking & Health</li>
+                        <li>Case Study Compendium</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>Next Steps</h3>
+                    <div class="session-card" style="margin-bottom: 15px;">
+                        <div class="session-time">Q2 2026</div>
+                        <p style="font-size: 10pt;">National AFLI chapters established</p>
+                    </div>
+                    <div class="session-card" style="margin-bottom: 15px;">
+                        <div class="session-time">September 2026</div>
+                        <p style="font-size: 10pt;">First progress report to UNGA</p>
+                    </div>
+                    <div class="session-card" style="margin-bottom: 15px;">
+                        <div class="session-time">March 2027</div>
+                        <p style="font-size: 10pt;">AFLI Forum 2027, Kigali</p>
+                    </div>
+
+                    <div class="image-placeholder" style="height: 150px; margin-top: 20px;">[QR Code]</div>
+                    <p style="text-align: center; font-size: 8pt; color: var(--text-gray);">Scan for digital resources</p>
+                </div>
+            </div>
+
+            <div class="page-footer">
+                <span>African First Ladies Initiative</span>
+                <span class="page-number">15</span>
+            </div>
+        </div>
+
+        <!-- PAGE 16: BACK COVER -->
+        <div class="page" style="background: var(--primary-purple); color: white; padding: 20mm;">
+            <div style="height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; border: 2px solid var(--accent-gold); padding: 40px;">
+                <h1 style="font-size: 48pt; color: white; margin-bottom: 20px;">AFLI</h1>
+                <div style="width: 100px; height: 3px; background: var(--accent-gold); margin-bottom: 30px;"></div>
+                <h2 style="color: white; font-size: 20pt; margin-bottom: 15px;">African First Ladies Initiative</h2>
+                <p style="font-size: 14pt; opacity: 0.9; max-width: 400px; line-height: 1.6; margin-bottom: 30px;">
+                    Leading Africa's Transition to a Sustainable, Prosperous Future
+                </p>
+                
+                <div style="margin-top: 40px;">
+                    <p style="font-size: 11pt; opacity: 0.8; margin-bottom: 5px;">17–19 March 2026</p>
+                    <p style="font-size: 11pt; opacity: 0.8; margin-bottom: 5px;">National Palace, Addis Ababa</p>
+                    <p style="font-size: 11pt; opacity: 0.8;">www.afliforum.org</p>
+                </div>
+
+                <div style="margin-top: 60px; font-size: 9pt; opacity: 0.6;">
+                    <p>© 2026 African First Ladies Initiative</p>
+                    <p>All rights reserved. Printed on recycled paper.</p>
+                </div>
+            </div>
+
+            <div class="page-footer" style="border-top-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.6);">
+                <span>African First Ladies Initiative</span>
+                <span class="page-number" style="color: white;">16</span>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
