@@ -333,7 +333,108 @@
             z-index: 2;
         }
 
-        .cycle-header {
+        /* ===== MAIN LAYOUT: Text Left + Image Right ===== */
+        .cycle-main-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 5rem;
+        }
+
+        .cycle-text-col h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.15;
+            color: white;
+        }
+
+        .cycle-text-col p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.82);
+            margin-bottom: 1.3rem;
+        }
+
+        .cycle-text-col .artful-quote {
+            border-left: 3px solid var(--honey);
+            padding-left: 1.5rem;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--gold);
+            margin: 2rem 0 0;
+            line-height: 1.7;
+        }
+
+        /* Image Column */
+        .cycle-image-col {
+            position: relative;
+        }
+
+        .cycle-image-wrap {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+
+        .cycle-main-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            background: white;
+        }
+
+        /* Yellow Circle Badge */
+        .cycle-img-badge {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 100px;
+            height: 100px;
+            background: var(--honey);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+            animation: badgeFloat 4s ease-in-out infinite;
+            z-index: 10;
+        }
+
+        @keyframes badgeFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .cycle-img-badge .badge-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--dark);
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .cycle-img-badge .badge-text {
+            font-size: 0.6rem;
+            color: var(--dark);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            line-height: 1.3;
+            margin-top: 0.2rem;
+        }
+
+        /* ===== EXPLORER SECTION ===== */
+        .cycle-explorer {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 4rem;
+        }
+
+        .explorer-header {
             text-align: center;
             margin-bottom: 3rem;
         }
@@ -352,13 +453,7 @@
             border: 1px solid rgba(201, 162, 39, 0.25);
         }
 
-        .cycle-header h2 {
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-            line-height: 1.15;
-        }
-
-        .cycle-header p {
+        .explorer-header p {
             font-size: 1.05rem;
             color: rgba(255,255,255,0.75);
             max-width: 600px;
@@ -747,6 +842,12 @@
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
+            .cycle-main-layout {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .cycle-text-col h2 { font-size: 2.4rem; }
+            .cycle-image-col { max-width: 600px; margin: 0 auto; }
             .cycle-stage {
                 grid-template-columns: 1fr;
                 gap: 3rem;
@@ -771,7 +872,13 @@
 
         @media (max-width: 768px) {
             .cycle-section { padding: 4rem 1.5rem; }
-            .cycle-header h2 { font-size: 2rem; }
+            .cycle-text-col h2 { font-size: 1.9rem; }
+            .cycle-img-badge {
+                width: 80px; height: 80px;
+                top: -10px; right: -10px;
+            }
+            .cycle-img-badge .badge-num { font-size: 1.8rem; }
+            .cycle-img-badge .badge-text { font-size: 0.5rem; }
             .stage-visual { max-width: 340px; }
             .ring-node {
                 width: 58px; height: 58px;
@@ -801,6 +908,12 @@
         }
 
         @media (max-width: 480px) {
+            .cycle-text-col h2 { font-size: 1.6rem; }
+            .cycle-img-badge {
+                width: 70px; height: 70px;
+                top: -8px; right: -8px;
+            }
+            .cycle-img-badge .badge-num { font-size: 1.5rem; }
             .stage-visual { max-width: 300px; }
             .ring-node {
                 width: 52px; height: 52px;
@@ -1875,252 +1988,273 @@
         </div>
     </section>
 
-    <!-- 3D Dynamic Cycle: Circular Economy Flow -->
+    <!-- 3D Dynamic Cycle: The Living Architecture of Urban Resilience -->
     <section class="cycle-section" id="vision">
         <div class="cycle-bg-mesh" id="cycleMesh"></div>
         <div class="cycle-container">
-            <div class="cycle-header">
-                <div class="cycle-label">The Circular Economy Engine</div>
-                <h2>The Living Architecture of Urban Resilience</h2>
-                <p>Eight interconnected stages. One closed loop. From food waste to fresh harvest, watch how urban resources cycle through transformation—driven by youth, powered by nature, sustained by markets.</p>
-            </div>
-
-            <div class="cycle-stage" id="cycleStage">
-                <div class="stage-visual">
-                    <div class="stage-ring" id="stageRing">
-                        <!-- Stage 1: Food Waste/Yard Waste -->
-                        <div class="ring-node active" data-stage="0" style="--angle: 0deg;">
-                            <div class="node-icon">🗑️</div>
-                            <div class="node-label">Food & Yard Waste</div>
-                            <div class="node-pulse"></div>
-                        </div>
-                        <!-- Stage 2: Collection/Transportation -->
-                        <div class="ring-node" data-stage="1" style="--angle: 45deg;">
-                            <div class="node-icon">🚛</div>
-                            <div class="node-label">Collection</div>
-                            <div class="node-pulse"></div>
-                        </div>
-                        <!-- Stage 3: Composting/Processing -->
-                        <div class="ring-node" data-stage="2" style="--angle: 90deg;">
-                            <div class="node-icon">⚙️</div>
-                            <div class="node-label">Composting</div>
-                            <div class="node-pulse"></div>
-                        </div>
-                        <!-- Stage 4: Compost Distribution -->
-                        <div class="ring-node" data-stage="3" style="--angle: 135deg;">
-                            <div class="node-icon">📦</div>
-                            <div class="node-label">Distribution</div>
-                            <div class="node-pulse"></div>
-                        </div>
-                        <!-- Stage 5: Soil Amendments -->
-                        <div class="ring-node" data-stage="4" style="--angle: 180deg;">
-                            <div class="node-icon">🌾</div>
-                            <div class="node-label">Soil Amendments</div>
-                            <div class="node-pulse"></div>
-                        </div>
-                        <!-- Stage 6: Plant Life -->
-                        <div class="ring-node" data-stage="5" style="--angle: 225deg;">
-                            <div class="node-icon">🌱</div>
-                            <div class="node-label">Plant Life</div>
-                            <div class="node-pulse"></div>
-                        </div>
-                        <!-- Stage 7: Distribution/Consumption -->
-                        <div class="ring-node" data-stage="6" style="--angle: 270deg;">
-                            <div class="node-icon">🏪</div>
-                            <div class="node-label">Markets</div>
-                            <div class="node-pulse"></div>
-                        </div>
-                        <!-- Stage 8: Food Donation -->
-                        <div class="ring-node" data-stage="7" style="--angle: 315deg;">
-                            <div class="node-icon">🤝</div>
-                            <div class="node-label">Food Donation</div>
-                            <div class="node-pulse"></div>
-                        </div>
+            <div class="cycle-main-layout">
+                <!-- Left: Text Content -->
+                <div class="cycle-text-col">
+                    <h2>The Living Architecture of Urban Resilience</h2>
+                    <p>Imagine a city where every rooftop breathes, where waste becomes wealth, and where the unemployed youth of today become the environmental stewards of tomorrow. This is not utopia—this is engineered ecology.</p>
+                    <p>We do not plant trees in isolation. We weave a tapestry where bees pollinate crops, compost feeds the soil, nurseries supply restoration contracts, and ancient herbal wisdom finds its way to modern markets.</p>
+                    <div class="artful-quote">
+                        "Environmental projects which do not generate income do not sustain themselves over time. We address that evidence directly."
                     </div>
-
-                    <!-- Center hub -->
-                    <div class="stage-hub" id="stageHub">
-                        <div class="hub-inner">
-                            <div class="hub-icon" id="hubIcon">🗑️</div>
-                            <div class="hub-ring"></div>
-                            <div class="hub-ring-2"></div>
-                        </div>
-                    </div>
-
-                    <!-- Connecting orbit lines -->
-                    <svg class="orbit-svg" viewBox="0 0 400 400">
-                        <circle cx="200" cy="200" r="160" fill="none" stroke="rgba(201,162,39,0.12)" stroke-width="1.5" stroke-dasharray="6 4"/>
-                        <circle cx="200" cy="200" r="130" fill="none" stroke="rgba(74,124,89,0.15)" stroke-width="1"/>
-                        <circle cx="200" cy="200" r="190" fill="none" stroke="rgba(201,162,39,0.06)" stroke-width="0.5" stroke-dasharray="3 6"/>
-                    </svg>
-
-                    <!-- Directional arrows showing cycle flow -->
-                    <svg class="flow-arrows" viewBox="0 0 400 400">
-                        <defs>
-                            <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
-                                <polygon points="0 0, 6 2, 0 4" fill="rgba(201,162,39,0.4)"/>
-                            </marker>
-                        </defs>
-                        <path d="M 200 30 A 170 170 0 0 1 370 200" fill="none" stroke="rgba(201,162,39,0.15)" stroke-width="1" marker-end="url(#arrowhead)"/>
-                        <path d="M 370 200 A 170 170 0 0 1 200 370" fill="none" stroke="rgba(201,162,39,0.15)" stroke-width="1" marker-end="url(#arrowhead)"/>
-                        <path d="M 200 370 A 170 170 0 0 1 30 200" fill="none" stroke="rgba(201,162,39,0.15)" stroke-width="1" marker-end="url(#arrowhead)"/>
-                        <path d="M 30 200 A 170 170 0 0 1 200 30" fill="none" stroke="rgba(201,162,39,0.15)" stroke-width="1" marker-end="url(#arrowhead)"/>
-                    </svg>
-
-                    <!-- Animated particles traveling the ring -->
-                    <div class="travel-particles" id="travelParticles"></div>
                 </div>
 
-                <div class="stage-info" id="stageInfo">
-                    <div class="info-card active" data-stage="0">
-                        <div class="info-number">01</div>
-                        <h3>Food Waste & Yard Waste</h3>
-                        <p>The cycle begins where most see an ending. Organic scraps from households, markets, and restaurants—along with fallen leaves and garden trimmings—are collected as raw material rather than discarded. In Addis Ababa, this represents tonnes of daily waste diverted from landfills and transformed into productive inputs.</p>
-                        <div class="info-stats">
-                            <div class="info-stat">
-                                <span class="info-stat-val">100%</span>
-                                <span class="info-stat-label">Organic Diversion</span>
-                            </div>
-                            <div class="info-stat">
-                                <span class="info-stat-val">Zero</span>
-                                <span class="info-stat-label">Landfill Waste</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="info-card" data-stage="1">
-                        <div class="info-number">02</div>
-                        <h3>Collection & Transportation</h3>
-                        <p>Youth-led collection teams gather organic waste from designated points across each sub-city. Specialized transport ensures materials reach composting sites fresh and uncontaminated. This stage creates immediate green jobs while establishing the logistical backbone of the circular system.</p>
-                        <div class="info-stats">
-                            <div class="info-stat">
-                                <span class="info-stat-val">11</span>
-                                <span class="info-stat-label">Sub-City Networks</span>
-                            </div>
-                            <div class="info-stat">
-                                <span class="info-stat-val">Daily</span>
-                                <span class="info-stat-label">Collection Routes</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="info-card" data-stage="2">
-                        <div class="info-number">03</div>
-                        <h3>Composting & Processing</h3>
-                        <p>Collected organic matter undergoes controlled decomposition. Youth enterprises manage aerated compost piles, monitoring temperature and moisture to produce nutrient-rich soil amendments. This biological factory operates 24/7, converting waste into black gold within 8–12 weeks.</p>
-                        <div class="info-stats">
-                            <div class="info-stat">
-                                <span class="info-stat-val">8–12</span>
-                                <span class="info-stat-label">Weeks Processing</span>
-                            </div>
-                            <div class="info-stat">
-                                <span class="info-stat-val">40%</span>
-                                <span class="info-stat-label">Cost Reduction</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="info-card" data-stage="3">
-                        <div class="info-number">04</div>
-                        <h3>Compost Distribution</h3>
-                        <p>Finished compost is packaged and distributed to urban farms, tree nurseries, and restoration sites. Youth enterprises manage inventory, quality testing, and delivery logistics. This distribution network ensures every gram of processed waste returns to the soil where it belongs.</p>
-                        <div class="info-stats">
-                            <div class="info-stat">
-                                <span class="info-stat-val">100%</span>
-                                <span class="info-stat-label">Closed Loop</span>
-                            </div>
-                            <div class="info-stat">
-                                <span class="info-stat-val">Local</span>
-                                <span class="info-stat-label">Distribution</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="info-card" data-stage="4">
-                        <div class="info-number">05</div>
-                        <h3>Soil Amendments</h3>
-                        <p>Compost enriches depleted urban soils, restoring fertility and structure without chemical fertilizers. Youth teams apply amendments to rooftop gardens, vertical farms, and nursery beds. The soil microbiome awakens—bacteria, fungi, and earthworms create living ground capable of sustaining intensive urban agriculture.</p>
-                        <div class="info-stats">
-                            <div class="info-stat">
-                                <span class="info-stat-val">Zero</span>
-                                <span class="info-stat-label">Chemical Inputs</span>
-                            </div>
-                            <div class="info-stat">
-                                <span class="info-stat-val">3x</span>
-                                <span class="info-stat-label">Soil Fertility</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="info-card" data-stage="5">
-                        <div class="info-number">06</div>
-                        <h3>Plant Life</h3>
-                        <p>Seeds become seedlings, seedlings become crops. Vegetables, herbs, and medicinal plants flourish in amended soils across vertical gardens, rooftop farms, and container systems. Bees pollinate flowers, increasing yields by 30%. Tree nurseries produce seedlings for city greening contracts. Life returns to concrete.</p>
-                        <div class="info-stats">
-                            <div class="info-stat">
-                                <span class="info-stat-val">$8K–12K</span>
-                                <span class="info-stat-label">Crop Revenue</span>
-                            </div>
-                            <div class="info-stat">
-                                <span class="info-stat-val">30%</span>
-                                <span class="info-stat-label">Yield Increase</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="info-card" data-stage="6">
-                        <div class="info-number">07</div>
-                        <h3>Distribution & Consumption</h3>
-                        <p>Fresh produce travels meters—not miles—to local markets, restaurants, and households. Honey, herbal oils, and seedlings reach buyers through pre-arranged agreements. Revenue flows back to youth enterprises, funding wages, reinvestment, and the next growing cycle. The loop closes economically.</p>
-                        <div class="info-stats">
-                            <div class="info-stat">
-                                <span class="info-stat-val">$20K–30K</span>
-                                <span class="info-stat-label">Total Revenue</span>
-                            </div>
-                            <div class="info-stat">
-                                <span class="info-stat-val">Local</span>
-                                <span class="info-stat-label">Supply Chain</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="info-card" data-stage="7">
-                        <div class="info-number">08</div>
-                        <h3>Food Donation & Community</h3>
-                        <p>Surplus harvests feed vulnerable communities through donation networks. Youth associations allocate a percentage of production to food security programs, strengthening social bonds. What cannot be sold or donated returns to the compost pile—completing the infinite cycle. Nothing is wasted. Everything transforms.</p>
-                        <div class="info-stats">
-                            <div class="info-stat">
-                                <span class="info-stat-val">5K–7K</span>
-                                <span class="info-stat-label">Indirect Beneficiaries</span>
-                            </div>
-                            <div class="info-stat">
-                                <span class="info-stat-val">∞</span>
-                                <span class="info-stat-label">Circular Loop</span>
-                            </div>
+                <!-- Right: Cycle Image with Badge -->
+                <div class="cycle-image-col">
+                    <div class="cycle-image-wrap">
+                        <img src="https://kimi-web-img.moonshot.cn/img/cdn.kingcounty.gov/9ef26027edbe719e79fc3e7ac723d44aa3b48003.jpg" alt="Circular Economy Cycle" class="cycle-main-img">
+                        <div class="cycle-img-badge">
+                            <span class="badge-num">5</span>
+                            <span class="badge-text">INTEGRATED<br>COMPONENTS</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Cycle controls -->
-            <div class="cycle-controls">
-                <button class="cycle-btn cycle-prev" onclick="prevStage()">← Previous</button>
-                <div class="cycle-progress">
-                    <div class="cycle-dots">
-                        <span class="cycle-dot active" data-stage="0"></span>
-                        <span class="cycle-dot" data-stage="1"></span>
-                        <span class="cycle-dot" data-stage="2"></span>
-                        <span class="cycle-dot" data-stage="3"></span>
-                        <span class="cycle-dot" data-stage="4"></span>
-                        <span class="cycle-dot" data-stage="5"></span>
-                        <span class="cycle-dot" data-stage="6"></span>
-                        <span class="cycle-dot" data-stage="7"></span>
+            <!-- Interactive 3D Stage Explorer -->
+            <div class="cycle-explorer">
+                <div class="explorer-header">
+                    <div class="cycle-label">Explore the Cycle</div>
+                    <p>Click any stage below to see how urban resources transform through the circular economy</p>
+                </div>
+
+                <div class="cycle-stage" id="cycleStage">
+                    <div class="stage-visual">
+                        <div class="stage-ring" id="stageRing">
+                            <!-- Stage 1: Food Waste/Yard Waste -->
+                            <div class="ring-node active" data-stage="0" style="--angle: 0deg;">
+                                <div class="node-icon">🗑️</div>
+                                <div class="node-label">Food & Yard Waste</div>
+                                <div class="node-pulse"></div>
+                            </div>
+                            <!-- Stage 2: Collection/Transportation -->
+                            <div class="ring-node" data-stage="1" style="--angle: 45deg;">
+                                <div class="node-icon">🚛</div>
+                                <div class="node-label">Collection</div>
+                                <div class="node-pulse"></div>
+                            </div>
+                            <!-- Stage 3: Composting/Processing -->
+                            <div class="ring-node" data-stage="2" style="--angle: 90deg;">
+                                <div class="node-icon">⚙️</div>
+                                <div class="node-label">Composting</div>
+                                <div class="node-pulse"></div>
+                            </div>
+                            <!-- Stage 4: Compost Distribution -->
+                            <div class="ring-node" data-stage="3" style="--angle: 135deg;">
+                                <div class="node-icon">📦</div>
+                                <div class="node-label">Distribution</div>
+                                <div class="node-pulse"></div>
+                            </div>
+                            <!-- Stage 5: Soil Amendments -->
+                            <div class="ring-node" data-stage="4" style="--angle: 180deg;">
+                                <div class="node-icon">🌾</div>
+                                <div class="node-label">Soil Amendments</div>
+                                <div class="node-pulse"></div>
+                            </div>
+                            <!-- Stage 6: Plant Life -->
+                            <div class="ring-node" data-stage="5" style="--angle: 225deg;">
+                                <div class="node-icon">🌱</div>
+                                <div class="node-label">Plant Life</div>
+                                <div class="node-pulse"></div>
+                            </div>
+                            <!-- Stage 7: Distribution/Consumption -->
+                            <div class="ring-node" data-stage="6" style="--angle: 270deg;">
+                                <div class="node-icon">🏪</div>
+                                <div class="node-label">Markets</div>
+                                <div class="node-pulse"></div>
+                            </div>
+                            <!-- Stage 8: Food Donation -->
+                            <div class="ring-node" data-stage="7" style="--angle: 315deg;">
+                                <div class="node-icon">🤝</div>
+                                <div class="node-label">Food Donation</div>
+                                <div class="node-pulse"></div>
+                            </div>
+                        </div>
+
+                        <!-- Center hub -->
+                        <div class="stage-hub" id="stageHub">
+                            <div class="hub-inner">
+                                <div class="hub-icon" id="hubIcon">🗑️</div>
+                                <div class="hub-ring"></div>
+                                <div class="hub-ring-2"></div>
+                            </div>
+                        </div>
+
+                        <!-- Connecting orbit lines -->
+                        <svg class="orbit-svg" viewBox="0 0 400 400">
+                            <circle cx="200" cy="200" r="160" fill="none" stroke="rgba(201,162,39,0.12)" stroke-width="1.5" stroke-dasharray="6 4"/>
+                            <circle cx="200" cy="200" r="130" fill="none" stroke="rgba(74,124,89,0.15)" stroke-width="1"/>
+                            <circle cx="200" cy="200" r="190" fill="none" stroke="rgba(201,162,39,0.06)" stroke-width="0.5" stroke-dasharray="3 6"/>
+                        </svg>
+
+                        <!-- Directional arrows showing cycle flow -->
+                        <svg class="flow-arrows" viewBox="0 0 400 400">
+                            <defs>
+                                <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
+                                    <polygon points="0 0, 6 2, 0 4" fill="rgba(201,162,39,0.4)"/>
+                                </marker>
+                            </defs>
+                            <path d="M 200 30 A 170 170 0 0 1 370 200" fill="none" stroke="rgba(201,162,39,0.15)" stroke-width="1" marker-end="url(#arrowhead)"/>
+                            <path d="M 370 200 A 170 170 0 0 1 200 370" fill="none" stroke="rgba(201,162,39,0.15)" stroke-width="1" marker-end="url(#arrowhead)"/>
+                            <path d="M 200 370 A 170 170 0 0 1 30 200" fill="none" stroke="rgba(201,162,39,0.15)" stroke-width="1" marker-end="url(#arrowhead)"/>
+                            <path d="M 30 200 A 170 170 0 0 1 200 30" fill="none" stroke="rgba(201,162,39,0.15)" stroke-width="1" marker-end="url(#arrowhead)"/>
+                        </svg>
+
+                        <!-- Animated particles traveling the ring -->
+                        <div class="travel-particles" id="travelParticles"></div>
                     </div>
-                    <div class="cycle-auto">
-                        <button class="auto-toggle active" id="autoToggle" onclick="toggleAuto()">
-                            <span class="auto-icon">▶</span>
-                            <span class="auto-text">Auto-play</span>
-                        </button>
+
+                    <div class="stage-info" id="stageInfo">
+                        <div class="info-card active" data-stage="0">
+                            <div class="info-number">01</div>
+                            <h3>Food Waste & Yard Waste</h3>
+                            <p>The cycle begins where most see an ending. Organic scraps from households, markets, and restaurants—along with fallen leaves and garden trimmings—are collected as raw material rather than discarded. In Addis Ababa, this represents tonnes of daily waste diverted from landfills and transformed into productive inputs.</p>
+                            <div class="info-stats">
+                                <div class="info-stat">
+                                    <span class="info-stat-val">100%</span>
+                                    <span class="info-stat-label">Organic Diversion</span>
+                                </div>
+                                <div class="info-stat">
+                                    <span class="info-stat-val">Zero</span>
+                                    <span class="info-stat-label">Landfill Waste</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-card" data-stage="1">
+                            <div class="info-number">02</div>
+                            <h3>Collection & Transportation</h3>
+                            <p>Youth-led collection teams gather organic waste from designated points across each sub-city. Specialized transport ensures materials reach composting sites fresh and uncontaminated. This stage creates immediate green jobs while establishing the logistical backbone of the circular system.</p>
+                            <div class="info-stats">
+                                <div class="info-stat">
+                                    <span class="info-stat-val">11</span>
+                                    <span class="info-stat-label">Sub-City Networks</span>
+                                </div>
+                                <div class="info-stat">
+                                    <span class="info-stat-val">Daily</span>
+                                    <span class="info-stat-label">Collection Routes</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-card" data-stage="2">
+                            <div class="info-number">03</div>
+                            <h3>Composting & Processing</h3>
+                            <p>Collected organic matter undergoes controlled decomposition. Youth enterprises manage aerated compost piles, monitoring temperature and moisture to produce nutrient-rich soil amendments. This biological factory operates 24/7, converting waste into black gold within 8–12 weeks.</p>
+                            <div class="info-stats">
+                                <div class="info-stat">
+                                    <span class="info-stat-val">8–12</span>
+                                    <span class="info-stat-label">Weeks Processing</span>
+                                </div>
+                                <div class="info-stat">
+                                    <span class="info-stat-val">40%</span>
+                                    <span class="info-stat-label">Cost Reduction</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-card" data-stage="3">
+                            <div class="info-number">04</div>
+                            <h3>Compost Distribution</h3>
+                            <p>Finished compost is packaged and distributed to urban farms, tree nurseries, and restoration sites. Youth enterprises manage inventory, quality testing, and delivery logistics. This distribution network ensures every gram of processed waste returns to the soil where it belongs.</p>
+                            <div class="info-stats">
+                                <div class="info-stat">
+                                    <span class="info-stat-val">100%</span>
+                                    <span class="info-stat-label">Closed Loop</span>
+                                </div>
+                                <div class="info-stat">
+                                    <span class="info-stat-val">Local</span>
+                                    <span class="info-stat-label">Distribution</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-card" data-stage="4">
+                            <div class="info-number">05</div>
+                            <h3>Soil Amendments</h3>
+                            <p>Compost enriches depleted urban soils, restoring fertility and structure without chemical fertilizers. Youth teams apply amendments to rooftop gardens, vertical farms, and nursery beds. The soil microbiome awakens—bacteria, fungi, and earthworms create living ground capable of sustaining intensive urban agriculture.</p>
+                            <div class="info-stats">
+                                <div class="info-stat">
+                                    <span class="info-stat-val">Zero</span>
+                                    <span class="info-stat-label">Chemical Inputs</span>
+                                </div>
+                                <div class="info-stat">
+                                    <span class="info-stat-val">3x</span>
+                                    <span class="info-stat-label">Soil Fertility</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-card" data-stage="5">
+                            <div class="info-number">06</div>
+                            <h3>Plant Life</h3>
+                            <p>Seeds become seedlings, seedlings become crops. Vegetables, herbs, and medicinal plants flourish in amended soils across vertical gardens, rooftop farms, and container systems. Bees pollinate flowers, increasing yields by 30%. Tree nurseries produce seedlings for city greening contracts. Life returns to concrete.</p>
+                            <div class="info-stats">
+                                <div class="info-stat">
+                                    <span class="info-stat-val">$8K–12K</span>
+                                    <span class="info-stat-label">Crop Revenue</span>
+                                </div>
+                                <div class="info-stat">
+                                    <span class="info-stat-val">30%</span>
+                                    <span class="info-stat-label">Yield Increase</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-card" data-stage="6">
+                            <div class="info-number">07</div>
+                            <h3>Distribution & Consumption</h3>
+                            <p>Fresh produce travels meters—not miles—to local markets, restaurants, and households. Honey, herbal oils, and seedlings reach buyers through pre-arranged agreements. Revenue flows back to youth enterprises, funding wages, reinvestment, and the next growing cycle. The loop closes economically.</p>
+                            <div class="info-stats">
+                                <div class="info-stat">
+                                    <span class="info-stat-val">$20K–30K</span>
+                                    <span class="info-stat-label">Total Revenue</span>
+                                </div>
+                                <div class="info-stat">
+                                    <span class="info-stat-val">Local</span>
+                                    <span class="info-stat-label">Supply Chain</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-card" data-stage="7">
+                            <div class="info-number">08</div>
+                            <h3>Food Donation & Community</h3>
+                            <p>Surplus harvests feed vulnerable communities through donation networks. Youth associations allocate a percentage of production to food security programs, strengthening social bonds. What cannot be sold or donated returns to the compost pile—completing the infinite cycle. Nothing is wasted. Everything transforms.</p>
+                            <div class="info-stats">
+                                <div class="info-stat">
+                                    <span class="info-stat-val">5K–7K</span>
+                                    <span class="info-stat-label">Indirect Beneficiaries</span>
+                                </div>
+                                <div class="info-stat">
+                                    <span class="info-stat-val">∞</span>
+                                    <span class="info-stat-label">Circular Loop</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <button class="cycle-btn cycle-next" onclick="nextStage()">Next →</button>
-            </div>
 
-            <div class="artful-quote cycle-quote">
-                "Environmental projects which do not generate income do not sustain themselves over time. We address that evidence directly."
+                <!-- Cycle controls -->
+                <div class="cycle-controls">
+                    <button class="cycle-btn cycle-prev" onclick="prevStage()">← Previous</button>
+                    <div class="cycle-progress">
+                        <div class="cycle-dots">
+                            <span class="cycle-dot active" data-stage="0"></span>
+                            <span class="cycle-dot" data-stage="1"></span>
+                            <span class="cycle-dot" data-stage="2"></span>
+                            <span class="cycle-dot" data-stage="3"></span>
+                            <span class="cycle-dot" data-stage="4"></span>
+                            <span class="cycle-dot" data-stage="5"></span>
+                            <span class="cycle-dot" data-stage="6"></span>
+                            <span class="cycle-dot" data-stage="7"></span>
+                        </div>
+                        <div class="cycle-auto">
+                            <button class="auto-toggle active" id="autoToggle" onclick="toggleAuto()">
+                                <span class="auto-icon">▶</span>
+                                <span class="auto-text">Auto-play</span>
+                            </button>
+                        </div>
+                    </div>
+                    <button class="cycle-btn cycle-next" onclick="nextStage()">Next →</button>
+                </div>
             </div>
         </div>
     </section>
