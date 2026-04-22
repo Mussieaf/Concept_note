@@ -444,61 +444,193 @@
             margin-top: 0.3rem;
         }
 
-        /* ===== GALLERY (AFLI numbered style) ===== */
+        /* ===== HORIZONTAL EXPANDING PILLARS ===== */
         .gallery-section {
             background: var(--cream);
             padding: 6rem 2rem;
         }
         .gallery-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 3rem;
+
+        .pillars-accordion {
+            display: flex;
+            gap: 8px;
+            height: 520px;
             margin-top: 3rem;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
         }
-        .gallery-item {
-            display: grid;
-            grid-template-columns: 60px 1fr;
-            gap: 1.5rem;
-            align-items: start;
+
+        .pillar-panel {
+            position: relative;
+            flex: 1;
+            min-width: 80px;
+            cursor: pointer;
+            transition: flex 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            overflow: hidden;
+            border-radius: 12px;
         }
-        .gallery-number {
+
+        .pillar-panel:hover {
+            flex: 4;
+        }
+
+        .pillar-panel:hover ~ .pillar-panel,
+        .pillars-accordion:has(.pillar-panel:hover) .pillar-panel:not(:hover) {
+            flex: 0.6;
+        }
+
+        .pillar-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .pillar-panel:hover .pillar-bg {
+            transform: scale(1.08);
+        }
+
+        .pillar-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                180deg,
+                rgba(15, 46, 26, 0.3) 0%,
+                rgba(15, 46, 26, 0.7) 50%,
+                rgba(15, 46, 26, 0.95) 100%
+            );
+            transition: background 0.5s;
+        }
+
+        .pillar-panel:hover .pillar-overlay {
+            background: linear-gradient(
+                180deg,
+                rgba(15, 46, 26, 0.2) 0%,
+                rgba(15, 46, 26, 0.5) 40%,
+                rgba(15, 46, 26, 0.9) 100%
+            );
+        }
+
+        .pillar-content {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.5rem;
+            color: white;
+            z-index: 2;
+        }
+
+        .pillar-number {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: 3rem;
             color: var(--honey);
             font-weight: 700;
             line-height: 1;
-            opacity: 0.7;
-        }
-        .gallery-content h3 {
-            font-size: 1.3rem;
-            color: var(--forest);
+            opacity: 0.8;
             margin-bottom: 0.5rem;
+            transition: all 0.4s;
         }
-        .gallery-content p {
-            color: var(--text-body);
-            font-size: 0.9rem;
-            line-height: 1.7;
+
+        .pillar-panel:hover .pillar-number {
+            font-size: 4rem;
+            opacity: 1;
+        }
+
+        .pillar-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+            white-space: nowrap;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transform: rotate(180deg);
+            transition: all 0.5s;
+            position: absolute;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            height: auto;
+        }
+
+        .pillar-panel:hover .pillar-title {
+            writing-mode: horizontal-tb;
+            transform: rotate(0);
+            position: relative;
+            bottom: auto;
+            left: auto;
+            font-size: 1.6rem;
             margin-bottom: 1rem;
         }
-        .gallery-image {
-            width: 100%;
-            border-radius: 10px;
+
+        .pillar-body {
+            opacity: 0;
+            max-height: 0;
             overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: opacity 0.4s 0.2s, max-height 0.5s 0.1s;
         }
-        .gallery-image img {
-            width: 100%;
-            height: 260px;
-            object-fit: cover;
-            transition: transform 0.5s;
-            display: block;
+
+        .pillar-panel:hover .pillar-body {
+            opacity: 1;
+            max-height: 300px;
         }
-        .gallery-image:hover img {
-            transform: scale(1.05);
+
+        .pillar-body p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 1rem;
+        }
+
+        .pillar-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: rgba(201, 162, 39, 0.25);
+            border: 1px solid rgba(201, 162, 39, 0.4);
+            color: var(--gold);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            backdrop-filter: blur(4px);
+        }
+
+        /* Mobile: stack vertically */
+        @media (max-width: 768px) {
+            .pillars-accordion {
+                flex-direction: column;
+                height: auto;
+                min-height: 600px;
+            }
+            .pillar-panel {
+                min-height: 80px;
+                flex: 1 !important;
+            }
+            .pillar-panel:hover {
+                flex: 3 !important;
+            }
+            .pillar-title {
+                writing-mode: horizontal-tb;
+                transform: rotate(0);
+                position: relative;
+                bottom: auto;
+                left: auto;
+            }
+            .pillar-body {
+                opacity: 0.9;
+                max-height: 200px;
+            }
         }
 
         /* ===== EXPANDABLE CARDS ===== */
@@ -779,8 +911,8 @@
             .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
             .detail-grid { grid-template-columns: 1fr; }
             .nav-menu { display: none; }
-            .gallery-item { grid-template-columns: 1fr; }
-            .gallery-number { font-size: 3rem; }
+            .pillar-panel { min-height: 100px; }
+            .pillar-title { font-size: 1rem; }
         }
 
         html { scroll-behavior: smooth; }
@@ -917,72 +1049,97 @@
         </div>
     </section>
 
-    <!-- Gallery Section (AFLI numbered style) -->
+    <!-- Gallery Section — Horizontal Expanding Panels -->
     <section class="gallery-section" id="gallery">
         <div class="gallery-container">
             <div class="section-header">
                 <h2>The Five Pillars of Transformation</h2>
                 <div class="divider"></div>
-                <p>Five interconnected systems designed to function as a single, self-reinforcing organism—where the output of one becomes the input of another.</p>
+                <p>Five interconnected systems designed to function as a single, self-reinforcing organism—where the output of one becomes the input of another. Hover to explore each pillar.</p>
             </div>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <div class="gallery-number">01</div>
-                    <div class="gallery-content">
-                        <h3>Integrated Production Systems</h3>
-                        <p>The core productive structure combining vertical gardens, rooftop farms, container systems, beehives, tree nurseries, and medicinal herb cultivation into one interconnected organism.</p>
-                        <div class="gallery-image">
-                            <img src="https://kimi-web-img.moonshot.cn/img/egyptianstreets.com/557c9290c41d8cfa735fe47783e0590cdb577c8c.jpg" alt="Urban farming">
+
+            <div class="pillars-accordion">
+                <div class="pillar-panel" data-pillar="01">
+                    <div class="pillar-bg" style="background-image: url('https://kimi-web-img.moonshot.cn/img/egyptianstreets.com/557c9290c41d8cfa735fe47783e0590cdb577c8c.jpg')"></div>
+                    <div class="pillar-overlay"></div>
+                    <div class="pillar-content">
+                        <div class="pillar-number">01</div>
+                        <div class="pillar-title">Integrated Production</div>
+                        <div class="pillar-body">
+                            <p>The core productive structure combining vertical gardens, rooftop farms, container systems, beehives, tree nurseries, and medicinal herb cultivation into one interconnected organism.</p>
+                            <div class="pillar-tags">
+                                <span class="tag">Urban Agriculture</span>
+                                <span class="tag">Apiculture</span>
+                                <span class="tag">Herbal Plants</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <div class="gallery-number">02</div>
-                    <div class="gallery-content">
-                        <h3>Circular Resource Systems</h3>
-                        <p>Transforming urban waste and inefficiency into productive inputs. Where others see garbage, we see growth medium. Where others see runoff, we see irrigation.</p>
-                        <div class="gallery-image">
-                            <img src="https://kimi-web-img.moonshot.cn/img/cdn.kingcounty.gov/9ef26027edbe719e79fc3e7ac723d44aa3b48003.jpg" alt="Circular economy">
+
+                <div class="pillar-panel" data-pillar="02">
+                    <div class="pillar-bg" style="background-image: url('https://kimi-web-img.moonshot.cn/img/cdn.kingcounty.gov/9ef26027edbe719e79fc3e7ac723d44aa3b48003.jpg')"></div>
+                    <div class="pillar-overlay"></div>
+                    <div class="pillar-content">
+                        <div class="pillar-number">02</div>
+                        <div class="pillar-title">Circular Resources</div>
+                        <div class="pillar-body">
+                            <p>Transforming urban waste and inefficiency into productive inputs. Where others see garbage, we see growth medium. Where others see runoff, we see irrigation.</p>
+                            <div class="pillar-tags">
+                                <span class="tag">Composting</span>
+                                <span class="tag">Smart Irrigation</span>
+                                <span class="tag">Regeneration</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <div class="gallery-number">03</div>
-                    <div class="gallery-content">
-                        <h3>Enterprise & Skills Development</h3>
-                        <p>Learning embedded in daily work. We don't train then employ—we employ while training. Budgeting, pricing, marketing, and financial management learned through real transactions.</p>
-                        <div class="gallery-image">
-                            <img src="https://kimi-web-img.moonshot.cn/img/blog.plantwise.org/72e2596628ee2313dc6c1ae64c1f15f99a8ecc55.jpg" alt="Youth enterprise training">
+
+                <div class="pillar-panel" data-pillar="03">
+                    <div class="pillar-bg" style="background-image: url('https://kimi-web-img.moonshot.cn/img/blog.plantwise.org/72e2596628ee2313dc6c1ae64c1f15f99a8ecc55.jpg')"></div>
+                    <div class="pillar-overlay"></div>
+                    <div class="pillar-content">
+                        <div class="pillar-number">03</div>
+                        <div class="pillar-title">Enterprise & Skills</div>
+                        <div class="pillar-body">
+                            <p>Learning embedded in daily work. We don't train then employ—we employ while training. Budgeting, pricing, marketing, and financial management learned through real transactions.</p>
+                            <div class="pillar-tags">
+                                <span class="tag">Business Training</span>
+                                <span class="tag">Mentorship</span>
+                                <span class="tag">Technical Skills</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <div class="gallery-number">04</div>
-                    <div class="gallery-content">
-                        <h3>Market Systems & Value Chains</h3>
-                        <p>From raw honey to packaged gold. From fresh herbs to essential oils. We create diversified revenue streams that ensure when one market dips, the enterprise remains buoyant.</p>
-                        <div class="gallery-image">
-                            <img src="https://kimi-web-img.moonshot.cn/img/www.hopkinsmedicine.org/d479dbdbdfecd63183fb840b331013ce472bdd35.jpg" alt="Herbal products market">
+
+                <div class="pillar-panel" data-pillar="04">
+                    <div class="pillar-bg" style="background-image: url('https://kimi-web-img.moonshot.cn/img/www.hopkinsmedicine.org/d479dbdbdfecd63183fb840b331013ce472bdd35.jpg')"></div>
+                    <div class="pillar-overlay"></div>
+                    <div class="pillar-content">
+                        <div class="pillar-number">04</div>
+                        <div class="pillar-title">Market Systems</div>
+                        <div class="pillar-body">
+                            <p>From raw honey to packaged gold. From fresh herbs to essential oils. We create diversified revenue streams that ensure when one market dips, the enterprise remains buoyant.</p>
+                            <div class="pillar-tags">
+                                <span class="tag">Processing</span>
+                                <span class="tag">Market Linkages</span>
+                                <span class="tag">Buyer Agreements</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <div class="gallery-number">05</div>
-                    <div class="gallery-content">
-                        <h3>Urban Greening Services</h3>
-                        <p>Converting environmental restoration into paid service delivery. We don't just plant trees—we maintain them under contract, ensuring survival rates that campaigns alone cannot achieve.</p>
-                        <div class="gallery-image">
-                            <img src="https://kimi-web-img.moonshot.cn/img/trellis.net/796884e6f8b1d9703a1f0c7d135fab8f14272e5e.jpeg" alt="Tree nursery">
-                        </div>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-number">06</div>
-                    <div class="gallery-content">
-                        <h3>Youth Association Formation</h3>
-                        <p>Legally recognized cooperatives in each sub-city, with rigorous means testing, vulnerability indexing, and 40% women's participation. Youth ownership ensures retention and equity.</p>
-                        <div class="gallery-image">
-                            <img src="https://kimi-web-img.moonshot.cn/img/www.fao.org/eb3451a63baff127292b28d5dce628dc50b31c09.jpg" alt="Beekeeping in Africa">
+
+                <div class="pillar-panel" data-pillar="05">
+                    <div class="pillar-bg" style="background-image: url('https://kimi-web-img.moonshot.cn/img/trellis.net/796884e6f8b1d9703a1f0c7d135fab8f14272e5e.jpeg')"></div>
+                    <div class="pillar-overlay"></div>
+                    <div class="pillar-content">
+                        <div class="pillar-number">05</div>
+                        <div class="pillar-title">Urban Greening</div>
+                        <div class="pillar-body">
+                            <p>Converting environmental restoration into paid service delivery. We don't just plant trees—we maintain them under contract, ensuring survival rates that campaigns alone cannot achieve.</p>
+                            <div class="pillar-tags">
+                                <span class="tag">Maintenance</span>
+                                <span class="tag">Seedling Supply</span>
+                                <span class="tag">Restoration Contracts</span>
+                            </div>
                         </div>
                     </div>
                 </div>
