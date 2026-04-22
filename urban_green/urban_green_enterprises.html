@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrated Youth-Led Urban Green Enterprise Initiative | Acacia Trading Plc</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --forest: #1a472a;
+            --sage: #4a7c59;
+            --moss: #6b8e23;
+            --honey: #d4a843;
+            --cream: #f5f0e8;
+            --earth: #8b6914;
+            --charcoal: #2c2c2c;
+            --white: #ffffff;
+            --shadow: rgba(26, 71, 42, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--charcoal);
+            background: var(--cream);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(26, 71, 42, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--forest);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: var(--forest);
+            font-weight: 700;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 0.5rem 0;
+            transition: color 0.3s;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .nav-link:hover {
+            color: var(--forest);
+        }
+
+        .dropdown-arrow {
+            font-size: 0.7rem;
+            transition: transform 0.3s;
+        }
+
+        .nav-item:hover .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 220px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s;
+            padding: 0.5rem 0;
+            margin-top: 0.5rem;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            color: var(--charcoal);
+            font-size: 0.85rem;
+            transition: all 0.2s;
+            border-left: 3px solid transparent;
+        }
+
+        .dropdown-item:hover {
+            background: var(--cream);
+            color: var(--forest);
+            border-left-color: var(--honey);
+            padding-left: 1.75rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--forest) 0%, var(--sage) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=1920&q=80') center/cover;
+            opacity: 0.15;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            color: var(--white);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--honey);
+            font-weight: 700;
+        }
+
+        .stat-label {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .image-caption {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            background: var(--honey);
+            color: var(--charcoal);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--forest);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: var(--honey);
+            margin: 1.5rem auto;
+        }
+
+        /* Expandable Cards */
+        .ecosystem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .eco-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .eco-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(26, 71, 42, 0.15);
+        }
+
+        .eco-image {
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .eco-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .eco-card:hover .eco-image img {
+            transform: scale(1.05);
+        }
+
+        .eco-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(26, 71, 42, 0.8));
+            padding: 2rem 1.5rem 1rem;
+            color: white;
+        }
+
+        .eco-overlay h3 {
+            font-size: 1.5rem;
+        }
+
+        .eco-content {
+            padding: 1.5rem;
+        }
+
+        .eco-description {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .expand-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--forest);
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: none;
+            background: none;
+            padding: 0;
+            transition: gap 0.3s;
+        }
+
+        .expand-btn:hover {
+            gap: 0.75rem;
+        }
+
+        .expand-icon {
+            transition: transform 0.3s;
+        }
+
+        .expandable-section {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+
+        .expandable-section.active {
+            max-height: 800px;
+        }
+
+        .expandable-inner {
+            padding-top: 1.5rem;
+            border-top: 1px solid #eee;
+            margin-top: 1rem;
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: var(--cream);
+            border-radius: 8px;
+        }
+
+        .detail-icon {
+            color: var(--honey);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .detail-text {
+            font-size: 0.85rem;
+            color: #555;
+        }
+
+        .detail-text strong {
+            color: var(--forest);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Artful Description Section */
+        .artful-section {
+            background: var(--forest);
+            color: white;
+            padding: 6rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .artful-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 168, 67, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .artful-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .artful-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .artful-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 1.5rem;
+        }
+
+        .artful-quote {
+            border-left: 3px solid var(--honey);
+            padding-left: 1.5rem;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--honey);
+            margin: 2rem 0;
+        }
+
+        .artful-image {
+            position: relative;
+        }
+
+        .artful-image img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .floating-badge {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            background: var(--honey);
+            color: var(--charcoal);
+            padding: 1rem 1.5rem;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .badge-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            line-height: 1;
+        }
+
+        .badge-text {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.25rem;
+        }
+
+        /* Implementation Timeline */
+        .timeline {
+            background: white;
+            padding: 5rem 2rem;
+        }
+
+        .timeline-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .phase-wrapper {
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+
+        .phase-header {
+            background: linear-gradient(135deg, var(--sage), var(--moss));
+            color: white;
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .phase-header:hover {
+            background: linear-gradient(135deg, var(--forest), var(--sage));
+        }
+
+        .phase-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+        }
+
+        .phase-subtitle {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            margin-top: 0.25rem;
+        }
+
+        .phase-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .phase-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            background: white;
+        }
+
+        .phase-content.active {
+            max-height: 500px;
+        }
+
+        .phase-inner {
+            padding: 2rem;
+        }
+
+        .phase-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .phase-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--cream);
+            border-radius: 8px;
+            border-top: 3px solid var(--honey);
+        }
+
+        .phase-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .phase-item h4 {
+            color: var(--forest);
+            margin-bottom: 0.5rem;
+        }
+
+        .phase-item p {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        /* Impact Section */
+        .impact-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(to bottom, var(--cream), white);
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 3rem auto 0;
+        }
+
+        .impact-card {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .impact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .impact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--sage), var(--moss));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .impact-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--forest);
+            font-weight: 700;
+        }
+
+        .impact-label {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--honey);
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .footer-links h4 {
+            color: var(--honey);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .footer-links a {
+            display: block;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            padding: 0.4rem 0;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--honey);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.85rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-content,
+            .artful-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .impact-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .phase-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .detail-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--cream);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--sage);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--forest);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">🌿</div>
+                <div class="logo-text">Acacia Trading Plc</div>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a class="nav-link">About <span class="dropdown-arrow">▼</span></a>
+                    <div class="dropdown-menu">
+                        <a href="#vision" class="dropdown-item">Our Vision</a>
+                        <a href="#background" class="dropdown-item">Background & Rationale</a>
+                        <a href="#problem" class="dropdown-item">Problem Statement</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">The Ecosystem <span class="dropdown-arrow">▼</span></a>
+                    <div class="dropdown-menu">
+                        <a href="#production" class="dropdown-item">Integrated Production</a>
+                        <a href="#circular" class="dropdown-item">Circular Resources</a>
+                        <a href="#enterprise" class="dropdown-item">Enterprise Development</a>
+                        <a href="#markets" class="dropdown-item">Market Systems</a>
+                        <a href="#greening" class="dropdown-item">Urban Greening Services</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">Impact <span class="dropdown-arrow">▼</span></a>
+                    <div class="dropdown-menu">
+                        <a href="#beneficiaries" class="dropdown-item">Beneficiaries</a>
+                        <a href="#timeline" class="dropdown-item">Implementation Timeline</a>
+                        <a href="#sustainability" class="dropdown-item">Sustainability Strategy</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Where Green<br>Meets Growth</h1>
+                <p class="subtitle">An integrated youth-led enterprise initiative transforming Addis Ababa's urban landscape into a living, breathing ecosystem of opportunity—one sub-city at a time.</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">1,000</div>
+                        <div class="stat-label">Youth Beneficiaries</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">11</div>
+                        <div class="stat-label">Sub-Cities</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">40B+</div>
+                        <div class="stat-label">Trees Planted Nationally</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://kimi-web-img.moonshot.cn/img/egyptianstreets.com/557c9290c41d8cfa735fe47783e0590cdb577c8c.jpg" alt="Youth in urban agriculture">
+                <div class="image-caption">Cultivating Tomorrow's Harvest Today</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artful Vision Section -->
+    <section class="artful-section" id="vision">
+        <div class="artful-container">
+            <div class="artful-text">
+                <h2>The Living Architecture of Urban Resilience</h2>
+                <p>Imagine a city where every rooftop breathes, where waste becomes wealth, and where the unemployed youth of today become the environmental stewards of tomorrow. This is not utopia—this is engineered ecology.</p>
+                <p>We do not plant trees in isolation. We weave a tapestry where bees pollinate crops, compost feeds the soil, nurseries supply restoration contracts, and ancient herbal wisdom finds its way to modern markets.</p>
+                <div class="artful-quote">
+                    "Environmental projects which do not generate income do not sustain themselves over time. We address that evidence directly."
+                </div>
+            </div>
+            <div class="artful-image">
+                <img src="https://kimi-web-img.moonshot.cn/img/cdn.kingcounty.gov/9ef26027edbe719e79fc3e7ac723d44aa3b48003.jpg" alt="Circular economy system">
+                <div class="floating-badge">
+                    <div class="badge-number">5</div>
+                    <div class="badge-text">Integrated<br>Components</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ecosystem Components -->
+    <section class="section" id="ecosystem">
+        <div class="section-header">
+            <h2>The Five Pillars of Transformation</h2>
+            <div class="divider"></div>
+            <p>Five interconnected systems designed to function as a single, self-reinforcing organism—where the output of one becomes the input of another.</p>
+        </div>
+
+        <div class="ecosystem-grid">
+            <!-- Card 1: Integrated Production -->
+            <div class="eco-card" id="production">
+                <div class="eco-image">
+                    <img src="https://kimi-web-img.moonshot.cn/img/egyptianstreets.com/557c9290c41d8cfa735fe47783e0590cdb577c8c.jpg" alt="Urban farming">
+                    <div class="eco-overlay">
+                        <h3>Integrated Production Systems</h3>
+                    </div>
+                </div>
+                <div class="eco-content">
+                    <p class="eco-description">The core productive structure combining vertical gardens, rooftop farms, container systems, beehives, tree nurseries, and medicinal herb cultivation into one interconnected organism.</p>
+                    <button class="expand-btn" onclick="toggleExpand(this)">
+                        Explore the System <span class="expand-icon">→</span>
+                    </button>
+                    <div class="expandable-section">
+                        <div class="expandable-inner">
+                            <div class="detail-grid">
+                                <div class="detail-item">
+                                    <span class="detail-icon">🌱</span>
+                                    <div class="detail-text">
+                                        <strong>Urban Agriculture</strong>
+                                        Vegetables, fruits & culinary herbs via vertical, rooftop & container systems
+                                    </div>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-icon">🐝</span>
+                                    <div class="detail-text">
+                                        <strong>Apiculture</strong>
+                                        Beehive management for honey production and crop pollination services
+                                    </div>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-icon">🌳</span>
+                                    <div class="detail-text">
+                                        <strong>Green Restoration</strong>
+                                        Tree nurseries, seedling production & maintenance contracts
+                                    </div>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-icon">🌿</span>
+                                    <div class="detail-text">
+                                        <strong>Herbal Development</strong>
+                                        Medicinal & aromatic plants with essential oil extraction
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Circular Resources -->
+            <div class="eco-card" id="circular">
+                <div class="eco-image">
+                    <img src="https://kimi-web-img.moonshot.cn/img/cdn.kingcounty.gov/9ef26027edbe719e79fc3e7ac723d44aa3b48003.jpg" alt="Circular economy">
+                    <div class="eco-overlay">
+                        <h3>Circular Resource Systems</h3>
+                    </div>
+                </div>
+                <div class="eco-content">
+                    <p class="eco-description">Transforming urban waste and inefficiency into productive inputs. Where others see garbage, we see growth medium. Where others see runoff, we see irrigation.</p>
+                    <button class="expand-btn" onclick="toggleExpand(this)">
+                        Discover the Cycle <span class="expand-icon">→</span>
+                    </button>
+                    <div class="expandable-section">
+                        <div class="expandable-inner">
+                            <div class="detail-grid">
+                                <div class="detail-item">
+                                    <span class="detail-icon">♻️</span>
+                                    <div class="detail-text">
+                                        <strong>Composting</strong>
+                                        Organic waste conversion into nutrient-rich soil amendments
+                                    </div>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-icon">💧</span>
+                                    <div class="detail-text">
+                                        <strong>Smart Irrigation</strong>
+                                        Drip & reuse-based water-efficient systems
+                                    </div>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-icon">🌍</span>
+                                    <div class="detail-text">
+                                        <strong>Soil Regeneration</strong>
+                                        Practices that restore fertility & reduce chemical dependency
+                                    </div>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-icon">⚡</span>
+                                    <div class="detail-text">
+                                        <strong>Input Reduction</strong>
+                                        Declining external dependency over time
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Enterprise Development -->
+            <div class="eco-card" id="enterprise">
+                <div class="eco-image">
+                    <img src="https://kimi-web-img.moonshot.cn/img/blog.plantwise.org/72e2596628ee2313dc6c1ae64c1f15f99a8ecc55.jpg" alt="Youth enterprise training">
+                    <div class="eco-overlay">
+                        <h3>Enterprise & Skills Development</h3>
+                    </div>
+                </div>
+                <div class="eco-content">
+                    <p class="eco-description">Learning embedded in daily work. We don't train then employ—we employ while training. Budgeting, pricing, marketing, and financial management learned through real transactions.</p>
+                    <button class="expand-btn" onclick="toggleExpand(this)">
+                        See the Curriculum <span class="expand-icon">→</span>
+                    </button>
+                    <div class="expandable-section">
+                        <div class="expandable-inner">
+                            <div class="detail-grid">
+                                <div class="detail-item">
+                                    <span class="detail-icon">📊</span>
+                                    <div class="detail-text">
+                                        <strong>Business Training</strong>
+                                        Budgeting, pricing, marketing & financial management
+                                    </div>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-icon">🔧</span>
+                                    <div class="detail-text">
+                                        <strong>Technical Skills</strong>
+                                        Farming, beekeeping, nursery & herbal production
+                                    </div>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-icon">👥</span>
+                                    <div class="detail-text">
+                                        <strong>Continuous Mentorship</strong>
+                                        Practical coaching during daily operations
+                                    </div>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-icon">📈</span>
+                                    <div class="detail-text">
+                                        <strong>Decision-Making</strong>
+                                        Management skills for sustainable growth
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: Market Systems -->
+            <div class="eco-card" id="markets">
+                <div class="eco-image">
+                    <img src="https://kimi-web-img.moonshot.cn/img/www.hopkinsmedicine.org/d479dbdbdfecd63183fb840b331013ce472bdd35.jpg" alt="Herbal products market">
+                    <div class="eco-overlay">
+                        <h3>Market Systems & Value Chains</h3>
+                    </div>
+                </div>
+                <div class="eco-content">
+                    <p class="eco-description">From raw honey to packaged gold. From fresh herbs to essential oils. We create diversified revenue streams that ensure when one market dips, the enterprise remains buoyant.</p>
+                    <button class="expand-btn" onclick="toggleExpand(this)">
+                        View Revenue Streams <span class="expand-icon">→</span>
+                    </button>
+                    <div class="expandable-section">
+                        <div class="expandable-inner">
+                            <div class="detail-grid">
+                                <div class="detail-item">
+                                    <span class="detail-icon">🏭</span>
+                                    <div class="detail-text">
+                                        <strong>Processing</strong>
+                                        Oil extraction, honey packaging & herbal formulation
+                                    </div>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-icon">🤝</span>
+                                    <div class="detail-text">
+                                        <strong>Market Linkages</strong>
+                                        Direct sales to households, restaurants & institutions
+                                    </div>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-icon">📋</span>
+                                    <div class="detail-text">
+                                        <strong>Buyer Agreements</strong>
+                                        Pre-arranged contracts securing demand before production
+                                    </div>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-icon">💰</span>
+                                    <div class="detail-text">
+                                        <strong>Revenue per Site</strong>
+                                        $20,000–$30,000 annually at full operation
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5: Urban Greening -->
+            <div class="eco-card" id="greening">
+                <div class="eco-image">
+                    <img src="https://kimi-web-img.moonshot.cn/img/trellis.net/796884e6f8b1d9703a1f0c7d135fab8f14272e5e.jpeg" alt="Tree nursery">
+                    <div class="eco-overlay">
+                        <h3>Urban Greening Services</h3>
+                    </div>
+                </div>
+                <div class="eco-content">
+                    <p class="eco-description">Converting environmental restoration into paid service delivery. We don't just plant trees—we maintain them under contract, ensuring survival rates that campaigns alone cannot achieve.</p>
+                    <button class="expand-btn" onclick="toggleExpand(this)">
+                        Explore Services <span class="expand-icon">→</span>
+                    </button>
+                    <div class="expandable-section">
+                        <div class="expandable-inner">
+                            <div class="detail-grid">
+                                <div class="detail-item">
+                                    <span class="detail-icon">🌳</span>
+                                    <div class="detail-text">
+                                        <strong>Maintenance Contracts</strong>
+                                        Paid care for public green spaces & roadsides
+                                    </div>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-icon">🌱</span>
+                                    <div class="detail-text">
+                                        <strong>Seedling Supply</strong>
+                                        Production for city greening programs
+                                    </div>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-icon">📄</span>
+                                    <div class="detail-text">
+                                        <strong>Restoration Contracts</strong>
+                                        Formal agreements with municipalities
+                                    </div>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-icon">📊</span>
+                                    <div class="detail-text">
+                                        <strong>Survival-Based Pay</strong>
+                                        Compensation tied to tree survival rates
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Implementation Timeline -->
+    <section class="timeline" id="timeline">
+        <div class="timeline-container">
+            <div class="section-header">
+                <h2>Three-Year Implementation Journey</h2>
+                <div class="divider"></div>
+                <p>From pilot to full scale—each phase builds upon the last, with lessons embedded into the next iteration.</p>
+            </div>
+
+            <div class="phase-wrapper">
+                <div class="phase-header" onclick="togglePhase(this)">
+                    <div>
+                        <div class="phase-title">Year One — The Pilot</div>
+                        <div class="phase-subtitle">3 sub-cities · 300 youth · System testing & stabilization</div>
+                    </div>
+                    <div class="phase-toggle">+</div>
+                </div>
+                <div class="phase-content">
+                    <div class="phase-inner">
+                        <div class="phase-grid">
+                            <div class="phase-item">
+                                <div class="phase-icon">🔬</div>
+                                <h4>System Testing</h4>
+                                <p>Validate integrated production models across diverse urban contexts</p>
+                            </div>
+                            <div class="phase-item">
+                                <div class="phase-icon">⚖️</div>
+                                <h4>Legal Registration</h4>
+                                <p>Establish cooperative bylaws, bank accounts & participation agreements</p>
+                            </div>
+                            <div class="phase-item">
+                                <div class="phase-icon">📚</div>
+                                <h4>Baseline Training</h4>
+                                <p>Intensive technical & business skills embedded in daily operations</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phase-wrapper">
+                <div class="phase-header" onclick="togglePhase(this)">
+                    <div>
+                        <div class="phase-title">Year Two — The Expansion</div>
+                        <div class="phase-subtitle">7 sub-cities · Value addition · Market strengthening</div>
+                    </div>
+                    <div class="phase-toggle">+</div>
+                </div>
+                <div class="phase-content">
+                    <div class="phase-inner">
+                        <div class="phase-grid">
+                            <div class="phase-item">
+                                <div class="phase-icon">📦</div>
+                                <h4>Value Addition</h4>
+                                <p>Packaging, branding & processing facilities operational</p>
+                            </div>
+                            <div class="phase-item">
+                                <div class="phase-icon">🔗</div>
+                                <h4>Market Linkages</h4>
+                                <p>Formal buyer agreements with restaurants, institutions & city programs</p>
+                            </div>
+                            <div class="phase-item">
+                                <div class="phase-icon">📈</div>
+                                <h4>Revenue Growth</h4>
+                                <p>Break-even achieved at pilot sites; expansion capital mobilized</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phase-wrapper">
+                <div class="phase-header" onclick="togglePhase(this)">
+                    <div>
+                        <div class="phase-title">Year Three — Full Scale</div>
+                        <div class="phase-subtitle">11 sub-cities · Institutional partnerships · Replication package</div>
+                    </div>
+                    <div class="phase-toggle">+</div>
+                </div>
+                <div class="phase-content">
+                    <div class="phase-inner">
+                        <div class="phase-grid">
+                            <div class="phase-item">
+                                <div class="phase-icon">🏛️</div>
+                                <h4>Institutional Partnerships</h4>
+                                <p>Formalized agreements with municipalities & national programs</p>
+                            </div>
+                            <div class="phase-item">
+                                <div class="phase-icon">📋</div>
+                                <h4>Documentation</h4>
+                                <p>Replication package for scaling beyond Addis Ababa</p>
+                            </div>
+                            <div class="phase-item">
+                                <div class="phase-icon">✅</div>
+                                <h4>Self-Sufficiency</h4>
+                                <p>All enterprises operating without ongoing subsidy</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Metrics -->
+    <section class="impact-section" id="beneficiaries">
+        <div class="section-header">
+            <h2>Measurable Impact</h2>
+            <div class="divider"></div>
+            <p>Rigorous targeting ensures resources reach those with the greatest need and the strongest incentive to succeed.</p>
+        </div>
+
+        <div class="impact-grid">
+            <div class="impact-card">
+                <div class="impact-icon">👥</div>
+                <div class="impact-number">1,000</div>
+                <div class="impact-label">Direct Youth Beneficiaries<br><small>Selected via means test & vulnerability index</small></div>
+            </div>
+            <div class="impact-card">
+                <div class="impact-icon">🏠</div>
+                <div class="impact-number">5,000</div>
+                <div class="impact-label">Indirect Household Members<br><small>Average family size of 4–5 in target communities</small></div>
+            </div>
+            <div class="impact-card">
+                <div class="impact-icon">🛒</div>
+                <div class="impact-number">2,000</div>
+                <div class="impact-label">Market Customers<br><small>Regular buyers of vegetables, honey & herbal products</small></div>
+            </div>
+            <div class="impact-card">
+                <div class="impact-icon">♻️</div>
+                <div class="impact-number">40%</div>
+                <div class="impact-label">Women's Participation<br><small>Reserved seats in each association</small></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability Artful Section -->
+    <section class="artful-section" id="sustainability">
+        <div class="artful-container">
+            <div class="artful-image">
+                <img src="https://kimi-web-img.moonshot.cn/img/www.fao.org/eb3451a63baff127292b28d5dce628dc50b31c09.jpg" alt="Beekeeping in Africa">
+                <div class="floating-badge">
+                    <div class="badge-number">18</div>
+                    <div class="badge-text">Months to<br>Break-Even</div>
+                </div>
+            </div>
+            <div class="artful-text">
+                <h2>The Architecture of Self-Sufficiency</h2>
+                <p>We design for the exit from day one. Donor funding covers setup, training, and initial operations. By month eighteen, each enterprise stands on its own feet—diversified, market-driven, and youth-owned.</p>
+                <p>When honey prices dip, herbal oils sustain. When vegetable demand wavers, seedling contracts pay. This is not a safety net—it is a safety web, woven from multiple revenue strands.</p>
+                <div class="artful-quote">
+                    "The design assumes no perpetual subsidy. Recurring costs are covered by enterprise revenue after year two."
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>Acacia Trading Plc</h3>
+                <p>A multimodal service company specializing in event services, hospitality, consultancy, and trading. Committed to transforming Ethiopia's urban green momentum into lasting economic opportunity.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Project</h4>
+                <a href="#vision">Vision</a>
+                <a href="#ecosystem">Ecosystem</a>
+                <a href="#timeline">Timeline</a>
+                <a href="#beneficiaries">Impact</a>
+            </div>
+            <div class="footer-links">
+                <h4>Components</h4>
+                <a href="#production">Production</a>
+                <a href="#circular">Circular Systems</a>
+                <a href="#enterprise">Enterprise</a>
+                <a href="#markets">Markets</a>
+            </div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <a href="#">Addis Ababa, Ethiopia</a>
+                <a href="#">11 Sub-Cities</a>
+                <a href="#">info@acaciatrading.et</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Integrated Youth-Led Urban Green Enterprise Initiative (2026–2029) · Full budget breakdown, detailed work plan, and M&E framework available upon request.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle expandable cards
+        function toggleExpand(button) {
+            const section = button.nextElementSibling;
+            const icon = button.querySelector('.expand-icon');
+            
+            if (section.classList.contains('active')) {
+                section.classList.remove('active');
+                section.style.maxHeight = null;
+                icon.textContent = '→';
+                button.innerHTML = button.innerHTML.replace('←', '→');
+            } else {
+                // Close all other sections first
+                document.querySelectorAll('.expandable-section.active').forEach(el => {
+                    el.classList.remove('active');
+                    el.style.maxHeight = null;
+                });
+                document.querySelectorAll('.expand-icon').forEach(el => el.textContent = '→');
+                
+                section.classList.add('active');
+                section.style.maxHeight = section.scrollHeight + "px";
+                icon.textContent = '←';
+            }
+        }
+
+        // Toggle timeline phases
+        function togglePhase(header) {
+            const content = header.nextElementSibling;
+            const toggle = header.querySelector('.phase-toggle');
+            
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                content.style.maxHeight = null;
+                toggle.textContent = '+';
+            } else {
+                // Close others
+                document.querySelectorAll('.phase-content.active').forEach(el => {
+                    el.classList.remove('active');
+                    el.style.maxHeight = null;
+                });
+                document.querySelectorAll('.phase-toggle').forEach(el => el.textContent = '+');
+                
+                content.classList.add('active');
+                content.style.maxHeight = content.scrollHeight + "px";
+                toggle.textContent = '−';
+            }
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
