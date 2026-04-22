@@ -1,0 +1,3423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acacia Trading Plc — Integrated Youth-Led Urban Green Enterprise Initiative (2026–2029)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --forest: #1a472a;
+            --deep-green: #0f2e1a;
+            --sage: #4a7c59;
+            --moss: #6b8e23;
+            --honey: #c9a227;
+            --gold: #d4a843;
+            --cream: #f5f0e8;
+            --warm-white: #faf8f3;
+            --charcoal: #2c2c2c;
+            --dark: #1a1a1a;
+            --text-body: #444;
+            --text-light: #888;
+            --border: #e5e0d8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--charcoal);
+            background: var(--warm-white);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        /* ===== NAVIGATION ===== */
+        .navbar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+            transition: box-shadow 0.3s;
+        }
+        .navbar.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.9rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            text-decoration: none;
+        }
+        .logo-icon {
+            width: 38px; height: 38px;
+            background: var(--forest);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 1.1rem;
+        }
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            color: var(--forest);
+            font-weight: 700;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2.2rem;
+            list-style: none;
+            align-items: center;
+        }
+        .nav-item { position: relative; }
+        .nav-link {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 500;
+            font-size: 0.88rem;
+            padding: 0.5rem 0;
+            transition: color 0.3s;
+            cursor: pointer;
+            display: flex; align-items: center; gap: 0.3rem;
+        }
+        .nav-link:hover { color: var(--forest); }
+        .dropdown-arrow { font-size: 0.65rem; transition: transform 0.3s; }
+        .nav-item:hover .dropdown-arrow { transform: rotate(180deg); }
+
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 0.5rem);
+            left: 0;
+            background: white;
+            min-width: 240px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            opacity: 0; visibility: hidden;
+            transform: translateY(-8px);
+            transition: all 0.3s ease;
+            padding: 0.6rem 0;
+            border: 1px solid var(--border);
+        }
+        .nav-item:hover .dropdown-menu {
+            opacity: 1; visibility: visible;
+            transform: translateY(0);
+        }
+        .dropdown-item {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            color: var(--charcoal);
+            font-size: 0.85rem;
+            transition: all 0.2s;
+            border-left: 3px solid transparent;
+        }
+        .dropdown-item:hover {
+            background: var(--cream);
+            color: var(--forest);
+            border-left-color: var(--honey);
+            padding-left: 1.7rem;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            margin-top: 65px;
+            min-height: 92vh;
+            display: flex; align-items: center;
+            background: linear-gradient(135deg, var(--deep-green) 0%, var(--forest) 50%, var(--sage) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=1920&q=80') center/cover;
+            opacity: 0.12;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 200px;
+            background: linear-gradient(to top, var(--warm-white), transparent);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem 7rem;
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-label {
+            display: inline-block;
+            background: rgba(201, 162, 39, 0.2);
+            color: var(--gold);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(201, 162, 39, 0.3);
+        }
+        .hero-text h1 {
+            font-size: 3.8rem;
+            color: white;
+            line-height: 1.05;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        .hero-text .subtitle {
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            max-width: 90%;
+        }
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+        .btn-primary {
+            background: var(--honey);
+            color: var(--dark);
+            padding: 0.9rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            background: var(--gold);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(201, 162, 39, 0.3);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 0.9rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: all 0.3s;
+        }
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2.5rem;
+        }
+        .stat {
+            text-align: left;
+        }
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--honey);
+            font-weight: 700;
+            line-height: 1;
+        }
+        .stat-label {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-top: 0.4rem;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+        .hero-image img {
+            width: 100%;
+            border-radius: 14px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+            object-fit: cover;
+            height: 480px;
+        }
+        .image-caption {
+            position: absolute;
+            bottom: -18px;
+            left: -18px;
+            background: var(--honey);
+            color: var(--dark);
+            padding: 1rem 1.8rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        /* ===== SECTIONS ===== */
+        .section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+        .section-header h2 {
+            font-size: 2.6rem;
+            color: var(--forest);
+            margin-bottom: 1rem;
+        }
+        .section-header p {
+            color: var(--text-body);
+            max-width: 650px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+        .divider {
+            width: 50px;
+            height: 3px;
+            background: var(--honey);
+            margin: 1.2rem auto;
+            border-radius: 2px;
+        }
+
+        /* ===== 3D DYNAMIC CYCLE SECTION ===== */
+        .cycle-section {
+            background: var(--deep-green);
+            color: white;
+            padding: 6rem 2rem;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+        }
+
+        .cycle-bg-mesh {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            opacity: 0.4;
+        }
+
+        .cycle-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cycle-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .cycle-label {
+            display: inline-block;
+            background: rgba(201, 162, 39, 0.15);
+            color: var(--gold);
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(201, 162, 39, 0.25);
+        }
+
+        .cycle-header h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            line-height: 1.15;
+        }
+
+        .cycle-header p {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.75);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ===== CYCLE STAGE LAYOUT ===== */
+        .cycle-stage {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin: 3rem 0;
+        }
+
+        /* ===== 3D RING VISUAL ===== */
+        .stage-visual {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            aspect-ratio: 1;
+            margin: 0 auto;
+            perspective: 1000px;
+        }
+
+        .stage-ring {
+            position: absolute;
+            inset: 0;
+            transform-style: preserve-3d;
+            animation: ringRotate 60s linear infinite;
+        }
+
+        @keyframes ringRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .ring-node {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80px;
+            height: 80px;
+            margin: -40px 0 0 -40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.15);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform: rotate(var(--angle)) translateX(160px) rotate(calc(var(--angle) * -1));
+            z-index: 5;
+        }
+
+        .ring-node:hover {
+            background: rgba(201, 162, 39, 0.2);
+            border-color: var(--honey);
+            transform: rotate(var(--angle)) translateX(160px) rotate(calc(var(--angle) * -1)) scale(1.15);
+        }
+
+        .ring-node.active {
+            background: rgba(201, 162, 39, 0.25);
+            border-color: var(--gold);
+            box-shadow: 0 0 30px rgba(201, 162, 39, 0.3), 0 0 60px rgba(201, 162, 39, 0.1);
+            transform: rotate(var(--angle)) translateX(160px) rotate(calc(var(--angle) * -1)) scale(1.2);
+        }
+
+        .node-icon {
+            font-size: 1.8rem;
+            line-height: 1;
+            margin-bottom: 0.2rem;
+        }
+
+        .node-label {
+            font-size: 0.6rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: rgba(255,255,255,0.8);
+            text-align: center;
+            line-height: 1.2;
+            max-width: 70px;
+        }
+
+        .node-pulse {
+            position: absolute;
+            inset: -6px;
+            border-radius: 50%;
+            border: 2px solid var(--honey);
+            opacity: 0;
+            animation: nodePulse 2s ease-out infinite;
+        }
+
+        .ring-node.active .node-pulse {
+            opacity: 1;
+        }
+
+        @keyframes nodePulse {
+            0% { transform: scale(1); opacity: 0.6; }
+            100% { transform: scale(1.4); opacity: 0; }
+        }
+
+        /* Center Hub */
+        .stage-hub {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            z-index: 10;
+        }
+
+        .hub-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hub-icon {
+            font-size: 3.5rem;
+            z-index: 3;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            filter: drop-shadow(0 4px 15px rgba(201, 162, 39, 0.4));
+        }
+
+        .hub-ring, .hub-ring-2 {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 2px solid rgba(201, 162, 39, 0.3);
+            animation: hubSpin 8s linear infinite;
+        }
+
+        .hub-ring-2 {
+            inset: -15px;
+            border-color: rgba(74, 124, 89, 0.2);
+            animation: hubSpin 12s linear infinite reverse;
+        }
+
+        @keyframes hubSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Orbit SVG */
+        .orbit-svg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            animation: orbitPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes orbitPulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        /* Traveling Particles */
+        .travel-particles {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .travel-particle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 6px;
+            height: 6px;
+            background: var(--honey);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--honey), 0 0 20px rgba(201, 162, 39, 0.5);
+            margin: -3px 0 0 -3px;
+            animation: travelOrbit 8s linear infinite;
+        }
+
+        @keyframes travelOrbit {
+            from { transform: rotate(0deg) translateX(160px) rotate(0deg); }
+            to { transform: rotate(360deg) translateX(160px) rotate(-360deg); }
+        }
+
+        /* ===== STAGE INFO CARDS ===== */
+        .stage-info {
+            position: relative;
+            min-height: 400px;
+        }
+
+        .info-card {
+            position: absolute;
+            inset: 0;
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            opacity: 0;
+            transform: translateX(30px) rotateY(-10deg);
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            pointer-events: none;
+        }
+
+        .info-card.active {
+            opacity: 1;
+            transform: translateX(0) rotateY(0);
+            pointer-events: auto;
+        }
+
+        .info-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--honey);
+            font-weight: 700;
+            line-height: 1;
+            opacity: 0.5;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .info-card p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 1.5rem;
+        }
+
+        .info-stats {
+            display: flex;
+            gap: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .info-stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-stat-val {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--gold);
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .info-stat-label {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.3rem;
+        }
+
+        /* ===== CYCLE CONTROLS ===== */
+        .cycle-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .cycle-btn {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            backdrop-filter: blur(8px);
+        }
+
+        .cycle-btn:hover {
+            background: rgba(201, 162, 39, 0.2);
+            border-color: var(--honey);
+            transform: translateY(-2px);
+        }
+
+        .cycle-progress {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .cycle-dots {
+            display: flex;
+            gap: 0.6rem;
+        }
+
+        .cycle-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            cursor: pointer;
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .cycle-dot::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            transition: border-color 0.4s;
+        }
+
+        .cycle-dot.active {
+            background: var(--honey);
+            transform: scale(1.3);
+            box-shadow: 0 0 15px rgba(201, 162, 39, 0.4);
+        }
+
+        .cycle-dot.active::after {
+            border-color: rgba(201, 162, 39, 0.3);
+        }
+
+        .auto-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: color 0.3s;
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+        }
+
+        .auto-toggle:hover, .auto-toggle.active {
+            color: var(--gold);
+            background: rgba(201, 162, 39, 0.1);
+        }
+
+        .auto-icon {
+            font-size: 0.7rem;
+        }
+
+        .cycle-quote {
+            text-align: center;
+            max-width: 700px;
+            margin: 3rem auto 0;
+            border-left: none;
+            border-top: 2px solid var(--honey);
+            padding: 1.5rem 0 0;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .cycle-stage {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .stage-visual {
+                max-width: 380px;
+            }
+            .ring-node {
+                transform: rotate(var(--angle)) translateX(140px) rotate(calc(var(--angle) * -1));
+            }
+            .ring-node:hover, .ring-node.active {
+                transform: rotate(var(--angle)) translateX(140px) rotate(calc(var(--angle) * -1)) scale(1.15);
+            }
+            @keyframes travelOrbit {
+                from { transform: rotate(0deg) translateX(140px) rotate(0deg); }
+                to { transform: rotate(360deg) translateX(140px) rotate(-360deg); }
+            }
+        }
+
+        @media (max-width: 768px) {
+            .cycle-section { padding: 4rem 1.5rem; }
+            .cycle-header h2 { font-size: 2rem; }
+            .stage-visual { max-width: 320px; }
+            .ring-node {
+                width: 65px; height: 65px;
+                margin: -32.5px 0 0 -32.5px;
+                transform: rotate(var(--angle)) translateX(120px) rotate(calc(var(--angle) * -1));
+            }
+            .ring-node:hover, .ring-node.active {
+                transform: rotate(var(--angle)) translateX(120px) rotate(calc(var(--angle) * -1)) scale(1.1);
+            }
+            .node-icon { font-size: 1.4rem; }
+            .node-label { font-size: 0.5rem; }
+            .hub-icon { font-size: 2.5rem; }
+            .stage-hub { width: 90px; height: 90px; }
+            .info-card { padding: 1.5rem; }
+            .info-card h3 { font-size: 1.4rem; }
+            .info-number { font-size: 2.5rem; }
+            .info-stats { gap: 1.5rem; }
+            .info-stat-val { font-size: 1.3rem; }
+            .cycle-controls { gap: 1rem; }
+            .cycle-btn { padding: 0.6rem 1rem; font-size: 0.8rem; }
+            @keyframes travelOrbit {
+                from { transform: rotate(0deg) translateX(120px) rotate(0deg); }
+                to { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stage-visual { max-width: 280px; }
+            .ring-node {
+                transform: rotate(var(--angle)) translateX(100px) rotate(calc(var(--angle) * -1));
+            }
+            .ring-node:hover, .ring-node.active {
+                transform: rotate(var(--angle)) translateX(100px) rotate(calc(var(--angle) * -1)) scale(1.1);
+            }
+            .info-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            @keyframes travelOrbit {
+                from { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+                to { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+            }
+        }
+
+        /* ===== STAT CARDS (AFLI style) ===== */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .stat-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.1);
+        }
+        .stat-card-icon {
+            font-size: 2.2rem;
+            margin-bottom: 0.8rem;
+        }
+        .stat-card-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            color: var(--forest);
+            font-weight: 700;
+            line-height: 1;
+        }
+        .stat-card-label {
+            color: var(--text-body);
+            font-size: 0.85rem;
+            margin-top: 0.6rem;
+            line-height: 1.5;
+        }
+        .stat-card-sub {
+            color: var(--text-light);
+            font-size: 0.75rem;
+            margin-top: 0.3rem;
+        }
+
+        /* ===== MORPHING GATEWAY: AI-Driven Visual Connector ===== */
+        .morphing-gateway {
+            position: relative;
+            padding: 6rem 2rem;
+            overflow: hidden;
+            background: var(--deep-green);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mesh-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.6;
+        }
+
+        .gateway-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .gateway-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .gateway-label {
+            display: inline-block;
+            background: rgba(201, 162, 39, 0.2);
+            color: var(--gold);
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            backdrop-filter: blur(8px);
+        }
+
+        .gateway-title {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1rem;
+            line-height: 1.15;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .gateway-subtitle {
+            color: rgba(255,255,255,0.75);
+            max-width: 650px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* ===== HORIZONTAL EXPANDING PILLARS ===== */
+        .pillars-accordion {
+            display: flex;
+            gap: 10px;
+            height: 480px;
+            margin-top: 3rem;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        .pillar-panel {
+            position: relative;
+            flex: 1;
+            min-width: 70px;
+            cursor: pointer;
+            transition: flex 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+            overflow: hidden;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .pillar-panel::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 16px;
+            padding: 2px;
+            background: linear-gradient(135deg, rgba(201,162,39,0.3), transparent, rgba(74,124,89,0.3));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .pillar-panel:hover::before {
+            opacity: 1;
+        }
+
+        .pillar-panel:hover {
+            flex: 4.5;
+        }
+
+        .pillar-panel.active {
+            flex: 4.5;
+        }
+
+        .pillars-accordion:has(.pillar-panel:hover) .pillar-panel:not(:hover) {
+            flex: 0.55;
+        }
+
+        .pillars-accordion:has(.pillar-panel.active) .pillar-panel:not(.active) {
+            flex: 0.55;
+        }
+
+        .pillar-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.5s;
+            filter: saturate(0.7) brightness(0.8);
+        }
+
+        .pillar-panel:hover .pillar-bg,
+        .pillar-panel.active .pillar-bg {
+            transform: scale(1.1);
+            filter: saturate(1) brightness(0.9);
+        }
+
+        .pillar-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                180deg,
+                rgba(15, 46, 26, 0.2) 0%,
+                rgba(15, 46, 26, 0.5) 40%,
+                rgba(15, 46, 26, 0.92) 100%
+            );
+            transition: background 0.6s;
+        }
+
+        .pillar-panel:hover .pillar-overlay,
+        .pillar-panel.active .pillar-overlay {
+            background: linear-gradient(
+                180deg,
+                rgba(15, 46, 26, 0.1) 0%,
+                rgba(15, 46, 26, 0.35) 35%,
+                rgba(15, 46, 26, 0.88) 100%
+            );
+        }
+
+        .pillar-content {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.8rem;
+            color: white;
+            z-index: 2;
+        }
+
+        .pillar-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--honey);
+            font-weight: 700;
+            line-height: 1;
+            opacity: 0.6;
+            margin-bottom: 0.5rem;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .pillar-panel:hover .pillar-number,
+        .pillar-panel.active .pillar-number {
+            font-size: 3.5rem;
+            opacity: 1;
+            color: var(--gold);
+        }
+
+        .pillar-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+            white-space: nowrap;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transform: rotate(180deg);
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: absolute;
+            bottom: 1.8rem;
+            left: 1.8rem;
+            height: auto;
+            opacity: 0.9;
+        }
+
+        .pillar-panel:hover .pillar-title,
+        .pillar-panel.active .pillar-title {
+            writing-mode: horizontal-tb;
+            transform: rotate(0);
+            position: relative;
+            bottom: auto;
+            left: auto;
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            opacity: 1;
+        }
+
+        .pillar-body {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 0.5s 0.15s, max-height 0.6s 0.1s, transform 0.5s;
+            transform: translateY(20px);
+        }
+
+        .pillar-panel:hover .pillar-body,
+        .pillar-panel.active .pillar-body {
+            opacity: 1;
+            max-height: 280px;
+            transform: translateY(0);
+        }
+
+        .pillar-body p {
+            font-size: 0.88rem;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.88);
+            margin-bottom: 1rem;
+        }
+
+        .pillar-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: rgba(201, 162, 39, 0.2);
+            border: 1px solid rgba(201, 162, 39, 0.35);
+            color: var(--gold);
+            padding: 0.35rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.72rem;
+            font-weight: 500;
+            backdrop-filter: blur(8px);
+            transition: all 0.3s;
+        }
+
+        .tag:hover {
+            background: rgba(201, 162, 39, 0.35);
+            transform: translateY(-2px);
+        }
+
+        /* ===== BRIDGE TO DEEP DIVE ===== */
+        .gateway-bridge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 3.5rem;
+            animation: fadeInUp 1.2s 0.5s both;
+        }
+
+        .bridge-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(201,162,39,0.4), transparent);
+            max-width: 200px;
+        }
+
+        .bridge-cta {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            background: rgba(201, 162, 39, 0.1);
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            transition: all 0.4s;
+            backdrop-filter: blur(10px);
+        }
+
+        .bridge-cta:hover {
+            background: rgba(201, 162, 39, 0.2);
+            border-color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(201, 162, 39, 0.15);
+        }
+
+        .bridge-text {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .bridge-arrow {
+            color: var(--gold);
+            font-size: 1.2rem;
+            animation: bounceDown 2s infinite;
+        }
+
+        @keyframes bounceDown {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(8px); }
+            60% { transform: translateY(4px); }
+        }
+
+        .bridge-pulse {
+            position: absolute;
+            inset: -4px;
+            border-radius: 50px;
+            border: 2px solid var(--honey);
+            opacity: 0;
+            animation: pulseRing 2s infinite;
+        }
+
+        @keyframes pulseRing {
+            0% { transform: scale(1); opacity: 0.5; }
+            100% { transform: scale(1.08); opacity: 0; }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .gateway-title { font-size: 2.4rem; }
+            .pillars-accordion { height: 420px; }
+        }
+
+        @media (max-width: 768px) {
+            .morphing-gateway { padding: 4rem 1.5rem; min-height: auto; }
+            .gateway-title { font-size: 1.9rem; }
+            .gateway-subtitle { font-size: 0.95rem; }
+
+            .pillars-accordion {
+                flex-direction: column;
+                height: auto;
+                min-height: 500px;
+                gap: 8px;
+            }
+            .pillar-panel {
+                min-height: 70px;
+                flex: 1 !important;
+            }
+            .pillar-panel:hover,
+            .pillar-panel.active {
+                flex: 3 !important;
+            }
+            .pillar-title {
+                writing-mode: horizontal-tb;
+                transform: rotate(0);
+                position: relative;
+                bottom: auto;
+                left: auto;
+                font-size: 1.1rem;
+            }
+            .pillar-body {
+                opacity: 0.85;
+                max-height: 180px;
+                transform: translateY(0);
+            }
+            .pillar-number { font-size: 2rem; }
+            .pillar-panel:hover .pillar-number,
+            .pillar-panel.active .pillar-number { font-size: 2.5rem; }
+
+            .gateway-bridge { margin-top: 2.5rem; }
+            .bridge-line { max-width: 80px; }
+        }
+
+        @media (max-width: 480px) {
+            .gateway-title { font-size: 1.6rem; }
+            .pillars-accordion { min-height: 400px; }
+            .pillar-panel { min-height: 60px; }
+            .pillar-content { padding: 1.2rem; }
+        }
+
+        /* ===== AI-DRIVEN VERTICALLY EXPANDING ECOSYSTEM ===== */
+        .ecosystem-section {
+            position: relative;
+            padding: 0;
+            background: var(--warm-white);
+            overflow: hidden;
+        }
+
+        .ecosystem-canvas-wrap {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        #leafCanvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .ecosystem-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        .section-label {
+            display: inline-block;
+            background: rgba(26, 71, 42, 0.08);
+            color: var(--forest);
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.8rem;
+        }
+
+        /* ===== VERTICAL ACCORDION CARDS ===== */
+        .eco-accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .eco-card-v {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .eco-card-v:hover {
+            box-shadow: 0 12px 40px rgba(26, 71, 42, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .eco-card-v.expanded {
+            box-shadow: 0 20px 60px rgba(26, 71, 42, 0.15);
+            border-color: rgba(201, 162, 39, 0.3);
+        }
+
+        /* Visual header (always visible) */
+        .eco-card-visual {
+            position: relative;
+            height: 160px;
+            overflow: hidden;
+            border-radius: 18px 18px 0 0;
+        }
+
+        .eco-viz-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.8s ease, filter 0.5s;
+            filter: saturate(0.6) brightness(0.85);
+        }
+
+        .eco-card-v:hover .eco-viz-bg,
+        .eco-card-v.expanded .eco-viz-bg {
+            transform: scale(1.08);
+            filter: saturate(0.9) brightness(0.75);
+        }
+
+        .eco-viz-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(15,46,26,0.85) 0%, rgba(15,46,26,0.5) 50%, rgba(15,46,26,0.3) 100%);
+        }
+
+        .eco-viz-content {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 1.5rem 2rem;
+            color: white;
+            z-index: 2;
+        }
+
+        .eco-viz-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--honey);
+            font-weight: 700;
+            line-height: 1;
+            opacity: 0.7;
+            margin-bottom: 0.3rem;
+        }
+
+        .eco-viz-icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.3rem;
+            opacity: 0.9;
+        }
+
+        .eco-viz-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .eco-viz-peek {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+
+        /* Expand hint */
+        .eco-expand-hint {
+            position: absolute;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.4rem;
+            z-index: 3;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .eco-card-v:hover .eco-expand-hint,
+        .eco-card-v.expanded .eco-expand-hint {
+            opacity: 1;
+        }
+
+        .hint-line {
+            width: 1px;
+            height: 20px;
+            background: linear-gradient(to bottom, transparent, var(--honey));
+        }
+
+        .hint-text {
+            font-size: 0.65rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+
+        .hint-arrow {
+            font-size: 1rem;
+            color: var(--honey);
+            animation: hintBounce 2s infinite;
+        }
+
+        @keyframes hintBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(5px); }
+        }
+
+        .eco-card-v.expanded .hint-arrow {
+            transform: rotate(180deg);
+            animation: none;
+        }
+
+        /* Expandable body */
+        .eco-card-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.7s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                        padding 0.5s ease;
+            background: linear-gradient(to bottom, rgba(245,240,232,0.3), white);
+        }
+
+        .eco-card-v.expanded .eco-card-body {
+            max-height: 1200px;
+            padding: 2rem;
+        }
+
+        .eco-body-inner {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s 0.15s, transform 0.5s 0.15s;
+        }
+
+        .eco-card-v.expanded .eco-body-inner {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .eco-body-intro {
+            font-size: 1rem;
+            color: var(--text-body);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+        }
+
+        /* Metrics strip */
+        .eco-metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, var(--forest), var(--sage));
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .eco-metrics::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .eco-metric {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .metric-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--honey);
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .metric-label {
+            font-size: 0.72rem;
+            color: rgba(255,255,255,0.8);
+            margin-top: 0.4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Detail cards grid */
+        .eco-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .eco-detail-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.2rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .eco-detail-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 3px; height: 100%;
+            background: linear-gradient(to bottom, var(--honey), var(--sage));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .eco-detail-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border-color: rgba(201, 162, 39, 0.3);
+        }
+
+        .eco-detail-card:hover::before {
+            opacity: 1;
+        }
+
+        .detail-card-icon {
+            font-size: 1.6rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .eco-detail-card h4 {
+            font-size: 0.95rem;
+            color: var(--forest);
+            margin-bottom: 0.4rem;
+        }
+
+        .eco-detail-card p {
+            font-size: 0.82rem;
+            color: var(--text-body);
+            line-height: 1.6;
+        }
+
+        /* ===== TIMELINE (AFLI accordion style) ===== */
+        .timeline-section {
+            background: white;
+            padding: 6rem 2rem;
+        }
+        .timeline-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .phase-wrapper {
+            margin-bottom: 1.5rem;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+        }
+        .phase-header {
+            background: linear-gradient(135deg, var(--sage), var(--moss));
+            color: white;
+            padding: 1.4rem 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+        .phase-header:hover {
+            background: linear-gradient(135deg, var(--forest), var(--sage));
+        }
+        .phase-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+        }
+        .phase-subtitle {
+            font-size: 0.85rem;
+            opacity: 0.85;
+            margin-top: 0.3rem;
+            font-weight: 400;
+        }
+        .phase-toggle {
+            font-size: 1.8rem;
+            font-weight: 300;
+            transition: transform 0.3s;
+            width: 36px; height: 36px;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+        }
+        .phase-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            background: white;
+        }
+        .phase-content.active {
+            max-height: 600px;
+        }
+        .phase-inner {
+            padding: 2rem;
+        }
+        .phase-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        .phase-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--cream);
+            border-radius: 10px;
+            border-top: 3px solid var(--honey);
+        }
+        .phase-icon {
+            font-size: 2rem;
+            margin-bottom: 0.6rem;
+        }
+        .phase-item h4 {
+            color: var(--forest);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        .phase-item p {
+            font-size: 0.82rem;
+            color: var(--text-body);
+            line-height: 1.6;
+        }
+
+        /* ===== IMPACT SECTION ===== */
+        .impact-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(to bottom, var(--cream), var(--warm-white));
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 5rem 2rem 2rem;
+        }
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+        .footer-brand h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--honey);
+        }
+        .footer-brand p {
+            color: rgba(255,255,255,0.65);
+            font-size: 0.88rem;
+            line-height: 1.7;
+        }
+        .footer-links h4 {
+            color: var(--honey);
+            margin-bottom: 1.2rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+        .footer-links a {
+            display: block;
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            padding: 0.35rem 0;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover {
+            color: var(--honey);
+        }
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            text-align: center;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.8rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero-content,
+            .artful-container,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-text h1 { font-size: 2.6rem; }
+            .stats-row { grid-template-columns: 1fr 1fr; }
+            .phase-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .detail-grid { grid-template-columns: 1fr; }
+            .nav-menu { display: none; }
+            .pillar-panel { min-height: 70px; }
+            .pillar-title { font-size: 1.1rem; }
+
+            .ecosystem-content { padding: 4rem 1.5rem; }
+            .eco-card-visual { height: 140px; }
+            .eco-viz-content { padding: 1.2rem; }
+            .eco-viz-title { font-size: 1.15rem; }
+            .eco-expand-hint { right: 1rem; }
+            .eco-card-v.expanded .eco-card-body { padding: 1.2rem; }
+            .eco-metrics { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; padding: 1rem; }
+            .metric-value { font-size: 1.3rem; }
+            .eco-detail-grid { grid-template-columns: 1fr; }
+            .eco-body-intro { font-size: 0.9rem; }
+        }
+
+        html { scroll-behavior: smooth; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--cream); }
+        ::-webkit-scrollbar-thumb { background: var(--sage); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--forest); }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">🌿</div>
+                <div class="logo-text">Acacia Trading Plc</div>
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <span class="nav-link">About <span class="dropdown-arrow">▼</span></span>
+                    <div class="dropdown-menu">
+                        <a href="#vision" class="dropdown-item">Our Vision</a>
+                        <a href="#background" class="dropdown-item">Background & Rationale</a>
+                        <a href="#problem" class="dropdown-item">Problem Statement</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <span class="nav-link">The Ecosystem <span class="dropdown-arrow">▼</span></span>
+                    <div class="dropdown-menu">
+                        <a href="#production" class="dropdown-item">Integrated Production</a>
+                        <a href="#circular" class="dropdown-item">Circular Resources</a>
+                        <a href="#enterprise" class="dropdown-item">Enterprise Development</a>
+                        <a href="#markets" class="dropdown-item">Market Systems</a>
+                        <a href="#greening" class="dropdown-item">Urban Greening Services</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <span class="nav-link">Impact <span class="dropdown-arrow">▼</span></span>
+                    <div class="dropdown-menu">
+                        <a href="#beneficiaries" class="dropdown-item">Beneficiaries</a>
+                        <a href="#timeline" class="dropdown-item">Implementation Timeline</a>
+                        <a href="#sustainability" class="dropdown-item">Sustainability Strategy</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-label">Project Proposal 2026–2029</div>
+                <h1>Where Green<br>Meets Growth</h1>
+                <p class="subtitle">An integrated youth-led enterprise initiative transforming Addis Ababa's urban landscape into a living, breathing ecosystem of opportunity—one sub-city at a time.</p>
+                <div class="hero-cta">
+                    <a href="#ecosystem" class="btn-primary">Explore the Initiative</a>
+                    <a href="#contact" class="btn-secondary">Get in Touch</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">1,000</div>
+                        <div class="stat-label">Youth Beneficiaries</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">11</div>
+                        <div class="stat-label">Sub-Cities</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">40B+</div>
+                        <div class="stat-label">Trees Planted Nationally</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://kimi-web-img.moonshot.cn/img/egyptianstreets.com/557c9290c41d8cfa735fe47783e0590cdb577c8c.jpg" alt="Youth in urban agriculture">
+                <div class="image-caption">Cultivating Tomorrow's Harvest Today</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stat Cards Row (AFLI style) -->
+    <section style="padding: 3rem 0; background: var(--warm-white);">
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-card-icon">🌱</div>
+                <div class="stat-card-number">$20K–30K</div>
+                <div class="stat-card-label">Annual Revenue Per Site</div>
+                <div class="stat-card-sub">Break-even in 12–18 months</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-icon">♻️</div>
+                <div class="stat-card-number">40%</div>
+                <div class="stat-card-label">Women's Participation</div>
+                <div class="stat-card-sub">Reserved seats per association</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-icon">👨‍👩‍👧‍👦</div>
+                <div class="stat-card-number">5,000–7,000</div>
+                <div class="stat-card-label">Indirect Beneficiaries</div>
+                <div class="stat-card-sub">Households & market customers</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-icon">🌳</div>
+                <div class="stat-card-number">23.6%</div>
+                <div class="stat-card-label">National Forest Cover</div>
+                <div class="stat-card-sub">Up from 17.2% since 2019</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3D Dynamic Cycle: The Living Architecture -->
+    <section class="cycle-section" id="vision">
+        <div class="cycle-bg-mesh" id="cycleMesh"></div>
+        <div class="cycle-container">
+            <div class="cycle-header">
+                <div class="cycle-label">The Ecosystem Engine</div>
+                <h2>The Living Architecture of Urban Resilience</h2>
+                <p>Five components. One infinite loop. Watch how waste becomes wealth, youth become stewards, and green becomes growth—stage by stage.</p>
+            </div>
+
+            <div class="cycle-stage" id="cycleStage">
+                <div class="stage-visual">
+                    <div class="stage-ring" id="stageRing">
+                        <!-- Stage 1: Urban Agriculture -->
+                        <div class="ring-node active" data-stage="0" style="--angle: 0deg;">
+                            <div class="node-icon">🌱</div>
+                            <div class="node-label">Urban Agriculture</div>
+                            <div class="node-pulse"></div>
+                        </div>
+                        <!-- Stage 2: Composting -->
+                        <div class="ring-node" data-stage="1" style="--angle: 72deg;">
+                            <div class="node-icon">♻️</div>
+                            <div class="node-label">Composting</div>
+                            <div class="node-pulse"></div>
+                        </div>
+                        <!-- Stage 3: Beekeeping -->
+                        <div class="ring-node" data-stage="2" style="--angle: 144deg;">
+                            <div class="node-icon">🐝</div>
+                            <div class="node-label">Apiculture</div>
+                            <div class="node-pulse"></div>
+                        </div>
+                        <!-- Stage 4: Herbal Products -->
+                        <div class="ring-node" data-stage="3" style="--angle: 216deg;">
+                            <div class="node-icon">🌿</div>
+                            <div class="node-label">Herbal Products</div>
+                            <div class="node-pulse"></div>
+                        </div>
+                        <!-- Stage 5: Market Sales -->
+                        <div class="ring-node" data-stage="4" style="--angle: 288deg;">
+                            <div class="node-icon">💰</div>
+                            <div class="node-label">Market Sales</div>
+                            <div class="node-pulse"></div>
+                        </div>
+                    </div>
+
+                    <!-- Center hub -->
+                    <div class="stage-hub" id="stageHub">
+                        <div class="hub-inner">
+                            <div class="hub-icon" id="hubIcon">🌱</div>
+                            <div class="hub-ring"></div>
+                            <div class="hub-ring-2"></div>
+                        </div>
+                    </div>
+
+                    <!-- Connecting orbit lines -->
+                    <svg class="orbit-svg" viewBox="0 0 400 400">
+                        <circle cx="200" cy="200" r="150" fill="none" stroke="rgba(201,162,39,0.15)" stroke-width="1" stroke-dasharray="8 4"/>
+                        <circle cx="200" cy="200" r="120" fill="none" stroke="rgba(74,124,89,0.2)" stroke-width="0.5"/>
+                        <circle cx="200" cy="200" r="180" fill="none" stroke="rgba(201,162,39,0.08)" stroke-width="0.5" stroke-dasharray="4 8"/>
+                    </svg>
+
+                    <!-- Animated particles traveling the ring -->
+                    <div class="travel-particles" id="travelParticles"></div>
+                </div>
+
+                <div class="stage-info" id="stageInfo">
+                    <div class="info-card active" data-stage="0">
+                        <div class="info-number">01</div>
+                        <h3>Urban Agriculture</h3>
+                        <p>Vegetables, fruits, and culinary herbs grown in vertical gardens, rooftop farms, and container systems across Addis Ababa's 11 sub-cities. Youth-led cooperatives cultivate fresh produce that shortens supply chains and reduces CO₂ emissions from long-distance transport.</p>
+                        <div class="info-stats">
+                            <div class="info-stat">
+                                <span class="info-stat-val">$8K–12K</span>
+                                <span class="info-stat-label">Annual Revenue</span>
+                            </div>
+                            <div class="info-stat">
+                                <span class="info-stat-val">60%</span>
+                                <span class="info-stat-label">Supply Chain Reduction</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-card" data-stage="1">
+                        <div class="info-number">02</div>
+                        <h3>Composting & Circular Resources</h3>
+                        <p>Organic waste from urban households and markets is converted into nutrient-rich compost. This closes the loop: crops generate waste, waste becomes fertilizer, fertilizer grows new crops. Input costs decline over time rather than rising.</p>
+                        <div class="info-stats">
+                            <div class="info-stat">
+                                <span class="info-stat-val">Zero</span>
+                                <span class="info-stat-label">Waste to Landfill</span>
+                            </div>
+                            <div class="info-stat">
+                                <span class="info-stat-val">40%</span>
+                                <span class="info-stat-label">Input Cost Reduction</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-card" data-stage="2">
+                        <div class="info-number">03</div>
+                        <h3>Apiculture & Pollination</h3>
+                        <p>Beehives managed by youth enterprises produce honey while providing essential pollination services. Bees increase crop yields by 30% and enhance surrounding vegetation. Honey becomes a second revenue stream independent of vegetable markets.</p>
+                        <div class="info-stats">
+                            <div class="info-stat">
+                                <span class="info-stat-val">$3K–5K</span>
+                                <span class="info-stat-label">Honey Revenue</span>
+                            </div>
+                            <div class="info-stat">
+                                <span class="info-stat-val">30%</span>
+                                <span class="info-stat-label">Yield Increase</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-card" data-stage="3">
+                        <div class="info-number">04</div>
+                        <h3>Herbal Product Development</h3>
+                        <p>Medicinal and aromatic plants—moringa, basil, rosemary, thyme—are cultivated and processed into essential oils, packaged herbs, and traditional remedies. Ethiopia's deep botanical knowledge enters formal market channels for the first time.</p>
+                        <div class="info-stats">
+                            <div class="info-stat">
+                                <span class="info-stat-val">$5K–8K</span>
+                                <span class="info-stat-label">Herbal Revenue</span>
+                            </div>
+                            <div class="info-stat">
+                                <span class="info-stat-val">5+</span>
+                                <span class="info-stat-label">Plant Species</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-card" data-stage="4">
+                        <div class="info-number">05</div>
+                        <h3>Market Systems & Revenue</h3>
+                        <p>Products reach households, restaurants, and institutions through pre-arranged buyer agreements. Revenue funds the next growing cycle, pays youth wages, and finances tree maintenance contracts—creating a self-sustaining economic engine.</p>
+                        <div class="info-stats">
+                            <div class="info-stat">
+                                <span class="info-stat-val">$20K–30K</span>
+                                <span class="info-stat-label">Total Site Revenue</span>
+                            </div>
+                            <div class="info-stat">
+                                <span class="info-stat-val">18</span>
+                                <span class="info-stat-label">Months to Break-Even</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cycle controls -->
+            <div class="cycle-controls">
+                <button class="cycle-btn cycle-prev" onclick="prevStage()">← Previous</button>
+                <div class="cycle-progress">
+                    <div class="cycle-dots">
+                        <span class="cycle-dot active" data-stage="0"></span>
+                        <span class="cycle-dot" data-stage="1"></span>
+                        <span class="cycle-dot" data-stage="2"></span>
+                        <span class="cycle-dot" data-stage="3"></span>
+                        <span class="cycle-dot" data-stage="4"></span>
+                    </div>
+                    <div class="cycle-auto">
+                        <button class="auto-toggle active" id="autoToggle" onclick="toggleAuto()">
+                            <span class="auto-icon">▶</span>
+                            <span class="auto-text">Auto-play</span>
+                        </button>
+                    </div>
+                </div>
+                <button class="cycle-btn cycle-next" onclick="nextStage()">Next →</button>
+            </div>
+
+            <div class="artful-quote cycle-quote">
+                "Environmental projects which do not generate income do not sustain themselves over time. We address that evidence directly."
+            </div>
+        </div>
+    </section>
+
+    <!-- AI-Driven Morphing Connector: Pillars → Deep Dive -->
+    <section class="morphing-gateway" id="gateway">
+        <canvas id="meshCanvas" class="mesh-canvas"></canvas>
+        <div class="gateway-content">
+            <div class="gateway-header">
+                <div class="gateway-label">The Five Pillars</div>
+                <h2 class="gateway-title">Hover to Witness<br>the Ecosystem Breathe</h2>
+                <p class="gateway-subtitle">Five living systems. One interconnected organism. Move through each pillar to see how waste becomes wealth, youth become stewards, and green becomes growth.</p>
+            </div>
+
+            <div class="pillars-accordion">
+                <div class="pillar-panel" data-pillar="01" onclick="focusPillar(0)">
+                    <div class="pillar-bg" style="background-image: url('https://kimi-web-img.moonshot.cn/img/egyptianstreets.com/557c9290c41d8cfa735fe47783e0590cdb577c8c.jpg')"></div>
+                    <div class="pillar-overlay"></div>
+                    <div class="pillar-content">
+                        <div class="pillar-number">01</div>
+                        <div class="pillar-title">Integrated Production</div>
+                        <div class="pillar-body">
+                            <p>The core productive structure combining vertical gardens, rooftop farms, container systems, beehives, tree nurseries, and medicinal herb cultivation into one interconnected organism.</p>
+                            <div class="pillar-tags">
+                                <span class="tag">Urban Agriculture</span>
+                                <span class="tag">Apiculture</span>
+                                <span class="tag">Herbal Plants</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pillar-panel" data-pillar="02" onclick="focusPillar(1)">
+                    <div class="pillar-bg" style="background-image: url('https://kimi-web-img.moonshot.cn/img/cdn.kingcounty.gov/9ef26027edbe719e79fc3e7ac723d44aa3b48003.jpg')"></div>
+                    <div class="pillar-overlay"></div>
+                    <div class="pillar-content">
+                        <div class="pillar-number">02</div>
+                        <div class="pillar-title">Circular Resources</div>
+                        <div class="pillar-body">
+                            <p>Transforming urban waste and inefficiency into productive inputs. Where others see garbage, we see growth medium. Where others see runoff, we see irrigation.</p>
+                            <div class="pillar-tags">
+                                <span class="tag">Composting</span>
+                                <span class="tag">Smart Irrigation</span>
+                                <span class="tag">Regeneration</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pillar-panel" data-pillar="03" onclick="focusPillar(2)">
+                    <div class="pillar-bg" style="background-image: url('https://kimi-web-img.moonshot.cn/img/blog.plantwise.org/72e2596628ee2313dc6c1ae64c1f15f99a8ecc55.jpg')"></div>
+                    <div class="pillar-overlay"></div>
+                    <div class="pillar-content">
+                        <div class="pillar-number">03</div>
+                        <div class="pillar-title">Enterprise & Skills</div>
+                        <div class="pillar-body">
+                            <p>Learning embedded in daily work. We don't train then employ—we employ while training. Budgeting, pricing, marketing, and financial management learned through real transactions.</p>
+                            <div class="pillar-tags">
+                                <span class="tag">Business Training</span>
+                                <span class="tag">Mentorship</span>
+                                <span class="tag">Technical Skills</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pillar-panel" data-pillar="04" onclick="focusPillar(3)">
+                    <div class="pillar-bg" style="background-image: url('https://kimi-web-img.moonshot.cn/img/www.hopkinsmedicine.org/d479dbdbdfecd63183fb840b331013ce472bdd35.jpg')"></div>
+                    <div class="pillar-overlay"></div>
+                    <div class="pillar-content">
+                        <div class="pillar-number">04</div>
+                        <div class="pillar-title">Market Systems</div>
+                        <div class="pillar-body">
+                            <p>From raw honey to packaged gold. From fresh herbs to essential oils. We create diversified revenue streams that ensure when one market dips, the enterprise remains buoyant.</p>
+                            <div class="pillar-tags">
+                                <span class="tag">Processing</span>
+                                <span class="tag">Market Linkages</span>
+                                <span class="tag">Buyer Agreements</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pillar-panel" data-pillar="05" onclick="focusPillar(4)">
+                    <div class="pillar-bg" style="background-image: url('https://kimi-web-img.moonshot.cn/img/trellis.net/796884e6f8b1d9703a1f0c7d135fab8f14272e5e.jpeg')"></div>
+                    <div class="pillar-overlay"></div>
+                    <div class="pillar-content">
+                        <div class="pillar-number">05</div>
+                        <div class="pillar-title">Urban Greening</div>
+                        <div class="pillar-body">
+                            <p>Converting environmental restoration into paid service delivery. We don't just plant trees—we maintain them under contract, ensuring survival rates that campaigns alone cannot achieve.</p>
+                            <div class="pillar-tags">
+                                <span class="tag">Maintenance</span>
+                                <span class="tag">Seedling Supply</span>
+                                <span class="tag">Restoration Contracts</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gateway-bridge">
+                <div class="bridge-line"></div>
+                <a href="#ecosystem" class="bridge-cta">
+                    <span class="bridge-text">Explore Each Component in Depth</span>
+                    <span class="bridge-arrow">↓</span>
+                    <div class="bridge-pulse"></div>
+                </a>
+                <div class="bridge-line"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI-Driven Vertically Expanding Ecosystem -->
+    <section class="ecosystem-section" id="ecosystem">
+        <div class="ecosystem-canvas-wrap">
+            <canvas id="leafCanvas"></canvas>
+        </div>
+
+        <div class="ecosystem-content">
+            <div class="section-header">
+                <div class="section-label">Deep Dive</div>
+                <h2>Explore Each Component in Depth</h2>
+                <div class="divider"></div>
+                <p>Hover over any component to unfold its complete operational framework. Each card reveals technical specifications, revenue mechanisms, and sustainability metrics.</p>
+            </div>
+
+            <div class="eco-accordion">
+                <!-- Card 1 -->
+                <div class="eco-card-v" id="production" data-eco="production">
+                    <div class="eco-card-visual">
+                        <div class="eco-viz-bg" style="background-image: url('https://kimi-web-img.moonshot.cn/img/egyptianstreets.com/557c9290c41d8cfa735fe47783e0590cdb577c8c.jpg')"></div>
+                        <div class="eco-viz-overlay"></div>
+                        <div class="eco-viz-content">
+                            <div class="eco-viz-number">01</div>
+                            <div class="eco-viz-icon">🌱</div>
+                            <h3 class="eco-viz-title">Integrated Production Systems</h3>
+                            <div class="eco-viz-peek">Vertical gardens · Beehives · Tree nurseries · Herbal cultivation</div>
+                        </div>
+                        <div class="eco-expand-hint">
+                            <span class="hint-line"></span>
+                            <span class="hint-text">Hover to explore</span>
+                            <span class="hint-arrow">↓</span>
+                        </div>
+                    </div>
+                    <div class="eco-card-body">
+                        <div class="eco-body-inner">
+                            <p class="eco-body-intro">The core productive structure combining vertical gardens, rooftop farms, container systems, beehives, tree nurseries, and medicinal herb cultivation into one interconnected organism.</p>
+
+                            <div class="eco-metrics">
+                                <div class="eco-metric">
+                                    <div class="metric-value">$8K–12K</div>
+                                    <div class="metric-label">Vegetables / year</div>
+                                </div>
+                                <div class="eco-metric">
+                                    <div class="metric-value">$3K–5K</div>
+                                    <div class="metric-label">Honey / year</div>
+                                </div>
+                                <div class="eco-metric">
+                                    <div class="metric-value">$4K–6K</div>
+                                    <div class="metric-label">Seedlings / year</div>
+                                </div>
+                                <div class="eco-metric">
+                                    <div class="metric-value">$5K–8K</div>
+                                    <div class="metric-label">Herbal / year</div>
+                                </div>
+                            </div>
+
+                            <div class="eco-detail-grid">
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">🌱</div>
+                                    <h4>Urban Agriculture</h4>
+                                    <p>Vegetables, fruits & culinary herbs via vertical, rooftop & container systems. Shortens supply chains, reduces fuel consumption, and improves food freshness for Addis Ababa residents.</p>
+                                </div>
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">🐝</div>
+                                    <h4>Apiculture</h4>
+                                    <p>Beehive management for honey production and crop pollination services. Bees enhance crop yields and surrounding vegetation while generating premium honey for local markets.</p>
+                                </div>
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">🌳</div>
+                                    <h4>Green Restoration</h4>
+                                    <p>Tree nurseries, seedling production & maintenance contracts with municipalities. Survival-based compensation ensures long-term care rather than one-time planting.</p>
+                                </div>
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">🌿</div>
+                                    <h4>Herbal Development</h4>
+                                    <p>Medicinal & aromatic plants with essential oil extraction. Integrates Ethiopia's deep traditional knowledge into formal market channels—moringa, basil, rosemary, thyme.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="eco-card-v" id="circular" data-eco="circular">
+                    <div class="eco-card-visual">
+                        <div class="eco-viz-bg" style="background-image: url('https://kimi-web-img.moonshot.cn/img/cdn.kingcounty.gov/9ef26027edbe719e79fc3e7ac723d44aa3b48003.jpg')"></div>
+                        <div class="eco-viz-overlay"></div>
+                        <div class="eco-viz-content">
+                            <div class="eco-viz-number">02</div>
+                            <div class="eco-viz-icon">♻️</div>
+                            <h3 class="eco-viz-title">Circular Resource Systems</h3>
+                            <div class="eco-viz-peek">Composting · Smart irrigation · Soil regeneration · Waste-to-wealth</div>
+                        </div>
+                        <div class="eco-expand-hint">
+                            <span class="hint-line"></span>
+                            <span class="hint-text">Hover to explore</span>
+                            <span class="hint-arrow">↓</span>
+                        </div>
+                    </div>
+                    <div class="eco-card-body">
+                        <div class="eco-body-inner">
+                            <p class="eco-body-intro">Transforming urban waste and inefficiency into productive inputs. Where others see garbage, we see growth medium. Where others see runoff, we see irrigation.</p>
+
+                            <div class="eco-metrics">
+                                <div class="eco-metric">
+                                    <div class="metric-value">↓ 60%</div>
+                                    <div class="metric-label">Input cost reduction</div>
+                                </div>
+                                <div class="eco-metric">
+                                    <div class="metric-value">↓ 40%</div>
+                                    <div class="metric-label">Water usage</div>
+                                </div>
+                                <div class="eco-metric">
+                                    <div class="metric-value">0</div>
+                                    <div class="metric-label">Chemical fertilizers</div>
+                                </div>
+                                <div class="eco-metric">
+                                    <div class="metric-value">100%</div>
+                                    <div class="metric-label">Organic compost</div>
+                                </div>
+                            </div>
+
+                            <div class="eco-detail-grid">
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">♻️</div>
+                                    <h4>Composting</h4>
+                                    <p>Organic waste conversion into nutrient-rich soil amendments. Urban food waste becomes the foundation for fertile growing medium, replacing expensive imported fertilizers.</p>
+                                </div>
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">💧</div>
+                                    <h4>Smart Irrigation</h4>
+                                    <p>Drip & reuse-based water-efficient systems. Captures and recycles greywater, reducing municipal water dependency while maximizing crop yield per liter.</p>
+                                </div>
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">🌍</div>
+                                    <h4>Soil Regeneration</h4>
+                                    <p>Practices that restore fertility & reduce chemical dependency. Cover cropping, crop rotation, and microbial inoculation rebuild soil biology year after year.</p>
+                                </div>
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">⚡</div>
+                                    <h4>Input Reduction</h4>
+                                    <p>Declining external dependency over time. As compost matures and soil improves, enterprises spend less on inputs while producing more—true circular economics.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="eco-card-v" id="enterprise" data-eco="enterprise">
+                    <div class="eco-card-visual">
+                        <div class="eco-viz-bg" style="background-image: url('https://kimi-web-img.moonshot.cn/img/blog.plantwise.org/72e2596628ee2313dc6c1ae64c1f15f99a8ecc55.jpg')"></div>
+                        <div class="eco-viz-overlay"></div>
+                        <div class="eco-viz-content">
+                            <div class="eco-viz-number">03</div>
+                            <div class="eco-viz-icon">📊</div>
+                            <h3 class="eco-viz-title">Enterprise & Skills Development</h3>
+                            <div class="eco-viz-peek">Business training · Technical skills · Mentorship · Decision-making</div>
+                        </div>
+                        <div class="eco-expand-hint">
+                            <span class="hint-line"></span>
+                            <span class="hint-text">Hover to explore</span>
+                            <span class="hint-arrow">↓</span>
+                        </div>
+                    </div>
+                    <div class="eco-card-body">
+                        <div class="eco-body-inner">
+                            <p class="eco-body-intro">Learning embedded in daily work. We don't train then employ—we employ while training. Budgeting, pricing, marketing, and financial management learned through real transactions.</p>
+
+                            <div class="eco-metrics">
+                                <div class="eco-metric">
+                                    <div class="metric-value">1,000</div>
+                                    <div class="metric-label">Youth trained</div>
+                                </div>
+                                <div class="eco-metric">
+                                    <div class="metric-value">40%</div>
+                                    <div class="metric-label">Women participants</div>
+                                </div>
+                                <div class="eco-metric">
+                                    <div class="metric-value">11</div>
+                                    <div class="metric-label">Cooperatives formed</div>
+                                </div>
+                                <div class="eco-metric">
+                                    <div class="metric-value">90+</div>
+                                    <div class="metric-label">Members per site</div>
+                                </div>
+                            </div>
+
+                            <div class="eco-detail-grid">
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">📊</div>
+                                    <h4>Business Training</h4>
+                                    <p>Budgeting, pricing, marketing & financial management taught through live enterprise operations. Youth learn profit-sharing, record-keeping, and market negotiation by doing.</p>
+                                </div>
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">🔧</div>
+                                    <h4>Technical Skills</h4>
+                                    <p>Farming, beekeeping, nursery & herbal production taught by master practitioners. Hands-on learning in real conditions ensures skills stick and adapt to local contexts.</p>
+                                </div>
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">👥</div>
+                                    <h4>Continuous Mentorship</h4>
+                                    <p>Practical coaching during daily operations. Experienced mentors walk alongside youth, troubleshooting problems in real-time and building decision-making confidence.</p>
+                                </div>
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">📈</div>
+                                    <h4>Decision-Making</h4>
+                                    <p>Management skills for sustainable growth. Youth elect committees, adopt bylaws, open bank accounts, and sign participation agreements—building ownership from day one.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="eco-card-v" id="markets" data-eco="markets">
+                    <div class="eco-card-visual">
+                        <div class="eco-viz-bg" style="background-image: url('https://kimi-web-img.moonshot.cn/img/www.hopkinsmedicine.org/d479dbdbdfecd63183fb840b331013ce472bdd35.jpg')"></div>
+                        <div class="eco-viz-overlay"></div>
+                        <div class="eco-viz-content">
+                            <div class="eco-viz-number">04</div>
+                            <div class="eco-viz-icon">🏭</div>
+                            <h3 class="eco-viz-title">Market Systems & Value Chains</h3>
+                            <div class="eco-viz-peek">Processing · Market linkages · Buyer agreements · Revenue streams</div>
+                        </div>
+                        <div class="eco-expand-hint">
+                            <span class="hint-line"></span>
+                            <span class="hint-text">Hover to explore</span>
+                            <span class="hint-arrow">↓</span>
+                        </div>
+                    </div>
+                    <div class="eco-card-body">
+                        <div class="eco-body-inner">
+                            <p class="eco-body-intro">From raw honey to packaged gold. From fresh herbs to essential oils. We create diversified revenue streams that ensure when one market dips, the enterprise remains buoyant.</p>
+
+                            <div class="eco-metrics">
+                                <div class="eco-metric">
+                                    <div class="metric-value">$20K–30K</div>
+                                    <div class="metric-label">Revenue per site / year</div>
+                                </div>
+                                <div class="eco-metric">
+                                    <div class="metric-value">4</div>
+                                    <div class="metric-label">Revenue streams</div>
+                                </div>
+                                <div class="eco-metric">
+                                    <div class="metric-value">18</div>
+                                    <div class="metric-label">Months to break-even</div>
+                                </div>
+                                <div class="eco-metric">
+                                    <div class="metric-value">∞</div>
+                                    <div class="metric-label">Sustainability horizon</div>
+                                </div>
+                            </div>
+
+                            <div class="eco-detail-grid">
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">🏭</div>
+                                    <h4>Processing</h4>
+                                    <p>Oil extraction, honey packaging & herbal formulation. Raw products become higher-value goods with longer shelf life and stronger brand recognition in formal markets.</p>
+                                </div>
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">🤝</div>
+                                    <h4>Market Linkages</h4>
+                                    <p>Direct sales to households, restaurants & institutions. Eliminates middlemen, ensuring youth capture full value while customers receive fresher, traceable products.</p>
+                                </div>
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">📋</div>
+                                    <h4>Buyer Agreements</h4>
+                                    <p>Pre-arranged contracts securing demand before production. Reduces sales risk and enables confident scaling—grow what you know you can sell.</p>
+                                </div>
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">💰</div>
+                                    <h4>Revenue Resilience</h4>
+                                    <p>Four product categories mean no single point of failure. When honey prices dip, vegetables sustain. When vegetable demand wavers, seedlings and herbs pay.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="eco-card-v" id="greening" data-eco="greening">
+                    <div class="eco-card-visual">
+                        <div class="eco-viz-bg" style="background-image: url('https://kimi-web-img.moonshot.cn/img/trellis.net/796884e6f8b1d9703a1f0c7d135fab8f14272e5e.jpeg')"></div>
+                        <div class="eco-viz-overlay"></div>
+                        <div class="eco-viz-content">
+                            <div class="eco-viz-number">05</div>
+                            <div class="eco-viz-icon">🌳</div>
+                            <h3 class="eco-viz-title">Urban Greening Services</h3>
+                            <div class="eco-viz-peek">Maintenance · Seedling supply · Restoration contracts · Survival-based pay</div>
+                        </div>
+                        <div class="eco-expand-hint">
+                            <span class="hint-line"></span>
+                            <span class="hint-text">Hover to explore</span>
+                            <span class="hint-arrow">↓</span>
+                        </div>
+                    </div>
+                    <div class="eco-card-body">
+                        <div class="eco-body-inner">
+                            <p class="eco-body-intro">Converting environmental restoration into paid service delivery. We don't just plant trees—we maintain them under contract, ensuring survival rates that campaigns alone cannot achieve.</p>
+
+                            <div class="eco-metrics">
+                                <div class="eco-metric">
+                                    <div class="metric-value">40B+</div>
+                                    <div class="metric-label">Trees planted nationally</div>
+                                </div>
+                                <div class="eco-metric">
+                                    <div class="metric-value">23.6%</div>
+                                    <div class="metric-label">Forest cover achieved</div>
+                                </div>
+                                <div class="eco-metric">
+                                    <div class="metric-value">↑ 6.4%</div>
+                                    <div class="metric-label">Cover increase since 2019</div>
+                                </div>
+                                <div class="eco-metric">
+                                    <div class="metric-value">12 mo</div>
+                                    <div class="metric-label">Survival tracking period</div>
+                                </div>
+                            </div>
+
+                            <div class="eco-detail-grid">
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">🌳</div>
+                                    <h4>Maintenance Contracts</h4>
+                                    <p>Paid care for public green spaces & roadsides. Youth enterprises receive ongoing revenue for watering, pruning, and protecting urban vegetation—turning maintenance into livelihood.</p>
+                                </div>
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">🌱</div>
+                                    <h4>Seedling Supply</h4>
+                                    <p>Production for city greening programs. Each enterprise operates a nursery that feeds Ethiopia's Green Legacy Initiative, creating a sustainable supply chain for national reforestation.</p>
+                                </div>
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">📄</div>
+                                    <h4>Restoration Contracts</h4>
+                                    <p>Formal agreements with municipalities and institutions. Converts green space management from volunteer activity into professional, paid service delivery with accountability.</p>
+                                </div>
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">📊</div>
+                                    <h4>Survival-Based Pay</h4>
+                                    <p>Compensation tied to tree survival rates. Unlike one-time planting campaigns, this model ensures youth have a financial stake in keeping every seedling alive and thriving.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Implementation Timeline (AFLI accordion) -->
+    <section class="timeline-section" id="timeline">
+        <div class="timeline-container">
+            <div class="section-header">
+                <h2>Three-Year Implementation Journey</h2>
+                <div class="divider"></div>
+                <p>From pilot to full scale—each phase builds upon the last, with lessons embedded into the next iteration.</p>
+            </div>
+
+            <div class="phase-wrapper">
+                <div class="phase-header" onclick="togglePhase(this)">
+                    <div>
+                        <div class="phase-title">Year One — The Pilot</div>
+                        <div class="phase-subtitle">3 sub-cities · 300 youth · System testing & stabilization</div>
+                    </div>
+                    <div class="phase-toggle">+</div>
+                </div>
+                <div class="phase-content">
+                    <div class="phase-inner">
+                        <div class="phase-grid">
+                            <div class="phase-item">
+                                <div class="phase-icon">🔬</div>
+                                <h4>System Testing</h4>
+                                <p>Validate integrated production models across diverse urban contexts</p>
+                            </div>
+                            <div class="phase-item">
+                                <div class="phase-icon">⚖️</div>
+                                <h4>Legal Registration</h4>
+                                <p>Establish cooperative bylaws, bank accounts & participation agreements</p>
+                            </div>
+                            <div class="phase-item">
+                                <div class="phase-icon">📚</div>
+                                <h4>Baseline Training</h4>
+                                <p>Intensive technical & business skills embedded in daily operations</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phase-wrapper">
+                <div class="phase-header" onclick="togglePhase(this)">
+                    <div>
+                        <div class="phase-title">Year Two — The Expansion</div>
+                        <div class="phase-subtitle">7 sub-cities · Value addition · Market strengthening</div>
+                    </div>
+                    <div class="phase-toggle">+</div>
+                </div>
+                <div class="phase-content">
+                    <div class="phase-inner">
+                        <div class="phase-grid">
+                            <div class="phase-item">
+                                <div class="phase-icon">📦</div>
+                                <h4>Value Addition</h4>
+                                <p>Packaging, branding & processing facilities operational</p>
+                            </div>
+                            <div class="phase-item">
+                                <div class="phase-icon">🔗</div>
+                                <h4>Market Linkages</h4>
+                                <p>Formal buyer agreements with restaurants, institutions & city programs</p>
+                            </div>
+                            <div class="phase-item">
+                                <div class="phase-icon">📈</div>
+                                <h4>Revenue Growth</h4>
+                                <p>Break-even achieved at pilot sites; expansion capital mobilized</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phase-wrapper">
+                <div class="phase-header" onclick="togglePhase(this)">
+                    <div>
+                        <div class="phase-title">Year Three — Full Scale</div>
+                        <div class="phase-subtitle">11 sub-cities · Institutional partnerships · Replication package</div>
+                    </div>
+                    <div class="phase-toggle">+</div>
+                </div>
+                <div class="phase-content">
+                    <div class="phase-inner">
+                        <div class="phase-grid">
+                            <div class="phase-item">
+                                <div class="phase-icon">🏛️</div>
+                                <h4>Institutional Partnerships</h4>
+                                <p>Formalized agreements with municipalities & national programs</p>
+                            </div>
+                            <div class="phase-item">
+                                <div class="phase-icon">📋</div>
+                                <h4>Documentation</h4>
+                                <p>Replication package for scaling beyond Addis Ababa</p>
+                            </div>
+                            <div class="phase-item">
+                                <div class="phase-icon">✅</div>
+                                <h4>Self-Sufficiency</h4>
+                                <p>All enterprises operating without ongoing subsidy</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact-section" id="beneficiaries">
+        <div class="section-header">
+            <h2>Measurable Impact</h2>
+            <div class="divider"></div>
+            <p>Rigorous targeting ensures resources reach those with the greatest need and the strongest incentive to succeed.</p>
+        </div>
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-card-icon">👥</div>
+                <div class="stat-card-number">1,000</div>
+                <div class="stat-card-label">Direct Youth Beneficiaries</div>
+                <div class="stat-card-sub">Selected via means test & vulnerability index</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-icon">🏠</div>
+                <div class="stat-card-number">5,000</div>
+                <div class="stat-card-label">Indirect Household Members</div>
+                <div class="stat-card-sub">Average family size of 4–5 in target communities</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-icon">🛒</div>
+                <div class="stat-card-number">2,000</div>
+                <div class="stat-card-label">Market Customers</div>
+                <div class="stat-card-sub">Regular buyers of vegetables, honey & herbal products</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-icon">♻️</div>
+                <div class="stat-card-number">40%</div>
+                <div class="stat-card-label">Women's Participation</div>
+                <div class="stat-card-sub">Reserved seats in each association</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability Artful Section -->
+    <section class="artful-section" id="sustainability">
+        <div class="artful-container">
+            <div class="artful-image">
+                <img src="https://kimi-web-img.moonshot.cn/img/www.fao.org/eb3451a63baff127292b28d5dce628dc50b31c09.jpg" alt="Beekeeping in Africa">
+                <div class="floating-badge">
+                    <div class="badge-number">18</div>
+                    <div class="badge-text">Months to<br>Break-Even</div>
+                </div>
+            </div>
+            <div class="artful-text">
+                <h2>The Architecture of Self-Sufficiency</h2>
+                <p>We design for the exit from day one. Donor funding covers setup, training, and initial operations. By month eighteen, each enterprise stands on its own feet—diversified, market-driven, and youth-owned.</p>
+                <p>When honey prices dip, herbal oils sustain. When vegetable demand wavers, seedling contracts pay. This is not a safety net—it is a safety web, woven from multiple revenue strands.</p>
+                <div class="artful-quote">
+                    "The design assumes no perpetual subsidy. Recurring costs are covered by enterprise revenue after year two."
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>Acacia Trading Plc</h3>
+                <p>A multimodal service company specializing in event services, hospitality, consultancy, and trading. Committed to transforming Ethiopia's urban green momentum into lasting economic opportunity across all 11 sub-cities of Addis Ababa.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Project</h4>
+                <a href="#vision">Vision</a>
+                <a href="#ecosystem">Ecosystem</a>
+                <a href="#timeline">Timeline</a>
+                <a href="#beneficiaries">Impact</a>
+            </div>
+            <div class="footer-links">
+                <h4>Components</h4>
+                <a href="#production">Production</a>
+                <a href="#circular">Circular Systems</a>
+                <a href="#enterprise">Enterprise</a>
+                <a href="#markets">Markets</a>
+            </div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <a href="#">Addis Ababa, Ethiopia</a>
+                <a href="#">11 Sub-Cities</a>
+                <a href="#">info@acaciatrading.et</a>
+                <a href="#">+251 11 XXX XXXX</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Integrated Youth-Led Urban Green Enterprise Initiative (2026–2029) · Full budget breakdown, detailed work plan, means test instrument, and M&E framework available upon request.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle vertically expanding ecosystem cards
+        function setupEcoCards() {
+            const cards = document.querySelectorAll('.eco-card-v');
+
+            cards.forEach(card => {
+                // Hover expand (desktop)
+                card.addEventListener('mouseenter', () => {
+                    if (window.innerWidth > 768) {
+                        cards.forEach(c => c.classList.remove('expanded'));
+                        card.classList.add('expanded');
+                    }
+                });
+
+                // Click toggle (mobile/tablet)
+                card.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 768) {
+                        const isExpanded = card.classList.contains('expanded');
+                        cards.forEach(c => c.classList.remove('expanded'));
+                        if (!isExpanded) {
+                            card.classList.add('expanded');
+                            // Smooth scroll to card
+                            setTimeout(() => {
+                                card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }, 100);
+                        }
+                    }
+                });
+            });
+
+            // Collapse all when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.eco-card-v')) {
+                    cards.forEach(c => c.classList.remove('expanded'));
+                }
+            });
+        }
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', setupEcoCards);
+
+        // Toggle timeline phases
+        function togglePhase(header) {
+            const content = header.nextElementSibling;
+            const toggle = header.querySelector('.phase-toggle');
+
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                content.style.maxHeight = null;
+                toggle.textContent = '+';
+                toggle.style.transform = 'rotate(0deg)';
+            } else {
+                // Close others
+                document.querySelectorAll('.phase-content.active').forEach(el => {
+                    el.classList.remove('active');
+                    el.style.maxHeight = null;
+                });
+                document.querySelectorAll('.phase-toggle').forEach(el => {
+                    el.textContent = '+';
+                    el.style.transform = 'rotate(0deg)';
+                });
+
+                content.classList.add('active');
+                content.style.maxHeight = content.scrollHeight + "px";
+                toggle.textContent = '−';
+                toggle.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+    <!-- AI-Driven Leaf Particle Animation -->
+    <script>
+    (function() {
+        const canvas = document.getElementById('leafCanvas');
+        if (!canvas) return;
+
+        const ctx = canvas.getContext('2d');
+        let width, height, animationId;
+        let isVisible = false;
+
+        // Leaf shapes using bezier curves
+        function drawLeaf(ctx, x, y, size, rotation, opacity, color) {
+            ctx.save();
+            ctx.translate(x, y);
+            ctx.rotate(rotation);
+            ctx.globalAlpha = opacity;
+            ctx.fillStyle = color;
+
+            ctx.beginPath();
+            ctx.moveTo(0, -size);
+            ctx.bezierCurveTo(size * 0.5, -size * 0.5, size * 0.5, size * 0.5, 0, size);
+            ctx.bezierCurveTo(-size * 0.5, size * 0.5, -size * 0.5, -size * 0.5, 0, -size);
+            ctx.fill();
+
+            // Leaf vein
+            ctx.strokeStyle = `rgba(255,255,255,${opacity * 0.3})`;
+            ctx.lineWidth = 0.5;
+            ctx.beginPath();
+            ctx.moveTo(0, -size * 0.8);
+            ctx.lineTo(0, size * 0.8);
+            ctx.stroke();
+
+            ctx.restore();
+        }
+
+        const leaves = [];
+        const LEAF_COUNT = 25;
+        const colors = [
+            'rgba(74, 124, 89, ',
+            'rgba(107, 142, 35, ',
+            'rgba(201, 162, 39, ',
+            'rgba(26, 71, 42, ',
+        ];
+
+        function initLeaves() {
+            leaves.length = 0;
+            for (let i = 0; i < LEAF_COUNT; i++) {
+                leaves.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    vx: (Math.random() - 0.5) * 0.3,
+                    vy: 0.2 + Math.random() * 0.5,
+                    size: 8 + Math.random() * 16,
+                    rotation: Math.random() * Math.PI * 2,
+                    rotSpeed: (Math.random() - 0.5) * 0.02,
+                    opacity: 0.1 + Math.random() * 0.25,
+                    opacitySpeed: 0.002 + Math.random() * 0.003,
+                    opacityPhase: Math.random() * Math.PI * 2,
+                    colorBase: colors[Math.floor(Math.random() * colors.length)],
+                    swayAmp: 20 + Math.random() * 40,
+                    swayFreq: 0.001 + Math.random() * 0.002,
+                    swayPhase: Math.random() * Math.PI * 2,
+                });
+            }
+        }
+
+        function resize() {
+            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+            width = canvas.parentElement.offsetWidth;
+            height = canvas.parentElement.offsetHeight;
+            canvas.width = width * dpr;
+            canvas.height = height * dpr;
+            ctx.scale(dpr, dpr);
+            initLeaves();
+        }
+
+        let time = 0;
+
+        function animate() {
+            if (!isVisible) return;
+            time += 16;
+            ctx.clearRect(0, 0, width, height);
+
+            leaves.forEach(leaf => {
+                // Sway motion
+                const sway = Math.sin(time * leaf.swayFreq + leaf.swayPhase) * leaf.swayAmp;
+                leaf.x += leaf.vx + sway * 0.01;
+                leaf.y += leaf.vy;
+                leaf.rotation += leaf.rotSpeed;
+
+                // Pulsing opacity
+                const pulseOpacity = leaf.opacity * (0.7 + 0.3 * Math.sin(time * leaf.opacitySpeed + leaf.opacityPhase));
+
+                // Wrap around
+                if (leaf.y > height + leaf.size) {
+                    leaf.y = -leaf.size;
+                    leaf.x = Math.random() * width;
+                }
+                if (leaf.x > width + leaf.size) leaf.x = -leaf.size;
+                if (leaf.x < -leaf.size) leaf.x = width + leaf.size;
+
+                drawLeaf(ctx, leaf.x, leaf.y, leaf.size, leaf.rotation, pulseOpacity, leaf.colorBase + pulseOpacity + ')');
+            });
+
+            animationId = requestAnimationFrame(animate);
+        }
+
+        resize();
+        window.addEventListener('resize', resize);
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                isVisible = entry.isIntersecting;
+                if (isVisible && !animationId) {
+                    animate();
+                } else if (!isVisible && animationId) {
+                    cancelAnimationFrame(animationId);
+                    animationId = null;
+                }
+            });
+        }, { threshold: 0.05 });
+
+        observer.observe(canvas);
+    })();
+    </script>
+
+    <!-- AI-Driven Mesh Gradient Animation -->
+    <script>
+    (function() {
+        const canvas = document.getElementById('meshCanvas');
+        if (!canvas) return;
+
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let time = 0;
+        let animationId;
+
+        // Color palette: deep greens, sage, honey gold
+        const colors = [
+            { r: 15, g: 46, b: 26 },    // deep green
+            { r: 26, g: 71, b: 42 },     // forest
+            { r: 74, g: 124, b: 89 },    // sage
+            { r: 107, g: 142, b: 35 },   // moss
+            { r: 201, g: 162, b: 39 },   // honey
+            { r: 15, g: 46, b: 26 },     // deep green
+        ];
+
+        // Gradient blobs
+        const blobs = colors.map((color, i) => ({
+            x: Math.random(),
+            y: Math.random(),
+            vx: (Math.random() - 0.5) * 0.0003,
+            vy: (Math.random() - 0.5) * 0.0003,
+            radius: 0.3 + Math.random() * 0.4,
+            color: color,
+            phase: (i / colors.length) * Math.PI * 2
+        }));
+
+        function resize() {
+            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+            width = canvas.parentElement.offsetWidth;
+            height = canvas.parentElement.offsetHeight;
+            canvas.width = width * dpr;
+            canvas.height = height * dpr;
+            ctx.scale(dpr, dpr);
+        }
+
+        function drawBlob(blob, t) {
+            const x = (blob.x + Math.sin(t * 0.0003 + blob.phase) * 0.15) * width;
+            const y = (blob.y + Math.cos(t * 0.0004 + blob.phase) * 0.1) * height;
+            const r = blob.radius * Math.min(width, height);
+
+            // Organic wobble
+            const wobble = Math.sin(t * 0.002 + blob.phase) * 0.05 + 1;
+
+            const gradient = ctx.createRadialGradient(x, y, 0, x, y, r * wobble);
+            gradient.addColorStop(0, `rgba(${blob.color.r}, ${blob.color.g}, ${blob.color.b}, 0.5)`);
+            gradient.addColorStop(0.5, `rgba(${blob.color.r}, ${blob.color.g}, ${blob.color.b}, 0.2)`);
+            gradient.addColorStop(1, `rgba(${blob.color.r}, ${blob.color.g}, ${blob.color.b}, 0)`);
+
+            ctx.fillStyle = gradient;
+            ctx.beginPath();
+            ctx.arc(x, y, r * wobble, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
+        // Particle system
+        const particles = [];
+        const PARTICLE_COUNT = 30;
+
+        for (let i = 0; i < PARTICLE_COUNT; i++) {
+            particles.push({
+                x: Math.random(),
+                y: Math.random(),
+                vx: (Math.random() - 0.5) * 0.0002,
+                vy: (Math.random() - 0.5) * 0.0002 - 0.0001,
+                size: 1 + Math.random() * 2,
+                opacity: 0.1 + Math.random() * 0.3,
+                pulse: Math.random() * Math.PI * 2
+            });
+        }
+
+        function drawParticles(t) {
+            particles.forEach(p => {
+                p.x += p.vx;
+                p.y += p.vy;
+
+                // Wrap around
+                if (p.x < 0) p.x = 1;
+                if (p.x > 1) p.x = 0;
+                if (p.y < 0) p.y = 1;
+                if (p.y > 1) p.y = 0;
+
+                const px = p.x * width;
+                const py = p.y * height;
+                const pulseOpacity = p.opacity * (0.5 + 0.5 * Math.sin(t * 0.003 + p.pulse));
+
+                ctx.fillStyle = `rgba(201, 162, 39, ${pulseOpacity})`;
+                ctx.beginPath();
+                ctx.arc(px, py, p.size, 0, Math.PI * 2);
+                ctx.fill();
+            });
+        }
+
+        // Connection lines between nearby particles
+        function drawConnections() {
+            const maxDist = 0.15 * Math.min(width, height);
+
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = (particles[i].x - particles[j].x) * width;
+                    const dy = (particles[i].y - particles[j].y) * height;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < maxDist) {
+                        const opacity = (1 - dist / maxDist) * 0.08;
+                        ctx.strokeStyle = `rgba(201, 162, 39, ${opacity})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x * width, particles[i].y * height);
+                        ctx.lineTo(particles[j].x * width, particles[j].y * height);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            time += 16;
+            ctx.clearRect(0, 0, width, height);
+
+            // Draw base dark gradient
+            const baseGrad = ctx.createLinearGradient(0, 0, width, height);
+            baseGrad.addColorStop(0, 'rgba(15, 46, 26, 1)');
+            baseGrad.addColorStop(1, 'rgba(26, 71, 42, 1)');
+            ctx.fillStyle = baseGrad;
+            ctx.fillRect(0, 0, width, height);
+
+            // Draw mesh blobs
+            blobs.forEach(blob => drawBlob(blob, time));
+
+            // Draw connections first (behind particles)
+            drawConnections();
+
+            // Draw particles
+            drawParticles(time);
+
+            animationId = requestAnimationFrame(animate);
+        }
+
+        resize();
+        window.addEventListener('resize', resize);
+
+        // Only animate when visible
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (!animationId) animate();
+                } else {
+                    cancelAnimationFrame(animationId);
+                    animationId = null;
+                }
+            });
+        }, { threshold: 0.1 });
+
+        observer.observe(canvas);
+        animate();
+    })();
+
+    // Pillar click-to-focus for mobile
+    function focusPillar(index) {
+        const panels = document.querySelectorAll('.pillar-panel');
+        panels.forEach((p, i) => {
+            if (i === index) {
+                p.classList.add('active');
+            } else {
+                p.classList.remove('active');
+            }
+        });
+    }
+
+    // Clear active state when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.pillar-panel')) {
+            document.querySelectorAll('.pillar-panel').forEach(p => p.classList.remove('active'));
+        }
+    });
+
+    // ===== VERTICAL PANEL EXPAND =====
+    (function() {
+        const panels = document.querySelectorAll('.v-panel');
+
+        panels.forEach(panel => {
+            panel.addEventListener('mouseenter', () => {
+                panels.forEach(p => p.classList.remove('expanded'));
+                panel.classList.add('expanded');
+            });
+        });
+
+        // For mobile: click to expand
+        panels.forEach(panel => {
+            panel.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.stopPropagation();
+                    const isExpanded = panel.classList.contains('expanded');
+                    panels.forEach(p => p.classList.remove('expanded'));
+                    if (!isExpanded) {
+                        panel.classList.add('expanded');
+                    }
+                }
+            });
+        });
+
+        // Clear expanded on click outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.v-panel')) {
+                panels.forEach(p => p.classList.remove('expanded'));
+            }
+        });
+    })();
+
+    // ===== 3D CYCLE STAGE CONTROLLER =====
+    let currentStage = 0;
+    let autoPlayInterval = null;
+    let isAutoPlaying = true;
+    const totalStages = 5;
+
+    function updateStage(index) {
+        currentStage = index;
+
+        // Update ring nodes
+        document.querySelectorAll('.ring-node').forEach((node, i) => {
+            node.classList.toggle('active', i === index);
+        });
+
+        // Update hub icon
+        const hubIcon = document.getElementById('hubIcon');
+        const icons = ['🌱', '♻️', '🐝', '🌿', '💰'];
+        if (hubIcon) {
+            hubIcon.style.transform = 'scale(0.5) rotate(180deg)';
+            hubIcon.style.opacity = '0';
+            setTimeout(() => {
+                hubIcon.textContent = icons[index];
+                hubIcon.style.transform = 'scale(1) rotate(0deg)';
+                hubIcon.style.opacity = '1';
+            }, 250);
+        }
+
+        // Update info cards with 3D flip
+        document.querySelectorAll('.info-card').forEach((card, i) => {
+            if (i === index) {
+                card.classList.add('active');
+            } else {
+                card.classList.remove('active');
+            }
+        });
+
+        // Update dots
+        document.querySelectorAll('.cycle-dot').forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+    }
+
+    function nextStage() {
+        updateStage((currentStage + 1) % totalStages);
+    }
+
+    function prevStage() {
+        updateStage((currentStage - 1 + totalStages) % totalStages);
+    }
+
+    function toggleAuto() {
+        isAutoPlaying = !isAutoPlaying;
+        const btn = document.getElementById('autoToggle');
+        if (isAutoPlaying) {
+            btn.classList.add('active');
+            btn.querySelector('.auto-icon').textContent = '▶';
+            startAutoPlay();
+        } else {
+            btn.classList.remove('active');
+            btn.querySelector('.auto-icon').textContent = '⏸';
+            stopAutoPlay();
+        }
+    }
+
+    function startAutoPlay() {
+        stopAutoPlay();
+        autoPlayInterval = setInterval(() => {
+            if (isAutoPlaying) nextStage();
+        }, 5000);
+    }
+
+    function stopAutoPlay() {
+        if (autoPlayInterval) {
+            clearInterval(autoPlayInterval);
+            autoPlayInterval = null;
+        }
+    }
+
+    // Click on ring nodes
+    document.querySelectorAll('.ring-node').forEach((node, i) => {
+        node.addEventListener('click', () => {
+            updateStage(i);
+            // Pause auto-play briefly on manual interaction
+            if (isAutoPlaying) {
+                stopAutoPlay();
+                setTimeout(startAutoPlay, 8000);
+            }
+        });
+    });
+
+    // Click on dots
+    document.querySelectorAll('.cycle-dot').forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+            updateStage(i);
+            if (isAutoPlaying) {
+                stopAutoPlay();
+                setTimeout(startAutoPlay, 8000);
+            }
+        });
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') nextStage();
+        if (e.key === 'ArrowLeft') prevStage();
+    });
+
+    // Start auto-play on load
+    startAutoPlay();
+
+    // Create traveling particles
+    (function createTravelParticles() {
+        const container = document.getElementById('travelParticles');
+        if (!container) return;
+
+        for (let i = 0; i < 3; i++) {
+            const p = document.createElement('div');
+            p.className = 'travel-particle';
+            p.style.animationDelay = `${i * 2.67}s`;
+            p.style.animationDuration = `${6 + i * 2}s`;
+            container.appendChild(p);
+        }
+    })();
+
+    // ===== CYCLE MESH BACKGROUND =====
+    (function() {
+        const container = document.getElementById('cycleMesh');
+        if (!container) return;
+
+        // Create subtle animated gradient mesh with divs
+        const colors = [
+            'radial-gradient(circle at 20% 50%, rgba(74,124,89,0.15) 0%, transparent 50%)',
+            'radial-gradient(circle at 80% 50%, rgba(201,162,39,0.1) 0%, transparent 50%)',
+            'radial-gradient(circle at 50% 80%, rgba(26,71,42,0.2) 0%, transparent 50%)'
+        ];
+
+        colors.forEach((grad, i) => {
+            const div = document.createElement('div');
+            div.style.cssText = `
+                position: absolute;
+                inset: -20%;
+                background: ${grad};
+                animation: meshFloat ${15 + i * 5}s ease-in-out infinite;
+                animation-delay: ${i * 3}s;
+            `;
+            container.appendChild(div);
+        });
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes meshFloat {
+                0%, 100% { transform: translate(0, 0) scale(1); }
+                25% { transform: translate(5%, -5%) scale(1.1); }
+                50% { transform: translate(-3%, 8%) scale(0.95); }
+                75% { transform: translate(-8%, -3%) scale(1.05); }
+            }
+        `;
+        document.head.appendChild(style);
+    })();
+
+    // ===== LEAF PARTICLE CANVAS =====
+    (function() {
+        const canvas = document.getElementById('leafCanvas');
+        if (!canvas) return;
+
+        const ctx = canvas.getContext('2d');
+        let width, height, animationId;
+
+        // Leaf shapes using bezier curves
+        function drawLeaf(ctx, x, y, size, rotation, opacity, color) {
+            ctx.save();
+            ctx.translate(x, y);
+            ctx.rotate(rotation);
+            ctx.globalAlpha = opacity;
+            ctx.fillStyle = color;
+
+            ctx.beginPath();
+            ctx.moveTo(0, -size);
+            ctx.bezierCurveTo(size * 0.5, -size * 0.7, size * 0.8, -size * 0.2, 0, size);
+            ctx.bezierCurveTo(-size * 0.8, -size * 0.2, -size * 0.5, -size * 0.7, 0, -size);
+            ctx.fill();
+
+            // Leaf vein
+            ctx.strokeStyle = `rgba(255,255,255,${opacity * 0.3})`;
+            ctx.lineWidth = 0.5;
+            ctx.beginPath();
+            ctx.moveTo(0, -size * 0.8);
+            ctx.lineTo(0, size * 0.8);
+            ctx.stroke();
+
+            ctx.restore();
+        }
+
+        const leaves = [];
+        const LEAF_COUNT = 25;
+        const leafColors = [
+            'rgba(74, 124, 89, 0.4)',
+            'rgba(107, 142, 35, 0.35)',
+            'rgba(201, 162, 39, 0.25)',
+            'rgba(26, 71, 42, 0.3)',
+            'rgba(139, 188, 100, 0.3)'
+        ];
+
+        for (let i = 0; i < LEAF_COUNT; i++) {
+            leaves.push({
+                x: Math.random(),
+                y: Math.random(),
+                vx: (Math.random() - 0.5) * 0.00015,
+                vy: -0.0001 - Math.random() * 0.0002,
+                size: 8 + Math.random() * 18,
+                rotation: Math.random() * Math.PI * 2,
+                rotSpeed: (Math.random() - 0.5) * 0.002,
+                opacity: 0.15 + Math.random() * 0.25,
+                opacitySpeed: 0.0005 + Math.random() * 0.001,
+                opacityPhase: Math.random() * Math.PI * 2,
+                color: leafColors[Math.floor(Math.random() * leafColors.length)]
+            });
+        }
+
+        // Floating spores/pollen
+        const spores = [];
+        for (let i = 0; i < 40; i++) {
+            spores.push({
+                x: Math.random(),
+                y: Math.random(),
+                vx: (Math.random() - 0.5) * 0.0002,
+                vy: -0.00005 - Math.random() * 0.00015,
+                size: 1 + Math.random() * 2.5,
+                opacity: 0.1 + Math.random() * 0.3,
+                pulse: Math.random() * Math.PI * 2
+            });
+        }
+
+        function resize() {
+            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+            width = canvas.parentElement.offsetWidth;
+            height = canvas.parentElement.offsetHeight;
+            canvas.width = width * dpr;
+            canvas.height = height * dpr;
+            ctx.scale(dpr, dpr);
+        }
+
+        let time = 0;
+
+        function animate() {
+            time += 16;
+            ctx.clearRect(0, 0, width, height);
+
+            // Draw leaves
+            leaves.forEach(leaf => {
+                leaf.x += leaf.vx + Math.sin(time * 0.0003 + leaf.opacityPhase) * 0.0001;
+                leaf.y += leaf.vy;
+                leaf.rotation += leaf.rotSpeed;
+
+                // Wrap
+                if (leaf.y < -0.1) { leaf.y = 1.1; leaf.x = Math.random(); }
+                if (leaf.x < -0.1) leaf.x = 1.1;
+                if (leaf.x > 1.1) leaf.x = -0.1;
+
+                const currentOpacity = leaf.opacity * (0.7 + 0.3 * Math.sin(time * leaf.opacitySpeed + leaf.opacityPhase));
+
+                drawLeaf(
+                    ctx,
+                    leaf.x * width,
+                    leaf.y * height,
+                    leaf.size,
+                    leaf.rotation + Math.sin(time * 0.001) * 0.3,
+                    currentOpacity,
+                    leaf.color
+                );
+            });
+
+            // Draw spores
+            spores.forEach(spore => {
+                spore.x += spore.vx;
+                spore.y += spore.vy;
+
+                if (spore.y < -0.05) { spore.y = 1.05; spore.x = Math.random(); }
+                if (spore.x < -0.05) spore.x = 1.05;
+                if (spore.x > 1.05) spore.x = -0.05;
+
+                const pulseOpacity = spore.opacity * (0.5 + 0.5 * Math.sin(time * 0.002 + spore.pulse));
+
+                ctx.fillStyle = `rgba(201, 162, 39, ${pulseOpacity})`;
+                ctx.beginPath();
+                ctx.arc(spore.x * width, spore.y * height, spore.size, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Glow
+                ctx.fillStyle = `rgba(201, 162, 39, ${pulseOpacity * 0.3})`;
+                ctx.beginPath();
+                ctx.arc(spore.x * width, spore.y * height, spore.size * 3, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            animationId = requestAnimationFrame(animate);
+        }
+
+        resize();
+        window.addEventListener('resize', resize);
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (!animationId) animate();
+                } else {
+                    cancelAnimationFrame(animationId);
+                    animationId = null;
+                }
+            });
+        }, { threshold: 0.05 });
+
+        observer.observe(canvas);
+        animate();
+    })();
+    </script>
+</body>
+</html>
