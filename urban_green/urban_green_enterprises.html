@@ -843,125 +843,326 @@
             .pillar-content { padding: 1.2rem; }
         }
 
-        /* ===== EXPANDABLE CARDS ===== */
+        /* ===== AI-DRIVEN VERTICALLY EXPANDING ECOSYSTEM ===== */
         .ecosystem-section {
-            padding: 6rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            position: relative;
+            padding: 0;
+            background: var(--warm-white);
+            overflow: hidden;
         }
-        .ecosystem-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-            gap: 2rem;
+
+        .ecosystem-canvas-wrap {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        #leafCanvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .ecosystem-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        .section-label {
+            display: inline-block;
+            background: rgba(26, 71, 42, 0.08);
+            color: var(--forest);
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.8rem;
+        }
+
+        /* ===== VERTICAL ACCORDION CARDS ===== */
+        .eco-accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
             margin-top: 3rem;
         }
-        .eco-card {
+
+        .eco-card-v {
             background: white;
-            border-radius: 14px;
+            border-radius: 18px;
             overflow: hidden;
             box-shadow: 0 4px 20px rgba(0,0,0,0.06);
             border: 1px solid var(--border);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .eco-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-        }
-        .eco-image {
-            height: 220px;
-            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
             position: relative;
         }
-        .eco-image img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
+
+        .eco-card-v:hover {
+            box-shadow: 0 12px 40px rgba(26, 71, 42, 0.12);
+            transform: translateY(-2px);
         }
-        .eco-card:hover .eco-image img {
-            transform: scale(1.05);
+
+        .eco-card-v.expanded {
+            box-shadow: 0 20px 60px rgba(26, 71, 42, 0.15);
+            border-color: rgba(201, 162, 39, 0.3);
         }
-        .eco-overlay {
+
+        /* Visual header (always visible) */
+        .eco-card-visual {
+            position: relative;
+            height: 160px;
+            overflow: hidden;
+            border-radius: 18px 18px 0 0;
+        }
+
+        .eco-viz-bg {
             position: absolute;
-            bottom: 0; left: 0; right: 0;
-            background: linear-gradient(transparent, rgba(15, 46, 26, 0.85));
-            padding: 2rem 1.5rem 1rem;
-            color: white;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.8s ease, filter 0.5s;
+            filter: saturate(0.6) brightness(0.85);
         }
-        .eco-overlay h3 {
-            font-size: 1.4rem;
+
+        .eco-card-v:hover .eco-viz-bg,
+        .eco-card-v.expanded .eco-viz-bg {
+            transform: scale(1.08);
+            filter: saturate(0.9) brightness(0.75);
         }
-        .eco-content {
-            padding: 1.5rem;
+
+        .eco-viz-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(15,46,26,0.85) 0%, rgba(15,46,26,0.5) 50%, rgba(15,46,26,0.3) 100%);
         }
-        .eco-description {
-            color: var(--text-body);
-            font-size: 0.92rem;
-            line-height: 1.7;
-            margin-bottom: 1rem;
-        }
-        .expand-btn {
+
+        .eco-viz-content {
+            position: absolute;
+            inset: 0;
             display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--forest);
+            flex-direction: column;
+            justify-content: center;
+            padding: 1.5rem 2rem;
+            color: white;
+            z-index: 2;
+        }
+
+        .eco-viz-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--honey);
+            font-weight: 700;
+            line-height: 1;
+            opacity: 0.7;
+            margin-bottom: 0.3rem;
+        }
+
+        .eco-viz-icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.3rem;
+            opacity: 0.9;
+        }
+
+        .eco-viz-title {
+            font-size: 1.4rem;
             font-weight: 600;
-            font-size: 0.85rem;
-            cursor: pointer;
-            border: none;
-            background: none;
-            padding: 0;
-            transition: gap 0.3s;
+            margin-bottom: 0.3rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
-        .expand-btn:hover {
-            gap: 0.8rem;
-            color: var(--sage);
+
+        .eco-viz-peek {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
         }
-        .expand-icon {
-            transition: transform 0.3s;
-            font-size: 1.1rem;
+
+        /* Expand hint */
+        .eco-expand-hint {
+            position: absolute;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.4rem;
+            z-index: 3;
+            opacity: 0.7;
+            transition: opacity 0.3s;
         }
-        .expandable-section {
+
+        .eco-card-v:hover .eco-expand-hint,
+        .eco-card-v.expanded .eco-expand-hint {
+            opacity: 1;
+        }
+
+        .hint-line {
+            width: 1px;
+            height: 20px;
+            background: linear-gradient(to bottom, transparent, var(--honey));
+        }
+
+        .hint-text {
+            font-size: 0.65rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+
+        .hint-arrow {
+            font-size: 1rem;
+            color: var(--honey);
+            animation: hintBounce 2s infinite;
+        }
+
+        @keyframes hintBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(5px); }
+        }
+
+        .eco-card-v.expanded .hint-arrow {
+            transform: rotate(180deg);
+            animation: none;
+        }
+
+        /* Expandable body */
+        .eco-card-body {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.5s ease-out;
+            transition: max-height 0.7s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                        padding 0.5s ease;
+            background: linear-gradient(to bottom, rgba(245,240,232,0.3), white);
         }
-        .expandable-section.active {
-            max-height: 800px;
+
+        .eco-card-v.expanded .eco-card-body {
+            max-height: 1200px;
+            padding: 2rem;
         }
-        .expandable-inner {
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--border);
-            margin-top: 1rem;
+
+        .eco-body-inner {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s 0.15s, transform 0.5s 0.15s;
         }
-        .detail-grid {
+
+        .eco-card-v.expanded .eco-body-inner {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .eco-body-intro {
+            font-size: 1rem;
+            color: var(--text-body);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+        }
+
+        /* Metrics strip */
+        .eco-metrics {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.8rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, var(--forest), var(--sage));
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
         }
-        .detail-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.7rem;
-            padding: 0.8rem;
-            background: var(--cream);
-            border-radius: 8px;
+
+        .eco-metrics::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
         }
-        .detail-icon {
+
+        .eco-metric {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .metric-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
             color: var(--honey);
-            font-size: 1.1rem;
-            flex-shrink: 0;
-            margin-top: 2px;
+            font-weight: 700;
+            line-height: 1;
         }
-        .detail-text {
+
+        .metric-label {
+            font-size: 0.72rem;
+            color: rgba(255,255,255,0.8);
+            margin-top: 0.4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Detail cards grid */
+        .eco-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .eco-detail-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.2rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .eco-detail-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 3px; height: 100%;
+            background: linear-gradient(to bottom, var(--honey), var(--sage));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .eco-detail-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border-color: rgba(201, 162, 39, 0.3);
+        }
+
+        .eco-detail-card:hover::before {
+            opacity: 1;
+        }
+
+        .detail-card-icon {
+            font-size: 1.6rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .eco-detail-card h4 {
+            font-size: 0.95rem;
+            color: var(--forest);
+            margin-bottom: 0.4rem;
+        }
+
+        .eco-detail-card p {
             font-size: 0.82rem;
             color: var(--text-body);
-            line-height: 1.5;
-        }
-        .detail-text strong {
-            color: var(--forest);
-            display: block;
-            margin-bottom: 0.2rem;
-            font-weight: 600;
+            line-height: 1.6;
         }
 
         /* ===== TIMELINE (AFLI accordion style) ===== */
@@ -1123,6 +1324,17 @@
             .nav-menu { display: none; }
             .pillar-panel { min-height: 70px; }
             .pillar-title { font-size: 1.1rem; }
+
+            .ecosystem-content { padding: 4rem 1.5rem; }
+            .eco-card-visual { height: 140px; }
+            .eco-viz-content { padding: 1.2rem; }
+            .eco-viz-title { font-size: 1.15rem; }
+            .eco-expand-hint { right: 1rem; }
+            .eco-card-v.expanded .eco-card-body { padding: 1.2rem; }
+            .eco-metrics { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; padding: 1rem; }
+            .metric-value { font-size: 1.3rem; }
+            .eco-detail-grid { grid-template-columns: 1fr; }
+            .eco-body-intro { font-size: 0.9rem; }
         }
 
         html { scroll-behavior: smooth; }
@@ -1368,257 +1580,345 @@
         </div>
     </section>
 
-    <!-- Expandable Ecosystem Cards -->
+    <!-- AI-Driven Vertically Expanding Ecosystem -->
     <section class="ecosystem-section" id="ecosystem">
-        <div class="section-header">
-            <h2>Explore Each Component in Depth</h2>
-            <div class="divider"></div>
-            <p>Click on any pillar to reveal the detailed operational framework, technical specifications, and revenue mechanisms.</p>
+        <div class="ecosystem-canvas-wrap">
+            <canvas id="leafCanvas"></canvas>
         </div>
-        <div class="ecosystem-grid">
-            <!-- Card 1 -->
-            <div class="eco-card" id="production">
-                <div class="eco-image">
-                    <img src="https://kimi-web-img.moonshot.cn/img/egyptianstreets.com/557c9290c41d8cfa735fe47783e0590cdb577c8c.jpg" alt="Urban farming">
-                    <div class="eco-overlay">
-                        <h3>Integrated Production Systems</h3>
+
+        <div class="ecosystem-content">
+            <div class="section-header">
+                <div class="section-label">Deep Dive</div>
+                <h2>Explore Each Component in Depth</h2>
+                <div class="divider"></div>
+                <p>Hover over any component to unfold its complete operational framework. Each card reveals technical specifications, revenue mechanisms, and sustainability metrics.</p>
+            </div>
+
+            <div class="eco-accordion">
+                <!-- Card 1 -->
+                <div class="eco-card-v" id="production" data-eco="production">
+                    <div class="eco-card-visual">
+                        <div class="eco-viz-bg" style="background-image: url('https://kimi-web-img.moonshot.cn/img/egyptianstreets.com/557c9290c41d8cfa735fe47783e0590cdb577c8c.jpg')"></div>
+                        <div class="eco-viz-overlay"></div>
+                        <div class="eco-viz-content">
+                            <div class="eco-viz-number">01</div>
+                            <div class="eco-viz-icon">🌱</div>
+                            <h3 class="eco-viz-title">Integrated Production Systems</h3>
+                            <div class="eco-viz-peek">Vertical gardens · Beehives · Tree nurseries · Herbal cultivation</div>
+                        </div>
+                        <div class="eco-expand-hint">
+                            <span class="hint-line"></span>
+                            <span class="hint-text">Hover to explore</span>
+                            <span class="hint-arrow">↓</span>
+                        </div>
                     </div>
-                </div>
-                <div class="eco-content">
-                    <p class="eco-description">The core productive structure combining vertical gardens, rooftop farms, container systems, beehives, tree nurseries, and medicinal herb cultivation into one interconnected organism.</p>
-                    <button class="expand-btn" onclick="toggleExpand(this)">
-                        Explore the System <span class="expand-icon">→</span>
-                    </button>
-                    <div class="expandable-section">
-                        <div class="expandable-inner">
-                            <div class="detail-grid">
-                                <div class="detail-item">
-                                    <span class="detail-icon">🌱</span>
-                                    <div class="detail-text">
-                                        <strong>Urban Agriculture</strong>
-                                        Vegetables, fruits & culinary herbs via vertical, rooftop & container systems
-                                    </div>
+                    <div class="eco-card-body">
+                        <div class="eco-body-inner">
+                            <p class="eco-body-intro">The core productive structure combining vertical gardens, rooftop farms, container systems, beehives, tree nurseries, and medicinal herb cultivation into one interconnected organism.</p>
+
+                            <div class="eco-metrics">
+                                <div class="eco-metric">
+                                    <div class="metric-value">$8K–12K</div>
+                                    <div class="metric-label">Vegetables / year</div>
                                 </div>
-                                <div class="detail-item">
-                                    <span class="detail-icon">🐝</span>
-                                    <div class="detail-text">
-                                        <strong>Apiculture</strong>
-                                        Beehive management for honey production and crop pollination services
-                                    </div>
+                                <div class="eco-metric">
+                                    <div class="metric-value">$3K–5K</div>
+                                    <div class="metric-label">Honey / year</div>
                                 </div>
-                                <div class="detail-item">
-                                    <span class="detail-icon">🌳</span>
-                                    <div class="detail-text">
-                                        <strong>Green Restoration</strong>
-                                        Tree nurseries, seedling production & maintenance contracts
-                                    </div>
+                                <div class="eco-metric">
+                                    <div class="metric-value">$4K–6K</div>
+                                    <div class="metric-label">Seedlings / year</div>
                                 </div>
-                                <div class="detail-item">
-                                    <span class="detail-icon">🌿</span>
-                                    <div class="detail-text">
-                                        <strong>Herbal Development</strong>
-                                        Medicinal & aromatic plants with essential oil extraction
-                                    </div>
+                                <div class="eco-metric">
+                                    <div class="metric-value">$5K–8K</div>
+                                    <div class="metric-label">Herbal / year</div>
+                                </div>
+                            </div>
+
+                            <div class="eco-detail-grid">
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">🌱</div>
+                                    <h4>Urban Agriculture</h4>
+                                    <p>Vegetables, fruits & culinary herbs via vertical, rooftop & container systems. Shortens supply chains, reduces fuel consumption, and improves food freshness for Addis Ababa residents.</p>
+                                </div>
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">🐝</div>
+                                    <h4>Apiculture</h4>
+                                    <p>Beehive management for honey production and crop pollination services. Bees enhance crop yields and surrounding vegetation while generating premium honey for local markets.</p>
+                                </div>
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">🌳</div>
+                                    <h4>Green Restoration</h4>
+                                    <p>Tree nurseries, seedling production & maintenance contracts with municipalities. Survival-based compensation ensures long-term care rather than one-time planting.</p>
+                                </div>
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">🌿</div>
+                                    <h4>Herbal Development</h4>
+                                    <p>Medicinal & aromatic plants with essential oil extraction. Integrates Ethiopia's deep traditional knowledge into formal market channels—moringa, basil, rosemary, thyme.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Card 2 -->
-            <div class="eco-card" id="circular">
-                <div class="eco-image">
-                    <img src="https://kimi-web-img.moonshot.cn/img/cdn.kingcounty.gov/9ef26027edbe719e79fc3e7ac723d44aa3b48003.jpg" alt="Circular economy">
-                    <div class="eco-overlay">
-                        <h3>Circular Resource Systems</h3>
+                <!-- Card 2 -->
+                <div class="eco-card-v" id="circular" data-eco="circular">
+                    <div class="eco-card-visual">
+                        <div class="eco-viz-bg" style="background-image: url('https://kimi-web-img.moonshot.cn/img/cdn.kingcounty.gov/9ef26027edbe719e79fc3e7ac723d44aa3b48003.jpg')"></div>
+                        <div class="eco-viz-overlay"></div>
+                        <div class="eco-viz-content">
+                            <div class="eco-viz-number">02</div>
+                            <div class="eco-viz-icon">♻️</div>
+                            <h3 class="eco-viz-title">Circular Resource Systems</h3>
+                            <div class="eco-viz-peek">Composting · Smart irrigation · Soil regeneration · Waste-to-wealth</div>
+                        </div>
+                        <div class="eco-expand-hint">
+                            <span class="hint-line"></span>
+                            <span class="hint-text">Hover to explore</span>
+                            <span class="hint-arrow">↓</span>
+                        </div>
                     </div>
-                </div>
-                <div class="eco-content">
-                    <p class="eco-description">Transforming urban waste and inefficiency into productive inputs. Where others see garbage, we see growth medium. Where others see runoff, we see irrigation.</p>
-                    <button class="expand-btn" onclick="toggleExpand(this)">
-                        Discover the Cycle <span class="expand-icon">→</span>
-                    </button>
-                    <div class="expandable-section">
-                        <div class="expandable-inner">
-                            <div class="detail-grid">
-                                <div class="detail-item">
-                                    <span class="detail-icon">♻️</span>
-                                    <div class="detail-text">
-                                        <strong>Composting</strong>
-                                        Organic waste conversion into nutrient-rich soil amendments
-                                    </div>
+                    <div class="eco-card-body">
+                        <div class="eco-body-inner">
+                            <p class="eco-body-intro">Transforming urban waste and inefficiency into productive inputs. Where others see garbage, we see growth medium. Where others see runoff, we see irrigation.</p>
+
+                            <div class="eco-metrics">
+                                <div class="eco-metric">
+                                    <div class="metric-value">↓ 60%</div>
+                                    <div class="metric-label">Input cost reduction</div>
                                 </div>
-                                <div class="detail-item">
-                                    <span class="detail-icon">💧</span>
-                                    <div class="detail-text">
-                                        <strong>Smart Irrigation</strong>
-                                        Drip & reuse-based water-efficient systems
-                                    </div>
+                                <div class="eco-metric">
+                                    <div class="metric-value">↓ 40%</div>
+                                    <div class="metric-label">Water usage</div>
                                 </div>
-                                <div class="detail-item">
-                                    <span class="detail-icon">🌍</span>
-                                    <div class="detail-text">
-                                        <strong>Soil Regeneration</strong>
-                                        Practices that restore fertility & reduce chemical dependency
-                                    </div>
+                                <div class="eco-metric">
+                                    <div class="metric-value">0</div>
+                                    <div class="metric-label">Chemical fertilizers</div>
                                 </div>
-                                <div class="detail-item">
-                                    <span class="detail-icon">⚡</span>
-                                    <div class="detail-text">
-                                        <strong>Input Reduction</strong>
-                                        Declining external dependency over time
-                                    </div>
+                                <div class="eco-metric">
+                                    <div class="metric-value">100%</div>
+                                    <div class="metric-label">Organic compost</div>
+                                </div>
+                            </div>
+
+                            <div class="eco-detail-grid">
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">♻️</div>
+                                    <h4>Composting</h4>
+                                    <p>Organic waste conversion into nutrient-rich soil amendments. Urban food waste becomes the foundation for fertile growing medium, replacing expensive imported fertilizers.</p>
+                                </div>
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">💧</div>
+                                    <h4>Smart Irrigation</h4>
+                                    <p>Drip & reuse-based water-efficient systems. Captures and recycles greywater, reducing municipal water dependency while maximizing crop yield per liter.</p>
+                                </div>
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">🌍</div>
+                                    <h4>Soil Regeneration</h4>
+                                    <p>Practices that restore fertility & reduce chemical dependency. Cover cropping, crop rotation, and microbial inoculation rebuild soil biology year after year.</p>
+                                </div>
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">⚡</div>
+                                    <h4>Input Reduction</h4>
+                                    <p>Declining external dependency over time. As compost matures and soil improves, enterprises spend less on inputs while producing more—true circular economics.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Card 3 -->
-            <div class="eco-card" id="enterprise">
-                <div class="eco-image">
-                    <img src="https://kimi-web-img.moonshot.cn/img/blog.plantwise.org/72e2596628ee2313dc6c1ae64c1f15f99a8ecc55.jpg" alt="Youth enterprise training">
-                    <div class="eco-overlay">
-                        <h3>Enterprise & Skills Development</h3>
+                <!-- Card 3 -->
+                <div class="eco-card-v" id="enterprise" data-eco="enterprise">
+                    <div class="eco-card-visual">
+                        <div class="eco-viz-bg" style="background-image: url('https://kimi-web-img.moonshot.cn/img/blog.plantwise.org/72e2596628ee2313dc6c1ae64c1f15f99a8ecc55.jpg')"></div>
+                        <div class="eco-viz-overlay"></div>
+                        <div class="eco-viz-content">
+                            <div class="eco-viz-number">03</div>
+                            <div class="eco-viz-icon">📊</div>
+                            <h3 class="eco-viz-title">Enterprise & Skills Development</h3>
+                            <div class="eco-viz-peek">Business training · Technical skills · Mentorship · Decision-making</div>
+                        </div>
+                        <div class="eco-expand-hint">
+                            <span class="hint-line"></span>
+                            <span class="hint-text">Hover to explore</span>
+                            <span class="hint-arrow">↓</span>
+                        </div>
                     </div>
-                </div>
-                <div class="eco-content">
-                    <p class="eco-description">Learning embedded in daily work. We don't train then employ—we employ while training. Budgeting, pricing, marketing, and financial management learned through real transactions.</p>
-                    <button class="expand-btn" onclick="toggleExpand(this)">
-                        See the Curriculum <span class="expand-icon">→</span>
-                    </button>
-                    <div class="expandable-section">
-                        <div class="expandable-inner">
-                            <div class="detail-grid">
-                                <div class="detail-item">
-                                    <span class="detail-icon">📊</span>
-                                    <div class="detail-text">
-                                        <strong>Business Training</strong>
-                                        Budgeting, pricing, marketing & financial management
-                                    </div>
+                    <div class="eco-card-body">
+                        <div class="eco-body-inner">
+                            <p class="eco-body-intro">Learning embedded in daily work. We don't train then employ—we employ while training. Budgeting, pricing, marketing, and financial management learned through real transactions.</p>
+
+                            <div class="eco-metrics">
+                                <div class="eco-metric">
+                                    <div class="metric-value">1,000</div>
+                                    <div class="metric-label">Youth trained</div>
                                 </div>
-                                <div class="detail-item">
-                                    <span class="detail-icon">🔧</span>
-                                    <div class="detail-text">
-                                        <strong>Technical Skills</strong>
-                                        Farming, beekeeping, nursery & herbal production
-                                    </div>
+                                <div class="eco-metric">
+                                    <div class="metric-value">40%</div>
+                                    <div class="metric-label">Women participants</div>
                                 </div>
-                                <div class="detail-item">
-                                    <span class="detail-icon">👥</span>
-                                    <div class="detail-text">
-                                        <strong>Continuous Mentorship</strong>
-                                        Practical coaching during daily operations
-                                    </div>
+                                <div class="eco-metric">
+                                    <div class="metric-value">11</div>
+                                    <div class="metric-label">Cooperatives formed</div>
                                 </div>
-                                <div class="detail-item">
-                                    <span class="detail-icon">📈</span>
-                                    <div class="detail-text">
-                                        <strong>Decision-Making</strong>
-                                        Management skills for sustainable growth
-                                    </div>
+                                <div class="eco-metric">
+                                    <div class="metric-value">90+</div>
+                                    <div class="metric-label">Members per site</div>
+                                </div>
+                            </div>
+
+                            <div class="eco-detail-grid">
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">📊</div>
+                                    <h4>Business Training</h4>
+                                    <p>Budgeting, pricing, marketing & financial management taught through live enterprise operations. Youth learn profit-sharing, record-keeping, and market negotiation by doing.</p>
+                                </div>
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">🔧</div>
+                                    <h4>Technical Skills</h4>
+                                    <p>Farming, beekeeping, nursery & herbal production taught by master practitioners. Hands-on learning in real conditions ensures skills stick and adapt to local contexts.</p>
+                                </div>
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">👥</div>
+                                    <h4>Continuous Mentorship</h4>
+                                    <p>Practical coaching during daily operations. Experienced mentors walk alongside youth, troubleshooting problems in real-time and building decision-making confidence.</p>
+                                </div>
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">📈</div>
+                                    <h4>Decision-Making</h4>
+                                    <p>Management skills for sustainable growth. Youth elect committees, adopt bylaws, open bank accounts, and sign participation agreements—building ownership from day one.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Card 4 -->
-            <div class="eco-card" id="markets">
-                <div class="eco-image">
-                    <img src="https://kimi-web-img.moonshot.cn/img/www.hopkinsmedicine.org/d479dbdbdfecd63183fb840b331013ce472bdd35.jpg" alt="Herbal products market">
-                    <div class="eco-overlay">
-                        <h3>Market Systems & Value Chains</h3>
+                <!-- Card 4 -->
+                <div class="eco-card-v" id="markets" data-eco="markets">
+                    <div class="eco-card-visual">
+                        <div class="eco-viz-bg" style="background-image: url('https://kimi-web-img.moonshot.cn/img/www.hopkinsmedicine.org/d479dbdbdfecd63183fb840b331013ce472bdd35.jpg')"></div>
+                        <div class="eco-viz-overlay"></div>
+                        <div class="eco-viz-content">
+                            <div class="eco-viz-number">04</div>
+                            <div class="eco-viz-icon">🏭</div>
+                            <h3 class="eco-viz-title">Market Systems & Value Chains</h3>
+                            <div class="eco-viz-peek">Processing · Market linkages · Buyer agreements · Revenue streams</div>
+                        </div>
+                        <div class="eco-expand-hint">
+                            <span class="hint-line"></span>
+                            <span class="hint-text">Hover to explore</span>
+                            <span class="hint-arrow">↓</span>
+                        </div>
                     </div>
-                </div>
-                <div class="eco-content">
-                    <p class="eco-description">From raw honey to packaged gold. From fresh herbs to essential oils. We create diversified revenue streams that ensure when one market dips, the enterprise remains buoyant.</p>
-                    <button class="expand-btn" onclick="toggleExpand(this)">
-                        View Revenue Streams <span class="expand-icon">→</span>
-                    </button>
-                    <div class="expandable-section">
-                        <div class="expandable-inner">
-                            <div class="detail-grid">
-                                <div class="detail-item">
-                                    <span class="detail-icon">🏭</span>
-                                    <div class="detail-text">
-                                        <strong>Processing</strong>
-                                        Oil extraction, honey packaging & herbal formulation
-                                    </div>
+                    <div class="eco-card-body">
+                        <div class="eco-body-inner">
+                            <p class="eco-body-intro">From raw honey to packaged gold. From fresh herbs to essential oils. We create diversified revenue streams that ensure when one market dips, the enterprise remains buoyant.</p>
+
+                            <div class="eco-metrics">
+                                <div class="eco-metric">
+                                    <div class="metric-value">$20K–30K</div>
+                                    <div class="metric-label">Revenue per site / year</div>
                                 </div>
-                                <div class="detail-item">
-                                    <span class="detail-icon">🤝</span>
-                                    <div class="detail-text">
-                                        <strong>Market Linkages</strong>
-                                        Direct sales to households, restaurants & institutions
-                                    </div>
+                                <div class="eco-metric">
+                                    <div class="metric-value">4</div>
+                                    <div class="metric-label">Revenue streams</div>
                                 </div>
-                                <div class="detail-item">
-                                    <span class="detail-icon">📋</span>
-                                    <div class="detail-text">
-                                        <strong>Buyer Agreements</strong>
-                                        Pre-arranged contracts securing demand before production
-                                    </div>
+                                <div class="eco-metric">
+                                    <div class="metric-value">18</div>
+                                    <div class="metric-label">Months to break-even</div>
                                 </div>
-                                <div class="detail-item">
-                                    <span class="detail-icon">💰</span>
-                                    <div class="detail-text">
-                                        <strong>Revenue per Site</strong>
-                                        $20,000–$30,000 annually at full operation
-                                    </div>
+                                <div class="eco-metric">
+                                    <div class="metric-value">∞</div>
+                                    <div class="metric-label">Sustainability horizon</div>
+                                </div>
+                            </div>
+
+                            <div class="eco-detail-grid">
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">🏭</div>
+                                    <h4>Processing</h4>
+                                    <p>Oil extraction, honey packaging & herbal formulation. Raw products become higher-value goods with longer shelf life and stronger brand recognition in formal markets.</p>
+                                </div>
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">🤝</div>
+                                    <h4>Market Linkages</h4>
+                                    <p>Direct sales to households, restaurants & institutions. Eliminates middlemen, ensuring youth capture full value while customers receive fresher, traceable products.</p>
+                                </div>
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">📋</div>
+                                    <h4>Buyer Agreements</h4>
+                                    <p>Pre-arranged contracts securing demand before production. Reduces sales risk and enables confident scaling—grow what you know you can sell.</p>
+                                </div>
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">💰</div>
+                                    <h4>Revenue Resilience</h4>
+                                    <p>Four product categories mean no single point of failure. When honey prices dip, vegetables sustain. When vegetable demand wavers, seedlings and herbs pay.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Card 5 -->
-            <div class="eco-card" id="greening">
-                <div class="eco-image">
-                    <img src="https://kimi-web-img.moonshot.cn/img/trellis.net/796884e6f8b1d9703a1f0c7d135fab8f14272e5e.jpeg" alt="Tree nursery">
-                    <div class="eco-overlay">
-                        <h3>Urban Greening Services</h3>
+                <!-- Card 5 -->
+                <div class="eco-card-v" id="greening" data-eco="greening">
+                    <div class="eco-card-visual">
+                        <div class="eco-viz-bg" style="background-image: url('https://kimi-web-img.moonshot.cn/img/trellis.net/796884e6f8b1d9703a1f0c7d135fab8f14272e5e.jpeg')"></div>
+                        <div class="eco-viz-overlay"></div>
+                        <div class="eco-viz-content">
+                            <div class="eco-viz-number">05</div>
+                            <div class="eco-viz-icon">🌳</div>
+                            <h3 class="eco-viz-title">Urban Greening Services</h3>
+                            <div class="eco-viz-peek">Maintenance · Seedling supply · Restoration contracts · Survival-based pay</div>
+                        </div>
+                        <div class="eco-expand-hint">
+                            <span class="hint-line"></span>
+                            <span class="hint-text">Hover to explore</span>
+                            <span class="hint-arrow">↓</span>
+                        </div>
                     </div>
-                </div>
-                <div class="eco-content">
-                    <p class="eco-description">Converting environmental restoration into paid service delivery. We don't just plant trees—we maintain them under contract, ensuring survival rates that campaigns alone cannot achieve.</p>
-                    <button class="expand-btn" onclick="toggleExpand(this)">
-                        Explore Services <span class="expand-icon">→</span>
-                    </button>
-                    <div class="expandable-section">
-                        <div class="expandable-inner">
-                            <div class="detail-grid">
-                                <div class="detail-item">
-                                    <span class="detail-icon">🌳</span>
-                                    <div class="detail-text">
-                                        <strong>Maintenance Contracts</strong>
-                                        Paid care for public green spaces & roadsides
-                                    </div>
+                    <div class="eco-card-body">
+                        <div class="eco-body-inner">
+                            <p class="eco-body-intro">Converting environmental restoration into paid service delivery. We don't just plant trees—we maintain them under contract, ensuring survival rates that campaigns alone cannot achieve.</p>
+
+                            <div class="eco-metrics">
+                                <div class="eco-metric">
+                                    <div class="metric-value">40B+</div>
+                                    <div class="metric-label">Trees planted nationally</div>
                                 </div>
-                                <div class="detail-item">
-                                    <span class="detail-icon">🌱</span>
-                                    <div class="detail-text">
-                                        <strong>Seedling Supply</strong>
-                                        Production for city greening programs
-                                    </div>
+                                <div class="eco-metric">
+                                    <div class="metric-value">23.6%</div>
+                                    <div class="metric-label">Forest cover achieved</div>
                                 </div>
-                                <div class="detail-item">
-                                    <span class="detail-icon">📄</span>
-                                    <div class="detail-text">
-                                        <strong>Restoration Contracts</strong>
-                                        Formal agreements with municipalities
-                                    </div>
+                                <div class="eco-metric">
+                                    <div class="metric-value">↑ 6.4%</div>
+                                    <div class="metric-label">Cover increase since 2019</div>
                                 </div>
-                                <div class="detail-item">
-                                    <span class="detail-icon">📊</span>
-                                    <div class="detail-text">
-                                        <strong>Survival-Based Pay</strong>
-                                        Compensation tied to tree survival rates
-                                    </div>
+                                <div class="eco-metric">
+                                    <div class="metric-value">12 mo</div>
+                                    <div class="metric-label">Survival tracking period</div>
+                                </div>
+                            </div>
+
+                            <div class="eco-detail-grid">
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">🌳</div>
+                                    <h4>Maintenance Contracts</h4>
+                                    <p>Paid care for public green spaces & roadsides. Youth enterprises receive ongoing revenue for watering, pruning, and protecting urban vegetation—turning maintenance into livelihood.</p>
+                                </div>
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">🌱</div>
+                                    <h4>Seedling Supply</h4>
+                                    <p>Production for city greening programs. Each enterprise operates a nursery that feeds Ethiopia's Green Legacy Initiative, creating a sustainable supply chain for national reforestation.</p>
+                                </div>
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">📄</div>
+                                    <h4>Restoration Contracts</h4>
+                                    <p>Formal agreements with municipalities and institutions. Converts green space management from volunteer activity into professional, paid service delivery with accountability.</p>
+                                </div>
+                                <div class="eco-detail-card">
+                                    <div class="detail-card-icon">📊</div>
+                                    <h4>Survival-Based Pay</h4>
+                                    <p>Compensation tied to tree survival rates. Unlike one-time planting campaigns, this model ensures youth have a financial stake in keeping every seedling alive and thriving.</p>
                                 </div>
                             </div>
                         </div>
@@ -1823,28 +2123,45 @@
     </footer>
 
     <script>
-        // Toggle expandable cards
-        function toggleExpand(button) {
-            const section = button.nextElementSibling;
-            const icon = button.querySelector('.expand-icon');
+        // Toggle vertically expanding ecosystem cards
+        function setupEcoCards() {
+            const cards = document.querySelectorAll('.eco-card-v');
 
-            if (section.classList.contains('active')) {
-                section.classList.remove('active');
-                section.style.maxHeight = null;
-                icon.textContent = '→';
-            } else {
-                // Close all other sections
-                document.querySelectorAll('.expandable-section.active').forEach(el => {
-                    el.classList.remove('active');
-                    el.style.maxHeight = null;
+            cards.forEach(card => {
+                // Hover expand (desktop)
+                card.addEventListener('mouseenter', () => {
+                    if (window.innerWidth > 768) {
+                        cards.forEach(c => c.classList.remove('expanded'));
+                        card.classList.add('expanded');
+                    }
                 });
-                document.querySelectorAll('.expand-icon').forEach(el => el.textContent = '→');
 
-                section.classList.add('active');
-                section.style.maxHeight = section.scrollHeight + "px";
-                icon.textContent = '←';
-            }
+                // Click toggle (mobile/tablet)
+                card.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 768) {
+                        const isExpanded = card.classList.contains('expanded');
+                        cards.forEach(c => c.classList.remove('expanded'));
+                        if (!isExpanded) {
+                            card.classList.add('expanded');
+                            // Smooth scroll to card
+                            setTimeout(() => {
+                                card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }, 100);
+                        }
+                    }
+                });
+            });
+
+            // Collapse all when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.eco-card-v')) {
+                    cards.forEach(c => c.classList.remove('expanded'));
+                }
+            });
         }
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', setupEcoCards);
 
         // Toggle timeline phases
         function togglePhase(header) {
@@ -1894,6 +2211,132 @@
                 navbar.classList.remove('scrolled');
             }
         });
+    </script>
+
+    <!-- AI-Driven Leaf Particle Animation -->
+    <script>
+    (function() {
+        const canvas = document.getElementById('leafCanvas');
+        if (!canvas) return;
+
+        const ctx = canvas.getContext('2d');
+        let width, height, animationId;
+        let isVisible = false;
+
+        // Leaf shapes using bezier curves
+        function drawLeaf(ctx, x, y, size, rotation, opacity, color) {
+            ctx.save();
+            ctx.translate(x, y);
+            ctx.rotate(rotation);
+            ctx.globalAlpha = opacity;
+            ctx.fillStyle = color;
+
+            ctx.beginPath();
+            ctx.moveTo(0, -size);
+            ctx.bezierCurveTo(size * 0.5, -size * 0.5, size * 0.5, size * 0.5, 0, size);
+            ctx.bezierCurveTo(-size * 0.5, size * 0.5, -size * 0.5, -size * 0.5, 0, -size);
+            ctx.fill();
+
+            // Leaf vein
+            ctx.strokeStyle = `rgba(255,255,255,${opacity * 0.3})`;
+            ctx.lineWidth = 0.5;
+            ctx.beginPath();
+            ctx.moveTo(0, -size * 0.8);
+            ctx.lineTo(0, size * 0.8);
+            ctx.stroke();
+
+            ctx.restore();
+        }
+
+        const leaves = [];
+        const LEAF_COUNT = 25;
+        const colors = [
+            'rgba(74, 124, 89, ',
+            'rgba(107, 142, 35, ',
+            'rgba(201, 162, 39, ',
+            'rgba(26, 71, 42, ',
+        ];
+
+        function initLeaves() {
+            leaves.length = 0;
+            for (let i = 0; i < LEAF_COUNT; i++) {
+                leaves.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    vx: (Math.random() - 0.5) * 0.3,
+                    vy: 0.2 + Math.random() * 0.5,
+                    size: 8 + Math.random() * 16,
+                    rotation: Math.random() * Math.PI * 2,
+                    rotSpeed: (Math.random() - 0.5) * 0.02,
+                    opacity: 0.1 + Math.random() * 0.25,
+                    opacitySpeed: 0.002 + Math.random() * 0.003,
+                    opacityPhase: Math.random() * Math.PI * 2,
+                    colorBase: colors[Math.floor(Math.random() * colors.length)],
+                    swayAmp: 20 + Math.random() * 40,
+                    swayFreq: 0.001 + Math.random() * 0.002,
+                    swayPhase: Math.random() * Math.PI * 2,
+                });
+            }
+        }
+
+        function resize() {
+            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+            width = canvas.parentElement.offsetWidth;
+            height = canvas.parentElement.offsetHeight;
+            canvas.width = width * dpr;
+            canvas.height = height * dpr;
+            ctx.scale(dpr, dpr);
+            initLeaves();
+        }
+
+        let time = 0;
+
+        function animate() {
+            if (!isVisible) return;
+            time += 16;
+            ctx.clearRect(0, 0, width, height);
+
+            leaves.forEach(leaf => {
+                // Sway motion
+                const sway = Math.sin(time * leaf.swayFreq + leaf.swayPhase) * leaf.swayAmp;
+                leaf.x += leaf.vx + sway * 0.01;
+                leaf.y += leaf.vy;
+                leaf.rotation += leaf.rotSpeed;
+
+                // Pulsing opacity
+                const pulseOpacity = leaf.opacity * (0.7 + 0.3 * Math.sin(time * leaf.opacitySpeed + leaf.opacityPhase));
+
+                // Wrap around
+                if (leaf.y > height + leaf.size) {
+                    leaf.y = -leaf.size;
+                    leaf.x = Math.random() * width;
+                }
+                if (leaf.x > width + leaf.size) leaf.x = -leaf.size;
+                if (leaf.x < -leaf.size) leaf.x = width + leaf.size;
+
+                drawLeaf(ctx, leaf.x, leaf.y, leaf.size, leaf.rotation, pulseOpacity, leaf.colorBase + pulseOpacity + ')');
+            });
+
+            animationId = requestAnimationFrame(animate);
+        }
+
+        resize();
+        window.addEventListener('resize', resize);
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                isVisible = entry.isIntersecting;
+                if (isVisible && !animationId) {
+                    animate();
+                } else if (!isVisible && animationId) {
+                    cancelAnimationFrame(animationId);
+                    animationId = null;
+                }
+            });
+        }, { threshold: 0.05 });
+
+        observer.observe(canvas);
+    })();
     </script>
 
     <!-- AI-Driven Mesh Gradient Animation -->
