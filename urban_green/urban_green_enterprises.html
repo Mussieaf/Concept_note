@@ -444,43 +444,136 @@
             margin-top: 0.3rem;
         }
 
-        /* ===== HORIZONTAL EXPANDING PILLARS ===== */
-        .gallery-section {
-            background: var(--cream);
+        /* ===== MORPHING GATEWAY: AI-Driven Visual Connector ===== */
+        .morphing-gateway {
+            position: relative;
             padding: 6rem 2rem;
+            overflow: hidden;
+            background: var(--deep-green);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .gallery-container {
+
+        .mesh-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.6;
+        }
+
+        .gateway-content {
+            position: relative;
+            z-index: 2;
             max-width: 1400px;
+            width: 100%;
             margin: 0 auto;
         }
 
+        .gateway-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .gateway-label {
+            display: inline-block;
+            background: rgba(201, 162, 39, 0.2);
+            color: var(--gold);
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            backdrop-filter: blur(8px);
+        }
+
+        .gateway-title {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1rem;
+            line-height: 1.15;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .gateway-subtitle {
+            color: rgba(255,255,255,0.75);
+            max-width: 650px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* ===== HORIZONTAL EXPANDING PILLARS ===== */
         .pillars-accordion {
             display: flex;
-            gap: 8px;
-            height: 520px;
+            gap: 10px;
+            height: 480px;
             margin-top: 3rem;
-            border-radius: 16px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+            position: relative;
         }
 
         .pillar-panel {
             position: relative;
             flex: 1;
-            min-width: 80px;
+            min-width: 70px;
             cursor: pointer;
-            transition: flex 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: flex 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
             overflow: hidden;
-            border-radius: 12px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .pillar-panel::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 16px;
+            padding: 2px;
+            background: linear-gradient(135deg, rgba(201,162,39,0.3), transparent, rgba(74,124,89,0.3));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .pillar-panel:hover::before {
+            opacity: 1;
         }
 
         .pillar-panel:hover {
-            flex: 4;
+            flex: 4.5;
         }
 
-        .pillar-panel:hover ~ .pillar-panel,
+        .pillar-panel.active {
+            flex: 4.5;
+        }
+
         .pillars-accordion:has(.pillar-panel:hover) .pillar-panel:not(:hover) {
-            flex: 0.6;
+            flex: 0.55;
+        }
+
+        .pillars-accordion:has(.pillar-panel.active) .pillar-panel:not(.active) {
+            flex: 0.55;
         }
 
         .pillar-bg {
@@ -488,11 +581,14 @@
             inset: 0;
             background-size: cover;
             background-position: center;
-            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.5s;
+            filter: saturate(0.7) brightness(0.8);
         }
 
-        .pillar-panel:hover .pillar-bg {
-            transform: scale(1.08);
+        .pillar-panel:hover .pillar-bg,
+        .pillar-panel.active .pillar-bg {
+            transform: scale(1.1);
+            filter: saturate(1) brightness(0.9);
         }
 
         .pillar-overlay {
@@ -500,19 +596,20 @@
             inset: 0;
             background: linear-gradient(
                 180deg,
-                rgba(15, 46, 26, 0.3) 0%,
-                rgba(15, 46, 26, 0.7) 50%,
-                rgba(15, 46, 26, 0.95) 100%
-            );
-            transition: background 0.5s;
-        }
-
-        .pillar-panel:hover .pillar-overlay {
-            background: linear-gradient(
-                180deg,
                 rgba(15, 46, 26, 0.2) 0%,
                 rgba(15, 46, 26, 0.5) 40%,
-                rgba(15, 46, 26, 0.9) 100%
+                rgba(15, 46, 26, 0.92) 100%
+            );
+            transition: background 0.6s;
+        }
+
+        .pillar-panel:hover .pillar-overlay,
+        .pillar-panel.active .pillar-overlay {
+            background: linear-gradient(
+                180deg,
+                rgba(15, 46, 26, 0.1) 0%,
+                rgba(15, 46, 26, 0.35) 35%,
+                rgba(15, 46, 26, 0.88) 100%
             );
         }
 
@@ -522,30 +619,33 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 1.5rem;
+            padding: 1.8rem;
             color: white;
             z-index: 2;
         }
 
         .pillar-number {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
+            font-size: 2.8rem;
             color: var(--honey);
             font-weight: 700;
             line-height: 1;
-            opacity: 0.8;
+            opacity: 0.6;
             margin-bottom: 0.5rem;
-            transition: all 0.4s;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
-        .pillar-panel:hover .pillar-number {
-            font-size: 4rem;
+        .pillar-panel:hover .pillar-number,
+        .pillar-panel.active .pillar-number {
+            font-size: 3.5rem;
             opacity: 1;
+            color: var(--gold);
         }
 
         .pillar-title {
             font-family: 'Playfair Display', serif;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
             line-height: 1.2;
             margin-bottom: 0.5rem;
@@ -553,39 +653,45 @@
             writing-mode: vertical-rl;
             text-orientation: mixed;
             transform: rotate(180deg);
-            transition: all 0.5s;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
             position: absolute;
-            bottom: 1.5rem;
-            left: 1.5rem;
+            bottom: 1.8rem;
+            left: 1.8rem;
             height: auto;
+            opacity: 0.9;
         }
 
-        .pillar-panel:hover .pillar-title {
+        .pillar-panel:hover .pillar-title,
+        .pillar-panel.active .pillar-title {
             writing-mode: horizontal-tb;
             transform: rotate(0);
             position: relative;
             bottom: auto;
             left: auto;
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            opacity: 1;
         }
 
         .pillar-body {
             opacity: 0;
             max-height: 0;
             overflow: hidden;
-            transition: opacity 0.4s 0.2s, max-height 0.5s 0.1s;
+            transition: opacity 0.5s 0.15s, max-height 0.6s 0.1s, transform 0.5s;
+            transform: translateY(20px);
         }
 
-        .pillar-panel:hover .pillar-body {
+        .pillar-panel:hover .pillar-body,
+        .pillar-panel.active .pillar-body {
             opacity: 1;
-            max-height: 300px;
+            max-height: 280px;
+            transform: translateY(0);
         }
 
         .pillar-body p {
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             line-height: 1.7;
-            color: rgba(255,255,255,0.9);
+            color: rgba(255,255,255,0.88);
             margin-bottom: 1rem;
         }
 
@@ -596,28 +702,117 @@
         }
 
         .tag {
-            background: rgba(201, 162, 39, 0.25);
-            border: 1px solid rgba(201, 162, 39, 0.4);
+            background: rgba(201, 162, 39, 0.2);
+            border: 1px solid rgba(201, 162, 39, 0.35);
             color: var(--gold);
-            padding: 0.3rem 0.8rem;
+            padding: 0.35rem 0.9rem;
             border-radius: 20px;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             font-weight: 500;
-            backdrop-filter: blur(4px);
+            backdrop-filter: blur(8px);
+            transition: all 0.3s;
         }
 
-        /* Mobile: stack vertically */
+        .tag:hover {
+            background: rgba(201, 162, 39, 0.35);
+            transform: translateY(-2px);
+        }
+
+        /* ===== BRIDGE TO DEEP DIVE ===== */
+        .gateway-bridge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 3.5rem;
+            animation: fadeInUp 1.2s 0.5s both;
+        }
+
+        .bridge-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(201,162,39,0.4), transparent);
+            max-width: 200px;
+        }
+
+        .bridge-cta {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            background: rgba(201, 162, 39, 0.1);
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            transition: all 0.4s;
+            backdrop-filter: blur(10px);
+        }
+
+        .bridge-cta:hover {
+            background: rgba(201, 162, 39, 0.2);
+            border-color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(201, 162, 39, 0.15);
+        }
+
+        .bridge-text {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .bridge-arrow {
+            color: var(--gold);
+            font-size: 1.2rem;
+            animation: bounceDown 2s infinite;
+        }
+
+        @keyframes bounceDown {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(8px); }
+            60% { transform: translateY(4px); }
+        }
+
+        .bridge-pulse {
+            position: absolute;
+            inset: -4px;
+            border-radius: 50px;
+            border: 2px solid var(--honey);
+            opacity: 0;
+            animation: pulseRing 2s infinite;
+        }
+
+        @keyframes pulseRing {
+            0% { transform: scale(1); opacity: 0.5; }
+            100% { transform: scale(1.08); opacity: 0; }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .gateway-title { font-size: 2.4rem; }
+            .pillars-accordion { height: 420px; }
+        }
+
         @media (max-width: 768px) {
+            .morphing-gateway { padding: 4rem 1.5rem; min-height: auto; }
+            .gateway-title { font-size: 1.9rem; }
+            .gateway-subtitle { font-size: 0.95rem; }
+
             .pillars-accordion {
                 flex-direction: column;
                 height: auto;
-                min-height: 600px;
+                min-height: 500px;
+                gap: 8px;
             }
             .pillar-panel {
-                min-height: 80px;
+                min-height: 70px;
                 flex: 1 !important;
             }
-            .pillar-panel:hover {
+            .pillar-panel:hover,
+            .pillar-panel.active {
                 flex: 3 !important;
             }
             .pillar-title {
@@ -626,11 +821,26 @@
                 position: relative;
                 bottom: auto;
                 left: auto;
+                font-size: 1.1rem;
             }
             .pillar-body {
-                opacity: 0.9;
-                max-height: 200px;
+                opacity: 0.85;
+                max-height: 180px;
+                transform: translateY(0);
             }
+            .pillar-number { font-size: 2rem; }
+            .pillar-panel:hover .pillar-number,
+            .pillar-panel.active .pillar-number { font-size: 2.5rem; }
+
+            .gateway-bridge { margin-top: 2.5rem; }
+            .bridge-line { max-width: 80px; }
+        }
+
+        @media (max-width: 480px) {
+            .gateway-title { font-size: 1.6rem; }
+            .pillars-accordion { min-height: 400px; }
+            .pillar-panel { min-height: 60px; }
+            .pillar-content { padding: 1.2rem; }
         }
 
         /* ===== EXPANDABLE CARDS ===== */
@@ -911,8 +1121,8 @@
             .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
             .detail-grid { grid-template-columns: 1fr; }
             .nav-menu { display: none; }
-            .pillar-panel { min-height: 100px; }
-            .pillar-title { font-size: 1rem; }
+            .pillar-panel { min-height: 70px; }
+            .pillar-title { font-size: 1.1rem; }
         }
 
         html { scroll-behavior: smooth; }
@@ -1049,17 +1259,18 @@
         </div>
     </section>
 
-    <!-- Gallery Section — Horizontal Expanding Panels -->
-    <section class="gallery-section" id="gallery">
-        <div class="gallery-container">
-            <div class="section-header">
-                <h2>The Five Pillars of Transformation</h2>
-                <div class="divider"></div>
-                <p>Five interconnected systems designed to function as a single, self-reinforcing organism—where the output of one becomes the input of another. Hover to explore each pillar.</p>
+    <!-- AI-Driven Morphing Connector: Pillars → Deep Dive -->
+    <section class="morphing-gateway" id="gateway">
+        <canvas id="meshCanvas" class="mesh-canvas"></canvas>
+        <div class="gateway-content">
+            <div class="gateway-header">
+                <div class="gateway-label">The Five Pillars</div>
+                <h2 class="gateway-title">Hover to Witness<br>the Ecosystem Breathe</h2>
+                <p class="gateway-subtitle">Five living systems. One interconnected organism. Move through each pillar to see how waste becomes wealth, youth become stewards, and green becomes growth.</p>
             </div>
 
             <div class="pillars-accordion">
-                <div class="pillar-panel" data-pillar="01">
+                <div class="pillar-panel" data-pillar="01" onclick="focusPillar(0)">
                     <div class="pillar-bg" style="background-image: url('https://kimi-web-img.moonshot.cn/img/egyptianstreets.com/557c9290c41d8cfa735fe47783e0590cdb577c8c.jpg')"></div>
                     <div class="pillar-overlay"></div>
                     <div class="pillar-content">
@@ -1076,7 +1287,7 @@
                     </div>
                 </div>
 
-                <div class="pillar-panel" data-pillar="02">
+                <div class="pillar-panel" data-pillar="02" onclick="focusPillar(1)">
                     <div class="pillar-bg" style="background-image: url('https://kimi-web-img.moonshot.cn/img/cdn.kingcounty.gov/9ef26027edbe719e79fc3e7ac723d44aa3b48003.jpg')"></div>
                     <div class="pillar-overlay"></div>
                     <div class="pillar-content">
@@ -1093,7 +1304,7 @@
                     </div>
                 </div>
 
-                <div class="pillar-panel" data-pillar="03">
+                <div class="pillar-panel" data-pillar="03" onclick="focusPillar(2)">
                     <div class="pillar-bg" style="background-image: url('https://kimi-web-img.moonshot.cn/img/blog.plantwise.org/72e2596628ee2313dc6c1ae64c1f15f99a8ecc55.jpg')"></div>
                     <div class="pillar-overlay"></div>
                     <div class="pillar-content">
@@ -1110,7 +1321,7 @@
                     </div>
                 </div>
 
-                <div class="pillar-panel" data-pillar="04">
+                <div class="pillar-panel" data-pillar="04" onclick="focusPillar(3)">
                     <div class="pillar-bg" style="background-image: url('https://kimi-web-img.moonshot.cn/img/www.hopkinsmedicine.org/d479dbdbdfecd63183fb840b331013ce472bdd35.jpg')"></div>
                     <div class="pillar-overlay"></div>
                     <div class="pillar-content">
@@ -1127,7 +1338,7 @@
                     </div>
                 </div>
 
-                <div class="pillar-panel" data-pillar="05">
+                <div class="pillar-panel" data-pillar="05" onclick="focusPillar(4)">
                     <div class="pillar-bg" style="background-image: url('https://kimi-web-img.moonshot.cn/img/trellis.net/796884e6f8b1d9703a1f0c7d135fab8f14272e5e.jpeg')"></div>
                     <div class="pillar-overlay"></div>
                     <div class="pillar-content">
@@ -1143,6 +1354,16 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="gateway-bridge">
+                <div class="bridge-line"></div>
+                <a href="#ecosystem" class="bridge-cta">
+                    <span class="bridge-text">Explore Each Component in Depth</span>
+                    <span class="bridge-arrow">↓</span>
+                    <div class="bridge-pulse"></div>
+                </a>
+                <div class="bridge-line"></div>
             </div>
         </div>
     </section>
@@ -1673,6 +1894,189 @@
                 navbar.classList.remove('scrolled');
             }
         });
+    </script>
+
+    <!-- AI-Driven Mesh Gradient Animation -->
+    <script>
+    (function() {
+        const canvas = document.getElementById('meshCanvas');
+        if (!canvas) return;
+
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let time = 0;
+        let animationId;
+
+        // Color palette: deep greens, sage, honey gold
+        const colors = [
+            { r: 15, g: 46, b: 26 },    // deep green
+            { r: 26, g: 71, b: 42 },     // forest
+            { r: 74, g: 124, b: 89 },    // sage
+            { r: 107, g: 142, b: 35 },   // moss
+            { r: 201, g: 162, b: 39 },   // honey
+            { r: 15, g: 46, b: 26 },     // deep green
+        ];
+
+        // Gradient blobs
+        const blobs = colors.map((color, i) => ({
+            x: Math.random(),
+            y: Math.random(),
+            vx: (Math.random() - 0.5) * 0.0003,
+            vy: (Math.random() - 0.5) * 0.0003,
+            radius: 0.3 + Math.random() * 0.4,
+            color: color,
+            phase: (i / colors.length) * Math.PI * 2
+        }));
+
+        function resize() {
+            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+            width = canvas.parentElement.offsetWidth;
+            height = canvas.parentElement.offsetHeight;
+            canvas.width = width * dpr;
+            canvas.height = height * dpr;
+            ctx.scale(dpr, dpr);
+        }
+
+        function drawBlob(blob, t) {
+            const x = (blob.x + Math.sin(t * 0.0003 + blob.phase) * 0.15) * width;
+            const y = (blob.y + Math.cos(t * 0.0004 + blob.phase) * 0.1) * height;
+            const r = blob.radius * Math.min(width, height);
+
+            // Organic wobble
+            const wobble = Math.sin(t * 0.002 + blob.phase) * 0.05 + 1;
+
+            const gradient = ctx.createRadialGradient(x, y, 0, x, y, r * wobble);
+            gradient.addColorStop(0, `rgba(${blob.color.r}, ${blob.color.g}, ${blob.color.b}, 0.5)`);
+            gradient.addColorStop(0.5, `rgba(${blob.color.r}, ${blob.color.g}, ${blob.color.b}, 0.2)`);
+            gradient.addColorStop(1, `rgba(${blob.color.r}, ${blob.color.g}, ${blob.color.b}, 0)`);
+
+            ctx.fillStyle = gradient;
+            ctx.beginPath();
+            ctx.arc(x, y, r * wobble, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
+        // Particle system
+        const particles = [];
+        const PARTICLE_COUNT = 30;
+
+        for (let i = 0; i < PARTICLE_COUNT; i++) {
+            particles.push({
+                x: Math.random(),
+                y: Math.random(),
+                vx: (Math.random() - 0.5) * 0.0002,
+                vy: (Math.random() - 0.5) * 0.0002 - 0.0001,
+                size: 1 + Math.random() * 2,
+                opacity: 0.1 + Math.random() * 0.3,
+                pulse: Math.random() * Math.PI * 2
+            });
+        }
+
+        function drawParticles(t) {
+            particles.forEach(p => {
+                p.x += p.vx;
+                p.y += p.vy;
+
+                // Wrap around
+                if (p.x < 0) p.x = 1;
+                if (p.x > 1) p.x = 0;
+                if (p.y < 0) p.y = 1;
+                if (p.y > 1) p.y = 0;
+
+                const px = p.x * width;
+                const py = p.y * height;
+                const pulseOpacity = p.opacity * (0.5 + 0.5 * Math.sin(t * 0.003 + p.pulse));
+
+                ctx.fillStyle = `rgba(201, 162, 39, ${pulseOpacity})`;
+                ctx.beginPath();
+                ctx.arc(px, py, p.size, 0, Math.PI * 2);
+                ctx.fill();
+            });
+        }
+
+        // Connection lines between nearby particles
+        function drawConnections() {
+            const maxDist = 0.15 * Math.min(width, height);
+
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = (particles[i].x - particles[j].x) * width;
+                    const dy = (particles[i].y - particles[j].y) * height;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < maxDist) {
+                        const opacity = (1 - dist / maxDist) * 0.08;
+                        ctx.strokeStyle = `rgba(201, 162, 39, ${opacity})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x * width, particles[i].y * height);
+                        ctx.lineTo(particles[j].x * width, particles[j].y * height);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            time += 16;
+            ctx.clearRect(0, 0, width, height);
+
+            // Draw base dark gradient
+            const baseGrad = ctx.createLinearGradient(0, 0, width, height);
+            baseGrad.addColorStop(0, 'rgba(15, 46, 26, 1)');
+            baseGrad.addColorStop(1, 'rgba(26, 71, 42, 1)');
+            ctx.fillStyle = baseGrad;
+            ctx.fillRect(0, 0, width, height);
+
+            // Draw mesh blobs
+            blobs.forEach(blob => drawBlob(blob, time));
+
+            // Draw connections first (behind particles)
+            drawConnections();
+
+            // Draw particles
+            drawParticles(time);
+
+            animationId = requestAnimationFrame(animate);
+        }
+
+        resize();
+        window.addEventListener('resize', resize);
+
+        // Only animate when visible
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (!animationId) animate();
+                } else {
+                    cancelAnimationFrame(animationId);
+                    animationId = null;
+                }
+            });
+        }, { threshold: 0.1 });
+
+        observer.observe(canvas);
+        animate();
+    })();
+
+    // Pillar click-to-focus for mobile
+    function focusPillar(index) {
+        const panels = document.querySelectorAll('.pillar-panel');
+        panels.forEach((p, i) => {
+            if (i === index) {
+                p.classList.add('active');
+            } else {
+                p.classList.remove('active');
+            }
+        });
+    }
+
+    // Clear active state when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.pillar-panel')) {
+            document.querySelectorAll('.pillar-panel').forEach(p => p.classList.remove('active'));
+        }
+    });
     </script>
 </body>
 </html>
