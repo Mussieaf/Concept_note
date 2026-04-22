@@ -3,55 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Integrated Youth-Led Urban Green Enterprise Initiative | Acacia Trading Plc</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Acacia Trading Plc — Integrated Youth-Led Urban Green Enterprise Initiative (2026–2029)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --forest: #1a472a;
+            --deep-green: #0f2e1a;
             --sage: #4a7c59;
             --moss: #6b8e23;
-            --honey: #d4a843;
+            --honey: #c9a227;
+            --gold: #d4a843;
             --cream: #f5f0e8;
-            --earth: #8b6914;
+            --warm-white: #faf8f3;
             --charcoal: #2c2c2c;
-            --white: #ffffff;
-            --shadow: rgba(26, 71, 42, 0.08);
+            --dark: #1a1a1a;
+            --text-body: #444;
+            --text-light: #888;
+            --border: #e5e0d8;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', sans-serif;
             color: var(--charcoal);
-            background: var(--cream);
-            line-height: 1.6;
-            overflow-x: hidden;
+            background: var(--warm-white);
+            line-height: 1.7;
+            font-size: 16px;
         }
 
         h1, h2, h3, h4 {
             font-family: 'Playfair Display', serif;
             font-weight: 600;
+            line-height: 1.2;
         }
 
-        /* Navigation */
+        /* ===== NAVIGATION ===== */
         .navbar {
             position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            top: 0; left: 0; right: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(12px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(26, 71, 42, 0.1);
+            border-bottom: 1px solid var(--border);
+            transition: box-shadow 0.3s;
         }
+        .navbar.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
 
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 1rem 2rem;
+            padding: 0.9rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -60,87 +62,62 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.7rem;
+            text-decoration: none;
         }
-
         .logo-icon {
-            width: 40px;
-            height: 40px;
+            width: 38px; height: 38px;
             background: var(--forest);
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 1.1rem;
         }
-
         .logo-text {
             font-family: 'Playfair Display', serif;
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             color: var(--forest);
             font-weight: 700;
         }
 
         .nav-menu {
             display: flex;
-            gap: 2rem;
+            gap: 2.2rem;
             list-style: none;
             align-items: center;
         }
-
-        .nav-item {
-            position: relative;
-        }
-
+        .nav-item { position: relative; }
         .nav-link {
             text-decoration: none;
             color: var(--charcoal);
             font-weight: 500;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             padding: 0.5rem 0;
             transition: color 0.3s;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
+            display: flex; align-items: center; gap: 0.3rem;
         }
-
-        .nav-link:hover {
-            color: var(--forest);
-        }
-
-        .dropdown-arrow {
-            font-size: 0.7rem;
-            transition: transform 0.3s;
-        }
-
-        .nav-item:hover .dropdown-arrow {
-            transform: rotate(180deg);
-        }
+        .nav-link:hover { color: var(--forest); }
+        .dropdown-arrow { font-size: 0.65rem; transition: transform 0.3s; }
+        .nav-item:hover .dropdown-arrow { transform: rotate(180deg); }
 
         .dropdown-menu {
             position: absolute;
-            top: 100%;
+            top: calc(100% + 0.5rem);
             left: 0;
             background: white;
-            min-width: 220px;
+            min-width: 240px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            border-radius: 8px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s;
-            padding: 0.5rem 0;
-            margin-top: 0.5rem;
+            border-radius: 10px;
+            opacity: 0; visibility: hidden;
+            transform: translateY(-8px);
+            transition: all 0.3s ease;
+            padding: 0.6rem 0;
+            border: 1px solid var(--border);
         }
-
         .nav-item:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
+            opacity: 1; visibility: visible;
             transform: translateY(0);
         }
-
         .dropdown-item {
             display: block;
             padding: 0.75rem 1.5rem;
@@ -150,529 +127,600 @@
             transition: all 0.2s;
             border-left: 3px solid transparent;
         }
-
         .dropdown-item:hover {
             background: var(--cream);
             color: var(--forest);
             border-left-color: var(--honey);
-            padding-left: 1.75rem;
+            padding-left: 1.7rem;
         }
 
-        /* Hero Section */
+        /* ===== HERO ===== */
         .hero {
-            margin-top: 70px;
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(135deg, var(--forest) 0%, var(--sage) 100%);
+            margin-top: 65px;
+            min-height: 92vh;
+            display: flex; align-items: center;
+            background: linear-gradient(135deg, var(--deep-green) 0%, var(--forest) 50%, var(--sage) 100%);
             position: relative;
             overflow: hidden;
         }
-
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            inset: 0;
             background: url('https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=1920&q=80') center/cover;
-            opacity: 0.15;
+            opacity: 0.12;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 200px;
+            background: linear-gradient(to top, var(--warm-white), transparent);
         }
 
         .hero-content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 5rem 2rem 7rem;
             position: relative;
             z-index: 2;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.1fr 1fr;
             gap: 4rem;
             align-items: center;
         }
 
-        .hero-text h1 {
-            font-size: 3.5rem;
-            color: var(--white);
-            line-height: 1.1;
+        .hero-label {
+            display: inline-block;
+            background: rgba(201, 162, 39, 0.2);
+            color: var(--gold);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             margin-bottom: 1.5rem;
+            border: 1px solid rgba(201, 162, 39, 0.3);
         }
-
+        .hero-text h1 {
+            font-size: 3.8rem;
+            color: white;
+            line-height: 1.05;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
         .hero-text .subtitle {
-            font-size: 1.25rem;
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 2rem;
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 2.5rem;
             font-weight: 300;
+            max-width: 90%;
+        }
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+        .btn-primary {
+            background: var(--honey);
+            color: var(--dark);
+            padding: 0.9rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            background: var(--gold);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(201, 162, 39, 0.3);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 0.9rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: all 0.3s;
+        }
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.5);
         }
 
         .hero-stats {
             display: flex;
-            gap: 2rem;
-            margin-top: 2rem;
+            gap: 2.5rem;
         }
-
         .stat {
-            text-align: center;
+            text-align: left;
         }
-
         .stat-number {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: var(--honey);
             font-weight: 700;
+            line-height: 1;
         }
-
         .stat-label {
-            color: rgba(255,255,255,0.8);
-            font-size: 0.85rem;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.78rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            margin-top: 0.4rem;
         }
 
         .hero-image {
             position: relative;
         }
-
         .hero-image img {
             width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border-radius: 14px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+            object-fit: cover;
+            height: 480px;
         }
-
         .image-caption {
             position: absolute;
-            bottom: -20px;
-            left: -20px;
+            bottom: -18px;
+            left: -18px;
             background: var(--honey);
-            color: var(--charcoal);
-            padding: 1rem 1.5rem;
+            color: var(--dark);
+            padding: 1rem 1.8rem;
             border-radius: 8px;
             font-weight: 600;
             font-size: 0.9rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
 
-        /* Section Styling */
+        /* ===== SECTIONS ===== */
         .section {
-            padding: 5rem 2rem;
+            padding: 6rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
-
         .section-header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 3.5rem;
         }
-
         .section-header h2 {
-            font-size: 2.5rem;
+            font-size: 2.6rem;
             color: var(--forest);
             margin-bottom: 1rem;
         }
-
         .section-header p {
-            color: #666;
-            max-width: 600px;
+            color: var(--text-body);
+            max-width: 650px;
             margin: 0 auto;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
         }
-
         .divider {
-            width: 60px;
+            width: 50px;
             height: 3px;
             background: var(--honey);
-            margin: 1.5rem auto;
+            margin: 1.2rem auto;
+            border-radius: 2px;
         }
 
-        /* Expandable Cards */
-        .ecosystem-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .eco-card {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px var(--shadow);
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-        }
-
-        .eco-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(26, 71, 42, 0.15);
-        }
-
-        .eco-image {
-            height: 240px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .eco-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .eco-card:hover .eco-image img {
-            transform: scale(1.05);
-        }
-
-        .eco-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(26, 71, 42, 0.8));
-            padding: 2rem 1.5rem 1rem;
-            color: white;
-        }
-
-        .eco-overlay h3 {
-            font-size: 1.5rem;
-        }
-
-        .eco-content {
-            padding: 1.5rem;
-        }
-
-        .eco-description {
-            color: #555;
-            font-size: 0.95rem;
-            line-height: 1.7;
-            margin-bottom: 1rem;
-        }
-
-        .expand-btn {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--forest);
-            font-weight: 600;
-            font-size: 0.9rem;
-            cursor: pointer;
-            border: none;
-            background: none;
-            padding: 0;
-            transition: gap 0.3s;
-        }
-
-        .expand-btn:hover {
-            gap: 0.75rem;
-        }
-
-        .expand-icon {
-            transition: transform 0.3s;
-        }
-
-        .expandable-section {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-out;
-        }
-
-        .expandable-section.active {
-            max-height: 800px;
-        }
-
-        .expandable-inner {
-            padding-top: 1.5rem;
-            border-top: 1px solid #eee;
-            margin-top: 1rem;
-        }
-
-        .detail-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .detail-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-            padding: 0.75rem;
-            background: var(--cream);
-            border-radius: 8px;
-        }
-
-        .detail-icon {
-            color: var(--honey);
-            font-size: 1.2rem;
-            flex-shrink: 0;
-        }
-
-        .detail-text {
-            font-size: 0.85rem;
-            color: #555;
-        }
-
-        .detail-text strong {
-            color: var(--forest);
-            display: block;
-            margin-bottom: 0.25rem;
-        }
-
-        /* Artful Description Section */
+        /* ===== DARK SECTION (Artful) ===== */
         .artful-section {
-            background: var(--forest);
+            background: var(--deep-green);
             color: white;
-            padding: 6rem 2rem;
+            padding: 7rem 2rem;
             position: relative;
             overflow: hidden;
         }
-
         .artful-section::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(212, 168, 67, 0.1) 0%, transparent 70%);
+            top: -30%; right: -15%;
+            width: 700px; height: 700px;
+            background: radial-gradient(circle, rgba(201, 162, 39, 0.08) 0%, transparent 60%);
             border-radius: 50%;
         }
-
         .artful-container {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 5rem;
             align-items: center;
             position: relative;
             z-index: 2;
         }
-
         .artful-text h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 1.5rem;
-            line-height: 1.2;
+            line-height: 1.15;
         }
-
         .artful-text p {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             line-height: 1.8;
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 1.5rem;
+            color: rgba(255,255,255,0.82);
+            margin-bottom: 1.3rem;
         }
-
         .artful-quote {
             border-left: 3px solid var(--honey);
             padding-left: 1.5rem;
             font-style: italic;
-            font-size: 1.2rem;
-            color: var(--honey);
+            font-size: 1.15rem;
+            color: var(--gold);
             margin: 2rem 0;
+            line-height: 1.7;
         }
-
         .artful-image {
             position: relative;
         }
-
         .artful-image img {
             width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border-radius: 14px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            object-fit: cover;
+            height: 420px;
         }
-
         .floating-badge {
             position: absolute;
-            top: -20px;
-            right: -20px;
+            top: -25px;
+            right: -25px;
             background: var(--honey);
-            color: var(--charcoal);
-            padding: 1rem 1.5rem;
+            color: var(--dark);
+            width: 110px; height: 110px;
             border-radius: 50%;
-            width: 100px;
-            height: 100px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
             font-weight: 700;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            animation: float 3s ease-in-out infinite;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+            animation: float 4s ease-in-out infinite;
         }
-
         @keyframes float {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-12px); }
         }
-
         .badge-number {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-size: 2rem;
             line-height: 1;
         }
-
         .badge-text {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-top: 0.25rem;
+            margin-top: 0.3rem;
+            font-weight: 600;
         }
 
-        /* Implementation Timeline */
-        .timeline {
+        /* ===== STAT CARDS (AFLI style) ===== */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .stat-card {
             background: white;
-            padding: 5rem 2rem;
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.1);
+        }
+        .stat-card-icon {
+            font-size: 2.2rem;
+            margin-bottom: 0.8rem;
+        }
+        .stat-card-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            color: var(--forest);
+            font-weight: 700;
+            line-height: 1;
+        }
+        .stat-card-label {
+            color: var(--text-body);
+            font-size: 0.85rem;
+            margin-top: 0.6rem;
+            line-height: 1.5;
+        }
+        .stat-card-sub {
+            color: var(--text-light);
+            font-size: 0.75rem;
+            margin-top: 0.3rem;
         }
 
+        /* ===== GALLERY (AFLI numbered style) ===== */
+        .gallery-section {
+            background: var(--cream);
+            padding: 6rem 2rem;
+        }
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        .gallery-item {
+            display: grid;
+            grid-template-columns: 60px 1fr;
+            gap: 1.5rem;
+            align-items: start;
+        }
+        .gallery-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--honey);
+            font-weight: 700;
+            line-height: 1;
+            opacity: 0.7;
+        }
+        .gallery-content h3 {
+            font-size: 1.3rem;
+            color: var(--forest);
+            margin-bottom: 0.5rem;
+        }
+        .gallery-content p {
+            color: var(--text-body);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        .gallery-image {
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .gallery-image img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            transition: transform 0.5s;
+            display: block;
+        }
+        .gallery-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* ===== EXPANDABLE CARDS ===== */
+        .ecosystem-section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .ecosystem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .eco-card {
+            background: white;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .eco-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        .eco-image {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+        .eco-image img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .eco-card:hover .eco-image img {
+            transform: scale(1.05);
+        }
+        .eco-overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: linear-gradient(transparent, rgba(15, 46, 26, 0.85));
+            padding: 2rem 1.5rem 1rem;
+            color: white;
+        }
+        .eco-overlay h3 {
+            font-size: 1.4rem;
+        }
+        .eco-content {
+            padding: 1.5rem;
+        }
+        .eco-description {
+            color: var(--text-body);
+            font-size: 0.92rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        .expand-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--forest);
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            border: none;
+            background: none;
+            padding: 0;
+            transition: gap 0.3s;
+        }
+        .expand-btn:hover {
+            gap: 0.8rem;
+            color: var(--sage);
+        }
+        .expand-icon {
+            transition: transform 0.3s;
+            font-size: 1.1rem;
+        }
+        .expandable-section {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+        .expandable-section.active {
+            max-height: 800px;
+        }
+        .expandable-inner {
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            margin-top: 1rem;
+        }
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .detail-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+            padding: 0.8rem;
+            background: var(--cream);
+            border-radius: 8px;
+        }
+        .detail-icon {
+            color: var(--honey);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .detail-text {
+            font-size: 0.82rem;
+            color: var(--text-body);
+            line-height: 1.5;
+        }
+        .detail-text strong {
+            color: var(--forest);
+            display: block;
+            margin-bottom: 0.2rem;
+            font-weight: 600;
+        }
+
+        /* ===== TIMELINE (AFLI accordion style) ===== */
+        .timeline-section {
+            background: white;
+            padding: 6rem 2rem;
+        }
         .timeline-container {
             max-width: 1000px;
             margin: 0 auto;
         }
-
         .phase-wrapper {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 2px 10px var(--shadow);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
         }
-
         .phase-header {
             background: linear-gradient(135deg, var(--sage), var(--moss));
             color: white;
-            padding: 1.5rem 2rem;
+            padding: 1.4rem 2rem;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
             transition: background 0.3s;
         }
-
         .phase-header:hover {
             background: linear-gradient(135deg, var(--forest), var(--sage));
         }
-
         .phase-title {
             font-family: 'Playfair Display', serif;
             font-size: 1.3rem;
         }
-
         .phase-subtitle {
             font-size: 0.85rem;
-            opacity: 0.9;
-            margin-top: 0.25rem;
+            opacity: 0.85;
+            margin-top: 0.3rem;
+            font-weight: 400;
         }
-
         .phase-toggle {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 300;
             transition: transform 0.3s;
+            width: 36px; height: 36px;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
         }
-
         .phase-content {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.5s ease-out;
             background: white;
         }
-
         .phase-content.active {
-            max-height: 500px;
+            max-height: 600px;
         }
-
         .phase-inner {
             padding: 2rem;
         }
-
         .phase-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
         }
-
         .phase-item {
             text-align: center;
             padding: 1.5rem;
             background: var(--cream);
-            border-radius: 8px;
+            border-radius: 10px;
             border-top: 3px solid var(--honey);
         }
-
         .phase-icon {
             font-size: 2rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
         }
-
         .phase-item h4 {
             color: var(--forest);
             margin-bottom: 0.5rem;
+            font-size: 1rem;
         }
-
         .phase-item p {
-            font-size: 0.85rem;
-            color: #666;
+            font-size: 0.82rem;
+            color: var(--text-body);
+            line-height: 1.6;
         }
 
-        /* Impact Section */
+        /* ===== IMPACT SECTION ===== */
         .impact-section {
-            padding: 5rem 2rem;
-            background: linear-gradient(to bottom, var(--cream), white);
+            padding: 6rem 2rem;
+            background: linear-gradient(to bottom, var(--cream), var(--warm-white));
         }
 
-        .impact-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 3rem auto 0;
-        }
-
-        .impact-card {
-            text-align: center;
-            padding: 2rem;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px var(--shadow);
-            transition: transform 0.3s;
-        }
-
-        .impact-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .impact-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--sage), var(--moss));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            color: white;
-            font-size: 1.5rem;
-        }
-
-        .impact-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--forest);
-            font-weight: 700;
-        }
-
-        .impact-label {
-            color: #666;
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-        }
-
-        /* Footer */
+        /* ===== FOOTER ===== */
         .footer {
-            background: var(--charcoal);
+            background: var(--dark);
             color: white;
-            padding: 4rem 2rem 2rem;
+            padding: 5rem 2rem 2rem;
         }
-
         .footer-grid {
             max-width: 1200px;
             margin: 0 auto;
@@ -680,118 +728,80 @@
             grid-template-columns: 2fr 1fr 1fr 1fr;
             gap: 3rem;
         }
-
         .footer-brand h3 {
             font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
             margin-bottom: 1rem;
             color: var(--honey);
         }
-
         .footer-brand p {
-            color: rgba(255,255,255,0.7);
-            font-size: 0.9rem;
+            color: rgba(255,255,255,0.65);
+            font-size: 0.88rem;
             line-height: 1.7;
         }
-
         .footer-links h4 {
             color: var(--honey);
-            margin-bottom: 1rem;
-            font-size: 1rem;
+            margin-bottom: 1.2rem;
+            font-size: 0.95rem;
+            font-weight: 600;
         }
-
         .footer-links a {
             display: block;
-            color: rgba(255,255,255,0.7);
+            color: rgba(255,255,255,0.6);
             text-decoration: none;
-            padding: 0.4rem 0;
-            font-size: 0.9rem;
+            padding: 0.35rem 0;
+            font-size: 0.85rem;
             transition: color 0.3s;
         }
-
         .footer-links a:hover {
             color: var(--honey);
         }
-
         .footer-bottom {
             max-width: 1200px;
             margin: 3rem auto 0;
             padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(255,255,255,0.08);
             text-align: center;
-            color: rgba(255,255,255,0.5);
-            font-size: 0.85rem;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.8rem;
         }
 
-        /* Mobile Responsive */
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .hero-content,
-            .artful-container {
+            .artful-container,
+            .gallery-grid {
                 grid-template-columns: 1fr;
             }
-
-            .hero-text h1 {
-                font-size: 2.5rem;
-            }
-
-            .impact-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .phase-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .nav-menu {
-                display: none;
-            }
-
-            .detail-grid {
-                grid-template-columns: 1fr;
-            }
+            .hero-text h1 { font-size: 2.6rem; }
+            .stats-row { grid-template-columns: 1fr 1fr; }
+            .phase-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .detail-grid { grid-template-columns: 1fr; }
+            .nav-menu { display: none; }
+            .gallery-item { grid-template-columns: 1fr; }
+            .gallery-number { font-size: 3rem; }
         }
 
-        /* Smooth scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--cream);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--sage);
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--forest);
-        }
+        html { scroll-behavior: smooth; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--cream); }
+        ::-webkit-scrollbar-thumb { background: var(--sage); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--forest); }
     </style>
 </head>
 <body>
 
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <div class="logo">
+            <a href="#" class="logo">
                 <div class="logo-icon">🌿</div>
                 <div class="logo-text">Acacia Trading Plc</div>
-            </div>
+            </a>
             <ul class="nav-menu">
                 <li class="nav-item">
-                    <a class="nav-link">About <span class="dropdown-arrow">▼</span></a>
+                    <span class="nav-link">About <span class="dropdown-arrow">▼</span></span>
                     <div class="dropdown-menu">
                         <a href="#vision" class="dropdown-item">Our Vision</a>
                         <a href="#background" class="dropdown-item">Background & Rationale</a>
@@ -799,7 +809,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link">The Ecosystem <span class="dropdown-arrow">▼</span></a>
+                    <span class="nav-link">The Ecosystem <span class="dropdown-arrow">▼</span></span>
                     <div class="dropdown-menu">
                         <a href="#production" class="dropdown-item">Integrated Production</a>
                         <a href="#circular" class="dropdown-item">Circular Resources</a>
@@ -809,7 +819,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link">Impact <span class="dropdown-arrow">▼</span></a>
+                    <span class="nav-link">Impact <span class="dropdown-arrow">▼</span></span>
                     <div class="dropdown-menu">
                         <a href="#beneficiaries" class="dropdown-item">Beneficiaries</a>
                         <a href="#timeline" class="dropdown-item">Implementation Timeline</a>
@@ -827,8 +837,13 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
+                <div class="hero-label">Project Proposal 2026–2029</div>
                 <h1>Where Green<br>Meets Growth</h1>
                 <p class="subtitle">An integrated youth-led enterprise initiative transforming Addis Ababa's urban landscape into a living, breathing ecosystem of opportunity—one sub-city at a time.</p>
+                <div class="hero-cta">
+                    <a href="#ecosystem" class="btn-primary">Explore the Initiative</a>
+                    <a href="#contact" class="btn-secondary">Get in Touch</a>
+                </div>
                 <div class="hero-stats">
                     <div class="stat">
                         <div class="stat-number">1,000</div>
@@ -847,6 +862,36 @@
             <div class="hero-image">
                 <img src="https://kimi-web-img.moonshot.cn/img/egyptianstreets.com/557c9290c41d8cfa735fe47783e0590cdb577c8c.jpg" alt="Youth in urban agriculture">
                 <div class="image-caption">Cultivating Tomorrow's Harvest Today</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stat Cards Row (AFLI style) -->
+    <section style="padding: 3rem 0; background: var(--warm-white);">
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-card-icon">🌱</div>
+                <div class="stat-card-number">$20K–30K</div>
+                <div class="stat-card-label">Annual Revenue Per Site</div>
+                <div class="stat-card-sub">Break-even in 12–18 months</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-icon">♻️</div>
+                <div class="stat-card-number">40%</div>
+                <div class="stat-card-label">Women's Participation</div>
+                <div class="stat-card-sub">Reserved seats per association</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-icon">👨‍👩‍👧‍👦</div>
+                <div class="stat-card-number">5,000–7,000</div>
+                <div class="stat-card-label">Indirect Beneficiaries</div>
+                <div class="stat-card-sub">Households & market customers</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-icon">🌳</div>
+                <div class="stat-card-number">23.6%</div>
+                <div class="stat-card-label">National Forest Cover</div>
+                <div class="stat-card-sub">Up from 17.2% since 2019</div>
             </div>
         </div>
     </section>
@@ -872,16 +917,88 @@
         </div>
     </section>
 
-    <!-- Ecosystem Components -->
-    <section class="section" id="ecosystem">
-        <div class="section-header">
-            <h2>The Five Pillars of Transformation</h2>
-            <div class="divider"></div>
-            <p>Five interconnected systems designed to function as a single, self-reinforcing organism—where the output of one becomes the input of another.</p>
+    <!-- Gallery Section (AFLI numbered style) -->
+    <section class="gallery-section" id="gallery">
+        <div class="gallery-container">
+            <div class="section-header">
+                <h2>The Five Pillars of Transformation</h2>
+                <div class="divider"></div>
+                <p>Five interconnected systems designed to function as a single, self-reinforcing organism—where the output of one becomes the input of another.</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-number">01</div>
+                    <div class="gallery-content">
+                        <h3>Integrated Production Systems</h3>
+                        <p>The core productive structure combining vertical gardens, rooftop farms, container systems, beehives, tree nurseries, and medicinal herb cultivation into one interconnected organism.</p>
+                        <div class="gallery-image">
+                            <img src="https://kimi-web-img.moonshot.cn/img/egyptianstreets.com/557c9290c41d8cfa735fe47783e0590cdb577c8c.jpg" alt="Urban farming">
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-number">02</div>
+                    <div class="gallery-content">
+                        <h3>Circular Resource Systems</h3>
+                        <p>Transforming urban waste and inefficiency into productive inputs. Where others see garbage, we see growth medium. Where others see runoff, we see irrigation.</p>
+                        <div class="gallery-image">
+                            <img src="https://kimi-web-img.moonshot.cn/img/cdn.kingcounty.gov/9ef26027edbe719e79fc3e7ac723d44aa3b48003.jpg" alt="Circular economy">
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-number">03</div>
+                    <div class="gallery-content">
+                        <h3>Enterprise & Skills Development</h3>
+                        <p>Learning embedded in daily work. We don't train then employ—we employ while training. Budgeting, pricing, marketing, and financial management learned through real transactions.</p>
+                        <div class="gallery-image">
+                            <img src="https://kimi-web-img.moonshot.cn/img/blog.plantwise.org/72e2596628ee2313dc6c1ae64c1f15f99a8ecc55.jpg" alt="Youth enterprise training">
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-number">04</div>
+                    <div class="gallery-content">
+                        <h3>Market Systems & Value Chains</h3>
+                        <p>From raw honey to packaged gold. From fresh herbs to essential oils. We create diversified revenue streams that ensure when one market dips, the enterprise remains buoyant.</p>
+                        <div class="gallery-image">
+                            <img src="https://kimi-web-img.moonshot.cn/img/www.hopkinsmedicine.org/d479dbdbdfecd63183fb840b331013ce472bdd35.jpg" alt="Herbal products market">
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-number">05</div>
+                    <div class="gallery-content">
+                        <h3>Urban Greening Services</h3>
+                        <p>Converting environmental restoration into paid service delivery. We don't just plant trees—we maintain them under contract, ensuring survival rates that campaigns alone cannot achieve.</p>
+                        <div class="gallery-image">
+                            <img src="https://kimi-web-img.moonshot.cn/img/trellis.net/796884e6f8b1d9703a1f0c7d135fab8f14272e5e.jpeg" alt="Tree nursery">
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-number">06</div>
+                    <div class="gallery-content">
+                        <h3>Youth Association Formation</h3>
+                        <p>Legally recognized cooperatives in each sub-city, with rigorous means testing, vulnerability indexing, and 40% women's participation. Youth ownership ensures retention and equity.</p>
+                        <div class="gallery-image">
+                            <img src="https://kimi-web-img.moonshot.cn/img/www.fao.org/eb3451a63baff127292b28d5dce628dc50b31c09.jpg" alt="Beekeeping in Africa">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
+    <!-- Expandable Ecosystem Cards -->
+    <section class="ecosystem-section" id="ecosystem">
+        <div class="section-header">
+            <h2>Explore Each Component in Depth</h2>
+            <div class="divider"></div>
+            <p>Click on any pillar to reveal the detailed operational framework, technical specifications, and revenue mechanisms.</p>
+        </div>
         <div class="ecosystem-grid">
-            <!-- Card 1: Integrated Production -->
+            <!-- Card 1 -->
             <div class="eco-card" id="production">
                 <div class="eco-image">
                     <img src="https://kimi-web-img.moonshot.cn/img/egyptianstreets.com/557c9290c41d8cfa735fe47783e0590cdb577c8c.jpg" alt="Urban farming">
@@ -931,7 +1048,7 @@
                 </div>
             </div>
 
-            <!-- Card 2: Circular Resources -->
+            <!-- Card 2 -->
             <div class="eco-card" id="circular">
                 <div class="eco-image">
                     <img src="https://kimi-web-img.moonshot.cn/img/cdn.kingcounty.gov/9ef26027edbe719e79fc3e7ac723d44aa3b48003.jpg" alt="Circular economy">
@@ -981,7 +1098,7 @@
                 </div>
             </div>
 
-            <!-- Card 3: Enterprise Development -->
+            <!-- Card 3 -->
             <div class="eco-card" id="enterprise">
                 <div class="eco-image">
                     <img src="https://kimi-web-img.moonshot.cn/img/blog.plantwise.org/72e2596628ee2313dc6c1ae64c1f15f99a8ecc55.jpg" alt="Youth enterprise training">
@@ -1031,7 +1148,7 @@
                 </div>
             </div>
 
-            <!-- Card 4: Market Systems -->
+            <!-- Card 4 -->
             <div class="eco-card" id="markets">
                 <div class="eco-image">
                     <img src="https://kimi-web-img.moonshot.cn/img/www.hopkinsmedicine.org/d479dbdbdfecd63183fb840b331013ce472bdd35.jpg" alt="Herbal products market">
@@ -1081,7 +1198,7 @@
                 </div>
             </div>
 
-            <!-- Card 5: Urban Greening -->
+            <!-- Card 5 -->
             <div class="eco-card" id="greening">
                 <div class="eco-image">
                     <img src="https://kimi-web-img.moonshot.cn/img/trellis.net/796884e6f8b1d9703a1f0c7d135fab8f14272e5e.jpeg" alt="Tree nursery">
@@ -1133,8 +1250,8 @@
         </div>
     </section>
 
-    <!-- Implementation Timeline -->
-    <section class="timeline" id="timeline">
+    <!-- Implementation Timeline (AFLI accordion) -->
+    <section class="timeline-section" id="timeline">
         <div class="timeline-container">
             <div class="section-header">
                 <h2>Three-Year Implementation Journey</h2>
@@ -1237,34 +1354,37 @@
         </div>
     </section>
 
-    <!-- Impact Metrics -->
+    <!-- Impact Section -->
     <section class="impact-section" id="beneficiaries">
         <div class="section-header">
             <h2>Measurable Impact</h2>
             <div class="divider"></div>
             <p>Rigorous targeting ensures resources reach those with the greatest need and the strongest incentive to succeed.</p>
         </div>
-
-        <div class="impact-grid">
-            <div class="impact-card">
-                <div class="impact-icon">👥</div>
-                <div class="impact-number">1,000</div>
-                <div class="impact-label">Direct Youth Beneficiaries<br><small>Selected via means test & vulnerability index</small></div>
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-card-icon">👥</div>
+                <div class="stat-card-number">1,000</div>
+                <div class="stat-card-label">Direct Youth Beneficiaries</div>
+                <div class="stat-card-sub">Selected via means test & vulnerability index</div>
             </div>
-            <div class="impact-card">
-                <div class="impact-icon">🏠</div>
-                <div class="impact-number">5,000</div>
-                <div class="impact-label">Indirect Household Members<br><small>Average family size of 4–5 in target communities</small></div>
+            <div class="stat-card">
+                <div class="stat-card-icon">🏠</div>
+                <div class="stat-card-number">5,000</div>
+                <div class="stat-card-label">Indirect Household Members</div>
+                <div class="stat-card-sub">Average family size of 4–5 in target communities</div>
             </div>
-            <div class="impact-card">
-                <div class="impact-icon">🛒</div>
-                <div class="impact-number">2,000</div>
-                <div class="impact-label">Market Customers<br><small>Regular buyers of vegetables, honey & herbal products</small></div>
+            <div class="stat-card">
+                <div class="stat-card-icon">🛒</div>
+                <div class="stat-card-number">2,000</div>
+                <div class="stat-card-label">Market Customers</div>
+                <div class="stat-card-sub">Regular buyers of vegetables, honey & herbal products</div>
             </div>
-            <div class="impact-card">
-                <div class="impact-icon">♻️</div>
-                <div class="impact-number">40%</div>
-                <div class="impact-label">Women's Participation<br><small>Reserved seats in each association</small></div>
+            <div class="stat-card">
+                <div class="stat-card-icon">♻️</div>
+                <div class="stat-card-number">40%</div>
+                <div class="stat-card-label">Women's Participation</div>
+                <div class="stat-card-sub">Reserved seats in each association</div>
             </div>
         </div>
     </section>
@@ -1295,7 +1415,7 @@
         <div class="footer-grid">
             <div class="footer-brand">
                 <h3>Acacia Trading Plc</h3>
-                <p>A multimodal service company specializing in event services, hospitality, consultancy, and trading. Committed to transforming Ethiopia's urban green momentum into lasting economic opportunity.</p>
+                <p>A multimodal service company specializing in event services, hospitality, consultancy, and trading. Committed to transforming Ethiopia's urban green momentum into lasting economic opportunity across all 11 sub-cities of Addis Ababa.</p>
             </div>
             <div class="footer-links">
                 <h4>Project</h4>
@@ -1316,10 +1436,11 @@
                 <a href="#">Addis Ababa, Ethiopia</a>
                 <a href="#">11 Sub-Cities</a>
                 <a href="#">info@acaciatrading.et</a>
+                <a href="#">+251 11 XXX XXXX</a>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>Integrated Youth-Led Urban Green Enterprise Initiative (2026–2029) · Full budget breakdown, detailed work plan, and M&E framework available upon request.</p>
+            <p>Integrated Youth-Led Urban Green Enterprise Initiative (2026–2029) · Full budget breakdown, detailed work plan, means test instrument, and M&E framework available upon request.</p>
         </div>
     </footer>
 
@@ -1328,20 +1449,19 @@
         function toggleExpand(button) {
             const section = button.nextElementSibling;
             const icon = button.querySelector('.expand-icon');
-            
+
             if (section.classList.contains('active')) {
                 section.classList.remove('active');
                 section.style.maxHeight = null;
                 icon.textContent = '→';
-                button.innerHTML = button.innerHTML.replace('←', '→');
             } else {
-                // Close all other sections first
+                // Close all other sections
                 document.querySelectorAll('.expandable-section.active').forEach(el => {
                     el.classList.remove('active');
                     el.style.maxHeight = null;
                 });
                 document.querySelectorAll('.expand-icon').forEach(el => el.textContent = '→');
-                
+
                 section.classList.add('active');
                 section.style.maxHeight = section.scrollHeight + "px";
                 icon.textContent = '←';
@@ -1352,46 +1472,48 @@
         function togglePhase(header) {
             const content = header.nextElementSibling;
             const toggle = header.querySelector('.phase-toggle');
-            
+
             if (content.classList.contains('active')) {
                 content.classList.remove('active');
                 content.style.maxHeight = null;
                 toggle.textContent = '+';
+                toggle.style.transform = 'rotate(0deg)';
             } else {
                 // Close others
                 document.querySelectorAll('.phase-content.active').forEach(el => {
                     el.classList.remove('active');
                     el.style.maxHeight = null;
                 });
-                document.querySelectorAll('.phase-toggle').forEach(el => el.textContent = '+');
-                
+                document.querySelectorAll('.phase-toggle').forEach(el => {
+                    el.textContent = '+';
+                    el.style.transform = 'rotate(0deg)';
+                });
+
                 content.classList.add('active');
                 content.style.maxHeight = content.scrollHeight + "px";
                 toggle.textContent = '−';
+                toggle.style.transform = 'rotate(180deg)';
             }
         }
 
-        // Smooth scroll for anchor links
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
 
         // Navbar scroll effect
         window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
+            const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) {
-                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+                navbar.classList.add('scrolled');
             } else {
-                navbar.style.boxShadow = 'none';
+                navbar.classList.remove('scrolled');
             }
         });
     </script>
