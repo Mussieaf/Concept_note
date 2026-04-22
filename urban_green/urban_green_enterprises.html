@@ -309,94 +309,519 @@
             border-radius: 2px;
         }
 
-        /* ===== DARK SECTION (Artful) ===== */
-        .artful-section {
+        /* ===== 3D DYNAMIC CYCLE SECTION ===== */
+        .cycle-section {
             background: var(--deep-green);
             color: white;
-            padding: 7rem 2rem;
+            padding: 6rem 2rem;
             position: relative;
             overflow: hidden;
+            min-height: 100vh;
         }
-        .artful-section::before {
-            content: '';
+
+        .cycle-bg-mesh {
             position: absolute;
-            top: -30%; right: -15%;
-            width: 700px; height: 700px;
-            background: radial-gradient(circle, rgba(201, 162, 39, 0.08) 0%, transparent 60%);
-            border-radius: 50%;
+            inset: 0;
+            z-index: 1;
+            opacity: 0.4;
         }
-        .artful-container {
+
+        .cycle-container {
             max-width: 1200px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
             position: relative;
             z-index: 2;
         }
-        .artful-text h2 {
+
+        .cycle-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .cycle-label {
+            display: inline-block;
+            background: rgba(201, 162, 39, 0.15);
+            color: var(--gold);
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(201, 162, 39, 0.25);
+        }
+
+        .cycle-header h2 {
             font-size: 2.8rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             line-height: 1.15;
         }
-        .artful-text p {
+
+        .cycle-header p {
             font-size: 1.05rem;
-            line-height: 1.8;
-            color: rgba(255,255,255,0.82);
-            margin-bottom: 1.3rem;
-        }
-        .artful-quote {
-            border-left: 3px solid var(--honey);
-            padding-left: 1.5rem;
-            font-style: italic;
-            font-size: 1.15rem;
-            color: var(--gold);
-            margin: 2rem 0;
+            color: rgba(255,255,255,0.75);
+            max-width: 600px;
+            margin: 0 auto;
             line-height: 1.7;
         }
-        .artful-image {
+
+        /* ===== CYCLE STAGE LAYOUT ===== */
+        .cycle-stage {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin: 3rem 0;
+        }
+
+        /* ===== 3D RING VISUAL ===== */
+        .stage-visual {
             position: relative;
-        }
-        .artful-image img {
             width: 100%;
-            border-radius: 14px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-            object-fit: cover;
-            height: 420px;
+            max-width: 450px;
+            aspect-ratio: 1;
+            margin: 0 auto;
+            perspective: 1000px;
         }
-        .floating-badge {
+
+        .stage-ring {
             position: absolute;
-            top: -25px;
-            right: -25px;
-            background: var(--honey);
-            color: var(--dark);
-            width: 110px; height: 110px;
-            border-radius: 50%;
+            inset: 0;
+            transform-style: preserve-3d;
+            animation: ringRotate 60s linear infinite;
+        }
+
+        @keyframes ringRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .ring-node {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 72px;
+            height: 72px;
+            margin: -36px 0 0 -36px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.15);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform: rotate(var(--angle)) translateX(160px) rotate(calc(var(--angle) * -1));
+            z-index: 5;
+        }
+
+        .ring-node:hover {
+            background: rgba(201, 162, 39, 0.2);
+            border-color: var(--honey);
+            transform: rotate(var(--angle)) translateX(160px) rotate(calc(var(--angle) * -1)) scale(1.15);
+        }
+
+        .ring-node.active {
+            background: rgba(201, 162, 39, 0.25);
+            border-color: var(--gold);
+            box-shadow: 0 0 30px rgba(201, 162, 39, 0.3), 0 0 60px rgba(201, 162, 39, 0.1);
+            transform: rotate(var(--angle)) translateX(160px) rotate(calc(var(--angle) * -1)) scale(1.2);
+        }
+
+        .node-icon {
+            font-size: 1.8rem;
+            line-height: 1;
+            margin-bottom: 0.2rem;
+        }
+
+        .node-label {
+            font-size: 0.6rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: rgba(255,255,255,0.8);
             text-align: center;
-            font-weight: 700;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-            animation: float 4s ease-in-out infinite;
+            line-height: 1.2;
+            max-width: 70px;
         }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-12px); }
+
+        .node-pulse {
+            position: absolute;
+            inset: -6px;
+            border-radius: 50%;
+            border: 2px solid var(--honey);
+            opacity: 0;
+            animation: nodePulse 2s ease-out infinite;
         }
-        .badge-number {
+
+        .ring-node.active .node-pulse {
+            opacity: 1;
+        }
+
+        @keyframes nodePulse {
+            0% { transform: scale(1); opacity: 0.6; }
+            100% { transform: scale(1.4); opacity: 0; }
+        }
+
+        /* Center Hub */
+        .stage-hub {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            z-index: 10;
+        }
+
+        .hub-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hub-icon {
+            font-size: 3.5rem;
+            z-index: 3;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            filter: drop-shadow(0 4px 15px rgba(201, 162, 39, 0.4));
+        }
+
+        .hub-ring, .hub-ring-2 {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 2px solid rgba(201, 162, 39, 0.3);
+            animation: hubSpin 8s linear infinite;
+        }
+
+        .hub-ring-2 {
+            inset: -15px;
+            border-color: rgba(74, 124, 89, 0.2);
+            animation: hubSpin 12s linear infinite reverse;
+        }
+
+        @keyframes hubSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Orbit SVG */
+        .orbit-svg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            animation: orbitPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes orbitPulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        /* Flow direction arrows */
+        .flow-arrows {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            animation: arrowPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes arrowPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Traveling Particles */
+        .travel-particles {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .travel-particle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 6px;
+            height: 6px;
+            background: var(--honey);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--honey), 0 0 20px rgba(201, 162, 39, 0.5);
+            margin: -3px 0 0 -3px;
+            animation: travelOrbit 8s linear infinite;
+        }
+
+        @keyframes travelOrbit {
+            from { transform: rotate(0deg) translateX(160px) rotate(0deg); }
+            to { transform: rotate(360deg) translateX(160px) rotate(-360deg); }
+        }
+
+        /* ===== STAGE INFO CARDS ===== */
+        .stage-info {
+            position: relative;
+            min-height: 400px;
+        }
+
+        .info-card {
+            position: absolute;
+            inset: 0;
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            opacity: 0;
+            transform: translateX(30px) rotateY(-10deg);
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            pointer-events: none;
+        }
+
+        .info-card.active {
+            opacity: 1;
+            transform: translateX(0) rotateY(0);
+            pointer-events: auto;
+        }
+
+        .info-number {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
+            font-size: 3.5rem;
+            color: var(--honey);
+            font-weight: 700;
+            line-height: 1;
+            opacity: 0.5;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .info-card p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 1.5rem;
+        }
+
+        .info-stats {
+            display: flex;
+            gap: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .info-stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-stat-val {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--gold);
+            font-weight: 700;
             line-height: 1;
         }
-        .badge-text {
-            font-size: 0.65rem;
+
+        .info-stat-label {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.6);
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-top: 0.3rem;
-            font-weight: 600;
+        }
+
+        /* ===== CYCLE CONTROLS ===== */
+        .cycle-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .cycle-btn {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            backdrop-filter: blur(8px);
+        }
+
+        .cycle-btn:hover {
+            background: rgba(201, 162, 39, 0.2);
+            border-color: var(--honey);
+            transform: translateY(-2px);
+        }
+
+        .cycle-progress {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .cycle-dots {
+            display: flex;
+            gap: 0.6rem;
+        }
+
+        .cycle-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            cursor: pointer;
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .cycle-dot::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            transition: border-color 0.4s;
+        }
+
+        .cycle-dot.active {
+            background: var(--honey);
+            transform: scale(1.3);
+            box-shadow: 0 0 15px rgba(201, 162, 39, 0.4);
+        }
+
+        .cycle-dot.active::after {
+            border-color: rgba(201, 162, 39, 0.3);
+        }
+
+        .auto-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: color 0.3s;
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+        }
+
+        .auto-toggle:hover, .auto-toggle.active {
+            color: var(--gold);
+            background: rgba(201, 162, 39, 0.1);
+        }
+
+        .auto-icon {
+            font-size: 0.7rem;
+        }
+
+        .cycle-quote {
+            text-align: center;
+            max-width: 700px;
+            margin: 3rem auto 0;
+            border-left: none;
+            border-top: 2px solid var(--honey);
+            padding: 1.5rem 0 0;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .cycle-stage {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .stage-visual {
+                max-width: 380px;
+            }
+            .ring-node {
+                width: 68px; height: 68px;
+                margin: -34px 0 0 -34px;
+                transform: rotate(var(--angle)) translateX(140px) rotate(calc(var(--angle) * -1));
+            }
+            .ring-node:hover, .ring-node.active {
+                transform: rotate(var(--angle)) translateX(140px) rotate(calc(var(--angle) * -1)) scale(1.15);
+            }
+            .node-label { font-size: 0.55rem; }
+            @keyframes travelOrbit {
+                from { transform: rotate(0deg) translateX(140px) rotate(0deg); }
+                to { transform: rotate(360deg) translateX(140px) rotate(-360deg); }
+            }
+        }
+
+        @media (max-width: 768px) {
+            .cycle-section { padding: 4rem 1.5rem; }
+            .cycle-header h2 { font-size: 2rem; }
+            .stage-visual { max-width: 340px; }
+            .ring-node {
+                width: 58px; height: 58px;
+                margin: -29px 0 0 -29px;
+                transform: rotate(var(--angle)) translateX(120px) rotate(calc(var(--angle) * -1));
+            }
+            .ring-node:hover, .ring-node.active {
+                transform: rotate(var(--angle)) translateX(120px) rotate(calc(var(--angle) * -1)) scale(1.1);
+            }
+            .node-icon { font-size: 1.3rem; }
+            .node-label { font-size: 0.45rem; max-width: 55px; }
+            .hub-icon { font-size: 2.2rem; }
+            .stage-hub { width: 85px; height: 85px; }
+            .info-card { padding: 1.5rem; }
+            .info-card h3 { font-size: 1.3rem; }
+            .info-number { font-size: 2.2rem; }
+            .info-stats { gap: 1.2rem; }
+            .info-stat-val { font-size: 1.2rem; }
+            .cycle-controls { gap: 0.8rem; }
+            .cycle-btn { padding: 0.6rem 0.9rem; font-size: 0.78rem; }
+            .cycle-dots { gap: 0.4rem; }
+            .cycle-dot { width: 8px; height: 8px; }
+            @keyframes travelOrbit {
+                from { transform: rotate(0deg) translateX(120px) rotate(0deg); }
+                to { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stage-visual { max-width: 300px; }
+            .ring-node {
+                width: 52px; height: 52px;
+                margin: -26px 0 0 -26px;
+                transform: rotate(var(--angle)) translateX(100px) rotate(calc(var(--angle) * -1));
+            }
+            .ring-node:hover, .ring-node.active {
+                transform: rotate(var(--angle)) translateX(100px) rotate(calc(var(--angle) * -1)) scale(1.1);
+            }
+            .node-icon { font-size: 1.1rem; }
+            .node-label { font-size: 0.4rem; max-width: 48px; }
+            .info-stats {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            .cycle-dots { gap: 0.3rem; }
+            .cycle-dot { width: 7px; height: 7px; }
+            @keyframes travelOrbit {
+                from { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+                to { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+            }
         }
 
         /* ===== STAT CARDS (AFLI style) ===== */
@@ -1450,23 +1875,252 @@
         </div>
     </section>
 
-    <!-- Artful Vision Section -->
-    <section class="artful-section" id="vision">
-        <div class="artful-container">
-            <div class="artful-text">
+    <!-- 3D Dynamic Cycle: Circular Economy Flow -->
+    <section class="cycle-section" id="vision">
+        <div class="cycle-bg-mesh" id="cycleMesh"></div>
+        <div class="cycle-container">
+            <div class="cycle-header">
+                <div class="cycle-label">The Circular Economy Engine</div>
                 <h2>The Living Architecture of Urban Resilience</h2>
-                <p>Imagine a city where every rooftop breathes, where waste becomes wealth, and where the unemployed youth of today become the environmental stewards of tomorrow. This is not utopia—this is engineered ecology.</p>
-                <p>We do not plant trees in isolation. We weave a tapestry where bees pollinate crops, compost feeds the soil, nurseries supply restoration contracts, and ancient herbal wisdom finds its way to modern markets.</p>
-                <div class="artful-quote">
-                    "Environmental projects which do not generate income do not sustain themselves over time. We address that evidence directly."
+                <p>Eight interconnected stages. One closed loop. From food waste to fresh harvest, watch how urban resources cycle through transformation—driven by youth, powered by nature, sustained by markets.</p>
+            </div>
+
+            <div class="cycle-stage" id="cycleStage">
+                <div class="stage-visual">
+                    <div class="stage-ring" id="stageRing">
+                        <!-- Stage 1: Food Waste/Yard Waste -->
+                        <div class="ring-node active" data-stage="0" style="--angle: 0deg;">
+                            <div class="node-icon">🗑️</div>
+                            <div class="node-label">Food & Yard Waste</div>
+                            <div class="node-pulse"></div>
+                        </div>
+                        <!-- Stage 2: Collection/Transportation -->
+                        <div class="ring-node" data-stage="1" style="--angle: 45deg;">
+                            <div class="node-icon">🚛</div>
+                            <div class="node-label">Collection</div>
+                            <div class="node-pulse"></div>
+                        </div>
+                        <!-- Stage 3: Composting/Processing -->
+                        <div class="ring-node" data-stage="2" style="--angle: 90deg;">
+                            <div class="node-icon">⚙️</div>
+                            <div class="node-label">Composting</div>
+                            <div class="node-pulse"></div>
+                        </div>
+                        <!-- Stage 4: Compost Distribution -->
+                        <div class="ring-node" data-stage="3" style="--angle: 135deg;">
+                            <div class="node-icon">📦</div>
+                            <div class="node-label">Distribution</div>
+                            <div class="node-pulse"></div>
+                        </div>
+                        <!-- Stage 5: Soil Amendments -->
+                        <div class="ring-node" data-stage="4" style="--angle: 180deg;">
+                            <div class="node-icon">🌾</div>
+                            <div class="node-label">Soil Amendments</div>
+                            <div class="node-pulse"></div>
+                        </div>
+                        <!-- Stage 6: Plant Life -->
+                        <div class="ring-node" data-stage="5" style="--angle: 225deg;">
+                            <div class="node-icon">🌱</div>
+                            <div class="node-label">Plant Life</div>
+                            <div class="node-pulse"></div>
+                        </div>
+                        <!-- Stage 7: Distribution/Consumption -->
+                        <div class="ring-node" data-stage="6" style="--angle: 270deg;">
+                            <div class="node-icon">🏪</div>
+                            <div class="node-label">Markets</div>
+                            <div class="node-pulse"></div>
+                        </div>
+                        <!-- Stage 8: Food Donation -->
+                        <div class="ring-node" data-stage="7" style="--angle: 315deg;">
+                            <div class="node-icon">🤝</div>
+                            <div class="node-label">Food Donation</div>
+                            <div class="node-pulse"></div>
+                        </div>
+                    </div>
+
+                    <!-- Center hub -->
+                    <div class="stage-hub" id="stageHub">
+                        <div class="hub-inner">
+                            <div class="hub-icon" id="hubIcon">🗑️</div>
+                            <div class="hub-ring"></div>
+                            <div class="hub-ring-2"></div>
+                        </div>
+                    </div>
+
+                    <!-- Connecting orbit lines -->
+                    <svg class="orbit-svg" viewBox="0 0 400 400">
+                        <circle cx="200" cy="200" r="160" fill="none" stroke="rgba(201,162,39,0.12)" stroke-width="1.5" stroke-dasharray="6 4"/>
+                        <circle cx="200" cy="200" r="130" fill="none" stroke="rgba(74,124,89,0.15)" stroke-width="1"/>
+                        <circle cx="200" cy="200" r="190" fill="none" stroke="rgba(201,162,39,0.06)" stroke-width="0.5" stroke-dasharray="3 6"/>
+                    </svg>
+
+                    <!-- Directional arrows showing cycle flow -->
+                    <svg class="flow-arrows" viewBox="0 0 400 400">
+                        <defs>
+                            <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
+                                <polygon points="0 0, 6 2, 0 4" fill="rgba(201,162,39,0.4)"/>
+                            </marker>
+                        </defs>
+                        <path d="M 200 30 A 170 170 0 0 1 370 200" fill="none" stroke="rgba(201,162,39,0.15)" stroke-width="1" marker-end="url(#arrowhead)"/>
+                        <path d="M 370 200 A 170 170 0 0 1 200 370" fill="none" stroke="rgba(201,162,39,0.15)" stroke-width="1" marker-end="url(#arrowhead)"/>
+                        <path d="M 200 370 A 170 170 0 0 1 30 200" fill="none" stroke="rgba(201,162,39,0.15)" stroke-width="1" marker-end="url(#arrowhead)"/>
+                        <path d="M 30 200 A 170 170 0 0 1 200 30" fill="none" stroke="rgba(201,162,39,0.15)" stroke-width="1" marker-end="url(#arrowhead)"/>
+                    </svg>
+
+                    <!-- Animated particles traveling the ring -->
+                    <div class="travel-particles" id="travelParticles"></div>
+                </div>
+
+                <div class="stage-info" id="stageInfo">
+                    <div class="info-card active" data-stage="0">
+                        <div class="info-number">01</div>
+                        <h3>Food Waste & Yard Waste</h3>
+                        <p>The cycle begins where most see an ending. Organic scraps from households, markets, and restaurants—along with fallen leaves and garden trimmings—are collected as raw material rather than discarded. In Addis Ababa, this represents tonnes of daily waste diverted from landfills and transformed into productive inputs.</p>
+                        <div class="info-stats">
+                            <div class="info-stat">
+                                <span class="info-stat-val">100%</span>
+                                <span class="info-stat-label">Organic Diversion</span>
+                            </div>
+                            <div class="info-stat">
+                                <span class="info-stat-val">Zero</span>
+                                <span class="info-stat-label">Landfill Waste</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-card" data-stage="1">
+                        <div class="info-number">02</div>
+                        <h3>Collection & Transportation</h3>
+                        <p>Youth-led collection teams gather organic waste from designated points across each sub-city. Specialized transport ensures materials reach composting sites fresh and uncontaminated. This stage creates immediate green jobs while establishing the logistical backbone of the circular system.</p>
+                        <div class="info-stats">
+                            <div class="info-stat">
+                                <span class="info-stat-val">11</span>
+                                <span class="info-stat-label">Sub-City Networks</span>
+                            </div>
+                            <div class="info-stat">
+                                <span class="info-stat-val">Daily</span>
+                                <span class="info-stat-label">Collection Routes</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-card" data-stage="2">
+                        <div class="info-number">03</div>
+                        <h3>Composting & Processing</h3>
+                        <p>Collected organic matter undergoes controlled decomposition. Youth enterprises manage aerated compost piles, monitoring temperature and moisture to produce nutrient-rich soil amendments. This biological factory operates 24/7, converting waste into black gold within 8–12 weeks.</p>
+                        <div class="info-stats">
+                            <div class="info-stat">
+                                <span class="info-stat-val">8–12</span>
+                                <span class="info-stat-label">Weeks Processing</span>
+                            </div>
+                            <div class="info-stat">
+                                <span class="info-stat-val">40%</span>
+                                <span class="info-stat-label">Cost Reduction</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-card" data-stage="3">
+                        <div class="info-number">04</div>
+                        <h3>Compost Distribution</h3>
+                        <p>Finished compost is packaged and distributed to urban farms, tree nurseries, and restoration sites. Youth enterprises manage inventory, quality testing, and delivery logistics. This distribution network ensures every gram of processed waste returns to the soil where it belongs.</p>
+                        <div class="info-stats">
+                            <div class="info-stat">
+                                <span class="info-stat-val">100%</span>
+                                <span class="info-stat-label">Closed Loop</span>
+                            </div>
+                            <div class="info-stat">
+                                <span class="info-stat-val">Local</span>
+                                <span class="info-stat-label">Distribution</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-card" data-stage="4">
+                        <div class="info-number">05</div>
+                        <h3>Soil Amendments</h3>
+                        <p>Compost enriches depleted urban soils, restoring fertility and structure without chemical fertilizers. Youth teams apply amendments to rooftop gardens, vertical farms, and nursery beds. The soil microbiome awakens—bacteria, fungi, and earthworms create living ground capable of sustaining intensive urban agriculture.</p>
+                        <div class="info-stats">
+                            <div class="info-stat">
+                                <span class="info-stat-val">Zero</span>
+                                <span class="info-stat-label">Chemical Inputs</span>
+                            </div>
+                            <div class="info-stat">
+                                <span class="info-stat-val">3x</span>
+                                <span class="info-stat-label">Soil Fertility</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-card" data-stage="5">
+                        <div class="info-number">06</div>
+                        <h3>Plant Life</h3>
+                        <p>Seeds become seedlings, seedlings become crops. Vegetables, herbs, and medicinal plants flourish in amended soils across vertical gardens, rooftop farms, and container systems. Bees pollinate flowers, increasing yields by 30%. Tree nurseries produce seedlings for city greening contracts. Life returns to concrete.</p>
+                        <div class="info-stats">
+                            <div class="info-stat">
+                                <span class="info-stat-val">$8K–12K</span>
+                                <span class="info-stat-label">Crop Revenue</span>
+                            </div>
+                            <div class="info-stat">
+                                <span class="info-stat-val">30%</span>
+                                <span class="info-stat-label">Yield Increase</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-card" data-stage="6">
+                        <div class="info-number">07</div>
+                        <h3>Distribution & Consumption</h3>
+                        <p>Fresh produce travels meters—not miles—to local markets, restaurants, and households. Honey, herbal oils, and seedlings reach buyers through pre-arranged agreements. Revenue flows back to youth enterprises, funding wages, reinvestment, and the next growing cycle. The loop closes economically.</p>
+                        <div class="info-stats">
+                            <div class="info-stat">
+                                <span class="info-stat-val">$20K–30K</span>
+                                <span class="info-stat-label">Total Revenue</span>
+                            </div>
+                            <div class="info-stat">
+                                <span class="info-stat-val">Local</span>
+                                <span class="info-stat-label">Supply Chain</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-card" data-stage="7">
+                        <div class="info-number">08</div>
+                        <h3>Food Donation & Community</h3>
+                        <p>Surplus harvests feed vulnerable communities through donation networks. Youth associations allocate a percentage of production to food security programs, strengthening social bonds. What cannot be sold or donated returns to the compost pile—completing the infinite cycle. Nothing is wasted. Everything transforms.</p>
+                        <div class="info-stats">
+                            <div class="info-stat">
+                                <span class="info-stat-val">5K–7K</span>
+                                <span class="info-stat-label">Indirect Beneficiaries</span>
+                            </div>
+                            <div class="info-stat">
+                                <span class="info-stat-val">∞</span>
+                                <span class="info-stat-label">Circular Loop</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="artful-image">
-                <img src="https://kimi-web-img.moonshot.cn/img/cdn.kingcounty.gov/9ef26027edbe719e79fc3e7ac723d44aa3b48003.jpg" alt="Circular economy system">
-                <div class="floating-badge">
-                    <div class="badge-number">5</div>
-                    <div class="badge-text">Integrated<br>Components</div>
+
+            <!-- Cycle controls -->
+            <div class="cycle-controls">
+                <button class="cycle-btn cycle-prev" onclick="prevStage()">← Previous</button>
+                <div class="cycle-progress">
+                    <div class="cycle-dots">
+                        <span class="cycle-dot active" data-stage="0"></span>
+                        <span class="cycle-dot" data-stage="1"></span>
+                        <span class="cycle-dot" data-stage="2"></span>
+                        <span class="cycle-dot" data-stage="3"></span>
+                        <span class="cycle-dot" data-stage="4"></span>
+                        <span class="cycle-dot" data-stage="5"></span>
+                        <span class="cycle-dot" data-stage="6"></span>
+                        <span class="cycle-dot" data-stage="7"></span>
+                    </div>
+                    <div class="cycle-auto">
+                        <button class="auto-toggle active" id="autoToggle" onclick="toggleAuto()">
+                            <span class="auto-icon">▶</span>
+                            <span class="auto-text">Auto-play</span>
+                        </button>
+                    </div>
                 </div>
+                <button class="cycle-btn cycle-next" onclick="nextStage()">Next →</button>
+            </div>
+
+            <div class="artful-quote cycle-quote">
+                "Environmental projects which do not generate income do not sustain themselves over time. We address that evidence directly."
             </div>
         </div>
     </section>
@@ -2552,6 +3206,195 @@
                 panels.forEach(p => p.classList.remove('expanded'));
             }
         });
+    })();
+
+    // ===== 3D CYCLE STAGE CONTROLLER (8 Stages) =====
+    let currentStage = 0;
+    let autoPlayInterval = null;
+    let isAutoPlaying = true;
+    const totalStages = 8;
+
+    const stageIcons = ['🗑️', '🚛', '⚙️', '📦', '🌾', '🌱', '🛒', '📦'];
+    const stageImages = [
+        'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=400&q=80',
+        'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&q=80',
+        'https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=400&q=80',
+        'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&q=80',
+        'https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=400&q=80',
+        'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&q=80',
+        'https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=400&q=80',
+        'https://images.unsplash.com/photo-1593113598332-cd288d649433?w=400&q=80'
+    ];
+
+    function updateStage(index) {
+        currentStage = index;
+
+        // Update ring nodes (only for first 7 stages)
+        document.querySelectorAll('.ring-node').forEach((node, i) => {
+            node.classList.toggle('active', i === index && index < 7);
+        });
+
+        // Update side branch
+        const branchNode = document.querySelector('.branch-node');
+        if (branchNode) {
+            branchNode.classList.toggle('active', index === 7);
+        }
+
+        // Update hub icon with morph animation
+        const hubIcon = document.getElementById('hubIcon');
+        if (hubIcon) {
+            hubIcon.style.transform = 'scale(0.3) rotate(180deg)';
+            hubIcon.style.opacity = '0';
+            hubIcon.style.filter = 'blur(4px)';
+            setTimeout(() => {
+                hubIcon.textContent = stageIcons[index] || '🔄';
+                hubIcon.style.transform = 'scale(1) rotate(0deg)';
+                hubIcon.style.opacity = '1';
+                hubIcon.style.filter = 'blur(0px)';
+            }, 250);
+        }
+
+        // Update preview image
+        const previewImg = document.getElementById('previewImg');
+        if (previewImg && stageImages[index]) {
+            previewImg.style.opacity = '0';
+            setTimeout(() => {
+                previewImg.src = stageImages[index];
+                previewImg.style.opacity = '0.85';
+            }, 300);
+        }
+
+        // Update info cards with 3D flip
+        document.querySelectorAll('.info-card').forEach((card, i) => {
+            if (i === index) {
+                card.classList.add('active');
+            } else {
+                card.classList.remove('active');
+            }
+        });
+
+        // Update dots
+        document.querySelectorAll('.cycle-dot').forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+    }
+
+    function nextStage() {
+        updateStage((currentStage + 1) % totalStages);
+    }
+
+    function prevStage() {
+        updateStage((currentStage - 1 + totalStages) % totalStages);
+    }
+
+    function toggleAuto() {
+        isAutoPlaying = !isAutoPlaying;
+        const btn = document.getElementById('autoToggle');
+        if (isAutoPlaying) {
+            btn.classList.add('active');
+            btn.querySelector('.auto-icon').textContent = '▶';
+            startAutoPlay();
+        } else {
+            btn.classList.remove('active');
+            btn.querySelector('.auto-icon').textContent = '⏸';
+            stopAutoPlay();
+        }
+    }
+
+    function startAutoPlay() {
+        stopAutoPlay();
+        autoPlayInterval = setInterval(() => {
+            if (isAutoPlaying) nextStage();
+        }, 5000);
+    }
+
+    function stopAutoPlay() {
+        if (autoPlayInterval) {
+            clearInterval(autoPlayInterval);
+            autoPlayInterval = null;
+        }
+    }
+
+    // Click on ring nodes
+    document.querySelectorAll('.ring-node').forEach((node, i) => {
+        node.addEventListener('click', () => {
+            updateStage(i);
+            // Pause auto-play briefly on manual interaction
+            if (isAutoPlaying) {
+                stopAutoPlay();
+                setTimeout(startAutoPlay, 8000);
+            }
+        });
+    });
+
+    // Click on dots
+    document.querySelectorAll('.cycle-dot').forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+            updateStage(i);
+            if (isAutoPlaying) {
+                stopAutoPlay();
+                setTimeout(startAutoPlay, 8000);
+            }
+        });
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') nextStage();
+        if (e.key === 'ArrowLeft') prevStage();
+    });
+
+    // Start auto-play on load
+    startAutoPlay();
+
+    // Create traveling particles
+    (function createTravelParticles() {
+        const container = document.getElementById('travelParticles');
+        if (!container) return;
+
+        for (let i = 0; i < 3; i++) {
+            const p = document.createElement('div');
+            p.className = 'travel-particle';
+            p.style.animationDelay = `${i * 2.67}s`;
+            p.style.animationDuration = `${6 + i * 2}s`;
+            container.appendChild(p);
+        }
+    })();
+
+    // ===== CYCLE MESH BACKGROUND =====
+    (function() {
+        const container = document.getElementById('cycleMesh');
+        if (!container) return;
+
+        // Create subtle animated gradient mesh with divs
+        const colors = [
+            'radial-gradient(circle at 20% 50%, rgba(74,124,89,0.15) 0%, transparent 50%)',
+            'radial-gradient(circle at 80% 50%, rgba(201,162,39,0.1) 0%, transparent 50%)',
+            'radial-gradient(circle at 50% 80%, rgba(26,71,42,0.2) 0%, transparent 50%)'
+        ];
+
+        colors.forEach((grad, i) => {
+            const div = document.createElement('div');
+            div.style.cssText = `
+                position: absolute;
+                inset: -20%;
+                background: ${grad};
+                animation: meshFloat ${15 + i * 5}s ease-in-out infinite;
+                animation-delay: ${i * 3}s;
+            `;
+            container.appendChild(div);
+        });
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes meshFloat {
+                0%, 100% { transform: translate(0, 0) scale(1); }
+                25% { transform: translate(5%, -5%) scale(1.1); }
+                50% { transform: translate(-3%, 8%) scale(0.95); }
+                75% { transform: translate(-8%, -3%) scale(1.05); }
+            }
+        `;
+        document.head.appendChild(style);
     })();
 
     // ===== LEAF PARTICLE CANVAS =====
