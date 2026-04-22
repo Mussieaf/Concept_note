@@ -2520,6 +2520,195 @@
             document.querySelectorAll('.pillar-panel').forEach(p => p.classList.remove('active'));
         }
     });
+
+    // ===== VERTICAL PANEL EXPAND =====
+    (function() {
+        const panels = document.querySelectorAll('.v-panel');
+
+        panels.forEach(panel => {
+            panel.addEventListener('mouseenter', () => {
+                panels.forEach(p => p.classList.remove('expanded'));
+                panel.classList.add('expanded');
+            });
+        });
+
+        // For mobile: click to expand
+        panels.forEach(panel => {
+            panel.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.stopPropagation();
+                    const isExpanded = panel.classList.contains('expanded');
+                    panels.forEach(p => p.classList.remove('expanded'));
+                    if (!isExpanded) {
+                        panel.classList.add('expanded');
+                    }
+                }
+            });
+        });
+
+        // Clear expanded on click outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.v-panel')) {
+                panels.forEach(p => p.classList.remove('expanded'));
+            }
+        });
+    })();
+
+    // ===== LEAF PARTICLE CANVAS =====
+    (function() {
+        const canvas = document.getElementById('leafCanvas');
+        if (!canvas) return;
+
+        const ctx = canvas.getContext('2d');
+        let width, height, animationId;
+
+        // Leaf shapes using bezier curves
+        function drawLeaf(ctx, x, y, size, rotation, opacity, color) {
+            ctx.save();
+            ctx.translate(x, y);
+            ctx.rotate(rotation);
+            ctx.globalAlpha = opacity;
+            ctx.fillStyle = color;
+
+            ctx.beginPath();
+            ctx.moveTo(0, -size);
+            ctx.bezierCurveTo(size * 0.5, -size * 0.7, size * 0.8, -size * 0.2, 0, size);
+            ctx.bezierCurveTo(-size * 0.8, -size * 0.2, -size * 0.5, -size * 0.7, 0, -size);
+            ctx.fill();
+
+            // Leaf vein
+            ctx.strokeStyle = `rgba(255,255,255,${opacity * 0.3})`;
+            ctx.lineWidth = 0.5;
+            ctx.beginPath();
+            ctx.moveTo(0, -size * 0.8);
+            ctx.lineTo(0, size * 0.8);
+            ctx.stroke();
+
+            ctx.restore();
+        }
+
+        const leaves = [];
+        const LEAF_COUNT = 25;
+        const leafColors = [
+            'rgba(74, 124, 89, 0.4)',
+            'rgba(107, 142, 35, 0.35)',
+            'rgba(201, 162, 39, 0.25)',
+            'rgba(26, 71, 42, 0.3)',
+            'rgba(139, 188, 100, 0.3)'
+        ];
+
+        for (let i = 0; i < LEAF_COUNT; i++) {
+            leaves.push({
+                x: Math.random(),
+                y: Math.random(),
+                vx: (Math.random() - 0.5) * 0.00015,
+                vy: -0.0001 - Math.random() * 0.0002,
+                size: 8 + Math.random() * 18,
+                rotation: Math.random() * Math.PI * 2,
+                rotSpeed: (Math.random() - 0.5) * 0.002,
+                opacity: 0.15 + Math.random() * 0.25,
+                opacitySpeed: 0.0005 + Math.random() * 0.001,
+                opacityPhase: Math.random() * Math.PI * 2,
+                color: leafColors[Math.floor(Math.random() * leafColors.length)]
+            });
+        }
+
+        // Floating spores/pollen
+        const spores = [];
+        for (let i = 0; i < 40; i++) {
+            spores.push({
+                x: Math.random(),
+                y: Math.random(),
+                vx: (Math.random() - 0.5) * 0.0002,
+                vy: -0.00005 - Math.random() * 0.00015,
+                size: 1 + Math.random() * 2.5,
+                opacity: 0.1 + Math.random() * 0.3,
+                pulse: Math.random() * Math.PI * 2
+            });
+        }
+
+        function resize() {
+            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+            width = canvas.parentElement.offsetWidth;
+            height = canvas.parentElement.offsetHeight;
+            canvas.width = width * dpr;
+            canvas.height = height * dpr;
+            ctx.scale(dpr, dpr);
+        }
+
+        let time = 0;
+
+        function animate() {
+            time += 16;
+            ctx.clearRect(0, 0, width, height);
+
+            // Draw leaves
+            leaves.forEach(leaf => {
+                leaf.x += leaf.vx + Math.sin(time * 0.0003 + leaf.opacityPhase) * 0.0001;
+                leaf.y += leaf.vy;
+                leaf.rotation += leaf.rotSpeed;
+
+                // Wrap
+                if (leaf.y < -0.1) { leaf.y = 1.1; leaf.x = Math.random(); }
+                if (leaf.x < -0.1) leaf.x = 1.1;
+                if (leaf.x > 1.1) leaf.x = -0.1;
+
+                const currentOpacity = leaf.opacity * (0.7 + 0.3 * Math.sin(time * leaf.opacitySpeed + leaf.opacityPhase));
+
+                drawLeaf(
+                    ctx,
+                    leaf.x * width,
+                    leaf.y * height,
+                    leaf.size,
+                    leaf.rotation + Math.sin(time * 0.001) * 0.3,
+                    currentOpacity,
+                    leaf.color
+                );
+            });
+
+            // Draw spores
+            spores.forEach(spore => {
+                spore.x += spore.vx;
+                spore.y += spore.vy;
+
+                if (spore.y < -0.05) { spore.y = 1.05; spore.x = Math.random(); }
+                if (spore.x < -0.05) spore.x = 1.05;
+                if (spore.x > 1.05) spore.x = -0.05;
+
+                const pulseOpacity = spore.opacity * (0.5 + 0.5 * Math.sin(time * 0.002 + spore.pulse));
+
+                ctx.fillStyle = `rgba(201, 162, 39, ${pulseOpacity})`;
+                ctx.beginPath();
+                ctx.arc(spore.x * width, spore.y * height, spore.size, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Glow
+                ctx.fillStyle = `rgba(201, 162, 39, ${pulseOpacity * 0.3})`;
+                ctx.beginPath();
+                ctx.arc(spore.x * width, spore.y * height, spore.size * 3, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            animationId = requestAnimationFrame(animate);
+        }
+
+        resize();
+        window.addEventListener('resize', resize);
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (!animationId) animate();
+                } else {
+                    cancelAnimationFrame(animationId);
+                    animationId = null;
+                }
+            });
+        }, { threshold: 0.05 });
+
+        observer.observe(canvas);
+        animate();
+    })();
     </script>
 </body>
 </html>
