@@ -1772,6 +1772,17 @@
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin" style="margin-right: 0.5rem;"></i> Processing...';
             submitBtn.disabled = true;
 
+            <!--
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(currentRegistration)
+            })
+            -->
+            
             fetch(GOOGLE_SCRIPT_URL + '?cors=true', {
                 method: 'POST',
                 redirect: 'follow',
