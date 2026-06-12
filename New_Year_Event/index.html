@@ -1772,7 +1772,7 @@
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin" style="margin-right: 0.5rem;"></i> Processing...';
             submitBtn.disabled = true;
 
-            // Use URL-encoded form data for reliable Google Apps Script delivery
+            // Build URL-encoded payload for Google Apps Script
             const formData = new URLSearchParams();
             formData.append('payload', JSON.stringify(currentRegistration));
 
@@ -1785,7 +1785,7 @@
                 body: formData.toString()
             })
             .then(() => {
-                // no-cors mode hides response, so we assume success after network delivery
+                // no-cors mode: cannot read response, but request was sent
                 closeModal();
                 document.getElementById('registrationForm').style.display = 'none';
                 document.getElementById('successMessage').classList.add('active');
@@ -1800,7 +1800,7 @@
                 submitBtn.disabled = false;
             });
         }
-               
+                       
         function copyToClipboard(text) {
             navigator.clipboard.writeText(text).then(() => {
                 showToast('Copied: ' + text);
