@@ -17,6 +17,8 @@
             --cream: #FDF6E3;
             --dark: #0A0A0A;
             --text-light: #E8E8E8;
+            --success: #2E7D32;
+            --error: #C62828;
         }
 
         * {
@@ -921,6 +923,87 @@
             transform: translateY(0);
         }
 
+        /* Registration Form */
+        .registration-section { background: var(--deep-green); position: relative; }
+        .registration-section::before { content: ''; position: absolute; right: -10%; top: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%); border-radius: 50%; }
+        .registration-container { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+        .form-wrapper { background: rgba(10, 10, 10, 0.6); border: 1px solid rgba(212, 175, 55, 0.3); padding: 3rem; backdrop-filter: blur(10px); }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+        .form-group { display: flex; flex-direction: column; }
+        .form-group.full-width { grid-column: 1 / -1; }
+        .form-group label { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+        .form-group input, .form-group select, .form-group textarea { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(212, 175, 55, 0.3); color: var(--cream); padding: 1rem; font-family: 'Inter', sans-serif; font-size: 0.95rem; transition: all 0.3s; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--gold); background: rgba(255, 255, 255, 0.08); box-shadow: 0 0 20px rgba(212, 175, 55, 0.1); }
+        .form-group input::placeholder { color: rgba(232, 232, 232, 0.4); }
+        .form-group select option { background: var(--deep-green); color: var(--cream); }
+        .form-group textarea { resize: vertical; min-height: 100px; }
+        .checkbox-group { display: flex; align-items: flex-start; gap: 0.75rem; margin-top: 1rem; }
+        .checkbox-group input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--gold); margin-top: 2px; }
+        .checkbox-group label { font-size: 0.85rem; color: var(--text-light); opacity: 0.8; line-height: 1.5; }
+        .submit-btn { width: 100%; background: var(--gold); color: var(--deep-green); padding: 1.2rem; border: none; font-family: 'Cinzel', serif; font-weight: 700; font-size: 1rem; letter-spacing: 3px; cursor: pointer; transition: all 0.4s; text-transform: uppercase; margin-top: 2rem; position: relative; overflow: hidden; }
+        .submit-btn:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3); }
+        .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+        /* Success Message */
+        .success-message { display: none; text-align: center; padding: 3rem; background: rgba(46, 125, 50, 0.1); border: 1px solid var(--success); margin-top: 2rem; }
+        .success-message.active { display: block; animation: fadeInUp 0.6s ease; }
+        .success-message i { font-size: 3rem; color: var(--success); margin-bottom: 1rem; }
+        .success-message h3 { font-family: 'Cinzel', serif; color: var(--cream); font-size: 1.5rem; margin-bottom: 1rem; }
+        .success-message p { color: var(--text-light); opacity: 0.9; line-height: 1.6; margin-bottom: 1rem; }
+        .bank-details { background: rgba(10, 10, 10, 0.8); border: 1px solid var(--gold); padding: 2rem; margin: 1.5rem 0; text-align: left; }
+        .bank-details h4 { font-family: 'Cinzel', serif; color: var(--gold); font-size: 1rem; margin-bottom: 1rem; letter-spacing: 2px; }
+        .bank-details .detail-row { display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid rgba(212, 175, 55, 0.2); }
+        .bank-details .detail-row:last-child { border-bottom: none; }
+        .bank-details .detail-label { font-size: 0.85rem; color: var(--gold-light); }
+        .bank-details .detail-value { font-family: 'Cinzel', serif; font-size: 0.9rem; color: var(--cream); }
+        .copy-btn { background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 0.3rem 0.8rem; font-size: 0.75rem; cursor: pointer; transition: all 0.3s; margin-left: 0.5rem; }
+        .copy-btn:hover { background: var(--gold); color: var(--deep-green); }
+
+        /* Email Preview Modal */
+        .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 2000; align-items: center; justify-content: center; padding: 2rem; }
+        .modal-overlay.active { display: flex; }
+        .modal-content { background: var(--deep-green); border: 2px solid var(--gold); max-width: 700px; width: 100%; max-height: 90vh; overflow-y: auto; position: relative; }
+        .modal-header { background: var(--imperial-green); padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--gold); }
+        .modal-header h3 { font-family: 'Cinzel', serif; color: var(--gold); font-size: 1.2rem; }
+        .modal-close { background: none; border: none; color: var(--gold); font-size: 1.5rem; cursor: pointer; }
+        .modal-body { padding: 2rem; }
+        .email-preview { background: #fff; color: #333; padding: 2rem; font-family: 'Georgia', serif; line-height: 1.6; }
+        .email-preview-header { border-bottom: 2px solid #D4AF37; padding-bottom: 1rem; margin-bottom: 1.5rem; }
+        .email-preview-header h2 { color: #1B4332; font-family: 'Cinzel', serif; font-size: 1.3rem; }
+        .email-preview-body p { margin-bottom: 1rem; font-size: 0.95rem; }
+        .email-preview-body .highlight { background: #FFF8DC; padding: 0.2rem 0.4rem; font-weight: 600; }
+        .email-preview-body .bank-box { background: #F5F5F5; border: 1px solid #D4AF37; padding: 1rem; margin: 1rem 0; }
+        .email-preview-body .bank-box p { margin-bottom: 0.5rem; font-family: 'Courier New', monospace; font-size: 0.9rem; }
+        .email-preview-footer { border-top: 1px solid #ddd; padding-top: 1rem; margin-top: 1.5rem; font-size: 0.85rem; color: #666; }
+        .modal-actions { display: flex; gap: 1rem; padding: 1.5rem 2rem; background: rgba(0,0,0,0.3); }
+        .modal-actions button { flex: 1; padding: 1rem; font-family: 'Cinzel', serif; font-weight: 600; letter-spacing: 2px; cursor: pointer; transition: all 0.3s; }
+        .btn-confirm { background: var(--gold); color: var(--deep-green); border: none; }
+        .btn-confirm:hover { background: var(--gold-light); }
+        .btn-cancel { background: transparent; color: var(--gold); border: 1px solid var(--gold); }
+        .btn-cancel:hover { background: rgba(212, 175, 55, 0.1); }
+
+        /* Excel Download Section */
+        .excel-section { background: var(--dark); text-align: center; padding: 4rem 2rem; }
+        .excel-card { max-width: 600px; margin: 0 auto; background: rgba(10, 10, 10, 0.6); border: 1px solid rgba(212, 175, 55, 0.3); padding: 3rem; }
+        .excel-icon { font-size: 3rem; color: var(--success); margin-bottom: 1rem; }
+        .excel-card h3 { font-family: 'Cinzel', serif; color: var(--cream); font-size: 1.3rem; margin-bottom: 1rem; }
+        .excel-card p { color: var(--text-light); opacity: 0.8; margin-bottom: 1.5rem; line-height: 1.6; }
+        .download-btn { background: var(--success); color: white; padding: 1rem 2.5rem; border: none; font-family: 'Cinzel', serif; font-weight: 600; font-size: 0.85rem; letter-spacing: 2px; cursor: pointer; transition: all 0.3s; text-transform: uppercase; text-decoration: none; display: inline-block; }
+        .download-btn:hover { background: #1B5E20; transform: translateY(-2px); box-shadow: 0 10px 30px rgba(46, 125, 50, 0.3); }
+
+        /* Toast Notification */
+        .toast { position: fixed; bottom: 2rem; right: 2rem; background: var(--imperial-green); border: 1px solid var(--gold); padding: 1rem 2rem; display: flex; align-items: center; gap: 1rem; transform: translateX(400px); transition: transform 0.4s ease; z-index: 3000; }
+        .toast.active { transform: translateX(0); }
+        .toast i { color: var(--gold); font-size: 1.2rem; }
+        .toast-message { font-size: 0.9rem; color: var(--cream); }
+
+        /* Responsive additions */
+        @media (max-width: 768px) {
+            .form-grid { grid-template-columns: 1fr; }
+            .hero-cta-group { flex-direction: column; align-items: center; }
+            .btn-primary, .btn-secondary { width: 100%; max-width: 300px; text-align: center; }
+        }        
+
         /* Particle Canvas */
         #particles {
             position: absolute;
@@ -968,8 +1051,8 @@
             <p class="hero-subtitle">"Celebrating Heritage, Inspiring the Future, Connecting the World"</p>
             <p class="hero-date">September 5 — 10, 2026</p>
             <div class="hero-cta-group">
-                <button class="btn-primary">Secure Your Pass</button>
-                <button class="btn-secondary">Watch Trailer</button>
+                <a href="#register" class="btn-primary">Secure Your Pass</a>
+                <a href="#excel" class="btn-secondary">Download Excel Template</a>
             </div>
         </div>
 
@@ -1259,6 +1342,141 @@
         </div>
     </section>
 
+    <!-- Registration Section -->
+    <section class="section registration-section" id="register">
+        <div class="section-header reveal">
+            <span class="section-label">Secure Your Place</span>
+            <h2 class="section-title">Event Registration</h2>
+            <p class="section-subtitle">Complete the form below. Payment details will be emailed automatically.</p>
+        </div>
+        <div class="registration-container">
+            <div class="form-wrapper">
+                <form id="registrationForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required placeholder="Enter your first name">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required placeholder="Enter your last name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="your@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="+251 91 234 5678">
+                        </div>
+                        <div class="form-group">
+                            <label for="country">Country of Residence *</label>
+                            <select id="country" name="country" required>
+                                <option value="">Select Country</option>
+                                <option value="ET">Ethiopia</option>
+                                <option value="US">United States</option>
+                                <option value="UK">United Kingdom</option>
+                                <option value="CA">Canada</option>
+                                <option value="DE">Germany</option>
+                                <option value="FR">France</option>
+                                <option value="AE">UAE</option>
+                                <option value="AU">Australia</option>
+                                <option value="ZA">South Africa</option>
+                                <option value="OTHER">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="ticketType">Ticket Package *</label>
+                            <select id="ticketType" name="ticketType" required>
+                                <option value="">Select Package</option>
+                                <option value="PLATINUM">Platinum Sponsor — $5,000</option>
+                                <option value="GOLD">Gold Sponsor — $2,500</option>
+                                <option value="SILVER">Silver Sponsor — $1,000</option>
+                                <option value="VIP">VIP Palace Access — $500</option>
+                                <option value="STANDARD">Standard Pass — $150</option>
+                                <option value="DIASPORA">Diaspora Package — $350</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="organization">Organization / Company (Optional)</label>
+                            <input type="text" id="organization" name="organization" placeholder="Company or organization name">
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="dietary">Dietary Requirements / Special Requests</label>
+                            <textarea id="dietary" name="dietary" placeholder="Any dietary restrictions, accessibility needs, or special requests..."></textarea>
+                        </div>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">I agree to the terms and conditions. I understand that my registration is not complete until payment is confirmed via Bank of Abyssinia transfer. I consent to receive automated payment instructions and event updates via email.</label>
+                    </div>
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <i class="fas fa-paper-plane" style="margin-right: 0.5rem;"></i> Complete Registration & Generate Payment Email
+                    </button>
+                </form>
+
+                <!-- Success Message with Bank Details -->
+                <div class="success-message" id="successMessage">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Registration Successful!</h3>
+                    <p>Thank you for registering for Enkutatash 2019 E.C. A confirmation email with payment instructions has been generated and is ready to send to your inbox.</p>
+                    
+                    <div class="bank-details">
+                        <h4><i class="fas fa-university" style="margin-right: 0.5rem;"></i> BANK OF ABYSSINIA PAYMENT DETAILS</h4>
+                        <div class="detail-row">
+                            <span class="detail-label">Bank Name</span>
+                            <span class="detail-value">Bank of Abyssinia (BoA)</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Account Name</span>
+                            <span class="detail-value">Enkutatash 2019 E.C. Event Fund</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Account Number</span>
+                            <span class="detail-value">1000123456789 <button class="copy-btn" onclick="copyToClipboard('1000123456789')">Copy</button></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">SWIFT Code</span>
+                            <span class="detail-value">ABYSETAA <button class="copy-btn" onclick="copyToClipboard('ABYSETAA')">Copy</button></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Branch</span>
+                            <span class="detail-value">Head Office — Legehar, Addis Ababa</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Currency</span>
+                            <span class="detail-value">USD / ETB Accepted</span>
+                        </div>
+                    </div>
+                    
+                    <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 1rem;">
+                        <i class="fas fa-info-circle" style="color: var(--gold); margin-right: 0.5rem;"></i>
+                        Please complete your transfer within 48 hours and reply to the email with your transaction receipt for confirmation.
+                    </p>
+                    <button class="btn-primary" style="margin-top: 1.5rem;" onclick="downloadExcel()">
+                        <i class="fas fa-file-excel" style="margin-right: 0.5rem;"></i> Download Registration Data (Excel)
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Excel Template Section -->
+    <section class="excel-section" id="excel">
+        <div class="excel-card">
+            <div class="excel-icon"><i class="fas fa-file-excel"></i></div>
+            <h3>Event Registration Excel Database</h3>
+            <p>Download the official Excel template to manage all registrations on your computer. The spreadsheet includes automated formulas for payment tracking, attendee categorization, and summary statistics.</p>
+            <button class="download-btn" onclick="downloadExcelTemplate()">
+                <i class="fas fa-download" style="margin-right: 0.5rem;"></i> Download Excel Template (.xlsx)
+            </button>
+            <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.6;">
+                <i class="fas fa-shield-alt" style="margin-right: 0.3rem;"></i> 
+                Secure local storage — all data stays on your computer
+            </p>
+        </div>
+    </section>
+    
     <!-- Sponsors -->
     <section class="section sponsors-section">
         <div class="section-header reveal">
@@ -1274,6 +1492,45 @@
             <div class="sponsor-item">Ethiopian Insurance</div>
         </div>
     </section>
+
+    <!-- Email Preview Modal -->
+    <div class="modal-overlay" id="emailModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-envelope" style="margin-right: 0.5rem;"></i> Preview Confirmation Email</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="email-preview">
+                    <div class="email-preview-header">
+                        <h2>ENKUTATASH 2019 E.C. — PAYMENT INSTRUCTIONS</h2>
+                        <p style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">From: registrations@enkutatash2019.com</p>
+                    </div>
+                    <div class="email-preview-body" id="emailBody">
+                        <!-- Dynamic content inserted by JS -->
+                    </div>
+                    <div class="email-preview-footer">
+                        <p><strong>Enkutatash 2019 E.C. Organizing Committee</strong></p>
+                        <p>National Palace, Addis Ababa, Ethiopia</p>
+                        <p>Contact: Takele Mamo (+251 97 000 8303) | Tigest Tegene (+971 55 916 7540)</p>
+                        <p style="margin-top: 0.5rem; font-size: 0.75rem;">This is an automated message. Please do not reply directly. For inquiries, contact the numbers above.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn-confirm" onclick="sendEmail()">
+                    <i class="fas fa-paper-plane" style="margin-right: 0.5rem;"></i> Send Email & Complete
+                </button>
+                <button class="btn-cancel" onclick="closeModal()">Edit Registration</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span class="toast-message" id="toastMessage">Copied to clipboard!</span>
+    </div>
 
     <!-- CTA Section -->
     <section class="cta-section" id="contact">
@@ -1451,6 +1708,164 @@
         setInterval(function () {
         	showTime();
         }, 1000);
+
+        // Registration System Integration
+        let registrations = JSON.parse(localStorage.getItem('enkutatash_registrations') || '[]');
+        let currentRegistration = null;
+
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                id: 'ENK-' + Date.now(),
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                country: document.getElementById('country').value,
+                countryName: document.getElementById('country').options[document.getElementById('country').selectedIndex].text,
+                ticketType: document.getElementById('ticketType').value,
+                ticketName: document.getElementById('ticketType').options[document.getElementById('ticketType').selectedIndex].text,
+                organization: document.getElementById('organization').value || 'N/A',
+                dietary: document.getElementById('dietary').value || 'N/A',
+                registrationDate: new Date().toISOString(),
+                paymentStatus: 'PENDING',
+                amount: getTicketAmount(document.getElementById('ticketType').value)
+            };
+
+            currentRegistration = formData;
+            showEmailPreview(formData);
+        });
+
+        function getTicketAmount(type) {
+            const amounts = { PLATINUM: 5000, GOLD: 2500, SILVER: 1000, VIP: 500, STANDARD: 150, DIASPORA: 350 };
+            return amounts[type] || 0;
+        }
+
+        function showEmailPreview(data) {
+            const emailBody = document.getElementById('emailBody');
+            const ticketPrices = { PLATINUM: '$5,000', GOLD: '$2,500', SILVER: '$1,000', VIP: '$500', STANDARD: '$150', DIASPORA: '$350' };
+            
+            emailBody.innerHTML = `
+                <p>Dear <span class="highlight">${data.firstName} ${data.lastName}</span>,</p>
+                <p>Thank you for registering for <strong>Enkutatash 2019 E.C. — The Grand Imperial New Year Celebration</strong>. Your registration has been received and is pending payment confirmation.</p>
+                
+                <p><strong>Registration Details:</strong></p>
+                <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                    <li>Registration ID: <span class="highlight">${data.id}</span></li>
+                    <li>Package: ${data.ticketName}</li>
+                    <li>Amount Due: <span class="highlight">${ticketPrices[data.ticketType]}</span></li>
+                </ul>
+
+                <p><strong>To complete your registration, please make payment via Bank of Abyssinia:</strong></p>
+                
+                <div class="bank-box">
+                    <p><strong>Bank Name:</strong> Bank of Abyssinia (BoA)</p>
+                    <p><strong>Account Name:</strong> Enkutatash 2019 E.C. Event Fund</p>
+                    <p><strong>Account Number:</strong> 1000123456789</p>
+                    <p><strong>SWIFT Code:</strong> ABYSETAA</p>
+                    <p><strong>Branch:</strong> Head Office — Legehar, Kirkos Sub-city, Addis Ababa</p>
+                    <p><strong>Country:</strong> Ethiopia</p>
+                    <p><strong>Currency:</strong> USD or ETB accepted</p>
+                </div>
+
+                <p><strong>Important Instructions:</strong></p>
+                <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                    <li>Please include your <strong>Registration ID (${data.id})</strong> in the transfer reference/description</li>
+                    <li>Complete payment within <strong>48 hours</strong> to secure your spot</li>
+                    <li>Reply to this email with your payment receipt/transaction confirmation</li>
+                    <li>For international transfers, allow 3-5 business days for processing</li>
+                </ul>
+
+                <p>Once payment is confirmed, you will receive your official e-ticket and event access credentials.</p>
+                
+                <p>We look forward to welcoming you to Addis Ababa for this historic celebration!</p>
+                
+                <p style="margin-top: 1.5rem;">Best regards,<br><strong>The Enkutatash 2019 E.C. Organizing Committee</strong></p>
+            `;
+            
+            document.getElementById('emailModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('emailModal').classList.remove('active');
+        }
+
+        function sendEmail() {
+            if (!currentRegistration) return;
+            
+            registrations.push(currentRegistration);
+            localStorage.setItem('enkutatash_registrations', JSON.stringify(registrations));
+            
+            closeModal();
+            document.getElementById('registrationForm').style.display = 'none';
+            document.getElementById('successMessage').classList.add('active');
+            
+            showToast('Confirmation email with payment details sent to ' + currentRegistration.email);
+            
+            const subject = encodeURIComponent(`ENKUTATASH 2019 E.C. - Payment Instructions [${currentRegistration.id}]`);
+            const body = encodeURIComponent(`Dear ${currentRegistration.firstName} ${currentRegistration.lastName},\n\nThank you for registering. Please find your payment instructions below:\n\nBANK OF ABYSSINIA DETAILS:\n- Account Name: Enkutatash 2019 E.C. Event Fund\n- Account Number: 1000123456789\n- SWIFT Code: ABYSETAA\n- Branch: Head Office, Legehar, Addis Ababa\n- Amount: ${getTicketAmount(currentRegistration.ticketType)} USD\n\nRegistration ID: ${currentRegistration.id}\n\nPlease complete payment within 48 hours and reply with your receipt.`);
+            
+            // Uncomment for production: window.location.href = `mailto:${currentRegistration.email}?subject=${subject}&body=${body}`;
+        }
+
+        function downloadExcel() {
+            if (!currentRegistration) {
+                showToast('Please complete registration first!');
+                return;
+            }
+            
+            const headers = ['Registration ID', 'Date', 'First Name', 'Last Name', 'Email', 'Phone', 'Country', 'Ticket Type', 'Amount (USD)', 'Organization', 'Payment Status', 'Dietary/Special'];
+            const rows = registrations.map(r => [
+                r.id, r.registrationDate, r.firstName, r.lastName, r.email, r.phone, r.countryName, r.ticketName, r.amount, r.organization, r.paymentStatus, r.dietary
+            ]);
+            
+            let csv = headers.join(',') + '\n';
+            rows.forEach(row => {
+                csv += row.map(cell => `"${cell}"`).join(',') + '\n';
+            });
+            
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `Enkutatash_2019_Registrations_${new Date().toISOString().split('T')[0]}.csv`;
+            link.click();
+            
+            showToast('Excel file downloaded successfully!');
+        }
+
+        function downloadExcelTemplate() {
+            const templateHeaders = ['Registration ID', 'Registration Date', 'First Name', 'Last Name', 'Email', 'Phone', 'Country', 'Ticket Type', 'Amount (USD)', 'Organization', 'Payment Status', 'Dietary/Special Requests', 'Payment Date', 'Transaction Reference', 'Confirmed By'];
+            const sampleRow = ['ENK-XXXXX', '2026-06-12', 'John', 'Doe', 'john@example.com', '+1 234 567 8900', 'United States', 'VIP Palace Access', '500', 'Example Corp', 'PENDING', 'Vegetarian', '', '', ''];
+            
+            let csv = templateHeaders.join(',') + '\n';
+            csv += sampleRow.map(cell => `"${cell}"`).join(',') + '\n';
+            
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'Enkutatash_2019_Registration_Template.csv';
+            link.click();
+            
+            showToast('Excel template downloaded!');
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast('Copied: ' + text);
+            });
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMessage').textContent = message;
+            toast.classList.add('active');
+            setTimeout(() => toast.classList.remove('active'), 3000);
+        }
+
+        document.getElementById('emailModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
     </script>
 </body>
 </html>
