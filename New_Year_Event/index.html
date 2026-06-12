@@ -1772,45 +1772,40 @@
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin" style="margin-right: 0.5rem;"></i> Processing...';
             submitBtn.disabled = true;
 
-            <!--
-            fetch(GOOGLE_SCRIPT_URL, {
-                method: 'POST',
-                mode: 'cors',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(currentRegistration)
-            })
-            -->
-            
-            fetch(GOOGLE_SCRIPT_URL + '?cors=true', {
-                method: 'POST',
-                redirect: 'follow',
-                body: JSON.stringify(currentRegistration)
-            })
-                
-            .then(response => {
-                if (!response.ok) throw new Error('Network response was not ok');
-                return response.json();
-            })
-            .then(data => {
-                if (data.result === 'success') {
-                    closeModal();
-                    document.getElementById('registrationForm').style.display = 'none';
-                    document.getElementById('successMessage').classList.add('active');
-                    showToast('Registration submitted! Check your email for payment instructions.');
-                } else {
-                    throw new Error(data.message || 'Server returned an error');
-                }
-            })
-            .catch(error => {
-                console.error('Submission error:', error);
-                showToast('Submission failed: ' + error.message + '. Please ensure the Google Apps Script URL is configured correctly.');
+            // Use a hidden form submission to bypass CORS entirely
+            const iframeName = 'hidden_iframe_' + Date.now();
+            const iframe = document.createElement('iframe');
+            iframe.name = iframeName;
+            iframe.style.display = 'none';
+            document.body.appendChild(iframe);
+
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = GOOGLE_SCRIPT_URL;
+            form.target = iframeName;
+            form.style.display = 'none';
+
+            const payload = document.createElement('input');
+            payload.name = 'payload';
+            payload.value = JSON.stringify(currentRegistration);
+            form.appendChild(payload);
+
+            document.body.appendChild(form);
+            form.submit();
+
+            // Clean up DOM and show success after GAS has time to process
+            setTimeout(() => {
+                document.body.removeChild(form);
+                document.body.removeChild(iframe);
+                closeModal();
+                document.getElementById('registrationForm').style.display = 'none';
+                document.getElementById('successMessage').classList.add('active');
+                showToast('Registration submitted! Check your email for payment instructions.');
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
-            });
+            }, 2500);
         }
-
+        
         function copyToClipboard(text) {
             navigator.clipboard.writeText(text).then(() => {
                 showToast('Copied: ' + text);
