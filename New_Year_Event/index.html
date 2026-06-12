@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -1771,7 +1771,7 @@
             const originalText = submitBtn.innerHTML;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin" style="margin-right: 0.5rem;"></i> Processing...';
             submitBtn.disabled = true;
-            
+            <!--
             fetch(GOOGLE_SCRIPT_URL, {
                 method: 'POST',
                 mode: 'cors',
@@ -1780,6 +1780,13 @@
                 },
                 body: JSON.stringify(currentRegistration)
             })
+            -->
+            fetch(GOOGLE_SCRIPT_URL + '?cors=true', {
+                method: 'POST',
+                redirect: 'follow',
+                body: JSON.stringify(currentRegistration)
+            })
+                
             .then(response => {
                 if (!response.ok) throw new Error('Network response was not ok');
                 return response.json();
