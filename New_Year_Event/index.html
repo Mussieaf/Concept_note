@@ -678,7 +678,7 @@
         // STEP 4: Paste the Apps Script code (provided below after the HTML)
         // STEP 5: Deploy as Web App (Execute as: Me, Access: Anyone)
         // STEP 6: Copy the deployed URL and paste it below:
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzWWRICYvva7GWQ6o8GoBH4qyMAnEnhDVcuBmHxGM0ql5uMkoedK4aNjR8fyzyIWAgf/exec';
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxc1FdM8C5naeSmez54ahjvbn9rZIECNvhchIDFD45-1MYoN44pJkCPWQ5Qh9CP_CA/exec';
 
         // Navbar scroll effect
         const navbar = document.getElementById('navbar');
@@ -780,7 +780,7 @@
             e.preventDefault();
 
             // Validation: check if URL is still the placeholder
-            if (GOOGLE_SCRIPT_URL.includes('AKfycbzWWRICYvva7GWQ6o8GoBH4qyMAnEnhDVcuBmHxGM0ql5uMkoedK4aNjR8fyzyIWAgf')) {
+            if (GOOGLE_SCRIPT_URL.includes('AKfycbxc1FdM8C5naeSmez54ahjvbn9rZIECNvhchIDFD45-1MYoN44pJkCPWQ5Qh9CP_CA')) {
                 formResponse.textContent = 'Error: Please configure the GOOGLE_SCRIPT_URL in the code before submitting.';
                 formResponse.className = 'form-response error';
                 return;
@@ -793,7 +793,6 @@
             formResponse.textContent = '';
             formResponse.className = 'form-response';
 
-            // Use native FormData (matches AFLI 2026 pattern)
             fetch(GOOGLE_SCRIPT_URL, {
                 method: 'POST',
                 body: new FormData(form)
