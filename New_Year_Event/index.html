@@ -1772,18 +1772,15 @@
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin" style="margin-right: 0.5rem;"></i> Processing...';
             submitBtn.disabled = true;
 
-            // Build URL-encoded payload for Google Apps Script
-            const formData = new URLSearchParams();
-            formData.append('payload', JSON.stringify(currentRegistration));
+            const formData = new FormData(form);  //Native form data
+            formData.append('registrationId', registrationId);
+            formData.append('amount', getTicketAmount(...));
 
             fetch(GOOGLE_SCRIPT_URL, {
                 method: 'POST',
-                mode: 'no-cors',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: formData.toString()
+                body: formData  // Browser auto-sets correct Content-Type
             })
+            .then(response => response.json())  //Can now read response
             .then(() => {
                 // no-cors mode: cannot read response, but request was sent
                 closeModal();
