@@ -535,11 +535,11 @@
             <p class="section-subtitle">Meet the esteemed guests gracing this historic celebration</p>
         </div>
         <div class="guests-tabs reveal">
-            <button class="guest-tab active" onclick="filterGuests('all')">All Guests</button>
-            <button class="guest-tab" onclick="filterGuests('royal')">Royal Family</button>
-            <button class="guest-tab" onclick="filterGuests('diplomatic')">Diplomatic Corps</button>
-            <button class="guest-tab" onclick="filterGuests('cultural')">Cultural Icons</button>
-            <button class="guest-tab" onclick="filterGuests('business')">Business Leaders</button>
+            <button class="guest-tab active" onclick="filterGuests('all', this)">All Guests</button>
+            <button class="guest-tab" onclick="filterGuests('royal', this)">Royal Family</button>
+            <button class="guest-tab" onclick="filterGuests('diplomatic', this)">Diplomatic Corps</button>
+            <button class="guest-tab" onclick="filterGuests('cultural', this)">Cultural Icons</button>
+            <button class="guest-tab" onclick="filterGuests('business', this)">Business Leaders</button>
         </div>
         <div class="guests-grid" id="guestsGrid">
             <div class="guest-card reveal" data-category="royal">
@@ -692,11 +692,11 @@
             <p class="section-subtitle">A carefully curated journey through heritage and innovation</p>
         </div>
         <div class="schedule-filters reveal">
-            <button class="schedule-filter active" onclick="filterSchedule('all')">All Days</button>
-            <button class="schedule-filter" onclick="filterSchedule('ceremony')">Ceremonies</button>
-            <button class="schedule-filter" onclick="filterSchedule('culture')">Culture</button>
-            <button class="schedule-filter" onclick="filterSchedule('business')">Business</button>
-            <button class="schedule-filter" onclick="filterSchedule('entertainment')">Entertainment</button>
+            <button class="schedule-filter active" onclick="filterSchedule('all', this)">All Days</button>
+            <button class="schedule-filter" onclick="filterSchedule('ceremony', this)">Ceremonies</button>
+            <button class="schedule-filter" onclick="filterSchedule('culture', this)">Culture</button>
+            <button class="schedule-filter" onclick="filterSchedule('business', this)">Business</button>
+            <button class="schedule-filter" onclick="filterSchedule('entertainment', this)">Entertainment</button>
         </div>
         <div class="schedule-container">
             <div class="timeline">
@@ -1299,18 +1299,18 @@
         </div>
         <div class="registration-container">
             <div class="reg-tabs reveal">
-                <button class="reg-tab active" onclick="switchRegTab('attendee')">Attendee</button>
-                <button class="reg-tab" onclick="switchRegTab('vip')">VIP / Royal</button>
-                <button class="reg-tab" onclick="switchRegTab('corporate')">Corporate</button>
-                <button class="reg-tab" onclick="switchRegTab('media')">Media</button>
-                <button class="reg-tab" onclick="switchRegTab('volunteer')">Volunteer</button>
-                <button class="reg-tab" onclick="switchRegTab('performer')">Performer</button>
+                <button class="reg-tab active" onclick="switchRegTab('attendee', this)">Attendee</button>
+                <button class="reg-tab" onclick="switchRegTab('vip', this)">VIP / Royal</button>
+                <button class="reg-tab" onclick="switchRegTab('corporate', this)">Corporate</button>
+                <button class="reg-tab" onclick="switchRegTab('media', this)">Media</button>
+                <button class="reg-tab" onclick="switchRegTab('volunteer', this)">Volunteer</button>
+                <button class="reg-tab" onclick="switchRegTab('performer', this)">Performer</button>
             </div>
 
             <!-- Attendee Registration Form -->
             <div class="reg-form-wrapper active" id="reg-attendee">
                 <div class="form-wrapper">
-                    <form id="registrationForm">
+                    <form id="registrationForm"><input type="hidden" name="formType" value="Attendee">
                         <div class="form-grid">
                             <div class="form-group">
                                 <label for="firstName">First Name *</label>
@@ -1471,6 +1471,7 @@
                         <button type="submit" class="submit-btn">
                             <i class="fas fa-crown" style="margin-right: 0.5rem;"></i> Submit VIP Registration
                         </button>
+                        <div class="form-response"></div>
                     </form>
                 </div>
             </div>
@@ -1533,6 +1534,7 @@
                         <button type="submit" class="submit-btn">
                             <i class="fas fa-building" style="margin-right: 0.5rem;"></i> Submit Corporate Registration
                         </button>
+                        <div class="form-response"></div>
                     </form>
                 </div>
             </div>
@@ -1592,6 +1594,7 @@
                         <button type="submit" class="submit-btn">
                             <i class="fas fa-camera" style="margin-right: 0.5rem;"></i> Apply for Media Credentials
                         </button>
+                        <div class="form-response"></div>
                     </form>
                 </div>
             </div>
@@ -1652,6 +1655,7 @@
                         <button type="submit" class="submit-btn">
                             <i class="fas fa-hands-helping" style="margin-right: 0.5rem;"></i> Apply to Volunteer
                         </button>
+                        <div class="form-response"></div>
                     </form>
                 </div>
             </div>
@@ -1713,6 +1717,7 @@
                         <button type="submit" class="submit-btn">
                             <i class="fas fa-microphone" style="margin-right: 0.5rem;"></i> Submit Performance Application
                         </button>
+                        <div class="form-response"></div>
                     </form>
                 </div>
             </div>
@@ -1888,6 +1893,72 @@
         // ============================================
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzazHCs9End5zUS3_ZrcVhovQD-FJEsbG8M8lwKvfe9dO-9lnnm1wPOJ4uy35Of-e-HNw/exec';
 
+        // ===== UNIVERSAL FORM HANDLER =====
+        function setupFormHandler(formId, formType) {
+            const frm = document.getElementById(formId);
+            if (!frm) return;
+            frm.addEventListener('submit', e => {
+                e.preventDefault();
+                const btn = frm.querySelector('button[type="submit"]');
+                const resp = frm.querySelector('.form-response') || document.createElement('div');
+                if (!frm.querySelector('.form-response')) {
+                    resp.className = 'form-response';
+                    btn.parentNode.insertBefore(resp, btn.nextSibling);
+                }
+
+                if (GOOGLE_SCRIPT_URL.includes('YOUR_SCRIPT_ID') || GOOGLE_SCRIPT_URL.includes('AKfycbzazHCs9End5zUS3_ZrcVhovQD-FJEsbG8M8lwKvfe9dO-9lnnm1wPOJ4uy35Of-e-HNw')) {
+                    resp.textContent = 'Error: Please configure the GOOGLE_SCRIPT_URL in the code before submitting.';
+                    resp.className = 'form-response error';
+                    return;
+                }
+
+                btn.disabled = true;
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin" style="margin-right: 0.5rem;"></i> Sending...';
+                resp.textContent = '';
+                resp.className = 'form-response';
+
+                // Add form type to data
+                const formData = new FormData(frm);
+                formData.append('formType', formType);
+                const urlEncodedData = new URLSearchParams(formData).toString();
+
+                fetch(GOOGLE_SCRIPT_URL, { 
+                    method: 'POST', 
+                    redirect: 'follow',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: urlEncodedData 
+                })
+                .then(r => {
+                    if (!r.ok) throw new Error('Network response was not ok: ' + r.status);
+                    return r.json();
+                })
+                .then(obj => {
+                    if (obj.result === 'success' || obj.result === 'ok') {
+                        btn.innerHTML = '<i class="fas fa-check" style="margin-right: 0.5rem;"></i> Sent!';
+                        btn.style.background = 'var(--success)';
+                        resp.textContent = 'Thank you! Your ' + formType + ' registration has been received. Check your email for confirmation.';
+                        resp.className = 'form-response success';
+                        frm.reset();
+                        setTimeout(() => {
+                            btn.disabled = false;
+                            btn.innerHTML = originalText;
+                            btn.style.background = '';
+                        }, 3000);
+                    } else {
+                        throw new Error(obj.error || 'Unknown server error');
+                    }
+                })
+                .catch(err => {
+                    console.error('Submission error:', err);
+                    btn.disabled = false;
+                    btn.innerHTML = originalText;
+                    resp.textContent = 'Submission failed: ' + err.message + '. Please ensure the Google Apps Script URL is configured correctly and the script is deployed with "Execute as: Me" and "Who has access: Anyone".';
+                    resp.className = 'form-response error';
+                });
+            });
+        }
+
         // ===== NAVBAR =====
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
@@ -1897,6 +1968,10 @@
 
         function toggleMobileMenu() {
             document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            document.getElementById('navLinks').classList.remove('active');
         }
 
         function scrollToSection(id) {
@@ -1994,9 +2069,10 @@
         });
 
         // ===== GUEST FILTERING =====
-        function filterGuests(category) {
+        function filterGuests(category, clickedTab) {
             document.querySelectorAll('.guest-tab').forEach(t => t.classList.remove('active'));
-            event.target.classList.add('active');
+            if (clickedTab) clickedTab.classList.add('active');
+            else if (event && event.target) event.target.classList.add('active');
             document.querySelectorAll('.guest-card').forEach(card => {
                 if (category === 'all' || card.dataset.category === category) {
                     card.style.display = 'block';
@@ -2008,9 +2084,10 @@
         }
 
         // ===== SCHEDULE FILTERING =====
-        function filterSchedule(category) {
+        function filterSchedule(category, clickedFilter) {
             document.querySelectorAll('.schedule-filter').forEach(f => f.classList.remove('active'));
-            event.target.classList.add('active');
+            if (clickedFilter) clickedFilter.classList.add('active');
+            else if (event && event.target) event.target.classList.add('active');
             document.querySelectorAll('.timeline-item').forEach(item => {
                 if (category === 'all' || item.dataset.category.includes(category)) {
                     item.classList.add('visible');
@@ -2022,9 +2099,10 @@
         }
 
         // ===== REGISTRATION TABS =====
-        function switchRegTab(tab) {
+        function switchRegTab(tab, clickedTab) {
             document.querySelectorAll('.reg-tab').forEach(t => t.classList.remove('active'));
-            event.target.classList.add('active');
+            if (clickedTab) clickedTab.classList.add('active');
+            else if (event && event.target) event.target.classList.add('active');
             document.querySelectorAll('.reg-form-wrapper').forEach(w => w.classList.remove('active'));
             document.getElementById('reg-' + tab).classList.add('active');
         }
@@ -2037,7 +2115,7 @@
 
         form.addEventListener('submit', e => {
             e.preventDefault();
-            if (GOOGLE_SCRIPT_URL.includes('AKfycbzWWRICYvva7GWQ6o8GoBH4qyMAnEnhDVcuBmHxGM0ql5uMkoedK4aNjR8fyzyIWAgf')) {
+            if (GOOGLE_SCRIPT_URL.includes('YOUR_SCRIPT_ID') || GOOGLE_SCRIPT_URL.includes('AKfycbzazHCs9End5zUS3_ZrcVhovQD-FJEsbG8M8lwKvfe9dO-9lnnm1wPOJ4uy35Of-e-HNw')) {
                 formResponse.textContent = 'Error: Please configure the GOOGLE_SCRIPT_URL in the code before submitting.';
                 formResponse.className = 'form-response error';
                 return;
@@ -2048,10 +2126,24 @@
             formResponse.textContent = '';
             formResponse.className = 'form-response';
 
-            fetch(GOOGLE_SCRIPT_URL, { method: 'POST', body: new FormData(form) })
-            .then(r => r.json())
+            // Convert FormData to URL-encoded string to avoid CORS preflight issues with Apps Script
+            const formData = new FormData(form);
+            const urlEncodedData = new URLSearchParams(formData).toString();
+
+            fetch(GOOGLE_SCRIPT_URL, { 
+                method: 'POST', 
+                redirect: 'follow',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: urlEncodedData 
+            })
+            .then(r => {
+                if (!r.ok) throw new Error('Network response was not ok: ' + r.status);
+                return r.json();
+            })
             .then(obj => {
-                if (obj.result === 'ok') {
+                if (obj.result === 'success' || obj.result === 'ok') {
                     submitBtn.innerHTML = '<i class="fas fa-check" style="margin-right: 0.5rem;"></i> Sent!';
                     submitBtn.style.background = 'var(--success)';
                     formResponse.textContent = 'Thank you! Check your email for payment instructions.';
@@ -2071,10 +2163,25 @@
                 console.error('Submission error:', err);
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalText;
-                formResponse.textContent = 'Submission failed: ' + err.message + '. Please ensure the Google Apps Script URL is configured correctly.';
+                formResponse.textContent = 'Submission failed: ' + err.message + '. Please ensure the Google Apps Script URL is configured correctly and the script is deployed with "Execute as: Me" and "Who has access: Anyone".';
                 formResponse.className = 'form-response error';
             });
         });
+
+        // ===== VIP FORM SUBMISSION =====
+        setupFormHandler('vipForm', 'VIP');
+
+        // ===== CORPORATE FORM SUBMISSION =====
+        setupFormHandler('corporateForm', 'Corporate');
+
+        // ===== MEDIA FORM SUBMISSION =====
+        setupFormHandler('mediaForm', 'Media');
+
+        // ===== VOLUNTEER FORM SUBMISSION =====
+        setupFormHandler('volunteerForm', 'Volunteer');
+
+        // ===== PERFORMER FORM SUBMISSION =====
+        setupFormHandler('performerForm', 'Performer');
 
         // ===== FAQ TOGGLE =====
         function toggleFaq(button) {
