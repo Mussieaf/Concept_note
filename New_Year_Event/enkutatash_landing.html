@@ -1310,7 +1310,7 @@
             <!-- Attendee Registration Form -->
             <div class="reg-form-wrapper active" id="reg-attendee">
                 <div class="form-wrapper">
-                    <form id="registrationForm"><input type="hidden" name="formType" value="Attendee">
+                    <form id="registrationForm">
                         <div class="form-grid">
                             <div class="form-group">
                                 <label for="firstName">First Name *</label>
@@ -1471,8 +1471,13 @@
                         <button type="submit" class="submit-btn">
                             <i class="fas fa-crown" style="margin-right: 0.5rem;"></i> Submit VIP Registration
                         </button>
-                        <div class="form-response"></div>
                     </form>
+                    <div class="form-response"></div>
+                    <div class="success-message">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>VIP Registration Submitted!</h3>
+                        <p>Thank you for your VIP registration. Our protocol team will review your application and contact you shortly with confirmation and security arrangements.</p>
+                    </div>
                 </div>
             </div>
 
@@ -1534,8 +1539,13 @@
                         <button type="submit" class="submit-btn">
                             <i class="fas fa-building" style="margin-right: 0.5rem;"></i> Submit Corporate Registration
                         </button>
-                        <div class="form-response"></div>
                     </form>
+                    <div class="form-response"></div>
+                    <div class="success-message">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Corporate Registration Submitted!</h3>
+                        <p>Thank you for your corporate sponsorship inquiry. Our partnerships team will review your application and contact you within 2 business days.</p>
+                    </div>
                 </div>
             </div>
 
@@ -1594,8 +1604,13 @@
                         <button type="submit" class="submit-btn">
                             <i class="fas fa-camera" style="margin-right: 0.5rem;"></i> Apply for Media Credentials
                         </button>
-                        <div class="form-response"></div>
                     </form>
+                    <div class="form-response"></div>
+                    <div class="success-message">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Media Application Submitted!</h3>
+                        <p>Thank you for your media accreditation request. Our press team will verify your credentials and send your press pass details via email.</p>
+                    </div>
                 </div>
             </div>
 
@@ -1655,8 +1670,13 @@
                         <button type="submit" class="submit-btn">
                             <i class="fas fa-hands-helping" style="margin-right: 0.5rem;"></i> Apply to Volunteer
                         </button>
-                        <div class="form-response"></div>
                     </form>
+                    <div class="form-response"></div>
+                    <div class="success-message">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Volunteer Application Submitted!</h3>
+                        <p>Thank you for your interest in volunteering. Our volunteer coordinator will review your application and contact you with orientation details.</p>
+                    </div>
                 </div>
             </div>
 
@@ -1717,8 +1737,13 @@
                         <button type="submit" class="submit-btn">
                             <i class="fas fa-microphone" style="margin-right: 0.5rem;"></i> Submit Performance Application
                         </button>
-                        <div class="form-response"></div>
                     </form>
+                    <div class="form-response"></div>
+                    <div class="success-message">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Performance Application Submitted!</h3>
+                        <p>Thank you for your performance application. Our entertainment committee will review your submission and contact you with scheduling details.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1893,72 +1918,6 @@
         // ============================================
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxMJkF3OFIRr-t9DSnmA_cS65cdCPEIV5IH-YLB46cJznKwkWkgPlAA45KySAzzbkC1/exec';
 
-        // ===== UNIVERSAL FORM HANDLER =====
-        function setupFormHandler(formId, formType) {
-            const frm = document.getElementById(formId);
-            if (!frm) return;
-            frm.addEventListener('submit', e => {
-                e.preventDefault();
-                const btn = frm.querySelector('button[type="submit"]');
-                const resp = frm.querySelector('.form-response') || document.createElement('div');
-                if (!frm.querySelector('.form-response')) {
-                    resp.className = 'form-response';
-                    btn.parentNode.insertBefore(resp, btn.nextSibling);
-                }
-
-                if (GOOGLE_SCRIPT_URL.includes('YOUR_SCRIPT_ID') || GOOGLE_SCRIPT_URL.includes('AKfycbzazHCs9End5zUS3_ZrcVhovQD-FJEsbG8M8lwKvfe9dO-9lnnm1wPOJ4uy35Of-e-HNw')) {
-                    resp.textContent = 'Error: Please configure the GOOGLE_SCRIPT_URL in the code before submitting.';
-                    resp.className = 'form-response error';
-                    return;
-                }
-
-                btn.disabled = true;
-                const originalText = btn.innerHTML;
-                btn.innerHTML = '<i class="fas fa-spinner fa-spin" style="margin-right: 0.5rem;"></i> Sending...';
-                resp.textContent = '';
-                resp.className = 'form-response';
-
-                // Add form type to data
-                const formData = new FormData(frm);
-                formData.append('formType', formType);
-                const urlEncodedData = new URLSearchParams(formData).toString();
-
-                fetch(GOOGLE_SCRIPT_URL, { 
-                    method: 'POST', 
-                    redirect: 'follow',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: urlEncodedData 
-                })
-                .then(r => {
-                    if (!r.ok) throw new Error('Network response was not ok: ' + r.status);
-                    return r.json();
-                })
-                .then(obj => {
-                    if (obj.result === 'success' || obj.result === 'ok') {
-                        btn.innerHTML = '<i class="fas fa-check" style="margin-right: 0.5rem;"></i> Sent!';
-                        btn.style.background = 'var(--success)';
-                        resp.textContent = 'Thank you! Your ' + formType + ' registration has been received. Check your email for confirmation.';
-                        resp.className = 'form-response success';
-                        frm.reset();
-                        setTimeout(() => {
-                            btn.disabled = false;
-                            btn.innerHTML = originalText;
-                            btn.style.background = '';
-                        }, 3000);
-                    } else {
-                        throw new Error(obj.error || 'Unknown server error');
-                    }
-                })
-                .catch(err => {
-                    console.error('Submission error:', err);
-                    btn.disabled = false;
-                    btn.innerHTML = originalText;
-                    resp.textContent = 'Submission failed: ' + err.message + '. Please ensure the Google Apps Script URL is configured correctly and the script is deployed with "Execute as: Me" and "Who has access: Anyone".';
-                    resp.className = 'form-response error';
-                });
-            });
-        }
-
         // ===== NAVBAR =====
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
@@ -1966,12 +1925,15 @@
             else navbar.classList.remove('scrolled');
         });
 
+        // Close mobile menu when clicking any internal nav link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+
         function toggleMobileMenu() {
             document.getElementById('navLinks').classList.toggle('active');
-        }
-
-        function closeMobileMenu() {
-            document.getElementById('navLinks').classList.remove('active');
         }
 
         function scrollToSection(id) {
@@ -2069,10 +2031,9 @@
         });
 
         // ===== GUEST FILTERING =====
-        function filterGuests(category, clickedTab) {
+        function filterGuests(category, btn) {
             document.querySelectorAll('.guest-tab').forEach(t => t.classList.remove('active'));
-            if (clickedTab) clickedTab.classList.add('active');
-            else if (event && event.target) event.target.classList.add('active');
+            btn.classList.add('active');
             document.querySelectorAll('.guest-card').forEach(card => {
                 if (category === 'all' || card.dataset.category === category) {
                     card.style.display = 'block';
@@ -2084,10 +2045,9 @@
         }
 
         // ===== SCHEDULE FILTERING =====
-        function filterSchedule(category, clickedFilter) {
+        function filterSchedule(category, btn) {
             document.querySelectorAll('.schedule-filter').forEach(f => f.classList.remove('active'));
-            if (clickedFilter) clickedFilter.classList.add('active');
-            else if (event && event.target) event.target.classList.add('active');
+            btn.classList.add('active');
             document.querySelectorAll('.timeline-item').forEach(item => {
                 if (category === 'all' || item.dataset.category.includes(category)) {
                     item.classList.add('visible');
@@ -2099,89 +2059,74 @@
         }
 
         // ===== REGISTRATION TABS =====
-        function switchRegTab(tab, clickedTab) {
+        function switchRegTab(tab, btn) {
             document.querySelectorAll('.reg-tab').forEach(t => t.classList.remove('active'));
-            if (clickedTab) clickedTab.classList.add('active');
-            else if (event && event.target) event.target.classList.add('active');
+            btn.classList.add('active');
             document.querySelectorAll('.reg-form-wrapper').forEach(w => w.classList.remove('active'));
             document.getElementById('reg-' + tab).classList.add('active');
         }
 
-        // ===== FORM SUBMISSION =====
-        const form = document.getElementById('registrationForm');
-        const submitBtn = document.getElementById('submitBtn');
-        const formResponse = document.getElementById('formResponse');
-        const successMessage = document.getElementById('successMessage');
+        // ===== FORM SUBMISSION (ALL 6 FORMS) =====
+        function handleFormSubmit(form) {
+            const wrapper = form.closest('.form-wrapper');
+            const responseDiv = wrapper.querySelector('.form-response');
+            const successDiv = wrapper.querySelector('.success-message');
+            const btn = form.querySelector('.submit-btn');
+            const originalHTML = btn.innerHTML;
 
-        form.addEventListener('submit', e => {
-            e.preventDefault();
-            if (GOOGLE_SCRIPT_URL.includes('YOUR_SCRIPT_ID') || GOOGLE_SCRIPT_URL.includes('AKfycbzazHCs9End5zUS3_ZrcVhovQD-FJEsbG8M8lwKvfe9dO-9lnnm1wPOJ4uy35Of-e-HNw')) {
-                formResponse.textContent = 'Error: Please configure the GOOGLE_SCRIPT_URL in the code before submitting.';
-                formResponse.className = 'form-response error';
+            if (GOOGLE_SCRIPT_URL.includes('AKfycbzWWRICYvva7GWQ6o8GoBH4qyMAnEnhDVcuBmHxGM0ql5uMkoedK4aNjR8fyzyIWAgf')) {
+                responseDiv.textContent = 'Error: Please configure the GOOGLE_SCRIPT_URL in the code before submitting.';
+                responseDiv.className = 'form-response error';
                 return;
             }
-            submitBtn.disabled = true;
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin" style="margin-right: 0.5rem;"></i> Sending...';
-            formResponse.textContent = '';
-            formResponse.className = 'form-response';
 
-            // Convert FormData to URL-encoded string to avoid CORS preflight issues with Apps Script
-            const formData = new FormData(form);
-            const urlEncodedData = new URLSearchParams(formData).toString();
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin" style="margin-right: 0.5rem;"></i> Sending...';
+            responseDiv.textContent = '';
+            responseDiv.className = 'form-response';
 
-            fetch(GOOGLE_SCRIPT_URL, { 
-                method: 'POST', 
+            // Use URLSearchParams to send as application/x-www-form-urlencoded
+            // This avoids multipart/form-data CORS preflight issues with Google Apps Script
+            const params = new URLSearchParams(new FormData(form));
+
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
                 redirect: 'follow',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: urlEncodedData 
+                body: params
             })
-            .then(r => {
-                if (!r.ok) throw new Error('Network response was not ok: ' + r.status);
-                return r.json();
-            })
+            .then(r => r.json())
             .then(obj => {
                 if (obj.result === 'success' || obj.result === 'ok') {
-                    submitBtn.innerHTML = '<i class="fas fa-check" style="margin-right: 0.5rem;"></i> Sent!';
-                    submitBtn.style.background = 'var(--success)';
-                    formResponse.textContent = 'Thank you! Check your email for payment instructions.';
-                    formResponse.className = 'form-response success';
+                    btn.innerHTML = '<i class="fas fa-check" style="margin-right: 0.5rem;"></i> Sent!';
+                    btn.style.background = 'var(--success)';
+                    responseDiv.textContent = 'Thank you! Your submission has been received.';
+                    responseDiv.className = 'form-response success';
                     form.style.display = 'none';
-                    successMessage.classList.add('active');
+                    if (successDiv) successDiv.classList.add('active');
                     setTimeout(() => {
-                        submitBtn.disabled = false;
-                        submitBtn.innerHTML = originalText;
-                        submitBtn.style.background = '';
+                        btn.disabled = false;
+                        btn.innerHTML = originalHTML;
+                        btn.style.background = '';
                     }, 2500);
                 } else {
-                    throw new Error(obj.error || 'Unknown server error');
+                    throw new Error(obj.error || obj.message || 'Unknown server error');
                 }
             })
             .catch(err => {
                 console.error('Submission error:', err);
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalText;
-                formResponse.textContent = 'Submission failed: ' + err.message + '. Please ensure the Google Apps Script URL is configured correctly and the script is deployed with "Execute as: Me" and "Who has access: Anyone".';
-                formResponse.className = 'form-response error';
+                btn.disabled = false;
+                btn.innerHTML = originalHTML;
+                responseDiv.textContent = 'Submission failed: ' + err.message + '. Please ensure the Google Apps Script URL is configured correctly.';
+                responseDiv.className = 'form-response error';
+            });
+        }
+
+        document.querySelectorAll('#registrationForm, #vipForm, #corporateForm, #mediaForm, #volunteerForm, #performerForm').forEach(form => {
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+                handleFormSubmit(form);
             });
         });
-
-        // ===== VIP FORM SUBMISSION =====
-        setupFormHandler('vipForm', 'VIP');
-
-        // ===== CORPORATE FORM SUBMISSION =====
-        setupFormHandler('corporateForm', 'Corporate');
-
-        // ===== MEDIA FORM SUBMISSION =====
-        setupFormHandler('mediaForm', 'Media');
-
-        // ===== VOLUNTEER FORM SUBMISSION =====
-        setupFormHandler('volunteerForm', 'Volunteer');
-
-        // ===== PERFORMER FORM SUBMISSION =====
-        setupFormHandler('performerForm', 'Performer');
 
         // ===== FAQ TOGGLE =====
         function toggleFaq(button) {
