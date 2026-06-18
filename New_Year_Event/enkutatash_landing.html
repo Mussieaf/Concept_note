@@ -334,16 +334,54 @@
         .chatbot-suggestion:hover { background: var(--gold); color: var(--deep-green); }
 
         .gallery-section { background: var(--deep-green); padding: 0; }
-        .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 280px; }
-        .gallery-item { position: relative; overflow: hidden; cursor: pointer; }
-        .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
-        .gallery-item:nth-child(4) { grid-column: span 2; }
-        .gallery-item:nth-child(5) { grid-row: span 2; }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .gallery-grid { 
+            column-count: 4;
+            column-gap: 4px;
+        }
+        .gallery-item { 
+            position: relative; 
+            overflow: hidden; 
+            cursor: pointer; 
+            background: linear-gradient(135deg, var(--imperial-green) 0%, var(--deep-green) 100%);
+            break-inside: avoid;
+            margin-bottom: 4px;
+            height: 280px;
+        }
+        .gallery-item:nth-child(1) { height: 564px; }
+        .gallery-item:nth-child(5) { height: 564px; }
+        .gallery-item img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: transform 0.6s ease; 
+            display: block;
+        }
         .gallery-item:hover img { transform: scale(1.1); }
-        .gallery-overlay { position: absolute; inset: 0; background: rgba(10, 10, 10, 0.6); display: flex; align-items: flex-end; padding: 1.5rem; opacity: 0; transition: opacity 0.4s ease; }
+        .gallery-overlay { 
+            position: absolute; 
+            inset: 0; 
+            background: rgba(10, 10, 10, 0.6); 
+            display: flex; 
+            align-items: flex-end; 
+            padding: 1.5rem; 
+            opacity: 0; 
+            transition: opacity 0.4s ease; 
+        }
         .gallery-item:hover .gallery-overlay { opacity: 1; }
         .gallery-caption { font-family: 'Cinzel', serif; color: var(--cream); font-size: 1rem; }
+        @media (max-width: 1200px) {
+            .gallery-grid { column-count: 3; }
+        }
+        @media (max-width: 768px) {
+            .gallery-grid { column-count: 2; }
+            .gallery-item { height: 220px; }
+            .gallery-item:nth-child(1) { height: 444px; }
+            .gallery-item:nth-child(5) { height: 444px; }
+        }
+        @media (max-width: 480px) {
+            .gallery-grid { column-count: 1; }
+            .gallery-item, .gallery-item:nth-child(1), .gallery-item:nth-child(5) { height: 250px; }
+        }
 
         .footer { background: #050505; padding: 3rem 2rem 1.5rem; border-top: 1px solid rgba(212, 175, 55, 0.2); }
         .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
@@ -375,9 +413,6 @@
 
         @media (max-width: 1024px) {
             .vision-grid { grid-template-columns: 1fr; }
-            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-            .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 1; }
-            .gallery-item:nth-child(5) { grid-row: span 1; }
             .venue-grid { grid-template-columns: 1fr; }
             .livestream-grid { grid-template-columns: 1fr; }
             .footer-container { grid-template-columns: 1fr 1fr; }
@@ -391,9 +426,7 @@
             .nav-links.active { display: flex; }
             .mobile-menu-btn { display: block; }
             .lang-switch { display: none; }
-            .gallery-grid { grid-template-columns: 1fr; }
-            .gallery-item:nth-child(1) { grid-column: span 1; }
-            .gallery-item:nth-child(4) { grid-column: span 1; }
+            /* Gallery uses column-count, no grid needed */
             .footer-container { grid-template-columns: 1fr; gap: 1.5rem; }
             .stats-container { grid-template-columns: repeat(2, 1fr); }
             .form-grid { grid-template-columns: 1fr; }
@@ -618,7 +651,7 @@
                 </div>
             </div>
             <div class="experience-card reveal">
-                <img src="https://images.unsplash.com/photo-1778847195158-18f3137a07a8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZXRoaW9waWElMjBjb25jZXJ0fGVufDB8fDB8fHww=80" alt="World-Class Concerts">
+                <img src="https://images.unsplash.com/photo-1514525253440-b393452e8d26?w=600&q=80" alt="World-Class Concerts">
                 <div class="experience-content">
                     <div class="experience-icon"><i class="fas fa-music"></i></div>
                     <h3 class="experience-title">World-Class Concerts</h3>
@@ -1244,7 +1277,7 @@
     <section class="gallery-section" id="gallery">
         <div class="gallery-grid">
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1630861412757-d9743d318312?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8RXRoaW9waWFuJTIwY29mZmVlfGVufDB8fDB8fHww" alt="Ethiopian Coffee Ceremony">
+                <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=600&q=80" alt="Ethiopian Coffee Ceremony">
                 <div class="gallery-overlay"><span class="gallery-caption">Sacred Coffee Ceremony</span></div>
             </div>
             <div class="gallery-item">
@@ -1252,7 +1285,7 @@
                 <div class="gallery-overlay"><span class="gallery-caption">Traditional Performances</span></div>
             </div>
             <div class="gallery-item">
-                <img src="https://plus.unsplash.com/premium_photo-1695297515151-b2af3a60008d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZXRoaW9waWElMjBmb29kfGVufDB8fDB8fHww=80" alt="Ethiopian Cuisine">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80" alt="Ethiopian Cuisine">
                 <div class="gallery-overlay"><span class="gallery-caption">Heritage Cuisine</span></div>
             </div>
             <div class="gallery-item">
@@ -1942,36 +1975,40 @@
         }
 
         // ===== COUNTDOWN TIMER =====
-        function updateCountdown() {
-            const eventDate = new Date('2026-09-05T09:00:00+03:00'); // EAT timezone
-            const now = new Date();
-            const diff = eventDate - now;
+        (function initCountdown() {
+            const eventDate = new Date(Date.UTC(2026, 8, 5, 6, 0, 0)); // Sept 5, 2026 09:00 EAT (UTC+3)
 
-            const elDays = document.getElementById('cd-days');
-            const elHours = document.getElementById('cd-hours');
-            const elMinutes = document.getElementById('cd-minutes');
-            const elSeconds = document.getElementById('cd-seconds');
+            function updateCountdown() {
+                const elDays = document.getElementById('cd-days');
+                const elHours = document.getElementById('cd-hours');
+                const elMinutes = document.getElementById('cd-minutes');
+                const elSeconds = document.getElementById('cd-seconds');
 
-            if (!elDays || !elHours || !elMinutes || !elSeconds) return;
+                if (!elDays || !elHours || !elMinutes || !elSeconds) return;
 
-            if (diff <= 0) {
-                elDays.textContent = '00';
-                elHours.textContent = '00';
-                elMinutes.textContent = '00';
-                elSeconds.textContent = '00';
-                return;
+                const now = new Date();
+                const diff = eventDate.getTime() - now.getTime();
+
+                if (diff <= 0) {
+                    elDays.textContent = '00';
+                    elHours.textContent = '00';
+                    elMinutes.textContent = '00';
+                    elSeconds.textContent = '00';
+                    return;
+                }
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                elDays.textContent = String(days).padStart(2, '0');
+                elHours.textContent = String(hours).padStart(2, '0');
+                elMinutes.textContent = String(minutes).padStart(2, '0');
+                elSeconds.textContent = String(seconds).padStart(2, '0');
             }
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-            elDays.textContent = String(days).padStart(2, '0');
-            elHours.textContent = String(hours).padStart(2, '0');
-            elMinutes.textContent = String(minutes).padStart(2, '0');
-            elSeconds.textContent = String(seconds).padStart(2, '0');
-        }
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
+
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        })();
 
         // ===== SCROLL REVEAL =====
         const revealElements = document.querySelectorAll('.reveal');
@@ -2026,7 +2063,9 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const target = document.querySelector(targetId);
                 if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
@@ -2233,6 +2272,18 @@
         function toggleLanguage() {
             showToast('Amharic version coming soon! / አማርኅኛ ስሪት በቅርብ ይመጣል!');
         }
+
+        // ===== IMAGE ERROR HANDLING =====
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', function() {
+                // Replace broken images with a styled placeholder instead of showing broken icon
+                this.style.display = 'none';
+                const parent = this.closest('.gallery-item, .experience-card, .vision-image, .hotel-card');
+                if (parent) {
+                    parent.style.background = 'linear-gradient(135deg, var(--imperial-green) 0%, var(--deep-green) 100%)';
+                }
+            });
+        });
 
         // ===== ANALYTICS TRACKING (placeholder) =====
         document.addEventListener('DOMContentLoaded', () => {
