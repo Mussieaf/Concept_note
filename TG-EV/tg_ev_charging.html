@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TG EV Charging & Car Wash Hub — Addis Ababa</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --forest-green: #1B5E20;
+  --emerald: #2E7D32;
+  --light-green: #4CAF50;
+  --pale-green: #E8F5E9;
+  --gold: #C9A227;
+  --gold-light: #F9E79F;
+  --off-white: #F5F5F0;
+  --charcoal: #1A1A1A;
+  --dark-gray: #2D2D2D;
+  --medium-gray: #6B7280;
+  --light-gray: #E5E7EB;
+  --white: #FFFFFF;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--off-white);
+  color: var(--charcoal);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, var(--forest-green) 0%, var(--emerald) 50%, #0D3B0E 100%);
+  overflow: hidden;
+  padding: 2rem;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('https://kimi-web-img.moonshot.cn/img/thumbs.dreamstime.com/3afe94c51b9627b2a121385cb5908d3f5dd99146.jpg') center/cover no-repeat;
+  opacity: 0.25;
+  z-index: 0;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at center, transparent 0%, rgba(13, 59, 14, 0.6) 100%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+/* Transparent Dominating Logo */
+.logo-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+.logo-svg {
+  width: 500px;
+  height: 500px;
+  max-width: 80vw;
+  max-height: 80vw;
+}
+
+@media (max-width: 768px) {
+  .logo-svg { width: 300px; height: 300px; }
+}
+
+/* Elegant Handwriting Font for Hero */
+.hero-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 700;
+  color: var(--white);
+  text-shadow: 2px 2px 20px rgba(0,0,0,0.3);
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-weight: 500;
+  color: var(--gold-light);
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 10px rgba(0,0,0,0.3);
+}
+
+.hero-tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  font-weight: 300;
+  color: rgba(255,255,255,0.9);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  letter-spacing: 0.5px;
+}
+
+.hero-cta {
+  display: inline-flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--charcoal);
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid var(--gold);
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: transparent;
+  color: var(--gold);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(201, 162, 39, 0.3);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--white);
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255,255,255,0.5);
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: var(--white);
+  transform: translateY(-3px);
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  animation: bounce 2s infinite;
+}
+
+.scroll-indicator svg {
+  width: 30px;
+  height: 30px;
+  stroke: var(--gold);
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+  40% { transform: translateX(-50%) translateY(-10px); }
+  60% { transform: translateX(-50%) translateY(-5px); }
+}
+
+/* ===== NAVIGATION ===== */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(27, 94, 32, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 0.8rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.nav-logo {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover { color: var(--gold); }
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--forest-green);
+    flex-direction: column;
+    padding: 1rem 2rem;
+    gap: 1rem;
+  }
+  .nav-links.active { display: flex; }
+  .nav-toggle { display: block; }
+}
+
+/* ===== COLLAPSIBLE SECTIONS ===== */
+.section-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.collapsible-section {
+  margin-bottom: 1rem;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  background: var(--white);
+}
+
+.collapsible-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  width: 100%;
+  text-align: left;
+  background: linear-gradient(135deg, var(--forest-green), var(--emerald));
+  color: var(--white);
+}
+
+.collapsible-header:hover {
+  background: linear-gradient(135deg, #0D3B0E, var(--forest-green));
+}
+
+.collapsible-header h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  font-weight: 700;
+  margin: 0;
+}
+
+.collapsible-header .section-icon {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+.collapsible-header .toggle-icon {
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+  font-weight: 700;
+  min-width: 30px;
+  text-align: center;
+}
+
+.collapsible-header.active .toggle-icon {
+  transform: rotate(180deg);
+}
+
+.collapsible-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.3s ease;
+  background: var(--white);
+}
+
+.collapsible-content.open {
+  max-height: 3000px;
+  padding: 2rem;
+}
+
+.collapsible-content .section-subtitle {
+  text-align: center;
+  color: var(--medium-gray);
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===== OVERVIEW CARDS ===== */
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.overview-card {
+  background: var(--off-white);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid var(--light-gray);
+  transition: all 0.3s ease;
+}
+
+.overview-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(27, 94, 32, 0.12);
+  border-color: var(--light-green);
+}
+
+.overview-card-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--pale-green);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.8rem;
+  color: var(--forest-green);
+}
+
+.overview-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 0.5rem;
+}
+
+.overview-card p {
+  font-size: 0.85rem;
+  color: var(--medium-gray);
+  line-height: 1.6;
+}
+
+/* ===== LOCATION ===== */
+.location-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.location-image {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(27, 94, 32, 0.15);
+}
+
+.location-image img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  display: block;
+}
+
+.location-text h2 {
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  font-weight: 800;
+  color: var(--forest-green);
+  margin-bottom: 1rem;
+}
+
+.location-text p {
+  color: var(--medium-gray);
+  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+}
+
+.location-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem;
+  margin-top: 1.2rem;
+}
+
+.stat-box {
+  background: var(--off-white);
+  padding: 0.8rem;
+  border-radius: 12px;
+  text-align: center;
+  border-left: 4px solid var(--gold);
+}
+
+.stat-box .number {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--forest-green);
+}
+
+.stat-box .label {
+  font-size: 0.7rem;
+  color: var(--medium-gray);
+}
+
+@media (max-width: 768px) {
+  .location-content { grid-template-columns: 1fr; }
+  .location-image img { height: 220px; }
+}
+
+/* ===== PORTER'S FIVE FORCES - SCROLLABLE ===== */
+.porters-scrollable {
+  max-height: 450px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--emerald) var(--light-gray);
+}
+
+.porters-scrollable::-webkit-scrollbar { width: 6px; }
+.porters-scrollable::-webkit-scrollbar-track { background: var(--light-gray); border-radius: 4px; }
+.porters-scrollable::-webkit-scrollbar-thumb { background: var(--emerald); border-radius: 4px; }
+
+.porter-card {
+  display: flex;
+  gap: 1.2rem;
+  padding: 1.2rem;
+  margin-bottom: 0.8rem;
+  background: var(--off-white);
+  border-radius: 12px;
+  border-left: 4px solid var(--forest-green);
+  transition: all 0.3s ease;
+}
+
+.porter-card:hover {
+  background: var(--pale-green);
+  transform: translateX(5px);
+}
+
+.porter-icon {
+  min-width: 50px;
+  height: 50px;
+  background: var(--forest-green);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.2rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.porter-content h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 0.2rem;
+}
+
+.porter-content .assessment {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.assessment-high { background: #FFEBEE; color: #C62828; }
+.assessment-medium { background: #FFF3E0; color: #EF6C00; }
+.assessment-rising { background: #E3F2FD; color: #1565C0; }
+
+.porter-content p {
+  font-size: 0.85rem;
+  color: var(--medium-gray);
+  line-height: 1.5;
+}
+
+/* ===== COMPETITIVE BENCHMARK - SCROLLABLE ===== */
+.benchmark-scrollable {
+  max-height: 450px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--emerald) var(--light-gray);
+}
+
+.benchmark-scrollable::-webkit-scrollbar { width: 6px; }
+.benchmark-scrollable::-webkit-scrollbar-track { background: var(--light-gray); border-radius: 4px; }
+.benchmark-scrollable::-webkit-scrollbar-thumb { background: var(--emerald); border-radius: 4px; }
+
+.benchmark-card {
+  display: flex;
+  gap: 1.2rem;
+  padding: 1.2rem;
+  margin-bottom: 0.8rem;
+  background: var(--off-white);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  align-items: flex-start;
+}
+
+.benchmark-card:hover {
+  box-shadow: 0 8px 30px rgba(27, 94, 32, 0.1);
+  transform: translateY(-3px);
+}
+
+/* Logo images for competitors */
+.competitor-logo-img {
+  min-width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: var(--white);
+  border: 2px solid var(--light-gray);
+  padding: 4px;
+}
+
+.competitor-logo-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.benchmark-content h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 0.2rem;
+}
+
+.benchmark-content .tag {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  margin-right: 0.3rem;
+}
+
+.tag-local { background: var(--pale-green); color: var(--forest-green); }
+.tag-global { background: #E3F2FD; color: #1565C0; }
+.tag-strength { background: #E8F5E9; color: var(--forest-green); }
+.tag-weakness { background: #FFEBEE; color: #C62828; }
+
+.benchmark-content p {
+  font-size: 0.85rem;
+  color: var(--medium-gray);
+  line-height: 1.5;
+}
+
+/* ===== SWOT ===== */
+.swot-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.swot-card {
+  padding: 1.5rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.swot-card:hover { transform: translateY(-5px); }
+
+.swot-s { background: linear-gradient(135deg, #E8F5E9, #C8E6C9); border-top: 4px solid var(--forest-green); }
+.swot-w { background: linear-gradient(135deg, #FFF3E0, #FFE0B2); border-top: 4px solid #EF6C00; }
+.swot-o { background: linear-gradient(135deg, #E3F2FD, #BBDEFB); border-top: 4px solid #1565C0; }
+.swot-t { background: linear-gradient(135deg, #FFEBEE, #FFCDD2); border-top: 4px solid #C62828; }
+
+.swot-card h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.swot-card ul { list-style: none; padding: 0; }
+
+.swot-card li {
+  padding: 0.4rem 0;
+  padding-left: 1.2rem;
+  position: relative;
+  font-size: 0.85rem;
+  color: var(--dark-gray);
+  line-height: 1.5;
+}
+
+.swot-card li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+}
+
+.swot-s li::before { color: var(--forest-green); }
+.swot-w li::before { color: #EF6C00; }
+.swot-o li::before { color: #1565C0; }
+.swot-t li::before { content: '⚠'; color: #C62828; }
+
+@media (max-width: 768px) {
+  .swot-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== TECH SPECS ===== */
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.tech-card {
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  transition: all 0.3s ease;
+  border: 1px solid var(--light-gray);
+}
+
+.tech-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(27, 94, 32, 0.15);
+}
+
+.tech-card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.tech-card-body {
+  padding: 1.2rem;
+}
+
+.tech-card-body h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--forest-green);
+  margin-bottom: 0.4rem;
+}
+
+.tech-card-body > p {
+  font-size: 0.85rem;
+  color: var(--medium-gray);
+  margin-bottom: 1rem;
+}
+
+.tech-specs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+}
+
+.tech-spec {
+  background: var(--off-white);
+  padding: 0.6rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.tech-spec .value {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--forest-green);
+}
+
+.tech-spec .label {
+  font-size: 0.65rem;
+  color: var(--medium-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ===== FINANCIALS ===== */
+.financials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.fin-card {
+  background: linear-gradient(135deg, var(--forest-green), var(--emerald));
+  color: var(--white);
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.fin-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(27, 94, 32, 0.3);
+}
+
+.fin-card.gold {
+  background: linear-gradient(135deg, var(--gold), #D4AC0D);
+  color: var(--charcoal);
+}
+
+.fin-card .amount {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 0.2rem;
+}
+
+.fin-card .label {
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--charcoal);
+  color: var(--white);
+  padding: 3rem 2rem 2rem;
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.footer p {
+  color: rgba(255,255,255,0.6);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-bottom {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.4);
+  font-size: 0.8rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .collapsible-content.open { padding: 1rem; }
+  .collapsible-header { padding: 1rem 1.2rem; }
+  .collapsible-header h2 { font-size: 1.1rem; }
+  .overview-grid { grid-template-columns: 1fr; }
+  .tech-grid { grid-template-columns: 1fr; }
+  .financials-grid { grid-template-columns: repeat(2, 1fr); }
+  .porter-card, .benchmark-card { flex-direction: column; gap: 0.8rem; }
+  .competitor-logo-img { min-width: 50px; height: 50px; }
+}
+
+@media (max-width: 480px) {
+  .financials-grid { grid-template-columns: 1fr; }
+  .location-stats { grid-template-columns: 1fr; }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-in {
+  animation: fadeInUp 0.8s ease forwards;
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="nav" id="navbar">
+  <a href="#" class="nav-logo">TG EV Hub</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#location">Location</a></li>
+    <li><a href="#porters">Porter's</a></li>
+    <li><a href="#benchmark">Competitors</a></li>
+    <li><a href="#swot">SWOT</a></li>
+    <li><a href="#tech">Technology</a></li>
+    <li><a href="#financials">Investment</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle">☰</button>
+</nav>
+
+<!-- ===== HERO SECTION ===== -->
+<section class="hero" id="home">
+  <div class="logo-container">
+    <svg class="logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#4CAF50;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#1B5E20;stop-opacity:1" />
+        </linearGradient>
+      </defs>
+      <circle cx="100" cy="100" r="95" fill="none" stroke="url(#logoGrad)" stroke-width="3" opacity="0.6"/>
+      <circle cx="100" cy="100" r="80" fill="none" stroke="url(#logoGrad)" stroke-width="2" opacity="0.4"/>
+      <path d="M105 35 L75 95 L95 95 L85 165 L125 95 L100 95 L115 35 Z" fill="url(#logoGrad)" opacity="0.7"/>
+      <path d="M45 140 Q45 125 60 125 L70 125 L75 115 L125 115 L130 125 L140 125 Q155 125 155 140 L155 155 Q155 160 150 160 L50 160 Q45 160 45 155 Z" fill="none" stroke="url(#logoGrad)" stroke-width="2.5" opacity="0.6"/>
+      <circle cx="65" cy="160" r="8" fill="none" stroke="url(#logoGrad)" stroke-width="2" opacity="0.5"/>
+      <circle cx="135" cy="160" r="8" fill="none" stroke="url(#logoGrad)" stroke-width="2" opacity="0.5"/>
+      <path d="M100 175 Q100 170 100 165" stroke="url(#logoGrad)" stroke-width="2" fill="none" opacity="0.5"/>
+      <path d="M90 178 Q90 172 90 168" stroke="url(#logoGrad)" stroke-width="1.5" fill="none" opacity="0.4"/>
+      <path d="M110 178 Q110 172 110 168" stroke="url(#logoGrad)" stroke-width="1.5" fill="none" opacity="0.4"/>
+      <text x="100" y="195" text-anchor="middle" fill="url(#logoGrad)" font-family="Inter, sans-serif" font-size="10" font-weight="700" opacity="0.6">TG EV CHARGING</text>
+    </svg>
+  </div>
+
+  <div class="hero-content">
+    <h1 class="hero-title">Powering Ethiopia's Green Future</h1>
+    <p class="hero-subtitle">Where Charging Meets Care</p>
+    <p class="hero-tagline">
+      Ethiopia's first integrated urban mobility hub in Kazanchis, Addis Ababa — 
+      combining 120kW DC fast charging with premium automatic car wash, 
+      battery energy storage, and sustainable water recycling.
+    </p>
+    <div class="hero-cta">
+      <a href="#overview" class="btn-primary">Explore the Vision</a>
+      <a href="#financials" class="btn-secondary">View Investment</a>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ===== COLLAPSIBLE SECTIONS CONTAINER ===== -->
+<div class="section-wrapper" style="padding-top: 3rem;">
+
+  <!-- OVERVIEW -->
+  <div class="collapsible-section" id="overview">
+    <button class="collapsible-header" onclick="toggleSection(this)">
+      <div style="display:flex;align-items:center;">
+        <span class="section-icon">🌿</span>
+        <h2>The Opportunity</h2>
+      </div>
+      <span class="toggle-icon">▼</span>
+    </button>
+    <div class="collapsible-content">
+      <p class="section-subtitle">
+        Ethiopia has become Africa's most electrified vehicle market. With the world's first 
+        ICE import ban and surging EV adoption, the time to build is now.
+      </p>
+      <div class="overview-grid">
+        <div class="overview-card">
+          <div class="overview-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+          </div>
+          <h3>Policy Tailwinds</h3>
+          <p>World's first complete ICE import ban (Jan 2024). Duty-free EV equipment imports through 2026. "Green Lane" tax breaks for investors.</p>
+        </div>
+        <div class="overview-card">
+          <div class="overview-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2v20M2 12h20"/>
+            </svg>
+          </div>
+          <h3>Explosive Growth</h3>
+          <p>EV fleet surged from 7,000 (2023) to ~115,000 (2026). 60%+ of new registrations are electric. Only ~500 public chargers nationally.</p>
+        </div>
+        <div class="overview-card">
+          <div class="overview-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <h3>Dwell-Time Monetization</h3>
+          <p>20 minutes of charging becomes 20 minutes of productive service. Car wash, detailing, lounge, and retail — all while you charge.</p>
+        </div>
+        <div class="overview-card">
+          <div class="overview-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3>99%+ Uptime Guarantee</h3>
+          <p>400kWh BESS + 60kW solar canopy ensures uninterrupted service despite grid instability. Operational excellence as brand promise.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOCATION -->
+  <div class="collapsible-section" id="location">
+    <button class="collapsible-header" onclick="toggleSection(this)">
+      <div style="display:flex;align-items:center;">
+        <span class="section-icon">📍</span>
+        <h2>Kazanchis: The Heart of Transformation</h2>
+      </div>
+      <span class="toggle-icon">▼</span>
+    </button>
+    <div class="collapsible-content">
+      <div class="location-content">
+        <div class="location-image">
+          <img src="https://kimi-web-img.moonshot.cn/img/www.shutterstock.com/16f30a0a1e88027f471270c7925bc504faf5c2e0.jpg" alt="Addis Ababa Kazanchis Aerial View" loading="lazy">
+        </div>
+        <div class="location-text">
+          <h2>Kazanchis: The Heart of Transformation</h2>
+          <p>Kazanchis is undergoing a government-led corridor development transformation — from a degraded neighborhood to a modern downtown commercial hub with improved multi-lane boulevards, new parking, and enhanced commercial infrastructure.</p>
+          <p>This creates a premium, high-traffic location ideal for a mobility hub. The project is positioned at the intersection of two high-growth sectors, capitalizing on Ethiopia's aggressive E-Mobility Strategy.</p>
+          <div class="location-stats">
+            <div class="stat-box">
+              <div class="number">1,176</div>
+              <div class="label">Charging Centers Target by 2030</div>
+            </div>
+            <div class="stat-box">
+              <div class="number">115K</div>
+              <div class="label">EVs on Ethiopian Roads</div>
+            </div>
+            <div class="stat-box">
+              <div class="number">ETB 102.4M</div>
+              <div class="label">Total Investment</div>
+            </div>
+            <div class="stat-box">
+              <div class="number">3.9 yrs</div>
+              <div class="label">Project Payback Period</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PORTER'S FIVE FORCES -->
+  <div class="collapsible-section" id="porters">
+    <button class="collapsible-header" onclick="toggleSection(this)">
+      <div style="display:flex;align-items:center;">
+        <span class="section-icon">⚡</span>
+        <h2>Porter's Five Forces</h2>
+      </div>
+      <span class="toggle-icon">▼</span>
+    </button>
+    <div class="collapsible-content">
+      <p class="section-subtitle">Strategic market assessment for the integrated EV charging and car wash hub in Addis Ababa.</p>
+      <div class="porters-scrollable">
+        <div class="porter-card">
+          <div class="porter-icon">1</div>
+          <div class="porter-content">
+            <h4>Threat of New Entrants</h4>
+            <span class="assessment assessment-medium">Medium-High</span>
+            <p>Policy support and import incentives attract entrants, but land, power access, and ~100M ETB capital create significant barriers. First-mover advantage in premium sites is critical.</p>
+          </div>
+        </div>
+        <div class="porter-card">
+          <div class="porter-icon">2</div>
+          <div class="porter-content">
+            <h4>Supplier Power</h4>
+            <span class="assessment assessment-high">High</span>
+            <p>Chargers, wash systems, BESS, transformers and spare parts are imported; FX-sensitive. ~25% of generation capacity inactive due to spare parts shortages. Diversified sourcing essential.</p>
+          </div>
+        </div>
+        <div class="porter-card">
+          <div class="porter-icon">3</div>
+          <div class="porter-content">
+            <h4>Buyer Power</h4>
+            <span class="assessment assessment-medium">Medium</span>
+            <p>Individual consumers are price aware, but fleet buyers can exert strong pressure. Fleet contracts with annual lock-ins reduce buyer power and stabilize utilization.</p>
+          </div>
+        </div>
+        <div class="porter-card">
+          <div class="porter-icon">4</div>
+          <div class="porter-content">
+            <h4>Threat of Substitutes</h4>
+            <span class="assessment assessment-medium">Medium</span>
+            <p>Home/workplace charging can replace some public charging; informal washing substitutes for basic wash demand. Integrated experience is the moat against substitution.</p>
+          </div>
+        </div>
+        <div class="porter-card">
+          <div class="porter-icon">5</div>
+          <div class="porter-content">
+            <h4>Competitive Rivalry</h4>
+            <span class="assessment assessment-rising">Rising</span>
+            <p>Still early locally, but likely to intensify quickly as state-linked and fuel-retail players expand. Differentiation through integrated experience, not price, is the winning strategy.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPETITIVE BENCHMARK -->
+  <div class="collapsible-section" id="benchmark">
+    <button class="collapsible-header" onclick="toggleSection(this)">
+      <div style="display:flex;align-items:center;">
+        <span class="section-icon">🏆</span>
+        <h2>Competitive Landscape</h2>
+      </div>
+      <span class="toggle-icon">▼</span>
+    </button>
+    <div class="collapsible-content">
+      <p class="section-subtitle">Benchmarking against local and global competitors to define our unique positioning.</p>
+      <div class="benchmark-scrollable">
+        <!-- Ethio Telecom -->
+        <div class="benchmark-card">
+          <div class="competitor-logo-img">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Ethio-Telecom.jpg/220px-Ethio-Telecom.jpg" alt="Ethio Telecom Logo" loading="lazy">
+          </div>
+          <div class="benchmark-content">
+            <h4>Ethio Telecom</h4>
+            <span class="tag tag-local">Local</span>
+            <span class="tag tag-strength">Strength: Brand Trust</span>
+            <p>National infrastructure enabler with government alignment and capital access. Three hubs along Bole Road served 165,000+ EVs in 10 months. Weakness: Undifferentiated experience, slower private-sector agility.</p>
+          </div>
+        </div>
+        <!-- Fuel Stations -->
+        <div class="benchmark-card">
+          <div class="competitor-logo-img">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/TotalEnergies_logo.svg/220px-TotalEnergies_logo.svg.png" alt="TotalEnergies Logo" loading="lazy">
+          </div>
+          <div class="benchmark-content">
+            <h4>Fuel Stations (Total, Shell, Oilibya)</h4>
+            <span class="tag tag-local">Local</span>
+            <span class="tag tag-strength">Strength: Existing Network</span>
+            <p>Hybrid forecourt model with existing land, traffic, parking, and known customer behavior. Convenient legacy network. Weakness: Legacy layouts poor for long-dwell charging; slow adaptation to EV needs.</p>
+          </div>
+        </div>
+        <!-- Independent Car Washes -->
+        <div class="benchmark-card">
+          <div class="competitor-logo-img">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Car_wash_icon.svg/120px-Car_wash_icon.svg.png" alt="Local Car Wash" loading="lazy">
+          </div>
+          <div class="benchmark-content">
+            <h4>Independent Local Car Washes</h4>
+            <span class="tag tag-local">Local</span>
+            <span class="tag tag-weakness">Weakness: Low Standardization</span>
+            <p>Transactional wash operators with local familiarity and flexible pricing. Low-price competition. Weakness: Low standardization, limited technology, weak premium experience — ripe for disruption.</p>
+          </div>
+        </div>
+        <!-- ChargePoint -->
+        <div class="benchmark-card">
+          <div class="competitor-logo-img">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/ChargePoint_logo.svg/220px-ChargePoint_logo.svg.png" alt="ChargePoint Logo" loading="lazy">
+          </div>
+          <div class="benchmark-content">
+            <h4>ChargePoint</h4>
+            <span class="tag tag-global">Global</span>
+            <span class="tag tag-strength">Strength: Network Platform</span>
+            <p>Smart network leader with hardware + software monetization. Large ecosystem and fleet orientation. 342,000+ charging spots globally. Not yet in Ethiopia. Requires network density to succeed.</p>
+          </div>
+        </div>
+        <!-- Tesla -->
+        <div class="benchmark-card">
+          <div class="competitor-logo-img">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Tesla_Motors.svg/120px-Tesla_Motors.svg.png" alt="Tesla Logo" loading="lazy">
+          </div>
+          <div class="benchmark-content">
+            <h4>Tesla Supercharger</h4>
+            <span class="tag tag-global">Global</span>
+            <span class="tag tag-strength">Strength: Gold Standard UX</span>
+            <p>Premium but value-per-minute strong. Integrated vehicle + charge ecosystem. 60,000+ Superchargers worldwide. Closed ecosystem requires captive demand. Sets the bar for charging experience globally.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SWOT -->
+  <div class="collapsible-section" id="swot">
+    <button class="collapsible-header" onclick="toggleSection(this)">
+      <div style="display:flex;align-items:center;">
+        <span class="section-icon">📊</span>
+        <h2>Strategic SWOT Analysis</h2>
+      </div>
+      <span class="toggle-icon">▼</span>
+    </button>
+    <div class="collapsible-content">
+      <p class="section-subtitle">Understanding our position to build defensibility beyond hardware ownership.</p>
+      <div class="swot-grid">
+        <div class="swot-card swot-s">
+          <h3>🌿 Strengths</h3>
+          <ul>
+            <li>Integrated charging + wash concept creates cross-sell potential</li>
+            <li>Kazanchis strategically strong due to traffic and urban redevelopment</li>
+            <li>Policy tailwinds and equipment incentives improve entry economics</li>
+            <li>BESS + solar = uptime differentiation in grid-unstable environment</li>
+            <li>90%+ water recycling and professional wash operations</li>
+          </ul>
+        </div>
+        <div class="swot-card swot-w">
+          <h3>⚡ Weaknesses</h3>
+          <ul>
+            <li>Heavy upfront CAPEX and imported equipment dependency</li>
+            <li>Base-case financial assumptions may be aggressive</li>
+            <li>Public charging can become commoditized without differentiation</li>
+            <li>Grid dependence threatens service reliability without backup</li>
+          </ul>
+        </div>
+        <div class="swot-card swot-o">
+          <h3>🚀 Opportunities</h3>
+          <ul>
+            <li>Fleet partnerships with ride-hailing, delivery, and corporate operators</li>
+            <li>Memberships, subscriptions, and bundled services</li>
+            <li>Retail monetization of dwell time (lounge, coffee, convenience)</li>
+            <li>Expansion into a replicable network format across Addis Ababa</li>
+          </ul>
+        </div>
+        <div class="swot-card swot-t">
+          <h3>⚠️ Threats</h3>
+          <ul>
+            <li>Rapid entry by telecom, fuel stations, or state-backed players</li>
+            <li>FX shocks, import delays, spare-part shortages</li>
+            <li>Tariff regulation or public pressure on charging prices</li>
+            <li>Lower-than-expected EV traffic in target micro-location</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="collapsible-section" id="tech">
+    <button class="collapsible-header" onclick="toggleSection(this)">
+      <div style="display:flex;align-items:center;">
+        <span class="section-icon">🔧</span>
+        <h2>Technical Specifications</h2>
+      </div>
+      <span class="toggle-icon">▼</span>
+    </button>
+    <div class="collapsible-content">
+      <p class="section-subtitle">State-of-the-art infrastructure designed for reliability, efficiency, and scale.</p>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <img class="tech-card-image" src="https://kimi-web-img.moonshot.cn/img/thumbs.dreamstime.com/3afe94c51b9627b2a121385cb5908d3f5dd99146.jpg" alt="Modern EV Charging Station with Solar Canopy" loading="lazy">
+          <div class="tech-card-body">
+            <h3>EV Charging Hub</h3>
+            <p>8 × 120kW DC Fast Chargers (CCS2) with smart load balancing and AI-based BMS.</p>
+            <div class="tech-specs">
+              <div class="tech-spec"><div class="value">960kW</div><div class="label">Peak Grid</div></div>
+              <div class="tech-spec"><div class="value">400kWh</div><div class="label">BESS Buffer</div></div>
+              <div class="tech-spec"><div class="value">60kW</div><div class="label">Solar Canopy</div></div>
+              <div class="tech-spec"><div class="value">AI</div><div class="label">Smart BMS</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="tech-card">
+          <img class="tech-card-image" src="https://kimi-web-img.moonshot.cn/img/thumbs.dreamstime.com/34ccfe342fb93f9f7aaca9e0ba869ad5f93626b2.jpg" alt="Futuristic Solar EV Charging Station" loading="lazy">
+          <div class="tech-card-body">
+            <h3>Automatic Car Wash</h3>
+            <p>2-Line Tunnel Wash System with 90%+ water recycling and low-detergent formulation.</p>
+            <div class="tech-specs">
+              <div class="tech-spec"><div class="value">60/hr</div><div class="label">Combined Throughput</div></div>
+              <div class="tech-spec"><div class="value">90%+</div><div class="label">Water Recycling</div></div>
+              <div class="tech-spec"><div class="value">18kWh</div><div class="label">Energy/Day/Line</div></div>
+              <div class="tech-spec"><div class="value">15L</div><div class="label">Chemicals/Month</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINANCIALS -->
+  <div class="collapsible-section" id="financials">
+    <button class="collapsible-header" onclick="toggleSection(this)">
+      <div style="display:flex;align-items:center;">
+        <span class="section-icon">💰</span>
+        <h2>Investment Overview</h2>
+      </div>
+      <span class="toggle-icon">▼</span>
+    </button>
+    <div class="collapsible-content">
+      <p class="section-subtitle">ETB 102.4 Million (~USD 538,900) structured as 60% equity / 40% debt.</p>
+      <div class="financials-grid">
+        <div class="fin-card">
+          <div class="amount">ETB 102.4M</div>
+          <div class="label">Total Project Cost</div>
+        </div>
+        <div class="fin-card gold">
+          <div class="amount">3.9 Years</div>
+          <div class="label">Project Payback</div>
+        </div>
+        <div class="fin-card">
+          <div class="amount">~4.5 Years</div>
+          <div class="label">Equity Payback</div>
+        </div>
+        <div class="fin-card gold">
+          <div class="amount">21.8%</div>
+          <div class="label">Year 5 Net Margin</div>
+        </div>
+        <div class="fin-card">
+          <div class="amount">5.30x</div>
+          <div class="label">Year 5 DSCR</div>
+        </div>
+        <div class="fin-card gold">
+          <div class="amount">20+</div>
+          <div class="label">Jobs Created</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-logo">TG EV Charging & Car Wash Hub</div>
+  <p>Kazanchis, Addis Ababa, Ethiopia</p>
+  <p>Ethiopia's first integrated urban mobility service center</p>
+  <div class="footer-bottom">
+    <p>© 2026 TG EV Charging & Car Wash Hub. All rights reserved. | Business Plan — June 2026</p>
+  </div>
+</footer>
+
+<script>
+// Collapsible sections
+function toggleSection(header) {
+  const content = header.nextElementSibling;
+  const icon = header.querySelector('.toggle-icon');
+
+  if (content.classList.contains('open')) {
+    content.classList.remove('open');
+    header.classList.remove('active');
+    icon.textContent = '▼';
+  } else {
+    content.classList.add('open');
+    header.classList.add('active');
+    icon.textContent = '▲';
+  }
+}
+
+// Open first section by default
+document.addEventListener('DOMContentLoaded', function() {
+  const firstHeader = document.querySelector('.collapsible-header');
+  if (firstHeader) {
+    toggleSection(firstHeader);
+  }
+});
+
+// Mobile nav toggle
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+  });
+});
+
+// Navbar background on scroll
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    navbar.style.background = 'rgba(27, 94, 32, 0.98)';
+    navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.2)';
+  } else {
+    navbar.style.background = 'rgba(27, 94, 32, 0.95)';
+    navbar.style.boxShadow = 'none';
+  }
+});
+</script>
+
+</body>
+</html>
