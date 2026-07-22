@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bank of America — Ethiopia Strategic Partnership Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --boa-red: #E31837; --boa-dark-red: #B01030; --boa-navy: #012169; --boa-dark-navy: #001347;
+  --sustain-green: #2E7D32; --sustain-light: #4CAF50; --sustain-pale: #E8F5E9;
+  --gold-accent: #C9A227; --text-dark: #1a1a2e; --text-light: #f8f9fa;
+  --bg-light: #f5f7fa; --card-bg: rgba(255,255,255,0.97);
+  --shadow: 0 8px 32px rgba(1,33,105,0.12); --shadow-lg: 0 20px 60px rgba(1,33,105,0.18);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; background: var(--bg-light); color: var(--text-dark); overflow-x: hidden; line-height: 1.6; }
+
+/* ===== HERO SECTION ===== */
+.hero {
+  position: relative; min-height: 100vh; display: flex; flex-direction: column;
+  justify-content: center; align-items: center; text-align: center;
+  background: linear-gradient(135deg, var(--boa-navy) 0%, #0a1a3a 40%, #0d1b2a 100%);
+  overflow: hidden; padding: 2rem;
+}
+.hero-bg {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80') center/cover;
+  opacity: 0.12; z-index: 0;
+}
+.hero-overlay {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(1,33,105,0.4) 0%, transparent 60%),
+              radial-gradient(ellipse at 70% 80%, rgba(227,24,55,0.15) 0%, transparent 50%);
+  z-index: 1;
+}
+.hero-content { position: relative; z-index: 3; max-width: 1000px; }
+.hero-logo-wrap {
+  width: 220px; height: 220px; margin: 0 auto 2.5rem;
+  background: rgba(255,255,255,0.06); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.12);
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+.hero-logo-wrap img { width: 170px; height: auto; opacity: 0.95; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3)); }
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 40px rgba(227,24,55,0.25), inset 0 0 40px rgba(255,255,255,0.03); }
+  50% { box-shadow: 0 0 80px rgba(227,24,55,0.5), inset 0 0 60px rgba(255,255,255,0.06); }
+}
+.hero h1 {
+  font-family: 'Great Vibes', cursive; font-size: clamp(3.5rem, 9vw, 7rem);
+  color: #fff; text-shadow: 0 4px 30px rgba(0,0,0,0.4); margin-bottom: 0.3rem; line-height: 1;
+}
+.hero .subtitle {
+  font-family: 'Playfair Display', serif; font-size: clamp(1rem, 2.5vw, 1.5rem);
+  color: var(--gold-accent); letter-spacing: 4px; text-transform: uppercase;
+  margin-bottom: 1.5rem; font-weight: 400;
+}
+.hero-desc {
+  font-size: clamp(1rem, 1.5vw, 1.15rem); color: rgba(255,255,255,0.82);
+  max-width: 650px; margin: 0 auto 2rem; line-height: 1.8; font-weight: 300;
+}
+.hero-badges { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: rgba(46,125,50,0.18); border: 1px solid rgba(76,175,80,0.4);
+  color: var(--sustain-light); padding: 0.6rem 1.4rem; border-radius: 50px;
+  font-size: 0.85rem; font-weight: 500; backdrop-filter: blur(4px);
+}
+
+/* ===== NAVIGATION ===== */
+.nav-bar {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(1,33,105,0.96); backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0.7rem 1.5rem;
+  display: flex; justify-content: center; gap: 0.3rem; flex-wrap: wrap;
+}
+.nav-bar button {
+  background: transparent; border: none; color: rgba(255,255,255,0.65);
+  padding: 0.55rem 1rem; border-radius: 8px; cursor: pointer;
+  font-size: 0.8rem; font-weight: 500; transition: all 0.25s ease; white-space: nowrap;
+}
+.nav-bar button:hover, .nav-bar button.active {
+  background: var(--boa-red); color: #fff; box-shadow: 0 4px 15px rgba(227,24,55,0.3);
+}
+
+/* ===== COLLAPSIBLE SECTIONS ===== */
+.collapsible-section { max-width: 1300px; margin: 0 auto 1.2rem auto; padding: 0 1.5rem; }
+.collapsible-header {
+  background: linear-gradient(135deg, var(--boa-navy), var(--boa-dark-navy));
+  color: #fff; padding: 1.4rem 2rem; border-radius: 16px; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  transition: all 0.35s ease; box-shadow: var(--shadow); position: relative; overflow: hidden;
+}
+.collapsible-header::before {
+  content: ''; position: absolute; top: 0; left: -100%; right: 0; bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+  transition: left 0.6s ease;
+}
+.collapsible-header:hover::before { left: 100%; }
+.collapsible-header:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+.collapsible-header h2 {
+  font-family: 'Playfair Display', serif; font-size: clamp(1.2rem, 2.8vw, 1.6rem);
+  display: flex; align-items: center; gap: 1rem; font-weight: 600;
+}
+.section-icon {
+  width: 44px; height: 44px; background: rgba(255,255,255,0.12);
+  border-radius: 12px; display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; flex-shrink: 0;
+}
+.toggle-icon {
+  width: 34px; height: 34px; background: rgba(255,255,255,0.1);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1); flex-shrink: 0;
+}
+.collapsible-header.active .toggle-icon { transform: rotate(180deg); }
+.collapsible-content {
+  max-height: 0; overflow: hidden; transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s ease;
+  background: var(--card-bg); border-radius: 0 0 16px 16px;
+  box-shadow: var(--shadow); margin-top: -8px; padding-top: 0;
+}
+.collapsible-content.open { max-height: 4000px; padding: 2.5rem 2rem 2rem; overflow-y: auto; }
+.collapsible-content::-webkit-scrollbar { width: 6px; }
+.collapsible-content::-webkit-scrollbar-track { background: #f1f1f1; }
+.collapsible-content::-webkit-scrollbar-thumb { background: var(--boa-red); border-radius: 3px; }
+
+/* Section color variants */
+.collapsible-header.marathon-h { background: linear-gradient(135deg, #0d1b2a, #1b2838); }
+.collapsible-header.vision-h { background: linear-gradient(135deg, #1a237e, #283593); }
+.collapsible-header.competitors-h { background: linear-gradient(135deg, #00695c, #00897b); }
+.collapsible-header.swot-h { background: linear-gradient(135deg, #4a148c, #6a1b9a); }
+.collapsible-header.porter-h { background: linear-gradient(135deg, var(--sustain-green), #1b5e20); }
+.collapsible-header.path-h { background: linear-gradient(135deg, #bf360c, #e65100); }
+.collapsible-header.industrial-h { background: linear-gradient(135deg, #01579b, #0277bd); }
+.collapsible-header.gerd-h { background: linear-gradient(135deg, #1b5e20, #2e7d32); }
+.collapsible-header.exports-h { background: linear-gradient(135deg, #6a1b9a, #8e24aa); }
+.collapsible-header.brands-h { background: linear-gradient(135deg, #c62828, #e53935); }
+
+/* ===== MARATHON SECTION ===== */
+.marathon-hero {
+  background: linear-gradient(135deg, #0d1b2a, #1b2838); border-radius: 20px;
+  padding: 3rem; margin-bottom: 2.5rem; position: relative; overflow: hidden;
+}
+.marathon-hero::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: url('https://images.unsplash.com/photo-1552674605-469523f54050?w=1200&q=80') center/cover;
+  opacity: 0.08;
+}
+.marathon-header-inner {
+  display: flex; align-items: center; justify-content: center; gap: 2.5rem;
+  margin-bottom: 2.5rem; flex-wrap: wrap; position: relative; z-index: 2;
+}
+.marathon-header-inner img { height: 65px; width: auto; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4)); }
+.marathon-logo-text { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+.marathon-year { font-family: 'Great Vibes', cursive; font-size: 3rem; color: var(--gold-accent); line-height: 1; }
+.marathon-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; position: relative; z-index: 2; }
+.marathon-card {
+  background: rgba(255,255,255,0.06); backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1); border-radius: 16px;
+  padding: 1.8rem; color: #fff; transition: all 0.3s ease;
+}
+.marathon-card:hover { transform: translateY(-5px); background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); }
+.marathon-card h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; margin-bottom: 0.8rem; color: var(--gold-accent); }
+.marathon-card p { font-size: 0.9rem; line-height: 1.65; opacity: 0.85; }
+.sponsor-logos { display: flex; gap: 0.8rem; margin-top: 1.2rem; flex-wrap: wrap; align-items: center; }
+.sponsor-logos img { height: 32px; width: auto; background: rgba(255,255,255,0.95); padding: 0.25rem 0.5rem; border-radius: 6px; object-fit: contain; transition: transform 0.2s; }
+.sponsor-logos img:hover { transform: scale(1.08); }
+
+/* ===== BRANDS SHOWCASE ===== */
+.brands-showcase { margin-bottom: 2.5rem; }
+.brands-showcase h3 {
+  font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--boa-navy);
+  text-align: center; margin-bottom: 1.5rem;
+}
+.brands-category { margin-bottom: 2rem; }
+.brands-category h4 {
+  font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: #888;
+  margin-bottom: 1rem; text-align: center;
+}
+.brands-row {
+  display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap;
+  align-items: center; padding: 1rem;
+}
+.brand-item {
+  background: #fff; border-radius: 12px; padding: 0.8rem 1.2rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06); transition: all 0.3s ease;
+  display: flex; align-items: center; justify-content: center;
+  min-width: 100px; height: 60px;
+}
+.brand-item:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+.brand-item img { max-height: 38px; width: auto; max-width: 120px; object-fit: contain; }
+
+/* ===== GALLERY ===== */
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+.gallery-card {
+  position: relative; border-radius: 16px; overflow: hidden; height: 260px;
+  box-shadow: var(--shadow); transition: all 0.4s ease;
+}
+.gallery-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+.gallery-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+.gallery-card:hover img { transform: scale(1.08); }
+.gallery-overlay {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 2.5rem 1.5rem 1.5rem;
+  background: linear-gradient(transparent 0%, rgba(1,33,105,0.92) 100%); color: #fff;
+}
+.gallery-overlay h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.3rem; }
+.gallery-overlay p { font-size: 0.82rem; opacity: 0.9; }
+
+/* ===== COMPETITORS ===== */
+.benchmark-scroll { max-height: 600px; overflow-y: auto; padding: 0.5rem; }
+.benchmark-scroll::-webkit-scrollbar { width: 8px; }
+.benchmark-scroll::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
+.benchmark-scroll::-webkit-scrollbar-thumb { background: var(--boa-red); border-radius: 4px; }
+.competitor-row {
+  display: grid; grid-template-columns: 90px 1fr; gap: 1.5rem;
+  padding: 1.4rem; border-bottom: 1px solid #eee; align-items: start; transition: all 0.2s;
+}
+.competitor-row:hover { background: var(--sustain-pale); border-radius: 12px; }
+.competitor-row:last-child { border-bottom: none; }
+.bank-logo-icon {
+  width: 75px; height: 75px; border-radius: 14px; display: flex;
+  align-items: center; justify-content: center; overflow: hidden;
+  flex-shrink: 0; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+.bank-logo-icon img { width: 65px; height: 65px; object-fit: contain; }
+.bank-details h3 { color: var(--boa-navy); font-size: 1.15rem; margin-bottom: 0.2rem; font-weight: 600; }
+.model-tag {
+  display: inline-block; background: var(--boa-red); color: #fff;
+  padding: 0.2rem 0.7rem; border-radius: 20px; font-size: 0.72rem;
+  font-weight: 600; margin-bottom: 0.7rem;
+}
+.bank-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.8rem; }
+.meta-item { background: #f8f9fa; padding: 0.7rem; border-radius: 10px; border-left: 3px solid var(--sustain-green); }
+.meta-item strong { display: block; font-size: 0.7rem; text-transform: uppercase; color: #999; margin-bottom: 0.25rem; }
+.meta-item span { font-size: 0.85rem; color: var(--text-dark); font-weight: 500; }
+
+/* ===== SWOT ===== */
+.swot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+.swot-card {
+  background: var(--card-bg); border-radius: 16px; padding: 1.8rem;
+  box-shadow: var(--shadow); border-top: 4px solid; transition: all 0.3s ease;
+}
+.swot-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.swot-s { border-color: var(--sustain-green); } .swot-w { border-color: var(--gold-accent); }
+.swot-o { border-color: var(--boa-red); } .swot-t { border-color: var(--boa-navy); }
+.swot-card h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+.swot-s h3 { color: var(--sustain-green); } .swot-w h3 { color: var(--gold-accent); }
+.swot-o h3 { color: var(--boa-red); } .swot-t h3 { color: var(--boa-navy); }
+.swot-card ul { list-style: none; }
+.swot-card li { padding: 0.45rem 0; padding-left: 1.4rem; position: relative; color: #555; font-size: 0.92rem; }
+.swot-card li::before { content: '>'; position: absolute; left: 0; color: var(--boa-red); font-weight: bold; }
+
+/* ===== PORTER'S ===== */
+.porter-scroll { max-height: 550px; overflow-y: auto; padding: 0.5rem; }
+.porter-scroll::-webkit-scrollbar { width: 8px; }
+.porter-scroll::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
+.porter-scroll::-webkit-scrollbar-thumb { background: var(--sustain-green); border-radius: 4px; }
+.force-card { display: flex; gap: 1.3rem; padding: 1.4rem; border-bottom: 1px solid #eee; align-items: flex-start; transition: background 0.2s; }
+.force-card:hover { background: rgba(46,125,50,0.04); border-radius: 12px; }
+.force-card:last-child { border-bottom: none; }
+.force-icon { width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.6rem; }
+.force-content h4 { color: var(--boa-navy); font-size: 1.05rem; margin-bottom: 0.4rem; font-weight: 600; }
+.force-content p { color: #666; line-height: 1.6; font-size: 0.9rem; }
+.force-level { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.5rem; padding: 0.25rem 0.7rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
+.level-high { background: #ffebee; color: #c62828; } .level-moderate { background: #fff3e0; color: #ef6c00; } .level-rising { background: #e3f2fd; color: #1565c0; }
+
+/* ===== PATH ===== */
+.path-timeline { display: flex; flex-direction: column; gap: 1.8rem; max-width: 850px; margin: 0 auto; }
+.phase-item { display: flex; gap: 1.8rem; align-items: flex-start; }
+.phase-number {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--boa-red), var(--boa-dark-red));
+  color: #fff; display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; font-weight: 700; flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(227,24,55,0.3);
+}
+.phase-content { background: var(--card-bg); border-radius: 16px; padding: 1.4rem 1.8rem; box-shadow: var(--shadow); flex: 1; border-left: 4px solid var(--sustain-green); }
+.phase-content h4 { color: var(--boa-navy); font-size: 1.1rem; margin-bottom: 0.4rem; font-weight: 600; }
+.phase-content p { color: #666; line-height: 1.6; font-size: 0.9rem; }
+
+/* ===== INDUSTRIAL ===== */
+.industrial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.8rem; }
+.industrial-card { background: var(--card-bg); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); transition: all 0.35s ease; }
+.industrial-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+.industrial-card img { width: 100%; height: 190px; object-fit: cover; }
+.industrial-card .card-body { padding: 1.4rem; }
+.industrial-card h3 { font-family: 'Playfair Display', serif; color: var(--boa-navy); font-size: 1.1rem; margin-bottom: 0.6rem; }
+.industrial-card p { color: #666; font-size: 0.88rem; line-height: 1.6; }
+.brand-logos-row { display: flex; gap: 0.7rem; margin-top: 1rem; flex-wrap: wrap; align-items: center; }
+.brand-logos-row img { height: 28px; width: auto; background: #f5f5f5; padding: 0.2rem 0.5rem; border-radius: 6px; object-fit: contain; transition: transform 0.2s; }
+.brand-logos-row img:hover { transform: scale(1.1); }
+
+/* ===== GERD ===== */
+.gerd-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; margin-bottom: 2rem; }
+.gerd-visual img { width: 100%; border-radius: 16px; box-shadow: var(--shadow); }
+.gerd-visual .gerd-text h3 { font-family: 'Playfair Display', serif; color: var(--boa-navy); font-size: 1.4rem; margin-bottom: 1rem; }
+.gerd-visual .gerd-text p { color: #666; line-height: 1.7; margin-bottom: 0.8rem; font-size: 0.92rem; }
+.irrigation-logos { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 1rem; align-items: center; }
+.irrigation-badge { background: #e3f2fd; padding: 0.3rem 0.7rem; border-radius: 6px; font-size: 0.72rem; font-weight: 600; color: #1565c0; }
+
+/* ===== EXPORTS ===== */
+.exports-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.3rem; }
+.export-card { background: linear-gradient(135deg, #f3e5f5, #e8eaf6); border-radius: 16px; padding: 1.8rem; text-align: center; transition: all 0.3s ease; }
+.export-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+.export-card .export-icon { font-size: 2.8rem; margin-bottom: 0.8rem; }
+.export-card h4 { font-family: 'Playfair Display', serif; color: var(--boa-navy); font-size: 1.05rem; margin-bottom: 0.4rem; }
+.export-card p { color: #666; font-size: 0.82rem; line-height: 1.55; }
+
+/* ===== VISION STATS ===== */
+.vision-stats {
+  margin-top: 2.5rem; background: linear-gradient(135deg, var(--boa-navy), var(--boa-dark-navy));
+  border-radius: 20px; padding: 2.5rem 2rem; color: #fff; text-align: center;
+}
+.vision-stats h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 1rem; }
+.vision-stats p { max-width: 750px; margin: 0 auto 1.5rem; line-height: 1.8; opacity: 0.9; font-size: 0.95rem; }
+.stats-row { display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; margin-top: 1.5rem; }
+.stat-item { text-align: center; }
+.stat-value { font-size: 2.8rem; font-weight: 700; color: var(--gold-accent); line-height: 1; }
+.stat-label { font-size: 0.85rem; opacity: 0.75; margin-top: 0.4rem; }
+
+/* ===== FOOTER ===== */
+.footer {
+  background: linear-gradient(135deg, var(--boa-dark-navy), #000);
+  color: #fff; padding: 3rem 2rem; text-align: center; margin-top: 3rem;
+}
+.footer-logo { width: 70px; height: auto; margin: 0 auto 1.2rem; opacity: 0.7; }
+.footer h3 { font-family: 'Great Vibes', cursive; font-size: 2rem; margin-bottom: 0.4rem; }
+.footer p { color: rgba(255,255,255,0.55); font-size: 0.88rem; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .collapsible-section { padding: 0 1rem; } .hero { min-height: auto; padding: 4rem 1rem; }
+  .hero-logo-wrap { width: 150px; height: 150px; } .hero-logo-wrap img { width: 120px; }
+  .competitor-row { grid-template-columns: 1fr; text-align: center; } .bank-logo-icon { margin: 0 auto; }
+  .force-card { flex-direction: column; text-align: center; } .force-icon { margin: 0 auto; }
+  .phase-item { flex-direction: column; align-items: center; text-align: center; } .phase-content { border-left: none; border-top: 4px solid var(--sustain-green); }
+  .nav-bar { padding: 0.5rem; gap: 0.2rem; } .nav-bar button { padding: 0.5rem 0.7rem; font-size: 0.72rem; }
+  .marathon-header-inner { flex-direction: column; gap: 1rem; } .marathon-header-inner img { height: 50px; }
+  .gerd-visual { grid-template-columns: 1fr; } .sponsor-logos img { height: 28px; } .brand-logos-row img { height: 24px; }
+  .stats-row { gap: 1.5rem; } .stat-value { font-size: 2rem; }
+  .brand-item { min-width: 80px; height: 50px; padding: 0.5rem 0.8rem; }
+  .brand-item img { max-height: 30px; max-width: 90px; }
+}
+@media (max-width: 480px) {
+  .gallery-card { height: 200px; } .bank-meta { grid-template-columns: 1fr; } .industrial-card img { height: 160px; }
+  .marathon-hero { padding: 1.5rem; } .collapsible-content.open { padding: 1.5rem; }
+}
+
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+.collapsible-section { animation: fadeInUp 0.6s ease-out; }
+</style>
+<base target="_blank">
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<div class="hero" id="overview">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-logo-wrap">
+      <img src="https://kimi-web-img.moonshot.cn/img/1000logos.net/45aeac141ae0a90a65b46e32e009eaefc24445fd.png" alt="Bank of America">
+    </div>
+    <h1>Bank of America</h1>
+    <div class="subtitle">Strategic Frontier Option</div>
+    <p class="hero-desc">Navigating Ethiopia's reform-driven banking expansion with disciplined entry, sustainable partnerships, and long-term value creation across East Africa's most dynamic emerging market.</p>
+    <div class="hero-badges">
+      <div class="hero-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg> Sustainable Development</div>
+      <div class="hero-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> 120M Population Market</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== NAVIGATION ===== -->
+<div class="nav-bar">
+  <button class="active" onclick="scrollToSection('overview')">Overview</button>
+  <button onclick="scrollToSection('marathon-section')">Marathon</button>
+  <button onclick="scrollToSection('brands-section')">Brands</button>
+  <button onclick="scrollToSection('vision-section')">Vision</button>
+  <button onclick="scrollToSection('competitors-section')">Competitors</button>
+  <button onclick="scrollToSection('swot-section')">SWOT</button>
+  <button onclick="scrollToSection('porter-section')">Porter</button>
+  <button onclick="scrollToSection('path-section')">Path</button>
+  <button onclick="scrollToSection('industrial-section')">Industry</button>
+  <button onclick="scrollToSection('gerd-section')">GERD</button>
+  <button onclick="scrollToSection('exports-section')">Exports</button>
+</div>
+
+<!-- ===== MARATHON SPONSORSHIP ===== -->
+<div class="collapsible-section" id="marathon-section">
+  <div class="collapsible-header marathon-h" onclick="toggleSection(this)">
+    <h2><span class="section-icon">🏃</span> Addis Ababa Marathon 2027 — Title Sponsorship</h2>
+    <span class="toggle-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+  </div>
+  <div class="collapsible-content">
+    <div class="marathon-hero">
+      <div class="marathon-header-inner">
+        <img src="https://kimi-web-img.moonshot.cn/img/1000logos.net/45aeac141ae0a90a65b46e32e009eaefc24445fd.png" alt="Bank of America">
+        <div style="text-align:center">
+          <div class="marathon-logo-text">Addis Ababa Marathon</div>
+          <div class="marathon-year">2027</div>
+        </div>
+        <img src="https://kimi-web-img.moonshot.cn/img/1000logos.net/45aeac141ae0a90a65b46e32e009eaefc24445fd.png" alt="Bank of America">
+      </div>
+      <div class="marathon-grid">
+        <div class="marathon-card">
+          <h3>🎯 Title Sponsorship</h3>
+          <p>Bank of America will serve as the title sponsor of the Addis Ababa Marathon 2027 — a world-class event that showcases Ethiopian culture, unites communities, and inspires health, tourism, and local business growth.</p>
+          <div class="sponsor-logos">
+            <img src="https://kimi-web-img.moonshot.cn/img/www.pixartprinting.it/3838bf4a171a109fc63f211e7a54b4862b6ec140.jpg" alt="Nike">
+            <img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/4ab385198b15b1e3c6b5a21e6aafadee50a51e23.png" alt="Adidas">
+            <img src="https://kimi-web-img.moonshot.cn/img/images.seeklogo.com/8c8539258cfee086186042ab37a52b873bd31e83.png" alt="New Balance">
+            <img src="https://kimi-web-img.moonshot.cn/img/logoblink.com/6437875055cd70134323c18fbfb5d07c757caff6.jpg" alt="Reebok">
+          </div>
+        </div>
+        <div class="marathon-card">
+          <h3>🌾 Beyond the Race</h3>
+          <p>Building a sustainable ecosystem connecting the Marathon with agriculture, manufacturing, and infrastructure. Investing in cotton farming, leather value addition, machinery collaboration with Caterpillar and NHI, and local assembly with global standards.</p>
+          <div class="sponsor-logos">
+            <img src="https://kimi-web-img.moonshot.cn/img/logos-world.net/6f026a4921caefacf3972c780e08e299c47cc1a7.png" alt="Caterpillar">
+            <img src="https://kimi-web-img.moonshot.cn/img/companieslogo.com/16970fdccfada9b5ad722efaba6891fdac9c3223.png" alt="NHI">
+          </div>
+        </div>
+        <div class="marathon-card">
+          <h3>🤝 Partnership Goals</h3>
+          <p>Attract further investment into Ethiopia, catalyze economic growth, strengthen the financial sector, create jobs, and support national pride and global visibility through sports and cultural celebration.</p>
+        </div>
+        <div class="marathon-card">
+          <h3>💬 Dr. Ngwenya's Vision</h3>
+          <p>"The audacity to invite Bank of America to Ethiopia is commendable. Their presence will catalyze further investment, and their sponsorship of the Addis Ababa Marathon 2027 will showcase our culture, unite communities, and inspire health, tourism, and local businesses."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== GLOBAL BRANDS SHOWCASE ===== -->
+<div class="collapsible-section" id="brands-section">
+  <div class="collapsible-header brands-h" onclick="toggleSection(this)">
+    <h2><span class="section-icon">🏷️</span> Global Brand Partners</h2>
+    <span class="toggle-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+  </div>
+  <div class="collapsible-content">
+    <div class="brands-showcase">
+      <h3>Sports & Athletic Brands</h3>
+      <div class="brands-category">
+        <h4>Footwear & Apparel</h4>
+        <div class="brands-row">
+          <div class="brand-item"><img src="https://kimi-web-img.moonshot.cn/img/www.pixartprinting.it/3838bf4a171a109fc63f211e7a54b4862b6ec140.jpg" alt="Nike"></div>
+          <div class="brand-item"><img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/4ab385198b15b1e3c6b5a21e6aafadee50a51e23.png" alt="Adidas"></div>
+          <div class="brand-item"><img src="https://kimi-web-img.moonshot.cn/img/images.seeklogo.com/8c8539258cfee086186042ab37a52b873bd31e83.png" alt="New Balance"></div>
+          <div class="brand-item"><img src="https://kimi-web-img.moonshot.cn/img/logoblink.com/6437875055cd70134323c18fbfb5d07c757caff6.jpg" alt="Reebok"></div>
+          <div class="brand-item"><img src="https://kimi-web-img.moonshot.cn/img/images.seeklogo.com/57c9c2f3e34a2b1a8a0f7b3c8d2e1a5f6b4c3d2e.png" alt="Under Armour"></div>
+          <div class="brand-item"><img src="https://kimi-web-img.moonshot.cn/img/images.squarespace-cdn.com/c382cb1cd9d7d6543e25e4cd17f3689a6069208e" alt="Brooks Running"></div>
+          <div class="brand-item"><img src="https://kimi-web-img.moonshot.cn/img/1000logos.net/5002c10e96394583fe442de1329d53219453a21a.png" alt="Skechers"></div>
+          <div class="brand-item"><img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/8a7b6c5d4e3f2a1b9c8d7e6f5a4b3c2d1e0f9a8b.png" alt="Converse"></div>
+        </div>
+      </div>
+      <div class="brands-category">
+        <h4>Outdoor & Lifestyle</h4>
+        <div class="brands-row">
+          <div class="brand-item"><img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d.png" alt="North Face"></div>
+          <div class="brand-item"><img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b.png" alt="Columbia"></div>
+          <div class="brand-item"><img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b.png" alt="Patagonia"></div>
+        </div>
+      </div>
+      <div class="brands-category">
+        <h4>Denim & Fashion</h4>
+        <div class="brands-row">
+          <div class="brand-item"><img src="https://kimi-web-img.moonshot.cn/img/www.levistrauss.com/edc75273f7ba3ce443d6f0dfc202968d10412519.jpg" alt="Levi Strauss"></div>
+          <div class="brand-item"><img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/30b98719265f44b854430efb4f73029b31d0a4c1.png" alt="Lee"></div>
+          <div class="brand-item"><img src="https://kimi-web-img.moonshot.cn/img/logos-world.net/b5e2352514ed436b6b50509bfb763cde33ee3d17.png" alt="Coach"></div>
+          <div class="brand-item"><img src="https://kimi-web-img.moonshot.cn/img/1000logos.net/25bb99fec8007d02134b96f404186c30e205c10e.png" alt="Tommy Hilfiger"></div>
+          <div class="brand-item"><img src="https://kimi-web-img.moonshot.cn/img/www.logolounge.com/b4fa4baf6e1d0d6247a1f77374a94cd539733a9c.jpg" alt="Kate Spade"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== VISION GALLERY ===== -->
+<div class="collapsible-section" id="vision-section">
+  <div class="collapsible-header vision-h" onclick="toggleSection(this)">
+    <h2><span class="section-icon">🌍</span> Ethiopia's Future in Focus</h2>
+    <span class="toggle-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+  </div>
+  <div class="collapsible-content">
+    <div class="gallery-grid">
+      <div class="gallery-card"><img src="https://kimi-web-img.moonshot.cn/img/runningmagazine.ca/e0fb21af09c3a640dd21e89976c908c5213004b6.jpg" alt="Ethiopian Athletics"><div class="gallery-overlay"><h3>🏃 Ethiopian Sports Culture</h3><p>World-class long-distance running tradition and the Addis Ababa Marathon legacy</p></div></div>
+      <div class="gallery-card"><img src="https://kimi-web-img.moonshot.cn/img/www.fanamc.com/79e897bc7154e46176d2cbc083047129fbf3790a.jpg" alt="Modern Addis Ababa"><div class="gallery-overlay"><h3>🏙️ Modern Addis Ababa</h3><p>Rapidly evolving skyline with sustainable urban development initiatives</p></div></div>
+      <div class="gallery-card"><img src="https://kimi-web-img.moonshot.cn/img/en.sasac.gov.cn/0775b610eccaf5662086db181b74290002eb6a75.png" alt="Sustainable Development"><div class="gallery-overlay"><h3>🌱 Sustainable Growth</h3><p>Green infrastructure and eco-friendly banking corridors in Addis Ababa</p></div></div>
+      <div class="gallery-card"><img src="https://kimi-web-img.moonshot.cn/img/thumbs.dreamstime.com/b89e21b4f411e62252cb9934b9b7d2e5bfc01a3a.jpg" alt="Adey Abeba Stadium"><div class="gallery-overlay"><h3>🏟️ Adey Abeba Stadium</h3><p>New stadium near Bole showcasing Ethiopia's infrastructure ambition</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== COMPETITORS ===== -->
+<div class="collapsible-section" id="competitors-section">
+  <div class="collapsible-header competitors-h" onclick="toggleSection(this)">
+    <h2><span class="section-icon">🏦</span> Competitive Benchmark</h2>
+    <span class="toggle-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+  </div>
+  <div class="collapsible-content">
+    <div class="benchmark-scroll">
+      <div class="competitor-row">
+        <div class="bank-logo-icon"><img src="https://kimi-web-img.moonshot.cn/img/images.seeklogo.com/1420f43513426456b279cb11c1d5304eb1a4acc4.png" alt="CBE"></div>
+        <div class="bank-details"><h3>Commercial Bank of Ethiopia</h3><span class="model-tag">State-Owned Universal Bank</span>
+          <div class="bank-meta"><div class="meta-item"><strong>Strengths</strong><span>Largest branch/deposit footprint, sovereign backing, national reach</span></div><div class="meta-item"><strong>Weaknesses</strong><span>Bureaucratic inertia, product agility constraints, concentration risk</span></div><div class="meta-item"><strong>Positioning</strong><span>"National Champion" — policy-led, less market-aggressive on premium corporate service</span></div><div class="meta-item"><strong>Assets</strong><span>ETB 1.43 Trillion</span></div></div></div>
+      </div>
+      <div class="competitor-row">
+        <div class="bank-logo-icon"><img src="https://kimi-web-img.moonshot.cn/img/borkena.com/40b8e2e77b309fa984faf7c40bcd694bb120a742.jpg" alt="Awash Bank"></div>
+        <div class="bank-details"><h3>Awash Bank</h3><span class="model-tag">Large Private Universal Bank</span>
+          <div class="bank-meta"><div class="meta-item"><strong>Strengths</strong><span>Strong profitability, scale, corporate and SME presence</span></div><div class="meta-item"><strong>Weaknesses</strong><span>Domestic focus, less international reach</span></div><div class="meta-item"><strong>Positioning</strong><span>Leading private sector bank — competitive market pricing, relationship-driven</span></div><div class="meta-item"><strong>Assets</strong><span>ETB 442.6 Billion</span></div></div></div>
+      </div>
+      <div class="competitor-row">
+        <div class="bank-logo-icon"><img src="https://kimi-web-img.moonshot.cn/img/mir-s3-cdn-cf.behance.net/ff1fbded3aed2063b7e9edb0cd3393198b032e3d.jpg" alt="Bank of Abyssinia"></div>
+        <div class="bank-details"><h3>Bank of Abyssinia</h3><span class="model-tag">Large Private Universal Bank</span>
+          <div class="bank-meta"><div class="meta-item"><strong>Strengths</strong><span>Strong growth, broad retail/corporate franchise</span></div><div class="meta-item"><strong>Weaknesses</strong><span>Capital/technology scale still below global banks</span></div><div class="meta-item"><strong>Positioning</strong><span>Modern, growth-oriented — competitive fees, expanding digital services</span></div><div class="meta-item"><strong>Assets</strong><span>ETB 286.2 Billion</span></div></div></div>
+      </div>
+      <div class="competitor-row">
+        <div class="bank-logo-icon"><img src="https://kimi-web-img.moonshot.cn/img/psssa.gov.et/04eedfb290e294b047ec5e981c327968aed87b2d.png" alt="Dashen Bank"></div>
+        <div class="bank-details"><h3>Dashen Bank</h3><span class="model-tag">Large Private Universal Bank</span>
+          <div class="bank-meta"><div class="meta-item"><strong>Strengths</strong><span>Brand strength, innovation reputation, strong retail capability</span></div><div class="meta-item"><strong>Weaknesses</strong><span>Limited geographic/international scale versus global banks</span></div><div class="meta-item"><strong>Positioning</strong><span>Premium private bank — mid-market pricing, service-led differentiation</span></div><div class="meta-item"><strong>Assets</strong><span>Major Private Player</span></div></div></div>
+      </div>
+      <div class="competitor-row">
+        <div class="bank-logo-icon"><img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/2ffd43d12dc92f11c824557d97b3113da6d038b9.png" alt="Zemen Bank"></div>
+        <div class="bank-details"><h3>Zemen Bank</h3><span class="model-tag">Corporate-Focused Niche Bank</span>
+          <div class="bank-meta"><div class="meta-item"><strong>Strengths</strong><span>Efficient, high-value corporate positioning</span></div><div class="meta-item"><strong>Weaknesses</strong><span>Narrower footprint, less mass-market scale</span></div><div class="meta-item"><strong>Positioning</strong><span>Premium corporate bank — higher-value, relationship and transaction banking focus</span></div><div class="meta-item"><strong>Assets</strong><span>Niche Corporate Player</span></div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SWOT ===== -->
+<div class="collapsible-section" id="swot-section">
+  <div class="collapsible-header swot-h" onclick="toggleSection(this)">
+    <h2><span class="section-icon">📊</span> Strategic SWOT Analysis</h2>
+    <span class="toggle-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+  </div>
+  <div class="collapsible-content">
+    <div class="swot-grid">
+      <div class="swot-card swot-s"><h3>💪 Strengths</h3><ul><li>Global brand recognition and trust</li><li>Capital strength and balance sheet depth</li><li>Treasury and trade finance expertise</li><li>Digital sophistication and platform scale</li><li>Multinational client base and correspondent network</li></ul></div>
+      <div class="swot-card swot-w"><h3>⚠️ Weaknesses</h3><ul><li>No local branch network established</li><li>No local brand trust or recognition</li><li>Regulatory learning curve in Ethiopian market</li><li>High localization burden and compliance costs</li></ul></div>
+      <div class="swot-card swot-o"><h3>🚀 Opportunities</h3><ul><li>Foreign-bank opening via NBE 2025 directive</li><li>Underserved corporate/SME segment</li><li>Trade finance and diaspora flows</li><li>Digital modernization advisory</li><li>Strategic partnering upside with local banks</li></ul></div>
+      <div class="swot-card swot-t"><h3>🛡️ Threats</h3><ul><li>Policy change and political risk</li><li>FX controls and currency volatility</li><li>Cybersecurity and fraud risks</li><li>Incumbent response from CBE and private banks</li><li>Execution delays in regulatory approvals</li></ul></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PORTER'S ===== -->
+<div class="collapsible-section" id="porter-section">
+  <div class="collapsible-header porter-h" onclick="toggleSection(this)">
+    <h2><span class="section-icon">⚔️</span> Porter's Five Forces</h2>
+    <span class="toggle-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+  </div>
+  <div class="collapsible-content">
+    <div class="porter-scroll">
+      <div class="force-card"><div class="force-icon" style="background:#e3f2fd;">⚔️</div><div class="force-content"><h4>Rivalry Among Existing Competitors</h4><p>High among local banks, but still fragmented outside the top few institutions. CBE dominates with sovereign backing, while private banks compete aggressively on corporate and retail segments.</p><span class="force-level level-high">High Intensity</span></div></div>
+      <div class="force-card"><div class="force-icon" style="background:#f3e5f5;">🚪</div><div class="force-content"><h4>Threat of New Entrants</h4><p>Rising, because foreign entry is newly permitted under NBE's 2025 directive, but capital and compliance barriers remain high. Minimum capital requirements and localization mandates create significant hurdles.</p><span class="force-level level-rising">Rising Threat</span></div></div>
+      <div class="force-card"><div class="force-icon" style="background:#fff3e0;">🛒</div><div class="force-content"><h4>Bargaining Power of Buyers</h4><p>Moderate to high in corporate banking where large enterprises demand competitive pricing and sophisticated products. Lower in retail due to market structure, trust factors, and limited financial literacy.</p><span class="force-level level-moderate">Moderate to High</span></div></div>
+      <div class="force-card"><div class="force-icon" style="background:#ffebee;">🏭</div><div class="force-content"><h4>Bargaining Power of Suppliers</h4><p>High for deposits, skilled talent, technology vendors, and scarce FX access. The limited pool of experienced banking professionals and technology infrastructure providers gives suppliers significant leverage.</p><span class="force-level level-high">High Power</span></div></div>
+      <div class="force-card"><div class="force-icon" style="background:#e8f5e9;">🔄</div><div class="force-content"><h4>Threat of Substitutes</h4><p>Rising through mobile money (Telebirr), fintech innovations, and informal finance channels. The rapid digital transaction expansion in Ethiopia shows inclusion rising, but so are alternative financial service providers.</p><span class="force-level level-rising">Rising Threat</span></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PATH ===== -->
+<div class="collapsible-section" id="path-section">
+  <div class="collapsible-header path-h" onclick="toggleSection(this)">
+    <h2><span class="section-icon">🛤️</span> Recommended Entry Path</h2>
+    <span class="toggle-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+  </div>
+  <div class="collapsible-content">
+    <div class="path-timeline">
+      <div class="phase-item"><div class="phase-number">1</div><div class="phase-content"><h4>Representative Office</h4><p>Open a representative office to build regulator relationships, understand local market dynamics, and establish initial client and ecosystem connections without full banking operations.</p></div></div>
+      <div class="phase-item"><div class="phase-number">2</div><div class="phase-content"><h4>Branch or Subsidiary Formation</h4><p>Pursue a branch or subsidiary only after proving compliance readiness, data localization capabilities, staffing plans, and FX management infrastructure.</p></div></div>
+      <div class="phase-item"><div class="phase-number">3</div><div class="phase-content"><h4>Corporate & Trade Focus</h4><p>Target corporate banking, trade finance, cash management, and multinational clients before considering any retail expansion. Leverage cross-border expertise.</p></div></div>
+      <div class="phase-item"><div class="phase-number">4</div><div class="phase-content"><h4>Strategic Partnership Option</h4><p>Use a local partnership or minority stake as an option if it accelerates market access without sacrificing control or brand integrity.</p></div></div>
+      <div class="phase-item"><div class="phase-number">5</div><div class="phase-content"><h4>Transparent Compensation Structure</h4><p>Negotiate transparent, milestone-based compensation for advisors and intermediaries, with full legal safeguards and anti-corruption compliance.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== INDUSTRIAL ===== -->
+<div class="collapsible-section" id="industrial-section">
+  <div class="collapsible-header industrial-h" onclick="toggleSection(this)">
+    <h2><span class="section-icon">🏭</span> Industrialization & Global Brands</h2>
+    <span class="toggle-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+  </div>
+  <div class="collapsible-content">
+    <p style="text-align:center;color:#666;margin-bottom:2rem;max-width:900px;margin-left:auto;margin-right:auto;">Ethiopia has the potential to become one of Africa's largest industrial economies by linking natural advantages, manufacturing, sports brand partnerships, energy, and modern mechanized agriculture into one integrated development strategy.</p>
+    <div class="industrial-grid">
+      <div class="industrial-card">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80" alt="Cotton Farming">
+        <div class="card-body"><h3>🌱 Cotton & Textile Industry</h3><p>Ethiopia has large areas suitable for cotton nationwide with very low-cost labor advantage. An integrated chain: cotton farming, ginning, spinning, weaving, and garment manufacturing.</p>
+          <div class="brand-logos-row">
+            <img src="https://kimi-web-img.moonshot.cn/img/www.pixartprinting.it/3838bf4a171a109fc63f211e7a54b4862b6ec140.jpg" alt="Nike">
+            <img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/4ab385198b15b1e3c6b5a21e6aafadee50a51e23.png" alt="Adidas">
+            <img src="https://kimi-web-img.moonshot.cn/img/images.seeklogo.com/8c8539258cfee086186042ab37a52b873bd31e83.png" alt="New Balance">
+            <img src="https://kimi-web-img.moonshot.cn/img/logoblink.com/6437875055cd70134323c18fbfb5d07c757caff6.jpg" alt="Reebok">
+          </div>
+        </div>
+      </div>
+      <div class="industrial-card">
+        <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=800&q=80" alt="Leather Industry">
+        <div class="card-body"><h3>🐄 Leather & Value Addition</h3><p>Stop exporting raw hides. Produce designer items, bags, belts, and manufacture sports equipment. New cattle breeding programs to triplicate leather availability for global brands.</p>
+          <div class="brand-logos-row">
+            <img src="https://kimi-web-img.moonshot.cn/img/www.pixartprinting.it/3838bf4a171a109fc63f211e7a54b4862b6ec140.jpg" alt="Nike">
+            <img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/4ab385198b15b1e3c6b5a21e6aafadee50a51e23.png" alt="Adidas">
+          </div>
+        </div>
+      </div>
+      <div class="industrial-card">
+        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80" alt="Pharmaceuticals">
+        <div class="card-body"><h3>💊 Pharmaceuticals & Agro-Chemicals</h3><p>Link American companies to Ethiopian localized production of medicines by Pfizer, Johnson & Johnson, AbbVie, Merck & Co, Eli Lilly. Agro-chemical producers: Corteva, FMC, DuPont.</p></div>
+      </div>
+      <div class="industrial-card">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="Machinery">
+        <div class="card-body"><h3>🚜 Heavy Machinery & Equipment</h3><p>John Deere, AGCO, CNH Industrial farming tractors and implements. Caterpillar, Komatsu for civil engineering machinery and vehicles. Support American companies' re-entry into Africa.</p>
+          <div class="brand-logos-row"><img src="https://kimi-web-img.moonshot.cn/img/logos-world.net/6f026a4921caefacf3972c780e08e299c47cc1a7.png" alt="Caterpillar"></div>
+        </div>
+      </div>
+      <div class="industrial-card">
+        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=80" alt="Ethiopian Airlines">
+        <div class="card-body"><h3>✈️ Ethiopian Airlines & Boeing</h3><p>Increased movement of sports fans, athletics-related business passengers, and large cargo movement. Strengthen the Boeing-Ethiopian Airlines relationship to support trade corridors.</p></div>
+      </div>
+      <div class="industrial-card">
+        <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=800&q=80" alt="Digital Economy">
+        <div class="card-body"><h3>📱 Digital Economy & Data Centers</h3><p>Technology hardware, software and content companies to start working with Africa from Ethiopia. Telecom infrastructure, data centers, and fintech platforms powered by renewable energy.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== GERD ===== -->
+<div class="collapsible-section" id="gerd-section">
+  <div class="collapsible-header gerd-h" onclick="toggleSection(this)">
+    <h2><span class="section-icon">💧</span> GERD Dam — Green Economy & Irrigation</h2>
+    <span class="toggle-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+  </div>
+  <div class="collapsible-content">
+    <div class="gerd-visual">
+      <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80" alt="Grand Ethiopian Renaissance Dam">
+      <div class="gerd-text">
+        <h3>🌊 Grand Ethiopian Renaissance Dam</h3>
+        <p>Target creating a <strong>US$5 Billion irrigation green-economy</strong> up to 20-30 kms on either side of the 250 km long Ethiopian Nile. Cotton and other textile fibers, quality cattle breeding, essential oils, and commercial fishing of various aquatic species.</p>
+        <p>Power exports to North and South Sudan, Kenya, Djibouti, Tanzania, Eritrea, and Somalia. Deliver cheapest electricity to mining sector — gold, potash, tantalum, copper, nickel, steel mills, cement plants, and fertilizer manufacturing zones.</p>
+        <div class="irrigation-logos">
+          <span style="font-size:0.8rem;color:#666;margin-right:0.5rem;">Irrigation Partners:</span>
+          <span class="irrigation-badge">Rain Bird</span>
+          <span class="irrigation-badge">The Toro Co.</span>
+          <span class="irrigation-badge">Hunter Industries</span>
+          <span class="irrigation-badge">Netafim</span>
+          <span class="irrigation-badge">Valmont</span>
+        </div>
+      </div>
+    </div>
+    <div class="industrial-grid">
+      <div class="industrial-card">
+        <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&q=80" alt="Agriculture">
+        <div class="card-body"><h3>🌾 Agricultural Revolution</h3><p>Be the biggest producer of sugar, wheat, maize, fruits, vegetables, and livestock feed. Essential oils: cedarwood, cinnamon, coriander, frankincense, ginger, jasmine, lemon, pine, lavender, sandalwood.</p></div>
+      </div>
+      <div class="industrial-card">
+        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80" alt="Mining">
+        <div class="card-body"><h3>⛏️ Mining & Minerals</h3><p>Gold, potash, tantalum, copper, nickel extraction powered by the cheapest electricity in Africa. Steel mills, cement plants, and fertilizer manufacturing from Ethiopia's underutilized potash reserves.</p></div>
+      </div>
+      <div class="industrial-card">
+        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80" alt="Power Export">
+        <div class="card-body"><h3>⚡ Power Export Hub</h3><p>Export renewable electricity across East Africa. Power high-speed railway systems to Djibouti. Support industrial parks with 100% green energy — a unique competitive advantage.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== EXPORTS & AfCFTA ===== -->
+<div class="collapsible-section" id="exports-section">
+  <div class="collapsible-header exports-h" onclick="toggleSection(this)">
+    <h2><span class="section-icon">🌐</span> Global Exports & AfCFTA Opportunity</h2>
+    <span class="toggle-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+  </div>
+  <div class="collapsible-content">
+    <p style="text-align:center;color:#666;margin-bottom:2rem;max-width:900px;margin-left:auto;margin-right:auto;">Ethiopia's African Union and AfCFTA membership puts a new great whole Africa economic entry for America — a lost market of US$300 Billion annually. The potential economic impact within 5-10 years could triple manufacturing, create millions of jobs, and substantially raise export earnings.</p>
+    <div class="exports-grid">
+      <div class="export-card"><div class="export-icon">👕</div><h4>Textiles & Garments</h4><p>Export cheaper, more beautiful qualitative "Made in Ethiopia" products worldwide to dominate current supplies from China, Southeast Asia, Bangladesh, and India.</p></div>
+      <div class="export-card"><div class="export-icon">👜</div><h4>Leather Goods</h4><p>Designer items, bags, belts, and sports equipment manufactured locally with Ethiopian leather. Stop exporting raw hides — add value at source.</p></div>
+      <div class="export-card"><div class="export-icon">🍎</div><h4>Processed Foods</h4><p>Food processing, cold storage, and packaging for global export. Leverage Ethiopia's diverse agricultural output for international markets.</p></div>
+      <div class="export-card"><div class="export-icon">🏗️</div><h4>Machinery Assembly</h4><p>Local assembly lines for agricultural and construction machinery. Establish open assembly lines with proprietary parts manufactured in the USA and Europe.</p></div>
+      <div class="export-card"><div class="export-icon">🌍</div><h4>AfCFTA Gateway</h4><p>Ethiopia as the entry point for American companies into the $300B African market. Combined with renewable electricity, emerge as a major industrial hub for East Africa.</p></div>
+      <div class="export-card"><div class="export-icon">👷</div><h4>Job Creation</h4><p>Create 8+ million new jobs across textiles, leather, agriculture, manufacturing, and services. Transform Ethiopia into Africa's leading industrial economy.</p></div>
+    </div>
+    <div class="vision-stats">
+      <h3>The Vision: Ethiopia as Africa's Industrial Powerhouse</h3>
+      <p>With Bank of America's strategic entry, Ethiopia can link its 120 million population market, natural resources, renewable energy from GERD, and AfCFTA access into an integrated development strategy. Manufacturing could become one of Africa's largest. Ethiopia could emerge as a leading exporter of textiles, leather goods, processed foods, machinery assembly, and manufactured products — a brighter future for generations to come.</p>
+      <div class="stats-row">
+        <div class="stat-item"><div class="stat-value">120M</div><div class="stat-label">Population Market</div></div>
+        <div class="stat-item"><div class="stat-value">$5B</div><div class="stat-label">GERD Green Economy</div></div>
+        <div class="stat-item"><div class="stat-value">$300B</div><div class="stat-label">AfCFTA Market</div></div>
+        <div class="stat-item"><div class="stat-value">8M+</div><div class="stat-label">New Jobs</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<div class="footer">
+  <img src="https://kimi-web-img.moonshot.cn/img/1000logos.net/45aeac141ae0a90a65b46e32e009eaefc24445fd.png" alt="Bank of America" class="footer-logo">
+  <h3>Bank of America</h3>
+  <p>Strategic Analysis — Ethiopia Market Entry | June 2026</p>
+  <p style="margin-top:1rem;font-size:0.8rem;opacity:0.5">Confidential — For Internal Strategic Planning Only</p>
+</div>
+
+<script>
+function toggleSection(header) {
+  header.classList.toggle('active');
+  const content = header.nextElementSibling;
+  content.classList.toggle('open');
+}
+function scrollToSection(id) {
+  const el = document.getElementById(id);
+  if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  document.querySelectorAll('.nav-bar button').forEach(btn => btn.classList.remove('active'));
+  if (event && event.target) event.target.classList.add('active');
+}
+const sections = document.querySelectorAll('.collapsible-section, .hero');
+const navButtons = document.querySelectorAll('.nav-bar button');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      navButtons.forEach(btn => {
+        const onclick = btn.getAttribute('onclick') || '';
+        btn.classList.toggle('active', onclick.includes(id));
+      });
+    }
+  });
+}, { threshold: 0.2 });
+sections.forEach(section => observer.observe(section));
+</script>
+
+</body>
+</html>
