@@ -1,1 +1,1428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somaliland Sovereign Investment Memorandum 2026-2030</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --somaliland-green: #0B3D2E;
+            --somaliland-red: #C41E3A;
+            --gold: #C9A227;
+            --cream: #F5F1E8;
+            --charcoal: #1A1A1A;
+            --warm-gray: #8A8279;
+            --light-gray: #E8E4DB;
+            --white: #FFFFFF;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            line-height: 1.1;
+        }
+
+        .display {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: clamp(3rem, 8vw, 7rem);
+            line-height: 0.95;
+            letter-spacing: -0.02em;
+        }
+
+        .headline {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(11,61,46,0.95), transparent);
+            transition: all 0.4s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(11,61,46,0.98);
+            backdrop-filter: blur(20px);
+            padding: 1rem 3rem;
+            box-shadow: 0 2px 30px rgba(0,0,0,0.1);
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: var(--white);
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--somaliland-green) 0%, #0a2e22 50%, var(--charcoal) 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(201,162,39,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(196,30,58,0.06) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 8rem 4rem 4rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-badge .line {
+            width: 40px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .hero-badge span {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        .hero h1 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        .hero-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.7);
+            max-width: 500px;
+            line-height: 1.7;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--charcoal);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201,162,39,0.3);
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(255,255,255,0.3);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .hero-visual {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-visual-inner {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .financing-card {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 3rem;
+            position: relative;
+        }
+
+        .financing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--gold), transparent);
+        }
+
+        .financing-card .label {
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .financing-amount {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            color: var(--white);
+            font-weight: 300;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .financing-range {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+            letter-spacing: 0.05em;
+        }
+
+        .financing-details {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .detail-item .detail-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 0.25rem;
+        }
+
+        .detail-item .detail-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.95rem;
+            color: var(--white);
+            font-weight: 500;
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255,255,255,0.4);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 60px;
+            background: linear-gradient(to bottom, var(--gold), transparent);
+            animation: scrollPulse 2s infinite;
+        }
+
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 0.3; transform: scaleY(0.5); }
+            50% { opacity: 1; transform: scaleY(1); }
+        }
+
+        /* Editorial Sections */
+        .section {
+            padding: 8rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+            max-width: 800px;
+        }
+
+        .section-header .label {
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--somaliland-green);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-header p {
+            font-size: 1.15rem;
+            color: var(--warm-gray);
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* Overview Grid */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .overview-card {
+            background: var(--white);
+            padding: 3rem;
+            border: 1px solid var(--light-gray);
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .overview-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(11,61,46,0.08);
+            border-color: transparent;
+        }
+
+        .overview-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, var(--somaliland-green), var(--gold));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .overview-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .overview-card .number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            font-weight: 300;
+            color: var(--light-gray);
+            line-height: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .overview-card h3 {
+            font-size: 1.5rem;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+        }
+
+        .overview-card p {
+            color: var(--warm-gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            background: var(--white);
+            padding: 8rem 0;
+        }
+
+        .projects-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 4rem;
+        }
+
+        .project-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 6rem;
+            align-items: center;
+        }
+
+        .project-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-item:nth-child(even) {
+            direction: rtl;
+        }
+
+        .project-item:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .project-visual {
+            position: relative;
+            overflow: hidden;
+            background: var(--cream);
+            min-height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-visual::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--somaliland-green), #0a2e22);
+            opacity: 0.9;
+        }
+
+        .project-visual-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .project-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-visual h3 {
+            color: var(--white);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-visual .distance {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--gold);
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .project-info .label {
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .project-info h3 {
+            font-size: 2.5rem;
+            color: var(--somaliland-green);
+            margin-bottom: 1.5rem;
+        }
+
+        .project-info p {
+            color: var(--warm-gray);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .project-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--light-gray);
+        }
+
+        .meta-item .meta-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--warm-gray);
+            margin-bottom: 0.25rem;
+        }
+
+        .meta-item .meta-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--charcoal);
+            font-weight: 600;
+        }
+
+        /* Financing Section */
+        .financing-section {
+            background: var(--somaliland-green);
+            color: var(--white);
+            padding: 8rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .financing-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(201,162,39,0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .financing-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .financing-section .section-header h2 {
+            color: var(--white);
+        }
+
+        .financing-section .section-header p {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .terms-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .term-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .term-card:hover {
+            background: rgba(255,255,255,0.06);
+            border-color: var(--gold);
+            transform: translateY(-4px);
+        }
+
+        .term-card .term-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .term-card .term-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .term-card .term-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* Collateral Section */
+        .collateral-section {
+            padding: 8rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .collateral-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .collateral-card {
+            background: var(--white);
+            padding: 3rem;
+            border: 1px solid var(--light-gray);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .collateral-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, var(--somaliland-green), var(--gold));
+        }
+
+        .collateral-card h4 {
+            font-size: 1.5rem;
+            color: var(--somaliland-green);
+            margin-bottom: 1rem;
+        }
+
+        .collateral-card p {
+            color: var(--warm-gray);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .collateral-list {
+            list-style: none;
+        }
+
+        .collateral-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--charcoal);
+            font-size: 0.95rem;
+        }
+
+        .collateral-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        /* Risk Section */
+        .risk-section {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 8rem 4rem;
+        }
+
+        .risk-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .risk-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .risk-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            padding: 2.5rem;
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            transition: all 0.3s ease;
+        }
+
+        .risk-card:hover {
+            border-color: rgba(201,162,39,0.3);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .risk-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+            font-weight: 300;
+            line-height: 1;
+            min-width: 50px;
+        }
+
+        .risk-content h4 {
+            font-size: 1.3rem;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+
+        .risk-content p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Governance Section */
+        .governance-section {
+            padding: 8rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .governance-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .governance-card {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: var(--white);
+            border: 1px solid var(--light-gray);
+            transition: all 0.3s ease;
+        }
+
+        .governance-card:hover {
+            box-shadow: 0 15px 40px rgba(11,61,46,0.08);
+            transform: translateY(-4px);
+        }
+
+        .governance-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--cream);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .governance-card h4 {
+            font-size: 1.2rem;
+            color: var(--somaliland-green);
+            margin-bottom: 0.75rem;
+        }
+
+        .governance-card p {
+            color: var(--warm-gray);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--somaliland-green), #0a2e22);
+            padding: 6rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(201,162,39,0.1) 0%, transparent 60%);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            color: var(--white);
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            color: rgba(255,255,255,0.7);
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: rgba(255,255,255,0.5);
+            padding: 3rem 4rem;
+            text-align: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+        }
+
+        footer span {
+            color: var(--gold);
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-grid,
+            .project-item,
+            .collateral-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .overview-grid,
+            .terms-grid,
+            .governance-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .project-item:nth-child(even) {
+                direction: ltr;
+            }
+
+            .risk-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .overview-grid,
+            .terms-grid,
+            .governance-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section,
+            .collateral-section,
+            .governance-section {
+                padding: 4rem 2rem;
+            }
+
+            .hero-grid {
+                padding: 6rem 2rem 4rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            nav, .scroll-indicator, .hero-cta {
+                display: none !important;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 4rem 0;
+            }
+
+            .section, .projects-section, .financing-section, .risk-section {
+                padding: 3rem 0;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-logo">Republic of Somaliland</div>
+        <ul class="nav-links">
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#financing">Financing</a></li>
+            <li><a href="#security">Security</a></li>
+            <li><a href="#governance">Governance</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-grid">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <div class="line"></div>
+                    <span>Sovereign Investment Memorandum</span>
+                </div>
+                <h1 class="display">
+                    National<br>
+                    Infrastructure &<br>
+                    <em>Energy</em><br>
+                    Transformation
+                </h1>
+                <p class="hero-subtitle">
+                    Building investor confidence through law, contract, and institutional credibility. 
+                    A sovereign financing initiative to unlock Somaliland's economic potential.
+                </p>
+                <div class="hero-cta">
+                    <a href="#overview" class="btn-primary">Explore Programme</a>
+                    <a href="#financing" class="btn-outline">Financing Structure</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-visual-inner">
+                    <div class="financing-card">
+                        <span class="label">Total Financing Envelope</span>
+                        <div class="financing-amount">$820M – $1.28B</div>
+                        <div class="financing-range">USD · 2026–2030 Programme</div>
+                        <div class="financing-details">
+                            <div class="detail-item">
+                                <div class="detail-label">Tenor</div>
+                                <div class="detail-value">20–25 Years</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Grace Period</div>
+                                <div class="detail-value">5 Years</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Service</div>
+                                <div class="detail-value">Semi-Annual</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Status</div>
+                                <div class="detail-value">Sovereign-Backed</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="section" id="overview">
+        <div class="section-header fade-in">
+            <span class="label">Executive Overview</span>
+            <h2>Credibility Beyond Recognition</h2>
+            <p>
+                Somaliland stands at the gateway of the Red Sea trade corridor — a stable democracy linking Africa and the Gulf. 
+                Despite limited formal diplomatic recognition, it has sustained over thirty years of peace, self-governance, 
+                and adherence to the rule of law; a record unmatched in the Horn of Africa.
+            </p>
+        </div>
+
+        <div class="overview-grid">
+            <div class="overview-card fade-in">
+                <div class="number">01</div>
+                <h3>Strategic Road Corridor</h3>
+                <p>183km climate-resilient asphalt highway linking Hargeisa, Oodweyne, and Burao — reducing logistics costs by 25–35% and unlocking livestock and mineral trade corridors.</p>
+            </div>
+            <div class="overview-card fade-in">
+                <div class="number">02</div>
+                <h3>Renewable Energy & Grid</h3>
+                <p>Utility-scale solar, coastal wind farms, and battery storage systems to displace diesel dependence, lower tariffs, and power industrial productivity across the nation.</p>
+            </div>
+            <div class="overview-card fade-in">
+                <div class="number">03</div>
+                <h3>Water Supply Expansion</h3>
+                <p>30 million litres/day immediate expansion for Hargeisa, with borehole development, transmission pipelines, and smart metering to secure urban water sustainability.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section" id="projects">
+        <div class="projects-container">
+            <div class="section-header fade-in">
+                <span class="label">National Infrastructure Programmes</span>
+                <h2>Three Pillars of Transformation</h2>
+                <p>
+                    Each project is structured to produce measurable economic returns, reduce operating costs across the economy, 
+                    and expand the fiscal base through asset-backed, revenue-linked financing.
+                </p>
+            </div>
+
+            <!-- Project 1: Roads -->
+            <div class="project-item fade-in">
+                <div class="project-visual">
+                    <div class="project-visual-content">
+                        <div class="project-icon">🛣️</div>
+                        <h3>Strategic Road Corridor</h3>
+                        <div class="distance">183km · Hargeisa – Oodweyne – Burao</div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <span class="label">Programme 01</span>
+                    <h3>Connecting the Economic Heartland</h3>
+                    <p>
+                        This corridor links the administrative capital, livestock trade hubs, and major inland economic zones. 
+                        Current road conditions inflate vehicle operating costs, travel time, and transport losses. 
+                        Upgrading to a climate-resilient asphalt highway reduces logistics cost per ton and improves export competitiveness.
+                    </p>
+                    <p style="font-size: 0.95rem; color: var(--warm-gray);">
+                        <strong style="color: var(--somaliland-green);">Technical scope includes</strong> full asphalt pavement with engineered load capacity, 
+                        drainage and flood resilience systems, bridge construction, road safety infrastructure, axle-load control stations, 
+                        and a 10–15 year maintenance contract.
+                    </p>
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <div class="meta-label">Capital Requirement</div>
+                            <div class="meta-value">$400 – $600M</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Cost Reduction</div>
+                            <div class="meta-value">25 – 35%</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Impact</div>
+                            <div class="meta-value">Export Competitiveness</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Coverage</div>
+                            <div class="meta-value">183km Corridor</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: Energy -->
+            <div class="project-item fade-in">
+                <div class="project-visual">
+                    <div class="project-visual-content">
+                        <div class="project-icon">⚡</div>
+                        <h3>Renewable Energy & Grid</h3>
+                        <div class="distance">Solar · Wind · BESS · Grid Modernisation</div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <span class="label">Programme 02</span>
+                    <h3>Powering the Next Economy</h3>
+                    <p>
+                        Electricity generation is predominantly diesel-based, leading to high tariff levels, fuel import exposure, 
+                        and grid instability. The proposed energy mix introduces utility-scale solar farms, coastal wind farms, 
+                        and Battery Energy Storage Systems (BESS) to fundamentally restructure the national energy architecture.
+                    </p>
+                    <p style="font-size: 0.95rem; color: var(--warm-gray);">
+                        <strong style="color: var(--somaliland-green);">Expected impact includes</strong> reduced fuel import bills, 
+                        lower average tariffs over the medium term, improved industrial productivity, increased formal electricity billing revenue, 
+                        and micro-grids for rural electrification.
+                    </p>
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <div class="meta-label">Capital Requirement</div>
+                            <div class="meta-value">$300 – $500M</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Deployment</div>
+                            <div class="meta-value">Phased Alignment</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Technology</div>
+                            <div class="meta-value">Solar + Wind + BESS</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Target</div>
+                            <div class="meta-value">Diesel Displacement</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3: Water -->
+            <div class="project-item fade-in">
+                <div class="project-visual">
+                    <div class="project-visual-content">
+                        <div class="project-icon">💧</div>
+                        <h3>Hargeisa Water Supply</h3>
+                        <div class="distance">30M Litres/Day · Phase I & II</div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <span class="label">Programme 03</span>
+                    <h3>Securing Urban Water Futures</h3>
+                    <p>
+                        Current per capita supply is below sustainable urban benchmarks, constraining public health and urban growth. 
+                        Phase I delivers immediate stabilisation through 30 million litres/day expansion, borehole development, 
+                        23.5km transmission pipeline, and storage reservoirs.
+                    </p>
+                    <p style="font-size: 0.95rem; color: var(--warm-gray);">
+                        <strong style="color: var(--somaliland-green);">Phase II advances</strong> surface water harvesting, smart metering, 
+                        leakage reduction, and solar-powered pumping to create a fully modernised, efficient water utility serving 
+                        Somaliland's growing capital.
+                    </p>
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <div class="meta-label">Capital Requirement</div>
+                            <div class="meta-value">$120 – $180M</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Phase I Output</div>
+                            <div class="meta-value">30M L/Day</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Pipeline</div>
+                            <div class="meta-value">23.5km Transmission</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Power</div>
+                            <div class="meta-value">Solar-Pumped</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financing Section -->
+    <section class="financing-section" id="financing">
+        <div class="financing-container">
+            <div class="section-header fade-in">
+                <span class="label">Financing Structure</span>
+                <h2>Sovereign-Backed, Asset-Secured</h2>
+                <p>
+                    The Government is receptive to structured instruments including sovereign infrastructure loans, 
+                    blended finance, BOT structures, revenue-linked infrastructure bonds, and mineral-backed sovereign bonds. 
+                    Debt service is designed to remain within conservative revenue ratios.
+                </p>
+            </div>
+
+            <div class="terms-grid">
+                <div class="term-card fade-in">
+                    <div class="term-icon">📅</div>
+                    <div class="term-value">20–25 Yrs</div>
+                    <div class="term-label">Tenor</div>
+                </div>
+                <div class="term-card fade-in">
+                    <div class="term-icon">⏸️</div>
+                    <div class="term-value">5 Years</div>
+                    <div class="term-label">Grace Period</div>
+                </div>
+                <div class="term-card fade-in">
+                    <div class="term-icon">📊</div>
+                    <div class="term-value">Semi-Annual</div>
+                    <div class="term-label">Debt Service</div>
+                </div>
+                <div class="term-card fade-in">
+                    <div class="term-icon">🎯</div>
+                    <div class="term-value">>1.5x</div>
+                    <div class="term-label">Target DSCR</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security & Collateral -->
+    <section class="collateral-section" id="security">
+        <div class="section-header fade-in">
+            <span class="label">Security & Collateral Framework</span>
+            <h2>Multi-Layer Credit Enhancement</h2>
+            <p>
+                Asset-backed structuring lowers perceived sovereign risk through ring-fenced revenue allocations, 
+                independent audit oversight, and conservative loan-to-value caps.
+            </p>
+        </div>
+
+        <div class="collateral-grid">
+            <div class="collateral-card fade-in">
+                <h4>Port Revenue-Linked Structure</h4>
+                <p>Debt service supported through defined allocation of port revenues held in an offshore escrow account with priority payment waterfall.</p>
+                <ul class="collateral-list">
+                    <li>Gross revenue collection</li>
+                    <li>Operational cost deduction</li>
+                    <li>Debt service priority payment</li>
+                    <li>Surplus government allocation</li>
+                </ul>
+            </div>
+            <div class="collateral-card fade-in">
+                <h4>Mineral-Backed Credit Enhancement</h4>
+                <p>Mineral assets structured under independent geological certification with conservative pricing and diversified portfolio approach.</p>
+                <ul class="collateral-list">
+                    <li>Gold & Rare Earth Prospective Zones</li>
+                    <li>Gypsum & Limestone Deposits</li>
+                    <li>Copper & Iron Ore Resources</li>
+                    <li>Royalty assignment & Export receivables pledge</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Risk Analysis -->
+    <section class="risk-section" id="risk">
+        <div class="risk-container">
+            <div class="section-header fade-in">
+                <span class="label">Risk Analysis</span>
+                <h2>Mitigated & Managed</h2>
+                <p>
+                    Every risk category is addressed through structural, legal, and institutional mechanisms 
+                    designed to protect lender interests and ensure project viability.
+                </p>
+            </div>
+
+            <div class="risk-grid">
+                <div class="risk-card fade-in">
+                    <div class="risk-number">01</div>
+                    <div class="risk-content">
+                        <h4>Political Risk</h4>
+                        <p>Mitigated by 34+ years of uninterrupted constitutional governance, six peaceful presidential transitions, and no military coups or foreign peacekeeping presence.</p>
+                    </div>
+                </div>
+                <div class="risk-card fade-in">
+                    <div class="risk-number">02</div>
+                    <div class="risk-content">
+                        <h4>Revenue Risk</h4>
+                        <p>Mitigated through escrow arrangements, multiple revenue streams, ring-fenced port allocations, and project-linked SPV revenues.</p>
+                    </div>
+                </div>
+                <div class="risk-card fade-in">
+                    <div class="risk-number">03</div>
+                    <div class="risk-content">
+                        <h4>Commodity Risk</h4>
+                        <p>Mitigated through conservative mineral pricing assumptions, diversified resource base, and independent geological certification.</p>
+                    </div>
+                </div>
+                <div class="risk-card fade-in">
+                    <div class="risk-number">04</div>
+                    <div class="risk-content">
+                        <h4>Construction & Governance Risk</h4>
+                        <p>Mitigated via EPC contracts, performance guarantees, independent annual audits, transparent procurement, and international arbitration clauses.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Governance Section -->
+    <section class="governance-section" id="governance">
+        <div class="section-header fade-in">
+            <span class="label">Governance & Transparency</span>
+            <h2>Institutional Credibility</h2>
+            <p>
+                The Government commits to international-standard governance frameworks that ensure transparency, 
+                accountability, and lender confidence throughout the programme lifecycle.
+            </p>
+        </div>
+
+        <div class="governance-grid">
+            <div class="governance-card fade-in">
+                <div class="governance-icon">📋</div>
+                <h4>Independent Annual Audit</h4>
+                <p>Full financial disclosure through internationally recognised audit firms with public reporting obligations.</p>
+            </div>
+            <div class="governance-card fade-in">
+                <div class="governance-icon">🏛️</div>
+                <h4>Parliamentary Oversight</h4>
+                <p>Legislative scrutiny of all sovereign borrowing and project implementation through the House of Representatives.</p>
+            </div>
+            <div class="governance-card fade-in">
+                <div class="governance-icon">⚖️</div>
+                <h4>International Arbitration</h4>
+                <p>Dispute resolution governed by international arbitration standards, providing neutral venue protection for lenders.</p>
+            </div>
+            <div class="governance-card fade-in">
+                <div class="governance-icon">🔍</div>
+                <h4>Transparent Procurement</h4>
+                <p>Open, competitive tendering processes with published revenue disclosure mechanisms and contract awards.</p>
+            </div>
+            <div class="governance-card fade-in">
+                <div class="governance-icon">📈</div>
+                <h4>Revenue Disclosure</h4>
+                <p>Regular publication of port, mineral, and utility revenues to ensure debt service visibility and predictability.</p>
+            </div>
+            <div class="governance-card fade-in">
+                <div class="governance-icon">🛡️</div>
+                <h4>Debt Sustainability</h4>
+                <p>Pre-issuance DSA, DSCR modelling, and LTV caps ensure conservative leverage and long-term fiscal health.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <span class="label" style="color: var(--gold); margin-bottom: 1rem; display: block;">Investment Opportunity</span>
+            <h2>Partner in Transformation</h2>
+            <p>
+                Somaliland has demonstrated state functionality without reliance on external military stabilisation 
+                or international trusteeship. This programme represents the next phase: economic transformation 
+                through sovereign-backed, asset-secured development financing.
+            </p>
+            <a href="#overview" class="btn-primary" style="display: inline-block;">Download Full Memorandum</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Republic of Somaliland · National Infrastructure & Energy Transformation Projects · <span>2026–2030</span></p>
+        <p style="margin-top: 0.5rem; opacity: 0.6;">Produced by Hon. M. Ismail · Somaliland House of Representatives</p>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
