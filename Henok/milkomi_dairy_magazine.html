@@ -1,1 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Milkomi Dairy Farm & Milk Processing — Project Proposal</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-cream: #F7F5F0;
+    --bg-white: #FFFFFF;
+    --bg-sage: #E8F5E9;
+    --bg-sage-light: #F1F8E9;
+    --text-dark: #1F2937;
+    --text-medium: #374151;
+    --text-light: #4B5563;
+    --text-muted: #6B7280;
+    --accent-green: #5B8C5A;
+    --accent-green-dark: #3D6B3C;
+    --accent-green-light: #7AAF79;
+    --accent-earth: #D4A373;
+    --accent-gold: #C9A227;
+    --border-light: rgba(91, 140, 90, 0.15);
+    --shadow-soft: 0 4px 20px rgba(0,0,0,0.06);
+    --shadow-medium: 0 10px 40px rgba(0,0,0,0.1);
+    --shadow-heavy: 0 20px 60px rgba(0,0,0,0.15);
+  }
 
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-cream);
+    color: var(--text-dark);
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5 { font-family: 'Playfair Display', serif; font-weight: 600; }
+
+  /* Navigation */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: rgba(247, 245, 240, 0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 1000;
+    padding: 1rem 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-light);
+    transition: all 0.3s ease;
+  }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--accent-green-dark);
+    letter-spacing: -0.5px;
+    text-decoration: none;
+  }
+
+  .logo span { color: var(--accent-earth); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-medium);
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+    position: relative;
+    padding: 0.5rem 0;
+  }
+
+  .nav-links a:hover { color: var(--accent-green); }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-green);
+    transition: width 0.3s ease;
+  }
+
+  .nav-links a:hover::after { width: 100%; }
+
+  /* Hero Section */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 10rem 6% 5rem;
+    position: relative;
+    background: linear-gradient(135deg, #F7F5F0 0%, #E8F5E9 50%, #F1F8E9 100%);
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(91,140,90,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .hero-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-content h4 {
+    color: var(--accent-green);
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-content h1 {
+    font-size: 4.2rem;
+    line-height: 1.08;
+    color: var(--text-dark);
+    margin-bottom: 1.8rem;
+    font-weight: 700;
+  }
+
+  .hero-content h1 em {
+    color: var(--accent-green);
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  .hero-content p {
+    font-size: 1.15rem;
+    color: var(--text-medium);
+    margin-bottom: 3rem;
+    max-width: 520px;
+    line-height: 1.9;
+  }
+
+  .hero-buttons { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+
+  .btn {
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.35s ease;
+    display: inline-block;
+    cursor: pointer;
+    border: none;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .btn-primary {
+    background: var(--accent-green);
+    color: #FFFFFF;
+    border: 2px solid var(--accent-green);
+    box-shadow: 0 4px 15px rgba(91, 140, 90, 0.3);
+  }
+
+  .btn-primary:hover {
+    background: var(--accent-green-dark);
+    border-color: var(--accent-green-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(91, 140, 90, 0.35);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--accent-green-dark);
+    border: 2px solid var(--accent-green);
+  }
+
+  .btn-outline:hover {
+    background: var(--accent-green);
+    color: #FFFFFF;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(91, 140, 90, 0.2);
+  }
+
+  .hero-image-wrap {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: var(--shadow-heavy);
+  }
+
+  .hero-image-wrap img {
+    width: 100%;
+    height: 580px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .hero-badge {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    background: rgba(255,255,255,0.97);
+    padding: 1.4rem 2rem;
+    border-radius: 18px;
+    box-shadow: var(--shadow-medium);
+    backdrop-filter: blur(5px);
+  }
+
+  .hero-badge .number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--accent-green);
+    line-height: 1;
+  }
+
+  .hero-badge .label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 0.3rem;
+    font-weight: 600;
+  }
+
+  /* Section Utilities */
+  section { padding: 7rem 6%; }
+
+  .section-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 5rem;
+  }
+
+  .section-header h4 {
+    color: var(--accent-green);
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 3.5px;
+    margin-bottom: 1.2rem;
+  }
+
+  .section-header h2 {
+    font-size: 3.2rem;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    line-height: 1.15;
+  }
+
+  .section-header p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    line-height: 1.85;
+  }
+
+  /* About Section */
+  .about { background: var(--bg-white); }
+
+  .about-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .about-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+
+  .about-images img {
+    width: 100%;
+    border-radius: 16px;
+    object-fit: cover;
+    display: block;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.4s ease;
+  }
+
+  .about-images img:hover { transform: scale(1.02); }
+
+  .about-images img:first-child {
+    grid-column: 1 / -1;
+    height: 320px;
+  }
+
+  .about-images img:not(:first-child) { height: 200px; }
+
+  .about-content h4 {
+    color: var(--accent-green);
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 3.5px;
+    margin-bottom: 1.2rem;
+  }
+
+  .about-content h2 {
+    font-size: 3rem;
+    margin-bottom: 1.8rem;
+    color: var(--text-dark);
+    line-height: 1.15;
+  }
+
+  .about-content p {
+    color: var(--text-medium);
+    margin-bottom: 1.6rem;
+    line-height: 1.9;
+    font-size: 1.05rem;
+  }
+
+  .stats-row {
+    display: flex;
+    gap: 3.5rem;
+    margin-top: 3.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .stat-item h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+    color: var(--accent-green);
+    margin-bottom: 0.4rem;
+    line-height: 1;
+  }
+
+  .stat-item p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin: 0;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* Impact Bar */
+  .impact-bar {
+    background: var(--accent-green-dark);
+    padding: 5rem 6%;
+    color: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .impact-bar::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .impact-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .impact-item h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.2rem;
+    margin-bottom: 0.6rem;
+    color: #C9E8C8;
+    line-height: 1;
+  }
+
+  .impact-item p {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+  }
+
+  /* Products Section */
+  .products { background: var(--bg-cream); }
+
+  .products-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .product-card {
+    background: var(--bg-white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid var(--border-light);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-card:hover {
+    transform: translateY(-12px);
+    box-shadow: var(--shadow-heavy);
+  }
+
+  .product-card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .product-card .card-body {
+    padding: 2rem 1.8rem 2.2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-tag {
+    display: inline-block;
+    background: var(--bg-sage);
+    color: var(--accent-green-dark);
+    padding: 0.35rem 0.9rem;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    align-self: flex-start;
+  }
+
+  .product-card h3 {
+    font-size: 1.35rem;
+    margin-bottom: 0.9rem;
+    color: var(--text-dark);
+    line-height: 1.3;
+  }
+
+  .product-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    flex: 1;
+  }
+
+  /* Sustainability Section */
+  .sustainability {
+    background: linear-gradient(135deg, #E8F5E9 0%, #F1F8E9 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .sustainability::before {
+    content: '';
+    position: absolute;
+    top: -150px;
+    right: -150px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(91,140,90,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .sustain-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .sustain-content h4 {
+    color: var(--accent-green);
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 3.5px;
+    margin-bottom: 1.2rem;
+  }
+
+  .sustain-content h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.15;
+    color: var(--text-dark);
+  }
+
+  .sustain-content > p {
+    color: var(--text-medium);
+    margin-bottom: 2.5rem;
+    line-height: 1.9;
+    font-size: 1.05rem;
+  }
+
+  .sustain-list {
+    list-style: none;
+  }
+
+  .sustain-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .sustain-list .icon {
+    width: 52px;
+    height: 52px;
+    background: var(--accent-green);
+    color: #FFFFFF;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(91,140,90,0.25);
+  }
+
+  .sustain-list h4 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.4rem;
+    font-size: 1.08rem;
+  }
+
+  .sustain-list p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.65;
+  }
+
+  .sustain-image {
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: var(--shadow-heavy);
+  }
+
+  .sustain-image img {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Financial Section */
+  .financial { background: var(--bg-white); }
+
+  .financial-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .fin-card {
+    background: var(--bg-cream);
+    padding: 3.5rem 2rem;
+    border-radius: 24px;
+    text-align: center;
+    border: 1px solid var(--border-light);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .fin-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--accent-green);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+  }
+
+  .fin-card:hover::before { transform: scaleX(1); }
+
+  .fin-card:hover {
+    background: var(--bg-sage);
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-medium);
+  }
+
+  .fin-card .icon-box {
+    width: 72px;
+    height: 72px;
+    background: var(--accent-green);
+    color: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto 1.8rem;
+    box-shadow: 0 6px 20px rgba(91,140,90,0.25);
+  }
+
+  .fin-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    color: var(--accent-green-dark);
+    margin-bottom: 0.6rem;
+    line-height: 1;
+  }
+
+  .fin-card p {
+    color: var(--text-medium);
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .fin-card p span {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+  }
+
+  /* SWOT Section */
+  .swot {
+    background: var(--bg-cream);
+    padding: 7rem 6%;
+  }
+
+  .swot-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .swot-card {
+    background: var(--bg-white);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--border-light);
+    transition: all 0.3s ease;
+  }
+
+  .swot-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-medium);
+  }
+
+  .swot-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .swot-card h3 .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .swot-card.strength h3 .dot { background: var(--accent-green); }
+  .swot-card.weakness h3 .dot { background: #D97706; }
+  .swot-card.opportunity h3 .dot { background: #2563EB; }
+  .swot-card.threat h3 .dot { background: #DC2626; }
+
+  .swot-card ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .swot-card ul li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-medium);
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .swot-card ul li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent-green);
+    font-weight: 700;
+  }
+
+  /* Footer CTA */
+  .footer-cta {
+    background: linear-gradient(135deg, #F7F5F0 0%, #E8F5E9 100%);
+    padding: 7rem 6%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .footer-cta::before {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(91,140,90,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .footer-cta h2 {
+    font-size: 3.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-cta p {
+    color: var(--text-medium);
+    font-size: 1.15rem;
+    max-width: 620px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.85;
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-cta .btn {
+    position: relative;
+    z-index: 1;
+    font-size: 1.05rem;
+    padding: 1.2rem 3.5rem;
+  }
+
+  /* Footer Info */
+  .footer-info {
+    background: var(--text-dark);
+    color: rgba(255,255,255,0.75);
+    padding: 3.5rem 6%;
+    text-align: center;
+    font-size: 0.9rem;
+    line-height: 1.8;
+  }
+
+  .footer-info strong {
+    color: #FFFFFF;
+    display: block;
+    margin-bottom: 0.6rem;
+    font-size: 1.15rem;
+    font-family: 'Playfair Display', serif;
+  }
+
+  /* Scroll animations */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Responsive */
+  @media (max-width: 1100px) {
+    .hero-container { grid-template-columns: 1fr; gap: 3rem; }
+    .hero-image-wrap img { height: 420px; }
+    .about-grid { grid-template-columns: 1fr; gap: 4rem; }
+    .sustain-container { grid-template-columns: 1fr; gap: 4rem; }
+    .products-grid { grid-template-columns: repeat(2, 1fr); }
+    .financial-grid { grid-template-columns: 1fr; }
+    .impact-container { grid-template-columns: repeat(2, 1fr); }
+    .swot-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 700px) {
+    .hero { padding: 8rem 5% 4rem; }
+    .hero-content h1 { font-size: 2.6rem; }
+    .section-header h2 { font-size: 2.2rem; }
+    .about-content h2 { font-size: 2.2rem; }
+    .sustain-content h2 { font-size: 2.2rem; }
+    .footer-cta h2 { font-size: 2.2rem; }
+    .products-grid { grid-template-columns: 1fr; }
+    .impact-container { grid-template-columns: 1fr; gap: 2.5rem; }
+    .nav-links { display: none; }
+    .stats-row { flex-direction: column; gap: 1.8rem; }
+    .hero-buttons { flex-direction: column; }
+    .btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo">Milkomi <span>Dairy</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#sustainability">Sustainability</a></li>
+    <li><a href="#swot">Analysis</a></li>
+    <li><a href="#investment">Investment</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-container">
+    <div class="hero-content">
+      <h4>Sustainable Dairy Innovation</h4>
+      <h1>Nourishing Ethiopia, <em>One Drop at a Time</em></h1>
+      <p>Milkomi Dairy Farm & Milk Processing brings world-class dairy production to Addis Ababa. From pasture to plate, we are building Ethiopia's future in sustainable agriculture with 500 exotic-breed milking cows and state-of-the-art processing facilities.</p>
+      <div class="hero-buttons">
+        <a href="#about" class="btn btn-primary">Discover Our Story</a>
+        <a href="#investment" class="btn btn-outline">View Investment</a>
+      </div>
+    </div>
+    <div class="hero-image-wrap">
+      <img src="https://kimi-web-img.moonshot.cn/img/ethiopianembassy.be/d59b85b58d450ed93127552893ece028d74e6083.jpg" alt="Modern dairy farm in Ethiopia with Holstein cows feeding in a covered barn">
+      <div class="hero-badge">
+        <div class="number">500+</div>
+        <div class="label">Milking Cows</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-images">
+      <img src="https://kimi-web-img.moonshot.cn/img/globifield.com/f5d5de964a9645c5505b3fdb0925dce8af1c9abb.jpg" alt="Jersey cattle in a modern Ethiopian dairy facility with steel roofing">
+      <img src="https://kimi-web-img.moonshot.cn/img/fundinnovation.dev/dbaafb83dac5c43f15cece0be5e96d8dc3f37353.jpg" alt="Lush green highlands of Ethiopia representing sustainable pasture">
+      <img src="https://kimi-web-img.moonshot.cn/img/www.acdivoca.org/aafd84f1a5d05ba45ade416acd885723c11a4aea.jpg" alt="Ethiopian smallholder dairy farmers feeding cattle with fresh fodder">
+    </div>
+    <div class="about-content">
+      <h4>About The Project</h4>
+      <h2>Modern Dairy,<br>Ethiopian Roots</h2>
+      <p>Established by <strong>Milkomi Trading Plc.</strong> in Addis Ababa City Administration, our project represents a bold step toward transforming Ethiopia's dairy sub-sector. With over 15 years of agricultural experience, we are introducing intensive, market-oriented dairy farming on a 6-hectare sustainable campus.</p>
+      <p>Ethiopia holds the largest livestock inventory in Africa, yet commercialization remains low. Milkomi is here to change that narrative — combining exotic breed management with local expertise to deliver premium milk, cheese, butter, and yoghurt to households and businesses across the region.</p>
+      <div class="stats-row">
+        <div class="stat-item">
+          <h3>6 ha</h3>
+          <p>Project Land Area</p>
+        </div>
+        <div class="stat-item">
+          <h3>100</h3>
+          <p>Jobs Created</p>
+        </div>
+        <div class="stat-item">
+          <h3>25L</h3>
+          <p>Daily Yield / Cow</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Impact Bar -->
+<section class="impact-bar">
+  <div class="impact-container">
+    <div class="impact-item">
+      <h3>ETB 100M</h3>
+      <p>Total Investment</p>
+    </div>
+    <div class="impact-item">
+      <h3>7,500L</h3>
+      <p>Daily Production</p>
+    </div>
+    <div class="impact-item">
+      <h3>&lt; 1 Year</h3>
+      <p>Payback Period</p>
+    </div>
+    <div class="impact-item">
+      <h3>93%</h3>
+      <p>Gross Profit Margin</p>
+    </div>
+  </div>
+</section>
+
+<!-- Products Section -->
+<section class="products" id="products">
+  <div class="section-header">
+    <h4>Our Offerings</h4>
+    <h2>From Farm to Table</h2>
+    <p>We process and distribute a diverse range of high-quality dairy products, serving households, cafés, hotels, and export markets with freshness guaranteed.</p>
+  </div>
+  <div class="products-grid">
+    <div class="product-card">
+      <img src="https://kimi-web-img.moonshot.cn/img/aviaanaccounting.com/15e5345c4c8ca46a14720fa62b93e1e42101a17f.webp" alt="Fresh milk, cheese, butter and yoghurt arranged on a wooden board">
+      <div class="card-body">
+        <span class="product-tag">Core Product</span>
+        <h3>Fresh Raw Milk</h3>
+        <p>Pasteurized and packaged daily from our 500-head herd. 70% of production serves the local market at competitive prices of ETB 27 per litre.</p>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="https://kimi-web-img.moonshot.cn/img/bloximages.newyork1.vip.townnews.com/b5aaa33d114b094dc98ef1016b1317e93f9cf510.jpg" alt="Artisan cheese varieties with milk and yoghurt on a rustic table">
+      <div class="card-body">
+        <span class="product-tag">Premium</span>
+        <h3>Artisan Cheese</h3>
+        <p>Traditional and modern cheese varieties crafted from the richest cream, processed under strict hygienic standards at ETB 80 per unit.</p>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="https://kimi-web-img.moonshot.cn/img/addisber.com/34eed12ae8139e2a82bca7e04c712e2664dd34f4.jpg" alt="Berta brand Ethiopian unsalted butter packaging">
+      <div class="card-body">
+        <span class="product-tag">Heritage</span>
+        <h3>Pure Butter</h3>
+        <p>Authentic Ethiopian butter (qibe) and modern table butter, churned from separated cream with traditional richness at ETB 280 per unit.</p>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="https://kimi-web-img.moonshot.cn/img/dairybusinessmea.com/8a31aee6191b2e9cec31e40abc84172f86676600.jpg" alt="Modern milk processing plant with bottles on a conveyor belt">
+      <div class="card-body">
+        <span class="product-tag">Probiotic</span>
+        <h3>Yoghurt & By-Products</h3>
+        <p>Fortified yoghurt, animal feed processing, and organic compost — zero waste, full-circle sustainability at ETB 40 per unit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sustainability Section -->
+<section class="sustainability" id="sustainability">
+  <div class="sustain-container">
+    <div class="sustain-content">
+      <h4>Green Mission</h4>
+      <h2>Sustainable by Design</h2>
+      <p>Our farm integrates climate-smart agriculture with economic growth. We believe Ethiopia's dairy future must be green, inclusive, and resilient.</p>
+      <ul class="sustain-list">
+        <li>
+          <div class="icon">🌿</div>
+          <div>
+            <h4>Fodder Self-Sufficiency</h4>
+            <p>On-site alfalfa, maize silage, and pasture production reduce supply chain emissions and ensure year-round nutrition for our herd.</p>
+          </div>
+        </li>
+        <li>
+          <div class="icon">♻️</div>
+          <div>
+            <h4>Zero-Waste Processing</h4>
+            <p>Every by-product is repurposed — from compost sales (ETB 5,000/month) to recycled water systems in our milk processing plant.</p>
+          </div>
+        </li>
+        <li>
+          <div class="icon">👨‍👩‍👧</div>
+          <div>
+            <h4>Community Employment</h4>
+            <p>100 direct jobs for skilled and unskilled workers, with priority given to residents of surrounding Addis Ababa communities.</p>
+          </div>
+        </li>
+        <li>
+          <div class="icon">🐄</div>
+          <div>
+            <h4>Ethical Herd Management</h4>
+            <p>Veterinary clinics on-site, humane housing, and genetic improvement programs for healthier, higher-yielding cattle.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="sustain-image">
+      <img src="https://kimi-web-img.moonshot.cn/img/thewaterchannel.tv/73a52e2f2f8e4447973287cea9f7dce0ddd75788.jpg" alt="Green Ethiopian farming landscape with cattle grazing in the highlands">
+    </div>
+  </div>
+</section>
+
+<!-- SWOT Section -->
+<section class="swot" id="swot">
+  <div class="section-header">
+    <h4>Strategic Analysis</h4>
+    <h2>SWOT Assessment</h2>
+    <p>A comprehensive look at our competitive position in Ethiopia's emerging formal dairy market.</p>
+  </div>
+  <div class="swot-grid">
+    <div class="swot-card strength">
+      <h3><span class="dot"></span> Strengths</h3>
+      <ul>
+        <li>New modern facility preferred over elderly competitors</li>
+        <li>Closeness to highway increases logistics efficiency</li>
+        <li>15+ years of agricultural experience by promoter</li>
+        <li>Proven track record of raising quality herd replacements</li>
+        <li>Strong family commitment to farming excellence</li>
+      </ul>
+    </div>
+    <div class="swot-card weakness">
+      <h3><span class="dot"></span> Weaknesses</h3>
+      <ul>
+        <li>Concept is not new; must compete for market share</li>
+        <li>Land size may be a constraint if demand exceeds capacity</li>
+        <li>Need to improve herd production record systems</li>
+        <li>Lack of experience with formal financial records</li>
+        <li>High initial capital requirements</li>
+      </ul>
+    </div>
+    <div class="swot-card opportunity">
+      <h3><span class="dot"></span> Opportunities</h3>
+      <ul>
+        <li>Government affirmative actions on modern dairy industry</li>
+        <li>Investment loan opportunities from multiple banks</li>
+        <li>Growing urban demand due to rising disposable incomes</li>
+        <li>Strong local dairy community with business support</li>
+        <li>Currently high fluid milk prices favor capital investment</li>
+      </ul>
+    </div>
+    <div class="swot-card threat">
+      <h3><span class="dot"></span> Threats</h3>
+      <ul>
+        <li>High cost of capital in Ethiopia</li>
+        <li>Historical volatility of milk market prices</li>
+        <li>Farm operating costs rising faster than milk prices</li>
+        <li>Difficulty finding and retaining dependable farm labor</li>
+        <li>Continually increasing property taxes</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Financial Section -->
+<section class="financial" id="investment">
+  <div class="section-header">
+    <h4>Investment Profile</h4>
+    <h2>Sound. Sustainable. Scalable.</h2>
+    <p>With a positive NPV of ETB 277 million and a payback period under one year, Milkomi presents a compelling opportunity for lenders and partners.</p>
+  </div>
+  <div class="financial-grid">
+    <div class="fin-card">
+      <div class="icon-box">💰</div>
+      <h3>ETB 100M</h3>
+      <p>Total Project Cost<br><span>30% Equity · 70% Bank Loan</span></p>
+    </div>
+    <div class="fin-card">
+      <div class="icon-box">📈</div>
+      <h3>ETB 81.4M</h3>
+      <p>Year 1 Revenue<br><span>Growing 10% annually through Year 3</span></p>
+    </div>
+    <div class="fin-card">
+      <div class="icon-box">✅</div>
+      <h3>NPV +277M</h3>
+      <p>Net Present Value<br><span>At 18% discount rate — highly feasible</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer CTA -->
+<section class="footer-cta" id="contact">
+  <h2>Partner With Milkomi</h2>
+  <p>Join us in building Ethiopia's most advanced dairy value chain. Whether you are an investor, distributor, or development partner, we welcome the conversation.</p>
+  <a href="mailto:info@milkomi.et" class="btn btn-primary">Request Project Proposal</a>
+</section>
+
+<div class="footer-info">
+  <strong>Milkomi Trading Plc.</strong>
+  Addis Ababa City Administration, Ethiopia · Dairy Farm & Milk Processing · Sept 2024<br>
+  Sole Proprietorship · Agro-Industry · 15+ Years Agricultural Experience
+</div>
+
+<script>
+  // Simple scroll-triggered fade-in animation
+  const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.product-card, .fin-card, .swot-card, .sustain-list li, .stat-item').forEach(el => {
+    el.classList.add('fade-in');
+    observer.observe(el);
+  });
+
+  // Smooth scroll for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+
+</body>
+</html>
