@@ -3,497 +3,1022 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Milkomi Mall & Apartments — Magazine Landing</title>
+<title>Milkomi Mall & Apartment — Addis Ababa Real Estate Investment</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Georgia', 'Times New Roman', serif;
-    background: #f6f7f4;
-    color: #2c3e2d;
-    line-height: 1.6;
-  }
-  img { max-width: 100%; display: block; }
-  .container { max-width: 1200px; margin: 0 auto; }
+:root {
+  --bg-cream: #FAF8F4;
+  --bg-warm: #F2EEE6;
+  --bg-sage: #EEF3EA;
+  --text-dark: #1A1A1A;
+  --text-body: #2D2D2D;
+  --text-secondary: #4A4A4A;
+  --text-muted: #6E6E6E;
+  --text-light: #8A8A8A;
+  --accent-green: #2D5A3D;
+  --accent-green-dark: #1E3D28;
+  --accent-sage: #4A7C59;
+  --accent-gold: #B8954A;
+  --accent-gold-light: #D4B87A;
+  --border: #DDD8CE;
+  --border-light: #EAE6DD;
+  --white: #FFFFFF;
+  --shadow-sm: 0 1px 4px rgba(0,0,0,0.05);
+  --shadow: 0 4px 16px rgba(0,0,0,0.07);
+  --shadow-lg: 0 12px 48px rgba(0,0,0,0.10);
+}
 
-  /* HERO */
-  .hero {
-    position: relative;
-    width: 100%;
-    min-height: 520px;
-    background: linear-gradient(135deg, #e8efe6 0%, #d4e0d0 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    opacity: 0.12;
-    background-image: url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&q=80');
-    background-size: cover;
-    background-position: center;
-  }
-  .hero-inner {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    padding: 60px 40px;
-    max-width: 900px;
-  }
-  .hero-label {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 12px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: #5a7d5a;
-    margin-bottom: 20px;
-  }
-  .hero h1 {
-    font-size: clamp(2.5rem, 5vw, 4.2rem);
-    font-weight: 400;
-    color: #1a2e1a;
-    margin: 0 0 24px 0;
-    line-height: 1.15;
-    letter-spacing: -1px;
-  }
-  .hero p {
-    font-size: 1.25rem;
-    color: #3d5c3d;
-    max-width: 600px;
-    margin: 0 auto 32px;
-    font-style: italic;
-  }
-  .hero-badges {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  .badge-solid {
-    background: #2c5f2d;
-    color: #fff;
-    padding: 10px 28px;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 13px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    border-radius: 2px;
-  }
-  .badge-outline {
-    background: transparent;
-    color: #2c5f2d;
-    padding: 10px 28px;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 13px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    border: 2px solid #2c5f2d;
-    border-radius: 2px;
-  }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
-  /* SECTIONS */
-  .section { padding: 70px 40px; }
-  .section-alt { background: #eef1eb; }
-  .section-green { background: #e8efe6; }
-  .section-dark { background: #2c5f2d; color: #e0f0e0; text-align: center; }
-  .section-darker { background: #1a2e1a; color: #e0f0e0; text-align: center; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-cream);
+  color: var(--text-dark);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
 
-  .section-label {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #7a9a7a;
-    margin-bottom: 14px;
-  }
-  .section-label-light { color: #c8d8c8; }
-  .section h2 {
-    font-size: 2.2rem;
-    color: #1a2e1a;
-    margin: 0 0 24px 0;
-    font-weight: 400;
-    line-height: 1.25;
-  }
-  .section h2.light { color: #f0f5f0; }
-  .section p {
-    color: #4a5d4a;
-    font-size: 1.05rem;
-    margin-bottom: 18px;
-  }
-  .section p.light { color: #d0e0d0; }
+h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 500; }
+img { max-width: 100%; display: block; }
 
-  /* GRIDS */
-  .grid-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  .grid-3 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  .grid-4 {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  .grid-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-  }
+/* Navigation */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(250,248,244,0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-light);
+}
+.nav-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 68px;
+  padding: 0 32px;
+}
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--accent-green);
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+.nav-links {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.nav-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.25s ease;
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-green);
+  transition: width 0.25s ease;
+}
+.nav-links a:hover { color: var(--accent-green); }
+.nav-links a:hover::after { width: 100%; }
 
-  /* CARDS */
-  .card {
-    background: #fff;
-    border-radius: 4px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(44,62,45,0.06);
-  }
-  .card img { width: 100%; height: 200px; object-fit: cover; }
-  .card-body { padding: 28px; }
-  .card-body h3 {
-    font-size: 1.15rem;
-    color: #1a2e1a;
-    margin: 0 0 10px 0;
-    font-weight: 600;
-  }
-  .card-body p {
-    color: #5a6b5a;
-    font-size: 0.95rem;
-    margin: 0;
-    line-height: 1.55;
-  }
-  .stat-card {
-    background: #fff;
-    padding: 32px 20px;
-    border-radius: 4px;
-    box-shadow: 0 4px 16px rgba(44,62,45,0.05);
-    text-align: center;
-  }
-  .stat-card .num {
-    font-size: 1.8rem;
-    color: #2c5f2d;
-    font-weight: 600;
-    margin-bottom: 8px;
-  }
-  .stat-card .desc {
-    color: #5a6b5a;
-    font-size: 0.9rem;
-  }
+/* Hero */
+.hero {
+  position: relative;
+  min-height: 95vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url('https://kimi-web-img.kimi.ai/img/www.ena.et/3ba3fd1a66cc823f86cf2aa9277a303249397117') center/cover no-repeat;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(250,248,244,0.98) 0%,
+    rgba(250,248,244,0.90) 20%,
+    rgba(250,248,244,0.60) 50%,
+    rgba(26,26,26,0.25) 100%
+  );
+}
+.hero-content {
+  position: relative;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 80px 32px 64px;
+  width: 100%;
+}
+.hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(45,90,61,0.10);
+  color: var(--accent-green);
+  padding: 7px 18px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 24px;
+  border: 1px solid rgba(45,90,61,0.15);
+}
+.hero h1 {
+  font-size: clamp(44px, 7vw, 84px);
+  line-height: 1.02;
+  margin-bottom: 20px;
+  color: var(--text-dark);
+  letter-spacing: -0.025em;
+  max-width: 900px;
+}
+.hero-sub {
+  font-size: clamp(17px, 2.2vw, 22px);
+  color: var(--text-secondary);
+  max-width: 580px;
+  margin-bottom: 40px;
+  font-weight: 400;
+  line-height: 1.55;
+}
+.hero-meta {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+}
+.hero-meta span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.hero-cta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.btn {
+  padding: 16px 40px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.02em;
+}
+.btn-primary {
+  background: var(--accent-green);
+  color: var(--white);
+}
+.btn-primary:hover {
+  background: var(--accent-green-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+.btn-secondary {
+  background: var(--white);
+  color: var(--text-dark);
+  border: 1.5px solid var(--border);
+}
+.btn-secondary:hover {
+  border-color: var(--accent-green);
+  color: var(--accent-green);
+  transform: translateY(-2px);
+}
 
-  /* IMAGE BLOCKS */
-  .img-block {
-    position: relative;
-    min-height: 420px;
-    background-size: cover;
-    background-position: center;
-  }
-  .img-block .overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to right, rgba(26,46,26,0.55), rgba(26,46,26,0.1));
-  }
-  .img-block .content {
-    position: relative;
-    z-index: 2;
-    padding: 60px 50px;
-    max-width: 420px;
-  }
-  .img-badge {
-    position: absolute;
-    bottom: -20px;
-    left: -20px;
-    background: #2c5f2d;
-    color: #f0f5f0;
-    padding: 18px 24px;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 13px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    border-radius: 2px;
-  }
+/* Section base */
+.section {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 100px 32px;
+}
+.section-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+.section-tag {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent-sage);
+  margin-bottom: 14px;
+}
+.section h2 {
+  font-size: clamp(32px, 4vw, 46px);
+  margin-bottom: 18px;
+  color: var(--text-dark);
+  line-height: 1.12;
+}
+.section-desc {
+  color: var(--text-muted);
+  max-width: 640px;
+  margin: 0 auto;
+  font-size: 17px;
+  line-height: 1.7;
+  font-weight: 400;
+}
 
-  /* LAYOUT LIST */
-  .layout-box {
-    background: #fff;
-    padding: 36px;
-    border-radius: 4px;
-    box-shadow: 0 8px 30px rgba(44,62,45,0.08);
-  }
-  .layout-box h3 {
-    font-size: 1.1rem;
-    color: #1a2e1a;
-    margin: 0 0 20px 0;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-  .layout-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 14px 0;
-    border-bottom: 1px solid #e0e6e0;
-  }
-  .layout-row:last-child { border-bottom: none; }
-  .layout-row .label { color: #4a5d4a; font-size: 0.95rem; }
-  .layout-row .value { color: #2c5f2d; font-weight: 600; font-size: 0.9rem; }
+/* Showcase image section */
+.showcase-section {
+  background: var(--bg-warm);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+.showcase-image {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 48px;
+}
+.showcase-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.showcase-caption {
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: -24px;
+}
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-top: 48px;
+}
+.showcase-item {
+  text-align: center;
+  padding: 24px 16px;
+  background: var(--white);
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
+  transition: all 0.3s ease;
+}
+.showcase-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+  border-color: var(--accent-green);
+}
+.showcase-item svg {
+  width: 32px;
+  height: 32px;
+  margin: 0 auto 12px;
+  color: var(--accent-green);
+}
+.showcase-item h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.showcase-item p {
+  font-size: 12px;
+  color: var(--text-light);
+  line-height: 1.5;
+}
 
-  /* MINI STATS */
-  .mini-stat {
-    background: #f6f7f4;
-    padding: 16px 22px;
-    border-radius: 4px;
-    border-left: 4px solid #2c5f2d;
-  }
-  .mini-stat .num { font-size: 1.3rem; color: #2c5f2d; font-weight: 600; }
-  .mini-stat .desc { font-size: 0.85rem; color: #5a6b5a; }
+/* Editorial */
+.editorial {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.editorial-text p {
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--text-body);
+  margin-bottom: 22px;
+}
+.drop-cap {
+  float: left;
+  font-family: 'Playfair Display', serif;
+  font-size: 76px;
+  line-height: 0.72;
+  padding-right: 14px;
+  padding-top: 10px;
+  font-weight: 500;
+  color: var(--accent-green);
+}
+.editorial-image {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.editorial-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.editorial-image:hover img { transform: scale(1.03); }
+.editorial-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(26,26,26,0.70));
+  color: rgba(255,255,255,0.92);
+  padding: 40px 24px 20px;
+  font-size: 13px;
+  font-style: italic;
+  font-weight: 400;
+}
 
-  /* QUOTE */
-  .quote-text {
-    font-size: 1.6rem;
-    color: #e0f0e0;
-    font-style: italic;
-    line-height: 1.5;
-    margin: 0 0 30px 0;
-  }
-  .quote-line {
-    width: 60px;
-    height: 2px;
-    background: #7ab87a;
-    margin: 0 auto 20px;
-  }
-  .quote-source {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #a8d8a8;
-  }
+/* Sustainability */
+.sustain-section {
+  background: var(--bg-sage);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+.sustain-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.sustain-card {
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 40px 28px;
+  text-align: center;
+  transition: all 0.35s ease;
+}
+.sustain-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(45,90,61,0.20);
+}
+.sustain-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 22px;
+  background: rgba(45,90,61,0.08);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-green);
+}
+.sustain-icon svg { width: 26px; height: 26px; }
+.sustain-card h4 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+.sustain-card p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
 
-  /* FOOTER CTA */
-  .cta-badges {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 40px;
-  }
-  .footer-copy {
-    color: #6a8a6a;
-    font-size: 0.8rem;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    letter-spacing: 1px;
-  }
+/* Quote */
+.quote-block {
+  max-width: 860px;
+  margin: 72px auto 0;
+  background: var(--white);
+  border-left: 4px solid var(--accent-green);
+  padding: 36px 44px;
+  border-radius: 0 14px 14px 0;
+  box-shadow: var(--shadow-sm);
+}
+.quote-block p {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  line-height: 1.55;
+  color: var(--text-dark);
+  font-style: italic;
+}
+.quote-block cite {
+  display: block;
+  margin-top: 18px;
+  font-size: 13px;
+  color: var(--text-light);
+  font-style: normal;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+}
 
-  /* RESPONSIVE */
-  @media (max-width: 900px) {
-    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
-    .grid-stats { grid-template-columns: 1fr 1fr; }
-    .img-block { min-height: 320px; }
-    .section { padding: 50px 24px; }
-    .hero-inner { padding: 40px 24px; }
-  }
-  @media (max-width: 600px) {
-    .grid-stats { grid-template-columns: 1fr; }
-    .hero h1 { font-size: 2rem; }
-  }
+/* Stats */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.stat-card {
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: 14px;
+  padding: 36px 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.stat-card:hover {
+  border-color: var(--accent-green);
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+.stat-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  font-weight: 500;
+  color: var(--accent-green);
+  margin-bottom: 10px;
+  line-height: 1;
+}
+.stat-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+/* Features */
+.features-section { background: var(--bg-warm); }
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.feature-card {
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: all 0.35s ease;
+}
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+.feature-img {
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+.feature-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.feature-card:hover .feature-img img { transform: scale(1.06); }
+.feature-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(26,26,26,0.45), transparent 60%);
+}
+.feature-body {
+  padding: 28px;
+}
+.feature-body h4 {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-family: 'Inter', sans-serif;
+  color: var(--text-dark);
+}
+.feature-body p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Financial */
+.finance-section { background: var(--bg-cream); }
+.finance-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+.finance-list {
+  background: var(--white);
+  border-radius: 18px;
+  padding: 44px;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+}
+.finance-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+.finance-row:last-child { border-bottom: none; }
+.finance-label {
+  font-size: 15px;
+  color: var(--text-body);
+  font-weight: 400;
+}
+.finance-value {
+  font-size: 16px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-dark);
+}
+.finance-value.accent { color: var(--accent-green); }
+.finance-image {
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  height: 100%;
+  min-height: 460px;
+}
+.finance-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Gallery */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 240px;
+  gap: 14px;
+}
+.gallery-item {
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.gallery-item:hover img { transform: scale(1.06); }
+.gallery-item.tall { grid-row: span 2; }
+.gallery-item.wide { grid-column: span 2; }
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 55%, rgba(26,26,26,0.60));
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  display: flex;
+  align-items: flex-end;
+  padding: 24px;
+}
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+.gallery-overlay span {
+  color: rgba(255,255,255,0.95);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Footer */
+footer {
+  background: var(--accent-green-dark);
+  color: rgba(255,255,255,0.88);
+  padding: 80px 32px 40px;
+  text-align: center;
+}
+.footer-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--white);
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+.footer-tagline {
+  font-size: 16px;
+  opacity: 0.80;
+  margin-bottom: 36px;
+  font-weight: 400;
+}
+.footer-divider {
+  width: 48px;
+  height: 2px;
+  background: var(--accent-gold);
+  margin: 0 auto 36px;
+}
+.footer-info {
+  font-size: 14px;
+  line-height: 2.2;
+  opacity: 0.75;
+  max-width: 640px;
+  margin: 0 auto;
+  font-weight: 400;
+}
+.footer-bottom {
+  margin-top: 52px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  font-size: 12px;
+  opacity: 0.50;
+  font-weight: 400;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .editorial, .finance-grid, .sustain-grid { grid-template-columns: 1fr; }
+  .stats-grid, .features-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .showcase-grid { grid-template-columns: repeat(3, 1fr); }
+  .nav-links { display: none; }
+  .hero-cta { flex-direction: column; }
+  .finance-image { min-height: 320px; }
+}
+@media (max-width: 640px) {
+  .stats-grid, .features-grid, .gallery-grid, .showcase-grid { grid-template-columns: 1fr; }
+  .gallery-item.wide { grid-column: span 1; }
+  .section { padding: 64px 20px; }
+  .nav-inner, .hero-content { padding-left: 20px; padding-right: 20px; }
+  .finance-list { padding: 28px 24px; }
+  .quote-block { padding: 28px 24px; }
+  .quote-block p { font-size: 18px; }
+}
 </style>
 </head>
 <body>
 
-<div class="container">
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">Milkomi</a>
+    <ul class="nav-links">
+      <li><a href="#showcase">Vision</a></li>
+      <li><a href="#sustainability">Sustainability</a></li>
+      <li><a href="#features">Spaces</a></li>
+      <li><a href="#finance">Investment</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+    </ul>
+  </div>
+</nav>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-inner">
-      <p class="hero-label">Milkomi Trading Plc — Addis Ababa, Ethiopia</p>
-      <h1>Milkomi Mall<br>&amp; Multi‑Complex Apartments</h1>
-      <p>A thriving market. A smart future. Sustainable urban living in the heart of Africa's diplomatic capital.</p>
-      <div class="hero-badges">
-        <span class="badge-solid">Premium Living</span>
-        <span class="badge-outline">Sustainable Design</span>
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-label">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      Sustainable Real Estate Development
+    </div>
+    <h1>Milkomi Mall &amp; Apartment</h1>
+    <p class="hero-sub">A visionary mixed-use landmark rising in the heart of Addis Ababa — where premium commerce, luxury residence, and environmental stewardship converge.</p>
+    <div class="hero-meta">
+      <span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Addis Ababa, Ethiopia
+      </span>
+      <span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>
+        Est. 34 months
+      </span>
+      <span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        3B+G+15 Storeys
+      </span>
+    </div>
+    <div class="hero-cta">
+      <a href="#showcase" class="btn btn-primary">Explore the vision</a>
+      <a href="#finance" class="btn btn-secondary">Investment overview</a>
+    </div>
+  </div>
+</section>
+
+<!-- Showcase: The 5 Real Estate Images -->
+<section class="section showcase-section" id="showcase">
+  <div class="section-header">
+    <div class="section-tag">Addis Ababa Real Estate Investment</div>
+    <h2>A Thriving Market. A Smart Future.</h2>
+    <p class="section-desc">Ethiopia's capital is experiencing unprecedented growth in modern infrastructure, premium housing, and commercial development — creating extraordinary opportunities for visionary investors.</p>
+  </div>
+  <div class="showcase-image">
+    <img src="1000227200.png" alt="Addis Ababa Real Estate Investment Showcase — 5 contemporary property visuals">
+  </div>
+  <p class="showcase-caption">Contemporary real estate developments defining Addis Ababa's modern skyline and luxury living standards</p>
+  <div class="showcase-grid">
+    <div class="showcase-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M23 6l-9.5 5.5-9.5-5.5"/><path d="M23 12l-9.5 5.5-9.5-5.5"/><path d="M23 18l-9.5 5.5-9.5-5.5"/></svg>
+      <h4>Strong Growth</h4>
+      <p>Double-digit GDP expansion driving demand for premium real estate</p>
+    </div>
+    <div class="showcase-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <h4>Prime Location</h4>
+      <p>Strategic position in Africa's diplomatic and economic capital</p>
+    </div>
+    <div class="showcase-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+      <h4>Modern Infrastructure</h4>
+      <p>World-class building standards with smart technology integration</p>
+    </div>
+    <div class="showcase-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <h4>Secure &amp; Stable</h4>
+      <p>Robust legal framework and growing foreign investment protection</p>
+    </div>
+    <div class="showcase-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      <h4>High Returns</h4>
+      <p>Attractive yields with strong capital appreciation potential</p>
+    </div>
+  </div>
+</section>
+
+<!-- Editorial -->
+<section class="section" id="vision">
+  <div class="section-header">
+    <div class="section-tag">Editorial</div>
+    <h2>The story behind the skyline</h2>
+    <p class="section-desc">Ethiopia's urban economy demands world-class infrastructure. Milkomi Trading Plc answers that call with a landmark development designed for diplomats, investors, and families.</p>
+  </div>
+  <div class="editorial">
+    <div class="editorial-text">
+      <p><span class="drop-cap">T</span>he current fast and dynamic economic growth of Ethiopia, especially in urban areas, necessitates equivalent expansion in the building and construction sector. Property investment has remained underdeveloped for decades, leaving the supply of residential and commercial real estate disproportionately low against surging demand.</p>
+      <p>Addis Ababa, the diplomatic capital of Africa and host to more than 100 embassies, requires facilities that match its international stature. The city is fast becoming a destination for conference tourism, yet lacks integrated venues combining retail, hospitality, and residential functions under one roof.</p>
+      <p>Milkomi Trading Plc proposes to fill this gap with a modern 3B+G+15 mixed-use complex on a 10,000 m&sup2; plot in central Addis Ababa. Shops, supermarkets, banks, restaurants, a cinema, game zones, caf&eacute;s, and luxury apartments — all designed to international standards with sustainability at their core.</p>
+    </div>
+    <div class="editorial-image">
+      <img src="https://kimi-web-img.kimi.ai/img/constructionreviewonline.com/ab591e9fa9c741eacfe814909389aa9dc0dfd3ff.jpg" alt="Commercial Bank of Ethiopia Tower — Africa's tallest building">
+      <div class="editorial-caption">The CBE Tower — Africa's tallest building, symbolizing Addis Ababa's rapid modernization</div>
+    </div>
+  </div>
+</section>
+
+<!-- Sustainability -->
+<section class="sustain-section" id="sustainability">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-tag">Environment</div>
+      <h2>Built for tomorrow</h2>
+      <p class="section-desc">Sustainability is woven into the foundation of the Milkomi complex through renewable energy, waste management, and biophilic design.</p>
+    </div>
+    <div class="sustain-grid">
+      <div class="sustain-card">
+        <div class="sustain-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2"/><path d="M12 21v2"/><path d="M4.22 4.22l1.42 1.42"/><path d="M18.36 18.36l1.42 1.42"/><path d="M1 12h2"/><path d="M21 12h2"/><path d="M4.22 19.78l1.42-1.42"/><path d="M18.36 5.64l1.42-1.42"/></svg>
+        </div>
+        <h4>Solar energy</h4>
+        <p>Extensive solar panel integration across rooftops and terraces to reduce grid dependency and lower the building's lifetime carbon footprint.</p>
+      </div>
+      <div class="sustain-card">
+        <div class="sustain-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22c4.97 0 9-4.03 9-9V7c0-1.1-.9-2-2-2h-1V2h-2v3h-4V2H9v3H8c-1.1 0-2 .9-2 2v6c0 4.97 4.03 9 9 9z"/><path d="M9 13h6"/><path d="M9 17h6"/></svg>
+        </div>
+        <h4>Waste management</h4>
+        <p>Closed-loop wastewater collection via septic tanks and organized solid waste disposal to municipal sites, ensuring zero contamination.</p>
+      </div>
+      <div class="sustain-card">
+        <div class="sustain-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l.39.18c.9.43 2.48-.04 3.17-1.04l.56-.84c.5-.75 1.33-1.17 2.2-1.12l2.04.1c1.44.07 2.7-.97 2.84-2.41l.16-1.65c.08-.84.55-1.59 1.24-2.05l1.55-1.04c.98-.65 1.49-1.85 1.28-3.01l-.25-1.35"/><path d="M21 5l-2-2"/><path d="M19 3l2 2"/></svg>
+        </div>
+        <h4>Green spaces</h4>
+        <p>Recreation areas, children's playgrounds, elder walkways, and landscaped parks that improve air quality and community wellbeing.</p>
       </div>
     </div>
-  </section>
+    <div class="quote-block">
+      <p>"As much as possible, solar energy will be utilized after completion. The building will also be glazed with standard glasses. Thus, the project will have no negative impact on the environment."</p>
+      <cite>&mdash; Environmental Impact Assessment, Milkomi Project Proposal, September 2024</cite>
+    </div>
+  </div>
+</section>
 
-  <!-- EDITORIAL INTRO -->
-  <section class="section">
-    <div class="grid-2">
-      <div>
-        <p class="section-label">The Vision</p>
-        <h2>Modern Spaces.<br>Timeless Value.</h2>
-        <p>Nestled in the center of Addis Ababa, the Milkomi mixed‑use complex spans <strong>10,000 m²</strong> of prime urban land. This 3B+G+15 development unites retail, hospitality, office space, and residential apartments into one harmonious ecosystem.</p>
-        <p>With Ethiopia's economy expanding and urban demand surging, this project is engineered to deliver both immediate returns and lasting legacy.</p>
+<!-- Stats -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-tag">By the numbers</div>
+    <h2>Scale &amp; ambition</h2>
+  </div>
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-value">10,000</div>
+      <div class="stat-label">Square meters<br>of prime plot</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">3B+G+15</div>
+      <div class="stat-label">Storeys from<br>basement to roof</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">1B</div>
+      <div class="stat-label">Birr total<br>investment</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">138+</div>
+      <div class="stat-label">Permanent jobs<br>created</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">1,500</div>
+      <div class="stat-label">Temporary workers<br>during construction</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">6 yrs</div>
+      <div class="stat-label">Estimated<br>payback period</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">14.6%</div>
+      <div class="stat-label">Simple rate<br>of return</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">50%+</div>
+      <div class="stat-label">Apartments for<br>diaspora buyers</div>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="section features-section" id="features">
+  <div class="section-header">
+    <div class="section-tag">Spaces</div>
+    <h2>Every floor, a new experience</h2>
+    <p class="section-desc">From underground parking to rooftop amenities, the Milkomi complex is designed as a self-contained urban ecosystem.</p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-img">
+        <img src="https://kimi-web-img.kimi.ai/img/images.skyscrapercenter.com/31a694c50dfb45bb9391e581b01f8f68cfeb2711.jpg" alt="Commercial Bank of Ethiopia Tower">
+        <div class="feature-img-overlay"></div>
       </div>
-      <div style="position:relative;">
-        <img src="H1.jpg" alt="Premium Living Apartments" style="width:100%;height:340px;object-fit:cover;border-radius:4px;box-shadow:0 20px 60px rgba(44,62,45,0.15);">
-        <div class="img-badge">3B + G + 15 Floors</div>
+      <div class="feature-body">
+        <h4>Retail haven</h4>
+        <p>Ground to third floors host shops, supermarkets, galleries, and African-flavored specialty stores with open atriums.</p>
       </div>
     </div>
-  </section>
-
-  <!-- CITY CONTEXT -->
-  <section class="section-alt" style="padding:0;">
-    <div style="display:grid;grid-template-columns:1fr 1fr;">
-      <div class="img-block" style="background-image:url('H2.jpg');">
-        <div class="overlay"></div>
-        <div class="content">
-          <p class="section-label section-label-light">Location</p>
-          <h2 class="light">Addis Ababa<br>Real Estate Investment</h2>
-          <p class="light">Africa's diplomatic capital, home to 100+ embassies and the African Union. A city where economic growth meets cosmopolitan ambition.</p>
-        </div>
+    <div class="feature-card">
+      <div class="feature-img">
+        <img src="https://kimi-web-img.kimi.ai/img/ethiopiarealty.com/6b5ecd1198d86bcc19212a148c11f1d02a9fb63b.jpg" alt="Luxury apartment exterior Addis Ababa">
+        <div class="feature-img-overlay"></div>
       </div>
-      <div style="padding:60px 50px;display:flex;flex-direction:column;justify-content:center;">
-        <div class="grid-stats">
-          <div>
-            <div style="font-size:2rem;color:#2c5f2d;margin-bottom:6px;font-weight:600;">11.4%</div>
-            <p style="font-size:0.9rem;color:#5a6b5a;">Average annual GDP growth over the past 15 years</p>
-          </div>
-          <div>
-            <div style="font-size:2rem;color:#2c5f2d;margin-bottom:6px;font-weight:600;">5M+</div>
-            <p style="font-size:0.9rem;color:#5a6b5a;">Residents in Addis Ababa, the nation's largest urban market</p>
-          </div>
-          <div>
-            <div style="font-size:2rem;color:#2c5f2d;margin-bottom:6px;font-weight:600;">4.3%</div>
-            <p style="font-size:0.9rem;color:#5a6b5a;">Urban population growth rate — one of Africa's fastest</p>
-          </div>
-          <div>
-            <div style="font-size:2rem;color:#2c5f2d;margin-bottom:6px;font-weight:600;">14.6%</div>
-            <p style="font-size:0.9rem;color:#5a6b5a;">Projected Simple Rate of Return (SRR)</p>
-          </div>
-        </div>
+      <div class="feature-body">
+        <h4>Residential sanctuary</h4>
+        <p>Floors 5 through 13 offer two and three-bedroom luxury apartments for diaspora investors and local families.</p>
       </div>
     </div>
-  </section>
-
-  <!-- FEATURES GRID -->
-  <section class="section">
-    <div style="max-width:1100px;margin:0 auto;text-align:center;">
-      <p class="section-label">Project Composition</p>
-      <h2 style="text-align:center;margin-bottom:60px;">Designed for a Better Life</h2>
-    </div>
-    <div class="grid-3">
-      <div class="card">
-        <img src="H3.jpg" alt="Vibrant Communities">
-        <div class="card-body">
-          <h3>Vibrant Communities</h3>
-          <p>Green walkways, children's play areas, and elder parks woven into a 10,000 m² masterplan that puts people first.</p>
-        </div>
+    <div class="feature-card">
+      <div class="feature-img">
+        <img src="https://kimi-web-img.kimi.ai/img/images.skyscrapercenter.com/f7052fa733e2bc1855f0cbb98db843e0570e1c26.jpg" alt="Addis Ababa Unity Park skyline">
+        <div class="feature-img-overlay"></div>
       </div>
-      <div class="card">
-        <img src="H4.jpg" alt="Strategic Location">
-        <div class="card-body">
-          <h3>Strategic Location</h3>
-          <p>Connected to major business corridors, transit hubs, and the Bole International Airport — the gateway to Ethiopia.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="H5.jpg" alt="High Investment Potential">
-        <div class="card-body">
-          <h3>High Investment Potential</h3>
-          <p>Today's investment, tomorrow's wealth. Apartments tailored for diaspora buyers, premium rentals, and long-term capital appreciation.</p>
-        </div>
+      <div class="feature-body">
+        <h4>Business hub</h4>
+        <p>Dedicated floors for banks, insurance firms, and flexible offices serving the diplomatic community and NGOs.</p>
       </div>
     </div>
-  </section>
-
-  <!-- SUSTAINABILITY & LAYOUT -->
-  <section class="section section-green">
-    <div class="grid-2" style="align-items:start;">
-      <div>
-        <p class="section-label">Sustainable Development</p>
-        <h2>Building Responsibly.<br>Building for Generations.</h2>
-        <p>The Milkomi complex integrates environmental stewardship into every design decision. Solar energy utilization, standard glazing for thermal efficiency, and comprehensive waste management systems ensure the building leaves a light footprint.</p>
-        <p>Wastewater is collected in septic tanks; solid waste is systematically disposed to municipal sites. Green areas and circulation zones occupy the remaining 3,000 m² of the plot, creating breathable urban space.</p>
-        <div style="display:flex;gap:20px;flex-wrap:wrap;margin-top:28px;">
-          <div class="mini-stat">
-            <div class="num">7,000 m²</div>
-            <div class="desc">Built-up area</div>
-          </div>
-          <div class="mini-stat">
-            <div class="num">3,000 m²</div>
-            <div class="desc">Green &amp; circulation</div>
-          </div>
-          <div class="mini-stat">
-            <div class="num">4 Basements</div>
-            <div class="desc">Parking &amp; utilities</div>
-          </div>
-        </div>
+    <div class="feature-card">
+      <div class="feature-img">
+        <img src="https://kimi-web-img.kimi.ai/img/temerrealestateplc.com/f4d02ed6488db1db64d1ba673afb637c290c3744.jpg" alt="Modern residential tower Addis Ababa">
+        <div class="feature-img-overlay"></div>
       </div>
-      <div class="layout-box">
-        <h3>Functional Layout</h3>
-        <div class="layout-row"><span class="label">Basements (4)</span><span class="value">Parking &amp; Generator</span></div>
-        <div class="layout-row"><span class="label">Ground Floor</span><span class="value">Shops, Café, Lobby</span></div>
-        <div class="layout-row"><span class="label">Mezzanine</span><span class="value">Shops &amp; Open Down</span></div>
-        <div class="layout-row"><span class="label">1st Floor</span><span class="value">Shops, Banks, Offices</span></div>
-        <div class="layout-row"><span class="label">2nd – 3rd Floor</span><span class="value">Retail Corridors</span></div>
-        <div class="layout-row"><span class="label">4th Floor</span><span class="value">Restaurant &amp; Lounge</span></div>
-        <div class="layout-row"><span class="label">5th – 13th Floor</span><span class="value">2 &amp; 3 BR Apartments</span></div>
-        <div class="layout-row"><span class="label">14th – 15th Floor</span><span class="value">Premium Guesthouses</span></div>
+      <div class="feature-body">
+        <h4>Dining &amp; leisure</h4>
+        <p>Restaurants, coffee houses, a cinema, game zones, and cultural center attracting transit tourists and residents.</p>
       </div>
     </div>
-  </section>
-
-  <!-- FINANCIAL HIGHLIGHTS -->
-  <section class="section">
-    <div style="max-width:1000px;margin:0 auto;text-align:center;">
-      <p class="section-label">Financial Viability</p>
-      <h2 style="text-align:center;margin-bottom:50px;">A Sound Investment</h2>
-      <div class="grid-4">
-        <div class="stat-card">
-          <div class="num">ETB 1B</div>
-          <div class="desc">Total Initial Investment</div>
-        </div>
-        <div class="stat-card">
-          <div class="num">6 Years</div>
-          <div class="desc">Payback Period</div>
-        </div>
-        <div class="stat-card">
-          <div class="num">ETB 51M</div>
-          <div class="desc">Avg. Annual Net Profit</div>
-        </div>
-        <div class="stat-card">
-          <div class="num">138+</div>
-          <div class="desc">Permanent Jobs Created</div>
-        </div>
+    <div class="feature-card">
+      <div class="feature-img">
+        <img src="https://kimi-web-img.kimi.ai/img/ethiopiarealty.com/0cee28cb667c62c3bfd4ff2b382cc909d4f9175a.jpg" alt="Mixed-use building Meskel Flower">
+        <div class="feature-img-overlay"></div>
       </div>
-      <p style="color:#5a6b5a;font-size:0.95rem;margin-top:30px;max-width:700px;margin-left:auto;margin-right:auto;">Financed by 30% owner equity and 70% bank loan. The project begins generating profit from its first operational year.</p>
+      <div class="feature-body">
+        <h4>Smart parking</h4>
+        <p>Four basement levels accommodate vehicles and generator infrastructure with efficient traffic flow design.</p>
+      </div>
     </div>
-  </section>
-
-  <!-- QUOTE -->
-  <section class="section section-dark">
-    <div style="max-width:800px;margin:0 auto;">
-      <p class="quote-text">"The project enhances the economy by generating revenue to the government in the form of tax and interest payment, while creating permanent and temporary employment for the citizens."</p>
-      <div class="quote-line"></div>
-      <p class="quote-source">Milkomi Trading Plc — Project Proposal 2024</p>
+    <div class="feature-card">
+      <div class="feature-img">
+        <img src="https://kimi-web-img.kimi.ai/img/hosearealestate.com/492c2177373c453a1a8feb52f139c2978176e0e8.jpg" alt="Luxury apartment interior Ethiopia">
+        <div class="feature-img-overlay"></div>
+      </div>
+      <div class="feature-body">
+        <h4>Community wellness</h4>
+        <p>Green recreation areas, children's playgrounds, elder walkways, and assembly halls foster social cohesion.</p>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FOOTER / CTA -->
-  <section class="section section-darker">
-    <h2 style="font-size:1.8rem;color:#e0f0e0;margin:0 0 16px 0;font-weight:400;">Ready to Invest in Addis Ababa's Future?</h2>
-    <p style="color:#a8c4a8;font-size:1.05rem;margin:0 0 30px 0;max-width:600px;margin-left:auto;margin-right:auto;">Join Milkomi Trading Plc in shaping the next chapter of Ethiopia's urban landscape.</p>
-    <div class="cta-badges">
-      <span class="badge-solid">TIN: 0068993210</span>
-      <span class="badge-outline" style="border-color:#4a7d4a;color:#a8d8a8;">Addis Ababa, Ethiopia</span>
+<!-- Financial -->
+<section class="section finance-section" id="finance">
+  <div class="section-header">
+    <div class="section-tag">Investment</div>
+    <h2>Financial architecture</h2>
+    <p class="section-desc">A robust capital structure and conservative projections position the Milkomi complex as a compelling opportunity for equity partners and lenders.</p>
+  </div>
+  <div class="finance-grid">
+    <div class="finance-list">
+      <div class="finance-row">
+        <span class="finance-label">Total initial investment</span>
+        <span class="finance-value">Birr 1,000,000,000</span>
+      </div>
+      <div class="finance-row">
+        <span class="finance-label">Equity contribution (30%)</span>
+        <span class="finance-value">Birr 300,000,000</span>
+      </div>
+      <div class="finance-row">
+        <span class="finance-label">Bank financing (70%)</span>
+        <span class="finance-value">Birr 700,000,000</span>
+      </div>
+      <div class="finance-row">
+        <span class="finance-label">Annual net profit (avg)</span>
+        <span class="finance-value accent">Birr 51,256,049</span>
+      </div>
+      <div class="finance-row">
+        <span class="finance-label">Simple rate of return</span>
+        <span class="finance-value accent">~14.6%</span>
+      </div>
+      <div class="finance-row">
+        <span class="finance-label">Payback period</span>
+        <span class="finance-value">6 years</span>
+      </div>
+      <div class="finance-row">
+        <span class="finance-label">Annual government revenue</span>
+        <span class="finance-value">Birr 54,000,000+</span>
+      </div>
+      <div class="finance-row">
+        <span class="finance-label">Rental rate (avg)</span>
+        <span class="finance-value">Birr 1,997 / m&sup2; / month</span>
+      </div>
     </div>
-    <p class="footer-copy">© 2024 MILKOMI TRADING PLC. ALL RIGHTS RESERVED.</p>
-  </section>
+    <div class="finance-image">
+      <img src="https://kimi-web-img.kimi.ai/img/www.skyscrapercity.com/62006e1c2d5b1b7f6027b0cca43cc6009b2db401" alt="Addis Ababa Central Plaza proposal">
+    </div>
+  </div>
+</section>
 
-</div>
+<!-- Gallery -->
+<section class="section" id="gallery">
+  <div class="section-header">
+    <div class="section-tag">Visual essay</div>
+    <h2>Addis Ababa rising</h2>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item wide">
+      <img src="https://kimi-web-img.kimi.ai/img/www.ena.et/3ba3fd1a66cc823f86cf2aa9277a303249397117" alt="Addis Ababa skyline 2025">
+      <div class="gallery-overlay"><span>The capital's evolving skyline</span></div>
+    </div>
+    <div class="gallery-item tall">
+      <img src="https://kimi-web-img.kimi.ai/img/constructionreviewonline.com/ab591e9fa9c741eacfe814909389aa9dc0dfd3ff.jpg" alt="CBE Tower aerial view">
+      <div class="gallery-overlay"><span>Africa's tallest tower</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://kimi-web-img.kimi.ai/img/temerrealestateplc.com/f4d02ed6488db1db64d1ba673afb637c290c3744.jpg" alt="Modern residential tower">
+      <div class="gallery-overlay"><span>Contemporary living</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://kimi-web-img.kimi.ai/img/images.skyscrapercenter.com/f7052fa733e2bc1855f0cbb98db843e0570e1c26.jpg" alt="Unity Park Addis Ababa">
+      <div class="gallery-overlay"><span>Green urban spaces</span></div>
+    </div>
+    <div class="gallery-item wide">
+      <img src="https://kimi-web-img.kimi.ai/img/www.globaltimes.cn/db0ecc46c353701ee0679899ac8e23930bbf7d65.jpeg" alt="Addis Ababa sunset skyline">
+      <div class="gallery-overlay"><span>Sunset over the city</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-brand">Milkomi Trading Plc</div>
+  <div class="footer-tagline">Building the future of Addis Ababa</div>
+  <div class="footer-divider"></div>
+  <div class="footer-info">
+    TIN: 0068993210 &middot; Addis Ababa City Administration, Ethiopia<br>
+    Phone: +251 911 XXX XXX &middot; Local Banking Partners<br>
+    Promoter: Milkomi Trading Plc &middot; Nationality: Ethiopian
+  </div>
+  <div class="footer-bottom">
+    Project Proposal &mdash; September 2024 &middot; All content derived from official feasibility documentation
+  </div>
+</footer>
 
 </body>
 </html>
