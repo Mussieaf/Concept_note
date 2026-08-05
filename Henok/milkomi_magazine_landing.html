@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milkomi Magazine — Fabricating the Future</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #FAFAF7;
+            --warm-white: #F5F5F0;
+            --sage: #8B9D83;
+            --forest: #2D4A3E;
+            --deep-green: #1B3A2F;
+            --earth: #A68B5B;
+            --stone: #E8E4DC;
+            --charcoal: #2A2A2A;
+            --soft-gray: #6B6B6B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            line-height: 1.1;
+        }
+
+        .display {
+            font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 300;
+            letter-spacing: -0.02em;
+            color: var(--deep-green);
+        }
+
+        .headline {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 400;
+            color: var(--forest);
+        }
+
+        .subhead {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            font-weight: 300;
+            font-style: italic;
+            color: var(--sage);
+        }
+
+        .label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--earth);
+        }
+
+        .body-text {
+            font-size: 1.05rem;
+            font-weight: 300;
+            color: var(--soft-gray);
+            line-height: 1.8;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 4vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(250, 250, 247, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--stone);
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--deep-green);
+            letter-spacing: 0.05em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--forest);
+            letter-spacing: 0.05em;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--earth);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            padding: 8rem 4vw 4rem;
+            gap: 4rem;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--warm-white) 100%);
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero .label {
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .hero h1 {
+            margin-bottom: 1.5rem;
+        }
+
+        .hero .subhead {
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--soft-gray);
+            margin-bottom: 2.5rem;
+            max-width: 480px;
+        }
+
+        .hero-image {
+            position: relative;
+            height: 80vh;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.95) saturate(0.9);
+        }
+
+        .hero-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40%;
+            background: linear-gradient(to top, rgba(27, 58, 47, 0.3), transparent);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--forest);
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--deep-green);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(27, 58, 47, 0.2);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 4vw;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-header .label {
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .section-header h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Intro Section */
+        .intro {
+            background: var(--warm-white);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .intro-image {
+            height: 600px;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .intro-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .intro-content {
+            max-width: 540px;
+        }
+
+        .intro-content .label {
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .intro-content h2 {
+            margin-bottom: 1.5rem;
+            font-size: clamp(2rem, 3vw, 2.8rem);
+        }
+
+        .intro-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Highlights Grid */
+        .highlights {
+            background: var(--cream);
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .highlight-card {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: white;
+            border: 1px solid var(--stone);
+            transition: all 0.4s ease;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+        }
+
+        .highlight-card .number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 300;
+            color: var(--earth);
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: var(--forest);
+        }
+
+        .highlight-card p {
+            font-size: 0.95rem;
+            color: var(--soft-gray);
+        }
+
+        /* Products Section */
+        .products {
+            background: var(--warm-white);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .product-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 3rem;
+            background: linear-gradient(to top, rgba(27, 58, 47, 0.95), transparent);
+            color: white;
+        }
+
+        .product-overlay h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .product-overlay p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            max-width: 400px;
+        }
+
+        /* Sustainability Section */
+        .sustainability {
+            background: var(--deep-green);
+            color: var(--cream);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sustainability::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(139, 157, 131, 0.1) 0%, transparent 70%);
+        }
+
+        .sustainability .section-header h2,
+        .sustainability .section-header .label {
+            color: var(--cream);
+        }
+
+        .sustainability .section-header p {
+            color: rgba(250, 250, 247, 0.7);
+        }
+
+        .sustainability-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .sustain-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .sustain-item .icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1.5rem;
+            background: rgba(139, 157, 131, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .sustain-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--cream);
+        }
+
+        .sustain-item p {
+            font-size: 0.9rem;
+            color: rgba(250, 250, 247, 0.7);
+            line-height: 1.7;
+        }
+
+        /* Timeline Section */
+        .timeline {
+            background: var(--cream);
+        }
+
+        .timeline-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: var(--stone);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            grid-column: 2;
+        }
+
+        .timeline-item:nth-child(even) .timeline-date {
+            grid-column: 1;
+            text-align: right;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--earth);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            border: 3px solid var(--cream);
+        }
+
+        .timeline-date {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--earth);
+            font-weight: 600;
+        }
+
+        .timeline-content h4 {
+            font-size: 1.4rem;
+            color: var(--forest);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p {
+            color: var(--soft-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Financial Section */
+        .financial {
+            background: var(--warm-white);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .financial-content {
+            max-width: 540px;
+            justify-self: end;
+        }
+
+        .financial-content .label {
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .financial-content h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .financial-content p {
+            margin-bottom: 2rem;
+        }
+
+        .financial-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .stat-box {
+            padding: 1.5rem;
+            background: white;
+            border-left: 3px solid var(--earth);
+        }
+
+        .stat-box .stat-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--forest);
+            font-weight: 600;
+        }
+
+        .stat-box .stat-label {
+            font-size: 0.8rem;
+            color: var(--soft-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 0.3rem;
+        }
+
+        .financial-image {
+            height: 600px;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .financial-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--deep-green);
+            color: var(--cream);
+            padding: 5rem 4vw 3rem;
+            text-align: center;
+        }
+
+        footer .logo {
+            color: var(--cream);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        footer p {
+            color: rgba(250, 250, 247, 0.6);
+            max-width: 500px;
+            margin: 0 auto 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-links a {
+            color: rgba(250, 250, 247, 0.7);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--cream);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(250, 250, 247, 0.1);
+            padding-top: 2rem;
+            font-size: 0.8rem;
+            color: rgba(250, 250, 247, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr;
+                min-height: auto;
+                padding-top: 6rem;
+            }
+
+            .hero-image {
+                height: 50vh;
+                order: -1;
+            }
+
+            .intro,
+            .financial {
+                grid-template-columns: 1fr;
+            }
+
+            .intro-image,
+            .financial-image {
+                height: 400px;
+            }
+
+            .highlights-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sustainability-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .timeline-container::before {
+                left: 1rem;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+                padding-left: 3rem;
+            }
+
+            .timeline-item:nth-child(even) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-date {
+                grid-column: 1;
+                text-align: left;
+            }
+
+            .timeline-dot {
+                left: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .sustainability-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .financial-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Image loading animation */
+        img {
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">MILKOMI</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#sustainability">Sustainability</a></li>
+            <li><a href="#timeline">Timeline</a></li>
+            <li><a href="#financials">Financials</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="label">Strategic Expansion Proposal — July 2024</span>
+            <h1 class="display">Fabricating<br>the Future</h1>
+            <span class="subhead">Milkomi Flour Factory's HDPE & PP Woven Fabric Expansion</span>
+            <p>A premier producer in the heart of Oromia, diversifying into sustainable woven fabric manufacturing to meet Ethiopia's growing industrial demand while reducing import dependence.</p>
+            <a href="#about" class="cta-button">Explore the Vision</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&q=80" alt="Modern manufacturing facility in Ethiopia">
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="intro" id="about">
+        <div class="intro-image">
+            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&q=80" alt="Ethiopian agricultural landscape in Oromia region">
+        </div>
+        <div class="intro-content">
+            <span class="label">Our Story</span>
+            <h2>Rooted in Oromia,<br>Growing for Ethiopia</h2>
+            <p class="body-text">Nestled in the fertile Oromia region, just 107 kilometers east of Addis Ababa, Milkomi Flour Factory has delivered exceptional wheat and corn flour since 2024. Our state-of-the-art facility combines advanced milling technology with deep relationships with local farmers.</p>
+            <p class="body-text">Now, we are expanding into HDPE and PP woven fabric production — a strategic diversification driven by growing demand across agriculture, packaging, and construction sectors. By leveraging our existing infrastructure and market position, we aim to capture significant market share while strengthening Ethiopia's manufacturing base.</p>
+        </div>
+    </section>
+
+    <!-- Key Highlights -->
+    <section class="highlights">
+        <div class="section-header">
+            <span class="label">At a Glance</span>
+            <h2 class="headline">The Opportunity</h2>
+            <p class="body-text">A comprehensive market analysis reveals substantial demand for woven fabrics, coupled with limited domestic production — creating a favorable environment for strategic entry.</p>
+        </div>
+        <div class="highlights-grid">
+            <div class="highlight-card">
+                <span class="number">$48M</span>
+                <h3>Projected Revenue</h3>
+                <p>Annual revenue potential from HDPE/PP tapes and woven fabrics at full production capacity.</p>
+            </div>
+            <div class="highlight-card">
+                <span class="number">250+</span>
+                <h3>New Jobs</h3>
+                <p>Direct employment opportunities across production, supply chain, quality control, and R&D divisions.</p>
+            </div>
+            <div class="highlight-card">
+                <span class="number">277%</span>
+                <h3>Return on Investment</h3>
+                <p>Robust ROI based on conservative financial projections and strategic market positioning.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section class="products" id="products">
+        <div class="section-header">
+            <span class="label">Product Portfolio</span>
+            <h2 class="headline">Woven for Every Purpose</h2>
+            <p class="body-text">From agricultural packaging to civil engineering geotextiles, our product line addresses Ethiopia's most pressing industrial material needs.</p>
+        </div>
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&q=80" alt="Agricultural grain storage sacks">
+                <div class="product-overlay">
+                    <h3>HDPE Woven Fabrics</h3>
+                    <p>High tensile strength fabrics for crop packaging, storage sacks, ground covers, and greenhouse shading nets with UV stabilization.</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80" alt="Industrial woven packaging">
+                <div class="product-overlay">
+                    <h3>PP Woven Fabrics</h3>
+                    <p>Lightweight yet durable solutions for cement bags, fertilizers, chemicals, and food products — available in laminated and non-laminated finishes.</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80" alt="Road construction in Ethiopia">
+                <div class="product-overlay">
+                    <h3>Geotextiles</h3>
+                    <p>Woven and non-woven configurations for erosion control, soil stabilization, road construction, and civil engineering projects.</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1565514020176-db9e1b5a9f25?w=800&q=80" alt="Specialty industrial materials">
+                <div class="product-overlay">
+                    <h3>Specialty Industrial</h3>
+                    <p>Custom-engineered fabrics with flame retardancy, anti-static properties, and chemical resistance for automotive and industrial applications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability -->
+    <section class="sustainability" id="sustainability">
+        <div class="section-header">
+            <span class="label">Environmental Stewardship</span>
+            <h2 class="headline">Woven Responsibly</h2>
+            <p class="body-text">Our expansion is designed with sustainability at its core — minimizing environmental impact while maximizing resource efficiency and community benefit.</p>
+        </div>
+        <div class="sustainability-grid">
+            <div class="sustain-item">
+                <div class="icon">◈</div>
+                <h4>Resource Efficiency</h4>
+                <p>Maximizing efficient use of raw materials, water, and energy through advanced production technologies.</p>
+            </div>
+            <div class="sustain-item">
+                <div class="icon">↻</div>
+                <h4>Waste Minimization</h4>
+                <p>Zero-waste policy with enhanced recycling programs and minimized production scrap through lean manufacturing.</p>
+            </div>
+            <div class="sustain-item">
+                <div class="icon">☀</div>
+                <h4>Clean Energy</h4>
+                <p>Investment in renewable energy sources including solar power to reduce our carbon footprint across operations.</p>
+            </div>
+            <div class="sustain-item">
+                <div class="icon">✦</div>
+                <h4>ISO 14001</h4>
+                <p>Pursuing environmental management certification to demonstrate commitment to continuous improvement.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="timeline" id="timeline">
+        <div class="section-header">
+            <span class="label">Implementation</span>
+            <h2 class="headline">The Road Ahead</h2>
+            <p class="body-text">A structured 20-month journey from project inception to full-scale production and market launch.</p>
+        </div>
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">Months 1–3</div>
+                <div class="timeline-content">
+                    <h4>Project Planning</h4>
+                    <p>Finalize project charter, conduct feasibility studies, secure funding, and develop risk assessment and mitigation plans.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">Months 4–6</div>
+                <div class="timeline-content">
+                    <h4>Design & Development</h4>
+                    <p>Facility design, equipment selection and procurement, and technology integration planning for extrusion and weaving lines.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">Months 7–11</div>
+                <div class="timeline-content">
+                    <h4>Construction & Installation</h4>
+                    <p>Facility construction, machinery installation, calibration, and initial commissioning of production equipment.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">Months 12–16</div>
+                <div class="timeline-content">
+                    <h4>Pilot Production</h4>
+                    <p>Conduct pilot runs of HDPE and PP woven fabrics, perform quality assurance testing, and refine processes based on results.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">Months 17–20</div>
+                <div class="timeline-content">
+                    <h4>Full-Scale Launch</h4>
+                    <p>Ramp up to full production capacity, launch marketing and sales campaigns, and distribute products across Ethiopian markets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financials -->
+    <section class="financial" id="financials">
+        <div class="financial-content">
+            <span class="label">Financial Projections</span>
+            <h2 class="headline">Built for Growth</h2>
+            <p class="body-text">With an initial investment of $6.8 million, the expansion projects robust returns through diversified revenue streams and operational efficiency.</p>
+            <div class="financial-stats">
+                <div class="stat-box">
+                    <div class="stat-value">$6.8M</div>
+                    <div class="stat-label">Total Investment</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">$31M</div>
+                    <div class="stat-label">Gross Profit</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">64.6%</div>
+                    <div class="stat-label">Gross Margin</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">$10M</div>
+                    <div class="stat-label">Break-Even Point</div>
+                </div>
+            </div>
+        </div>
+        <div class="financial-image">
+            <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=1200&q=80" alt="Ethiopian business growth and investment">
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="logo">MILKOMI</div>
+        <p>100% Natural Since 2024. Fabricating the future of Ethiopian manufacturing from the heart of Oromia.</p>
+        <div class="footer-links">
+            <a href="https://www.milkomiflour.com.et" target="_blank">milkomiflour.com.et</a>
+            <a href="#about">About</a>
+            <a href="#products">Products</a>
+            <a href="#sustainability">Sustainability</a>
+        </div>
+        <div class="copyright">
+            © 2024 Milkomi Flour Factory. All rights reserved. Prepared by Milkomi Flour Factory, Oromia Region, Ethiopia.
+        </div>
+    </footer>
+
+</body>
+</html>
