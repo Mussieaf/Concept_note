@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAEC CAPITAL | The Definitive Blueprint Guide to Structured Infrastructure Finance</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --sage:#9CAF88;
+  --sage-light:#E8F0E3;
+  --sage-dark:#5A7A4F;
+  --cream:#FAF9F6;
+  --warm:#FEFDFB;
+  --char:#2D3436;
+  --gray:#636E72;
+  --gold:#C9A96E;
+  --gold-l:#F5E6C8;
+}
+body{font-family:'Inter',sans-serif;background:var(--warm);color:var(--char);line-height:1.65;overflow-x:hidden}
+.hero-scroll{position:relative;height:400px;overflow:hidden;background:linear-gradient(180deg,var(--sage-light) 0%,var(--cream) 100%)}
+.scroll-track{display:flex;gap:18px;position:absolute;top:55px;left:0;animation:scrollH 28s linear infinite;width:max-content}
+.scroll-track img{width:360px;height:260px;object-fit:cover;border-radius:14px;box-shadow:0 6px 28px rgba(0,0,0,0.12);border:3px solid white}
+@keyframes scrollH{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.hero-overlay{position:absolute;bottom:0;left:0;right:0;height:110px;background:linear-gradient(to top,var(--warm),transparent);z-index:2}
+.header{position:sticky;top:0;z-index:100;background:rgba(254,253,251,0.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(156,175,136,0.2);padding:10px 28px;display:flex;align-items:center;justify-content:space-between}
+.logo-area{display:flex;align-items:center;gap:12px}
+.logo-area img{height:48px;width:auto;border-radius:8px}
+.logo-text{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--sage-dark);letter-spacing:2px}
+.menu-btn{width:42px;height:42px;border:none;background:var(--sage-light);border-radius:10px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;transition:all 0.3s}
+.menu-btn:hover{background:var(--sage)}
+.menu-btn span{display:block;width:20px;height:2.5px;background:var(--sage-dark);border-radius:2px;transition:all 0.3s}
+.menu-btn.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.menu-btn.active span:nth-child(2){opacity:0}
+.menu-btn.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.menu-panel{position:fixed;top:70px;right:-330px;width:310px;height:calc(100vh - 70px);background:var(--warm);border-left:1px solid var(--sage-light);box-shadow:-8px 0 32px rgba(0,0,0,0.08);transition:right 0.4s cubic-bezier(0.4,0,0.2,1);z-index:99;overflow-y:auto;padding:22px}
+.menu-panel.open{right:0}
+.menu-panel h3{font-family:'Great Vibes',cursive;font-size:1.7rem;color:var(--sage-dark);margin-bottom:18px;border-bottom:2px solid var(--gold);padding-bottom:6px}
+.menu-panel a{display:block;padding:9px 12px;margin-bottom:5px;border-radius:8px;color:var(--char);text-decoration:none;font-size:0.88rem;font-weight:500;transition:all 0.2s}
+.menu-panel a:hover{background:var(--sage-light);color:var(--sage-dark);padding-left:18px}
+.container{max-width:1050px;margin:0 auto;padding:0 20px}
+.title-section{text-align:center;padding:50px 16px 32px}
+.title-section h1{font-family:'Great Vibes',cursive;font-size:3rem;color:var(--sage-dark);margin-bottom:10px}
+.title-section .subtitle{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--gray);font-style:italic;max-width:680px;margin:0 auto 16px}
+.divider{width:70px;height:3px;background:linear-gradient(90deg,var(--sage),var(--gold));margin:0 auto;border-radius:2px}
+.acc{margin-bottom:14px;border-radius:16px;overflow:hidden;background:white;box-shadow:0 2px 14px rgba(0,0,0,0.04);border:1px solid rgba(156,175,136,0.15);transition:box-shadow 0.3s}
+.acc:hover{box-shadow:0 4px 22px rgba(0,0,0,0.07)}
+.acc-h{width:100%;padding:20px 26px;background:linear-gradient(135deg,var(--sage-light) 0%,white 100%);border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;text-align:left;transition:background 0.3s}
+.acc-h:hover{background:linear-gradient(135deg,#dce8d4 0%,white 100%)}
+.acc-h h2{font-family:'Great Vibes',cursive;font-size:1.55rem;font-weight:bold;color:var(--sage-dark);letter-spacing:1px}
+.acc-h .ch{width:30px;height:30px;border-radius:50%;background:var(--sage);color:white;display:flex;align-items:center;justify-content:center;font-size:0.9rem;transition:transform 0.3s;flex-shrink:0}
+.acc.active .ch{transform:rotate(180deg)}
+.acc-b{max-height:0;overflow:hidden;transition:max-height 0.5s cubic-bezier(0.4,0,0.2,1)}
+.acc.active .acc-b{max-height:2500px}
+.acc-c{padding:24px 28px;color:var(--char);font-size:0.93rem}
+.acc-c h3{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--sage-dark);margin:18px 0 8px;font-weight:700}
+.acc-c h3:first-child{margin-top:0}
+.acc-c p{margin-bottom:12px;text-align:justify}
+.acc-c ul{margin:8px 0 12px 18px}
+.acc-c li{margin-bottom:5px}
+.acc-c table{width:100%;border-collapse:collapse;margin:14px 0;font-size:0.85rem;border-radius:10px;overflow:hidden}
+.acc-c th{background:var(--sage);color:white;padding:10px 12px;text-align:left;font-weight:600}
+.acc-c td{padding:9px 12px;border-bottom:1px solid #eee}
+.acc-c tr:nth-child(even){background:var(--sage-light)}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:14px}
+.info-card{background:linear-gradient(135deg,var(--sage-light),white);border-radius:12px;padding:18px;border:1px solid rgba(156,175,136,0.2)}
+.info-card h4{font-family:'Playfair Display',serif;color:var(--sage-dark);font-size:0.95rem;margin-bottom:5px}
+.info-card p{font-size:0.85rem;color:var(--gray);margin:0}
+.contact-section{background:linear-gradient(135deg,var(--sage-dark) 0%,var(--sage) 100%);border-radius:20px;padding:42px 28px;margin:42px auto 52px;text-align:center;color:white;max-width:760px}
+.contact-section h2{font-family:'Great Vibes',cursive;font-size:2.2rem;margin-bottom:14px}
+.contact-section p{font-size:0.95rem;opacity:0.95;margin-bottom:20px;max-width:560px;margin-left:auto;margin-right:auto}
+.email-btn{display:inline-flex;align-items:center;gap:10px;background:white;color:var(--sage-dark);padding:13px 28px;border-radius:50px;text-decoration:none;font-weight:600;font-size:0.95rem;box-shadow:0 4px 18px rgba(0,0,0,0.15);transition:all 0.3s}
+.email-btn:hover{transform:translateY(-2px);box-shadow:0 7px 24px rgba(0,0,0,0.2)}
+.footer{text-align:center;padding:28px 16px;border-top:1px solid var(--sage-light);color:var(--gray);font-size:0.82rem}
+.footer img{height:36px;margin-bottom:10px;opacity:0.7}
+@media(max-width:768px){.title-section h1{font-size:2.1rem}.acc-h h2{font-size:1.25rem}.scroll-track img{width:280px;height:200px}.hero-scroll{height:310px}.header{padding:8px 14px}.menu-panel{width:260px;right:-280px}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo-area">
+    <img src="https://raw.githubusercontent.com/moonshot-ai/kimi-chat/main/assets/maec-logo-placeholder.png" alt="MAEC CAPITAL Logo" onerror="this.style.display='none'">
+    <span class="logo-text">MAEC CAPITAL</span>
+  </div>
+  <button class="menu-btn" id="menuBtn" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</div>
+
+<div class="menu-panel" id="menuPanel">
+  <h3>Navigation</h3>
+  <a href="#sec-fw" onclick="go('sec-fw');return false">Foreword</a>
+  <a href="#sec-c1" onclick="go('sec-c1');return false">Ch 1: How Money Is Created</a>
+  <a href="#sec-c2" onclick="go('sec-c2');return false">Ch 2: International Banks</a>
+  <a href="#sec-c3" onclick="go('sec-c3');return false">Ch 3: The SBLC Demystified</a>
+  <a href="#sec-c4" onclick="go('sec-c4');return false">Ch 4: The Indemnity Agreement</a>
+  <a href="#sec-c5" onclick="go('sec-c5');return false">Ch 5: Hypothecation &amp; PRBS</a>
+  <a href="#sec-c6" onclick="go('sec-c6');return false">Ch 6: The MAEC Loan Process</a>
+  <a href="#sec-c7" onclick="go('sec-c7');return false">Ch 7: Why MAEC Needs Your SBLC</a>
+  <a href="#sec-c8" onclick="go('sec-c8');return false">Ch 8: Call to Africa's Bankers</a>
+  <a href="#sec-c9" onclick="go('sec-c9');return false">Ch 9: The Agent Problem</a>
+  <a href="#sec-c10" onclick="go('sec-c10');return false">Ch 10: Loan Terms</a>
+  <a href="#sec-c11" onclick="go('sec-c11');return false">Ch 11: World Parallels</a>
+  <a href="#sec-c12" onclick="go('sec-c12');return false">Ch 12: Banking in Development</a>
+  <a href="#sec-qr" onclick="go('sec-qr');return false">Quick Reference</a>
+  <a href="#sec-ct" onclick="go('sec-ct');return false">Contact</a>
+</div>
+
+<div class="hero-scroll">
+  <div class="scroll-track">
+    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&amp;h=400&amp;fit=crop" alt="Sustainable infrastructure">
+    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&amp;h=400&amp;fit=crop" alt="Green development">
+    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&amp;h=400&amp;fit=crop" alt="Urban architecture">
+    <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=600&amp;h=400&amp;fit=crop" alt="Renewable energy">
+    <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&amp;h=400&amp;fit=crop" alt="Financial district">
+    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&amp;h=400&amp;fit=crop" alt="Sustainable infrastructure">
+    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&amp;h=400&amp;fit=crop" alt="Green development">
+    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&amp;h=400&amp;fit=crop" alt="Urban architecture">
+    <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=600&amp;h=400&amp;fit=crop" alt="Renewable energy">
+    <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&amp;h=400&amp;fit=crop" alt="Financial district">
+  </div>
+  <div class="hero-overlay"></div>
+</div>
+
+<div class="title-section">
+  <h1>The Definitive Blueprint Guide</h1>
+  <p class="subtitle">How Emerging Economies Can Access Global Capital Today &mdash; A Complete Guide to MAEC Loans, Credit Enhancement, SBLCs, and Structured Infrastructure Finance</p>
+  <div class="divider"></div>
+</div>
+
+<div class="container">
+
+<div class="acc" id="sec-fw">
+  <button class="acc-h" onclick="tog(this)"><h2>Foreword: Why This Document Exists</h2><span class="ch">&#9662;</span></button>
+  <div class="acc-b"><div class="acc-c">
+    <p>There is a conversation happening right now in finance ministries, central bank boardrooms, and development project offices across Africa, Asia, and Latin America. It goes roughly like this:</p>
+    <p><em>&quot;We have a USD 500 million solar project. We have the land, the government support, the feasibility study, and the political will. But we cannot find the finance. Every bank we approach wants us to already have the money before they will give us the money.&quot;</em></p>
+    <p><strong>This document exists to end that conversation &mdash; and replace it with a solution.</strong></p>
+    <p>MAEC Capital has spent years working at the frontier of development finance, structuring transactions for African governments and project sponsors using instruments that the world&apos;s most sophisticated financial systems use every day &mdash; but which the developing world&apos;s banks and governments have been told, implicitly or explicitly, are not for them.</p>
+    <p>They are for everyone. The tools are legal. The mechanisms are proven. The documentation exists. What has been missing is a complete, plain-language explanation of how they work, why they are not risky to the banks that use them correctly, and why MAEC Capital is the right bridge between the world&apos;s capital pools and the developing world&apos;s infrastructure needs.</p>
+    <p><strong>This is that explanation.</strong> It is direct. It is comprehensive. It is unapologetic. And when you have finished reading it, you will understand exactly how to access capital that your government has been told does not exist.</p>
+  </div></div>
+</div>
+
+<div class="acc" id="sec-c1">
+  <button class="acc-h" onclick="tog(this)"><h2>Chapter 1: How Money Is Actually Created</h2><span class="ch">&#9662;</span></button>
+  <div class="acc-b"><div class="acc-c">
+    <h3>1.1 The Great Misconception About Money</h3>
+    <p>Most people &mdash; including many finance ministers and treasury officials &mdash; operate under a fundamental misunderstanding: Money is a fixed thing. Banks lend out deposited money. Governments can only spend collected taxes. To get a loan, you need assets worth at least as much as the loan.</p>
+    <p><strong>Every part of this is incorrect.</strong> Economies that understand this fact have built highways, railways, and technology industries. Those that cling to the misunderstanding are still waiting for donor grants.</p>
+    <h3>1.2 How Money Is Created &mdash; Real Examples</h3>
+    <p><strong>Kansas City Municipal Bond:</strong> The city issued a USD 800M revenue bond backed by future sewer fees. The money did not exist before the bond was issued. It was created by the promise of future revenue.</p>
+    <p><strong>US Federal Reserve QE:</strong> After 2008, the Fed purchased USD 3.7 trillion in bonds. It did not have this cash. It created the money digitally &mdash; typing new numbers into accounts &mdash; backed by future mortgage repayments and tax revenues.</p>
+    <p><strong>Wall Street Derivatives:</strong> The global derivatives market exceeds USD 600 trillion &mdash; roughly six times global GDP. None exists as physical money. It is all promises, secured by future value and institutional credibility.</p>
+    <p><strong>China&apos;s Infrastructure:</strong> China built more high-speed rail (2008&ndash;2020) than the rest of the world combined. It paid via Revenue Rights Asset-Backed Securities &mdash; promises backed by future toll revenues.</p>
+    <p><strong>Bitcoin Mining:</strong> A Texas mining company with no revenue raised USD 500M by issuing tokens representing claims on future Bitcoin production.</p>
+    <p><strong>The pattern is universal:</strong> Every sophisticated economy creates money from future value. MAEC Capital brings this exact capability to the developing world.</p>
+    <h3>1.3 The Economist Who Proved It</h3>
+    <p>Professor Richard Werner &mdash; who coined &apos;Quantitative Easing&apos; &mdash; co-authored research with the Bank of England in 2014. The Bank&apos;s official conclusion:</p>
+    <p><em>&quot;Banks do not lend out money that has been deposited with them. When a bank makes a loan, it creates a deposit in the borrower&apos;s account, effectively creating new money.&quot;</em></p>
+    <p><strong>Your country&apos;s banks are not short of money. They are short of confidence, understanding, and the credit enhancement instruments that allow them to deploy their lending capacity safely. MAEC provides those instruments.</strong></p>
+  </div></div>
+</div>
+
+<div class="acc" id="sec-c2">
+  <button class="acc-h" onclick="tog(this)"><h2>Chapter 2: What International Banks Are Actually Doing</h2><span class="ch">&#9662;</span></button>
+  <div class="acc-b"><div class="acc-c">
+    <h3>2.1 The Real Purpose of International Bank Presence</h3>
+    <p>When Barclays, Standard Bank, Absa, Stanbic, or Citibank opens a branch in Lusaka, Accra, Harare, Kampala, or Gaborone, they are not doing it out of charity. <strong>What they want is your country&apos;s assets</strong> &mdash; minerals, land, agricultural potential, future utility revenues, infrastructure concessions &mdash; as collateral to deploy capital and earn returns.</p>
+    <p>International banks do not come to Africa to bring money. They come to find the assets that justify creating money. Right now, they are creating that money for their own international clients, not for your government&apos;s infrastructure.</p>
+    <h3>2.2 How International Banks Hypothecate Your Assets</h3>
+    <p>A major mining company receives a copper concession. The international bank:</p>
+    <ul>
+      <li>Issues an LC backed by future copper offtake revenues &mdash; a PRBS before production begins</li>
+      <li>Structures an SBLC credit enhancement for the parent&apos;s bond issuance in London or New York</li>
+      <li>Creates project finance backed by assigned future royalty and concession fee revenues</li>
+      <li>Earns fees, spreads, and relationship income across the full lifecycle</li>
+    </ul>
+    <p>The collateral belongs to the host country. The financial engineering benefits foreign investors.</p>
+    <h3>2.3 The Tools Your Country Already Has</h3>
+    <table>
+      <tr><th>Country</th><th>Key Legislation</th><th>MAEC Mechanism</th></tr>
+      <tr><td>Uganda</td><td>Financial Institutions Act 2004; PFMA 2015</td><td>SIMPA framework; SBLC credit enhancement</td></tr>
+      <tr><td>Zambia</td><td>Movable Property Act 2016; Banking Act 2017</td><td>PRBS by PPA receivables; SBLC from Zambian bank</td></tr>
+      <tr><td>Botswana</td><td>Movable Property Act 2022; Banking Act</td><td>Revenue assignment; JV-SPV; SBLC</td></tr>
+      <tr><td>Nigeria</td><td>AMC Act; ISA 2007; CBN Guidelines</td><td>Sukuk-style bonds; SPV structures</td></tr>
+      <tr><td>Kenya</td><td>Capital Markets Act; PFMA 2012</td><td>Infrastructure Bonds; revenue-backed securities</td></tr>
+      <tr><td>Ghana</td><td>Borrowers &amp; Lenders Act 2020</td><td>Collateral Registry; revenue assignment for PPPs</td></tr>
+      <tr><td>South Africa</td><td>Financial Markets Act 2012</td><td>SANRAL toll bonds; corporate SBLC enhancement</td></tr>
+      <tr><td>India</td><td>SARFAESI Act 2002; IBC 2016</td><td>Full securitization; InvITs; revenue bonds</td></tr>
+      <tr><td>Malaysia</td><td>Securities Commission Act; Sukuk framework</td><td>World&apos;s largest sukuk market; PPA-backed sukuk</td></tr>
+      <tr><td>Brazil</td><td>Lei das Deb&ecirc;ntures; Lei das PPPs</td><td>Debentures; infrastructure revenue bonds</td></tr>
+    </table>
+    <p>Every country with a banking act, companies act, and securitization framework has the legal skeleton for the MAEC mechanism.</p>
+  </div></div>
+</div>
+
+<div class="acc" id="sec-c3">
+  <button class="acc-h" onclick="tog(this)"><h2>Chapter 3: The SBLC Demystified</h2><span class="ch">&#9662;</span></button>
+  <div class="acc-b"><div class="acc-c">
+    <h3>3.1 The Letter of Credit &mdash; Starting with the Familiar</h3>
+    <p>An LC is a payment instrument. A company in Lagos orders machinery from Germany. The Lagos bank issues an LC &mdash; a formal promise that if the machinery arrives and documents are correct, the bank will pay. It substitutes the bank&apos;s creditworthiness for the importer&apos;s.</p>
+    <h3>3.2 The SBLC &mdash; A Different Animal Entirely</h3>
+    <p>A Standby Letter of Credit (SBLC) serves a fundamentally different purpose. The word &apos;Standby&apos; is the key. It stands by. It waits. It is a <strong>contingent commitment</strong> &mdash; a formal assurance that if a defined trigger condition occurs, the bank will perform.</p>
+    <p><em>Metaphor:</em> An LC is like a taxi from A to B. An SBLC is like a rescue helicopter on standby. You hope you never need it. But its mere presence gives confidence that the operation can proceed safely.</p>
+    <p>In the MAEC framework, the SBLC is a <strong>credit enhancement instrument</strong> &mdash; not a payment guarantee. It transforms a project from &apos;unrated and uninvestable&apos; to &apos;credit-enhanced and bankable.&apos;</p>
+    <h3>3.3 Key Differences</h3>
+    <table>
+      <tr><th>Feature</th><th>LC</th><th>SBLC</th></tr>
+      <tr><td>Primary Purpose</td><td>Payment for goods/services</td><td>Credit enhancement / contingent backstop</td></tr>
+      <tr><td>When Drawn</td><td>On document presentation</td><td>Only on defined trigger event</td></tr>
+      <tr><td>Bank&apos;s Expectation</td><td>High probability of draw</td><td>Very low probability of draw</td></tr>
+      <tr><td>Balance Sheet</td><td>Contingent liability until drawn</td><td>Off-balance-sheet (IFRS 7, IAS 37)</td></tr>
+      <tr><td>Cash Required</td><td>None until drawn</td><td>None at issuance</td></tr>
+    </table>
+    <h3>3.4 Why &apos;Cash Backed&apos; Does Not Mean Blocked Cash</h3>
+    <p>&apos;Cash backed&apos; means the SBLC is secured by <strong>near-cash assets</strong> &mdash; assets with defined, contractually certain future cash value:</p>
+    <ul>
+      <li>Future PPA revenues &mdash; government utilities have contractual obligations to pay defined tariffs</li>
+      <li>Future toll revenues &mdash; legally defined, traffic-count supported, regulator-approved income</li>
+      <li>Future mineral royalty streams &mdash; legislatively mandated payments from concession holders</li>
+      <li>PRBS certificates representing hypothecated future income</li>
+    </ul>
+    <p>Under UCP 600 and ISP98, an SBLC is independent of underlying contracts. The backing can be, and routinely is, future project revenue.</p>
+    <h3>3.5 Why the Bank Does Not Need to Block Cash</h3>
+    <p>The bank&apos;s credit officer says: &apos;We cannot issue an SBLC of EUR 100M without blocking EUR 100M in cash.&apos; <strong>This is wrong for four reasons:</strong></p>
+    <ul>
+      <li><strong>Basel III CCF:</strong> A performance-contingent SBLC attracts a 50% Credit Conversion Factor, not 100%. The bank needs capital equivalent to 50% of risk-weighted exposure.</li>
+      <li><strong>Off-Balance-Sheet:</strong> Under IAS 37 and IFRS 7, the SBLC is a contingent liability disclosed in Notes, not on the balance sheet face.</li>
+      <li><strong>PRBS Asset:</strong> The PRBS certificate held as Held-to-Maturity under IFRS 9 creates a positive balance sheet entry. Net effect: neutral to positive.</li>
+      <li><strong>The Indemnity:</strong> MAEC executes a legally binding Indemnity confirming no claim will ever be made against the SBLC.</li>
+    </ul>
+    <h3>3.6 The Single Obligor Limit &mdash; A Non-Issue</h3>
+    <p>Because SBLCs are off-balance-sheet contingent instruments, not direct loans, they do not count toward the Single Obligor Limit (typically 25% of Tier 1 capital) in most regulatory frameworks.</p>
+  </div></div>
+</div>
+
+<div class="acc" id="sec-c4">
+  <button class="acc-h" onclick="tog(this)"><h2>Chapter 4: The Indemnity Agreement &mdash; The Bank&apos;s Shield</h2><span class="ch">&#9662;</span></button>
+  <div class="acc-b"><div class="acc-c">
+    <h3>4.1 Why the Indemnity Exists</h3>
+    <p>Even sophisticated bankers have residual concerns: what if something goes wrong? What if someone draws on the SBLC improperly? The Indemnity Agreement transfers risk away from the issuing bank and onto MAEC.</p>
+    <h3>4.2 What the Indemnity Does</h3>
+    <ul>
+      <li>Indemnifies the bank from any negative occurrence to the SBLC MT760 instrument</li>
+      <li>Explicitly confirms the SBLC is for credit enhancement only; MAEC will never draw on it</li>
+      <li>Protects the bank from third-party claims arising from the SBLC&apos;s use</li>
+      <li>Remains in effect for the SBLC&apos;s validity period</li>
+      <li>Provides for MAEC to participate in the bank&apos;s defence at MAEC&apos;s expense</li>
+      <li>Governed by ICC Paris or Swiss Court trade law</li>
+    </ul>
+    <h3>4.3 The Temporal Firewall</h3>
+    <p>The SBLC is valid for <strong>1 year and 1 day</strong>. The MAEC loan&apos;s grace period is <strong>3 to 5 years</strong>. Repayment begins only after the grace period. <strong>The SBLC expires before any repayment obligation falls due.</strong> It is structurally impossible to claim against the SBLC based on project performance.</p>
+    <h3>4.4 What the Bank Signs</h3>
+    <table>
+      <tr><th>Provision</th><th>Meaning</th></tr>
+      <tr><td>MAEC indemnifies the bank from all negative occurrences</td><td>If anything goes wrong, MAEC is responsible &mdash; not the bank</td></tr>
+      <tr><td>Bank not indemnified for bad faith or willful misconduct</td><td>Standard carve-out for the bank&apos;s own wrongful conduct</td></tr>
+      <tr><td>Claims within 30 days</td><td>Practical time limit for any theoretical claim</td></tr>
+      <tr><td>Governed by ICC Paris or Swiss Court</td><td>International dispute resolution</td></tr>
+      <tr><td>Non-assignable without consent</td><td>No transfer of obligations without agreement</td></tr>
+      <tr><td>Terminates when SBLC expires</td><td>Clean exit &mdash; no ongoing obligations</td></tr>
+    </table>
+  </div></div>
+</div>
+
+<div class="acc" id="sec-c5">
+  <button class="acc-h" onclick="tog(this)"><h2>Chapter 5: Hypothecation, the PRBS, and Future Revenue</h2><span class="ch">&#9662;</span></button>
+  <div class="acc-b"><div class="acc-c">
+    <h3>5.1 Hypothecation &mdash; The Oldest Trick in Finance</h3>
+    <p>Hypothecation comes from Greek <em>hypotheke</em>, meaning &apos;pledge.&apos; A debtor pledges an asset as security but retains possession and use. Your mortgage is a hypothecation &mdash; you pledge your house but continue living in it.</p>
+    <p>MAEC applies this to <strong>future project revenue</strong>. A government hypothecates future toll revenues, PPA revenues, or mineral royalties &mdash; pledging the right to receive them as security while retaining operational control.</p>
+    <h3>5.2 The PRBS &mdash; From Future Revenue to Present Capital</h3>
+    <p>The Project Revenue-Backed Security (PRBS) converts hypothecated future revenue into a bankable asset. Like a land title certifies physical land ownership, a PRBS certifies ownership of a future revenue stream.</p>
+    <p><em>Metaphor:</em> A farmer will harvest 10,000 tonnes of coffee next year. A merchant pays today for the right to collect it later. The Coffee Revenue Certificate is the PRBS.</p>
+    <p><strong>MAEC PRBS Process:</strong></p>
+    <ul>
+      <li>Future revenues assigned to SPV via Revenue Assignment Deed</li>
+      <li>SPV issues PRBS Certificate representing beneficial interest</li>
+      <li>Local bank holds PRBS as Held-to-Maturity Debt Security (IFRS 9) &mdash; a balance sheet asset</li>
+      <li>Bank issues SBLC backed by the PRBS</li>
+      <li>MAEC&apos;s platform receives the SBLC, completes enhancement, and deploys the loan</li>
+      <li>Project builds, revenues commence, waterfall repays the loan</li>
+    </ul>
+    <h3>5.3 Legal Basis by Jurisdiction</h3>
+    <table>
+      <tr><th>Country</th><th>Legal Foundation</th></tr>
+      <tr><td>Uganda</td><td>PFMA 2015 authorises revenue assignment to SPVs; IFRS 9 enables PRBS as Held-to-Maturity</td></tr>
+      <tr><td>Zambia</td><td>Movable Property Act 2016 defines &apos;account receivable&apos;; PACRA Collateral Registry</td></tr>
+      <tr><td>Botswana</td><td>Movable Property Act 2022 introduces floating charges over future revenue categories</td></tr>
+      <tr><td>Nigeria</td><td>ISA 2007 enables securitization; FGN Sukuk precedent (2017) establishes PPA-backed revenue securitization</td></tr>
+      <tr><td>Kenya</td><td>Capital Markets Act enables revenue bonds; Infrastructure Bond Programme (2009) establishes credit enhancement standard</td></tr>
+    </table>
+    <h3>5.4 What SIMPA Is</h3>
+    <p><strong>Sovereign Infrastructure Monetization and Project Acceleration</strong> &mdash; MAEC&apos;s complete structured finance architecture for sovereign infrastructure projects, encompassing revenue mapping, SPV constitution, revenue assignment, Collateral Registry registration, SBLC issuance, loan deployment, and payment waterfall design.</p>
+  </div></div>
+</div>
+
+<div class="acc" id="sec-c6">
+  <button class="acc-h" onclick="tog(this)"><h2>Chapter 6: The Complete MAEC Loan Process</h2><span class="ch">&#9662;</span></button>
+  <div class="acc-b"><div class="acc-c">
+    <h3>6.1 The Five Stages</h3>
+    <table>
+      <tr><th>Stage</th><th>Name</th><th>Key Output</th></tr>
+      <tr><td>1</td><td>Application &amp; Term Sheet</td><td>Universal Funds Request Letter + signed Term Sheet</td></tr>
+      <tr><td>2</td><td>Bank Engagement &amp; RWA</td><td>RWA letter from client&apos;s bank + Bank RMA List</td></tr>
+      <tr><td>3</td><td>Bank-to-Bank Due Diligence (MT799)</td><td>SWIFT MT799 Pre-Advice and Return MT799</td></tr>
+      <tr><td>4</td><td>SBLC Issuance (MT760) &amp; Loan Agreement</td><td>SBLC MT760 + Loan Agreement + Indemnity Agreement</td></tr>
+      <tr><td>5</td><td>Loan Disbursement</td><td>First disbursement within 30 days; monthly tranches thereafter</td></tr>
+    </table>
+    <h3>6.2 The Complete Document Set</h3>
+    <table>
+      <tr><th>Document</th><th>By</th><th>Purpose</th></tr>
+      <tr><td>Universal Funds Request Letter</td><td>Client</td><td>Formal loan application</td></tr>
+      <tr><td>Client Information Sheet</td><td>Client</td><td>KYC/AML compliance</td></tr>
+      <tr><td>Project Proposal / Feasibility Study</td><td>Client</td><td>Technical &amp; financial viability</td></tr>
+      <tr><td>Term Sheet</td><td>MAEC</td><td>Non-binding heads of terms</td></tr>
+      <tr><td>RWA Letter</td><td>Client&apos;s Bank</td><td>Formal readiness to issue SBLC MT760</td></tr>
+      <tr><td>Bank RMA List</td><td>Client&apos;s Bank</td><td>Relationship Management Application list</td></tr>
+      <tr><td>MT799 Pre-Advice (SWIFT)</td><td>Client&apos;s Bank</td><td>Bank-to-bank due diligence</td></tr>
+      <tr><td>Return MT799 (SWIFT)</td><td>MAEC&apos;s Bank</td><td>Readiness and credit line reservation</td></tr>
+      <tr><td>SBLC MT760 (SWIFT)</td><td>Client&apos;s Bank</td><td>Credit enhancement instrument &mdash; irrevocable</td></tr>
+      <tr><td>Indemnity Agreement</td><td>MAEC + Bank</td><td>Legal protection for issuing bank</td></tr>
+      <tr><td>Loan Agreement</td><td>MAEC + Client</td><td>Definitive loan documentation</td></tr>
+      <tr><td>Revenue Assignment Deed</td><td>Client + SPV</td><td>Legal transfer of future revenue rights</td></tr>
+      <tr><td>PRBS Certificate</td><td>SPV / Custodian</td><td>Project Revenue-Backed Security</td></tr>
+      <tr><td>Collateral Trust Agreement</td><td>SPV + Custodian</td><td>Governs revenue rights held in trust</td></tr>
+      <tr><td>SPV Constitutional Documents</td><td>Legal Counsel</td><td>Articles, Trust Deed, Memorandum</td></tr>
+    </table>
+    <h3>6.3 Timeline</h3>
+    <table>
+      <tr><th>Timeline</th><th>Milestone</th><th>Party</th></tr>
+      <tr><td>Days 1&ndash;7</td><td>Term Sheet signed; Funds Request submitted; Project reviewed</td><td>Client + MAEC</td></tr>
+      <tr><td>Days 7&ndash;21</td><td>Bank identified; RWA submitted; RMA List provided</td><td>Client&apos;s Bank</td></tr>
+      <tr><td>Days 14&ndash;28</td><td>Receiving bank designated; MT799 exchanged; Due diligence complete</td><td>Banks + MAEC</td></tr>
+      <tr><td>Days 21&ndash;35</td><td>SBLC MT760 transmitted; Loan &amp; Indemnity Agreements signed</td><td>Bank + Client + MAEC</td></tr>
+      <tr><td>Day 30 (from MT760)</td><td><strong>FIRST DISBURSEMENT</strong></td><td>MAEC Platform</td></tr>
+      <tr><td>Monthly</td><td>Subsequent tranches (12&ndash;48 total)</td><td>MAEC Platform</td></tr>
+      <tr><td>Grace (3&ndash;5 yrs)</td><td>No principal repayment; project constructs &amp; operates</td><td>Client / SPV</td></tr>
+      <tr><td>Repayment</td><td>Monthly repayment at 1% p.a. for up to 30 years</td><td>Client / SPV</td></tr>
+    </table>
+  </div></div>
+</div>
+
+<div class="acc" id="sec-c7">
+  <button class="acc-h" onclick="tog(this)"><h2>Chapter 7: Why Does MAEC Need Your SBLC?</h2><span class="ch">&#9662;</span></button>
+  <div class="acc-b"><div class="acc-c">
+    <h3>7.1 The Question</h3>
+    <p>&quot;If MAEC has access to HSBC, Barclays, BNP Paribas, and ICBC, why does it need a small bank in Lusaka or Kampala to issue an SBLC first?&quot;</p>
+    <h3>7.2 Reason 1: Regulatory Compliance</h3>
+    <p>MAEC is not licensed in your country. It cannot legally deploy capital directly without routing through the regulated banking system. The local bank&apos;s SBLC is <strong>the regulatory bridge</strong> connecting MAEC&apos;s international platform to your domestic economy.</p>
+    <h3>7.3 Reason 2: Risk Transfer</h3>
+    <p>MAEC&apos;s partners do not take uncollateralised credit risk in unfamiliar markets. The local bank&apos;s SBLC transforms &apos;uncollateralised loan to an African project&apos; into &apos;loan secured by SBLC from a regulated local bank, enhanced by MAEC&apos; &mdash; which credit committees can approve.</p>
+    <h3>7.4 Reason 3: Leverage</h3>
+    <p>MAEC enhances a non-rated SBLC (10&ndash;15% LTV on its own) to <strong>100% LTV</strong> through insurance (Lloyd&apos;s of London, Redbridge), PRBS collateral recognition, structured credit engineering, and underlying project revenue assignment.</p>
+    <h3>7.5 Reason 4: Proof of Local Commitment</h3>
+    <p>The local bank&apos;s SBLC signals that a regulated, supervised institution has assessed and stands behind the transaction &mdash; like management co-investing in private equity.</p>
+    <h3>7.6 Traceable Examples</h3>
+    <ul>
+      <li><strong>US Airport Finance:</strong> JFK Terminal 4 &mdash; revenue-backed SBLC credit enhancement</li>
+      <li><strong>Ilute Solar, Zambia (2025):</strong> USD 26.5M &mdash; PPA revenue assigned to SPV</li>
+      <li><strong>Chisamba 100MW, Zambia (2025):</strong> Stanbic Zambia SBLC; China Power capital</li>
+      <li><strong>Nigeria FGN Sukuk (2017&ndash;2023):</strong> NGN 750B cumulative &mdash; road concession revenues</li>
+      <li><strong>AFREXIMBANK:</strong> Indemnity-protected SBLC warehousing across 51 African states</li>
+      <li><strong>Kenya Infrastructure Bonds:</strong> KES 500B+ raised against future revenues since 2009</li>
+    </ul>
+  </div></div>
+</div>
+
+<div class="acc" id="sec-c8">
+  <button class="acc-h" onclick="tog(this)"><h2>Chapter 8: A Call to Africa&apos;s Bankers</h2><span class="ch">&#9662;</span></button>
+  <div class="acc-b"><div class="acc-c">
+    <h3>8.1 The Comfort of Passivity</h3>
+    <p>A bank that does nothing new makes no mistakes. But it is also not building roads, powering communities, or financing agriculture. It deploys deposits into treasury bills at 4&ndash;6% while governments issue those bills because they cannot access SBLC-backed finance at 1&ndash;2% that would build actual infrastructure. This is a circle of unnecessary poverty.</p>
+    <h3>8.2 What Banks Are Designed to Do</h3>
+    <p>Banks exist to intermedi&eacute; capital. In developing economies, the resources are future revenues from infrastructure, minerals, agriculture, and utilities. They are not in a vault &mdash; they are in the ground, the soil, the grid, the concession. The bank&apos;s job is to convert those resources into present capital. The SBLC is the tool. The MAEC framework is the engineering.</p>
+    <h3>8.3 What MAEC Is Asking &mdash; And What It Is Not</h3>
+    <table>
+      <tr><th>MAEC IS Asking Banks To:</th><th>MAEC Is NOT Asking Banks To:</th></tr>
+      <tr><td>Issue an SBLC MT760 as contingent credit enhancement &mdash; off-balance-sheet under IFRS 7/IAS 37</td><td>Lend money, deploy deposits, or guarantee sovereign debt</td></tr>
+      <tr><td>Earn 0.5&ndash;1.5% annual fee on SBLC face value without deploying depositor funds</td><td>Block cash, reduce liquidity, or breach capital ratios</td></tr>
+      <tr><td>Hold PRBS as Held-to-Maturity debt security &mdash; a positive balance sheet asset</td><td>Take construction, completion, or market risk</td></tr>
+      <tr><td>Complete bank-to-bank due diligence via SWIFT MT799</td><td>Accept proof-of-funds or cash equivalency</td></tr>
+      <tr><td>Sign the MAEC Indemnity Agreement &mdash; full legal protection</td><td>Work with unverified agents or brokers</td></tr>
+    </table>
+  </div></div>
+</div>
+
+<div class="acc" id="sec-c9">
+  <button class="acc-h" onclick="tog(this)"><h2>Chapter 9: The Agent Problem</h2><span class="ch">&#9662;</span></button>
+  <div class="acc-b"><div class="acc-c">
+    <p>MAEC Capital operates on a direct institutional basis. We engage governments, ministries of finance, central banks, commercial bank CEOs, and project sponsors directly. <strong>We do not entertain unverified agents or brokers</strong> claiming:</p>
+    <ul>
+      <li>Access to &apos;billion-dollar SBLCs from tier-1 banks&apos; at a fee</li>
+      <li>Connections to &apos;private placement programmes&apos; or &apos;trading platforms&apos;</li>
+      <li>&apos;Proof of funds&apos; certificates from unverified banks</li>
+      <li>Ability to provide &apos;leased SBLCs&apos;</li>
+    </ul>
+    <p><strong>If someone approaches you claiming they can deliver a USD 500M SBLC for a 1% upfront fee &mdash; without MAEC involvement &mdash; that is fraud. Walk away.</strong></p>
+    <p>The legitimate pathway is through MAEC directly with your own bank. The issuing bank is your bank &mdash; regulated in your jurisdiction, supervised by your central bank. The receiving bank is MAEC&apos;s platform bank (HSBC, Barclays, BNP Paribas, ICBC). Due diligence is bank-to-bank via authenticated SWIFT. There are no mysterious intermediaries.</p>
+  </div></div>
+</div>
+
+<div class="acc" id="sec-c10">
+  <button class="acc-h" onclick="tog(this)"><h2>Chapter 10: MAEC Capital Loan Terms</h2><span class="ch">&#9662;</span></button>
+  <div class="acc-b"><div class="acc-c">
+    <h3>10.1 Standard Commercial Terms</h3>
+    <table>
+      <tr><th>Parameter</th><th>Terms</th></tr>
+      <tr><td>Lender</td><td>MAEC Capital Ltd (facilitator); capital from MAEC Banking Platform partners</td></tr>
+      <tr><td>Interest Rate</td><td><strong>1% per annum fixed</strong> for full tenure</td></tr>
+      <tr><td>Loan Tenure</td><td>Up to 30 years</td></tr>
+      <tr><td>Grace Period</td><td>3&ndash;5 years &mdash; no principal repayment during construction</td></tr>
+      <tr><td>Disbursement</td><td>First within 30 days of authenticated MT760; monthly tranches thereafter</td></tr>
+      <tr><td>Disbursement Period</td><td>12&ndash;48 monthly tranches</td></tr>
+      <tr><td>Arrangement Fee</td><td><strong>6% of total loan</strong> &mdash; deducted from proceeds; NOT payable in advance</td></tr>
+      <tr><td>Minimum Loan</td><td>EUR/USD 100 million; no stated maximum</td></tr>
+      <tr><td>Repayment Source</td><td>Project revenues &mdash; proceeds, profits, and receivables</td></tr>
+      <tr><td>Security</td><td>SBLC MT760; Revenue assignment / PRBS; MAEC Indemnity Agreement</td></tr>
+      <tr><td>Governing Law</td><td>Loan: Swiss or English; SBLC: ICC 600 / URDG 758; Indemnity: ICC Paris or Swiss Court</td></tr>
+      <tr><td>SBLC Verbiage</td><td>MAEC verbiage is mandatory and non-negotiable</td></tr>
+      <tr><td>No Advance Fees</td><td>MAEC does not charge before disbursement. Beware of upfront cash requirements.</td></tr>
+    </table>
+    <h3>10.2 Banking Platform</h3>
+    <p>HSBC (Hong Kong), Barclays (London), ICBC (China), Bank of China (Anhui), BNP Paribas (France), Standard Chartered (Singapore/Africa). These are the actual platforms through which MAEC channels capital.</p>
+  </div></div>
+</div>
+
+<div class="acc" id="sec-c11">
+  <button class="acc-h" onclick="tog(this)"><h2>Chapter 11: World Parallels &mdash; Proof That This Works</h2><span class="ch">&#9662;</span></button>
+  <div class="acc-b"><div class="acc-c">
+    <table>
+      <tr><th>Parallel</th><th>Transaction</th><th>MAEC Component Validated</th></tr>
+      <tr><td>US Municipal Bonds</td><td>Kansas City Water Revenue Bond, 2019 &mdash; USD 800M</td><td>Future infrastructure revenue as basis for present capital</td></tr>
+      <tr><td>China CDB Finance</td><td>Addis Ababa-Djibouti Railway, 2016 &mdash; USD 4B</td><td>SPV structure; revenue assignment; 1% rate; 30-year tenor</td></tr>
+      <tr><td>Kenya Infrastructure Bond</td><td>2009&ndash;2023 &mdash; KES 500B+ raised</td><td>Local bank credit enhancement; revenue-backed; no sovereign balance sheet impact</td></tr>
+      <tr><td>Nigeria FGN Sukuk</td><td>2017&ndash;2023 &mdash; NGN 750B cumulative</td><td>PRBS mechanism; IFRS 9 treatment; government revenue hypothecation</td></tr>
+      <tr><td>South Africa SANRAL</td><td>2005&ndash;2023 &mdash; ZAR 50B+ backed by toll revenues</td><td>SBLC credit enhancement by local Tier-1 banks; toll revenue PRBS</td></tr>
+      <tr><td>Zambia Ilute Solar (2025)</td><td>USD 26.5M &mdash; GreenCo PPA revenue assigned</td><td>PPA revenue assignment; SPV structure; off-balance-sheet for government</td></tr>
+      <tr><td>Zambia Chisamba (2025)</td><td>Stanbic Zambia credit enhancement; China Power</td><td>Local commercial bank as credit enhancement provider</td></tr>
+      <tr><td>Malaysian Sukuk Market</td><td>MYR 1.5 trillion outstanding</td><td>Full PRBS-equivalent ecosystem; PPA revenues as standard collateral</td></tr>
+      <tr><td>UAE/Dubai Finance</td><td>Dubai toll road bonds backed by Salik revenues</td><td>Toll revenue hypothecation; SBLC enhancement; off-sovereign treatment</td></tr>
+      <tr><td>World Bank PRGs</td><td>Kenya, Tanzania, Senegal &mdash; WB backstops power PPA obligations</td><td>Credit enhancement enabling international capital flow</td></tr>
+    </table>
+  </div></div>
+</div>
+
+<div class="acc" id="sec-c12">
+  <button class="acc-h" onclick="tog(this)"><h2>Chapter 12: The Real Role of Banking in Development</h2><span class="ch">&#9662;</span></button>
+  <div class="acc-b"><div class="acc-c">
+    <h3>12.1 The Donor Model Is Exhausted</h3>
+    <p>For 60 years, developing world infrastructure has been financed through sovereign borrowing (at rates that destroy fiscal space), donor grants (tied, slow, insufficient), and World Bank/IMF loans (conditional, intrusive, limited).</p>
+    <p>These channels will not build the railways, hospitals, power grids, and smart cities the next generation deserves. The Africa Infrastructure Deficit alone is USD 100 billion per year. World Bank and AfDB combined disburse USD 40 billion globally for all sectors. Donor aid is a rounding error.</p>
+    <p>The capital needed is in global markets &mdash; pension funds in Norway, Japan, Canada; sovereign wealth funds in Abu Dhabi and Singapore; institutional investors seeking stable, long-dated, yield-generating assets. Solar plants in Zimbabwe and toll roads in Botswana, backed by government revenue assignments and bank credit enhancement, are exactly what they seek.</p>
+    <h3>12.2 The Call to Action</h3>
+    <p><strong>To every Finance Minister:</strong> Your country&apos;s future revenues are an asset. They sit on a balance sheet that does not exist yet &mdash; the balance sheet of the projects you will build. MAEC Capital exists to advance that balance sheet into the present.</p>
+    <p><strong>To every commercial bank CEO:</strong> Your banking licence was granted to intermediate capital and build economic activity. Issuing an SBLC credit enhancement &mdash; earning a fee, booking a PRBS asset, signing a legally indemnified document &mdash; is exactly that. You are not being asked to take risk. You are being asked to perform your core function.</p>
+    <p><strong>To every project sponsor:</strong> Your feasibility study, PPA, concession agreement, mineral rights, traffic counts &mdash; these are financial instruments. In the technical, legally enforceable, globally bankable sense. MAEC Capital will show you how to use them.</p>
+    <p>The IMF does not have the money. The World Bank has too many conditions. The donor agencies have too many strings. But the capital markets &mdash; accessed through the MAEC structured finance mechanism &mdash; have all the money you need.</p>
+  </div></div>
+</div>
+
+<div class="acc" id="sec-qr">
+  <button class="acc-h" onclick="tog(this)"><h2>Quick Reference: Everything in One Table</h2><span class="ch">&#9662;</span></button>
+  <div class="acc-b"><div class="acc-c">
+    <div class="cards-grid">
+      <div class="info-card"><h4>What does MAEC do?</h4><p>Facilitates development loans using credit enhancement instruments &mdash; not balance sheet lending.</p></div>
+      <div class="info-card"><h4>Interest rate?</h4><p>1% per annum fixed for up to 30 years &mdash; among the most competitive rates for development finance.</p></div>
+      <div class="info-card"><h4>What is the fee?</h4><p>6% arrangement fee, deducted from loan proceeds at disbursement. Nothing payable in advance.</p></div>
+      <div class="info-card"><h4>What is an SBLC?</h4><p>Standby Letter of Credit &mdash; a contingent credit enhancement instrument, NOT a payment guarantee. Off-balance-sheet. No cash blocked.</p></div>
+      <div class="info-card"><h4>What is &apos;cash backed&apos;?</h4><p>The SBLC is secured by future project revenues (near-cash assets). Under UCP 600/ISP98, this is permissible and standard.</p></div>
+      <div class="info-card"><h4>What is a PRBS?</h4><p>Project Revenue-Backed Security &mdash; a certificate representing future project revenues, held by the bank as an IFRS 9 Held-to-Maturity asset.</p></div>
+      <div class="info-card"><h4>What is hypothecation?</h4><p>Pledging future revenues as security while retaining ownership and operation of the revenue-generating asset.</p></div>
+      <div class="info-card"><h4>Will the bank&apos;s cash be blocked?</h4><p>No. Never. The SBLC is off-balance-sheet. The PRBS creates a positive asset. The Indemnity protects against any claim.</p></div>
+      <div class="info-card"><h4>Why does MAEC need the SBLC?</h4><p>Regulatory compliance; risk transformation; credit enhancement from non-rated to investable; local institutional commitment signal.</p></div>
+      <div class="info-card"><h4>How long does it take?</h4><p>30 days from authenticated SBLC to first disbursement; full deployment over 12&ndash;48 monthly tranches.</p></div>
+      <div class="info-card"><h4>Does MAEC work with agents?</h4><p>No. Direct engagement with governments, banks, and sponsors only. Unverified agents are not entertained.</p></div>
+      <div class="info-card"><h4>What countries?</h4><p>Every country with a banking act, companies act, and securitization framework &mdash; virtually every developing country.</p></div>
+      <div class="info-card"><h4>What is SIMPA?</h4><p>Sovereign Infrastructure Monetization and Project Acceleration &mdash; MAEC&apos;s complete structured finance architecture.</p></div>
+      <div class="info-card"><h4>Banking platform?</h4><p>HSBC, Barclays, ICBC, Bank of China, BNP Paribas, Standard Chartered &mdash; among others.</p></div>
+      <div class="info-card"><h4>Is this too good to be true?</h4><p>No. Components are individually traceable in Kenya, Nigeria, South Africa, Zambia, Malaysia, UAE, USA, and China.</p></div>
+      <div class="info-card"><h4>First step?</h4><p>After a consultative meeting, send a Universal Funds Request Letter and signed Term Sheet. Then engage your bank for the RWA.</p></div>
+    </div>
+  </div></div>
+</div>
+
+<div class="contact-section" id="sec-ct">
+  <h2>Get In Touch</h2>
+  <p>Your country&apos;s future is an asset. Your bank&apos;s licence is a mandate to use it. MAEC Capital is the bridge. Reach out to begin the conversation.</p>
+  <a class="email-btn" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=mussie@equaltradeglobal.org&amp;su=MAEC%20Capital%20Inquiry" target="_blank">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+    Email Dr. Mussie
+  </a>
+  <p style="margin-top:18px;font-size:0.85rem;opacity:0.85">
+    <strong>Dr Protarcius Ngwenya</strong>, Vice President &mdash; MAEC Capital Ltd<br>
+    ngwenya@maecfinance.com | +260 957 359 339<br><br>
+    <strong>UK Office:</strong> Sacha Robinson<br>
+    sacha.robinson@maecfinance.com | +44 74 2453 9206<br>
+    8 Pennythorne Drive, Leeds, LS19 7DS, West Yorkshire, England
+  </p>
+</div>
+
+</div>
+
+<div class="footer">
+  <p style="font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--sage-dark);margin-bottom:6px;">MAEC CAPITAL</p>
+  <p>The Definitive Guide to Structured Infrastructure Finance<br>
+  Prepared by MAEC Capital Ltd Marketing Division | 2025 Edition<br>
+  For Institutional Distribution &mdash; Not a Public Offer of Securities</p>
+</div>
+
+<script>
+function toggleMenu(){
+  document.getElementById('menuPanel').classList.toggle('open');
+  document.getElementById('menuBtn').classList.toggle('active');
+}
+function go(id){
+  document.getElementById('menuPanel').classList.remove('open');
+  document.getElementById('menuBtn').classList.remove('active');
+  const el=document.getElementById(id);
+  if(el){el.scrollIntoView({behavior:'smooth',block:'start'});}
+}
+function tog(btn){
+  const sec=btn.parentElement;
+  const wasActive=sec.classList.contains('active');
+  document.querySelectorAll('.acc.active').forEach(a=>a.classList.remove('active'));
+  if(!wasActive) sec.classList.add('active');
+}
+</script>
+
+</body>
+</html>
