@@ -3,18 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta property="og:url" content="https://mussieaf.github.io/Concept_note/MAEC/"/>
-    <meta property="og:title" content="MAEC Capital Guide"/>
-    <meta property="og:description" content="A short summary of your website content.">
-    <meta property="og:site_name" content="MAEC Capital Guide"/>
-    <meta property="og:image" content="https://mussieaf.github.io/Concept_note/favicon.png"/>
-    <meta property="og:type" content="website">
-   
     <title>MAEC CAPITAL | The Definitive Guide to Structured Infrastructure Finance</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta property="og:title" content="MAEC CAPITAL | Structured Infrastructure Finance Guide">
+    <meta property="og:description" content="The Definitive Blueprint Guide to SBLCs, Credit Enhancement, Hypothecation & PRBS for Emerging Economies.">
+    <meta property="og:image" content="https://github.com/Mussieaf/Concept_note/">
+    <meta property="og:url" content="https://github.com/Mussieaf/Concept_note/MAEC/">
+    <meta property="og:type" content="website">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?v=2">
-    <link rel="icon" type="image/png" href="favicon.png">
     <style>
         :root {
             --sage-green: #9CAF88;
@@ -23,6 +20,8 @@
             --warm-white: #FAF9F6;
             --soft-gold: #C4A35A;
             --charcoal: #2C3E2D;
+            --maec-blue: #3B4F6B;
+            --maec-blue-dark: #2C3E50;
             --light-sage: #E8F0E3;
             --earth-brown: #8B7355;
             --pale-mint: #F0F7F0;
@@ -44,7 +43,7 @@
 
         /* Header & Logo */
         .top-bar {
-            background: linear-gradient(135deg, var(--forest-green) 0%, #3A6B1F 100%);
+            background: linear-gradient(135deg, var(--maec-blue) 0%, var(--maec-blue-dark) 100%);
             padding: 40px 0;
             text-align: center;
             position: relative;
@@ -94,7 +93,7 @@
             letter-spacing: 3px;
         }
 
-        /* Navigation */
+        /* ===== COLLAPSIBLE NAVIGATION ===== */
         .sticky-nav {
             position: sticky;
             top: 0;
@@ -102,23 +101,63 @@
             backdrop-filter: blur(10px);
             border-bottom: 2px solid var(--light-sage);
             z-index: 1000;
-            padding: 15px 0;
+            padding: 0;
             box-shadow: 0 2px 20px rgba(0,0,0,0.05);
         }
 
-        .nav-container {
+        .nav-wrapper {
             max-width: 1400px;
             margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--maec-blue);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Hamburger toggle (hidden checkbox) */
+        #nav-toggle {
+            display: none;
+        }
+
+        .nav-toggle-label {
+            display: none;
+            cursor: pointer;
+            width: 30px;
+            height: 24px;
+            position: relative;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .nav-toggle-label span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: var(--maec-blue);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+
+        .nav-container {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 8px;
-            padding: 0 20px;
         }
 
         .nav-container a {
             text-decoration: none;
-            color: var(--forest-green);
+            color: var(--maec-blue);
             font-family: 'Lato', sans-serif;
             font-weight: 600;
             font-size: 0.75rem;
@@ -136,13 +175,52 @@
             transform: translateY(-2px);
         }
 
-        /* Hero Section */
+        /* Collapsible menu — all screen sizes */
+        .nav-toggle-label {
+            display: flex;
+        }
+
+        .nav-container {
+            display: none;
+            width: 100%;
+            flex-direction: column;
+            gap: 0;
+            padding-top: 15px;
+            border-top: 1px solid var(--light-sage);
+            margin-top: 15px;
+        }
+
+        .nav-container a {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            border-bottom: 1px solid var(--light-sage);
+        }
+
+        #nav-toggle:checked ~ .nav-container {
+            display: flex;
+        }
+
+        /* Hamburger animation */
+        #nav-toggle:checked + .nav-toggle-label span:nth-child(1) {
+            transform: translateY(10.5px) rotate(45deg);
+        }
+        #nav-toggle:checked + .nav-toggle-label span:nth-child(2) {
+            opacity: 0;
+        }
+        #nav-toggle:checked + .nav-toggle-label span:nth-child(3) {
+            transform: translateY(-10.5px) rotate(-45deg);
+        }
+
+        /* ===== HERO SECTION WITH MOVING BACKGROUND ===== */
         .hero {
-            background: linear-gradient(135deg, var(--pale-mint) 0%, var(--light-sage) 50%, var(--cream) 100%);
             padding: 100px 20px;
             text-align: center;
             position: relative;
             overflow: hidden;
+            background: linear-gradient(135deg, var(--pale-mint) 0%, var(--light-sage) 50%, var(--cream) 100%);
         }
 
         .hero::after {
@@ -154,6 +232,41 @@
             height: 100px;
             background: var(--cream);
             transform: skewY(-2deg);
+        }
+
+        /* Moving background image strip */
+        .hero-bg-strip {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            display: flex;
+            animation: heroScroll 60s linear infinite;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .hero-bg-strip:hover {
+            animation-play-state: paused;
+        }
+
+        .hero-bg-img {
+            width: 16.666%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            flex-shrink: 0;
+        }
+
+        @keyframes heroScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
@@ -460,7 +573,7 @@
 
         /* CTA Section */
         .cta-section {
-            background: linear-gradient(135deg, var(--forest-green) 0%, #3A6B1F 100%);
+            background: linear-gradient(135deg, var(--maec-blue) 0%, var(--maec-blue-dark) 100%);
             padding: 100px 30px;
             text-align: center;
             color: white;
@@ -560,8 +673,8 @@
             .section-title { font-size: 2.2rem; }
             .image-showcase { grid-template-columns: 1fr; }
             .process-steps { flex-direction: column; }
-            .nav-container a { font-size: 0.65rem; padding: 6px 10px; }
             .content-grid { grid-template-columns: 1fr; }
+            .hero-bg-img { width: 33.333%; }
         }
 
         /* Smooth scroll */
@@ -574,6 +687,7 @@
             scroll-margin-top: 80px;
         }
     </style>
+<base target="_blank">
 </head>
 <body>
 
@@ -583,36 +697,65 @@
             <img src="https://kimi-web-img.kimi.ai/img/www.maecfinance.com/f50e71e1d2f02126a5761408c5e12c757fe0da21.jpg" alt="MAEC CAPITAL Logo">
             <div class="logo-text">MAEC CAPITAL</div>
             <div class="logo-subtitle">The Definitive Guide to Structured Infrastructure Finance</div>
+            <div style="margin-top:12px;"><i class="fa-brands fa-github" style="color:white; font-size:1.4rem; opacity:0.7;"></i></div>
         </div>
     </header>
 
-    <!-- Sticky Navigation -->
+    <!-- ===== COLLAPSIBLE NAVIGATION ===== -->
     <nav class="sticky-nav">
-        <div class="nav-container">
-            <a href="#foreword">Foreword</a>
-            <a href="#money">Money Creation</a>
-            <a href="#banks">Banking Reality</a>
-            <a href="#sblc">SBLC Explained</a>
-            <a href="#indemnity">Indemnity</a>
-            <a href="#hypothecation">Hypothecation</a>
-            <a href="#process">Loan Process</a>
-            <a href="#why-sblc">Why SBLC?</a>
-            <a href="#terms">Loan Terms</a>
-            <a href="#parallels">World Parallels</a>
-            <a href="#contact">Contact</a>
+        <div class="nav-wrapper">
+            <div class="nav-brand">MAEC Guide</div>
+            <input type="checkbox" id="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <div class="nav-container">
+                <a href="#foreword">Foreword</a>
+                <a href="#money">Money Creation</a>
+                <a href="#banks">Banking Reality</a>
+                <a href="#sblc">SBLC Explained</a>
+                <a href="#indemnity">Indemnity</a>
+                <a href="#hypothecation">Hypothecation</a>
+                <a href="#process">Loan Process</a>
+                <a href="#why-sblc">Why SBLC?</a>
+                <a href="#terms">Loan Terms</a>
+                <a href="#parallels">World Parallels</a>
+                <a href="#contact">Contact</a>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- ===== HERO SECTION WITH MOVING BACKGROUND ===== -->
     <section class="hero">
-        <h1>How Emerging Economies Can Access Global Capital Today</h1>
-        <p class="subtitle">A Complete, Unapologetic, Plain-Language Guide to the MAEC Loan, Credit Enhancement, SBLCs, Hypothecation, PRBS, and the Real Purpose of Banking — For Governments, Banks, and Project Sponsors in the Developing World</p>
-        <div class="hero-badge">2026 Edition</div>
+        <!-- Horizontally scrolling background images from MAEC website -->
+        <div class="hero-bg-strip">
+            <div class="hero-bg-img" style="background-image: url('https://www.maecfinance.com/ws/media-library/71ad81812d187519f86323ded07d4cae/dqjtfizw6qo.jpeg');"></div>
+            <div class="hero-bg-img" style="background-image: url('https://www.maecfinance.com/ws/media-library/a4ca0a7fb8fb121a7f2096452fbbaac3/iybkduavyqw.jpeg');"></div>
+            <div class="hero-bg-img" style="background-image: url('https://www.maecfinance.com/ws/media-library/3abd56795d46846480ad1350094e7020/xhjio1srkrm.jpeg');"></div>
+            <div class="hero-bg-img" style="background-image: url('https://www.maecfinance.com/ws/media-library/c55fd02498c6ce503b2d334e10c3fb41/pp5no5gclda.jpeg');"></div>
+            <div class="hero-bg-img" style="background-image: url('https://www.maecfinance.com/ws/media-library/3d72c15f090abc714519ecb60ef07e6d/oif5dpuecmg.jpeg');"></div>
+            <div class="hero-bg-img" style="background-image: url('https://www.maecfinance.com/ws/media-library/bdb3bbfd87ec7ecb7e374ce16f4e2a11/rnqs_ve8qao.jpeg');"></div>
+            <!-- Duplicate set for seamless infinite loop -->
+            <div class="hero-bg-img" style="background-image: url('https://www.maecfinance.com/ws/media-library/71ad81812d187519f86323ded07d4cae/dqjtfizw6qo.jpeg');"></div>
+            <div class="hero-bg-img" style="background-image: url('https://www.maecfinance.com/ws/media-library/a4ca0a7fb8fb121a7f2096452fbbaac3/iybkduavyqw.jpeg');"></div>
+            <div class="hero-bg-img" style="background-image: url('https://www.maecfinance.com/ws/media-library/3abd56795d46846480ad1350094e7020/xhjio1srkrm.jpeg');"></div>
+            <div class="hero-bg-img" style="background-image: url('https://www.maecfinance.com/ws/media-library/c55fd02498c6ce503b2d334e10c3fb41/pp5no5gclda.jpeg');"></div>
+            <div class="hero-bg-img" style="background-image: url('https://www.maecfinance.com/ws/media-library/3d72c15f090abc714519ecb60ef07e6d/oif5dpuecmg.jpeg');"></div>
+            <div class="hero-bg-img" style="background-image: url('https://www.maecfinance.com/ws/media-library/bdb3bbfd87ec7ecb7e374ce16f4e2a11/rnqs_ve8qao.jpeg');"></div>
+        </div>
+
+        <div class="hero-content">
+            <h1>How Emerging Economies Can Access Global Capital Today</h1>
+            <p class="subtitle">A Complete, Unapologetic, Plain-Language Guide to the MAEC Loan, Credit Enhancement, SBLCs, Hypothecation, PRBS, and the Real Purpose of Banking — For Governments, Banks, and Project Sponsors in the Developing World</p>
+            <div class="hero-badge">2025 Edition</div>
+        </div>
     </section>
 
     <!-- Foreword -->
     <section id="foreword" class="section">
-        <h2 class="section-title">Foreword: Why This Document Exists?</h2>
+        <h2 class="section-title">Foreword: Why This Document Exists</h2>
         <div class="section-divider"></div>
         <p class="section-intro">There is a conversation happening right now in finance ministries, central bank boardrooms, and development project offices across Africa, Asia, and Latin America. This document exists to end that conversation — and replace it with action.</p>
 
@@ -905,11 +1048,11 @@
         <div class="content-grid">
             <div class="content-card">
                 <h3 class="card-title">What MAEC Is Asking Banks To Do</h3>
-                <p class="card-text">• Issue an SBLC MT760 as a contingent credit enhancement instrument — off-balance-sheet<br><br>• Earn an annual credit enhancement fee (0.5-1.5%) on SBLC face value without deploying depositor funds<br><br>• Hold PRBS as a Held-to-Maturity debt security — creating a positive balance sheet asset<br><br>• Complete bank-to-bank due diligence via SWIFT MT799<br><br>• Sign the MAEC Indemnity Agreement — full legal protection</p>
+                <p class="card-text">&bull; Issue an SBLC MT760 as a contingent credit enhancement instrument — off-balance-sheet<br><br>&bull; Earn an annual credit enhancement fee (0.5-1.5%) on SBLC face value without deploying depositor funds<br><br>&bull; Hold PRBS as a Held-to-Maturity debt security — creating a positive balance sheet asset<br><br>&bull; Complete bank-to-bank due diligence via SWIFT MT799<br><br>&bull; Sign the MAEC Indemnity Agreement — full legal protection</p>
             </div>
             <div class="content-card">
                 <h3 class="card-title">What MAEC Is NOT Asking</h3>
-                <p class="card-text">• Lend money, deploy deposits, or guarantee sovereign debt<br><br>• Block cash, reduce liquidity, or breach capital adequacy ratios<br><br>• Take on construction risk, completion risk, or market risk<br><br>• Accept proof-of-funds or cash equivalency requirements<br><br>• Work with unverified third parties, agents, or brokers</p>
+                <p class="card-text">&bull; Lend money, deploy deposits, or guarantee sovereign debt<br><br>&bull; Block cash, reduce liquidity, or breach capital adequacy ratios<br><br>&bull; Take on construction risk, completion risk, or market risk<br><br>&bull; Accept proof-of-funds or cash equivalency requirements<br><br>&bull; Work with unverified third parties, agents, or brokers</p>
             </div>
         </div>
     </section>
@@ -1047,13 +1190,13 @@
 
     <!-- Footer -->
     <footer>
-        <div class="footer-logo">MAEC CAPITAL LTD</div>
+        <div class="footer-logo">MAEC CAPITAL</div>
         <div class="footer-contact">
-            <strong>Dr. Mussie Afeworki</strong>, Representative — MAEC Capital Ltd<br>
-            mussiea@equaltradeglobal.org | +251 922 466 797<br><br>
-            <strong>Dr. Protarcius Ngwenya</strong>, Vice President — MAEC Capital Ltd<br>
-            ngwenya@maecfinance.com | +260 957 359 39<br><br>
-            <strong>UK Office:</strong> sacha.robinson@maecfinance.com | +44 74 2453 926<br>
+            <strong>Dr Protarcius Ngwenya</strong>, Vice President — MAEC Capital Ltd<br>
+            ngwenya@maecfinance.com | +260 957 359 339<br><br>
+            <strong>Dr Mussie Afeworki</strong> — <a href="mailto:afeworkimussie@gmail.com" style="color:var(--soft-gold); text-decoration:none;">Contact & Request Assistance</a><br>
+            afeworkimussie@gmail.com | +251 902 475 979<br><br>
+            <strong>UK Office:</strong> sacha.robinson@maecfinance.com | +44 74 2453 9206<br>
             8 Pennythorne Drive, Leeds, LS19 7DS, West Yorkshire, England, United Kingdom<br>
             maecfinance.com
         </div>
@@ -1061,6 +1204,24 @@
             This document is prepared by MAEC Capital Ltd for institutional recipients, government officials, banking sector leaders, and project sponsors. It does not constitute a public offer of securities, regulated investment advice, or a legally binding commitment to provide finance. All structured finance instruments described are subject to applicable local and international law, regulatory requirements, and satisfactory completion of MAEC's due diligence process. Independent legal, financial, and tax advice should be obtained by all parties prior to executing any transaction documentation. MAEC Capital does not entertain unverified third-party agents or brokers. All engagement must be direct with MAEC Capital.
         </div>
     </footer>
+
+
+    <script>
+        // Auto-close collapsible menu when a link is clicked
+        document.querySelectorAll('.nav-container a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                document.getElementById('nav-toggle').checked = false;
+            });
+        });
+        // Also close when clicking outside the nav
+        document.addEventListener('click', function(e) {
+            var nav = document.querySelector('.sticky-nav');
+            var toggle = document.getElementById('nav-toggle');
+            if (toggle && toggle.checked && nav && !nav.contains(e.target)) {
+                toggle.checked = false;
+            }
+        });
+    </script>
 
 </body>
 </html>
