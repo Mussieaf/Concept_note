@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAEC CAPITAL | The Definitive Guide to Structured Infrastructure Finance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sage-green: #9CAF88;
+            --forest-green: #2D5016;
+            --cream: #FDFCF8;
+            --warm-white: #FAF9F6;
+            --soft-gold: #C4A35A;
+            --charcoal: #2C3E2D;
+            --light-sage: #E8F0E3;
+            --earth-brown: #8B7355;
+            --pale-mint: #F0F7F0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Header & Logo */
+        .top-bar {
+            background: linear-gradient(135deg, var(--forest-green) 0%, #3A6B1F 100%);
+            padding: 40px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .top-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://kimi-web-img.kimi.ai/img/www.maecfinance.com/f50e71e1d2f02126a5761408c5e12c757fe0da21.jpg') center/contain no-repeat;
+            opacity: 0.08;
+        }
+
+        .logo-container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo-container img {
+            height: 120px;
+            width: auto;
+            border-radius: 8px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            background: white;
+            padding: 10px;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            color: white;
+            font-size: 2.5rem;
+            margin-top: 15px;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+        }
+
+        .logo-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--soft-gold);
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-top: 5px;
+            letter-spacing: 3px;
+        }
+
+        /* ===== COLLAPSIBLE NAVIGATION ===== */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            background: rgba(253, 252, 248, 0.97);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--light-sage);
+            z-index: 1000;
+            padding: 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+
+        .nav-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--forest-green);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Hamburger toggle (hidden checkbox) */
+        #nav-toggle {
+            display: none;
+        }
+
+        .nav-toggle-label {
+            display: none;
+            cursor: pointer;
+            width: 30px;
+            height: 24px;
+            position: relative;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .nav-toggle-label span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: var(--forest-green);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .nav-container a {
+            text-decoration: none;
+            color: var(--forest-green);
+            font-family: 'Lato', sans-serif;
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 8px 16px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .nav-container a:hover {
+            background: var(--light-sage);
+            border-color: var(--sage-green);
+            transform: translateY(-2px);
+        }
+
+        /* Mobile collapsible menu */
+        @media (max-width: 900px) {
+            .nav-toggle-label {
+                display: flex;
+            }
+
+            .nav-container {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 0;
+                padding-top: 15px;
+                border-top: 1px solid var(--light-sage);
+                margin-top: 15px;
+            }
+
+            .nav-container a {
+                display: block;
+                width: 100%;
+                text-align: center;
+                padding: 12px;
+                border-radius: 8px;
+                border-bottom: 1px solid var(--light-sage);
+            }
+
+            #nav-toggle:checked ~ .nav-container {
+                display: flex;
+            }
+
+            /* Hamburger animation */
+            #nav-toggle:checked + .nav-toggle-label span:nth-child(1) {
+                transform: translateY(10.5px) rotate(45deg);
+            }
+            #nav-toggle:checked + .nav-toggle-label span:nth-child(2) {
+                opacity: 0;
+            }
+            #nav-toggle:checked + .nav-toggle-label span:nth-child(3) {
+                transform: translateY(-10.5px) rotate(-45deg);
+            }
+        }
+
+        /* ===== HERO SECTION WITH MOVING BACKGROUND ===== */
+        .hero {
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--pale-mint) 0%, var(--light-sage) 50%, var(--cream) 100%);
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: var(--cream);
+            transform: skewY(-2deg);
+        }
+
+        /* Moving background image strip */
+        .hero-bg-strip {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            display: flex;
+            animation: heroScroll 60s linear infinite;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .hero-bg-strip:hover {
+            animation-play-state: paused;
+        }
+
+        .hero-bg-img {
+            width: 16.666%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            flex-shrink: 0;
+        }
+
+        @keyframes heroScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4.5rem;
+            color: var(--forest-green);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            color: var(--earth-brown);
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-style: italic;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--forest-green);
+            color: white;
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            box-shadow: 0 4px 15px rgba(45, 80, 22, 0.3);
+        }
+
+        /* Section Styling */
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 30px;
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.2rem;
+            color: var(--forest-green);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .section-divider {
+            width: 80px;
+            height: 3px;
+            background: var(--soft-gold);
+            margin: 0 auto 50px;
+            border-radius: 2px;
+        }
+
+        .section-intro {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            color: var(--earth-brown);
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 50px;
+            line-height: 1.8;
+        }
+
+        /* Content Cards */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+            border: 1px solid var(--light-sage);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--sage-green);
+            transition: width 0.3s ease;
+        }
+
+        .content-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .content-card:hover::before {
+            width: 8px;
+        }
+
+        .card-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: var(--forest-green);
+            margin-bottom: 15px;
+        }
+
+        .card-text {
+            color: var(--charcoal);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .card-highlight {
+            background: var(--pale-mint);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border-left: 4px solid var(--soft-gold);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            color: var(--forest-green);
+        }
+
+        /* Image Sections */
+        .image-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin: 60px 0;
+        }
+
+        .image-showcase.reverse {
+            direction: rtl;
+        }
+
+        .image-showcase.reverse > * {
+            direction: ltr;
+        }
+
+        .showcase-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .showcase-image img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .showcase-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .showcase-content h3 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            color: var(--forest-green);
+            margin-bottom: 20px;
+        }
+
+        .showcase-content p {
+            font-size: 1rem;
+            line-height: 1.9;
+            color: var(--charcoal);
+            margin-bottom: 15px;
+        }
+
+        /* Table Styling */
+        .table-container {
+            overflow-x: auto;
+            margin: 40px 0;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            font-size: 0.9rem;
+        }
+
+        th {
+            background: var(--forest-green);
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.8rem;
+        }
+
+        td {
+            padding: 16px 18px;
+            border-bottom: 1px solid var(--light-sage);
+            color: var(--charcoal);
+        }
+
+        tr:hover td {
+            background: var(--pale-mint);
+        }
+
+        tr:nth-child(even) {
+            background: var(--warm-white);
+        }
+
+        /* Quote Block */
+        .quote-block {
+            background: var(--forest-green);
+            color: white;
+            padding: 60px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-block::before {
+            content: '"';
+            font-family: 'Playfair Display', serif;
+            font-size: 15rem;
+            position: absolute;
+            top: -60px;
+            left: 30px;
+            opacity: 0.1;
+            line-height: 1;
+        }
+
+        .quote-block p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        .quote-block .author {
+            margin-top: 20px;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--soft-gold);
+        }
+
+        /* Process Steps */
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin: 50px 0;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            padding: 30px 20px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--sage-green);
+            position: relative;
+        }
+
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--soft-gold);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .step-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            color: var(--forest-green);
+            margin-bottom: 10px;
+        }
+
+        .step-desc {
+            font-size: 0.85rem;
+            color: var(--earth-brown);
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--forest-green) 0%, #3A6B1F 100%);
+            padding: 100px 30px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: rgba(196, 163, 90, 0.1);
+            border-radius: 50%;
+        }
+
+        .cta-section h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--soft-gold);
+            color: var(--forest-green);
+            padding: 16px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            background: #D4B36A;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 60px 30px 30px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            letter-spacing: 6px;
+            margin-bottom: 20px;
+            color: var(--soft-gold);
+        }
+
+        .footer-contact {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.9rem;
+            line-height: 2;
+            opacity: 0.8;
+            margin-bottom: 30px;
+        }
+
+        .footer-disclaimer {
+            font-size: 0.75rem;
+            opacity: 0.5;
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.6;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            .section-title { font-size: 2.2rem; }
+            .image-showcase { grid-template-columns: 1fr; }
+            .process-steps { flex-direction: column; }
+            .content-grid { grid-template-columns: 1fr; }
+            .hero-bg-img { width: 33.333%; }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Anchor offset for sticky nav */
+        section[id] {
+            scroll-margin-top: 80px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with Logo -->
+    <header class="top-bar">
+        <div class="logo-container">
+            <img src="https://kimi-web-img.kimi.ai/img/www.maecfinance.com/f50e71e1d2f02126a5761408c5e12c757fe0da21.jpg" alt="MAEC CAPITAL Logo">
+            <div class="logo-text">MAEC CAPITAL</div>
+            <div class="logo-subtitle">The Definitive Guide to Structured Infrastructure Finance</div>
+        </div>
+    </header>
+
+    <!-- ===== COLLAPSIBLE NAVIGATION ===== -->
+    <nav class="sticky-nav">
+        <div class="nav-wrapper">
+            <div class="nav-brand">MAEC Guide</div>
+            <input type="checkbox" id="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <div class="nav-container">
+                <a href="#foreword">Foreword</a>
+                <a href="#money">Money Creation</a>
+                <a href="#banks">Banking Reality</a>
+                <a href="#sblc">SBLC Explained</a>
+                <a href="#indemnity">Indemnity</a>
+                <a href="#hypothecation">Hypothecation</a>
+                <a href="#process">Loan Process</a>
+                <a href="#why-sblc">Why SBLC?</a>
+                <a href="#terms">Loan Terms</a>
+                <a href="#parallels">World Parallels</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO SECTION WITH MOVING BACKGROUND ===== -->
+    <section class="hero">
+        <!-- Horizontally scrolling background images from MAEC website -->
+        <div class="hero-bg-strip">
+            <div class="hero-bg-img" style="background-image: url('https://www.maecfinance.com/ws/media-library/71ad81812d187519f86323ded07d4cae/dqjtfizw6qo.jpeg');"></div>
+            <div class="hero-bg-img" style="background-image: url('https://www.maecfinance.com/ws/media-library/a4ca0a7fb8fb121a7f2096452fbbaac3/iybkduavyqw.jpeg');"></div>
+            <div class="hero-bg-img" style="background-image: url('https://www.maecfinance.com/ws/media-library/3abd56795d46846480ad1350094e7020/xhjio1srkrm.jpeg');"></div>
+            <div class="hero-bg-img" style="background-image: url('https://www.maecfinance.com/ws/media-library/c55fd02498c6ce503b2d334e10c3fb41/pp5no5gclda.jpeg');"></div>
+            <div class="hero-bg-img" style="background-image: url('https://www.maecfinance.com/ws/media-library/3d72c15f090abc714519ecb60ef07e6d/oif5dpuecmg.jpeg');"></div>
+            <div class="hero-bg-img" style="background-image: url('https://www.maecfinance.com/ws/media-library/bdb3bbfd87ec7ecb7e374ce16f4e2a11/rnqs_ve8qao.jpeg');"></div>
+            <!-- Duplicate set for seamless infinite loop -->
+            <div class="hero-bg-img" style="background-image: url('https://www.maecfinance.com/ws/media-library/71ad81812d187519f86323ded07d4cae/dqjtfizw6qo.jpeg');"></div>
+            <div class="hero-bg-img" style="background-image: url('https://www.maecfinance.com/ws/media-library/a4ca0a7fb8fb121a7f2096452fbbaac3/iybkduavyqw.jpeg');"></div>
+            <div class="hero-bg-img" style="background-image: url('https://www.maecfinance.com/ws/media-library/3abd56795d46846480ad1350094e7020/xhjio1srkrm.jpeg');"></div>
+            <div class="hero-bg-img" style="background-image: url('https://www.maecfinance.com/ws/media-library/c55fd02498c6ce503b2d334e10c3fb41/pp5no5gclda.jpeg');"></div>
+            <div class="hero-bg-img" style="background-image: url('https://www.maecfinance.com/ws/media-library/3d72c15f090abc714519ecb60ef07e6d/oif5dpuecmg.jpeg');"></div>
+            <div class="hero-bg-img" style="background-image: url('https://www.maecfinance.com/ws/media-library/bdb3bbfd87ec7ecb7e374ce16f4e2a11/rnqs_ve8qao.jpeg');"></div>
+        </div>
+
+        <div class="hero-content">
+            <h1>How Emerging Economies Can Access Global Capital Today</h1>
+            <p class="subtitle">A Complete, Unapologetic, Plain-Language Guide to the MAEC Loan, Credit Enhancement, SBLCs, Hypothecation, PRBS, and the Real Purpose of Banking — For Governments, Banks, and Project Sponsors in the Developing World</p>
+            <div class="hero-badge">2025 Edition</div>
+        </div>
+    </section>
+
+    <!-- Foreword -->
+    <section id="foreword" class="section">
+        <h2 class="section-title">Foreword: Why This Document Exists</h2>
+        <div class="section-divider"></div>
+        <p class="section-intro">There is a conversation happening right now in finance ministries, central bank boardrooms, and development project offices across Africa, Asia, and Latin America. This document exists to end that conversation — and replace it with action.</p>
+
+        <div class="content-grid">
+            <div class="content-card">
+                <h3 class="card-title">The Problem</h3>
+                <p class="card-text">"We have a USD 500 million solar project. We have the land, the government support, the feasibility study, and the political will. But we cannot find the finance. Every bank we approach wants us to already have the money before they will give us the loan."</p>
+                <div class="card-highlight">This document exists to end that conversation — and replace it with action.</div>
+            </div>
+            <div class="content-card">
+                <h3 class="card-title">The Solution</h3>
+                <p class="card-text">MAEC Capital has spent years working at the frontier of development finance, structuring transactions for African governments and project sponsors using instruments that the world's most sophisticated financial systems use every day.</p>
+                <div class="card-highlight">The tools are legal. The mechanisms are proven. The documentation exists.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chapter 1: Money Creation -->
+    <section id="money" class="section" style="background: var(--warm-white);">
+        <h2 class="section-title">How Money Is Actually Created</h2>
+        <div class="section-divider"></div>
+        <p class="section-intro">Most people operate under a fundamental misunderstanding about what money is and how it is created. Every part of the common understanding is incorrect.</p>
+
+        <div class="image-showcase">
+            <div class="showcase-image">
+                <img src="https://kimi-web-img.kimi.ai/img/newscentral.africa/2bfd9be9244c8fffa1fa112fab2ab224c1497252.jpg" alt="Solar Energy Infrastructure">
+            </div>
+            <div class="showcase-content">
+                <h3>The Great Misconception</h3>
+                <p>Money is not a fixed thing. It does not exist in limited quantities. Banks do not lend out money that has been deposited by someone else. Governments can spend beyond taxes. And to get a loan, you do not need to prove you already have assets worth at least as much as the loan.</p>
+                <p>The economies that understand this fact have used it to build highways, railways, housing programmes, and technology industries. The economies that cling to the misunderstanding are still waiting for donor aid.</p>
+            </div>
+        </div>
+
+        <div class="content-grid">
+            <div class="content-card">
+                <h3 class="card-title">Kansas City Municipal Bond</h3>
+                <p class="card-text">Kansas City needed a new sewer system with no spare cash. It issued a Municipal Revenue Bond — a promise to repay over 30 years, backed by future sewer fees. Investors bought the bond today. The city received USD 800 million today. The money did not exist before the bond was issued. It was created by the promise of future revenue.</p>
+            </div>
+            <div class="content-card">
+                <h3 class="card-title">US Federal Reserve QE</h3>
+                <p class="card-text">After the 2008 crisis, the Fed purchased USD 3.7 trillion in securities. It did not have this cash in a vault. It created the money digitally — typing new numbers into accounts — to purchase assets representing future mortgage repayments and government tax revenues.</p>
+            </div>
+            <div class="content-card">
+                <h3 class="card-title">China's Infrastructure</h3>
+                <p class="card-text">China built more kilometres of high-speed railway between 2008 and 2020 than the rest of the world combined. It did not pay from accumulated savings. The China Development Bank issued Revenue Rights Asset-Backed Securities — promises backed by future toll revenues.</p>
+            </div>
+            <div class="content-card">
+                <h3 class="card-title">The Bank of England Proof</h3>
+                <p class="card-text">Professor Richard Werner conducted landmark research with the Bank of England itself. Their official conclusion: "Banks do not lend out money that has been deposited with them. When a bank makes a loan, it creates a deposit in the borrower's account, effectively creating new money."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chapter 2: Banking Reality -->
+    <section id="banks" class="section">
+        <h2 class="section-title">What International Banks Are Actually Doing</h2>
+        <div class="section-divider"></div>
+
+        <div class="image-showcase reverse">
+            <div class="showcase-image">
+                <img src="https://kimi-web-img.kimi.ai/img/cdn.businessday.ng/34822ec3e18f41a62223a55b17db2ba46fd664d5.jpg" alt="African Infrastructure Development">
+            </div>
+            <div class="showcase-content">
+                <h3>The Real Purpose of International Bank Presence</h3>
+                <p>When Barclays, Standard Bank, Absa, Stanbic, or Citibank opens a branch in Lusaka, Accra, Harare, Kampala, or Gaborone, they are not doing it out of charitable impulse.</p>
+                <p>They come to Africa to find the assets that justify creating money — your minerals, your land, your agricultural production potential, your future utility revenues, your infrastructure concessions. Right now, they are creating that money for their own international clients, not for your government's infrastructure.</p>
+            </div>
+        </div>
+
+        <div class="quote-block">
+            <p>The question is not whether these financial instruments can be used to mobilise capital against your country's assets. They already are. The question is who benefits from the mobilisation — and whether your government's infrastructure programme can access the same tools.</p>
+        </div>
+
+        <h3 style="font-family: 'Dancing Script', cursive; font-size: 2rem; color: var(--forest-green); text-align: center; margin: 40px 0 30px;">Tools Your Country Already Has</h3>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Country</th>
+                        <th>Key Enabling Legislation</th>
+                        <th>MAEC-Compatible Mechanism</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Uganda</td><td>Financial Institutions Act 2004; PFMA 2015</td><td>SIMPA framework; SBLC credit enhancement by licensed Ugandan bank</td></tr>
+                    <tr><td>Zambia</td><td>Movable Property Act 2016; Banking Act 2017</td><td>PRBS backed by PPA receivables; SBLC from Zambian bank</td></tr>
+                    <tr><td>Botswana</td><td>Movable Property Act 2022; Banking Act</td><td>Revenue assignment; JV-SPV structure; SBLC from Botswana bank</td></tr>
+                    <tr><td>Nigeria</td><td>Investments & Securities Act 2007; CBN Guidelines</td><td>Sukuk-style revenue-backed bonds; SPV structures</td></tr>
+                    <tr><td>Kenya</td><td>Capital Markets Act; PFMA 2012</td><td>Infrastructure Bonds; revenue-backed securities; credit enhancement</td></tr>
+                    <tr><td>Ghana</td><td>Borrowers & Lenders Act 2020</td><td>Collateral Registry; revenue assignment for infrastructure PPPs</td></tr>
+                    <tr><td>South Africa</td><td>Financial Markets Act 2012; Companies Act</td><td>SANRAL toll-backed bonds; corporate SBLC credit enhancement</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Chapter 3: SBLC -->
+    <section id="sblc" class="section" style="background: var(--warm-white);">
+        <h2 class="section-title">The SBLC Demystified</h2>
+        <div class="section-divider"></div>
+        <p class="section-intro">A Standby Letter of Credit looks similar to an LC on paper but serves a fundamentally different purpose. The word "Standby" is the key. It stands by. It waits. It is a contingent commitment — a formal assurance that if a defined trigger condition occurs, the bank will perform.</p>
+
+        <div class="image-showcase">
+            <div class="showcase-image">
+                <img src="https://kimi-web-img.kimi.ai/img/www.eaif.com/74d0c8321bd945bec724a8ce6eff0d66ecc09dac.jpg" alt="Dakar Toll Road Infrastructure">
+            </div>
+            <div class="showcase-content">
+                <h3>Credit Enhancement, Not Payment</h3>
+                <p>In the MAEC framework, the SBLC issued by a local bank is a credit enhancement instrument — not a payment guarantee. Its purpose is to improve the creditworthiness of the project sufficiently that MAEC's international banking platform can confidently channel capital.</p>
+                <p>It is the difference between a project being "unrated and uninvestable" and being "credit-enhanced and bankable."</p>
+            </div>
+        </div>
+
+        <div class="content-grid">
+            <div class="content-card">
+                <h3 class="card-title">Why "Cash Backed" Does Not Mean Cash Blocked</h3>
+                <p class="card-text">"Cash backed" means the SBLC is secured by near-cash assets — assets with defined, contractually certain future cash value: future PPA revenues, future toll revenues, future mineral royalty streams, or PRBS certificates representing hypothecated future income.</p>
+            </div>
+            <div class="content-card">
+                <h3 class="card-title">Why the Bank Does Not Need to Block Cash</h3>
+                <p class="card-text">Four reasons: (1) Basel III CCF Structure — 50% Credit Conversion Factor, not 100%. (2) Off-balance-sheet treatment under IAS 37/IFRS 7. (3) PRBS creates a positive balance sheet asset. (4) MAEC executes a legally binding Indemnity Agreement confirming no claim will ever be made.</p>
+            </div>
+            <div class="content-card">
+                <h3 class="card-title">Single Obligor Limit — A Non-Issue</h3>
+                <p class="card-text">Because SBLCs are off-balance-sheet contingent instruments, not direct loans, they do not count toward the Single Obligor Limit in most regulatory frameworks. A bank can issue an SBLC for a project many multiples of what it could directly lend.</p>
+            </div>
+            <div class="content-card">
+                <h3 class="card-title">The Rescue Helicopter Metaphor</h3>
+                <p class="card-text">An LC is like a taxi — you pay when you arrive. An SBLC is like a rescue helicopter on standby. You hope you never need it. You almost certainly will not. But its mere presence gives confidence to everyone that the operation can proceed safely.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chapter 4: Indemnity -->
+    <section id="indemnity" class="section">
+        <h2 class="section-title">The Indemnity Agreement</h2>
+        <div class="section-divider"></div>
+
+        <div class="quote-block">
+            <p>The Indemnity Agreement is MAEC's answer to the residual concern: what if something goes wrong? It is a legally binding document that transfers risk away from the issuing bank and onto MAEC.</p>
+            <div class="author">— The Bank's Shield</div>
+        </div>
+
+        <div class="content-grid">
+            <div class="content-card">
+                <h3 class="card-title">What the Indemnity Does</h3>
+                <p class="card-text">Indemnifies the bank from any negative occurrence to the SBLC MT760 instrument — any damage, loss of value, civil or criminal suit. Explicitly confirms the SBLC is issued purely for credit enhancement and MAEC will never make a drawing claim. Protects from third-party claims.</p>
+            </div>
+            <div class="content-card">
+                <h3 class="card-title">The Temporal Firewall</h3>
+                <p class="card-text">The SBLC has a validity of 1 year and 1 day. The MAEC loan's grace period is 3 to 5 years. The project repayment obligations begin only after the grace period. The SBLC expires before any repayment obligation ever falls due. It is structurally impossible to claim against it.</p>
+            </div>
+        </div>
+
+        <div class="table-container" style="margin-top: 40px;">
+            <table>
+                <thead>
+                    <tr><th>Provision</th><th>Plain-Language Meaning</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>MAEC indemnifies the bank from all negative occurrences</td><td>If anything goes wrong, MAEC is responsible — not the bank</td></tr>
+                    <tr><td>Bank is not indemnified for bad faith or willful misconduct</td><td>Standard carve-out: if the bank acts wrongly, indemnity does not cover it</td></tr>
+                    <tr><td>Claims must be notified within 30 days</td><td>Practical time limit for any theoretical claim process</td></tr>
+                    <tr><td>Agreement governed by ICC Paris or Swiss Court</td><td>International dispute resolution — not subject to local court risks</td></tr>
+                    <tr><td>Agreement terminates when SBLC expires</td><td>Clean exit — no ongoing obligations after the instrument's validity period</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Chapter 5: Hypothecation -->
+    <section id="hypothecation" class="section" style="background: var(--warm-white);">
+        <h2 class="section-title">Hypothecation, the PRBS & Making Future Revenue Bankable</h2>
+        <div class="section-divider"></div>
+
+        <div class="image-showcase reverse">
+            <div class="showcase-image">
+                <img src="https://kimi-web-img.kimi.ai/img/img2.chinadaily.com.cn/24b4f25789376de7870116231af36c20f56af702.jpeg" alt="Railway Construction Africa">
+            </div>
+            <div class="showcase-content">
+                <h3>The Oldest Trick in Finance</h3>
+                <p>Hypothecation comes from the Greek <em>hypotheke</em>, meaning "pledge." Under a hypothec, a debtor pledges an asset as security — but crucially, retains possession and use of the asset while the pledge is in force.</p>
+                <p>Your mortgage is a hypothecation. You pledge your house but continue to live in it. MAEC applies this ancient principle to modern assets: future project revenue.</p>
+            </div>
+        </div>
+
+        <div class="content-grid">
+            <div class="content-card">
+                <h3 class="card-title">The PRBS Certificate</h3>
+                <p class="card-text">The Project Revenue-Backed Security converts hypothecated future revenue into a bankable, investable asset. Think of it as a certificate of ownership over the future revenue stream — similar to how a land title is a certificate of ownership over physical land.</p>
+            </div>
+            <div class="content-card">
+                <h3 class="card-title">How PRBS Works</h3>
+                <p class="card-text">Future revenues are formally assigned to the SPV via a Revenue Assignment Deed. The SPV issues a PRBS Certificate. The local bank holds the PRBS as a Held-to-Maturity Debt Security — an asset on its balance sheet. The bank issues the SBLC backed by the PRBS.</p>
+            </div>
+            <div class="content-card">
+                <h3 class="card-title">What is SIMPA?</h3>
+                <p class="card-text">Sovereign Infrastructure Monetization and Project Acceleration — MAEC's complete structured finance architecture for sovereign infrastructure projects. It encompasses revenue identification, SPV constitution, revenue assignment, SBLC credit enhancement, and loan deployment.</p>
+            </div>
+            <div class="content-card">
+                <h3 class="card-title">Legal Basis by Jurisdiction</h3>
+                <p class="card-text">Every country with a banking act, companies act, and securitization framework has the legal skeleton for the MAEC mechanism. Uganda's PFMA 2015, Zambia's Movable Property Act 2016, Botswana's 2022 Act, Nigeria's ISA 2007 — all enable this structure.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chapter 6: Process -->
+    <section id="process" class="section">
+        <h2 class="section-title">The Complete MAEC Loan Process</h2>
+        <div class="section-divider"></div>
+        <p class="section-intro">Every MAEC loan transaction follows the same fundamental sequence, regardless of country, sector, or loan size. First disbursement within 30 days of authenticated SBLC.</p>
+
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-number">01</div>
+                <div class="step-title">Application & Term Sheet</div>
+                <div class="step-desc">Universal Funds Request Letter + signed Term Sheet with MAEC</div>
+            </div>
+            <div class="step">
+                <div class="step-number">02</div>
+                <div class="step-title">Bank Engagement & RWA</div>
+                <div class="step-desc">Ready Willing and Able letter from client's bank + Bank RMA List</div>
+            </div>
+            <div class="step">
+                <div class="step-number">03</div>
+                <div class="step-title">Bank-to-Bank DD (MT799)</div>
+                <div class="step-desc">SWIFT MT799 Pre-Advice and Return MT799 confirming readiness</div>
+            </div>
+            <div class="step">
+                <div class="step-number">04</div>
+                <div class="step-title">SBLC Issuance (MT760)</div>
+                <div class="step-desc">SBLC MT760 transmitted + Loan Agreement + Indemnity Agreement</div>
+            </div>
+            <div class="step">
+                <div class="step-number">05</div>
+                <div class="step-title">Loan Disbursement</div>
+                <div class="step-desc">First disbursement within 30 days; monthly tranches until full deployment</div>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr><th>Timeline</th><th>Milestone</th><th>Responsible Party</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Days 1-7</td><td>Term Sheet signed; Funds Request submitted; Project proposal reviewed</td><td>Client + MAEC</td></tr>
+                    <tr><td>Days 7-21</td><td>Bank identified; RWA letter submitted; Bank RMA List provided</td><td>Client's Bank</td></tr>
+                    <tr><td>Days 14-28</td><td>MAEC designates receiving bank; MT799 exchanged; Due diligence completed</td><td>Both Banks + MAEC</td></tr>
+                    <tr><td>Days 21-35</td><td>SBLC MT760 transmitted; Loan Agreement executed; Indemnity signed</td><td>Client's Bank + Client + MAEC</td></tr>
+                    <tr><td>Day 30 (from MT760)</td><td>FIRST DISBURSEMENT: first tranche deployed</td><td>MAEC Banking Platform</td></tr>
+                    <tr><td>Monthly thereafter</td><td>Subsequent tranches until full loan deployed (12-48 tranches)</td><td>MAEC Banking Platform</td></tr>
+                    <tr><td>Grace Period (3-5 years)</td><td>No principal repayment; project constructs and commences operations</td><td>Client / Project SPV</td></tr>
+                    <tr><td>Repayment Phase</td><td>Monthly repayment from project revenue waterfall up to 30 years at 1% p.a.</td><td>Client / Project SPV</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Chapter 7: Why SBLC -->
+    <section id="why-sblc" class="section" style="background: var(--warm-white);">
+        <h2 class="section-title">Why Does MAEC Need Your SBLC?</h2>
+        <div class="section-divider"></div>
+
+        <div class="image-showcase">
+            <div class="showcase-image">
+                <img src="https://kimi-web-img.kimi.ai/img/africa-energy-portal.org/e2be3d727d5ce0b3a2d7e80bb4faf0fbee9122cf.jpg" alt="Solar Power Plant Africa">
+            </div>
+            <div class="showcase-content">
+                <h3>Four Fundamental Reasons</h3>
+                <p><strong>1. Regulatory Compliance:</strong> Local banks are the regulated gateway. MAEC cannot legally deploy capital directly without routing through the regulated banking system.</p>
+                <p><strong>2. Risk Transfer:</strong> The SBLC transforms the risk profile from "uncollateralised African project" to "loan secured by SBLC from regulated local bank."</p>
+                <p><strong>3. Leverage:</strong> One SBLC unlocks multiple times its face value through credit enhancement, insurance, and structured engineering.</p>
+                <p><strong>4. Proof of Local Commitment:</strong> The local bank's SBLC demonstrates institutional commitment — skin in the game.</p>
+            </div>
+        </div>
+
+        <div class="quote-block">
+            <p>This is not too good to be true. Every element has been used in traceable, verifiable, public transactions. The Ilute Solar Project in Zambia, the Chisamba 100MW plant, Nigeria's FGN Sukuk, Kenya's Infrastructure Bond Programme — all validate these components.</p>
+        </div>
+    </section>
+
+    <!-- Chapter 8 & 9: Call to Action -->
+    <section class="section">
+        <h2 class="section-title">A Call to Africa's Bankers</h2>
+        <div class="section-divider"></div>
+
+        <div class="content-grid">
+            <div class="content-card">
+                <h3 class="card-title">What MAEC Is Asking Banks To Do</h3>
+                <p class="card-text">&bull; Issue an SBLC MT760 as a contingent credit enhancement instrument — off-balance-sheet<br><br>&bull; Earn an annual credit enhancement fee (0.5-1.5%) on SBLC face value without deploying depositor funds<br><br>&bull; Hold PRBS as a Held-to-Maturity debt security — creating a positive balance sheet asset<br><br>&bull; Complete bank-to-bank due diligence via SWIFT MT799<br><br>&bull; Sign the MAEC Indemnity Agreement — full legal protection</p>
+            </div>
+            <div class="content-card">
+                <h3 class="card-title">What MAEC Is NOT Asking</h3>
+                <p class="card-text">&bull; Lend money, deploy deposits, or guarantee sovereign debt<br><br>&bull; Block cash, reduce liquidity, or breach capital adequacy ratios<br><br>&bull; Take on construction risk, completion risk, or market risk<br><br>&bull; Accept proof-of-funds or cash equivalency requirements<br><br>&bull; Work with unverified third parties, agents, or brokers</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chapter 10: Terms -->
+    <section id="terms" class="section" style="background: var(--warm-white);">
+        <h2 class="section-title">MAEC Capital Loan Terms</h2>
+        <div class="section-divider"></div>
+        <p class="section-intro">Clear, Complete, and Non-Negotiable on the Core</p>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr><th>Parameter</th><th>MAEC Capital Standard Terms</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Lender</strong></td><td>MAEC Capital Ltd (as funding facilitator); Actual capital from MAEC Banking Platform partners</td></tr>
+                    <tr><td><strong>Interest Rate</strong></td><td>1% per annum fixed for the full loan tenure — among the lowest rates globally for development finance</td></tr>
+                    <tr><td><strong>Loan Tenure</strong></td><td>Up to 30 years</td></tr>
+                    <tr><td><strong>Grace Period</strong></td><td>3 to 5 years from first disbursement — no principal repayment during construction/early operation</td></tr>
+                    <tr><td><strong>Disbursement</strong></td><td>First disbursement within 30 days of authenticated SBLC MT760; subsequent tranches monthly</td></tr>
+                    <tr><td><strong>Disbursement Period</strong></td><td>12 to 48 monthly tranches depending on loan size</td></tr>
+                    <tr><td><strong>Arrangement Fee</strong></td><td>6% of total loan amount — deducted from loan proceeds at disbursement; NOT payable in advance</td></tr>
+                    <tr><td><strong>Minimum Loan Size</strong></td><td>EUR/USD 100 million equivalent; no stated maximum</td></tr>
+                    <tr><td><strong>Repayment Source</strong></td><td>Project revenues — the MAEC loan is repaid from proceeds, profits, and receivables of the funded project</td></tr>
+                    <tr><td><strong>Security</strong></td><td>SBLC MT760 from client's bank; Revenue assignment / PRBS; MAEC Indemnity Agreement</td></tr>
+                    <tr><td><strong>Governing Law</strong></td><td>Loan Agreement: Swiss or English law; SBLC: ICC 600/URDG 758; Indemnity: ICC Paris or Swiss Court</td></tr>
+                    <tr><td><strong>No Advance Fees</strong></td><td>MAEC does not charge fees before loan disbursement. The 6% is from proceeds. Beware of upfront cash payment requests.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <h3 style="font-family: 'Dancing Script', cursive; font-size: 1.8rem; color: var(--forest-green); margin-bottom: 20px;">MAEC's Banking Platform Includes</h3>
+            <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--earth-brown); line-height: 2;">
+                HSBC — Hong Kong & International | Barclays — London | ICBC — China | Bank of China — Anhui & International<br>
+                BNP Paribas — France & International | Standard Chartered — Singapore & African Operations
+            </p>
+        </div>
+    </section>
+
+    <!-- Chapter 11: Parallels -->
+    <section id="parallels" class="section">
+        <h2 class="section-title">World Parallels — Proof That This Works</h2>
+        <div class="section-divider"></div>
+
+        <div class="image-showcase reverse">
+            <div class="showcase-image">
+                <img src="https://kimi-web-img.kimi.ai/img/english.news.cn/6d35b798748722498254783fb0c9cfeb765eb7d9.jpg" alt="Photovoltaic Power Plant Africa">
+            </div>
+            <div class="showcase-content">
+                <h3>Traceable, Verifiable Precedents</h3>
+                <p>Every component of the MAEC framework has precedent in real, verifiable, public transactions. The combination is innovative — the components are not.</p>
+                <p>From Kansas City Water Revenue Bonds to China's CDB Infrastructure Finance, from Kenya's Infrastructure Bond Programme to Nigeria's FGN Sukuk, from Zambia's Ilute Solar Project to South Africa's SANRAL Toll Bonds — the evidence is overwhelming.</p>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr><th>Parallel</th><th>Transaction</th><th>MAEC Component Validated</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>US Municipal Revenue Bonds</td><td>Kansas City Water Revenue Bond, 2019 — USD 800M backed by future sewer fees</td><td>Revenue assignment as basis for present capital</td></tr>
+                    <tr><td>China CDB Infrastructure</td><td>Addis Ababa-Djibouti Railway, 2016 — USD 4B backed by future freight revenues</td><td>SPV structure; revenue assignment; 1% rate; 30-year tenor</td></tr>
+                    <tr><td>Kenya Infrastructure Bond</td><td>2009-2023 programme — KES 500B raised; Kenyan banks as credit enhancement</td><td>Local bank credit enhancement; no sovereign balance sheet impact</td></tr>
+                    <tr><td>Nigeria FGN Sukuk</td><td>Series 1-5, 2017-2023 — NGN 750B cumulative; road concession revenues</td><td>PRBS mechanism; IFRS 9 accounting; government revenue hypothecation</td></tr>
+                    <tr><td>South Africa SANRAL</td><td>Multiple issuances, 2005-2023 — ZAR 50B+ backed by N1/N3 toll revenues</td><td>SBLC credit enhancement; toll revenue PRBS</td></tr>
+                    <tr><td>Zambia Ilute Solar (2025)</td><td>USD 26.5M — GreenCo PPA revenue assigned; FMO as MLA</td><td>PPA revenue assignment; SPV structure; off-balance-sheet</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Final Word -->
+    <section class="section" style="background: var(--warm-white);">
+        <h2 class="section-title">The Real Role of Banking in Development</h2>
+        <div class="section-divider"></div>
+
+        <div class="quote-block">
+            <p>The donor model is exhausted. For 60 years, the developing world has financed infrastructure through sovereign borrowing, donor grants, and conditional World Bank/IMF loans. These channels will not build the railways, hospitals, power grids, highways, water systems, and smart cities that the next generation deserves.</p>
+            <div class="author">— A Final Word</div>
+        </div>
+
+        <div class="content-grid">
+            <div class="content-card">
+                <h3 class="card-title">To Finance Ministers</h3>
+                <p class="card-text">Your country's future revenues are an asset. They are sitting on a balance sheet that does not exist yet — the balance sheet of the projects you will build. MAEC Capital exists to advance that balance sheet into reality.</p>
+            </div>
+            <div class="content-card">
+                <h3 class="card-title">To Commercial Bank CEOs</h3>
+                <p class="card-text">Your institution was granted a banking licence to intermediate capital and build economic activity. Issuing an SBLC credit enhancement — earning a fee, booking a PRBS asset, writing a legally indemnified document — is exactly that.</p>
+            </div>
+            <div class="content-card">
+                <h3 class="card-title">To Project Sponsors</h3>
+                <p class="card-text">Your feasibility study, your PPA, your concession agreement, your traffic count — these are financial instruments. In the technical, legally enforceable, globally bankable sense. MAEC Capital will show you how to use them.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Reference -->
+    <section class="section">
+        <h2 class="section-title">Quick Reference</h2>
+        <div class="section-divider"></div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr><th>Question</th><th>Answer</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>What does MAEC do?</td><td>Facilitates development loans using credit enhancement instruments — not balance sheet lending</td></tr>
+                    <tr><td>What is the interest rate?</td><td>1% per annum fixed for up to 30 years</td></tr>
+                    <tr><td>What is the fee?</td><td>6% arrangement fee, deducted from loan proceeds at disbursement. Nothing payable in advance.</td></tr>
+                    <tr><td>What is an SBLC?</td><td>Standby Letter of Credit — a contingent credit enhancement instrument, NOT a payment guarantee. Off-balance-sheet. No cash blocked.</td></tr>
+                    <tr><td>What is "cash backed"?</td><td>The SBLC is secured by future project revenues (near-cash assets). Under UCP 600/ISP98, this is permissible and internationally standard.</td></tr>
+                    <tr><td>What is a PRBS?</td><td>Project Revenue-Backed Security — a certificate representing future project revenues, held by the bank as IFRS 9 Held-to-Maturity asset</td></tr>
+                    <tr><td>What is hypothecation?</td><td>Pledging future revenues as security for a loan while retaining ownership and operation of the revenue-generating asset</td></tr>
+                    <tr><td>Will the bank's cash be blocked?</td><td>No. Never. The SBLC is off-balance-sheet. The PRBS creates a positive asset. The Indemnity protects against any claim.</td></tr>
+                    <tr><td>Why does MAEC need the SBLC?</td><td>Regulatory compliance; risk transformation; credit enhancement from non-rated to investable; local institutional commitment signal</td></tr>
+                    <tr><td>How long does it take?</td><td>30 days from authenticated SBLC to first disbursement; full deployment over 12-48 monthly tranches</td></tr>
+                    <tr><td>Does MAEC work with agents?</td><td>No. MAEC engages directly with governments, banks, and project sponsors.</td></tr>
+                    <tr><td>What countries does this work in?</td><td>Every country with a banking act, companies act, and securitization framework — virtually every developing country</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <h2>Your Country's Future Is An Asset</h2>
+        <p>Your bank's licence is a mandate to use it. MAEC Capital is the bridge. The capital is waiting. The projects are waiting. The legal frameworks exist.</p>
+        <a href="mailto:ngwenya@maecfinance.com" class="cta-button">Begin the Conversation</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">MAEC CAPITAL</div>
+        <div class="footer-contact">
+            <strong>Dr Protarcius Ngwenya</strong>, Vice President — MAEC Capital Ltd<br>
+            ngwenya@maecfinance.com | +260 957 359 339<br><br>
+            <strong>UK Office:</strong> sacha.robinson@maecfinance.com | +44 74 2453 9206<br>
+            8 Pennythorne Drive, Leeds, LS19 7DS, West Yorkshire, England, United Kingdom<br>
+            maecfinance.com
+        </div>
+        <div class="footer-disclaimer">
+            This document is prepared by MAEC Capital Ltd for institutional recipients, government officials, banking sector leaders, and project sponsors. It does not constitute a public offer of securities, regulated investment advice, or a legally binding commitment to provide finance. All structured finance instruments described are subject to applicable local and international law, regulatory requirements, and satisfactory completion of MAEC's due diligence process. Independent legal, financial, and tax advice should be obtained by all parties prior to executing any transaction documentation. MAEC Capital does not entertain unverified third-party agents or brokers. All engagement must be direct with MAEC Capital.
+        </div>
+    </footer>
+
+</body>
+</html>
