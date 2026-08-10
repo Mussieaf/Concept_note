@@ -36,6 +36,18 @@
 body{font-family:'Lato',sans-serif;background-color:var(--cream);color:var(--charcoal);line-height:1.7;overflow-x:hidden;}
 .top-bar{background:linear-gradient(135deg,var(--maec-blue) 0%,var(--maec-blue-dark) 100%);padding:40px 0;text-align:center;position:relative;overflow:hidden;}
 .top-bar::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url('https://kimi-web-img.kimi.ai/img/www.maecfinance.com/f50e71e1d2f02126a5761408c5e12c757fe0da21.jpg') center/contain no-repeat;opacity:0.08;}
+.github-corner{
+    position:absolute;
+    top:15px;
+    right:25px;
+    z-index:10;
+    color:white;
+    font-size:1.8rem;
+    transition:transform 0.3s ease;
+}
+.github-corner:hover{
+    transform:scale(1.15);
+}
 .logo-container{position:relative;z-index:2;}
 .logo-container img{height:120px;width:auto;border-radius:8px;box-shadow:0 8px 32px rgba(0,0,0,0.3);background:white;padding:10px;}
 .logo-text{font-family:'Playfair Display',serif;color:white;font-size:2.5rem;margin-top:15px;letter-spacing:8px;text-transform:uppercase;}
@@ -121,12 +133,15 @@ footer{background:var(--charcoal);color:white;padding:60px 30px 30px;text-align:
 @media(max-width:768px){.hero h1{font-size:2.8rem;}.section-title{font-size:2.2rem;}.image-showcase{grid-template-columns:1fr;}.process-steps{flex-direction:column;}.content-grid{grid-template-columns:1fr;}.maec-image-strip-wrapper{height:150px;}}
 html{scroll-behavior:smooth;}
 section[id]{scroll-margin-top:80px;}
-.github-icon-hidden{display:none !important;}
 </style>
 <base target="_blank">
 </head>
 <body>
-<i class="fa-brands fa-github github-icon-hidden"></i>
+
+<!-- ===== VISIBLE GITHUB ICON IN HEADER ===== -->
+<a href="https://github.com/mussieaf/Concept_note" target="_blank" class="github-corner" aria-label="View on GitHub">
+    <i class="fa-brands fa-github"></i>
+</a>
 
 <!-- Header -->
 <header class="top-bar">
@@ -559,12 +574,11 @@ This document is prepared by MAEC Capital Ltd for institutional recipients, gove
   if (menu) {
     menu.querySelectorAll('a').forEach(function(link) {
       link.addEventListener('click', function(e) {
-        e.preventDefault();                          // STAY on same page
+        e.preventDefault() + scrollIntoView({behavior:'smooth'});   // STAY on same page
         var target = document.querySelector(this.getAttribute('href'));
         if (target) {
           target.scrollIntoView({behavior: 'smooth'}); // Smooth scroll
-        }
-        if (toggle) toggle.checked = false;         // COLLAPSE menu
+        } if (toggle) toggle.checked = false;         // COLLAPSE menu
       });
     });
   }
@@ -577,6 +591,5 @@ This document is prepared by MAEC Capital Ltd for institutional recipients, gove
   });
 })();
 </script>
-
 </body>
 </html>
