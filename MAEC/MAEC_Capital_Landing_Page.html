@@ -48,17 +48,110 @@ body{font-family:'Lato',sans-serif;background-color:var(--cream);color:var(--cha
 .maec-strip-img{width:16.666%;height:100%;background-size:cover;background-position:center;flex-shrink:0;position:relative;}
 .maec-strip-img::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(to bottom,transparent 60%,rgba(61,79,111,0.4) 100%);}
 @keyframes stripScroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+                                                                     
+/* ===== COLLAPSIBLE RESPONSIVE NAVIGATION ===== */
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  background: rgba(253,252,248,0.97);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid var(--light-sage);
+  z-index: 1000;
+  padding: 0;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+}
+.nav-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--maec-blue);
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+#nav-toggle { display: none; }
+.nav-toggle-label {
+  display: none;
+  cursor: pointer;
+  width: 30px;
+  height: 24px;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.nav-toggle-label span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: var(--maec-blue);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+.nav-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.nav-container a {
+  text-decoration: none;
+  color: var(--maec-blue);
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 8px 16px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+.nav-container a:hover {
+  background: var(--light-sage);
+  border-color: var(--sage-green);
+  transform: translateY(-2px);
+}
 
-.sticky-nav{position:sticky;top:0;background:rgba(253,252,248,0.97);backdrop-filter:blur(10px);border-bottom:2px solid var(--light-sage);z-index:1000;padding:0;box-shadow:0 2px 20px rgba(0,0,0,0.05);}
-.nav-wrapper{max-width:1400px;margin:0 auto;padding:15px 20px;display:flex;align-items:center;justify-content:space-between;}
-.nav-brand{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--maec-blue);font-weight:700;letter-spacing:2px;text-transform:uppercase;}
-#nav-toggle{display:none;}
-.nav-toggle-label{display:none;cursor:pointer;width:30px;height:24px;position:relative;flex-direction:column;justify-content:space-between;}
-.nav-toggle-label span{display:block;width:100%;height:3px;background:var(--maec-blue);border-radius:2px;transition:all 0.3s ease;transform-origin:center;}
-.nav-container{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;}
-.nav-container a{text-decoration:none;color:var(--maec-blue);font-family:'Lato',sans-serif;font-weight:600;font-size:0.75rem;text-transform:uppercase;letter-spacing:1.5px;padding:8px 16px;border-radius:30px;transition:all 0.3s ease;border:1px solid transparent;}
-.nav-container a:hover{background:var(--light-sage);border-color:var(--sage-green);transform:translateY(-2px);}
-@media(max-width:900px){.nav-toggle-label{display:flex;}.nav-container{display:none;width:100%;flex-direction:column;gap:0;padding-top:15px;border-top:1px solid var(--light-sage);margin-top:15px;}.nav-container a{display:block;width:100%;text-align:center;padding:12px;border-radius:8px;border-bottom:1px solid var(--light-sage);}#nav-toggle:checked~.nav-container{display:flex;}#nav-toggle:checked+.nav-toggle-label span:nth-child(1){transform:translateY(10.5px) rotate(45deg);}#nav-toggle:checked+.nav-toggle-label span:nth-child(2){opacity:0;}#nav-toggle:checked+.nav-toggle-label span:nth-child(3){transform:translateY(-10.5px) rotate(-45deg);}}
+/* Mobile/Tablet collapsible menu (≤900px) */
+@media(max-width: 900px) {
+  .nav-toggle-label { display: flex; }
+  .nav-container {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+    padding-top: 15px;
+    border-top: 1px solid var(--light-sage);
+    margin-top: 15px;
+  }
+  .nav-container a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+    border-radius: 8px;
+    border-bottom: 1px solid var(--light-sage);
+  }
+  #nav-toggle:checked ~ .nav-container { display: flex; }
+  #nav-toggle:checked + .nav-toggle-label span:nth-child(1) {
+    transform: translateY(10.5px) rotate(45deg);
+  }
+  #nav-toggle:checked + .nav-toggle-label span:nth-child(2) {
+    opacity: 0;
+  }
+  #nav-toggle:checked + .nav-toggle-label span:nth-child(3) {
+    transform: translateY(-10.5px) rotate(-45deg);
+  }
+}
+  
 .hero{padding:100px 20px;text-align:center;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--pale-mint) 0%,var(--light-sage) 50%,var(--cream) 100%);}
 .hero::after{content:'';position:absolute;bottom:-50px;left:0;right:0;height:100px;background:var(--cream);transform:skewY(-2deg);}
 .hero-content{position:relative;z-index:2;}
@@ -149,29 +242,38 @@ section[id]{scroll-margin-top:80px;}
 </div>
 </div>
 
-<!-- Collapsible Navigation -->
+<!-- ===== COLLAPSIBLE RESPONSIVE NAVIGATION ===== -->
 <nav class="sticky-nav" id="main-nav">
-<div class="nav-wrapper">
-<div class="nav-brand">MAEC Guide</div>
-<input type="checkbox" id="nav-toggle">
-<label for="nav-toggle" class="nav-toggle-label" id="nav-toggle-label">
-<span></span><span></span><span></span>
-</label>
-<div class="nav-container" id="nav-menu">
-<a href="#foreword">Foreword</a>
-<a href="#money">Money Creation</a>
-<a href="#banks">Banking Reality</a>
-<a href="#sblc">SBLC Explained</a>
-<a href="#indemnity">Indemnity</a>
-<a href="#hypothecation">Hypothecation</a>
-<a href="#process">Loan Process</a>
-<a href="#why-sblc">Why SBLC?</a>
-<a href="#terms">Loan Terms</a>
-<a href="#parallels">World Parallels</a>
-<a href="#contact">Contact</a>
-</div>
-</div>
+  <div class="nav-wrapper">
+    <div class="nav-brand">MAEC Guide</div>
+    
+    <!-- Hidden checkbox controls open/close state -->
+    <input type="checkbox" id="nav-toggle">
+    
+    <!-- Hamburger icon (3 lines) -->
+    <label for="nav-toggle" class="nav-toggle-label" id="nav-toggle-label">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+    
+    <!-- Menu links -->
+    <div class="nav-container" id="nav-menu">
+      <a href="#foreword">Foreword</a>
+      <a href="#money">Money Creation</a>
+      <a href="#banks">Banking Reality</a>
+      <a href="#sblc">SBLC Explained</a>
+      <a href="#indemnity">Indemnity</a>
+      <a href="#hypothecation">Hypothecation</a>
+      <a href="#process">Loan Process</a>
+      <a href="#why-sblc">Why SBLC?</a>
+      <a href="#terms">Loan Terms</a>
+      <a href="#parallels">World Parallels</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
 </nav>
+  
 
 <!-- Hero -->
 <section class="hero">
@@ -549,6 +651,28 @@ var menu=document.getElementById('nav-menu');
 var nav=document.getElementById('main-nav');
 if(menu){menu.querySelectorAll('a').forEach(function(link){link.addEventListener('click',function(){if(toggle)toggle.checked=false;});});}
 document.addEventListener('click',function(e){if(nav&&!nav.contains(e.target)){if(toggle)toggle.checked=false;}});
+})();
+  
+(function(){
+  var toggle = document.getElementById('nav-toggle');
+  var menu   = document.getElementById('nav-menu');
+  var nav    = document.getElementById('main-nav');
+
+  // Collapse menu when any link is clicked
+  if (menu) {
+    menu.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        if (toggle) toggle.checked = false;
+      });
+    });
+  }
+
+  // Collapse menu when clicking outside the nav
+  document.addEventListener('click', function(e) {
+    if (nav && !nav.contains(e.target)) {
+      if (toggle) toggle.checked = false;
+    }
+  });
 })();
 </script>
 
