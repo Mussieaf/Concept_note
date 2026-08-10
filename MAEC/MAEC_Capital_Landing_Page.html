@@ -9,7 +9,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <!-- Open Graph / Facebook, whatsapp -->
-<meta property="og:title" content="MAEC CAPITAL | Structured Infrastructure Finance" />
 <meta property="og:description" content="The Definitive Guide to How Emerging Economies Can Access Global Capital Today" />
 <meta property="og:image" content="https://mussieaf.github.io/Concept_note/maec.jpg?v=2" />
 <meta property="og:image:secure_url" content="https://mussieaf.github.io/Concept_note/maec.jpg?v=2" />
@@ -21,7 +20,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="MAEC CAPITAL LIMITED" />
 <meta property="og:locale" content="en_US" />
-  
+
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="MAEC CAPITAL | Structured Infrastructure Finance">
@@ -29,8 +28,7 @@
 <meta name="twitter:image" content="https://mussieaf.github.io/Concept_note/maec.jpg?v=2">
 <meta name="twitter:image:alt" content="MAEC CAPITAL - Structured Infrastructure Finance">
 <meta name="description" content="The Definitive Guide to How Emerging Economies Can Access Global Capital Today">
-
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">  
 <style>
 :root{--sage-green:#9CAF88;--forest-green:#2D5016;--cream:#FDFCF8;--warm-white:#FAF9F6;--soft-gold:#C4A35A;--charcoal:#2C3E2D;--light-sage:#E8F0E3;--earth-brown:#8B7355;--pale-mint:#F0F7F0;--maec-blue:#3D4F6F;--maec-blue-dark:#2C3E55;}
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -41,6 +39,15 @@ body{font-family:'Lato',sans-serif;background-color:var(--cream);color:var(--cha
 .logo-container img{height:120px;width:auto;border-radius:8px;box-shadow:0 8px 32px rgba(0,0,0,0.3);background:white;padding:10px;}
 .logo-text{font-family:'Playfair Display',serif;color:white;font-size:2.5rem;margin-top:15px;letter-spacing:8px;text-transform:uppercase;}
 .logo-subtitle{font-family:'Cormorant Garamond',serif;color:var(--soft-gold);font-size:1.2rem;font-style:italic;margin-top:5px;letter-spacing:3px;}
+
+/* ===== HORIZONTALLY MOVING IMAGE STRIP BELOW HEADER ===== */
+.maec-image-strip-wrapper{position:relative;width:100%;height:220px;overflow:hidden;background:var(--warm-white);border-bottom:3px solid var(--light-sage);}
+.maec-image-strip{display:flex;width:200%;height:100%;animation:stripScroll 40s linear infinite;}
+.maec-image-strip:hover{animation-play-state:paused;}
+.maec-strip-img{width:16.666%;height:100%;background-size:cover;background-position:center;flex-shrink:0;position:relative;}
+.maec-strip-img::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(to bottom,transparent 60%,rgba(61,79,111,0.4) 100%);}
+@keyframes stripScroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
 .sticky-nav{position:sticky;top:0;background:rgba(253,252,248,0.97);backdrop-filter:blur(10px);border-bottom:2px solid var(--light-sage);z-index:1000;padding:0;box-shadow:0 2px 20px rgba(0,0,0,0.05);}
 .nav-wrapper{max-width:1400px;margin:0 auto;padding:15px 20px;display:flex;align-items:center;justify-content:space-between;}
 .nav-brand{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--maec-blue);font-weight:700;letter-spacing:2px;text-transform:uppercase;}
@@ -53,10 +60,6 @@ body{font-family:'Lato',sans-serif;background-color:var(--cream);color:var(--cha
 @media(max-width:900px){.nav-toggle-label{display:flex;}.nav-container{display:none;width:100%;flex-direction:column;gap:0;padding-top:15px;border-top:1px solid var(--light-sage);margin-top:15px;}.nav-container a{display:block;width:100%;text-align:center;padding:12px;border-radius:8px;border-bottom:1px solid var(--light-sage);}#nav-toggle:checked~.nav-container{display:flex;}#nav-toggle:checked+.nav-toggle-label span:nth-child(1){transform:translateY(10.5px) rotate(45deg);}#nav-toggle:checked+.nav-toggle-label span:nth-child(2){opacity:0;}#nav-toggle:checked+.nav-toggle-label span:nth-child(3){transform:translateY(-10.5px) rotate(-45deg);}}
 .hero{padding:100px 20px;text-align:center;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--pale-mint) 0%,var(--light-sage) 50%,var(--cream) 100%);}
 .hero::after{content:'';position:absolute;bottom:-50px;left:0;right:0;height:100px;background:var(--cream);transform:skewY(-2deg);}
-.hero-bg-strip{position:absolute;top:0;left:0;width:200%;height:100%;display:flex;animation:heroScroll 60s linear infinite;opacity:0.15;z-index:0;}
-.hero-bg-strip:hover{animation-play-state:paused;}
-.hero-bg-img{width:16.666%;height:100%;background-size:cover;background-position:center;flex-shrink:0;}
-@keyframes heroScroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 .hero-content{position:relative;z-index:2;}
 .hero h1{font-family:'Great Vibes',cursive;font-size:4.5rem;color:var(--forest-green);margin-bottom:20px;text-shadow:2px 2px 4px rgba(0,0,0,0.1);line-height:1.2;}
 .hero .subtitle{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--earth-brown);max-width:800px;margin:0 auto 40px;font-style:italic;}
@@ -108,7 +111,7 @@ footer{background:var(--charcoal);color:white;padding:60px 30px 30px;text-align:
 .footer-contact a{color:var(--soft-gold);text-decoration:none;}
 .footer-contact a:hover{text-decoration:underline;}
 .footer-disclaimer{font-size:0.75rem;opacity:0.5;max-width:900px;margin:0 auto;line-height:1.6;border-top:1px solid rgba(255,255,255,0.1);padding-top:20px;}
-@media(max-width:768px){.hero h1{font-size:2.8rem;}.section-title{font-size:2.2rem;}.image-showcase{grid-template-columns:1fr;}.process-steps{flex-direction:column;}.content-grid{grid-template-columns:1fr;}.hero-bg-img{width:33.333%;}}
+@media(max-width:768px){.hero h1{font-size:2.8rem;}.section-title{font-size:2.2rem;}.image-showcase{grid-template-columns:1fr;}.process-steps{flex-direction:column;}.content-grid{grid-template-columns:1fr;}.maec-image-strip-wrapper{height:150px;}}
 html{scroll-behavior:smooth;}
 section[id]{scroll-margin-top:80px;}
 .github-icon-hidden{display:none !important;}
@@ -117,6 +120,8 @@ section[id]{scroll-margin-top:80px;}
 </head>
 <body>
 <i class="fa-brands fa-github github-icon-hidden"></i>
+
+<!-- Header -->
 <header class="top-bar">
 <div class="logo-container">
 <img src="https://kimi-web-img.kimi.ai/img/www.maecfinance.com/f50e71e1d2f02126a5761408c5e12c757fe0da21.jpg" alt="MAEC CAPITAL Logo">
@@ -124,6 +129,26 @@ section[id]{scroll-margin-top:80px;}
 <div class="logo-subtitle">The Definitive Guide to Structured Infrastructure Finance</div>
 </div>
 </header>
+
+<!-- ===== 6 HORIZONTALLY MOVING MAEC IMAGES BELOW HEADER ===== -->
+<div class="maec-image-strip-wrapper">
+<div class="maec-image-strip">
+<div class="maec-strip-img" style="background-image:url('https://www.maecfinance.com/ws/media-library/71ad81812d187519f86323ded07d4cae/dqjtfizw6qo.jpeg');"></div>
+<div class="maec-strip-img" style="background-image:url('https://www.maecfinance.com/ws/media-library/a4ca0a7fb8fb121a7f2096452fbbaac3/iybkduavyqw.jpeg');"></div>
+<div class="maec-strip-img" style="background-image:url('https://www.maecfinance.com/ws/media-library/3abd56795d46846480ad1350094e7020/xhjio1srkrm.jpeg');"></div>
+<div class="maec-strip-img" style="background-image:url('https://www.maecfinance.com/ws/media-library/c55fd02498c6ce503b2d334e10c3fb41/pp5no5gclda.jpeg');"></div>
+<div class="maec-strip-img" style="background-image:url('https://www.maecfinance.com/ws/media-library/3d72c15f090abc714519ecb60ef07e6d/oif5dpuecmg.jpeg');"></div>
+<div class="maec-strip-img" style="background-image:url('https://www.maecfinance.com/ws/media-library/bdb3bbfd87ec7ecb7e374ce16f4e2a11/rnqs_ve8qao.jpeg');"></div>
+<div class="maec-strip-img" style="background-image:url('https://www.maecfinance.com/ws/media-library/71ad81812d187519f86323ded07d4cae/dqjtfizw6qo.jpeg');"></div>
+<div class="maec-strip-img" style="background-image:url('https://www.maecfinance.com/ws/media-library/a4ca0a7fb8fb121a7f2096452fbbaac3/iybkduavyqw.jpeg');"></div>
+<div class="maec-strip-img" style="background-image:url('https://www.maecfinance.com/ws/media-library/3abd56795d46846480ad1350094e7020/xhjio1srkrm.jpeg');"></div>
+<div class="maec-strip-img" style="background-image:url('https://www.maecfinance.com/ws/media-library/c55fd02498c6ce503b2d334e10c3fb41/pp5no5gclda.jpeg');"></div>
+<div class="maec-strip-img" style="background-image:url('https://www.maecfinance.com/ws/media-library/3d72c15f090abc714519ecb60ef07e6d/oif5dpuecmg.jpeg');"></div>
+<div class="maec-strip-img" style="background-image:url('https://www.maecfinance.com/ws/media-library/bdb3bbfd87ec7ecb7e374ce16f4e2a11/rnqs_ve8qao.jpeg');"></div>
+</div>
+</div>
+
+<!-- Collapsible Navigation -->
 <nav class="sticky-nav" id="main-nav">
 <div class="nav-wrapper">
 <div class="nav-brand">MAEC Guide</div>
@@ -146,25 +171,13 @@ section[id]{scroll-margin-top:80px;}
 </div>
 </div>
 </nav>
+
+<!-- Hero -->
 <section class="hero">
-<div class="hero-bg-strip">
-<div class="hero-bg-img" style="background-image:url('https://www.maecfinance.com/ws/media-library/71ad81812d187519f86323ded07d4cae/dqjtfizw6qo.jpeg');"></div>
-<div class="hero-bg-img" style="background-image:url('https://www.maecfinance.com/ws/media-library/a4ca0a7fb8fb121a7f2096452fbbaac3/iybkduavyqw.jpeg');"></div>
-<div class="hero-bg-img" style="background-image:url('https://www.maecfinance.com/ws/media-library/3abd56795d46846480ad1350094e7020/xhjio1srkrm.jpeg');"></div>
-<div class="hero-bg-img" style="background-image:url('https://www.maecfinance.com/ws/media-library/c55fd02498c6ce503b2d334e10c3fb41/pp5no5gclda.jpeg');"></div>
-<div class="hero-bg-img" style="background-image:url('https://www.maecfinance.com/ws/media-library/3d72c15f090abc714519ecb60ef07e6d/oif5dpuecmg.jpeg');"></div>
-<div class="hero-bg-img" style="background-image:url('https://www.maecfinance.com/ws/media-library/bdb3bbfd87ec7ecb7e374ce16f4e2a11/rnqs_ve8qao.jpeg');"></div>
-<div class="hero-bg-img" style="background-image:url('https://www.maecfinance.com/ws/media-library/71ad81812d187519f86323ded07d4cae/dqjtfizw6qo.jpeg');"></div>
-<div class="hero-bg-img" style="background-image:url('https://www.maecfinance.com/ws/media-library/a4ca0a7fb8fb121a7f2096452fbbaac3/iybkduavyqw.jpeg');"></div>
-<div class="hero-bg-img" style="background-image:url('https://www.maecfinance.com/ws/media-library/3abd56795d46846480ad1350094e7020/xhjio1srkrm.jpeg');"></div>
-<div class="hero-bg-img" style="background-image:url('https://www.maecfinance.com/ws/media-library/c55fd02498c6ce503b2d334e10c3fb41/pp5no5gclda.jpeg');"></div>
-<div class="hero-bg-img" style="background-image:url('https://www.maecfinance.com/ws/media-library/3d72c15f090abc714519ecb60ef07e6d/oif5dpuecmg.jpeg');"></div>
-<div class="hero-bg-img" style="background-image:url('https://www.maecfinance.com/ws/media-library/bdb3bbfd87ec7ecb7e374ce16f4e2a11/rnqs_ve8qao.jpeg');"></div>
-</div>
 <div class="hero-content">
 <h1>How Emerging Economies Can Access Global Capital Today</h1>
 <p class="subtitle">A Complete, Unapologetic, Plain-Language Guide to the MAEC Loan, Credit Enhancement, SBLCs, Hypothecation, PRBS, and the Real Purpose of Banking — For Governments, Banks, and Project Sponsors in the Developing World</p>
-<div class="hero-badge">2026 Edition</div>
+<div class="hero-badge">2025 Edition</div>
 </div>
 </section>
 <section id="foreword" class="section">
@@ -515,8 +528,8 @@ BNP Paribas — France & International | Standard Chartered — Singapore & Afri
 <footer>
 <div class="footer-logo">MAEC CAPITAL</div>
 <div class="footer-contact">
-<strong>Dr. Mussie Afeworki, MAEC Representative in Africa & Latin America</strong> — <a href="mailto:afeworkimussie@gmail.com" style="color:var(--soft-gold); text-decoration:none;">Contact & Request Assistance</a><br>
-afeworkimussie@gmail.com | +251 902 475 979<br><br>    
+<strong>Dr. Mussie Afeworki, Africa & Latin America - MAEC Representative</strong> — <a href="mailto:afeworkimussie@gmail.com" style="color:var(--soft-gold); text-decoration:none;">Contact & Request Assistance</a><br>
+afeworkimussie@gmail.com | +251 902 475 979<br><br>
 <strong>Dr Protarcius Ngwenya</strong>, Vice President — MAEC Capital Ltd<br>
 ngwenya@maecfinance.com | +260 957 359 339<br><br>
 <strong>UK Office:</strong> sacha.robinson@maecfinance.com | +44 74 2453 9206<br>
