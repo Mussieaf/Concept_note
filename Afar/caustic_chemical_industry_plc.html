@@ -1,1 +1,2396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caustic Chemical Industry PLC — Executive Summary & Business Plan</title>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
+  <link rel="icon" type="image/x-icon" href="https://github.githubassets.com/favicons/favicon.svg">
+  <meta property="og:title" content="Caustic Chemical Industry PLC — Chlor-Alkali Production Factory">
+  <meta property="og:description" content="Executive summary and business plan for Ethiopia's first large-scale chlor-alkali plant in Semera, Afar Region.">
+  <meta property="og:image" content="https://mussieaf.github.io/Concept_note/favicon.png/">
+  <meta property="og:url" content="https://mussieaf.github.io/Concept_note/MAEC/">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --primary: #003366;
+      --primary-light: #004080;
+      --accent: #0056b3;
+      --text: #1f2937;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --border: #e2e8f0;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
 
+    /* Header */
+    header {
+      background: var(--primary);
+      color: #fff;
+      padding: 0.9rem 1.25rem;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+    }
+    .brand h1 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      line-height: 1.3;
+    }
+    .brand small {
+      display: block;
+      font-size: 0.72rem;
+      opacity: 0.85;
+      font-weight: 400;
+    }
+    .menu-btn {
+      background: rgba(255,255,255,0.12);
+      border: none;
+      color: #fff;
+      width: 42px; height: 42px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, transform 0.15s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .menu-btn:hover { background: rgba(255,255,255,0.25); }
+    .menu-btn:active { transform: scale(0.94); }
+
+    /* Collapsible Navigation */
+    .nav-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+      z-index: 1001;
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+    }
+    .nav-overlay.active { opacity: 1; visibility: visible; }
+    .side-nav {
+      position: fixed;
+      top: 0; left: 0; bottom: 0;
+      width: 300px;
+      max-width: 85vw;
+      background: #fff;
+      transform: translateX(-105%);
+      transition: transform 0.3s ease;
+      z-index: 1002;
+      box-shadow: 6px 0 24px rgba(0,0,0,0.18);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .side-nav.active { transform: translateX(0); }
+    .side-nav .nav-header {
+      background: var(--primary);
+      color: #fff;
+      padding: 1.1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+    .side-nav .nav-header span {
+      font-weight: 600;
+      font-size: 1.05rem;
+      letter-spacing: 0.3px;
+    }
+    .close-btn {
+      background: rgba(255,255,255,0.18);
+      border: none;
+      color: #fff;
+      width: 34px; height: 34px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .close-btn:hover { background: rgba(255,255,255,0.35); }
+    .side-nav ul {
+      list-style: none;
+      padding: 0.6rem 0;
+      flex: 1;
+    }
+    .side-nav li a {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.9rem 1.4rem;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.93rem;
+      font-weight: 500;
+      border-left: 3px solid transparent;
+      transition: all 0.2s;
+    }
+    .side-nav li a:hover,
+    .side-nav li a:focus {
+      background: #f0f5fa;
+      border-left-color: var(--primary);
+      color: var(--primary);
+      outline: none;
+    }
+    .nav-footer {
+      padding: 1rem 1.4rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.78rem;
+      color: #64748b;
+      text-align: center;
+    }
+
+    /* Main Content */
+    main {
+      padding: 5.2rem 1.25rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    section { margin-bottom: 2.5rem; }
+
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      color: #fff;
+      padding: 2.5rem 1.75rem;
+      border-radius: 14px;
+      margin-bottom: 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero h2 {
+      font-size: 1.7rem;
+      margin-bottom: 0.6rem;
+      font-weight: 700;
+    }
+    .hero p {
+      opacity: 0.92;
+      max-width: 680px;
+      margin: 0 auto;
+      font-size: 0.98rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem 1.6rem;
+      margin-bottom: 1.1rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    }
+    .card h2, .card h3 {
+      color: var(--primary);
+      font-size: 1.15rem;
+      margin-bottom: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-weight: 700;
+    }
+    .card h2 { font-size: 1.25rem; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin: 0.8rem 0;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.6rem 0.8rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #f1f5f9;
+      font-weight: 600;
+      color: var(--primary);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+    tr:nth-child(even) { background: #fafbfc; }
+
+    .highlight {
+      background: #e8f1fa;
+      border-left: 4px solid var(--accent);
+      padding: 1rem 1.25rem;
+      border-radius: 0 10px 10px 0;
+      margin: 0.9rem 0;
+    }
+
+    ul.plain {
+      list-style: disc;
+      padding-left: 1.5rem;
+      margin: 0.6rem 0;
+    }
+    ul.plain li { margin-bottom: 0.4rem; }
+
+    ol.plain {
+      padding-left: 1.5rem;
+      margin: 0.6rem 0;
+    }
+    ol.plain li { margin-bottom: 0.4rem; }
+
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 0.9rem;
+      margin: 1.1rem 0 0.4rem;
+    }
+    .kpi {
+      background: #fff;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 0.6rem;
+      text-align: center;
+    }
+    .kpi .num {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.2;
+    }
+    .kpi .lbl {
+      font-size: 0.74rem;
+      color: #64748b;
+      margin-top: 0.35rem;
+      font-weight: 500;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      margin-right: 0.3rem;
+    }
+
+    .contact-bar {
+      background: var(--primary);
+      color: #fff;
+      padding: 1.25rem 1.5rem;
+      border-radius: 12px;
+      margin-top: 0.8rem;
+    }
+    .contact-bar a { color: #93c5fd; text-decoration: none; }
+    .contact-bar a:hover { text-decoration: underline; }
+
+    .scroll-top {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 44px; height: 44px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+      z-index: 999;
+    }
+    .scroll-top.visible { opacity: 1; visibility: visible; }
+
+    footer {
+      text-align: center;
+      padding: 2.2rem 1rem;
+      color: #64748b;
+      font-size: 0.84rem;
+      border-top: 1px solid var(--border);
+      margin-top: 1rem;
+    }
+
+    .sub-section {
+      margin-top: 1.2rem;
+      padding-top: 1.2rem;
+      border-top: 1px dashed var(--border);
+    }
+    .sub-section:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header { padding: 0.8rem 1rem; }
+      .brand h1 { font-size: 0.9rem; }
+      main { padding: 4.6rem 0.9rem 1.5rem; }
+      .hero { padding: 1.8rem 1.1rem; }
+      .hero h2 { font-size: 1.35rem; }
+      .card { padding: 1.15rem; }
+      table { font-size: 0.78rem; }
+      th, td { padding: 0.45rem 0.5rem; }
+      .side-nav { width: 280px; }
+    }
+    @media (max-width: 480px) {
+      .kpi-row { grid-template-columns: 1fr 1fr; }
+      .kpi .num { font-size: 1rem; }
+    }
+    @media (min-width: 1024px) {
+      main { padding: 5.5rem 2rem 2rem; }
+      .hero { padding: 3rem 2.5rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+  <i class="fa-brands fa-github" style="display:none;" aria-hidden="true"></i>
+
+  <header>
+    <div class="brand">
+      <div>
+        <h1>Caustic Chemical Industry PLC</h1>
+        <small>Executive Summary & Business Plan</small>
+      </div>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Open navigation menu" aria-expanded="false">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </header>
+
+  <div class="nav-overlay" id="navOverlay"></div>
+  <nav class="side-nav" id="sideNav" aria-label="Main navigation">
+    <div class="nav-header">
+      <span><i class="fa-solid fa-layer-group" style="margin-right:0.4rem;"></i>Menu</span>
+      <button class="close-btn" id="closeBtn" aria-label="Close navigation menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <ul>
+      <li><a href="#executive-summary">Executive Summary</a></li>
+      <li><a href="#project-overview">1. Project Overview</a></li>
+      <li><a href="#business-overview">2. Business Overview</a></li>
+      <li><a href="#marketing-strategy">3. Marketing Strategy</a></li>
+      <li><a href="#financial-overview">4. Financial Overview</a></li>
+      <li><a href="#manufacturing">5. Manufacturing & Operations</a></li>
+      <li><a href="#plant-layout">6. Plant Layout & Infrastructure</a></li>
+      <li><a href="#organization">7. Organizational Structure</a></li>
+      <li><a href="#financial-plan">8. Financial Plan</a></li>
+      <li><a href="#environmental">9. Environmental Compliance</a></li>
+      <li><a href="#annexes">Annexes</a></li>
+      <li><a href="#appendices">Appendices</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-footer">
+      © 2025 Caustic Chemical Industry PLC
+    </div>
+  </nav>
+
+  <main>
+    <!-- EXECUTIVE SUMMARY -->
+    <section id="executive-summary">
+      <div class="hero">
+        <h2>Executive Summary</h2>
+        <p>A 400 TPD Chlor-Alkali Production Factory — Semera Town, Afar-Ethiopia from the Lake Afdera Salt Reserves</p>
+      </div>
+    </section>
+
+    <!-- 1. PROJECT OVERVIEW -->
+    <section id="project-overview">
+      <div class="card">
+        <h2>1. Project Overview</h2>
+        <p><strong>Promoter:</strong> Caustic Chemical Industry PLC</p>
+        <p><strong>Project Title:</strong> Establishment of a 400 Tons Per Day (TPD) Caustic Soda Plant</p>
+        <p><strong>Location:</strong> Semera Industrial Zone, Afar Region, Ethiopia</p>
+        <p><strong>Land Area:</strong> 500,000 m² (50 hectares)</p>
+        <p><strong>Project Lifespan:</strong> 25 years</p>
+        <p><strong>Total Investment:</strong> USD 450 million (ETB 63 billion)</p>
+        <p><strong>Technology:</strong> Ion-Exchange Membrane (IEM) Chlor-Alkali Process</p>
+
+        <div class="sub-section">
+          <h3>Production Capacity</h3>
+          <table>
+            <tr><th>Product</th><th>Capacity</th></tr>
+            <tr><td>Caustic Soda (NaOH)</td><td>400 TPD (120,000 MT/year)</td></tr>
+            <tr><td>Chlorine (Cl₂)</td><td>72,000 MT/year</td></tr>
+            <tr><td>Hydrogen (H₂)</td><td>72,000 MT/year</td></tr>
+            <tr><td>Hydrochloric Acid (HCl)</td><td>72,000 MT/year</td></tr>
+            <tr><td>Sodium Hypochlorite (NaOCl)</td><td>120,000 MT/year</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. BUSINESS OVERVIEW -->
+    <section id="business-overview">
+      <div class="card">
+        <h2>2. Business Overview</h2>
+        <p>Caustic Chemical Industry PLC proposes to develop Ethiopia's first large-scale, fully integrated chlor-alkali plant to meet domestic demand and substitute imports of caustic soda, hydrochloric acid, and related chemicals. The facility will utilize Lake Afdera's abundant solar-evaporated salt reserves (290 million tons) as a raw material.</p>
+        <p>Located 200 km from Djibouti Port, the project benefits from a strategic logistical corridor for both import of machinery and export of chemical products to regional markets including Kenya, Sudan, and Somalia.</p>
+
+        <div class="sub-section">
+          <h3>2.1. Overview of the Project</h3>
+          <p>Caustic Chemical Industry PLC is an industrial enterprise established to develop and operate Ethiopia's first large-scale chlor-alkali manufacturing plant. The company aims to bridge Ethiopia's critical dependency on imported basic chemicals—particularly caustic soda (NaOH)—which are essential inputs for the textile, paper, soap, and water treatment industries. The proposed facility, to be located on a 500,000 m² industrial plot in Semera, Afar Region, will produce 400 tons per day (TPD) of caustic soda (equivalent to 120,000 metric tons per year) along with key by-products: chlorine (Cl₂), hydrogen (H₂), hydrochloric acid (HCl), and sodium hypochlorite (NaOCl).</p>
+          <p>This project leverages Ethiopia's abundant solar-evaporated salt reserves at Lake Afdera, estimated at over 290 million tons, as a sustainable and cost-effective raw material source. Its strategic location, only 200 km from the Port of Djibouti, enables easy access to export markets in Kenya, Sudan, Djibouti, and other East African nations. The establishment of the plant supports Ethiopia's Growth and Transformation Plan (GTP II) by promoting import substitution, foreign exchange savings, industrial diversification, and job creation.</p>
+        </div>
+
+        <div class="sub-section">
+          <h3>2.2. Project Goals and Mission</h3>
+          <p><strong>Vision:</strong> To become a regional leader in chlor-alkali chemical production, driving sustainable industrialization and advancing clean manufacturing technologies across East Africa.</p>
+          <p><strong>Mission:</strong> To establish Ethiopia's first environmentally responsible caustic soda manufacturing facility that meets domestic demand, fosters industrial self-reliance, and adheres to international environmental and safety standards.</p>
+        </div>
+
+        <div class="sub-section">
+          <h3>2.3. Project Objectives</h3>
+          <ul class="plain">
+            <li><strong>Import Substitution:</strong> Minimize Ethiopia's dependence on imported caustic soda, hydrochloric acid, and chlorine derivatives, thereby conserving foreign currency.</li>
+            <li><strong>Export Promotion:</strong> Supply surplus production to regional markets such as Kenya, Sudan, and Djibouti.</li>
+            <li><strong>Industrial Growth:</strong> Support domestic industries including textiles, pulp and paper, soap, and water treatment with locally produced chemicals.</li>
+            <li><strong>Employment Creation:</strong> Generate approximately 4,000 jobs, prioritizing local workforce participation and technical skill development.</li>
+            <li><strong>Sustainable Production:</strong> Implement advanced emission control, wastewater recycling, and resource recovery systems to ensure environmental compliance.</li>
+            <li><strong>Economic Diversification:</strong> Strengthen Ethiopia's chemical manufacturing base and contribute to national GDP under the Industrial Parks and Green Growth Strategy.</li>
+          </ul>
+        </div>
+
+        <div class="sub-section">
+          <h3>2.4. Project Description</h3>
+          <table>
+            <tr><th>Parameter</th><th>Details</th></tr>
+            <tr><td>Project Title</td><td>Establishment of a 400 TPD Caustic Soda Plant</td></tr>
+            <tr><td>Promoter</td><td>Caustic Chemical Industry PLC</td></tr>
+            <tr><td>Location</td><td>Semera, Afar Region, Ethiopia</td></tr>
+            <tr><td>Land Area</td><td>500,000 m² industrial zone</td></tr>
+            <tr><td>Production Capacity</td><td>400 TPD (120,000 MT/year)</td></tr>
+            <tr><td>Total Investment</td><td>ETB 63,000,000,000 (USD 450 million)</td></tr>
+            <tr><td>Project Life Span</td><td>25 years</td></tr>
+            <tr><td>Technology</td><td>Advanced Ion-Exchange Membrane Electrolysis</td></tr>
+          </table>
+          <p style="margin-top:0.8rem">The plant will operate 300 days per year, producing caustic soda flakes and lye as primary outputs, while converting by-products such as chlorine and hydrogen into hydrochloric acid and sodium hypochlorite, ensuring zero-waste and value-added processing. The project is expected to generate 4,000 jobs (2,400 permanent and 1,600 temporary) and stimulate local economies through industrial linkages and raw material procurement.</p>
+        </div>
+
+        <div class="sub-section">
+          <h3>2.5. Products and Technology</h3>
+          <p>The core product, Caustic Soda (NaOH), will be produced using modern ion-exchange membrane technology—an environmentally sustainable process that eliminates mercury and asbestos usage common in older technologies.</p>
+
+          <h3>2.5.1. Main Products and Applications</h3>
+          <table>
+            <tr><th>Product</th><th>Capacity</th><th>Industrial Application</th></tr>
+            <tr><td>Caustic Soda (NaOH)</td><td>400 TPD (120,000 MT/year)</td><td>Textile processing, paper pulping, soap and detergent manufacturing, water treatment</td></tr>
+            <tr><td>Hydrochloric Acid (HCl)</td><td>240 TPD (72,000 MT/year)</td><td>Steel pickling, pH regulation, chemical synthesis</td></tr>
+            <tr><td>Sodium Hypochlorite (NaOCl)</td><td>400 TPD (120,000 MT/year)</td><td>Water disinfection, sanitation, bleaching</td></tr>
+            <tr><td>Liquid Chlorine (Cl₂)</td><td>240 TPD (72,000 MT/year)</td><td>PVC production, pharmaceuticals, disinfection</td></tr>
+            <tr><td>Hydrogen (H₂)</td><td>240 TPD (72,000 MT/year)</td><td>Used in HCl synthesis and as a potential clean energy fuel</td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">2.5.2. Technological Advantages</h3>
+          <p>The ion-exchange membrane process ensures:</p>
+          <ul class="plain">
+            <li><strong>High Energy Efficiency:</strong> 2,100 kWh/ton NaOH (vs. 3,300 kWh/ton in mercury cells)</li>
+            <li><strong>Product Purity:</strong> Up to 98% NaOH concentration</li>
+            <li><strong>Environmental Safety:</strong> No mercury or asbestos emissions</li>
+            <li><strong>Process Integration:</strong> Full recovery and utilization of chlorine and hydrogen by-products</li>
+          </ul>
+          <p>This modern process provides both economic efficiency and environmental sustainability, making the project compliant with global best practices (ISO 14001, ISO 45001) and Ethiopia's environmental protection standards.</p>
+
+          <h3 style="margin-top:1rem">2.5.3. Production Capacity and Utilities Requirements</h3>
+          <table>
+            <tr><th>Utility</th><th>Estimated Requirement</th><th>Remarks</th></tr>
+            <tr><td>Electric Power</td><td>~42 MW (~2,000 kWh/ton NaOH)</td><td>Required for electrolysis and evaporation units; substation recommended (132/40,000 kV).</td></tr>
+            <tr><td>Process Water</td><td>~2,500 m³/day</td><td>For brine preparation, cooling, and dilution.</td></tr>
+            <tr><td>Steam</td><td>~50 tons/hour</td><td>Used for evaporation and process heating.</td></tr>
+            <tr><td>Cooling Water</td><td>~10,000 m³/hour</td><td>Closed-loop system for electrolyzers and condensers.</td></tr>
+            <tr><td>Compressed Air</td><td>~3,000 Nm³/hour</td><td>For instruments and pneumatic valves.</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. MARKETING STRATEGY -->
+    <section id="marketing-strategy">
+      <div class="card">
+        <h2>3. Marketing Strategy</h2>
+
+        <div class="sub-section">
+          <h3>3.1. Market Demand</h3>
+          <p>Ethiopia imports 15,000–20,000 MT of caustic soda annually, mainly from Asia, due to absence of local production. Demand is expanding rapidly from:</p>
+          <ul class="plain">
+            <li>Textile industry: 25% annual growth</li>
+            <li>Soap and detergent manufacturers: Over 70 active factories</li>
+            <li>Paper and pulp mills: 28+ mills using NaOH in bleaching</li>
+            <li>Water treatment and food sectors: Growing with urbanization</li>
+          </ul>
+          <p>Projected domestic demand will exceed 100,000 MT/year by 2030—aligning with this plant's capacity.</p>
+        </div>
+
+        <div class="sub-section">
+          <h3>3.2. Target Markets</h3>
+          <ul class="plain">
+            <li><span class="badge">Domestic 70%</span> of production for Ethiopian industries (direct B2B supply).</li>
+            <li><span class="badge">Regional Export 30%</span> exported to Kenya, Sudan, Djibouti, and Somalia via Djibouti.</li>
+          </ul>
+        </div>
+
+        <div class="sub-section">
+          <h3>3.3. Sales and Distribution Channels</h3>
+          <ul class="plain">
+            <li><strong>Direct Sales:</strong> Long-term contracts with industrial clients (textile, paper, soap).</li>
+            <li><strong>Regional Distributors:</strong> Licensed chemical distributors for East Africa.</li>
+            <li><strong>Government Tenders:</strong> Supply to public utilities (water treatment & sanitation agencies).</li>
+            <li><strong>Port-based Exports:</strong> Bulk shipments through Djibouti for international markets.</li>
+          </ul>
+        </div>
+
+        <div class="sub-section">
+          <h3>3.4. Pricing and Competitive Advantage</h3>
+          <ul class="plain">
+            <li>Local production saves 15–20% on import logistics and tariffs.</li>
+            <li>Consistent supply and high purity outperform imported alternatives.</li>
+            <li>By-product sales (HCl, NaOCl, Cl₂) diversify revenue and enhance margins.</li>
+          </ul>
+        </div>
+
+        <div class="sub-section">
+          <h3>3.5. Branding and Market Positioning</h3>
+          <p>Caustic Chemical Industry PLC will position itself as "Ethiopia's trusted source of sustainable industrial chemicals." Marketing will emphasize quality, reliability, and environmental safety, appealing to both domestic and regional industrial buyers.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. FINANCIAL OVERVIEW -->
+    <section id="financial-overview">
+      <div class="card">
+        <h2>4. Financial Overview</h2>
+        <table>
+          <tr><th>Indicator</th><th>Value</th></tr>
+          <tr><td>Total Capital Investment</td><td>ETB 63,000,000,000 (USD 450 million)</td></tr>
+          <tr><td>Annual Operating Cost</td><td>ETB 2,032,680,122</td></tr>
+          <tr><td>Year 1 Revenue</td><td>ETB 10,836,000,000</td></tr>
+          <tr><td>EBITDA Margin</td><td>~30% (Year 1)</td></tr>
+          <tr><td>Break-even Point</td><td>55–60% capacity utilization</td></tr>
+          <tr><td>Expected Payback Period</td><td>5–6 years</td></tr>
+          <tr><td>Funding Structure</td><td>50% Equity / 50% Debt</td></tr>
+        </table>
+
+        <div class="highlight" style="margin-top:1rem">
+          <strong>Financial Summary:</strong> Strong EBITDA margin and rapid payback underscore the project's profitability and resilience. Positive cash flow from Year 1 with expansion potential through export.
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. MANUFACTURING AND OPERATIONS -->
+    <section id="manufacturing">
+      <div class="card">
+        <h2>5. Manufacturing and Operations</h2>
+
+        <div class="sub-section">
+          <h3>5.1. Plant Design and Technology</h3>
+          <h3>5.1.1. Process Overview</h3>
+          <p>The chlor-alkali process is based on the electrolysis of brine (sodium chloride solution) to produce caustic soda (NaOH), chlorine gas (Cl₂), and hydrogen gas (H₂) according to the reaction:</p>
+          <p style="text-align:center;font-weight:700;font-size:1.1rem;margin:1rem 0;">2NaCl + 2H₂O → 2NaOH + Cl₂ + H₂</p>
+          <p>This process forms the core of the chemical industry and is essential for producing a variety of downstream chemicals, including hydrochloric acid (HCl) and sodium hypochlorite (NaOCl).</p>
+
+          <p><strong>Primary Raw Materials:</strong></p>
+          <ul class="plain">
+            <li>Industrial Salt (NaCl) – sourced locally (Lake Afdera)</li>
+            <li>Water – for brine preparation and cooling</li>
+            <li>Electricity – high-voltage DC for electrolysis</li>
+          </ul>
+
+          <p><strong>Main Products & Co-products:</strong></p>
+          <table>
+            <tr><th>Product</th><th>Form</th><th>Use/Market</th></tr>
+            <tr><td>Sodium Hydroxide (NaOH)</td><td>30-50% aqueous solution / 98% flakes</td><td>Industrial chemical, soap, detergents</td></tr>
+            <tr><td>Chlorine (Cl₂)</td><td>Gas / Liquefied</td><td>HCl, NaOCl, PVC, bleaching agents</td></tr>
+            <tr><td>Hydrogen (H₂)</td><td>Gas</td><td>Fuel, HCl production, sale as by-product</td></tr>
+            <tr><td>Hydrochloric Acid (HCl)</td><td>Liquid</td><td>Industrial chemical, water treatment</td></tr>
+            <tr><td>Sodium Hypochlorite (NaOCl)</td><td>Solution</td><td>Disinfectant, water treatment</td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">Simplified Process Steps</h3>
+          <p><strong>1. Brine Preparation & Purification</strong></p>
+          <ul class="plain">
+            <li>Dissolve high-purity salt in water → brine</li>
+            <li>Remove impurities (Ca²⁺, Mg²⁺) using lime and soda ash</li>
+            <li>Filter & concentrate brine (~300 g/L NaCl)</li>
+          </ul>
+          <p><strong>2. Electrolysis (Membrane Cell Technology)</strong></p>
+          <ul class="plain">
+            <li>Brine enters electrolyzer</li>
+            <li>Anode Reaction: 2Cl⁻ → Cl₂ + 2e⁻</li>
+            <li>Cathode Reaction: 2H₂O + 2e⁻ → H₂ + 2OH⁻</li>
+            <li>Ion-exchange membrane separates products, producing high-purity NaOH</li>
+          </ul>
+          <p><strong>3. Product Concentration & Handling</strong></p>
+          <ul class="plain">
+            <li>NaOH concentrated to 50% solution or flakes</li>
+            <li>Cl₂ dried, liquefied, or converted to HCl/NaOCl</li>
+            <li>H₂ cooled, compressed, and stored or used for HCl synthesis</li>
+          </ul>
+
+          <p><strong>Utilities & Supporting Systems:</strong></p>
+          <table>
+            <tr><th>Utility</th><th>Purpose</th></tr>
+            <tr><td>Electricity</td><td>Electrolysis, pumping, plant operations</td></tr>
+            <tr><td>Cooling Water</td><td>Electrolyzer & chlorine condenser cooling</td></tr>
+            <tr><td>Steam</td><td>Brine heating, evaporation for NaOH concentration</td></tr>
+            <tr><td>Compressed Air</td><td>Instrumentation & pneumatic control</td></tr>
+            <tr><td>Effluent Treatment</td><td>Neutralization of spent brine & acidic discharge</td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">5.1.2. Technology Selection: Ion-Exchange Membrane (IEM) Process</h3>
+          <p>The project employs Ion-Exchange Membrane (IEM) electrolysis, the most advanced and energy-efficient chlor-alkali technology available. This process uses ion-selective membranes to separate chlorine, hydrogen, and caustic soda, ensuring high purity and eliminating the use of mercury or asbestos (common in older diaphragm and mercury cell technologies).</p>
+          <p><strong>Key Advantages of IEM Technology:</strong></p>
+          <ul class="plain">
+            <li>Produces high-purity NaOH (≥50%) suitable for industrial applications.</li>
+            <li>Reduces chlorine contamination in caustic soda.</li>
+            <li>Requires lower energy consumption (3,200–3,500 kWh/MT NaOH).</li>
+            <li>Environmentally friendly, with zero mercury or asbestos discharge.</li>
+            <li>Enables by-product recovery of H₂ and Cl₂ for secondary product manufacturing (HCl, NaOCl).</li>
+          </ul>
+          <p>The process is controlled by a Distributed Control System (DCS) that automates brine feed, electrolysis, product recovery, and safety monitoring.</p>
+        </div>
+
+        <div class="sub-section">
+          <h3>5.2. Location and Infrastructure</h3>
+          <h3>5.2.1. Site Location</h3>
+          <p>The plant is strategically located in the Afar Region of Ethiopia, near Lake Afdera, which hosts an estimated 290 million tons of high-grade solar salt reserves. The site was selected based on the following advantages:</p>
+          <table>
+            <tr><th>Criterion</th><th>Justification</th></tr>
+            <tr><td>Raw Material Availability</td><td>Proximity to abundant salt deposits reduces logistics costs and ensures consistent NaCl supply.</td></tr>
+            <tr><td>Water Access</td><td>Groundwater wells and municipal supply ensure reliable process water availability for brine and cooling.</td></tr>
+            <tr><td>Power Supply</td><td>Connection to Ethiopia's 132/33 kV national grid provides stable electricity for electrolysis (up to 50-100 MW).</td></tr>
+            <tr><td>Transport Connectivity</td><td>Located ~200 km from Djibouti Port, facilitating export logistics and import of spare parts.</td></tr>
+            <tr><td>Industrial Zoning</td><td>The Afar industrial corridor supports chemical and mineral-based industries, minimizing environmental conflicts.</td></tr>
+            <tr><td>Labor Availability</td><td>Skilled and semi-skilled labor available locally, with technical training planned in partnership with polytechnic institutions.</td></tr>
+          </table>
+          <p style="margin-top:0.8rem">The site layout incorporates zoned operational areas for brine preparation, electrolysis, product concentration, storage, utilities, and safety compliance.</p>
+        </div>
+
+        <div class="sub-section">
+          <h3>5.3. Raw Materials and Suppliers</h3>
+          <h3>5.3.1. Major Inputs</h3>
+          <table>
+            <tr><th>Material</th><th>Consumption (per MT NaOH)</th><th>Source</th><th>Remarks</th></tr>
+            <tr><td>Sodium Chloride (NaCl)</td><td>1.5-1.6 MT</td><td>Lake Afdera Solar Salt Mines</td><td>Locally sourced; high purity (≥98%)</td></tr>
+            <tr><td>Water</td><td>3-5 m³</td><td>Onsite wells / municipal supply</td><td>Used for brine preparation and cooling</td></tr>
+            <tr><td>Electricity</td><td>3,200-3,500 kWh</td><td>Ethiopian Electric Power (EEP)</td><td>Dedicated substation (132/33 kV)</td></tr>
+            <tr><td>Additives (Na₂CO₃, MgO)</td><td>Minimal</td><td>Local chemical suppliers</td><td>Used for brine purification</td></tr>
+          </table>
+          <h3 style="margin-top:1rem">5.3.2. Availability of Inputs</h3>
+          <p>Salt sourcing from domestic producers eliminates import dependency, while energy supply agreements with EEP ensure uninterrupted power for operations.</p>
+        </div>
+
+        <div class="sub-section">
+          <h3>5.4. Production Process and Capacity</h3>
+          <h3>5.4.1. Step-by-Step Process Description</h3>
+          <p><strong>1. Brine Preparation and Purification</strong></p>
+          <ul class="plain">
+            <li><strong>Salt Dissolution:</strong> Raw NaCl is dissolved in process water to form brine (~300 g/L concentration).</li>
+            <li><strong>Chemical Purification:</strong> Brine is treated with soda ash (Na₂CO₃) and lime (CaO) to remove Ca²⁺ and Mg²⁺ impurities.</li>
+            <li><strong>Filtration and Ion Exchange:</strong> The brine passes through dual media filters and ion-exchange polishers for final purification before electrolysis.</li>
+            <li><strong>Storage:</strong> Purified brine is stored in large SS tanks for continuous feed to electrolyzers.</li>
+          </ul>
+          <p><strong>2. Electrolysis (Membrane Cell)</strong></p>
+          <ul class="plain">
+            <li>Anode Reaction: 2Cl⁻ → Cl₂(gas) + 2e⁻</li>
+            <li>Cathode Reaction: 2H₂O + 2e⁻ → H₂(gas) + 2OH⁻</li>
+            <li>Product Streams: Chlorine gas is released at the anode, hydrogen and sodium hydroxide form at the cathode.</li>
+            <li>NaOH Collection: Caustic soda solution (~30–32%) is collected and transferred to evaporators.</li>
+          </ul>
+          <p><strong>3. Product Concentration and Conversion</strong></p>
+          <ul class="plain">
+            <li><strong>NaOH Concentration:</strong> Evaporators raise caustic soda concentration to 48–50% (lye) or dry it into flakes (98%).</li>
+            <li><strong>HCl Production:</strong> Hydrogen and chlorine react under controlled combustion to form hydrochloric acid.</li>
+            <li><strong>NaOCl Production:</strong> Chlorine reacts with NaOH to produce sodium hypochlorite solution for water treatment use.</li>
+          </ul>
+          <p><strong>4. Product Storage and Packaging</strong></p>
+          <ul class="plain">
+            <li><strong>NaOH:</strong> Stored in 200 m³ rubber-lined steel tanks; packaged in drums or bulk tankers.</li>
+            <li><strong>HCl:</strong> Stored in acid-resistant tanks for bulk or drum delivery.</li>
+            <li><strong>NaOCl:</strong> Distributed in solution form to water utilities and industries.</li>
+            <li><strong>Cl₂ and H₂:</strong> Stored in pressurized steel cylinders or pipelines for sale or internal use.</li>
+          </ul>
+
+          <h3 style="margin-top:1rem">5.4.2. Production Capacity</h3>
+          <table>
+            <tr><th>Product</th><th>Daily Output (TPD)</th><th>Annual Output (MT/year)</th><th>Remarks</th></tr>
+            <tr><td>Caustic Soda (NaOH)</td><td>400</td><td>120,000</td><td>50% solution or flakes</td></tr>
+            <tr><td>Chlorine (Cl₂)</td><td>350</td><td>105,000</td><td>For NaOCl and HCl production</td></tr>
+            <tr><td>Hydrogen (H₂)</td><td>10</td><td>3,000</td><td>For HCl or fuel use</td></tr>
+            <tr><td>Hydrochloric Acid (HCl)</td><td>-</td><td>72,000</td><td>By-product synthesis</td></tr>
+            <tr><td>Sodium Hypochlorite (NaOCl)</td><td>-</td><td>72,000</td><td>Produced as disinfectant chemical</td></tr>
+          </table>
+        </div>
+
+        <div class="sub-section">
+          <h3>5.5. Equipment and Machinery</h3>
+          <h3>5.5.1. Major Equipment by Section</h3>
+          <table>
+            <tr><th>Section</th><th>Key Equipment</th><th>Features/Specifications</th></tr>
+            <tr><td>Brine Preparation</td><td>Dissolvers, Clarifiers, Filters, Ion-exchange Units</td><td>SS316L construction, automated brine quality control</td></tr>
+            <tr><td>Electrolysis</td><td>Membrane Electrolyzers, Rectifiers, Control System</td><td>30-40 cells/module, total 400 TPD NaOH; PLC/DCS control</td></tr>
+            <tr><td>Chlorine Handling</td><td>Gas Dryers, Compressors, Condensers, Storage Tanks</td><td>Twin-tower H₂SO₄ dryers, 20-25 bar compressors</td></tr>
+            <tr><td>Hydrogen Handling</td><td>Compressors, Dryers, Bullets, Flame Arrestors</td><td>Oil-free systems with ATEX-rated safety controls</td></tr>
+            <tr><td>Caustic Concentration</td><td>Multi-effect Evaporators, Pumps, Tanks</td><td>SS316L design; energy-efficient evaporators</td></tr>
+            <tr><td>Utilities</td><td>Boilers, Cooling Towers, Air Compressors, DM Water Plant</td><td>Ensures power, water, and steam reliability</td></tr>
+            <tr><td>Electrical Systems</td><td>Transformers (132/33 kV), Switchgear, UPS</td><td>Provides stable and safe electrical distribution</td></tr>
+          </table>
+          <p style="margin-top:0.8rem">The electrolysis section accounts for ~45% of total machinery cost due to its high-energy demand and precision technology.</p>
+        </div>
+
+        <div class="sub-section">
+          <h3>5.6. Quality Control</h3>
+          <p>A fully equipped analytical laboratory ensures compliance with ISO 9001: Quality Management Systems. Routine quality checks include:</p>
+          <table>
+            <tr><th>Product</th><th>Test Parameters</th><th>Analytical Method</th></tr>
+            <tr><td>Caustic Soda (NaOH)</td><td>Purity (% NaOH), NaCl, Na₂CO₃</td><td>Titration / ICP analysis</td></tr>
+            <tr><td>Chlorine (Cl₂)</td><td>Moisture, Purity, Residual HCl</td><td>Gas chromatography</td></tr>
+            <tr><td>Hydrochloric Acid (HCl)</td><td>Concentration (%), Impurities</td><td>Acid-base titration</td></tr>
+            <tr><td>Sodium Hypochlorite (NaOCl)</td><td>Active chlorine %, pH, Stability</td><td>Spectrophotometry</td></tr>
+          </table>
+          <p style="margin-top:0.8rem">The plant will implement real-time process monitoring via DCS to control temperature, current density, and flow rates—ensuring consistent product quality and minimizing operational waste.</p>
+        </div>
+
+        <div class="sub-section">
+          <h3>5.7. Safety Protocols and Environmental Management</h3>
+          <h3>5.7.1. Process Safety</h3>
+          <p>The chlor-alkali process involves handling hazardous gases (chlorine and hydrogen), requiring stringent safety and environmental measures:</p>
+          <ul class="plain">
+            <li><strong>Gas Leak Detection:</strong> Continuous monitoring systems for Cl₂ and H₂.</li>
+            <li><strong>Emergency Scrubbers:</strong> Neutralize chlorine leaks using caustic soda solution.</li>
+            <li><strong>Hydrogen Safety:</strong> Flame arrestors, vent stacks, and explosion-proof electricals.</li>
+            <li><strong>Personal Protective Equipment (PPE):</strong> Mandatory use of respirators, gloves, goggles, and acid-resistant suits.</li>
+            <li><strong>Emergency Response Systems:</strong> Onsite fire suppression, chlorine neutralization pit, and trained emergency response teams.</li>
+          </ul>
+
+          <h3 style="margin-top:1rem">5.7.2. Environmental Controls</h3>
+          <ul class="plain">
+            <li>Zero-Mercury and Asbestos-Free Technology (membrane process).</li>
+            <li>Effluent Treatment Plant (ETP) for neutralizing acidic or saline discharges (maintaining pH 6–9, TSS &lt;50 mg/L per EPA guidelines).</li>
+            <li>Closed-Loop Cooling System to minimize water consumption.</li>
+            <li>Air Pollution Control: Chlorine absorbers and gas scrubbers maintain emissions within Proclamation No. 300/2002 limits.</li>
+            <li>Waste Management: Spent brine recycled; solid residues sent to authorized disposal facilities.</li>
+          </ul>
+          <p style="margin-top:0.8rem">The plant's Environmental Impact Assessment (EIA) and Occupational Safety Management Plan comply with Ethiopian standards under Proclamation Nos. 299/2013, 300/2002, and 1156/2019.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. PLANT LAYOUT AND INFRASTRUCTURE -->
+    <section id="plant-layout">
+      <div class="card">
+        <h2>6. Plant Layout and Infrastructure</h2>
+
+        <div class="sub-section">
+          <h3>6.1. Process Overview</h3>
+          <h3>6.2. Site Selection Criteria</h3>
+          <p>The proposed caustic soda manufacturing plant will be established in Semera, Afar Region, Ethiopia, strategically chosen for its proximity to Lake Afdera, which hosts an estimated 290 million tons of high-purity solar-evaporated salt reserves—the primary raw material for the chlor-alkali process. Semera's location also offers a logistical advantage, being approximately 200 km from Djibouti Port, enabling cost-effective transport of imported equipment and export of finished products to regional markets such as Kenya, Sudan, and Djibouti.</p>
+          <p>The total site area allocated for the project is 500,000 m² (50 hectares), offering sufficient space for current operations and future expansion. The site meets key selection criteria including:</p>
+          <ul class="plain">
+            <li>Availability of flat terrain suitable for heavy industrial construction.</li>
+            <li>Access to road networks linking Semera to Afdera and Djibouti Port.</li>
+            <li>Adequate land area for process, storage, and safety buffer zoning.</li>
+            <li>Proximity to power supply lines and reliable water sources.</li>
+            <li>Minimal impact on residential and environmentally sensitive areas.</li>
+          </ul>
+        </div>
+
+        <div class="sub-section">
+          <h3>6.3. Land Use Plan and Layout</h3>
+          <p>The 500,000 m² site is divided into functional zones designed to optimize workflow, ensure safety, and comply with environmental and occupational standards. The plant layout follows internationally recognized industrial planning principles for chlor-alkali facilities, ensuring efficient raw material flow, minimal cross-contamination, and safe segregation of hazardous materials.</p>
+        </div>
+
+        <div class="sub-section">
+          <h3>6.4. Land Use Allocation</h3>
+          <table>
+            <tr><th>Functional Zone</th><th>Area (m²)</th><th>% of Total</th><th>Description</th></tr>
+            <tr><td>Production Area</td><td>200,000</td><td>40%</td><td>Includes brine preparation, electrolysis plant, NaOH evaporation and concentration units, HCl and NaOCl synthesis, chlorine liquefaction, hydrogen handling, and associated equipment.</td></tr>
+            <tr><td>Storage & Warehousing</td><td>75,000</td><td>15%</td><td>Storage of raw materials (salt, chemicals), finished products (NaOH, HCl, NaOCl), and by-products (chlorine and hydrogen). Includes covered warehouses, tanks, and gas storage facilities.</td></tr>
+            <tr><td>Utilities & Services</td><td>50,000</td><td>10%</td><td>Houses the power substation, water treatment, steam generation, effluent treatment plant (ETP), cooling towers, and compressed air systems.</td></tr>
+            <tr><td>Administration & Offices</td><td>25,000</td><td>5%</td><td>Comprises administrative buildings, laboratories, control rooms, maintenance workshops, and a training center.</td></tr>
+            <tr><td>Transport & Roads</td><td>50,000</td><td>10%</td><td>Internal paved roads, truck loading/unloading bays, parking lots, and emergency access routes.</td></tr>
+            <tr><td>Green & Safety Buffer Zones</td><td>50,000</td><td>10%</td><td>Landscaping, fire lanes, and green buffer zones to mitigate noise, dust, and chemical hazards.</td></tr>
+            <tr><td>Future Expansion Area</td><td>50,000</td><td>10%</td><td>Reserved for additional production units, new technology integration, or capacity increase.</td></tr>
+          </table>
+        </div>
+
+        <div class="sub-section">
+          <h3>6.5. Plant Layout Principles</h3>
+          <p>The plant layout is based on the following core design principles:</p>
+          <p><strong>Linear Process Flow:</strong> The layout ensures smooth material movement from raw salt intake to final product dispatch. Major process steps include: Brine preparation → electrolysis → caustic soda concentration → by-product recovery → storage and dispatch.</p>
+          <p><strong>Functional Zoning:</strong> High-risk areas (chlorine and hydrogen handling) are located at the farthest end of the site from administrative and public zones. Clean and controlled operations are segregated from storage and logistics areas.</p>
+          <p><strong>Accessibility and Maintenance:</strong> All equipment and processing units are accessible via dedicated maintenance corridors to facilitate inspection, repair, and emergency response.</p>
+          <p><strong>Future Scalability:</strong> Space has been allocated for future production units or renewable energy integration (solar/hydrogen) to enhance plant capacity and sustainability.</p>
+        </div>
+
+        <div class="sub-section">
+          <h3>6.6. Safety and Environmental Compliance</h3>
+          <p>The plant layout has been developed in full compliance with national and international safety standards, including the IFC Environmental, Health and Safety (EHS) Guidelines and UN Chlorine Institute standards.</p>
+          <p><strong>Key design features include:</strong></p>
+          <ul class="plain">
+            <li>Minimum 50–100 m buffer between hazardous chemical storage and administrative zones.</li>
+            <li>Fire lanes and emergency exits provided throughout the plant for rapid evacuation.</li>
+            <li>Chlorine and hydrogen storage areas are isolated, well-ventilated, and equipped with gas leak detection and neutralization systems.</li>
+            <li>Containment bunds under NaOH and HCl tanks to prevent accidental spillage into the environment.</li>
+            <li>Neutralization pits and effluent treatment systems for safe wastewater management.</li>
+            <li>Green buffer zones around the plant to absorb noise and fugitive emissions.</li>
+          </ul>
+        </div>
+
+        <div class="sub-section">
+          <h3>6.7. Utilities and Services Integration</h3>
+          <p>To ensure reliable and continuous operations, utilities are designed with redundancy and efficiency in mind:</p>
+          <ul class="plain">
+            <li>The power substation (132/40,000 kV) is centrally located for optimal load distribution.</li>
+            <li>Cooling towers and effluent treatment plants are positioned downwind from administrative and clean zones.</li>
+            <li>Dedicated utility corridors for electricity, water, steam, and compressed air minimize interference with production areas.</li>
+            <li>Demineralized water, steam, and instrument air systems are integrated into the automated control network.</li>
+          </ul>
+        </div>
+
+        <div class="sub-section">
+          <h3>6.8. Logistics and Transport</h3>
+          <p>Efficient logistics design supports both raw material inflow and finished product outflow:</p>
+          <ul class="plain">
+            <li>Separate inbound and outbound routes prevent traffic congestion and contamination risks.</li>
+            <li>Truck loading/unloading bays are positioned adjacent to storage tanks and warehouses for rapid turnaround.</li>
+            <li>Weighbridges, security gates, and firefighting systems are located at key entry points.</li>
+            <li>The internal road network ensures smooth mobility for material handling, maintenance, and emergency response.</li>
+          </ul>
+        </div>
+
+        <div class="sub-section">
+          <h3>6.9. Summary of Layout Features</h3>
+          <ul class="plain">
+            <li>Raw materials enter from the western access road, proceed through brine preparation and electrolysis, and exit as finished products from the eastern side.</li>
+            <li>NaOH tanks are built on reinforced concrete foundations with containment bunds.</li>
+            <li>Chlorine and hydrogen storage facilities are isolated within ventilated enclosures, meeting international safety codes.</li>
+            <li>Firefighting infrastructure (hydrants, sprinklers, foam systems) is distributed across all critical areas.</li>
+            <li>Adequate green zones and buffer spaces enhance environmental aesthetics and minimize off-site impacts.</li>
+          </ul>
+        </div>
+
+        <div class="sub-section">
+          <h3>6.10. Proposed Plant Layout (Functional Zones)</h3>
+          <ul class="plain">
+            <li>Minimum distance of 50–100 m between hazardous chemical units and administrative offices.</li>
+            <li>Chlorine and hydrogen storage in isolated, ventilated areas.</li>
+            <li>NaOH tanks located on concrete containment bunds with drainage to neutralization pits.</li>
+            <li>Firefighting systems installed throughout production and storage areas.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. ORGANIZATIONAL STRUCTURE AND MANAGEMENT -->
+    <section id="organization">
+      <div class="card">
+        <h2>7. Organizational Structure and Management</h2>
+
+        <div class="sub-section">
+          <h3>7.1. Organizational Structure</h3>
+          <p>The successful implementation of the proposed Caustic Soda (Chlor–Alkali) Plant will be carried out under a structured Project Management System (PMS) to ensure timely completion, cost efficiency, and compliance with quality and safety standards. The project will be promoted and fully managed by Caustic Chemical Industry, which will retain ownership and overall managerial responsibility.</p>
+          <p>A dedicated Project Management Team (PMT) will be established immediately after financial closure to oversee all phases of the project, including Engineering, Procurement, Construction, and Commissioning (EPCC). The PMT will coordinate contractors, suppliers, and regulatory authorities to ensure seamless execution of the project.</p>
+
+          <h3 style="margin-top:1rem">7.1.1. Executive Level</h3>
+          <p>The Executive Level forms the strategic core of the organization, providing governance, planning, and oversight. It ensures that business objectives align with the company's vision, risk management is enforced, and resources are optimally allocated. This level directly coordinates with all functional and operational units to maintain efficiency and regulatory compliance.</p>
+          <p><strong>Executive Level Organizational Positions and Functions:</strong></p>
+          <ul class="plain">
+            <li><strong>Board of Directors (Corporate):</strong> Provides governance, approves investments, and sets overall strategy.</li>
+            <li><strong>Managing Director (MD):</strong> Reports to the Board; leads corporate planning, performance oversight, and overall plant management.</li>
+            <li><strong>Finance & Administration Manager:</strong> Manages financial operations, accounting, payroll, and general administration.</li>
+            <li><strong>HR & Training Manager:</strong> Oversees recruitment, employee welfare, and training programs to maintain a skilled workforce.</li>
+            <li><strong>Marketing & Sales Manager:</strong> Handles market strategy, sales channels, and customer relationship management.</li>
+            <li><strong>Procurement & Logistics Manager:</strong> Manages procurement, storage, and distribution of materials and finished products.</li>
+            <li><strong>Business Development Manager:</strong> Identifies growth opportunities, expansion projects, and strategic partnerships.</li>
+            <li><strong>Legal & Compliance Officer:</strong> Ensures all operations comply with laws and regulations, handling contracts and legal affairs.</li>
+          </ul>
+
+          <h3 style="margin-top:1rem">7.1.2. Plant Operations</h3>
+          <p>Plant Operations form the backbone of production, ensuring that raw materials are processed efficiently into high-quality caustic soda and chlorine. The department emphasizes operational safety, environmental compliance, equipment reliability, and product consistency, which are critical for meeting both market demand and regulatory standards.</p>
+          <p><strong>Plant Operations Organizational Positions and Functions:</strong></p>
+          <ul class="plain">
+            <li><strong>Plant Manager:</strong> Oversees day-to-day operations and overall plant performance.</li>
+            <li><strong>Production Manager:</strong> Supervises caustic soda and chlorine production, including units such as Brine Preparation, Electrolysis, Evaporation & Concentration, and Product Handling & Packaging.</li>
+            <li><strong>Maintenance Manager:</strong> Ensures equipment reliability through mechanical, electrical, and instrumentation maintenance units.</li>
+            <li><strong>QC Manager:</strong> Monitors product quality and process consistency through raw material testing, process monitoring, and product certification units.</li>
+            <li><strong>SHE Manager:</strong> Implements safety, health, and environmental programs through safety audits, health monitoring, and environmental compliance units.</li>
+            <li><strong>Utilities & Services Manager:</strong> Manages plant utilities including power, steam, water treatment, and compressed air systems.</li>
+          </ul>
+
+          <h3 style="margin-top:1rem">7.1.3. Support Services</h3>
+          <p>Support Services provide essential non-production functions that maintain smooth plant operations. From security and transportation to IT and general office administration, this department ensures that production staff can focus on operational efficiency without disruptions, contributing to overall productivity and employee welfare.</p>
+          <p><strong>Support Services Organizational Positions and Functions:</strong></p>
+          <ul class="plain">
+            <li><strong>Support Services Manager:</strong> Oversees the planning, coordination, and management of all support functions to ensure seamless organizational operations.</li>
+            <li><strong>Security Unit:</strong> Ensures physical security of facilities, personnel, and assets through access control, surveillance, and emergency response.</li>
+            <li><strong>Transport & Fleet Unit:</strong> Manages company vehicles, driver schedules, maintenance, and transportation logistics.</li>
+            <li><strong>General Services Unit:</strong> Provides facility management, office upkeep, maintenance, and related operational support.</li>
+            <li><strong>IT & Systems Support Unit:</strong> Maintains IT infrastructure, software systems, network security, and user support services.</li>
+            <li><strong>Clerical & Office Support Unit:</strong> Handles administrative tasks, record keeping, office correspondence, and general office support.</li>
+          </ul>
+
+          <h3 style="margin-top:1rem">7.1.4. Finance & Administration</h3>
+          <p>The Finance & Administration department ensures the company's financial health and supports overall business operations through effective accounting, budgeting, reporting, and administrative management. The department emphasizes fiscal discipline, regulatory compliance, risk management, and organizational efficiency.</p>
+          <p><strong>Finance & Administration Organizational Positions and Functions:</strong></p>
+          <ul class="plain">
+            <li><strong>Finance & Administration Manager:</strong> Oversees financial planning, budgeting, accounting, and administrative support functions.</li>
+            <li><strong>Accountant / Finance Officer:</strong> Manages bookkeeping, financial reporting, and compliance with accounting standards.</li>
+            <li><strong>Payroll & Benefits Officer:</strong> Administers employee payroll, benefits, and compensation programs.</li>
+            <li><strong>Administrative Officer:</strong> Coordinates office management, documentation, record keeping, and general administrative duties.</li>
+          </ul>
+
+          <h3 style="margin-top:1rem">7.1.5. HR & Training</h3>
+          <p>The HR & Training department develops and manages the organization's human capital, ensuring workforce efficiency, employee engagement, and compliance with labor regulations. The department focuses on recruitment, employee development, training, performance management, and workplace safety.</p>
+          <p><strong>HR & Training Organizational Positions and Functions:</strong></p>
+          <ul class="plain">
+            <li><strong>HR & Training Manager:</strong> Oversees human resources policies, employee relations, and training programs.</li>
+            <li><strong>Recruitment Officer:</strong> Manages hiring processes, onboarding, and talent acquisition.</li>
+            <li><strong>Training & Development Officer:</strong> Designs and implements skill development and training programs.</li>
+            <li><strong>Employee Relations Officer:</strong> Ensures workplace compliance, addresses grievances, and promotes a positive work environment.</li>
+          </ul>
+
+          <h3 style="margin-top:1rem">7.1.6. Marketing & Sales</h3>
+          <p>The Marketing & Sales department drives revenue growth through market analysis, customer engagement, and promotion of company products. It emphasizes brand positioning, customer satisfaction, competitive strategy, and business development.</p>
+          <p><strong>Marketing & Sales Organizational Positions and Functions:</strong></p>
+          <ul class="plain">
+            <li><strong>Marketing & Sales Manager:</strong> Develops marketing strategies, sales plans, and customer engagement programs.</li>
+            <li><strong>Sales Executive / Officer:</strong> Manages customer accounts, sales targets, and relationship building.</li>
+            <li><strong>Marketing Officer:</strong> Conducts market research, advertising campaigns, and promotional activities.</li>
+            <li><strong>Customer Service Officer:</strong> Handles client inquiries, feedback, and after-sales support.</li>
+          </ul>
+
+          <h3 style="margin-top:1rem">7.1.7. Procurement & Logistics</h3>
+          <p>The Procurement & Logistics department ensures uninterrupted supply of materials and timely delivery of products, optimizing cost, quality, and efficiency. The department emphasizes supplier management, inventory control, and logistics coordination.</p>
+          <p><strong>Procurement & Logistics Organizational Positions and Functions:</strong></p>
+          <ul class="plain">
+            <li><strong>Procurement & Logistics Manager:</strong> Oversees sourcing, purchasing, inventory, and supply chain operations.</li>
+            <li><strong>Procurement Officer:</strong> Manages supplier relationships, purchase orders, and material quality.</li>
+            <li><strong>Logistics Officer:</strong> Coordinates transportation, warehousing, and distribution of materials and products.</li>
+            <li><strong>Inventory Controller:</strong> Monitors stock levels, warehouse organization, and material tracking.</li>
+          </ul>
+
+          <h3 style="margin-top:1rem">7.1.8. Business Development</h3>
+          <p>The Business Development department identifies and pursues growth opportunities, strategic partnerships, and new markets to enhance the company's competitive position. It emphasizes market research, strategy planning, and client relationship management.</p>
+          <p><strong>Business Development Organizational Positions and Functions:</strong></p>
+          <ul class="plain">
+            <li><strong>Business Development Manager:</strong> Leads market expansion, strategic partnerships, and growth initiatives.</li>
+            <li><strong>Market Analyst / Officer:</strong> Conducts market research, competitor analysis, and opportunity identification.</li>
+            <li><strong>Strategic Partnerships Officer:</strong> Develops alliances, collaborations, and business networks.</li>
+            <li><strong>Project Coordinator:</strong> Supports business development projects and implementation of growth strategies.</li>
+          </ul>
+
+          <h3 style="margin-top:1rem">7.1.9. Legal & Compliance</h3>
+          <p>The Legal & Compliance department safeguards the organization against legal risks and ensures adherence to regulatory requirements. The department emphasizes governance, risk management, contractual compliance, and corporate ethics.</p>
+          <p><strong>Legal & Compliance Organizational Positions and Functions:</strong></p>
+          <ul class="plain">
+            <li><strong>Legal & Compliance Officer:</strong> Oversees regulatory compliance, contract management, and legal risk mitigation.</li>
+            <li><strong>Compliance Officer:</strong> Monitors adherence to internal policies, laws, and industry standards.</li>
+            <li><strong>Legal Counsel / Advisor:</strong> Provides legal guidance, dispute resolution, and documentation support.</li>
+            <li><strong>Risk & Audit Officer:</strong> Evaluates operational risks, conducts audits, and ensures corrective actions.</li>
+          </ul>
+        </div>
+
+        <div class="sub-section">
+          <h3>7.2. Human Resource Team and Plan</h3>
+          <h3>7.2.1. Management Team</h3>
+          <table>
+            <tr><th>Name/Position</th><th>Qualifications</th><th>Relevant Experience</th></tr>
+            <tr><td>Managing Director (MD)</td><td>MSc/PhD Chemical Engineering or MBA</td><td>15-20 years in chemical manufacturing, project management, and corporate leadership.</td></tr>
+            <tr><td>Finance & Administration Manager</td><td>CPA/ACCA/MBA Finance</td><td>10-15 years in financial planning, accounting, and internal controls in manufacturing.</td></tr>
+            <tr><td>HR & Training Manager</td><td>MBA/MSc HR</td><td>10+ years in HR management, workforce planning, and training in industrial settings.</td></tr>
+            <tr><td>Marketing & Sales Manager</td><td>MBA Marketing/Business</td><td>10+ years in industrial chemical marketing, sales strategy, and customer relations.</td></tr>
+            <tr><td>Procurement & Logistics Manager</td><td>BSc/MBA Supply Chain</td><td>10+ years in procurement, logistics, and supply chain management for chemical plants.</td></tr>
+            <tr><td>Business Development Manager</td><td>MBA/MSc Business</td><td>8-12 years in market expansion, feasibility studies, and partnership management in chemicals.</td></tr>
+            <tr><td>Legal & Compliance Officer</td><td>LLB/LLM Corporate Law</td><td>8-10 years handling contracts, regulatory compliance, and legal advisory in industry.</td></tr>
+            <tr><td>Plant Manager</td><td>BSc/MSc Chemical Engineering</td><td>15+ years in plant operations, caustic soda/chlorine manufacturing, EPCC experience.</td></tr>
+            <tr><td>Production Manager</td><td>BSc Chemical Engineering</td><td>10-15 years in electrolysis, chemical process operations, and production optimization.</td></tr>
+            <tr><td>Maintenance Manager</td><td>BEng/Mechanical or Electrical</td><td>10-15 years in maintenance management, mechanical/electrical systems, and instrumentation.</td></tr>
+            <tr><td>QC Manager</td><td>BSc/MSc Chemistry</td><td>10+ years in QA/QC, ISO compliance, and chemical analysis.</td></tr>
+            <tr><td>SHE Manager</td><td>BSc/MSc Environmental Health & Safety</td><td>8-12 years in industrial safety, risk assessment, and environmental compliance.</td></tr>
+            <tr><td>Utilities & Services Manager</td><td>BSc/MSc Mechanical/Electrical</td><td>10+ years managing utilities in industrial plants.</td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">7.2.2. Personnel Plan</h3>
+          <p><strong>a) Human Resource Requirements</strong></p>
+          <ol class="plain">
+            <li><strong>Executive & Department Heads:</strong> 8–10 senior personnel including MD, Managers, and Legal/Business Development.</li>
+            <li><strong>Plant Operations:</strong>
+              <ul class="plain">
+                <li>Production: ~40–50 skilled operators across electrolysis, brine prep, concentration, and packaging.</li>
+                <li>Maintenance: ~15–20 technicians for mechanical, electrical, and instrumentation.</li>
+                <li>QC: ~8–10 chemists and lab technicians.</li>
+                <li>SHE: ~5–6 safety officers and environmental staff.</li>
+                <li>Utilities: ~10–12 engineers and operators.</li>
+              </ul>
+            </li>
+            <li><strong>Support Services:</strong> ~15–20 staff including security, fleet, IT, and general services.</li>
+            <li><strong>Finance & Administration:</strong> ~6–8 staff including accounting, payroll, and administration.</li>
+            <li><strong>HR & Training:</strong> ~4–5 HR officers for recruitment, training, and employee relations.</li>
+            <li><strong>Marketing & Sales:</strong> ~5–6 personnel for market research, sales, and digital campaigns.</li>
+            <li><strong>Procurement & Logistics:</strong> ~8–10 staff for purchasing, inventory, and logistics coordination.</li>
+          </ol>
+
+          <p><strong>b) Recruitment & Training</strong></p>
+          <p>Immediate recruitment after financial closure via HR Manager.</p>
+          <p><strong>Training plan includes:</strong></p>
+          <ul class="plain">
+            <li>Plant-specific technical training (electrolysis, QA/QC).</li>
+            <li>Safety, environmental compliance, and SHE programs.</li>
+            <li>ERP, finance, and administrative systems for support staff.</li>
+            <li>Continuous skill development and certification programs.</li>
+          </ul>
+
+          <p><strong>c) Skilled Workforce</strong></p>
+          <ul class="plain">
+            <li>Operators, engineers, and technicians with prior chemical plant experience.</li>
+            <li>QA/QC chemists with ISO and industrial chemistry backgrounds.</li>
+            <li>Logistics and procurement personnel familiar with industrial supply chains.</li>
+          </ul>
+        </div>
+
+        <div class="sub-section">
+          <h3>7.3. Summary</h3>
+          <p>The factory will be run by Caustic Chemical Industry with full ownership and management. The Project Management Team (PMT) will oversee EPCC phases, while the permanent structure will ensure efficient production, compliance, and business growth. The organizational structure emphasizes clear reporting lines, specialized units, and operational excellence.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. FINANCIAL PLAN -->
+    <section id="financial-plan">
+      <div class="card">
+        <h2>8. Financial Plan</h2>
+
+        <div class="sub-section">
+          <h3>8.1. Overview</h3>
+          <p>The proposed 400 TPD Chlor-Alkali Plant at Lake Afdera, Afar Region demonstrates strong financial feasibility and long-term sustainability. The project's total capital outlay is estimated at ETB 63 billion (USD 450 million), fully financed through equity by the project sponsors. The plant's modern membrane-cell technology, use of abundant local raw materials, and access to renewable energy ensure low operational costs and strong margins.</p>
+          <p>Financial modeling over a five-year period confirms a <strong>46.91% IRR</strong>, <strong>ETB 8.51 billion NPV</strong>, and <strong>2.1-year payback period</strong>, establishing the project as a highly lucrative industrial investment.</p>
+        </div>
+
+        <div class="sub-section">
+          <h3>8.2. Capital Investment Summary</h3>
+          <table>
+            <tr><th>Component</th><th>Cost (ETB)</th><th>Cost (USD)</th><th>Description</th></tr>
+            <tr><td>Land Acquisition</td><td>24,000,000</td><td>200,000</td><td>500,000 m² in Semera Industrial Zone</td></tr>
+            <tr><td>Land Development</td><td>240,000,000</td><td>2,000,000</td><td>Site preparation, access roads, drainage</td></tr>
+            <tr><td>Building Construction</td><td>577,800,000</td><td>4,815,000</td><td>Production halls, offices, storage, workshops</td></tr>
+            <tr><td>Machinery & Equipment</td><td>37,329,894,500</td><td>311,082,450</td><td>Electrolyzers, brine units, evaporators, packaging</td></tr>
+            <tr><td>Vehicles & Transport</td><td>579,200,000</td><td>4,826,667</td><td>Trucks, tankers, forklifts</td></tr>
+            <tr><td>Pre-Operative Expenses</td><td>7,400,000</td><td>61,667</td><td>Licenses, feasibility, training</td></tr>
+            <tr><td>Contingencies (10%)</td><td>5,849,189,450</td><td>48,743,250</td><td>Unforeseen costs</td></tr>
+            <tr><td>Escalation (5%)</td><td>292,459,473</td><td>2,437,162</td><td>Inflation and cost adjustment</td></tr>
+            <tr><td>Working Capital</td><td>1,500,000,000</td><td>12,500,000</td><td>Inventory, operations, labor for 3 months</td></tr>
+            <tr><td><strong>Total Capital Investment</strong></td><td><strong>63,000,000,000</strong></td><td><strong>450,000,000</strong></td><td>100% equity-funded by promoters</td></tr>
+          </table>
+        </div>
+
+        <div class="sub-section">
+          <h3>8.3. Operating Cost Summary</h3>
+          <table>
+            <tr><th>Component</th><th>Annual Cost (ETB)</th><th>Details</th></tr>
+            <tr><td>Raw Materials</td><td>643,517,800</td><td>Salt, auxiliary chemicals</td></tr>
+            <tr><td>Utilities</td><td>572,862,900</td><td>Power, water, steam, air</td></tr>
+            <tr><td>Labor</td><td>357,655,385</td><td>500 employees (300 permanent, 200 temporary)</td></tr>
+            <tr><td>Maintenance</td><td>315,921,000</td><td>5% of equipment cost annually</td></tr>
+            <tr><td>Administration & Overheads</td><td>71,531,077</td><td>Office, insurance, IT</td></tr>
+            <tr><td>Environmental Compliance</td><td>72,192,960</td><td>Effluent treatment, emission control</td></tr>
+            <tr><td><strong>Total Annual Operating Cost</strong></td><td><strong>2,032,680,122</strong></td><td></td></tr>
+          </table>
+        </div>
+
+        <div class="sub-section">
+          <h3>8.4. Revenue Projections</h3>
+          <table>
+            <tr><th>Product</th><th>Annual Production (MT)</th><th>Price (ETB/MT)</th><th>Annual Revenue (ETB)</th></tr>
+            <tr><td>Caustic Soda (Flakes, 98%)</td><td>7,388</td><td>160,000</td><td>1,182,080,000</td></tr>
+            <tr><td>Caustic Soda (Lye, 50%)</td><td>13,500</td><td>110,000</td><td>1,485,000,000</td></tr>
+            <tr><td>Hydrochloric Acid (32-33%)</td><td>9,000</td><td>90,000</td><td>810,000,000</td></tr>
+            <tr><td>Sodium Hypochlorite (5-6%)</td><td>24,000</td><td>115,000</td><td>2,760,000,000</td></tr>
+            <tr><td>Liquid Chlorine</td><td>9,000</td><td>45,000</td><td>405,000,000</td></tr>
+            <tr><td><strong>Total Annual Revenue (100% Capacity)</strong></td><td>-</td><td>-</td><td><strong>6,642,080,000</strong></td></tr>
+          </table>
+          <p style="margin-top:0.8rem"><strong>First-Year Capacity (80%) Revenue:</strong> ETB 5.31 billion</p>
+        </div>
+
+        <div class="sub-section">
+          <h3>8.5. Projected Income Statement (at Full Capacity)</h3>
+          <table>
+            <tr><th>Item</th><th>ETB</th></tr>
+            <tr><td>Gross Revenue</td><td>6,642,080,000</td></tr>
+            <tr><td>Operating Costs</td><td>(2,032,680,122)</td></tr>
+            <tr><td>Gross Profit</td><td>4,609,399,878</td></tr>
+            <tr><td>Depreciation & Fixed Costs</td><td>(1,003,949,894)</td></tr>
+            <tr><td>Net Operating Profit Before Tax</td><td>3,605,449,984</td></tr>
+            <tr><td>Corporate Tax (After 3-Year Tax Holiday)</td><td>(721,089,997)</td></tr>
+            <tr><td><strong>Net Profit After Tax</strong></td><td><strong>2,884,359,987</strong></td></tr>
+            <tr><td>Net Profit Margin</td><td>43.4%</td></tr>
+          </table>
+        </div>
+
+        <div class="sub-section">
+          <h3>8.6. Financial Ratios & Key Metrics</h3>
+          <table>
+            <tr><th>Metric</th><th>Value</th><th>Interpretation</th></tr>
+            <tr><td>Internal Rate of Return (IRR)</td><td>46.91%</td><td>Highly attractive, above industry benchmark</td></tr>
+            <tr><td>Net Present Value (NPV, 10%)</td><td>ETB 8.51 billion</td><td>Positive and strong return</td></tr>
+            <tr><td>Payback Period</td><td>2.1 years</td><td>Rapid capital recovery</td></tr>
+            <tr><td>Gross Profit Margin</td><td>69.4%</td><td>Strong cost efficiency</td></tr>
+            <tr><td>Break-even Volume</td><td>11,637 MT/year</td><td>Covers fixed & variable costs</td></tr>
+            <tr><td>Debt-to-Equity Ratio</td><td>0:1</td><td>Fully equity-funded (low financial risk)</td></tr>
+          </table>
+        </div>
+
+        <div class="sub-section">
+          <h3>8.7. Cash Flow Forecast (Simplified)</h3>
+          <table>
+            <tr><th>Year</th><th>Revenue (ETB)</th><th>Operating Costs (ETB)</th><th>Net Cash Flow (ETB)</th><th>Cumulative Cash Flow (ETB)</th></tr>
+            <tr><td>Year 1 (80% capacity)</td><td>5,313,664,000</td><td>2,032,680,122</td><td>3,280,983,878</td><td>3,280,983,878</td></tr>
+            <tr><td>Year 2 (90%)</td><td>5,977,872,000</td><td>2,135,314,000</td><td>3,842,558,000</td><td>7,123,541,878</td></tr>
+            <tr><td>Year 3 (100%)</td><td>6,642,080,000</td><td>2,250,000,000</td><td>4,392,080,000</td><td>11,515,621,878</td></tr>
+            <tr><td>Year 4</td><td>6,975,000,000</td><td>2,407,500,000</td><td>4,567,500,000</td><td>16,083,121,878</td></tr>
+            <tr><td>Year 5</td><td>7,323,750,000</td><td>2,576,000,000</td><td>4,747,750,000</td><td>20,830,871,878</td></tr>
+          </table>
+        </div>
+
+        <div class="sub-section">
+          <h3>8.8. Funding and Financial Structure</h3>
+          <ul class="plain">
+            <li><strong>Total Funding Requirement:</strong> ETB 63,000,000,000 (USD 450 million)</li>
+            <li><strong>Funding Source:</strong> 100% equity contribution by project owners</li>
+            <li><strong>Tax Incentives:</strong> 3-year income tax holiday (Ethiopian Investment Commission)</li>
+            <li><strong>Exchange Rate:</strong> 1 USD = 120 ETB</li>
+            <li><strong>Inflation Rate:</strong> 7% (factored into cost escalation)</li>
+          </ul>
+          <p><strong>Key Financial Strengths:</strong></p>
+          <ul class="plain">
+            <li>Self-financed (no debt exposure)</li>
+            <li>Fast payback due to strong product demand</li>
+            <li>Positive cash flow from year one</li>
+            <li>High-value by-products boosting profitability</li>
+            <li>Energy-efficient process lowering utility costs</li>
+          </ul>
+        </div>
+
+        <div class="sub-section">
+          <h3>8.9. Financial Feasibility Summary</h3>
+          <p>The Chlor-Alkali project at Lake Afdera is financially sound, strategically located, and technologically advanced. With high gross margins, quick payback, and full equity financing, the investment offers substantial returns while contributing to Ethiopia's industrial import substitution agenda.</p>
+          <p><strong>Financial Highlights:</strong></p>
+          <ul class="plain">
+            <li>IRR: 46.91%</li>
+            <li>NPV: ETB 8.5 billion (at 10% discount rate)</li>
+            <li>Payback Period: 2.1 years</li>
+            <li>Gross Profit Margin: 69.4%</li>
+            <li>Equity-Financed, Low Risk Profile</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. ENVIRONMENTAL AND REGULATORY COMPLIANCE -->
+    <section id="environmental">
+      <div class="card">
+        <h2>9. Environmental and Regulatory Compliance</h2>
+
+        <div class="sub-section">
+          <h3>9.1. Environmental Impact Assessment (EIA)</h3>
+          <h3>9.1.1. Introduction</h3>
+          <p>This Environmental Impact Assessment (EIA) section identifies and evaluates the potential environmental and social impacts associated with the proposed chlor-alkali production plant located in the Afar Region. The EIA aims to ensure that all stages of project planning, design, construction, and operation are conducted in accordance with the Environmental Policy of Ethiopia, the EIA Proclamation No. 299/2002, and relevant international environmental standards.</p>
+          <p>The assessment highlights possible adverse environmental impacts, proposes mitigation and monitoring measures, and demonstrates the project's commitment to environmental protection, occupational safety, and sustainable resource use.</p>
+
+          <h3 style="margin-top:1rem">9.1.2. Potential Environmental Impacts</h3>
+          <p><strong>A. Air Emissions</strong></p>
+          <p>The primary sources of air emissions will include chlorine gas (Cl₂) leaks, hydrogen (H₂) venting and combustion, and particulate matter generated from salt handling and NaOH flaking operations. While emissions are expected to remain within permissible levels, accidental releases could impact air quality and occupational safety if not properly managed.</p>
+          <ul class="plain">
+            <li>Possible chlorine gas (Cl₂) leaks during production, transfer, or storage operations.</li>
+            <li>Hydrogen (H₂) combustion risks arising from accidental releases.</li>
+            <li>Particulate emissions generated from salt handling and sodium hydroxide (NaOH) flaking operations.</li>
+          </ul>
+
+          <p><strong>B. Wastewater</strong></p>
+          <p>Wastewater will originate mainly from brine purification, cooling tower blowdown, and cleaning activities. The effluent will contain brine sludge (estimated at 405 MT/year) with calcium carbonate (CaCO₃) and magnesium hydroxide (Mg(OH)₂), as well as acidic or alkaline neutralization discharges.</p>
+          <ul class="plain">
+            <li>Generation of approximately 405 metric tons of brine sludge per year, primarily composed of calcium carbonate (CaCO₃) and magnesium hydroxide (Mg(OH)₂).</li>
+            <li>Discharge of acidic or alkaline effluents resulting from neutralization and cleaning activities.</li>
+          </ul>
+
+          <p><strong>C. Solid Waste</strong></p>
+          <p>Solid waste will include spent ion-exchange resins (300 liters/year) and plastic packaging waste (PP/HDPE). Packaging waste is recyclable, while spent resins are categorized as hazardous under Regulation No. 299/2013 and must be handled by licensed contractors.</p>
+          <ul class="plain">
+            <li>Disposal of spent ion-exchange resins estimated at 300 liters per year.</li>
+            <li>Non-hazardous packaging waste including polypropylene (PP) and high-density polyethylene (HDPE).</li>
+          </ul>
+
+          <p><strong>D. Noise</strong></p>
+          <p>Operational equipment such as compressors and electrolyzers will generate noise levels up to 95 dB. Prolonged exposure can impact workers' hearing and create discomfort in nearby communities.</p>
+          <ul class="plain">
+            <li>High noise levels, reaching up to 95 dB, generated by compressors, pumps, and electrolyzers during operation.</li>
+          </ul>
+
+          <h3 style="margin-top:1rem">9.1.3. Summary of Potential Environmental Impacts</h3>
+          <table>
+            <tr><th>Aspect</th><th>Source</th><th>Potential Impact</th><th>Significance</th><th>Duration</th></tr>
+            <tr><td>Air Emissions</td><td>Cl₂, H₂, particulate matter</td><td>Air contamination, safety risk</td><td>High</td><td>Long-term</td></tr>
+            <tr><td>Wastewater</td><td>Brine sludge, acidic effluent</td><td>Soil and groundwater contamination</td><td>Medium</td><td>Continuous</td></tr>
+            <tr><td>Solid Waste</td><td>Spent resin, packaging</td><td>Soil pollution, waste volume</td><td>Medium</td><td>Long-term</td></tr>
+            <tr><td>Noise</td><td>Compressors, electrolyzers</td><td>Worker health, nuisance</td><td>Medium</td><td>Continuous</td></tr>
+          </table>
+        </div>
+
+        <div class="sub-section">
+          <h3>9.2. Mitigation Measures</h3>
+          <h3>9.2.1. Air Quality Control</h3>
+          <ul class="plain">
+            <li>Install wet scrubbers and flare stacks for chlorine and hydrogen control.</li>
+            <li>Deploy chlorine leak detectors, automatic shut-off valves, and explosion-proof ventilation.</li>
+            <li>Use bag filters for particulate control in the NaOH flaking unit.</li>
+            <li>Conduct continuous emission monitoring (CEMS) and emergency response drills.</li>
+          </ul>
+          <p>Regular air quality reports will be submitted to the Ethiopian Environmental Protection Authority (EPA) to confirm compliance.</p>
+
+          <h3 style="margin-top:1rem">9.2.2. Wastewater Management</h3>
+          <ul class="plain">
+            <li>Construct sedimentation ponds for sludge settlement; reuse dried sludge in construction applications.</li>
+            <li>Treat effluent via pH-controlled neutralization tanks prior to discharge.</li>
+            <li>Implement a closed-loop water recycling system to reuse up to 80% of treated water.</li>
+          </ul>
+          <p>These measures will significantly reduce freshwater abstraction and ensure protection of local water bodies in the Afar Region.</p>
+
+          <h3 style="margin-top:1rem">9.2.3. Solid Waste Handling</h3>
+          <ul class="plain">
+            <li>Recycle PP/HDPE packaging materials using an in-house recycling system.</li>
+            <li>Store and label spent ion-exchange resins safely and dispose through licensed hazardous waste contractors.</li>
+            <li>Implement a Waste Management Plan (WMP) covering segregation, storage, transport, and disposal procedures.</li>
+            <li>Conduct periodic waste audits and document results under the ISO 14001 environmental management system.</li>
+          </ul>
+
+          <h3 style="margin-top:1rem">9.2.4. Noise Reduction</h3>
+          <ul class="plain">
+            <li>Enclose high-noise machinery in acoustic housings and install vibration dampeners.</li>
+            <li>Maintain green buffer zones and restrict access to high-noise areas.</li>
+            <li>Provide ear protection equipment and conduct routine occupational noise monitoring.</li>
+          </ul>
+        </div>
+
+        <div class="sub-section">
+          <h3>9.3. Regulatory Approvals and Compliance</h3>
+          <h3>9.3.1. Required Permits and Licenses</h3>
+          <table>
+            <tr><th>No.</th><th>Permit/License</th><th>Issuing Authority</th><th>Legal Reference</th><th>Remarks</th></tr>
+            <tr><td>1</td><td>Environmental Permit</td><td>Ethiopian Environmental Protection Authority (EPA)</td><td>EIA Proclamation No. 299/2002</td><td>Prior to construction</td></tr>
+            <tr><td>2</td><td>Air Emission License</td><td>EPA</td><td>Proclamation No. 300/2002</td><td>Annual renewal required</td></tr>
+            <tr><td>3</td><td>Wastewater Discharge Permit</td><td>EPA</td><td>EPA Effluent Guidelines</td><td>pH 6-9, TSS &lt;50 mg/L</td></tr>
+            <tr><td>4</td><td>Hazardous Waste Handling License</td><td>EPA</td><td>Regulation No. 299/2013</td><td>For Cl and resin waste</td></tr>
+            <tr><td>5</td><td>Construction Permit</td><td>Afar Regional Urban Planning Bureau</td><td>Regional Planning Rules</td><td>Site and layout approval</td></tr>
+            <tr><td>6</td><td>Export License</td><td>Ethiopian Revenue and Customs Authority (ERCA)</td><td>Customs Regulation</td><td>For chlorine and NaOH exports</td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">9.3.2. Applicable Standards</h3>
+          <p><strong>Local Regulations:</strong></p>
+          <ul class="plain">
+            <li>Ethiopian Occupational Safety and Health Proclamation (No. 1156/2019)</li>
+            <li>Environmental Pollution Control Proclamation (No. 300/2002)</li>
+          </ul>
+          <p><strong>International Standards:</strong></p>
+          <ul class="plain">
+            <li>ISO 14001 – Environmental Management Systems</li>
+            <li>ISO 45001 – Occupational Health and Safety</li>
+            <li>UN GHS – Globally Harmonized System for Chemical Labeling</li>
+          </ul>
+          <p>The project will ensure compliance through regular audits, training, and environmental reporting.</p>
+        </div>
+
+        <div class="sub-section">
+          <h3>9.4. Sustainability Practices</h3>
+          <h3>9.4.1. Energy Efficiency</h3>
+          <ul class="plain">
+            <li>Integrate 20% renewable power through a solar photovoltaic plant.</li>
+            <li>Implement heat recovery systems to reuse process steam for brine preheating.</li>
+            <li>Utilize high-efficiency membrane electrolyzers, reducing energy use from 3,300 to 2,100 kWh/ton NaOH.</li>
+          </ul>
+          <p>These measures contribute directly to Ethiopia's Green Growth Strategy and reduce greenhouse gas emissions.</p>
+
+          <h3 style="margin-top:1rem">9.4.2. Waste Reduction and Resource Recovery</h3>
+          <ul class="plain">
+            <li><strong>Brine Recycling:</strong> Reuse 90% of spent brine.</li>
+            <li><strong>Hydrogen Utilization:</strong> Channel hydrogen by-product to HCl production.</li>
+            <li><strong>Chlorine Utilization:</strong> Convert surplus chlorine into NaOCl for water treatment.</li>
+            <li><strong>Circular Packaging:</strong> Use reusable HDPE/PP containers for product distribution.</li>
+          </ul>
+          <p>This closed-loop approach promotes material efficiency and minimizes environmental footprint.</p>
+
+          <h3 style="margin-top:1rem">9.4.3. Carbon Mitigation and Community Engagement</h3>
+          <ul class="plain">
+            <li>Implement an afforestation program planting 5,000 trees annually around the site.</li>
+            <li>Reuse treated effluent for local agricultural irrigation in coordination with community farmers.</li>
+            <li>Conduct annual safety and environmental training for workers and surrounding communities.</li>
+          </ul>
+          <p>Community cooperation, transparency, and shared environmental benefits are central to the project's sustainability philosophy.</p>
+        </div>
+
+        <div class="sub-section">
+          <h3>9.5. Risk Analysis</h3>
+          <h3>9.5.1. Technical Risks and Mitigation</h3>
+          <table>
+            <tr><th>Risk</th><th>Impact</th><th>Mitigation Strategy</th></tr>
+            <tr><td>Membrane degradation</td><td>Reduced NaOH purity and production downtime</td><td>Procure from certified suppliers (e.g., Asahi Kasei); maintain warranty contracts; conduct preventive maintenance</td></tr>
+            <tr><td>Brine impurities</td><td>Fouling and reduced efficiency</td><td>Real-time quality monitoring, pre-treatment of raw brine</td></tr>
+            <tr><td>DCS malfunction</td><td>Process disruption</td><td>Biannual DCS audits, maintain redundant control systems</td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">9.5.2. Market Risks and Mitigation</h3>
+          <table>
+            <tr><th>Risk</th><th>Potential Effect</th><th>Mitigation Strategy</th></tr>
+            <tr><td>Raw material price fluctuation</td><td>Increased operational costs</td><td>Secure 5-year fixed-price contracts with salt cooperatives</td></tr>
+            <tr><td>Electricity tariff increase</td><td>Higher energy expenditure</td><td>Install solar power (20% plant capacity)</td></tr>
+            <tr><td>Market demand reduction</td><td>Reduced sales</td><td>Diversify products (biodiesel, soap, textiles)</td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">9.5.3. Financial Risks and Mitigation</h3>
+          <table>
+            <tr><th>Risk</th><th>Potential Impact</th><th>Mitigation Measure</th></tr>
+            <tr><td>Construction delay or cost overrun</td><td>Budget escalation</td><td>Maintain 10% contingency reserve (ETB 584 million)</td></tr>
+            <tr><td>Currency depreciation</td><td>Import cost increase</td><td>Use letters of credit (LCs) for fixed-rate equipment contracts</td></tr>
+            <tr><td>Funding constraints</td><td>Liquidity shortage</td><td>Introduce 20% debt financing, maintain cash reserves</td></tr>
+          </table>
+        </div>
+
+        <div class="sub-section">
+          <h3>9.6. Summary Statement</h3>
+          <p>The proposed chlor-alkali project demonstrates robust environmental compliance, efficient resource utilization, and proactive community engagement. Through advanced membrane technology, renewable energy integration, and closed-loop waste management systems, the facility will operate within the Ethiopian Environmental Protection Authority's (EPA) regulatory framework while contributing to the nation's green industrialization agenda. Continuous monitoring, staff training, and transparent community collaboration will ensure sustainable operations and long-term environmental stewardship.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ANNEXES -->
+    <section id="annexes">
+      <div class="card">
+        <h2>Annexes</h2>
+
+        <div class="sub-section">
+          <h3>Annex A: Environmental Management and Monitoring Plan (EMP)</h3>
+          <h3>A.1. Introduction</h3>
+          <p>The Environmental Management and Monitoring Plan (EMP) outlines the framework through which the proposed chlor-alkali plant will manage, monitor, and mitigate potential environmental impacts identified in the EIA.</p>
+          <p>The EMP provides specific actions, responsible entities, performance indicators, and monitoring frequencies to ensure compliance with Ethiopian Environmental Protection Authority (EPA) standards and relevant international guidelines, including ISO 14001 and IFC Environmental, Health, and Safety (EHS) Guidelines.</p>
+          <p>The plan will serve as an operational tool for the project's Environmental, Health, and Safety (EHS) team to guide day-to-day environmental management, ensure compliance reporting, and promote continuous improvement.</p>
+
+          <h3 style="margin-top:1rem">A.2. Objectives of the EMP</h3>
+          <ol class="plain">
+            <li>Ensure that mitigation measures identified in the EIA are implemented effectively.</li>
+            <li>Establish a structured monitoring program to detect and control environmental impacts.</li>
+            <li>Define institutional responsibilities and reporting mechanisms for environmental performance.</li>
+            <li>Facilitate compliance with national environmental laws, permits, and international standards.</li>
+            <li>Promote sustainable use of natural resources and enhance community welfare.</li>
+          </ol>
+
+          <h3 style="margin-top:1rem">A.3. Institutional Framework and Responsibilities</h3>
+          <table>
+            <tr><th>Entity</th><th>Roles and Responsibilities</th></tr>
+            <tr><td>Project Proponent (Company EHS Department)</td><td>Implement mitigation measures, conduct environmental monitoring, maintain records, and report to EPA quarterly</td></tr>
+            <tr><td>Contractors</td><td>Comply with EMP during construction; manage site waste, noise, and emissions; and follow EHS guidelines.</td></tr>
+            <tr><td>Ethiopian Environmental Protection Authority (EPA)</td><td>Regulatory oversight, review of monitoring reports, site inspections, and permit compliance verification.</td></tr>
+            <tr><td>Afar Regional Environmental Office</td><td>Local monitoring, community liaison, and incident reporting.</td></tr>
+            <tr><td>Independent Environmental Auditor (annual)</td><td>Conduct external audits, verify compliance with ISO 14001, and recommend improvements.</td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">A.4. Environmental Management Plan (Mitigation Measures)</h3>
+          <table>
+            <tr><th>Environmental Aspect</th><th>Potential Impact</th><th>Mitigation Measure</th><th>Responsibility</th><th>Implementation Phase</th></tr>
+            <tr><td>Air Emissions</td><td>Chlorine gas leakage, hydrogen explosion risk, particulate matter</td><td>Install scrubbers, flare stacks, and bag filters. Provide H₂ detectors and explosion-proof ventilation. Routine leak inspection and CEMS monitoring.</td><td>Plant Operations Manager / EHS Officer</td><td>Operation</td></tr>
+            <tr><td>Wastewater</td><td>Contamination from brine sludge and neutralization effluent</td><td>Construct lined sedimentation ponds. Neutralize effluent to pH 6-9 before discharge. Reuse 80% treated water in cooling/brine preparation.</td><td>Process Engineer / EHS Officer</td><td>Operation</td></tr>
+            <tr><td>Solid Waste</td><td>Improper disposal of resin and packaging</td><td>Recycle PP/HDPE packaging. Store spent resins in sealed drums; dispose via licensed hazardous waste contractors. Maintain waste manifests.</td><td>Waste Management Supervisor</td><td>Operation</td></tr>
+            <tr><td>Noise</td><td>Worker hearing loss, community disturbance</td><td>Use acoustic enclosures for compressors. Provide PPE (ear protection). Maintain vegetation buffer zones.</td><td>Maintenance Manager / EHS Officer</td><td>Construction & Operation</td></tr>
+            <tr><td>Energy Use</td><td>High electricity consumption</td><td>Install 20% solar capacity. Apply heat recovery from NaOH evaporation. Use energy-efficient electrolyzers.</td><td>Electrical Engineer / Plant Manager</td><td>Operation</td></tr>
+            <tr><td>Occupational Safety</td><td>Accidents from Cl₂ exposure or spills</td><td>Develop emergency response plan. Train workers in spill response and first aid. Maintain chlorine neutralization kits.</td><td>EHS Officer</td><td>Operation</td></tr>
+            <tr><td>Community Impacts</td><td>Limited access to resources, misinformation</td><td>Conduct community consultations. Share treated wastewater for irrigation. Implement afforestation program (5,000 trees/year).</td><td>CSR Unit / EHS Manager</td><td>Operation & Post-construction</td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">A.5. Environmental Monitoring Plan</h3>
+          <h3>A.5.1. Air Quality Monitoring</h3>
+          <table>
+            <tr><th>Parameter</th><th>Standard/Limit</th><th>Frequency</th><th>Monitoring Location</th><th>Responsible Unit</th></tr>
+            <tr><td>Chlorine gas (Cl₂)</td><td>≤1 ppm (EPA/WHO)</td><td>Continuous (CEMS)</td><td>Electrolyzer area, storage tanks</td><td>EHS Dept.</td></tr>
+            <tr><td>Hydrogen (H₂)</td><td>≤4% v/v (explosive limit)</td><td>Continuous</td><td>Process area, vent stack</td><td>EHS Dept.</td></tr>
+            <tr><td>Particulate Matter (PM₁₀/PM₂.₅)</td><td>PM₁₀ &lt;50 μg/m³</td><td>Monthly</td><td>NaOH flaking and packaging areas</td><td>EHS Dept.</td></tr>
+            <tr><td>Ambient Air Quality (SO₂, NOₓ)</td><td>EPA limits</td><td>Quarterly</td><td>Boundary and nearby communities</td><td>External Lab</td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">A.5.2. Wastewater Monitoring</h3>
+          <table>
+            <tr><th>Parameter</th><th>EPA Standard</th><th>Frequency</th><th>Sampling Point</th><th>Responsible Unit</th></tr>
+            <tr><td>pH</td><td>6.0 – 9.0</td><td>Weekly</td><td>Effluent discharge outlet</td><td>Lab Technician</td></tr>
+            <tr><td>Total Suspended Solids (TSS)</td><td>&lt; 50 mg/L</td><td>Weekly</td><td>Sedimentation pond outlet</td><td>EHS Dept.</td></tr>
+            <tr><td>Chemical Oxygen Demand (COD)</td><td>&lt; 250 mg/L</td><td>Monthly</td><td>Effluent discharge</td><td>EHS Dept.</td></tr>
+            <tr><td>Chloride / Sodium</td><td>Baseline +10% limit</td><td>Quarterly</td><td>Brine stream</td><td>EHS Dept.</td></tr>
+            <tr><td>Heavy Metals (Hg, Pb, Cd)</td><td>Non-detectable</td><td>Quarterly</td><td>Effluent discharge</td><td>External Lab</td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">A.5.3. Solid Waste Monitoring</h3>
+          <table>
+            <tr><th>Parameter</th><th>Indicator</th><th>Frequency</th><th>Responsible Unit</th></tr>
+            <tr><td>Resin disposal</td><td>Volume disposed (liters/year)</td><td>Annually</td><td>Waste Management Supervisor</td></tr>
+            <tr><td>Plastic packaging reuse</td><td>% recycled materials</td><td>Quarterly</td><td>Logistics / EHS Dept.</td></tr>
+            <tr><td>Hazardous waste tracking</td><td>Waste manifest submission</td><td>Monthly</td><td>EHS Dept.</td></tr>
+            <tr><td>Contractor compliance</td><td>Valid disposal license</td><td>Annual review</td><td>Procurement Unit</td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">A.5.4. Noise Monitoring</h3>
+          <table>
+            <tr><th>Parameter</th><th>Limit</th><th>Frequency</th><th>Location</th><th>Responsible Unit</th></tr>
+            <tr><td>Ambient noise level (dB)</td><td>≤85 dB (OSHA/EPA)</td><td>Quarterly</td><td>Compressor room, plant boundary</td><td>EHS Officer</td></tr>
+            <tr><td>Worker exposure</td><td>≤8-hour TWA</td><td>Quarterly</td><td>Workstations</td><td>Occupational Safety Unit</td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">A.5.5. Ecological and Community Monitoring</h3>
+          <table>
+            <tr><th>Parameter</th><th>Monitoring Indicator</th><th>Frequency</th><th>Responsible Party</th></tr>
+            <tr><td>Tree plantation</td><td>Number of trees planted and survival rate</td><td>Annually</td><td>CSR / Forestry Expert</td></tr>
+            <tr><td>Water reuse by community</td><td>Volume of water shared for irrigation</td><td>Semi-annually</td><td>CSR / EHS Dept.</td></tr>
+            <tr><td>Community feedback</td><td>Grievance records and responses</td><td>Quarterly</td><td>Community Liaison Officer</td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">A.6. Reporting and Review</h3>
+          <ol class="plain">
+            <li><strong>Internal Reporting:</strong> Weekly monitoring data compiled by the EHS Officer. Monthly internal review meetings with the Plant Manager.</li>
+            <li><strong>Regulatory Reporting:</strong> Quarterly Environmental Performance Report to the EPA and Afar Regional Environmental Office. Annual Environmental Audit Report verified by an independent auditor.</li>
+            <li><strong>Incident Reporting:</strong> Any environmental incident (e.g., chlorine leak, spill) must be reported to EPA within 24 hours and documented in the incident register.</li>
+          </ol>
+
+          <h3 style="margin-top:1rem">A.7. Capacity Building and Training</h3>
+          <p>The company will conduct regular environmental and safety training programs for all employees and contractors. Key focus areas include:</p>
+          <ul class="plain">
+            <li>Safe handling of hazardous materials (Cl₂, NaOH, H₂)</li>
+            <li>Emergency response and evacuation procedures</li>
+            <li>Waste segregation and recycling protocols</li>
+            <li>Environmental monitoring and data recording methods</li>
+          </ul>
+          <p>Training will be conducted semi-annually and refreshed annually.</p>
+
+          <h3 style="margin-top:1rem">A.8. Budget Estimate for EMP Implementation</h3>
+          <table>
+            <tr><th>Component</th><th>Description</th><th>Estimated Annual Cost (ETB)</th></tr>
+            <tr><td>Air quality monitoring equipment</td><td>Sensors, CEMS maintenance</td><td>1,200,000</td></tr>
+            <tr><td>Wastewater testing and laboratory analysis</td><td>Chemicals, external lab services</td><td>850,000</td></tr>
+            <tr><td>Solid waste handling and contractor fees</td><td>Resin disposal, transport</td><td>600,000</td></tr>
+            <tr><td>PPE and safety training</td><td>Protective gear, workshops</td><td>450,000</td></tr>
+            <tr><td>Tree planting and CSR programs</td><td>Seedlings, community support</td><td>300,000</td></tr>
+            <tr><td>Environmental audits and reporting</td><td>Annual third-party audit</td><td>500,000</td></tr>
+            <tr><td><strong>Total Estimated Annual Budget</strong></td><td></td><td><strong>3,900,000 ETB</strong></td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">A.9. Conclusion</h3>
+          <p>The Environmental Management and Monitoring Plan (EMP) provides a structured and practical framework for minimizing environmental impacts, ensuring compliance, and promoting sustainable industrial operations. Through consistent implementation, monitoring, and transparent reporting, the project will maintain high environmental performance standards and contribute positively to the ecological and socio-economic development of the Afar Region.</p>
+        </div>
+
+        <div class="sub-section">
+          <h3>Annex B: Emergency Response and Spill Contingency Plan (ERSCP)</h3>
+          <h3>B.1. Introduction</h3>
+          <p>The Emergency Response and Spill Contingency Plan (ERSCP) establishes a structured framework for preventing, responding to, and recovering from potential emergencies related to the operation of the chlor-alkali plant in the Afar Region.</p>
+          <p>It focuses on protecting human health, environmental integrity, and property, while ensuring compliance with Ethiopia's Occupational Safety and Health Proclamation No. 1156/2019, Environmental Pollution Control Proclamation No. 300/2002, and relevant international standards such as ISO 45001 and ISO 14001.</p>
+          <p>The plan applies to all employees, contractors, and visitors on-site and serves as a reference document for coordination with local emergency services and regulatory authorities.</p>
+
+          <h3 style="margin-top:1rem">B.2. Objectives</h3>
+          <ol class="plain">
+            <li>Identify potential emergency scenarios and associated hazards.</li>
+            <li>Define clear procedures for effective and timely emergency response.</li>
+            <li>Establish communication and coordination channels with internal and external stakeholders.</li>
+            <li>Minimize injury, environmental damage, and production downtime.</li>
+            <li>Ensure continuous training, preparedness, and post-incident recovery.</li>
+          </ol>
+
+          <h3 style="margin-top:1rem">B.3. Scope and Applicability</h3>
+          <p>This plan covers all project phases (construction, operation, maintenance, and decommissioning) and addresses both on-site and off-site emergencies arising from:</p>
+          <ul class="plain">
+            <li>Chlorine gas (Cl₂) leaks or releases</li>
+            <li>Hydrogen (H₂) fire or explosion</li>
+            <li>Sodium hydroxide (NaOH) and hydrochloric acid (HCl) spills</li>
+            <li>Power failure or control system malfunction</li>
+            <li>Transport accidents involving hazardous materials</li>
+            <li>Occupational injury or medical emergency</li>
+            <li>Natural disasters (e.g., earthquakes, flash floods)</li>
+          </ul>
+
+          <h3 style="margin-top:1rem">B.4. Emergency Organizational Structure</h3>
+          <table>
+            <tr><th>Role/Position</th><th>Responsibilities</th></tr>
+            <tr><td>Emergency Coordinator (Plant Manager)</td><td>Overall command; activates emergency plan; communicates with authorities and media.</td></tr>
+            <tr><td>Safety Officer / EHS Manager</td><td>Leads on-site emergency response; ensures safe evacuation; monitors gas alarms; liaises with EPA.</td></tr>
+            <tr><td>Incident Commander (Shift Supervisor)</td><td>Coordinates first responders, isolates source, initiates containment actions.</td></tr>
+            <tr><td>First-Aid Team</td><td>Provides immediate medical care and coordinates with health facilities.</td></tr>
+            <tr><td>Fire & Rescue Team</td><td>Manages firefighting, gas neutralization, and confined-space rescue.</td></tr>
+            <tr><td>Security & Communication Officer</td><td>Controls site entry/exit, assists in public warning and information dissemination.</td></tr>
+            <tr><td>Community Liaison Officer (CLO)</td><td>Notifies local authorities, health facilities, and community leaders.</td></tr>
+          </table>
+          <p style="margin-top:0.8rem"><strong>Emergency Assembly Point:</strong> North-west yard, 100 m upwind of production area</p>
+
+          <h3 style="margin-top:1rem">B.5. Emergency Communication and Notification Flow</h3>
+          <ol class="plain">
+            <li><strong>Detection:</strong> Alarm triggered automatically (CEMS / H₂ detector) or reported by staff.</li>
+            <li><strong>Immediate Response:</strong> Shift Supervisor informs Emergency Coordinator.</li>
+            <li><strong>Evacuation:</strong> Alarm siren activated; staff move to assembly point.</li>
+            <li><strong>Containment:</strong> Fire & Rescue Team intervenes using appropriate PPE and neutralization equipment.</li>
+            <li><strong>Notification:</strong> CLO informs Afar Regional Environmental Office, local police, and health authorities within 30 minutes.</li>
+            <li><strong>EPA Reporting:</strong> Incident report submitted within 24 hours, followed by detailed assessment within 7 days.</li>
+          </ol>
+
+          <h3 style="margin-top:1rem">B.6. Potential Emergency Scenarios and Response Measures</h3>
+          <table>
+            <tr><th>Scenario</th><th>Possible Impact</th><th>Immediate Response Actions</th><th>Responsible Team</th></tr>
+            <tr><td>Chlorine gas leak</td><td>Toxic exposure, corrosion, vegetation damage</td><td>Sound alarm; evacuate upwind. Don SCBA suits. Activate scrubber and neutralization spray (Na₂SO₃). Isolate leak source; ventilate area. Notify EPA and local hospital.</td><td>Fire & Rescue / EHS</td></tr>
+            <tr><td>Hydrogen fire or explosion</td><td>Fire, injury, equipment loss</td><td>Activate fire suppression system (CO₂, N₂). Cut off gas supply. Evacuate area. Cool adjacent tanks with water spray. Inform fire department.</td><td>Fire & Rescue</td></tr>
+            <tr><td>NaOH / HCl spill</td><td>Chemical burns, soil contamination</td><td>Restrict access; contain with sand/neutralizing agent. Collect residue in labeled drums. Neutralize (acid with NaHCO₃, alkali with citric acid). Dispose per hazardous waste procedures.</td><td>EHS / Maintenance</td></tr>
+            <tr><td>Power failure / DCS malfunction</td><td>Process disruption, release risk</td><td>Initiate safe-shutdown protocol. Switch to backup power supply. Maintain negative pressure ventilation.</td><td>Operations / Electrical</td></tr>
+            <tr><td>Transport accident (off-site)</td><td>Spill, community exposure</td><td>Notify local authorities immediately. Deploy mobile HAZMAT team. Cordon area 300 m radius. Provide first aid and evacuation if necessary.</td><td>Logistics / CLO</td></tr>
+            <tr><td>Natural disaster (flood/quake)</td><td>Infrastructure damage, release risk</td><td>Shut down plant. Secure chemical storage. Evacuate to higher ground. Assess structural integrity post-event.</td><td>Emergency Coordinator</td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">B.7. Emergency Response Equipment and Facilities</h3>
+          <table>
+            <tr><th>Equipment/Facility</th><th>Specification/Quantity</th><th>Storage Location</th></tr>
+            <tr><td>Chlorine leak detectors (CEMS)</td><td>Continuous monitoring (≥6 units)</td><td>Electrolyzer area</td></tr>
+            <tr><td>Self-Contained Breathing Apparatus (SCBA)</td><td>12 sets</td><td>Control room & maintenance workshop</td></tr>
+            <tr><td>Fire extinguishers</td><td>CO₂ (30), Dry Powder (50), Foam (20)</td><td>Throughout plant</td></tr>
+            <tr><td>Sodium thiosulfate neutralization solution</td><td>1 ton stock</td><td>Emergency chemical store</td></tr>
+            <tr><td>Spill containment kits</td><td>10 units (absorbents, neutralizers, PPE)</td><td>Warehouse & tank farm</td></tr>
+            <tr><td>First-aid kits</td><td>6 kits</td><td>Every process block</td></tr>
+            <tr><td>Eye-wash and safety showers</td><td>Installed every 20 m in process area</td><td>Production building</td></tr>
+            <tr><td>Emergency generator</td><td>500 kVA backup</td><td>Utility area</td></tr>
+            <tr><td>Alarm and PA system</td><td>Centralized with three-tone alert</td><td>Control room</td></tr>
+            <tr><td>Assembly point signage</td><td>Wind-direction labeled</td><td>North-west yard</td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">B.8. Training, Drills, and Awareness</h3>
+          <ul class="plain">
+            <li><strong>Induction Training:</strong> All employees receive training on hazard awareness, PPE use, and evacuation procedures during onboarding.</li>
+            <li><strong>Emergency Drills:</strong> Conduct quarterly full-scale drills simulating chlorine leak, fire, and chemical spill scenarios; evaluate performance and update plan accordingly.</li>
+            <li><strong>Refresher Training:</strong> Semi-annual sessions for emergency teams and coordination with Afar Regional Fire Department and Health Bureau.</li>
+            <li><strong>Community Awareness:</strong> Annual outreach workshops with nearby residents, schools, and local leaders on chlorine safety, warning signals, and evacuation routes.</li>
+          </ul>
+          <p>Training records will be maintained for five years and reviewed during audits.</p>
+
+          <h3 style="margin-top:1rem">B.9. Post-Incident Procedures</h3>
+          <ol class="plain">
+            <li><strong>Incident Termination:</strong> Emergency Coordinator declares "all-clear" once hazard is contained.</li>
+            <li><strong>Site Decontamination:</strong> All affected areas neutralized and inspected by EHS team.</li>
+            <li><strong>Medical Evaluation:</strong> Exposed personnel undergo medical checkups and follow-up.</li>
+            <li><strong>Incident Investigation:</strong> Root-cause analysis completed within 72 hours; corrective and preventive actions documented.</li>
+            <li><strong>Reporting:</strong> Final incident report submitted to EPA and Afar Regional Office within seven (7) days.</li>
+            <li><strong>Review & Update:</strong> ERSCP revised based on findings and lessons learned.</li>
+          </ol>
+
+          <h3 style="margin-top:1rem">B.10. Coordination with External Agencies</h3>
+          <p>The project will maintain standing agreements and communication lines with:</p>
+          <ul class="plain">
+            <li>Afar Regional Environmental Protection Office – incident verification and regulatory reporting.</li>
+            <li>Afar Regional Fire Department – joint emergency drills and response support.</li>
+            <li>Local Health Bureau / Hospital – medical treatment and exposure management.</li>
+            <li>Police and Transport Authority – road accident response and community evacuation.</li>
+            <li>EPA Headquarters (Addis Ababa) – national reporting and compliance oversight.</li>
+          </ul>
+
+          <h3 style="margin-top:1rem">B.11. Review and Revision of the Plan</h3>
+          <p>The ERSCP will be reviewed:</p>
+          <ul class="plain">
+            <li>Annually, or</li>
+            <li>Immediately after any significant incident, process change, or regulatory update.</li>
+          </ul>
+          <p>All revisions will be documented, approved by the Plant Manager, and shared with EPA and the Afar Regional Environmental Office.</p>
+
+          <h3 style="margin-top:1rem">B.12. Budget Estimate for Emergency Preparedness</h3>
+          <table>
+            <tr><th>Item</th><th>Description</th><th>Annual Cost (ETB)</th></tr>
+            <tr><td>Emergency training & drills</td><td>Materials, facilitators, simulations</td><td>600,000</td></tr>
+            <tr><td>Emergency PPE (SCBA, suits, gloves)</td><td>Replacement and maintenance</td><td>750,000</td></tr>
+            <tr><td>Fire & spill equipment maintenance</td><td>Extinguishers, detectors, pumps</td><td>550,000</td></tr>
+            <tr><td>Neutralization chemicals & first-aid supplies</td><td>Sodium thiosulfate, absorbents, kits</td><td>400,000</td></tr>
+            <tr><td>Community awareness & outreach</td><td>Workshops, signage, information leaflets</td><td>200,000</td></tr>
+            <tr><td><strong>Total Estimated Annual Budget</strong></td><td></td><td><strong>2,500,000 ETB</strong></td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">B.13. Conclusion</h3>
+          <p>The Emergency Response and Spill Contingency Plan ensures that the chlor-alkali facility is fully prepared to manage chemical hazards, protect human life, and prevent environmental damage. By integrating trained response teams, reliable communication, and coordination with local authorities, the project will maintain high safety standards in line with Ethiopian environmental regulations and international best practices.</p>
+        </div>
+
+        <div class="sub-section">
+          <h3>Annex C: Stakeholder Consultation Summary and Grievance Mechanism</h3>
+          <h3>C.1. Introduction</h3>
+          <p>Stakeholder engagement is a fundamental component of the Environmental Impact Assessment (EIA) process. It ensures that the concerns, expectations, and knowledge of affected and interested parties are taken into account throughout the project lifecycle.</p>
+          <p>This annex provides a summary of stakeholder consultations conducted for the proposed chlor-alkali production plant in the Afar Region. It also presents the project's grievance management framework, which ensures that any environmental or social concerns raised by stakeholders are addressed in a transparent, timely, and culturally appropriate manner.</p>
+          <p>The consultations were conducted in accordance with:</p>
+          <ul class="plain">
+            <li>Ethiopian EIA Proclamation No. 299/2002</li>
+            <li>Environmental Policy of Ethiopia (1997)</li>
+            <li>IFC Performance Standard 1: Assessment and Management of Environmental and Social Risks and Impacts</li>
+            <li>Afar Regional Environmental Protection Office guidelines for community participation (2021)</li>
+          </ul>
+
+          <h3 style="margin-top:1rem">C.2. Objectives of the Consultation Process</h3>
+          <ol class="plain">
+            <li>Inform local communities and stakeholders about the nature, scope, and potential impacts of the proposed project.</li>
+            <li>Collect community feedback, concerns, and suggestions regarding environmental, social, and economic impacts.</li>
+            <li>Build trust and promote open dialogue between the project proponent, local authorities, and community representatives.</li>
+            <li>Incorporate stakeholder inputs into project design, mitigation measures, and community development programs.</li>
+            <li>Establish a Grievance Redress Mechanism (GRM) for continued engagement and issue resolution throughout the project lifecycle.</li>
+          </ol>
+
+          <h3 style="margin-top:1rem">C.3. Stakeholder Identification</h3>
+          <table>
+            <tr><th>Stakeholder Category</th><th>Representative Entities/Individuals</th><th>Level of Interest</th></tr>
+            <tr><td>Local Government</td><td>Afar Regional Environmental Protection Office, Afar Investment Bureau, Afar Urban Planning Bureau</td><td>High</td></tr>
+            <tr><td>Local Administration</td><td>Woreda Administrators (Afdera Woreda), Kebele Leaders</td><td>High</td></tr>
+            <tr><td>Local Communities</td><td>Residents near project site (Lake Afdera, Semera kebeles)</td><td>High</td></tr>
+            <tr><td>Traditional Leaders</td><td>Clan elders and religious leaders</td><td>High</td></tr>
+            <tr><td>Women's Associations</td><td>Afdera Women's Development Group</td><td>Medium</td></tr>
+            <tr><td>Youth and Labor Groups</td><td>Local youth cooperatives</td><td>Medium</td></tr>
+            <tr><td>Farmers and Pastoralists</td><td>Small-scale farmers and livestock owners</td><td>Medium</td></tr>
+            <tr><td>NGOs/Civil Society</td><td>Environmental and livelihood organizations (Afar Ecology Network)</td><td>Medium</td></tr>
+            <tr><td>Academic/Research Institutions</td><td>Semera University Environmental Department</td><td>Low</td></tr>
+            <tr><td>Regulatory Bodies</td><td>Ethiopian Environmental Protection Authority (EPA), ERCA</td><td>High</td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">C.4. Consultation Methodology</h3>
+          <p>Stakeholder engagement was conducted using a mix of participatory tools to ensure inclusiveness and transparency:</p>
+          <ul class="plain">
+            <li>Public meetings with community members and elders.</li>
+            <li>Focus Group Discussions (FGDs) with women's and youth associations.</li>
+            <li>Key Informant Interviews (KIIs) with government officials, local NGOs, and technical experts.</li>
+            <li>Distribution of project briefs and posters in Afar, Amharic, and English languages.</li>
+            <li>Site visits with community representatives to explain plant layout and mitigation measures.</li>
+          </ul>
+          <p>Consultations were held between March and May 2025, at Afdera Town, Lake Afdera Kebele, and Semera Regional Office.</p>
+
+          <h3 style="margin-top:1rem">C.5. Summary of Consultation Outcomes</h3>
+          <table>
+            <tr><th>Stakeholder Group</th><th>Key Concerns/Comments</th><th>Proponent's Response/Action</th></tr>
+            <tr><td>Local elders and community members</td><td>Concern over chlorine gas leaks and community safety</td><td>Safety features explained (scrubbers, leak detectors, buffer zones). Regular drills to include community participation.</td></tr>
+            <tr><td>Women's Association</td><td>Request for employment opportunities for local women and training in safe handling of chemicals.</td><td>Commitment to reserve 15% of administrative and packaging jobs for women. Training to be provided annually.</td></tr>
+            <tr><td>Youth Groups</td><td>Interest in job creation, skill development, and supply opportunities.</td><td>Agreement to prioritize local youth for construction and maintenance contracts. Establish vocational partnership with Semera Polytechnic College.</td></tr>
+            <tr><td>Farmers / Pastoralists</td><td>Concern about water use affecting local wells and livestock.</td><td>Confirmed that brine source is non-potable and wastewater will be treated and reused for irrigation. No freshwater extraction planned.</td></tr>
+            <tr><td>Local Administration</td><td>Need for environmental monitoring and transparent reporting to the Woreda office.</td><td>Quarterly environmental reports to be shared with local authorities and posted publicly.</td></tr>
+            <tr><td>Afar EPA Office</td><td>Emphasis on hazardous waste handling and licensing.</td><td>Project will obtain all EPA permits and follow Regulation No. 299/2013 for hazardous waste.</td></tr>
+            <tr><td>NGOs / Environmental groups</td><td>Suggested tree planting and awareness programs.</td><td>Incorporated afforestation of 5,000 trees annually and community safety workshops.</td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">Community Perception Summary</h3>
+          <p>Overall, stakeholders expressed strong support for the project, recognizing its potential to create jobs, enhance regional industrialization, and improve access to chemicals.</p>
+          <p>Concerns mainly revolved around environmental safety, water use, and employment equity, which have been directly addressed through the Environmental Management Plan (EMP) and Sustainability Practices.</p>
+
+          <h3 style="margin-top:1rem">C.6. Future Engagement Plan</h3>
+          <p>The project will maintain an ongoing dialogue with stakeholders throughout all phases of implementation. The engagement framework includes:</p>
+          <table>
+            <tr><th>Engagement Activity</th><th>Frequency</th><th>Responsible Unit</th><th>Target Group</th></tr>
+            <tr><td>Public disclosure of monitoring results</td><td>Quarterly</td><td>EHS Department</td><td>Local community & government</td></tr>
+            <tr><td>Community meetings</td><td>Semi-annually</td><td>CSR & EHS Units</td><td>Kebele residents</td></tr>
+            <tr><td>Capacity building workshops</td><td>Annually</td><td>CSR Unit</td><td>Women & youth groups</td></tr>
+            <tr><td>Media updates/notice boards</td><td>Continuous</td><td>Communication Office</td><td>General public</td></tr>
+            <tr><td>EPA and Regional Office briefings</td><td>Quarterly</td><td>Plant Manager / EHS</td><td>Regulatory bodies</td></tr>
+          </table>
+          <p style="margin-top:0.8rem">All meetings will be documented with attendance sheets, photos, and minutes, and stored as part of the environmental audit trail.</p>
+
+          <h3 style="margin-top:1rem">C.7. Grievance Redress Mechanism (GRM)</h3>
+          <h3>C.7.1. Purpose</h3>
+          <p>The Grievance Redress Mechanism provides a formal process for individuals or groups to raise environmental, health, or social concerns related to the project and to have them resolved efficiently, fairly, and transparently.</p>
+
+          <h3 style="margin-top:1rem">C.7.2. Grievance Handling Structure</h3>
+          <table>
+            <tr><th>Level</th><th>Responsible Entity</th><th>Function</th></tr>
+            <tr><td>Level 1: On-Site Resolution</td><td>Grievance Officer (based at plant)</td><td>Receives complaints verbally or in writing; logs and resolves within 7 days.</td></tr>
+            <tr><td>Level 2: Community Resolution Committee (CRC)</td><td>Comprised of local elders, kebele representatives, and EHS Officer</td><td>Mediates unresolved grievances; decisions made within 14 days.</td></tr>
+            <tr><td>Level 3: Regional Oversight</td><td>Afar Regional Environmental Office / EPA</td><td>Reviews unresolved or serious grievances; ensures regulatory compliance.</td></tr>
+            <tr><td>Level 4: Judicial Appeal</td><td>Local or Federal Court</td><td>If grievance remains unresolved, the complainant retains the right to legal recourse.</td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">C.7.3. Grievance Submission Channels</h3>
+          <ul class="plain">
+            <li>Suggestion boxes at plant gates and community centers.</li>
+            <li>Dedicated phone line: +251xxx xxx</li>
+            <li>Email: info@chloralkali-afar.et</li>
+            <li>Written submission to the EHS office or Community Liaison Officer (CLO).</li>
+            <li>Verbal reporting through community leaders for illiterate residents.</li>
+          </ul>
+          <p>All grievances are registered in a Grievance Logbook, which records the date, complainant name, issue summary, action taken, and resolution date.</p>
+
+          <h3 style="margin-top:1rem">C.7.4. Grievance Resolution Process</h3>
+          <ol class="plain">
+            <li><strong>Receipt and Logging:</strong> All complaints recorded within 24 hours of submission.</li>
+            <li><strong>Assessment:</strong> EHS Officer investigates and categorizes grievance (minor, moderate, major).</li>
+            <li><strong>Action Plan:</strong> Resolution or mitigation strategy developed within 7 working days.</li>
+            <li><strong>Feedback:</strong> Complainant informed of resolution; acknowledgment signed.</li>
+            <li><strong>Monitoring:</strong> All closed cases reviewed monthly for trend analysis.</li>
+            <li><strong>Reporting:</strong> Summary of grievances included in Quarterly Environmental Reports to EPA and community boards.</li>
+          </ol>
+
+          <h3 style="margin-top:1rem">C.7.5. Confidentiality and Non-Retaliation</h3>
+          <p>The project ensures that all grievances are handled confidentially and without retaliation. Anonymous complaints are permitted and investigated with equal diligence.</p>
+          <p>Community trust and transparency are core to the project's corporate social responsibility (CSR) commitment.</p>
+
+          <h3 style="margin-top:1rem">C.8. Documentation and Record Keeping</h3>
+          <p>All consultation records, grievance logs, photos, attendance sheets, and meeting minutes will be archived by the EHS and CSR Departments for a minimum of five years.</p>
+          <p>Digital copies will also be maintained in the Environmental Management System (EMS) database, accessible for EPA audits or community review.</p>
+
+          <h3 style="margin-top:1rem">C.9. Budget Estimate for Stakeholder Engagement and GRM Implementation</h3>
+          <table>
+            <tr><th>Activity</th><th>Description</th><th>Estimated Annual Cost (ETB)</th></tr>
+            <tr><td>Community meetings & workshops</td><td>Logistics, refreshments, materials</td><td>450,000</td></tr>
+            <tr><td>Training for CRC & grievance officers</td><td>Facilitation, manuals, certification</td><td>250,000</td></tr>
+            <tr><td>Communication & awareness materials</td><td>Brochures, posters, radio spots</td><td>300,000</td></tr>
+            <tr><td>Grievance management system</td><td>Logbooks, hotline maintenance, staff</td><td>200,000</td></tr>
+            <tr><td>Monitoring & evaluation</td><td>Travel, data collection, audits</td><td>250,000</td></tr>
+            <tr><td><strong>Total Estimated Annual Budget</strong></td><td></td><td><strong>1,450,000 ETB</strong></td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">C.10. Conclusion</h3>
+          <p>The consultation process demonstrated a high level of community awareness, cooperation, and willingness to engage with the project.</p>
+          <p>The Grievance Redress Mechanism ensures that stakeholder concerns will continue to be addressed throughout project operation, reinforcing transparency, accountability, and long-term social license.</p>
+          <p>Through sustained dialogue, participatory planning, and prompt issue resolution, the project aligns with national EIA requirements and international best practices for stakeholder engagement.</p>
+        </div>
+
+        <div class="sub-section">
+          <h3>Annex D: Baseline Environmental Data</h3>
+          <h3>D.1. Introduction</h3>
+          <p>The establishment of a baseline environmental profile is essential for evaluating the potential impacts of the proposed Chlor-Alkali Production Plant in Afar Region, Lake Afdera area. This annex provides a detailed account of existing environmental conditions prior to project commencement, focusing on climate, air quality, water resources, soil characteristics, and ambient noise levels.</p>
+          <p>The data presented herein serves as a benchmark for future environmental monitoring, enabling comparative analysis of project-induced changes over time.</p>
+          <p>All baseline data were collected between March and June 2025, representing both dry and early wet season conditions in the Afar Region.</p>
+
+          <h3 style="margin-top:1rem">D.2. Study Area Description</h3>
+          <table>
+            <tr><th>Parameter</th><th>Description</th></tr>
+            <tr><td>Geographic Coordinates</td><td>13°14'N, 40°55'E</td></tr>
+            <tr><td>Elevation</td><td>120 meters below sea level</td></tr>
+            <tr><td>Nearest Settlements</td><td>Afdera Town (12 km NE), Semera City (60 km N)</td></tr>
+            <tr><td>Climate</td><td>Arid to semi-arid with extreme heat (average max. 40°C)</td></tr>
+            <tr><td>Land Use</td><td>Salt extraction, small-scale pastoralism, uninhabited saline plains</td></tr>
+            <tr><td>Hydrology</td><td>Dominated by saline Lake Afdera and seasonal wadis</td></tr>
+            <tr><td>Soil Type</td><td>Saline-sandy and volcanic ash soils</td></tr>
+            <tr><td>Ecology</td><td>Sparse vegetation (Acacia, Prosopis), low faunal diversity due to aridity</td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">D.3. Climatic Conditions</h3>
+          <p>The Afar region experiences a hot desert climate (BWh) according to the Köppen classification. Climatic parameters were derived from data obtained from the National Meteorology Agency (NMA) – Afdera Station and field measurements.</p>
+          <table>
+            <tr><th>Parameter</th><th>Average Value</th><th>Remarks</th></tr>
+            <tr><td>Mean Annual Temperature</td><td>34.6°C</td><td>Among the hottest regions in Africa</td></tr>
+            <tr><td>Maximum Temperature</td><td>47°C (June)</td><td>Recorded peak in dry season</td></tr>
+            <tr><td>Minimum Temperature</td><td>22°C (December)</td><td>Night-time cooling</td></tr>
+            <tr><td>Mean Annual Rainfall</td><td>120 mm</td><td>Highly variable, concentrated in July–September</td></tr>
+            <tr><td>Relative Humidity</td><td>30–45%</td><td>Lowest in dry months (Feb–May)</td></tr>
+            <tr><td>Wind Speed</td><td>2.8–4.3 m/s</td><td>Predominantly from the NE direction</td></tr>
+            <tr><td>Evaporation Rate</td><td>&gt; 2000 mm/year</td><td>Extremely high due to arid conditions</td></tr>
+          </table>
+          <p style="margin-top:0.8rem">The climatic conditions imply high rates of evaporation and dust generation, both of which are relevant to air quality and water balance assessments.</p>
+
+          <h3 style="margin-top:1rem">D.4. Air Quality Baseline</h3>
+          <h3>D.4.1. Sampling Methodology</h3>
+          <p>Air quality measurements were conducted at four locations surrounding the project site using portable gas analyzers and high-volume air samplers. Parameters analyzed included SO₂, NO₂, PM₁₀, PM₂.₅, and TSP.</p>
+          <p>Sampling points were selected to represent upwind, downwind, and sensitive receptor zones (residential clusters and water bodies).</p>
+          <table>
+            <tr><th>Sampling Station</th><th>Coordinates</th><th>Location Description</th></tr>
+            <tr><td>AQ-1</td><td>13.245°N, 40.920°E</td><td>Upwind (control point, 1 km NE of site)</td></tr>
+            <tr><td>AQ-2</td><td>13.239°N, 40.911°E</td><td>Project boundary (NaOH unit)</td></tr>
+            <tr><td>AQ-3</td><td>13.233°N, 40.905°E</td><td>Downwind, 1.5 km SW of site</td></tr>
+            <tr><td>AQ-4</td><td>13.229°N, 40.899°E</td><td>Near Afdera community area</td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">D.4.2. Baseline Air Quality Results</h3>
+          <table>
+            <tr><th>Parameter</th><th>Unit</th><th>Range Observed</th><th>Average</th><th>EPA Standard (μg/m³)</th><th>Remarks</th></tr>
+            <tr><td>Particulate Matter (PM₁₀)</td><td>μg/m³</td><td>44–68</td><td>56</td><td>100</td><td>Within permissible limit</td></tr>
+            <tr><td>Particulate Matter (PM₂.₅)</td><td>μg/m³</td><td>22–35</td><td>28</td><td>50</td><td>Within limit</td></tr>
+            <tr><td>Sulphur Dioxide (SO₂)</td><td>μg/m³</td><td>3.1–5.2</td><td>4.4</td><td>125</td><td>Minimal sources present</td></tr>
+            <tr><td>Nitrogen Dioxide (NO₂)</td><td>μg/m³</td><td>5.5–8.2</td><td>6.8</td><td>200</td><td>Within safe range</td></tr>
+            <tr><td>Chlorine (Cl₂)</td><td>μg/m³</td><td>&lt;0.2</td><td>&lt;0.2</td><td>150</td><td>No chlorine activity prior to plant setup</td></tr>
+            <tr><td>Total Suspended Particulates (TSP)</td><td>μg/m³</td><td>120–180</td><td>155</td><td>230</td><td>Slightly elevated due to natural dust</td></tr>
+          </table>
+          <p style="margin-top:0.8rem"><strong>Interpretation:</strong> The ambient air quality in the project area is generally good, dominated by natural dust sources. No anthropogenic chlorine or industrial pollutants were detected prior to project establishment.</p>
+
+          <h3 style="margin-top:1rem">D.5. Water Quality Baseline</h3>
+          <h3>D.5.1. Sampling and Analysis</h3>
+          <p>Water samples were collected from Lake Afdera, a brine source well, and a community borehole to assess the baseline chemical composition and suitability for industrial use. Analysis was performed in accordance with APHA (2017) standards.</p>
+          <table>
+            <tr><th>Sampling Site</th><th>Water Source Type</th><th>Coordinates</th></tr>
+            <tr><td>WQ-1</td><td>Lake Afdera (surface brine)</td><td>13.245°N, 40.890°E</td></tr>
+            <tr><td>WQ-2</td><td>Brine well near plant site</td><td>13.240°N, 40.900°E</td></tr>
+            <tr><td>WQ-3</td><td>Community borehole (reference)</td><td>13.255°N, 40.930°E</td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">D.5.2. Water Quality Results</h3>
+          <table>
+            <tr><th>Parameter</th><th>Unit</th><th>Lake Afdera</th><th>Brine Well</th><th>Community Borehole</th><th>EPA Standard (Effluent)</th><th>Remarks</th></tr>
+            <tr><td>pH</td><td>-</td><td>8.1</td><td>7.9</td><td>7.1</td><td>6–9</td><td>All within acceptable range</td></tr>
+            <tr><td>Electrical Conductivity (EC)</td><td>μS/cm</td><td>130,000</td><td>125,000</td><td>1,420</td><td>5,000</td><td>High due to salinity; expected for brine source</td></tr>
+            <tr><td>Total Dissolved Solids (TDS)</td><td>mg/L</td><td>88,000</td><td>82,000</td><td>960</td><td>2,000</td><td>Extremely saline, unsuitable for drinking</td></tr>
+            <tr><td>Sodium (Na⁺)</td><td>mg/L</td><td>25,400</td><td>23,800</td><td>140</td><td>-</td><td>Major ion in brine composition</td></tr>
+            <tr><td>Chloride (Cl⁻)</td><td>mg/L</td><td>38,000</td><td>35,200</td><td>180</td><td>-</td><td>High; suitable for Cl₂ production</td></tr>
+            <tr><td>Calcium (Ca²⁺)</td><td>mg/L</td><td>920</td><td>880</td><td>75</td><td>-</td><td>Present in expected quantities</td></tr>
+            <tr><td>Magnesium (Mg²⁺)</td><td>mg/L</td><td>520</td><td>490</td><td>35</td><td>-</td><td>Contributes to brine hardness</td></tr>
+            <tr><td>Total Suspended Solids (TSS)</td><td>mg/L</td><td>35</td><td>28</td><td>12</td><td>50</td><td>Within discharge limit</td></tr>
+            <tr><td>Oil and Grease</td><td>mg/L</td><td>&lt;1</td><td>&lt;1</td><td>&lt;1</td><td>10</td><td>No contamination observed</td></tr>
+          </table>
+          <p style="margin-top:0.8rem"><strong>Interpretation:</strong> The brine water is highly saline and mineral-rich, making it ideal for chlor-alkali processing but unsuitable for domestic or agricultural use. The community borehole water shows acceptable quality for household purposes and will not be affected by project brine operations.</p>
+
+          <h3 style="margin-top:1rem">D.6. Soil and Geology Baseline</h3>
+          <h3>D.6.1. Sampling and Testing</h3>
+          <p>Soil samples were collected at three depths (0–15 cm, 15–30 cm, 30–60 cm) from four representative sites to evaluate physicochemical properties and potential contamination risks.</p>
+          <table>
+            <tr><th>Sampling Location</th><th>Coordinates</th><th>Soil Texture</th><th>Dominant Features</th></tr>
+            <tr><td>S-1</td><td>13.240°N, 40.905°E</td><td>Sandy loam</td><td>High salt crust, low organic matter</td></tr>
+            <tr><td>S-2</td><td>13.236°N, 40.910°E</td><td>Silt-sand</td><td>Near process area</td></tr>
+            <tr><td>S-3</td><td>13.232°N, 40.915°E</td><td>Loam</td><td>Near proposed storage area</td></tr>
+            <tr><td>S-4</td><td>13.225°N, 40.920°E</td><td>Sandy clay</td><td>Reference (outside site)</td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">D.6.2. Soil Test Results</h3>
+          <table>
+            <tr><th>Parameter</th><th>Unit</th><th>Range Observed</th><th>Average</th><th>Typical Reference Range</th><th>Remarks</th></tr>
+            <tr><td>pH</td><td>-</td><td>7.8–8.4</td><td>8.1</td><td>6.5–8.5</td><td>Slightly alkaline</td></tr>
+            <tr><td>Electrical Conductivity</td><td>μS/cm</td><td>8,500–12,000</td><td>10,200</td><td>&lt;4,000</td><td>Saline soil, typical for Afar</td></tr>
+            <tr><td>Organic Carbon</td><td>%</td><td>0.25–0.45</td><td>0.33</td><td>&gt;1.0</td><td>Low fertility</td></tr>
+            <tr><td>Moisture Content</td><td>%</td><td>1.8–2.6</td><td>2.2</td><td>-</td><td>Arid soils</td></tr>
+            <tr><td>Chloride</td><td>mg/kg</td><td>520–720</td><td>650</td><td>-</td><td>Elevated, natural salinity</td></tr>
+            <tr><td>Sulphate</td><td>mg/kg</td><td>80–120</td><td>100</td><td>-</td><td>Within natural range</td></tr>
+            <tr><td>Heavy Metals (Pb, Cd, Cr)</td><td>mg/kg</td><td>&lt;0.01</td><td>&lt;0.01</td><td>-</td><td>Below detection limit</td></tr>
+          </table>
+          <p style="margin-top:0.8rem"><strong>Interpretation:</strong> The soils are naturally saline and alkaline, with minimal organic content. No anthropogenic contamination was detected, indicating an uncontaminated pre-project baseline.</p>
+
+          <h3 style="margin-top:1rem">D.7. Noise Level Baseline</h3>
+          <h3>D.7.1. Methodology</h3>
+          <p>Noise levels were measured using a Type 1 Precision Sound Level Meter at four monitoring points corresponding to operational zones and community receptors. Measurements were taken during both daytime (09:00–17:00) and nighttime (21:00–05:00) periods.</p>
+          <table>
+            <tr><th>Monitoring Station</th><th>Location Description</th><th>Daytime (dB(A))</th><th>Nighttime (dB(A))</th><th>EPA Standard (Industrial/Residential)</th></tr>
+            <tr><td>N-1</td><td>Plant boundary (NaOH area)</td><td>57</td><td>48</td><td>75/55</td></tr>
+            <tr><td>N-2</td><td>Storage yard</td><td>55</td><td>46</td><td>75/55</td></tr>
+            <tr><td>N-3</td><td>Access road</td><td>50</td><td>42</td><td>65/55</td></tr>
+            <tr><td>N-4</td><td>Afdera village</td><td>46</td><td>39</td><td>55/45</td></tr>
+          </table>
+          <p style="margin-top:0.8rem"><strong>Interpretation:</strong> Baseline ambient noise levels are within acceptable limits across all locations. Slightly higher daytime readings are attributed to vehicular and wind noise, not industrial activity.</p>
+
+          <h3 style="margin-top:1rem">D.8. Ecological Baseline</h3>
+          <p>The project area exhibits sparse vegetation due to arid conditions. Key plant species observed include Acacia tortilis, Prosopis juliflora, Calotropis procera, and Atriplex halimus. Faunal presence is limited to small reptiles, desert foxes, and migratory birds near Lake Afdera.</p>
+          <p>No protected or endangered species were identified during field surveys, as confirmed by the Afar Regional Environmental Office.</p>
+          <p>The project footprint avoids ecologically sensitive areas, ensuring minimal habitat disruption.</p>
+
+          <h3 style="margin-top:1rem">D.9. Socio-Economic Baseline</h3>
+          <p>The Afdera district hosts approximately 35,000 residents, primarily Afar pastoralists engaged in salt mining and small-scale trade. Literacy rates are low (36%), and employment opportunities are limited.</p>
+          <p>Infrastructure is developing, with recent improvements in electricity access, road networks, and mobile connectivity. The proposed project is expected to create over 500 direct jobs and stimulate regional economic growth through local procurement and supplier development.</p>
+          <p>Community support for the project is strong, contingent upon commitments to local hiring, water conservation, and environmental safety, as reflected in Annex C (Stakeholder Consultation Summary).</p>
+
+          <h3 style="margin-top:1rem">D.10. Summary of Baseline Conditions</h3>
+          <table>
+            <tr><th>Component</th><th>Condition Summary</th><th>Environmental Sensitivity</th></tr>
+            <tr><td>Air Quality</td><td>Clean, dominated by natural dust</td><td>Low</td></tr>
+            <tr><td>Water Resources</td><td>Highly saline brine, no potable water use conflict</td><td>Moderate</td></tr>
+            <tr><td>Soil</td><td>Naturally saline, non-agricultural</td><td>Low</td></tr>
+            <tr><td>Noise</td><td>Below EPA limits</td><td>Low</td></tr>
+            <tr><td>Ecology</td><td>Sparse vegetation, no sensitive habitats</td><td>Low</td></tr>
+            <tr><td>Socio-Economic</td><td>Rural, underdeveloped, positive toward project</td><td>Moderate</td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">D.11. Conclusion</h3>
+          <p>The baseline environmental study confirms that the project area is environmentally resilient with low ecological sensitivity.</p>
+          <p>No significant contamination or environmentally critical features were identified. These data will serve as a reference framework for Environmental Monitoring and Management (see Annex E) to ensure the project's compliance with EPA and ISO 14001 standards throughout its operational life.</p>
+        </div>
+
+        <div class="sub-section">
+          <h3>Annex E: Environmental Monitoring and Management Plan (EMMP)</h3>
+          <h3>E.1. Introduction</h3>
+          <p>The Environmental Monitoring and Management Plan (EMMP) outlines the strategies, responsibilities, and monitoring programs necessary to mitigate, control, and report environmental impacts associated with the chlor-alkali plant.</p>
+          <p>The EMMP is developed based on the baseline environmental data (Annex D) and the impact assessment and mitigation measures identified in the main EIA report. It provides a structured framework for implementation during construction, operation, and decommissioning phases of the project.</p>
+          <p>The plan aligns with:</p>
+          <ul class="plain">
+            <li>Ethiopian Environmental Policy (1997)</li>
+            <li>EIA Proclamation No. 299/2002</li>
+            <li>Pollution Control Proclamation No. 300/2002</li>
+            <li>Occupational Safety and Health Proclamation No. 1156/2019</li>
+            <li>ISO 14001:2015 Environmental Management System requirements</li>
+          </ul>
+
+          <h3 style="margin-top:1rem">E.2. Objectives of the EMMP</h3>
+          <ol class="plain">
+            <li>Ensure that identified environmental impacts are effectively mitigated.</li>
+            <li>Establish a systematic approach for monitoring environmental parameters throughout the project lifecycle.</li>
+            <li>Define roles, responsibilities, and reporting structures for environmental management.</li>
+            <li>Facilitate compliance with national environmental laws, EPA standards, and international best practices.</li>
+            <li>Promote transparency and accountability through regular reporting and stakeholder engagement.</li>
+            <li>Enable adaptive management, allowing corrective actions based on monitoring results.</li>
+          </ol>
+
+          <h3 style="margin-top:1rem">E.3. Environmental Management Organizational Structure</h3>
+          <h3>E.3.1. Organizational Framework</h3>
+          <table>
+            <tr><th>Position/Entity</th><th>Key Responsibilities</th></tr>
+            <tr><td>Plant General Manager</td><td>Overall responsibility for environmental compliance and reporting to EPA.</td></tr>
+            <tr><td>Environment, Health & Safety (EHS) Manager</td><td>Implementation of EMMP, supervision of environmental staff, and liaison with EPA and regional offices.</td></tr>
+            <tr><td>Environmental Officer</td><td>Daily monitoring, record keeping, laboratory analysis coordination, and incident reporting.</td></tr>
+            <tr><td>Maintenance Department</td><td>Ensures operation of pollution control systems (scrubbers, filters, etc.).</td></tr>
+            <tr><td>Waste Management Officer</td><td>Oversees solid/hazardous waste handling and disposal.</td></tr>
+            <tr><td>Community Liaison Officer (CLO)</td><td>Facilitates stakeholder engagement, grievance management, and public communication.</td></tr>
+            <tr><td>Department Supervisors</td><td>Ensure compliance with SOPs and environmental mitigation measures in respective units.</td></tr>
+          </table>
+          <p style="margin-top:0.8rem">An Environmental Management Committee (EMC)—comprising EHS, Production, Maintenance, and Administration heads—will meet quarterly to review compliance and monitoring data.</p>
+
+          <h3 style="margin-top:1rem">E.4. Environmental Monitoring Plan</h3>
+          <p>The monitoring plan identifies the parameters to be measured, the frequency of monitoring, responsible units, and reporting requirements. It covers air, water, wastewater, soil, noise, and solid waste management.</p>
+
+          <h3 style="margin-top:1rem">E.4.1. Air Quality Monitoring Plan</h3>
+          <table>
+            <tr><th>Parameter</th><th>Location</th><th>Frequency</th><th>Responsible Unit</th><th>Compliance Standard</th><th>Remarks</th></tr>
+            <tr><td>Chlorine (Cl₂)</td><td>Process area, boundary</td><td>Continuous (real-time detectors)</td><td>EHS Dept.</td><td>EPA Air Quality Standard (Proclamation No. 300/2002)</td><td>Alarm system linked to control room</td></tr>
+            <tr><td>Hydrogen (H₂)</td><td>Electrolyzer area</td><td>Continuous</td><td>Maintenance & EHS</td><td>OSHA standard (≤1% by volume)</td><td>Linked to ventilation system</td></tr>
+            <tr><td>PM₁₀, PM₂.₅</td><td>NaOH flaking, storage</td><td>Monthly</td><td>EHS & Lab</td><td>EPA Standard: PM₁₀ &lt;100 μg/m³</td><td>Measured using high-volume sampler</td></tr>
+            <tr><td>SO₂, NO₂</td><td>Plant boundary</td><td>Quarterly</td><td>EHS Dept.</td><td>EPA Air Standards</td><td>Baseline comparison (Annex D)</td></tr>
+            <tr><td>Stack Emissions</td><td>Scrubber outlet</td><td>Semi-annually</td><td>EHS & Contractor</td><td>EPA emission limits</td><td>Third-party lab verification</td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">E.4.2. Wastewater and Effluent Monitoring Plan</h3>
+          <table>
+            <tr><th>Parameter</th><th>Sampling Point</th><th>Frequency</th><th>Responsible Unit</th><th>Standard</th><th>Remarks</th></tr>
+            <tr><td>pH</td><td>Neutralization tank outlet</td><td>Daily</td><td>EHS & Lab</td><td>6–9</td><td>Continuous online meter</td></tr>
+            <tr><td>Total Suspended Solids (TSS)</td><td>Final discharge</td><td>Weekly</td><td>EHS</td><td>&lt;50 mg/L</td><td>Visual + lab analysis</td></tr>
+            <tr><td>Chemical Oxygen Demand (COD)</td><td>Final discharge</td><td>Monthly</td><td>EHS</td><td>&lt;250 mg/L</td><td>Monitors organic load</td></tr>
+            <tr><td>Residual Chlorine</td><td>Sedimentation pond outlet</td><td>Weekly</td><td>EHS</td><td>&lt;0.5 mg/L</td><td>Ensures no toxic discharge</td></tr>
+            <tr><td>Oil and Grease</td><td>Discharge point</td><td>Monthly</td><td>EHS</td><td>&lt;10 mg/L</td><td>Ensures mechanical cleanliness</td></tr>
+            <tr><td>Brine Sludge Volume</td><td>Sedimentation basin</td><td>Quarterly</td><td>Waste Mgmt Officer</td><td>-</td><td>Quantify reuse potential</td></tr>
+          </table>
+          <p style="margin-top:0.8rem">Effluent samples will be analyzed at a certified regional laboratory (Semera University Environmental Lab) or an EPA-accredited facility.</p>
+
+          <h3 style="margin-top:1rem">E.4.3. Solid and Hazardous Waste Monitoring Plan</h3>
+          <table>
+            <tr><th>Waste Type</th><th>Monitoring Activity</th><th>Frequency</th><th>Responsible Unit</th><th>Standard/Guideline</th></tr>
+            <tr><td>Brine Sludge</td><td>Quantity and reuse record</td><td>Quarterly</td><td>Waste Mgmt Officer</td><td>EPA Waste Directive</td></tr>
+            <tr><td>Spent Ion Exchange Resins</td><td>Safe storage, disposal manifest</td><td>Per batch</td><td>EHS & Contractor</td><td>Regulation No. 299/2013</td></tr>
+            <tr><td>Packaging Waste (PP/HDPE)</td><td>Recycling volume tracking</td><td>Monthly</td><td>Production & EHS</td><td>Internal recycling target 90%</td></tr>
+            <tr><td>General Waste</td><td>Segregation and disposal</td><td>Weekly</td><td>Facility Management</td><td>Regional waste management guideline</td></tr>
+          </table>
+          <p style="margin-top:0.8rem">All hazardous wastes will be handled only by EPA-licensed contractors and transported in compliance with the Hazardous Waste Regulation.</p>
+
+          <h3 style="margin-top:1rem">E.4.4. Soil and Groundwater Monitoring</h3>
+          <table>
+            <tr><th>Parameter</th><th>Location</th><th>Frequency</th><th>Responsible Unit</th><th>Standard/Reference</th></tr>
+            <tr><td>pH, EC, Chloride, Sodium</td><td>Near sedimentation pond</td><td>Semi-annually</td><td>EHS & Lab</td><td>EPA Soil Quality Guidelines</td></tr>
+            <tr><td>Heavy Metals (Pb, Cd, Cr)</td><td>Perimeter wells</td><td>Annually</td><td>EHS & Contractor</td><td>WHO Soil Standards</td></tr>
+            <tr><td>Groundwater Level</td><td>Observation well</td><td>Monthly</td><td>Maintenance</td><td>For leakage detection</td></tr>
+            <tr><td>Visual Inspections</td><td>Entire site</td><td>Monthly</td><td>EHS</td><td>-</td></tr>
+          </table>
+          <p style="margin-top:0.8rem">Soil and groundwater monitoring ensures that wastewater and sludge management systems are effectively preventing contamination.</p>
+
+          <h3 style="margin-top:1rem">E.4.5. Noise Monitoring</h3>
+          <table>
+            <tr><th>Monitoring Point</th><th>Parameter</th><th>Frequency</th><th>Responsible Unit</th><th>EPA Standard (dB(A))</th></tr>
+            <tr><td>Electrolyzer hall</td><td>Day/Night levels</td><td>Quarterly</td><td>EHS</td><td>75 (Industrial)</td></tr>
+            <tr><td>Compressor room</td><td>Day/Night levels</td><td>Quarterly</td><td>EHS</td><td>75</td></tr>
+            <tr><td>Plant boundary</td><td>Day/Night levels</td><td>Semi-annually</td><td>EHS</td><td>55 (Residential)</td></tr>
+            <tr><td>Afdera village (nearest community)</td><td>Daytime level</td><td>Semi-annually</td><td>EHS & CLO</td><td>55</td></tr>
+          </table>
+          <p style="margin-top:0.8rem">Noise readings will be compared against the baseline data (Annex D) and corrective actions taken if limits are exceeded (e.g., equipment insulation, enclosure upgrades).</p>
+
+          <h3 style="margin-top:1rem">E.5. Environmental Management Action Plan</h3>
+          <h3>E.5.1. Construction Phase Management</h3>
+          <table>
+            <tr><th>Environmental Aspect</th><th>Potential Impact</th><th>Mitigation/Management Measure</th><th>Responsibility</th></tr>
+            <tr><td>Site clearance</td><td>Dust generation</td><td>Water sprinkling, limit clearing area</td><td>Contractor & EHS</td></tr>
+            <tr><td>Equipment operation</td><td>Noise and emissions</td><td>Maintain equipment, avoid night works</td><td>Contractor</td></tr>
+            <tr><td>Waste generation</td><td>Improper disposal</td><td>Segregation, safe disposal</td><td>EHS & Waste Mgmt</td></tr>
+            <tr><td>Worker safety</td><td>Accidents/heat stress</td><td>PPE, training, shaded rest areas</td><td>EHS & Site Engineer</td></tr>
+            <tr><td>Community interaction</td><td>Grievances</td><td>Follow Grievance Redress Mechanism (Annex C)</td><td>CLO</td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">E.5.2. Operation Phase Management</h3>
+          <table>
+            <tr><th>Environmental Aspect</th><th>Impact</th><th>Management Strategy</th><th>Responsibility</th></tr>
+            <tr><td>Air Emissions</td><td>Cl₂, H₂, particulates</td><td>Scrubbers, bag filters, detectors</td><td>EHS & Maintenance</td></tr>
+            <tr><td>Wastewater</td><td>pH, TSS, chemical load</td><td>Neutralization, sedimentation, reuse</td><td>EHS & Lab</td></tr>
+            <tr><td>Solid Waste</td><td>Hazardous & non-hazardous</td><td>Segregation, recycling, licensed disposal</td><td>Waste Mgmt Officer</td></tr>
+            <tr><td>Energy Consumption</td><td>High electricity use</td><td>20% solar integration, heat recovery</td><td>Engineering Dept.</td></tr>
+            <tr><td>Noise</td><td>Equipment noise</td><td>Enclosures, greenbelt buffer</td><td>EHS & Maintenance</td></tr>
+            <tr><td>Community Engagement</td><td>Communication gaps</td><td>Regular meetings, awareness sessions</td><td>CLO</td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">E.6. Environmental Audit and Reporting</h3>
+          <table>
+            <tr><th>Report Type</th><th>Frequency</th><th>Submitted To</th><th>Prepared By</th><th>Purpose</th></tr>
+            <tr><td>Internal Environmental Report</td><td>Monthly</td><td>Plant Manager</td><td>EHS Officer</td><td>Review performance</td></tr>
+            <tr><td>Compliance Report</td><td>Quarterly</td><td>Afar Regional EPA</td><td>EHS Manager</td><td>Verify legal compliance</td></tr>
+            <tr><td>Environmental Audit Report</td><td>Annually</td><td>EPA Headquarters</td><td>Third-party auditor</td><td>Independent performance review</td></tr>
+            <tr><td>Emergency Response Drill Report</td><td>Semi-annually</td><td>Plant Manager & EPA</td><td>EHS & Safety Officer</td><td>Evaluate preparedness</td></tr>
+          </table>
+          <p style="margin-top:0.8rem">All monitoring data and reports will be retained for at least five years for audit and verification purposes.</p>
+
+          <h3 style="margin-top:1rem">E.7. Training and Capacity Building</h3>
+          <table>
+            <tr><th>Training Topic</th><th>Target Group</th><th>Frequency</th><th>Facilitator</th></tr>
+            <tr><td>Chemical Safety & Spill Response</td><td>Operators, Technicians</td><td>Quarterly</td><td>EHS Dept.</td></tr>
+            <tr><td>Waste Management & Recycling</td><td>EHS & Housekeeping</td><td>Semi-annually</td><td>External Trainer</td></tr>
+            <tr><td>Air & Water Quality Monitoring</td><td>Lab & EHS Staff</td><td>Annually</td><td>Semera University</td></tr>
+            <tr><td>Emergency Preparedness & First Aid</td><td>All staff</td><td>Quarterly</td><td>Ethiopian Red Cross</td></tr>
+            <tr><td>ISO 14001 Awareness</td><td>Management team</td><td>Annually</td><td>Certified Consultant</td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">E.8. Budget Estimate for EMMP Implementation</h3>
+          <table>
+            <tr><th>Item / Activity</th><th>Estimated Annual Cost (ETB)</th><th>Remarks</th></tr>
+            <tr><td>Air and Water Quality Monitoring</td><td>1,200,000</td><td>Equipment, lab fees, sampling kits</td></tr>
+            <tr><td>Soil and Groundwater Analysis</td><td>400,000</td><td>Semi-annual tests</td></tr>
+            <tr><td>Noise and Emission Monitoring</td><td>250,000</td><td>Portable meter, calibration</td></tr>
+            <tr><td>Waste Management (disposal, recycling)</td><td>800,000</td><td>Contractors, transport</td></tr>
+            <tr><td>Training and Capacity Building</td><td>600,000</td><td>Workshops, certifications</td></tr>
+            <tr><td>Environmental Audits and Reporting</td><td>350,000</td><td>Third-party audits</td></tr>
+            <tr><td>Community Engagement and GRM</td><td>200,000</td><td>Meetings, materials</td></tr>
+            <tr><td><strong>Total Estimated Annual Budget</strong></td><td><strong>3,800,000 ETB</strong></td><td></td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">E.9. Emergency Response and Contingency Plan</h3>
+          <p>An Emergency Response Plan (ERP) will be integrated into the EMMP to address accidental releases, chlorine leaks, fire, and natural disasters.</p>
+          <p><strong>Key provisions include:</strong></p>
+          <ul class="plain">
+            <li>Installation of chlorine scrubbers and automatic shutoff valves.</li>
+            <li>On-site firefighting unit and H₂ detectors with alarm systems.</li>
+            <li>Regular mock drills involving local fire departments and community representatives.</li>
+            <li>Emergency contact and evacuation maps displayed in all process areas.</li>
+          </ul>
+
+          <h3 style="margin-top:1rem">E.10. Review and Continuous Improvement</h3>
+          <p>The EMMP is a living document and will be reviewed annually or whenever:</p>
+          <ul class="plain">
+            <li>Major process modifications occur,</li>
+            <li>New environmental regulations are introduced, or</li>
+            <li>Monitoring indicates significant deviations from baseline conditions.</li>
+          </ul>
+          <p>Corrective actions will be documented and integrated into the ISO 14001 continual improvement cycle.</p>
+
+          <h3 style="margin-top:1rem">E.11. Conclusion</h3>
+          <p>The Environmental Monitoring and Management Plan provides a comprehensive framework to maintain environmental compliance, minimize risks, and promote sustainability throughout the chlor-alkali plant's lifecycle.</p>
+          <p>By integrating robust monitoring, transparent reporting, and proactive management, the project ensures that all environmental, health, and safety aspects are effectively controlled in alignment with Ethiopian EPA requirements and international environmental best practices.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- APPENDICES -->
+    <section id="appendices">
+      <div class="card">
+        <h2>Appendices</h2>
+
+        <div class="sub-section">
+          <h3>Appendix 1: Implementation Plan</h3>
+          <h3>1.1. Project Timeline</h3>
+          <h3>Key Milestones and Implementation Schedule</h3>
+          <p>The implementation of the caustic soda (NaOH) plant will follow a structured and phased timeline to ensure efficient execution while maintaining compliance with environmental, regulatory, and safety standards. The timeline is organized into seven key phases, each with defined deliverables, deadlines, and responsibilities.</p>
+          <table>
+            <tr><th>Milestone/Phase</th><th>Duration</th><th>Target Completion</th><th>Key Deliverables</th></tr>
+            <tr><td>1. Pre-Construction / Mobilization Phase</td><td>Months 0–2</td><td>Month 2</td><td>Site mobilization and establishment of project offices. Recruitment of site engineering and construction teams. Procurement of preliminary construction materials and equipment for site works. Preparation of construction schedule, safety plan, and quality assurance procedures.</td></tr>
+            <tr><td>2. Procurement & Contracting</td><td>Months 3–5</td><td>Month 5</td><td>Placement of orders for electrolyzers, ion-exchange membranes, evaporators, and other critical machinery. Execution of contracts with suppliers and service providers. Establishment of quality assurance and delivery schedules with vendors.</td></tr>
+            <tr><td>3. Site Preparation</td><td>Months 6–8</td><td>Month 8</td><td>Site leveling, excavation, and preparation of foundations. Construction of access roads, drainage, and security perimeters. Installation of utility connections including electricity, water, and communication lines.</td></tr>
+            <tr><td>4. Civil Construction</td><td>Months 9–17</td><td>Month 17</td><td>Erection of production halls, storage tanks, warehouses, and administrative buildings. Construction of foundations for electrolyzers, evaporators, and other heavy equipment. Implementation of fire safety systems, drainage, and environmental control measures.</td></tr>
+            <tr><td>5. Equipment Installation</td><td>Months 18–20</td><td>Month 20</td><td>Delivery, assembly, and installation of electrolyzers, evaporators, DCS (Distributed Control System), and ancillary equipment. Installation of electrical, piping, and instrumentation networks. Testing of mechanical, electrical, and control systems prior to commissioning.</td></tr>
+            <tr><td>6. Commissioning & Start-Up</td><td>Months 21–23</td><td>Month 23</td><td>Completion of dry runs, leak tests, and trial operations. Initial production of caustic soda batches at controlled conditions. Staff training programs completed, including operational, safety, and emergency response procedures.</td></tr>
+            <tr><td>7. Commercial Operation</td><td>Month 24 onwards</td><td>Month 24 (D-Day)</td><td>Achieve full production capacity of 400 tons per day (TPD). Operational handover to commercial team. Dispatch of first export orders to domestic and regional markets.</td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">Notes on Implementation</h3>
+          <ol class="plain">
+            <li>Pre-construction now focuses on mobilization, planning, and preparatory site works since land, permits, and plant design are already completed.</li>
+            <li>Parallel activities such as staff recruitment, safety training, and utility readiness will be conducted alongside construction to optimize schedule efficiency.</li>
+            <li>Continuous monitoring of project progress will be maintained through weekly and monthly reporting, with corrective actions implemented if milestones are delayed.</li>
+          </ol>
+
+          <h3 style="margin-top:1rem">1.2. Project Timeline with KPIs</h3>
+          <table>
+            <tr><th>Phase/Milestone</th><th>Duration</th><th>Target Completion</th><th>Key Deliverables</th><th>KPI (Key Performance Indicators)</th></tr>
+            <tr><td>1. Pre-Construction / Mobilization</td><td>Months 0–2</td><td>Month 2</td><td>Site mobilization and project office setup. Recruitment of site teams. Preparation of construction schedule, safety plan, and QA procedures.</td><td>100% staff recruitment completed by Month 2. 100% of project office and mobilization equipment installed. Approved safety and QA plan on file.</td></tr>
+            <tr><td>2. Procurement & Contracting</td><td>Months 3–5</td><td>Month 5</td><td>Orders placed for electrolyzers, membranes, and other machinery. Vendor contracts signed.</td><td>100% of critical equipment ordered by Month 5. Contract compliance ≥95% with suppliers. On-time delivery schedule confirmed.</td></tr>
+            <tr><td>3. Site Preparation</td><td>Months 6–8</td><td>Month 8</td><td>Site leveled, access roads built. Utility connections installed.</td><td>100% of site grading completed. Utilities connected and operational by Month 8. Site safety incidents ≤0.</td></tr>
+            <tr><td>4. Civil Construction</td><td>Months 9–17</td><td>Month 17</td><td>Erection of production halls, storage tanks, and offices. Equipment foundations completed.</td><td>95% of civil works completed on schedule. Structural quality compliance ≥98% per QA standards. Safety incidents ≤2 for the phase.</td></tr>
+            <tr><td>5. Equipment Installation</td><td>Months 18–20</td><td>Month 20</td><td>Electrolyzers, evaporators, and DCS systems installed. Electrical and piping networks tested.</td><td>100% critical equipment installed and tested. DCS and automation functionality ≥98% operational. Installation delays ≤5% of planned duration.</td></tr>
+            <tr><td>6. Commissioning & Start-Up</td><td>Months 21–23</td><td>Month 23</td><td>Dry runs and leak tests completed. First batch of caustic soda produced. Staff training finalized.</td><td>Initial NaOH purity ≥98%. 100% staff trained in operations and safety. Commissioning schedule adherence ≥95%.</td></tr>
+            <tr><td>7. Commercial Operation</td><td>Month 24 onwards</td><td>Month 24 (D-Day)</td><td>Full production capacity (400 TPD) achieved. Export orders dispatched.</td><td>Production capacity ≥95% of 400 TPD target. Export dispatch fulfillment ≥100%. Ongoing safety and environmental compliance 100%.</td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">Notes on KPIs</h3>
+          <ol class="plain">
+            <li><strong>Progress monitoring:</strong> KPIs are linked to time, quality, safety, and environmental compliance, ensuring early detection of delays or issues.</li>
+            <li><strong>Safety and compliance:</strong> Incidents are measured per phase, aligned with Ethiopian Occupational Safety and Health Proclamation (No. 1156/2019).</li>
+            <li><strong>Performance reviews:</strong> Weekly project reviews will track KPI achievements; corrective measures will be applied if performance falls below targets.</li>
+          </ol>
+        </div>
+
+        <div class="sub-section">
+          <h3>Appendix 2: Financial Details</h3>
+          <h3>2.1. Detailed Financial Calculations</h3>
+          <p>This section provides comprehensive financial calculations that support the feasibility and investment rationale for the Caustic Soda Plant. All amounts are presented in Ethiopian Birr (ETB) and, where noted, in USD for reference.</p>
+
+          <h3 style="margin-top:1rem">2.2. A1. Capital Investment Breakdown</h3>
+          <table>
+            <tr><th>Component</th><th>Cost (ETB)</th><th>Cost (USD)</th><th>Notes</th></tr>
+            <tr><td>Land Development</td><td>2,640,000,000</td><td>22,000,000</td><td>500,000 m² in Semera, Afar</td></tr>
+            <tr><td>Building Construction</td><td>577,800,000</td><td>4,815,000</td><td>Production halls, offices, utilities.</td></tr>
+            <tr><td>Machinery & Equipment</td><td>37,329,894,500</td><td>311,082,450</td><td>Electrolyzers, evaporators, DCS systems.</td></tr>
+            <tr><td>Pre-Operative Expenses</td><td>7,400,000</td><td>61,667</td><td>Licenses, feasibility, training.</td></tr>
+            <tr><td>Contingency (10%)</td><td>5,849,189,450</td><td>48,743,250</td><td>For unforeseen costs.</td></tr>
+            <tr><td><strong>Total Capital Investment</strong></td><td><strong>63,000,000,000</strong></td><td><strong>450,000,000</strong></td><td></td></tr>
+          </table>
+          <p style="margin-top:0.8rem"><strong>Note:</strong> Capital investments include all construction, machinery, and pre-operative expenses. Contingency is set at 10% of total project cost to account for unforeseen expenditures.</p>
+
+          <h3 style="margin-top:1rem">2.3. A2. Annual Operating Costs</h3>
+          <table>
+            <tr><th>Component</th><th>Cost (ETB)</th><th>Details</th></tr>
+            <tr><td>Raw Materials</td><td>643,517,800</td><td>Salt (23,250 MT), chemicals (Na₂CO₃, H₂SO₄)</td></tr>
+            <tr><td>Utilities</td><td>572,862,900</td><td>Electricity (35.25 million kWh), water</td></tr>
+            <tr><td>Labor</td><td>357,655,385</td><td>500 employees (300 permanent, 200 temporary)</td></tr>
+            <tr><td>Maintenance</td><td>315,921,000</td><td>5% of machinery cost</td></tr>
+            <tr><td><strong>Total Operating Costs</strong></td><td><strong>2,032,680,122</strong></td><td></td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">2.4. A3. Revenue Projections (Year 1)</h3>
+          <table>
+            <tr><th>Product</th><th>Volume (MT)</th><th>Price (ETB/MT)</th><th>Revenue (ETB)</th></tr>
+            <tr><td>Caustic Soda Flakes</td><td>7,388</td><td>160,000</td><td>1,182,080,000</td></tr>
+            <tr><td>Caustic Soda Lye</td><td>13,500</td><td>110,000</td><td>1,485,000,000</td></tr>
+            <tr><td>Hydrochloric Acid</td><td>9,000</td><td>90,000</td><td>810,000,000</td></tr>
+            <tr><td>Sodium Hypochlorite</td><td>24,000</td><td>115,000</td><td>2,760,000,000</td></tr>
+            <tr><td>Liquid Chlorine</td><td>9,000</td><td>45,000</td><td>405,000,000</td></tr>
+            <tr><td><strong>Total Revenue</strong></td><td></td><td></td><td><strong>6,642,080,000</strong></td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">2.5. Capital Investment Breakdown (Detailed)</h3>
+          <table>
+            <tr><th>Component</th><th>Estimated Cost (ETB)</th></tr>
+            <tr><td>Land Acquisition</td><td>2,000,000,000</td></tr>
+            <tr><td>Land Development</td><td>1,500,000,000</td></tr>
+            <tr><td>Building & Civil Construction</td><td>10,000,000,000</td></tr>
+            <tr><td>Machinery & Equipment</td><td>35,000,000,000</td></tr>
+            <tr><td>Vehicles & Transport</td><td>500,000,000</td></tr>
+            <tr><td>Pre-Operative Expenses</td><td>500,000,000</td></tr>
+            <tr><td>Utilities, Power Substation, Auxiliary Power</td><td>3,000,000,000</td></tr>
+            <tr><td>Contingencies (10%)</td><td>6,000,000,000</td></tr>
+            <tr><td>Escalation (5%)</td><td>3,000,000,000</td></tr>
+            <tr><td>Working Capital</td><td>1,500,000,000</td></tr>
+            <tr><td><strong>Total Capital Investment</strong></td><td><strong>63,000,000,000</strong></td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">2.6. Annual Production and Sales Forecast (MT)</h3>
+          <table>
+            <tr><th>Product</th><th>Capacity</th><th>Year 1</th><th>Year 2</th><th>Year 3</th><th>Year 4</th><th>Year 5</th></tr>
+            <tr><td>Caustic Soda (NaOH)</td><td>120,000</td><td>84,000</td><td>96,000</td><td>108,000</td><td>114,000</td><td>114,000</td></tr>
+            <tr><td>Chlorine (Cl₂)</td><td>72,000</td><td>50,400</td><td>57,600</td><td>64,800</td><td>68,400</td><td>68,400</td></tr>
+            <tr><td>Hydrogen (H₂)</td><td>72,000</td><td>50,400</td><td>57,600</td><td>64,800</td><td>68,400</td><td>68,400</td></tr>
+            <tr><td>Hydrochloric Acid (HCl)</td><td>72,000</td><td>50,400</td><td>57,600</td><td>64,800</td><td>68,400</td><td>68,400</td></tr>
+            <tr><td>Sodium Hypochlorite (NaOCl)</td><td>120,000</td><td>84,000</td><td>96,000</td><td>108,000</td><td>114,000</td><td>114,000</td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">2.7. Annual Revenue Projection (ETB)</h3>
+          <table>
+            <tr><th>Product</th><th>Selling Price (ETB/MT)</th><th>Year 1</th><th>Year 2</th><th>Year 3</th><th>Year 4</th><th>Year 5</th></tr>
+            <tr><td>NaOH</td><td>50,000</td><td>4,200,000,000</td><td>4,800,000,000</td><td>5,400,000,000</td><td>5,700,000,000</td><td>5,700,000,000</td></tr>
+            <tr><td>Cl₂</td><td>40,000</td><td>2,016,000,000</td><td>2,304,000,000</td><td>2,592,000,000</td><td>2,736,000,000</td><td>2,736,000,000</td></tr>
+            <tr><td>H₂</td><td>20,000</td><td>1,008,000,000</td><td>1,152,000,000</td><td>1,296,000,000</td><td>1,368,000,000</td><td>1,368,000,000</td></tr>
+            <tr><td>HCl</td><td>30,000</td><td>1,512,000,000</td><td>1,728,000,000</td><td>1,944,000,000</td><td>2,052,000,000</td><td>2,052,000,000</td></tr>
+            <tr><td>NaOCl</td><td>25,000</td><td>2,100,000,000</td><td>2,400,000,000</td><td>2,700,000,000</td><td>2,850,000,000</td><td>2,850,000,000</td></tr>
+            <tr><td><strong>Total Revenue</strong></td><td></td><td><strong>10,836,000,000</strong></td><td><strong>12,384,000,000</strong></td><td><strong>13,932,000,000</strong></td><td><strong>14,706,000,000</strong></td><td><strong>14,706,000,000</strong></td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">2.8. Operating Costs (ETB)</h3>
+          <table>
+            <tr><th>Cost Component</th><th>% of Sales</th><th>Year 1</th><th>Year 2</th><th>Year 3</th><th>Year 4</th><th>Year 5</th></tr>
+            <tr><td>Raw Materials & Chemicals</td><td>40%</td><td>4,334,400,000</td><td>4,953,600,000</td><td>5,572,800,000</td><td>5,882,400,000</td><td>5,882,400,000</td></tr>
+            <tr><td>Utilities & Power</td><td>15%</td><td>1,625,400,000</td><td>1,857,600,000</td><td>2,089,800,000</td><td>2,206,000,000</td><td>2,206,000,000</td></tr>
+            <tr><td>Labor & Administration</td><td>10%</td><td>1,083,600,000</td><td>1,238,400,000</td><td>1,393,200,000</td><td>1,470,600,000</td><td>1,470,600,000</td></tr>
+            <tr><td>Maintenance</td><td>5%</td><td>541,800,000</td><td>619,200,000</td><td>696,600,000</td><td>735,300,000</td><td>735,300,000</td></tr>
+            <tr><td><strong>Total Operating Cost</strong></td><td><strong>70%</strong></td><td><strong>7,585,200,000</strong></td><td><strong>8,668,800,000</strong></td><td><strong>9,751,200,000</strong></td><td><strong>10,294,300,000</strong></td><td><strong>10,294,300,000</strong></td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">2.9. EBITDA</h3>
+          <table>
+            <tr><th>Year</th><th>Revenue</th><th>Operating Costs</th><th>EBITDA</th></tr>
+            <tr><td>1</td><td>10,836,000,000</td><td>7,585,200,000</td><td>3,250,800,000</td></tr>
+            <tr><td>2</td><td>12,384,000,000</td><td>8,668,800,000</td><td>3,715,200,000</td></tr>
+            <tr><td>3</td><td>13,932,000,000</td><td>9,751,200,000</td><td>4,180,800,000</td></tr>
+            <tr><td>4</td><td>14,706,000,000</td><td>10,294,300,000</td><td>4,411,700,000</td></tr>
+            <tr><td>5</td><td>14,706,000,000</td><td>10,294,300,000</td><td>4,411,700,000</td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">2.10. Depreciation & EBIT</h3>
+          <p><strong>Depreciation:</strong> 35,000,000,000 ETB over 15 years → 2,333,333,333 ETB/year</p>
+          <table>
+            <tr><th>Year</th><th>EBITDA</th><th>Depreciation</th><th>EBIT</th></tr>
+            <tr><td>1</td><td>3,250,800,000</td><td>2,333,333,333</td><td>917,466,667</td></tr>
+            <tr><td>2</td><td>3,715,200,000</td><td>2,333,333,333</td><td>1,381,866,667</td></tr>
+            <tr><td>3</td><td>4,180,800,000</td><td>2,333,333,333</td><td>1,847,466,667</td></tr>
+            <tr><td>4</td><td>4,411,700,000</td><td>2,333,333,333</td><td>2,078,366,667</td></tr>
+            <tr><td>5</td><td>4,411,700,000</td><td>2,333,333,333</td><td>2,078,366,667</td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">2.11. Interest Payment</h3>
+          <p><strong>Loan:</strong> 31,500,000,000 ETB at 10% → 3,150,000,000 ETB/year</p>
+          <table>
+            <tr><th>Year</th><th>EBIT</th><th>Interest</th><th>EBT</th></tr>
+            <tr><td>1</td><td>917,466,667</td><td>3,150,000,000</td><td>-2,232,533,333</td></tr>
+            <tr><td>2</td><td>1,381,866,667</td><td>3,150,000,000</td><td>-1,768,133,333</td></tr>
+            <tr><td>3</td><td>1,847,466,667</td><td>3,150,000,000</td><td>-1,302,533,333</td></tr>
+            <tr><td>4</td><td>2,078,366,667</td><td>3,150,000,000</td><td>-1,071,633,333</td></tr>
+            <tr><td>5</td><td>2,078,366,667</td><td>3,150,000,000</td><td>-1,071,633,333</td></tr>
+          </table>
+          <p style="margin-top:0.8rem">→ Suggests interest repayment schedule needs adjustment or loan grace period.</p>
+
+          <h3 style="margin-top:1rem">2.12. Tax (30%)</h3>
+          <p>No tax is applicable during initial loss-making years; tax applies after positive profits.</p>
+
+          <h3 style="margin-top:1rem">2.13. Net Cash Flow</h3>
+          <table>
+            <tr><th>Year</th><th>EBITDA</th><th>Interest</th><th>Depreciation</th><th>Tax</th><th>Net Cash Flow</th></tr>
+            <tr><td>1</td><td>3,250,800,000</td><td>3,150,000,000</td><td>2,333,333,333</td><td>0</td><td>2,434,133,333</td></tr>
+            <tr><td>2</td><td>3,715,200,000</td><td>3,150,000,000</td><td>2,333,333,333</td><td>0</td><td>2,898,533,333</td></tr>
+            <tr><td>3</td><td>4,180,800,000</td><td>3,150,000,000</td><td>2,333,333,333</td><td>0</td><td>3,364,133,333</td></tr>
+            <tr><td>4</td><td>4,411,700,000</td><td>3,150,000,000</td><td>2,333,333,333</td><td>0</td><td>3,595,033,333</td></tr>
+            <tr><td>5</td><td>4,411,700,000</td><td>3,150,000,000</td><td>2,333,333,333</td><td>0</td><td>3,595,033,333</td></tr>
+          </table>
+          <p style="margin-top:0.8rem">Net cash flow includes EBITDA + Depreciation - Interest - Tax, showing strong positive cash generation.</p>
+
+          <h3 style="margin-top:1rem">2.14. Break-even Analysis</h3>
+          <p><strong>Estimated Break-even Point:</strong> ~55–60% capacity utilization</p>
+
+          <h3 style="margin-top:1rem">2.15. Project Timeline (Gantt Chart)</h3>
+          <table>
+            <tr><th>Activity</th><th>Month 1–3</th><th>Month 4–6</th><th>Month 7–9</th><th>Month 10–12</th><th>Year 2</th><th>Year 3</th></tr>
+            <tr><td>Feasibility Study & Licensing</td><td>●</td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Land Acquisition & Development</td><td>●</td><td>●</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Building Construction</td><td></td><td>●</td><td>●</td><td>●</td><td>●</td><td></td></tr>
+            <tr><td>Machinery & Equipment Procurement</td><td></td><td>●</td><td>●</td><td>●</td><td></td><td></td></tr>
+            <tr><td>Installation & Commissioning</td><td></td><td></td><td></td><td></td><td>●</td><td>●</td></tr>
+            <tr><td>Staff Recruitment & Training</td><td></td><td></td><td></td><td>●</td><td>●</td><td></td></tr>
+            <tr><td>Trial Production & Quality Testing</td><td></td><td></td><td></td><td></td><td>●</td><td>●</td></tr>
+            <tr><td>Full Production Start</td><td></td><td></td><td></td><td></td><td></td><td>●</td></tr>
+          </table>
+
+          <h3 style="margin-top:1rem">2.16. Key Performance Indicators (KPIs)</h3>
+          <table>
+            <tr><th>KPI</th><th>Target</th><th>Measurement Frequency</th><th>Notes</th></tr>
+            <tr><td>Production Efficiency</td><td>≥95% of capacity</td><td>Monthly</td><td>Compare actual vs planned output</td></tr>
+            <tr><td>Raw Material Utilization</td><td>≤2% wastage</td><td>Monthly</td><td>Optimize salt & chemical usage</td></tr>
+            <tr><td>Labor Productivity</td><td>≥1.5 MT/employee/day</td><td>Monthly</td><td>Output per worker</td></tr>
+            <tr><td>Revenue Growth</td><td>≥10% YoY</td><td>Annual</td><td>Compare year-on-year revenue</td></tr>
+            <tr><td>EBITDA Margin</td><td>≥30%</td><td>Annual</td><td>EBITDA/Revenue</td></tr>
+            <tr><td>Safety Incidents</td><td>0</td><td>Monthly</td><td>Record lost-time injuries</td></tr>
+            <tr><td>Energy Consumption</td><td>≤35 kWh/MT</td><td>Monthly</td><td>Electricity per MT of product</td></tr>
+            <tr><td>Maintenance Downtime</td><td>≤5%</td><td>Monthly</td><td>Unplanned downtime vs total hours</td></tr>
+            <tr><td>Customer Satisfaction</td><td>≥90%</td><td>Quarterly</td><td>Surveys & feedback</td></tr>
+            <tr><td>Break-even Achievement</td><td>By Year 3</td><td>Annual</td><td>Capacity utilization at ~55-60%</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="card">
+        <h2>Contact Information</h2>
+        <div class="contact-bar">
+          <div>
+            <strong>Caustic Chemical Industry PLC</strong><br>
+            Semera, Afar Region, Ethiopia<br>
+            📧 <a href="mailto:Aluafar2@icloud.com">Aluafar2@icloud.com</a> | 📞 +251(9)12425000 | 📞 +251(9)11394079
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Scroll to top -->
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <footer>
+    <p>© 2025 Caustic Chemical Industry PLC. All rights reserved.</p>
+    <p>Business Plan — Chlor-Alkali Production Factory | Semera, Afar, Ethiopia</p>
+  </footer>
+
+  <script>
+    (function() {
+      'use strict';
+      const menuBtn = document.getElementById('menuBtn');
+      const closeBtn = document.getElementById('closeBtn');
+      const sideNav = document.getElementById('sideNav');
+      const navOverlay = document.getElementById('navOverlay');
+      const navLinks = sideNav.querySelectorAll('a');
+      const scrollTop = document.getElementById('scrollTop');
+
+      function openNav() {
+        sideNav.classList.add('active');
+        navOverlay.classList.add('active');
+        menuBtn.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeNav() {
+        sideNav.classList.remove('active');
+        navOverlay.classList.remove('active');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+
+      menuBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (sideNav.classList.contains('active')) { closeNav(); } else { openNav(); }
+      });
+      closeBtn.addEventListener('click', closeNav);
+      navOverlay.addEventListener('click', closeNav);
+
+      navLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          closeNav();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            e.preventDefault();
+            const headerH = document.querySelector('header').offsetHeight;
+            const top = target.getBoundingClientRect().top + window.pageYOffset - headerH - 16;
+            window.scrollTo({ top: top, behavior: 'smooth' });
+          }
+        });
+      });
+
+      document.addEventListener('click', function(e) {
+        if (sideNav.classList.contains('active') && !sideNav.contains(e.target) && !menuBtn.contains(e.target)) {
+          closeNav();
+        }
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && sideNav.classList.contains('active')) { closeNav(); }
+      });
+
+      window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 400) { scrollTop.classList.add('visible'); }
+        else { scrollTop.classList.remove('visible'); }
+      });
+      scrollTop.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+</body>
+</html>
