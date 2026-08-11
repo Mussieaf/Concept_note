@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAEC CAPITAL LIMITED — Magazine</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #faf8f5;
+    color: #1a1a1a;
+    line-height: 1.6;
+  }
+  .handwriting {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+  }
+  .serif {
+    font-family: 'Playfair Display', serif;
+  }
+
+  /* ===== TOP MENU ===== */
+  .top-menu {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(26, 42, 74, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .top-menu-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 24px;
+  }
+  .top-menu .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #fff;
+    text-decoration: none;
+  }
+  .top-menu .brand img {
+    width: 40px; height: 40px;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  .top-menu .brand span {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  .top-menu nav {
+    display: flex;
+    gap: 4px;
+  }
+  .top-menu nav a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .top-menu nav a:hover {
+    color: #fff;
+    background: rgba(255,255,255,0.12);
+  }
+  .top-menu .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  .mobile-nav {
+    display: none;
+    flex-direction: column;
+    background: rgba(26, 42, 74, 0.98);
+    padding: 10px 24px 20px;
+  }
+  .mobile-nav a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    padding: 10px 0;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .mobile-nav a:last-child { border-bottom: none; }
+  .mobile-nav a:hover { color: #c9a227; }
+
+  /* ===== HERO ===== */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, #1a2a4a 0%, #2d4a6f 50%, #1a2a4a 100%);
+    color: #fff;
+    padding: 120px 20px 60px;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url('https://kimi-web-img.moonshot.cn/img/www.maecfinance.com/c9860cf67d754f59b565ec47659492ba009435ca.jpeg') center/cover;
+    opacity: 0.12;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+  }
+  .hero-logo {
+    width: 120px; height: 120px;
+    border-radius: 16px;
+    margin-bottom: 30px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+  .year-badge {
+    display: inline-block;
+    padding: 8px 24px;
+    border: 2px solid rgba(255,255,255,0.35);
+    border-radius: 30px;
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 1.05;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .hero .subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.35rem);
+    font-weight: 300;
+    opacity: 0.9;
+    max-width: 640px;
+    margin: 0 auto 40px;
+  }
+  .hero-cta {
+    display: inline-flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .hero-cta a {
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .hero-cta .btn-primary {
+    background: #c9a227;
+    color: #1a1a1a;
+  }
+  .hero-cta .btn-primary:hover {
+    background: #d4b03a;
+    transform: translateY(-2px);
+  }
+  .hero-cta .btn-secondary {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.25);
+  }
+  .hero-cta .btn-secondary:hover {
+    background: rgba(255,255,255,0.2);
+  }
+
+  /* ===== SECTIONS ===== */
+  section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  .section-header h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: #1a2a4a;
+    margin-bottom: 16px;
+  }
+  .section-header p {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  /* ===== FEATURES ===== */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+  }
+  .feature-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.1);
+  }
+  .feature-card img {
+    width: 100%; height: 220px;
+    object-fit: cover;
+  }
+  .feature-card .content {
+    padding: 28px;
+  }
+  .feature-card h3 {
+    font-size: 1.5rem;
+    color: #1a2a4a;
+    margin-bottom: 12px;
+  }
+  .feature-card p {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  /* ===== QUOTE ===== */
+  .quote-section {
+    background: #1a2a4a;
+    color: #fff;
+    padding: 100px 20px;
+    text-align: center;
+    position: relative;
+  }
+  .quote-section::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 10rem;
+    position: absolute;
+    top: -10px; left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.08;
+    line-height: 1;
+  }
+  .quote-section blockquote {
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    font-style: italic;
+    max-width: 800px;
+    margin: 0 auto 24px;
+    position: relative;
+    z-index: 1;
+  }
+  .quote-section .author {
+    font-size: 1rem;
+    opacity: 0.7;
+  }
+
+  /* ===== SBLC ===== */
+  .sblc-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 20px;
+  }
+  .sblc-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .sblc-content img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+  }
+  .sblc-text h2 {
+    font-size: 2.5rem;
+    color: #1a2a4a;
+    margin-bottom: 20px;
+  }
+  .sblc-text p {
+    color: #555;
+    margin-bottom: 16px;
+    line-height: 1.8;
+  }
+  .sblc-text ul {
+    list-style: none;
+    padding: 0;
+  }
+  .sblc-text ul li {
+    padding: 8px 0 8px 28px;
+    position: relative;
+    color: #444;
+  }
+  .sblc-text ul li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: #c9a227;
+  }
+
+  /* ===== GALLERY ===== */
+  .gallery {
+    background: #f0ede8;
+    padding: 80px 20px;
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .gallery-item {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    background: #1a2a4a;
+  }
+  .gallery-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+  }
+  .gallery-item:hover img {
+    transform: scale(1.08);
+  }
+  .gallery-item .overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 40px 20px 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: #fff;
+    transform: translateY(10px);
+    opacity: 0;
+    transition: all 0.35s;
+  }
+  .gallery-item:hover .overlay {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  .gallery-item .overlay h4 {
+    font-size: 1.15rem;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .gallery-item .overlay .desc {
+    font-size: 0.82rem;
+    opacity: 0.88;
+    line-height: 1.55;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .gallery-item .overlay .source-link {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: #c9a227;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-weight: 500;
+  }
+  .gallery-item .badge {
+    position: absolute;
+    top: 14px; left: 14px;
+    background: rgba(201, 162, 39, 0.92);
+    color: #1a1a1a;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #1a2a4a;
+    color: #fff;
+    padding: 60px 20px 40px;
+    text-align: center;
+  }
+  footer .contact {
+    margin-bottom: 30px;
+  }
+  footer .contact h3 {
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+  }
+  footer .contact p {
+    opacity: 0.85;
+    margin: 6px 0;
+    font-size: 1rem;
+  }
+  footer .contact a.email-link {
+    display: inline-block;
+    color: #c9a227;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 6px 16px;
+    border: 1px solid rgba(201,162,39,0.4);
+    border-radius: 8px;
+    margin-top: 8px;
+    transition: all 0.2s;
+  }
+  footer .contact a.email-link:hover {
+    background: rgba(201,162,39,0.15);
+    border-color: #c9a227;
+    text-decoration: none;
+  }
+  footer .footnote {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 30px;
+    margin-top: 30px;
+    font-size: 0.85rem;
+    opacity: 0.6;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .top-menu nav { display: none; }
+    .top-menu .menu-toggle { display: block; }
+    .sblc-content { grid-template-columns: 1fr; }
+    .features-grid { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .hero { padding-top: 120px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== FIXED TOP MENU ===== -->
+<header class="top-menu" id="top-menu">
+  <div class="top-menu-inner">
+    <a href="https://www.maecfinance.com/" class="brand" target="_blank">
+      <img src="https://kimi-web-img.moonshot.cn/img/www.maecfinance.com/f50e71e1d2f02126a5761408c5e12c757fe0da21.jpg" alt="MAEC Logo">
+      <span>MAEC CAPITAL</span>
+    </a>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#priorities">Priorities</a>
+      <a href="#sblc">SBLC</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="#home" onclick="toggleMenu()">Home</a>
+    <a href="#priorities" onclick="toggleMenu()">Priorities</a>
+    <a href="#sblc" onclick="toggleMenu()">SBLC</a>
+    <a href="#gallery" onclick="toggleMenu()">Gallery</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="home">
+  <img src="https://kimi-web-img.moonshot.cn/img/www.maecfinance.com/f50e71e1d2f02126a5761408c5e12c757fe0da21.jpg" alt="MAEC Logo" class="hero-logo">
+  <div class="year-badge">Est. 1960 — 2025 Edition</div>
+  <div class="hero-content">
+    <h1 class="handwriting">MAEC CAPITAL LIMITED</h1>
+    <p class="subtitle serif">Empowering Industrial Advancement in Africa and Beyond through Innovative Project Financing &amp; Standby Letters of Credit</p>
+    <div class="hero-cta">
+      <a href="#gallery" class="btn-primary">Explore Gallery</a>
+      <a href="https://www.maecfinance.com/" class="btn-secondary" target="_blank">Visit Website</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OUR PRIORITIES ===== -->
+<section id="priorities">
+  <div class="section-header">
+    <h2 class="handwriting">Our Priorities</h2>
+    <p>Our target is to erase poverty from the ground of the nations of the world by enabling adequate resources that trigger massive economic restoration.</p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card">
+      <img src="https://kimi-web-img.moonshot.cn/img/www.maecfinance.com/3829fd2288c9262ebf1d115f39fac1db4a5a47bb.jpeg" alt="Development Finance">
+      <div class="content">
+        <h3 class="handwriting">Development Finance</h3>
+        <p>Long-term, limited-recourse loans used to finance large commercial, industrial, infrastructure, and sovereign projects in developing nations worldwide.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <img src="https://kimi-web-img.moonshot.cn/img/www.maecfinance.com/8a2ded6968f62294b5a46f7d10fafb24dacffb92.jpeg" alt="Asset Management">
+      <div class="content">
+        <h3 class="handwriting">Asset Management</h3>
+        <p>We offer investment services where MAEC co-invests with partner investors in a focused range of production and diversified asset classes.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <img src="https://kimi-web-img.moonshot.cn/img/www.maecfinance.com/b3395942d150117fb93aa7a0c75dabbe6598f24e.jpeg" alt="Resources Management">
+      <div class="content">
+        <h3 class="handwriting">Resources Management</h3>
+        <p>We implement our industrial and financial expertise, combining creativity and relationships, making it possible to produce the desired returns on investments.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== QUOTE ===== -->
+<div class="quote-section">
+  <blockquote class="serif">We solved the chicken and egg situation that always results in projects failing to be funded by risk-averse institutions.</blockquote>
+  <div class="author">— MAEC Finance Philosophy</div>
+</div>
+
+<!-- ===== SBLC SECTION ===== -->
+<div class="sblc-section" id="sblc">
+  <div class="sblc-content">
+    <div class="sblc-text">
+      <h2 class="handwriting">SBLC Credit Enhancement</h2>
+      <p>MAEC exists to provide alternative finance through credit enhancement of poorly rated banks which would hardly get 5% LTV if they wrote such SBLCs on an ordinary day.</p>
+      <p>MAEC gives <strong>100% money to match the SBLC face value</strong>, minus our 6% business fees that we utilise for insurance through Lloyds and Redbridge and similar AAA insurers.</p>
+      <ul>
+        <li>No cash blocking required from the issuer</li>
+        <li>Loan grace period of 3–5 years</li>
+        <li>Repayment period of 8–30 years</li>
+        <li>Interest at 1% per annum</li>
+        <li>Indemnified against all issuer risk</li>
+      </ul>
+    </div>
+    <img src="https://kimi-web-img.moonshot.cn/img/www.maecfinance.com/51c2d3e5f61aeffbd9a4ad02f10dd6148b6942bb.jpeg" alt="SBLC Documentation">
+  </div>
+</div>
+
+<!-- ===== GALLERY OF ACTIVITIES ===== -->
+<div class="gallery" id="gallery">
+  <div class="section-header">
+    <h2 class="handwriting">Gallery of Activities</h2>
+    <p>A visual journey through our financing services and global impact — click any image to visit its source page on maecfinance.com</p>
+  </div>
+  <div class="gallery-grid">
+
+    <!-- 1. Services / Priorities -->
+    <a href="https://www.maecfinance.com/priorities/" class="gallery-item" target="_blank" title="View on maecfinance.com">
+      <span class="badge">Priorities</span>
+      <img src="https://kimi-web-img.moonshot.cn/img/www.maecfinance.com/3829fd2288c9262ebf1d115f39fac1db4a5a47bb.jpeg" alt="Global Financial Services">
+      <div class="overlay">
+        <h4>Global Financial Services</h4>
+        <p class="desc">Financing, Asset and Resources Management — We set out an engagement process with clients to design a fitting approach that would speedily open access to the required project finance and implementation resources. Our commitment guarantees that clients can swiftly access the vital financial support and expertise needed for successful project execution.</p>
+        <span class="source-link">Source: maecfinance.com/priorities →</span>
+      </div>
+    </a>
+
+    <!-- 2. Asset Management -->
+    <a href="https://www.maecfinance.com/asset-management/" class="gallery-item" target="_blank" title="View on maecfinance.com">
+      <span class="badge">Asset Mgmt</span>
+      <img src="https://kimi-web-img.moonshot.cn/img/www.maecfinance.com/8a2ded6968f62294b5a46f7d10fafb24dacffb92.jpeg" alt="Asset Management">
+      <div class="overlay">
+        <h4>Asset Management</h4>
+        <p class="desc">Leveraging our deep understanding of emerging markets, we apply our industrial and financial acumen, seamlessly blending innovation and strategic connections to achieve optimal investment returns. We strategically invest in private equity assets globally through meticulously managed investment solutions in Agriculture, Mining, Energy, Transportation, and Housing.</p>
+        <span class="source-link">Source: maecfinance.com/asset-management →</span>
+      </div>
+    </a>
+
+    <!-- 3. The Omega Project -->
+    <a href="https://www.maecfinance.com/insights/" class="gallery-item" target="_blank" title="View on maecfinance.com">
+      <span class="badge">Insights</span>
+      <img src="https://kimi-web-img.moonshot.cn/img/www.maecfinance.com/ea4b5543caf106bb66c7f0b1f082d64f3f91c02c.png" alt="The Omega Project">
+      <div class="overlay">
+        <h4>The Omega Project: Africa's Quantum Leap</h4>
+        <p class="desc">Africa stands unburdened by legacy infrastructure yet rich in human capital, culture, and untapped resources. This is humanity's blank slate. With AI, we will leapfrog into a post-scarcity future faster and with greater impact than any region in history. Vision created by MAEC Finance.</p>
+        <span class="source-link">Source: maecfinance.com/insights →</span>
+      </div>
+    </a>
+
+    <!-- 4. About Us / Our Journey -->
+    <a href="https://www.maecfinance.com/aboutmaec/" class="gallery-item" target="_blank" title="View on maecfinance.com">
+      <span class="badge">About Us</span>
+      <img src="https://kimi-web-img.moonshot.cn/img/www.maecfinance.com/28cd091949576d33fca057c0fad05d60c4c20d1f.jpeg" alt="Our Journey">
+      <div class="overlay">
+        <h4>Our Journey — Moving Forward</h4>
+        <p class="desc">Established in Italy in 1960 as a specialized real estate and infrastructure design and construction company by Mr. Comm. Attillio Montanari. Today, the banking platform partnership allows us to leverage the platform's resources and expertise to create sustainable solutions for economic growth and poverty alleviation.</p>
+        <span class="source-link">Source: maecfinance.com/aboutmaec →</span>
+      </div>
+    </a>
+
+    <!-- 5. Home / Industrial Operations -->
+    <a href="https://maecfinance.com/" class="gallery-item" target="_blank" title="View on maecfinance.com">
+      <span class="badge">Home</span>
+      <img src="https://kimi-web-img.moonshot.cn/img/www.maecfinance.com/b3395942d150117fb93aa7a0c75dabbe6598f24e.jpeg" alt="Industrial Operations">
+      <div class="overlay">
+        <h4>Industrial Operations</h4>
+        <p class="desc">Empowering Industrial Advancement in Africa and Beyond. Our target is to erase poverty from the ground of the nations of the world by enabling adequate resources that trigger massive economic restoration. We focus on infrastructure, energy, industrialization, and agriculture.</p>
+        <span class="source-link">Source: maecfinance.com →</span>
+      </div>
+    </a>
+
+    <!-- 6. About Us / Global Partnerships -->
+    <a href="https://www.maecfinance.com/aboutmaec/" class="gallery-item" target="_blank" title="View on maecfinance.com">
+      <span class="badge">About Us</span>
+      <img src="https://kimi-web-img.moonshot.cn/img/www.maecfinance.com/c9860cf67d754f59b565ec47659492ba009435ca.jpeg" alt="Global Partnerships">
+      <div class="overlay">
+        <h4>Global Partnerships &amp; Vision</h4>
+        <p class="desc">Our Vision: Let nothing be done through selfish ambition. In countries where corruption and war are widespread, poverty persists due to funds being siphoned off by corrupt officials and ongoing violence. We provide access to essential resources and empower communities by enabling conditions for prosperity.</p>
+        <span class="source-link">Source: maecfinance.com/aboutmaec →</span>
+      </div>
+    </a>
+
+    <!-- 7. Insights / Modern Infrastructure -->
+    <a href="https://www.maecfinance.com/insights/" class="gallery-item" target="_blank" title="View on maecfinance.com">
+      <span class="badge">Insights</span>
+      <img src="https://kimi-web-img.moonshot.cn/img/www.maecfinance.com/b80c533123c69ea1c947af4e3115cbafd56e5234.jpeg" alt="Modern Infrastructure">
+      <div class="overlay">
+        <h4>Perspective in Finance</h4>
+        <p class="desc">Exploring how financial strategies and mechanisms support economic growth, infrastructure, and social progress in a country. Financial stability, inclusion, sustainable development growth. Together with academic and tech partners across the globe, we create support towards a sustainable world.</p>
+        <span class="source-link">Source: maecfinance.com/insights →</span>
+      </div>
+    </a>
+
+    <!-- 8. Insights / SBLC Documentation -->
+    <a href="https://www.maecfinance.com/insights/" class="gallery-item" target="_blank" title="View on maecfinance.com">
+      <span class="badge">Insights</span>
+      <img src="https://kimi-web-img.moonshot.cn/img/www.maecfinance.com/51c2d3e5f61aeffbd9a4ad02f10dd6148b6942bb.jpeg" alt="Secure Documentation">
+      <div class="overlay">
+        <h4>MAEC SBLCs In Context of Wells Fargo Guide</h4>
+        <p class="desc">How MAEC processes Standby Letters of Credits and de-risking them for the protection of the issuer bank. A comprehensive guide to standby letters of credit vis-à-vis MAEC project funding, written by Glenn Ransier, Technical Advisor, ICC Banking Commission.</p>
+        <span class="source-link">Source: maecfinance.com/insights →</span>
+      </div>
+    </a>
+
+    <!-- 9. Insights / Sovereign Liquidity -->
+    <a href="https://www.maecfinance.com/insights/" class="gallery-item" target="_blank" title="View on maecfinance.com">
+      <span class="badge">Insights</span>
+      <img src="https://kimi-web-img.moonshot.cn/img/www.maecfinance.com/24fc56300401035191870c0faa05ced3e8f6a1c6.jpeg" alt="Financial Growth">
+      <div class="overlay">
+        <h4>Unlocking Sovereign Liquidity</h4>
+        <p class="desc">How Governments Can Access MAEC Loans Without Cash Collateral. A guide for banks and governments on Sovereign Guarantee-backed SBLCs, project bonds, and SPV strategies that preserve national assets whilst maximizing liquidity.</p>
+        <span class="source-link">Source: maecfinance.com/insights →</span>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<!-- ===== FOOTER / CONTACT ===== -->
+<footer id="contact">
+  <div class="contact">
+    <h3 class="handwriting">Get in Touch</h3>
+    <p><strong>Mussie Afeworki (Ph.D)</strong></p>
+    <p>Technical Advisor &amp; Project Liaison</p>
+    <a href="mailto:mussie@equaltradeglobal.org?subject=Inquiry%20about%20MAEC%20Capital%20Limited&body=Dear%20Dr.%20Afeworki,%0A%0AI%20would%20like%20to%20inquire%20about%20MAEC%20Capital%20Limited%20financing%20services.%0A%0ABest%20regards," class="email-link" title="Click to compose email">mussie@equaltradeglobal.org</a>
+  </div>
+  <div class="footnote">
+    <p>MAEC CAPITAL LIMITED — <a href="https://www.maecfinance.com/" target="_blank" style="color:#c9a227;">maecfinance.com</a></p>
+    <p>Empowering Industrial Advancement in Africa and Beyond since 1960</p>
+    <p style="margin-top:12px; font-size:0.75rem;">All gallery images sourced from www.maecfinance.com | Contact: Mussie Afeworki (Ph.D)</p>
+  </div>
+</footer>
+
+<script>
+function toggleMenu() {
+  var nav = document.getElementById('mobile-nav');
+  if (nav.style.display === 'flex') {
+    nav.style.display = 'none';
+  } else {
+    nav.style.display = 'flex';
+  }
+}
+</script>
+
+</body>
+</html>
