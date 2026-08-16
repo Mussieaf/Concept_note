@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Investment Memo — 750 TPD Caustic Soda Project, Djibouti</title>
+<style>
+  :root {
+    --bg-primary: #f6f9f4;
+    --bg-secondary: #eef5ea;
+    --bg-card: #ffffff;
+    --text-primary: #1a2e1a;
+    --text-secondary: #3d5c3d;
+    --text-muted: #6b8f6b;
+    --text-light: #9ab89a;
+    --accent-green: #4a8c4a;
+    --accent-sage: #7fb069;
+    --accent-olive: #8fbc8f;
+    --accent-teal: #2e8b8b;
+    --accent-blue: #3a7ca5;
+    --accent-warm: #c4a35a;
+    --border: #d4e4d0;
+    --border-light: #e8f0e5;
+    --shadow: rgba(26, 46, 26, 0.06);
+    --font-serif: "Georgia", "Times New Roman", serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.7;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ========== HERO ========== */
+  .hero {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #e8f0e5 0%, #d4e8d0 40%, #c8ddd0 100%);
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("https://kimi-web-img.kimi.ai/img/c8.alamy.com/74e72ef4615b2870b2d1780849b8d1ffa4f25045.jpg") center/cover no-repeat;
+    opacity: 0.18;
+    filter: saturate(0.7);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: 60px 40px;
+    text-align: center;
+  }
+  .hero-eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-green);
+    margin-bottom: 20px;
+    display: inline-block;
+    padding: 6px 18px;
+    background: rgba(74, 140, 74, 0.1);
+    border-radius: 20px;
+    border: 1px solid rgba(74, 140, 74, 0.2);
+  }
+  .hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--accent-green);
+  }
+  .hero-subtitle {
+    font-size: clamp(16px, 2vw, 20px);
+    color: var(--text-secondary);
+    max-width: 640px;
+    margin: 0 auto 32px;
+    line-height: 1.6;
+  }
+  .hero-line {
+    width: 60px;
+    height: 3px;
+    background: var(--accent-sage);
+    margin: 0 auto 32px;
+    border-radius: 2px;
+  }
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  .tag {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: var(--bg-card);
+    color: var(--accent-green);
+    border: 1px solid var(--border);
+    box-shadow: 0 1px 3px var(--shadow);
+  }
+
+  /* ========== SECTIONS ========== */
+  .section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 40px;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .section-number {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent-green);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--accent-green);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: var(--font-serif);
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 400;
+    color: var(--text-primary);
+    line-height: 1.2;
+  }
+  .section-body {
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.8;
+  }
+  .section-body p + p { margin-top: 16px; }
+  .section-body strong { color: var(--text-primary); font-weight: 600; }
+
+  /* ========== CARDS ========== */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-top: 32px;
+  }
+  .card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 28px;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 2px 12px var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px var(--shadow);
+  }
+  .card-value {
+    font-family: var(--font-serif);
+    font-size: 36px;
+    font-weight: 400;
+    color: var(--accent-green);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .card-value span { font-size: 16px; color: var(--text-muted); font-family: var(--font-sans); }
+  .card-label {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  /* ========== IMAGE BLOCKS ========== */
+  .img-block {
+    margin: 40px 0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px var(--shadow);
+  }
+  .img-block img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .img-caption {
+    font-size: 13px;
+    color: var(--text-muted);
+    padding: 12px 20px;
+    background: var(--bg-card);
+    border-top: 1px solid var(--border-light);
+    font-style: italic;
+  }
+  .img-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin: 40px 0;
+  }
+  .img-row .img-block { margin: 0; }
+
+  /* ========== LOCATION SCHEMATIC ========== */
+  .schematic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 32px 24px;
+    background: var(--bg-card);
+    border-radius: 16px;
+    border: 1px solid var(--border-light);
+    margin: 32px 0;
+    flex-wrap: wrap;
+  }
+  .node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    min-width: 100px;
+  }
+  .node-circle {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    border: 3px solid;
+  }
+  .node-circle.source { background: rgba(74, 140, 74, 0.1); border-color: var(--accent-green); }
+  .node-circle.process { background: rgba(46, 139, 139, 0.1); border-color: var(--accent-teal); }
+  .node-circle.port { background: rgba(58, 124, 165, 0.1); border-color: var(--accent-blue); }
+  .node-name { font-size: 14px; font-weight: 600; color: var(--text-primary); }
+  .node-desc { font-size: 12px; color: var(--text-muted); text-align: center; }
+  .arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    color: var(--text-light);
+    font-size: 11px;
+    min-width: 80px;
+  }
+  .arrow-line {
+    width: 50px;
+    height: 2px;
+    background: var(--border);
+    position: relative;
+  }
+  .arrow-line::after {
+    content: "";
+    position: absolute;
+    right: -5px;
+    top: -4px;
+    width: 0; height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 8px solid var(--border);
+  }
+
+  /* ========== PROCESS FLOW ========== */
+  .process-flow {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0;
+    background: var(--bg-card);
+    border-radius: 16px;
+    border: 1px solid var(--border-light);
+    overflow: hidden;
+    margin: 32px 0;
+  }
+  .process-step {
+    padding: 28px 20px;
+    text-align: center;
+    position: relative;
+    border-right: 1px solid var(--border-light);
+  }
+  .process-step:last-child { border-right: none; }
+  .process-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+  .process-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+  }
+  .process-detail {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* ========== FINANCIAL TABLE ========== */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 32px 0;
+    border-radius: 16px;
+    border: 1px solid var(--border-light);
+    background: var(--bg-card);
+    box-shadow: 0 2px 12px var(--shadow);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  thead th {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    font-weight: 600;
+    text-align: left;
+    padding: 16px 20px;
+    border-bottom: 2px solid var(--border);
+    white-space: nowrap;
+  }
+  tbody td {
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border-light);
+    color: var(--text-secondary);
+    white-space: nowrap;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover td { background: var(--bg-primary); }
+
+  /* ========== SWOT ========== */
+  .swot-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 32px;
+  }
+  .swot-card {
+    padding: 28px;
+    border-radius: 16px;
+    border: 1px solid var(--border-light);
+    background: var(--bg-card);
+  }
+  .swot-card.s { border-left: 4px solid var(--accent-green); }
+  .swot-card.w { border-left: 4px solid var(--accent-warm); }
+  .swot-card.o { border-left: 4px solid var(--accent-teal); }
+  .swot-card.t { border-left: 4px solid #b85c5c; }
+  .swot-header {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .swot-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+  }
+  .swot-dot.s { background: var(--accent-green); }
+  .swot-dot.w { background: var(--accent-warm); }
+  .swot-dot.o { background: var(--accent-teal); }
+  .swot-dot.t { background: #b85c5c; }
+  .swot-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .swot-list li {
+    font-size: 14px;
+    color: var(--text-secondary);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-light);
+    line-height: 1.5;
+    position: relative;
+    padding-left: 16px;
+  }
+  .swot-list li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--text-light);
+  }
+  .swot-list li:last-child { border-bottom: none; }
+
+  /* ========== RECOMMENDATION ========== */
+  .recommendation {
+    background: linear-gradient(135deg, rgba(74, 140, 74, 0.08) 0%, rgba(46, 139, 139, 0.06) 100%);
+    border: 1px solid rgba(74, 140, 74, 0.2);
+    border-radius: 20px;
+    padding: 48px;
+    margin-top: 32px;
+  }
+  .recommendation-title {
+    font-family: var(--font-serif);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .recommendation-text {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 28px;
+  }
+  .checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 12px;
+  }
+  .checklist li {
+    font-size: 14px;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 14px;
+    background: var(--bg-card);
+    border-radius: 10px;
+    border: 1px solid var(--border-light);
+  }
+  .check-icon {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: rgba(74, 140, 74, 0.15);
+    color: var(--accent-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ========== QUOTE BLOCK ========== */
+  .quote-block {
+    border-left: 4px solid var(--accent-sage);
+    padding: 20px 28px;
+    margin: 28px 0;
+    background: var(--bg-card);
+    border-radius: 0 12px 12px 0;
+    font-style: italic;
+    color: var(--text-secondary);
+    font-size: 16px;
+  }
+
+  /* ========== FOOTER ========== */
+  .footer {
+    text-align: center;
+    padding: 40px;
+    border-top: 1px solid var(--border);
+    margin-top: 60px;
+  }
+  .footer p {
+    font-size: 13px;
+    color: var(--text-light);
+    margin: 0;
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 768px) {
+    .section { padding: 48px 24px; }
+    .hero-content { padding: 40px 24px; }
+    .swot-grid { grid-template-columns: 1fr; }
+    .schematic { flex-direction: column; gap: 20px; }
+    .arrow { transform: rotate(90deg); }
+    .process-flow { grid-template-columns: 1fr; }
+    .process-step { border-right: none; border-bottom: 1px solid var(--border-light); }
+    .process-step:last-child { border-bottom: none; }
+    .recommendation { padding: 28px; }
+    .checklist { grid-template-columns: 1fr; }
+  }
+
+  /* ========== SCROLLBAR ========== */
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: var(--bg-primary); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--text-light); }
+</style>
+</head>
+<body>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Investment memorandum</div>
+    <h1 class="hero-title">750 TPD Caustic Soda<br><em>Project in Djibouti</em></h1>
+    <p class="hero-subtitle">A phased, export-led chlor-alkali complex at Damerjog, fed by Lake Assal salt and integrated with downstream chlorine derivatives for the Horn of Africa market.</p>
+    <div class="hero-line"></div>
+    <div class="hero-tags">
+      <span class="tag">Sustainable industry</span>
+      <span class="tag">Export-led</span>
+      <span class="tag">Membrane electrolysis</span>
+      <span class="tag">Djibouti</span>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== EXECUTIVE SUMMARY ==================== -->
+<section class="section">
+  <div class="section-header">
+    <span class="section-number">01</span>
+    <h2 class="section-title">Executive summary</h2>
+  </div>
+  <div class="section-body">
+    <p>The recommended project is a <strong>membrane-cell chlor-alkali plant with 750 TPD NaOH capacity</strong>, equivalent to about 270,000 tpa. <strong>Damerjog</strong> is the best location because it is closer to the Port of Djibouti, benefits from industrial-zone infrastructure, and is better suited to large-scale chemical handling than a remote lake site.</p>
+    <p>Lake Assal remains the logical salt source, but not necessarily the best place to house the main electrolysis plant, because the salt likely needs purification before chlor-alkali use. Djibouti's earlier project documents already show policy support for caustic soda and chlorine development around the Lake Assal—Ghoubet corridor.</p>
+  </div>
+
+  <div class="img-row">
+    <div class="img-block">
+      <img src="https://kimi-web-img.kimi.ai/img/c8.alamy.com/74e72ef4615b2870b2d1780849b8d1ffa4f25045.jpg" alt="Aerial view of Lake Assal, Djibouti">
+      <div class="img-caption">Aerial view of Lake Assal — the primary salt feedstock source for the chlor-alkali complex</div>
+    </div>
+    <div class="img-block">
+      <img src="https://kimi-web-img.kimi.ai/img/www.saltworkconsultants.com/0d68f3d75e8d548be6e1081cf460bb8cf71e3b5e.jpg" alt="Lake Assal shoreline">
+      <div class="img-caption">Lake Assal shoreline — the lowest point in Africa and one of the world's most saline bodies of water</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PROJECT BASIS ==================== -->
+<section class="section" style="background: var(--bg-secondary);">
+  <div class="section-header">
+    <span class="section-number">02</span>
+    <h2 class="section-title">Project basis</h2>
+  </div>
+  <div class="section-body">
+    <p>The plant would take salt or purified brine from Lake Assal/Ghoubet, purify it, run membrane electrolysis, and produce caustic soda, chlorine, and hydrogen. <strong>The project is export-led</strong> because Djibouti's domestic market is too small for a plant of this size.</p>
+    <p>A strong commercial setup would pair the chemical plant with downstream chlorine users, such as bleach, hydrochloric acid, or other industrial derivatives, to avoid value destruction from unmanaged chlorine. <strong>That integrated approach is the main reason the project can clear a bankability threshold.</strong></p>
+  </div>
+
+  <div class="img-block">
+    <img src="https://kimi-web-img.kimi.ai/img/media.industrialinfo.com/86f6a716fb3d0abbe4baa53b1ddf88153edcccef.webp" alt="Chlor-alkali industrial facility in Africa">
+    <div class="img-caption">Chlor-alkali sector activity in Africa — indicative of the industrial scale envisioned at Damerjog</div>
+  </div>
+</section>
+
+<!-- ==================== LOCATION RATIONALE ==================== -->
+<section class="section">
+  <div class="section-header">
+    <span class="section-number">03</span>
+    <h2 class="section-title">Location rationale</h2>
+  </div>
+  <div class="section-body">
+    <p><strong>Damerjog</strong> is the most competitive processing site if Lake Assal is treated as less feasible for the main plant. The site is described as a premium industrial zone near the Port of Djibouti, with preinstalled utilities and industrial planning aligned with large projects.</p>
+    <p><strong>Ghoubet</strong> is still important as the raw-material and logistics node because the port is linked to the Lake Assal salt project. This suggests a <strong>two-node model</strong>: upstream salt extraction and shipment, downstream chemical conversion at Damerjog.</p>
+  </div>
+
+  <div class="schematic">
+    <div class="node">
+      <div class="node-circle source">🧂</div>
+      <div class="node-name">Lake Assal</div>
+      <div class="node-desc">Salt extraction</div>
+    </div>
+    <div class="arrow">
+      <div class="arrow-line"></div>
+      <span>Brine</span>
+    </div>
+    <div class="node">
+      <div class="node-circle source">🏭</div>
+      <div class="node-name">Ghoubet</div>
+      <div class="node-desc">Logistics node</div>
+    </div>
+    <div class="arrow">
+      <div class="arrow-line"></div>
+      <span>Purified salt</span>
+    </div>
+    <div class="node">
+      <div class="node-circle process">⚡</div>
+      <div class="node-name">Damerjog</div>
+      <div class="node-desc">Processing zone</div>
+    </div>
+    <div class="arrow">
+      <div class="arrow-line"></div>
+      <span>Products</span>
+    </div>
+    <div class="node">
+      <div class="node-circle port">🚢</div>
+      <div class="node-name">Port of Djibouti</div>
+      <div class="node-desc">Global export</div>
+    </div>
+  </div>
+
+  <div class="img-block">
+    <img src="https://kimi-web-img.kimi.ai/img/synergetic-consulting.co.ke/89ec1a91e6cef164d3050c2976a926d115ab4d4c.jpg" alt="Damerjog Port and industrial zone">
+    <div class="img-caption">Damerjog Port — the gateway industrial zone for heavy industry and export logistics in Djibouti</div>
+  </div>
+</section>
+
+<!-- ==================== CAPACITY & PLANT BALANCE ==================== -->
+<section class="section" style="background: var(--bg-secondary);">
+  <div class="section-header">
+    <span class="section-number">04</span>
+    <h2 class="section-title">Capacity and plant balance</h2>
+  </div>
+  <div class="section-body">
+    <p>At full nameplate, <strong>750 TPD means about 270,000 tpa caustic soda</strong> assuming 360 operating days. The stoichiometric coproducts are approximately 239,000 tpa chlorine and 7,500 tpa hydrogen, before losses and processing adjustments.</p>
+  </div>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-value">270,000 <span>tpa</span></div>
+      <div class="card-label">NaOH caustic soda</div>
+    </div>
+    <div class="card">
+      <div class="card-value">239,000 <span>tpa</span></div>
+      <div class="card-label">Chlorine co-product</div>
+    </div>
+    <div class="card">
+      <div class="card-value">7,500 <span>tpa</span></div>
+      <div class="card-label">Hydrogen co-product</div>
+    </div>
+    <div class="card">
+      <div class="card-value">430–450 <span>ktpa</span></div>
+      <div class="card-label">Salt requirement</div>
+    </div>
+    <div class="card">
+      <div class="card-value">50–70 <span>MW</span></div>
+      <div class="card-label">Continuous power demand</div>
+    </div>
+  </div>
+
+  <div class="img-block" style="margin-top: 40px;">
+    <img src="https://kimi-web-img.kimi.ai/img/6525fc8e.delivery.rocketcdn.me/d86e28f969c6a5201e21df26795d709a1bf2fb49.jpg" alt="Membrane cell process diagram">
+    <div class="img-caption">Membrane cell process — the core technology converting brine into caustic soda, chlorine gas, and hydrogen</div>
+  </div>
+</section>
+
+<!-- ==================== CAPEX & OPEX ==================== -->
+<section class="section">
+  <div class="section-header">
+    <span class="section-number">05</span>
+    <h2 class="section-title">Capex & Opex</h2>
+  </div>
+  <div class="section-body">
+    <p>A realistic pre-FEED capex range is <strong>USD 550 million to USD 850 million</strong> for the core plant and standard utilities. If the project includes captive power, major desalination, chlorine derivatives, or large offsites, the total can approach <strong>USD 900 million to USD 1.2 billion</strong>.</p>
+    <p>A practical base case for an investment memo is <strong>USD 700 million</strong>. That assumes industrial-zone infrastructure is partly leveraged and does not require a fully self-contained utility island.</p>
+    <p class="quote-block">A competitive operating-cost range is <strong>USD 180 to USD 280 per tonne of caustic soda</strong>, excluding shipping. Electricity is the largest driver, followed by salt handling, purification chemicals, labor, maintenance, and logistics. A base-case opex assumption of about <strong>USD 220/t</strong> is reasonable for a first-pass model.</p>
+  </div>
+</section>
+
+<!-- ==================== 10-YEAR P&L ==================== -->
+<section class="section" style="background: var(--bg-secondary);">
+  <div class="section-header">
+    <span class="section-number">06</span>
+    <h2 class="section-title">10-year P&L assumptions</h2>
+  </div>
+  <div class="section-body">
+    <p>Use the following base-case assumptions for a bankable-style model:</p>
+    <ul style="margin: 16px 0 16px 24px; color: var(--text-secondary);">
+      <li>Capacity: 270,000 tpa</li>
+      <li>Utilization: 85% in Year 1, rising to 92% from Year 4 onward</li>
+      <li>NaOH price: USD 380/t in Year 1, rising gradually to USD 470/t by Year 10</li>
+      <li>Chlorine credit: USD 12 million in Year 1, rising to USD 21 million by Year 10</li>
+      <li>Hydrogen credit: USD 1.8 million per year</li>
+      <li>Discount rate: 14%</li>
+      <li>Tax rate: 20%</li>
+      <li>Depreciation: straight-line over 10 years</li>
+      <li>Base capex: USD 700 million</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================== 10-YEAR OPERATING MODEL ==================== -->
+<section class="section">
+  <div class="section-header">
+    <span class="section-number">07</span>
+    <h2 class="section-title">10-year operating model</h2>
+  </div>
+  <div class="section-body">
+    <p>These are <strong>base-case ranges</strong>, not a final bankable model. They show that the project can be profitable, but not comfortably so unless chlorine and power are managed well.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Year</th>
+          <th>Revenue USD m</th>
+          <th>Opex USD m</th>
+          <th>EBITDA USD m</th>
+          <th>Net income USD m</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>106–110</td><td>75–80</td><td>28–35</td><td>0–10</td></tr>
+        <tr><td>2</td><td>113–118</td><td>77–83</td><td>33–40</td><td>5–15</td></tr>
+        <tr><td>3</td><td>119–125</td><td>80–86</td><td>35–45</td><td>8–18</td></tr>
+        <tr><td>4</td><td>125–132</td><td>82–89</td><td>40–50</td><td>12–22</td></tr>
+        <tr><td>5</td><td>128–136</td><td>84–91</td><td>42–52</td><td>14–24</td></tr>
+        <tr><td>6</td><td>132–140</td><td>87–94</td><td>45–55</td><td>16–26</td></tr>
+        <tr><td>7</td><td>136–145</td><td>89–96</td><td>48–58</td><td>18–28</td></tr>
+        <tr><td>8</td><td>140–150</td><td>92–99</td><td>50–60</td><td>20–30</td></tr>
+        <tr><td>9</td><td>145–155</td><td>95–102</td><td>52–62</td><td>22–32</td></tr>
+        <tr><td>10</td><td>150–160</td><td>98–106</td><td>54–65</td><td>24–35</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ==================== FINANCIAL VIEW ==================== -->
+<section class="section" style="background: var(--bg-secondary);">
+  <div class="section-header">
+    <span class="section-number">08</span>
+    <h2 class="section-title">Financial view</h2>
+  </div>
+  <div class="section-body">
+    <p>The project should be modeled with three cases:</p>
+    <ul style="margin: 16px 0 16px 24px; color: var(--text-secondary);">
+      <li><strong>Conservative:</strong> high power cost, weak chlorine value, slower ramp-up</li>
+      <li><strong>Base case:</strong> industrial-zone processing at Damerjog, moderate export pricing, partial chlorine monetization</li>
+      <li><strong>Upside:</strong> long-term offtake contracts, integrated chlorine derivatives, and favorable utility economics</li>
+    </ul>
+    <p>On a first-pass basis, the project is most likely to be financeable only if it secures:</p>
+    <ul style="margin: 16px 0 16px 24px; color: var(--text-secondary);">
+      <li>Cheap and reliable power</li>
+      <li>Long-term export offtake</li>
+      <li>A chlorine monetization plan</li>
+      <li>A credible brine purification scheme</li>
+      <li>A strong EIA and safety framework</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================== SWOT ==================== -->
+<section class="section">
+  <div class="section-header">
+    <span class="section-number">09</span>
+    <h2 class="section-title">Strategic assessment</h2>
+  </div>
+  <div class="swot-grid">
+    <div class="swot-card s">
+      <div class="swot-header"><span class="swot-dot s"></span>Strengths</div>
+      <ul class="swot-list">
+        <li>Strategic port access and industrial-zone infrastructure</li>
+        <li>Lake Assal offers large salt availability</li>
+        <li>Government interest in salt-to-chemicals value addition</li>
+      </ul>
+    </div>
+    <div class="swot-card w">
+      <div class="swot-header"><span class="swot-dot w"></span>Weaknesses</div>
+      <ul class="swot-list">
+        <li>High electricity intensity and utility dependence</li>
+        <li>Raw salt requires purification for chlor-alkali use</li>
+        <li>Domestic demand is far too small for the scale</li>
+      </ul>
+    </div>
+    <div class="swot-card o">
+      <div class="swot-header"><span class="swot-dot o"></span>Opportunities</div>
+      <ul class="swot-list">
+        <li>Export to Ethiopia and the wider Horn of Africa</li>
+        <li>Downstream chlorine derivatives and hydrogen use</li>
+        <li>Two-node logistics model with Assal/Ghoubet and Damerjog</li>
+      </ul>
+    </div>
+    <div class="swot-card t">
+      <div class="swot-header"><span class="swot-dot t"></span>Threats</div>
+      <ul class="swot-list">
+        <li>Power shortages or tariff escalation</li>
+        <li>Environmental and chlorine-safety permitting risk</li>
+        <li>Freight and port bottlenecks</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PROCESS DETAIL ==================== -->
+<section class="section" style="background: var(--bg-secondary);">
+  <div class="section-header">
+    <span class="section-number">10</span>
+    <h2 class="section-title">Membrane-cell process</h2>
+  </div>
+  <div class="section-body">
+    <p>The plant produces caustic soda, chlorine, and hydrogen via membrane electrolysis. A strong commercial setup pairs the chemical plant with downstream chlorine users — bleach, hydrochloric acid, and other derivatives — to avoid value destruction from unmanaged chlorine.</p>
+  </div>
+  <div class="process-flow">
+    <div class="process-step">
+      <div class="process-icon">🧂</div>
+      <div class="process-name">Brine intake</div>
+      <div class="process-detail">Lake Assal salt<br>430–450 ktpa</div>
+    </div>
+    <div class="process-step">
+      <div class="process-icon">🔬</div>
+      <div class="process-name">Purification</div>
+      <div class="process-detail">Ca/Mg removal<br>Impurities control</div>
+    </div>
+    <div class="process-step">
+      <div class="process-icon">⚡</div>
+      <div class="process-name">Electrolysis</div>
+      <div class="process-detail">Membrane cells<br>50–70 MW load</div>
+    </div>
+    <div class="process-step">
+      <div class="process-icon">📦</div>
+      <div class="process-name">Products</div>
+      <div class="process-detail">NaOH · Cl₂ · H₂<br>Downstream integration</div>
+    </div>
+  </div>
+
+  <div class="img-row">
+    <div class="img-block">
+      <img src="https://kimi-web-img.kimi.ai/img/cisp.cachefly.net/ba64556d5ccde97e792e61bbd806697f08cdb770.jpeg" alt="Modular chlorine plant">
+      <div class="img-caption">Modular chlor-alkali plant infrastructure — indicative of the processing scale at Damerjog</div>
+    </div>
+    <div class="img-block">
+      <img src="https://kimi-web-img.kimi.ai/img/c8.alamy.com/6c446b713aba8c07b7092f11865c8f8478a2bbf8.jpg" alt="Aerial view Lake Assal salt formations">
+      <div class="img-caption">Aerial view of Lake Assal salt formations — the natural resource base for the project</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== RECOMMENDATION ==================== -->
+<section class="section">
+  <div class="section-header">
+    <span class="section-number">11</span>
+    <h2 class="section-title">Investment recommendation</h2>
+  </div>
+  <div class="recommendation">
+    <div class="recommendation-title">
+      <span style="font-size:28px;">🌿</span>
+      Phased, export-led chlor-alkali at Damerjog
+    </div>
+    <div class="recommendation-text">
+      The best investment structure is a <strong>phased, export-led chlor-alkali project in Damerjog</strong>, fed by Lake Assal salt logistics and backed by a chlorine-derivatives strategy. That is the most competitive option if Lake Assal itself is considered less feasible for the main plant. The project is viable but economics depend heavily on power cost, chlorine monetization, and strong export offtake.
+    </div>
+    <ul class="checklist">
+      <li><span class="check-icon">✓</span> Secure cheap and reliable power</li>
+      <li><span class="check-icon">✓</span> Lock in long-term export offtake</li>
+      <li><span class="check-icon">✓</span> Build a chlorine monetization plan</li>
+      <li><span class="check-icon">✓</span> Validate brine purification scheme</li>
+      <li><span class="check-icon">✓</span> Deliver a strong EIA and safety framework</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer">
+  <p>Investment memo · Djibouti chlor-alkali project · Damerjog / Lake Assal corridor · 750 TPD membrane-cell facility</p>
+</footer>
+
+</body>
+</html>
