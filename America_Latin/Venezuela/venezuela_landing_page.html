@@ -1,1 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Venezuelan Comprehensive Economic Development Funding</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
+:root {
+  --bg-primary: #f8f9f5;
+  --bg-secondary: #eef5ee;
+  --bg-card: #ffffff;
+  --text-primary: #1a3a2a;
+  --text-secondary: #4a6b4a;
+  --accent-green: #2d7a4f;
+  --accent-gold: #c9a84c;
+  --accent-gold-light: #e8d5a3;
+  --border-light: #d0e0d0;
+  --shadow: rgba(26,58,42,0.08);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ===== WAVING FLAG ===== */
+.flag-container {
+  width: 100%;
+  background: linear-gradient(180deg, #1a3a2a 0%, #2d5a3d 100%);
+  padding: 12px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 100;
+}
+
+.flag-wrapper {
+  width: 140px;
+  height: 90px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.venezuela-flag {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  animation: wave 3s ease-in-out infinite;
+}
+
+.flag-stripe {
+  flex: 1;
+  width: 100%;
+}
+
+.flag-yellow { background: #ffcc00; }
+.flag-blue { background: #0033aa; position: relative; }
+.flag-red { background: #cf142b; }
+
+.flag-stars {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 6px;
+}
+
+.star {
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 7px solid white;
+  position: relative;
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+.star::after {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: 7px;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 3px solid white;
+}
+
+@keyframes wave {
+  0%, 100% { transform: skewX(0deg) scaleY(1); }
+  25% { transform: skewX(2deg) scaleY(1.02); }
+  50% { transform: skewX(0deg) scaleY(1); }
+  75% { transform: skewX(-2deg) scaleY(1.02); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(0.9); }
+}
+
+/* ===== COLLAPSIBLE MENU ===== */
+.menu-toggle {
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  z-index: 1000;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+  box-shadow: 0 2px 12px var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.menu-toggle:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+}
+
+.menu-icon {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.menu-icon span {
+  display: block;
+  width: 22px;
+  height: 2.5px;
+  background: var(--accent-green);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.nav-panel {
+  position: fixed;
+  top: 70px;
+  right: 24px;
+  width: 320px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  padding: 20px;
+  z-index: 999;
+  transform: translateY(-10px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.nav-panel.open {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav-panel h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  color: var(--accent-green);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.nav-panel a {
+  display: block;
+  padding: 8px 12px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 13px;
+  border-radius: 6px;
+  transition: all 0.2s;
+  border-left: 3px solid transparent;
+}
+
+.nav-panel a:hover {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border-left-color: var(--accent-gold);
+}
+
+/* ===== HERO CAROUSEL ===== */
+.hero-section {
+  position: relative;
+  height: 520px;
+  overflow: hidden;
+  background: var(--text-primary);
+}
+
+.carousel-track {
+  display: flex;
+  width: 500%;
+  height: 100%;
+  animation: scrollCarousel 30s linear infinite;
+}
+
+.carousel-track:hover {
+  animation-play-state: paused;
+}
+
+.carousel-slide {
+  width: 20%;
+  height: 100%;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.75;
+}
+
+.carousel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(26,58,42,0.3) 0%, rgba(26,58,42,0.7) 70%, rgba(26,58,42,0.95) 100%);
+}
+
+@keyframes scrollCarousel {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(0); }
+  25% { transform: translateX(-20%); }
+  45% { transform: translateX(-20%); }
+  50% { transform: translateX(-40%); }
+  70% { transform: translateX(-40%); }
+  75% { transform: translateX(-60%); }
+  95% { transform: translateX(-60%); }
+  100% { transform: translateX(-80%); }
+}
+
+.hero-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 60px 80px 50px;
+  z-index: 10;
+}
+
+.hero-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent-gold-light);
+  margin-bottom: 16px;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  max-width: 800px;
+}
+
+.hero-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.85);
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.hero-date {
+  position: absolute;
+  top: 30px;
+  left: 80px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 1px;
+  z-index: 10;
+}
+
+/* ===== SECTION STYLES ===== */
+.section {
+  padding: 70px 80px;
+  position: relative;
+}
+
+.section-alt {
+  background: var(--bg-secondary);
+}
+
+.section-header {
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.section-number {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.section-title-bold {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.section-divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-green), var(--accent-gold));
+  border-radius: 2px;
+  margin-top: 16px;
+}
+
+.section-body {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  max-width: 900px;
+}
+
+.section-body p {
+  margin-bottom: 16px;
+}
+
+/* ===== CARDS ===== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.info-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 2px 12px var(--shadow);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(26,58,42,0.12);
+  border-color: var(--accent-green);
+}
+
+.info-card h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.info-card p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.info-card .card-metric {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--accent-green);
+  margin: 12px 0 8px;
+}
+
+/* ===== TABLE ===== */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 24px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px var(--shadow);
+}
+
+.data-table th {
+  background: var(--text-primary);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 14px 18px;
+  text-align: left;
+}
+
+.data-table td {
+  padding: 14px 18px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.data-table tr:last-child td {
+  border-bottom: none;
+}
+
+.data-table tr:hover td {
+  background: var(--bg-secondary);
+}
+
+/* ===== PHASE TIMELINE ===== */
+.timeline {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.timeline-phase {
+  min-width: 260px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 12px var(--shadow);
+  flex: 1;
+}
+
+.timeline-phase h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.timeline-phase .phase-years {
+  font-size: 12px;
+  color: var(--accent-gold);
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.timeline-phase .phase-amount {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--accent-green);
+  margin-bottom: 12px;
+}
+
+.timeline-phase ul {
+  list-style: none;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.timeline-phase ul li {
+  padding-left: 16px;
+  position: relative;
+}
+
+.timeline-phase ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--accent-gold);
+}
+
+/* ===== CTA SECTION ===== */
+.cta-section {
+  background: linear-gradient(135deg, var(--text-primary) 0%, #1e4d33 100%);
+  padding: 80px;
+  text-align: center;
+  color: #fff;
+}
+
+.cta-section h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 52px;
+  margin-bottom: 20px;
+}
+
+.cta-section p {
+  font-size: 16px;
+  opacity: 0.85;
+  max-width: 600px;
+  margin: 0 auto 32px;
+  line-height: 1.7;
+}
+
+.email-btn {
+  display: inline-block;
+  background: var(--accent-gold);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 16px 40px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(201,168,76,0.3);
+}
+
+.email-btn:hover {
+  background: var(--accent-gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(201,168,76,0.4);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: #142b1f;
+  padding: 40px 80px;
+  text-align: center;
+  color: rgba(255,255,255,0.5);
+  font-size: 13px;
+}
+
+.footer a {
+  color: var(--accent-gold-light);
+  text-decoration: none;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--accent-green); border-radius: 4px; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .section { padding: 50px 30px; }
+  .hero-content { padding: 40px 30px 30px; }
+  .hero-title { font-size: 36px; }
+  .cta-section { padding: 50px 30px; }
+  .timeline { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- COLLAPSIBLE MENU -->
+<div class="menu-toggle" onclick="toggleMenu()">
+  <div class="menu-icon">
+    <span></span><span></span><span></span>
+  </div>
+</div>
+
+<nav class="nav-panel" id="navPanel">
+  <h4>Navigate</h4>
+  <a href="#hero">Home</a>
+  <a href="#thesis">Executive Investment Thesis</a>
+  <a href="#resources">Resource Opportunity</a>
+  <a href="#industrial">Industrial Development Program</a>
+  <a href="#refining">Refining & Petrochemicals</a>
+  <a href="#fertilizer">Fertilizer Strategy</a>
+  <a href="#funding">€300 Billion Funding Framework</a>
+  <a href="#economic">Economic Impact</a>
+  <a href="#risk">Risk Mitigation</a>
+  <a href="#governance">Governance Architecture</a>
+  <a href="#contact">Contact & Next Steps</a>
+</nav>
+
+<!-- FLAG -->
+<div class="flag-container">
+  <div class="flag-wrapper">
+    <div class="venezuela-flag">
+      <div class="flag-stripe flag-yellow"></div>
+      <div class="flag-stripe flag-blue">
+        <div class="flag-stars">
+          <div class="star" style="animation-delay:0s"></div>
+          <div class="star" style="animation-delay:0.2s"></div>
+          <div class="star" style="animation-delay:0.4s"></div>
+          <div class="star" style="animation-delay:0.6s"></div>
+          <div class="star" style="animation-delay:0.8s"></div>
+          <div class="star" style="animation-delay:1.0s"></div>
+          <div class="star" style="animation-delay:1.2s"></div>
+          <div class="star" style="animation-delay:1.4s"></div>
+        </div>
+      </div>
+      <div class="flag-stripe flag-red"></div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO CAROUSEL -->
+<section class="hero-section" id="hero">
+  <div class="carousel-track">
+    <div class="carousel-slide">
+      <img src="file:///mnt/agents/images/7_Paraguana_Refinery_Complex_Cardon.png" alt="Refinery">
+      <div class="carousel-overlay"></div>
+    </div>
+    <div class="carousel-slide">
+      <img src="file:///mnt/agents/images/3_Efforts_to_Improve_Sustainable_Agriculture.png" alt="Agriculture">
+      <div class="carousel-overlay"></div>
+    </div>
+    <div class="carousel-slide">
+      <img src="file:///mnt/agents/images/4_Venezuela_s_mining_reset_faces_illegal.png" alt="Mining">
+      <div class="carousel-overlay"></div>
+    </div>
+    <div class="carousel-slide">
+      <img src="file:///mnt/agents/images/2_For_Venezuela_a_post_Maduro_boom.png" alt="Petrochemical">
+      <div class="carousel-overlay"></div>
+    </div>
+    <div class="carousel-slide">
+      <img src="file:///mnt/agents/images/1_538_Caracas_Skyline_Videos.png" alt="Caracas">
+      <div class="carousel-overlay"></div>
+    </div>
+  </div>
+  <div class="hero-date">15 August 2026</div>
+  <div class="hero-content">
+    <div class="hero-label">Strategic Partnership Proposal</div>
+    <h1 class="hero-title">Venezuelan Comprehensive Economic Development Funding</h1>
+    <p class="hero-subtitle">A €300 billion multi-phase development program to transform Venezuela's natural-resource wealth into sustainable industrial production, exports, employment, and government revenues.</p>
+  </div>
+</section>
+
+<!-- THESIS -->
+<section class="section" id="thesis">
+  <div class="section-header">
+    <div class="section-number">01</div>
+    <h2 class="section-title">Executive Investment <span class="section-title-bold">Thesis</span></h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="section-body">
+    <p>Venezuela possesses an extraordinary combination of assets: the world's largest proven crude-oil reserves, very substantial natural-gas reserves, large iron-ore and bauxite resources, significant gold potential, and a Caribbean location strategically positioned between North American, Latin American, European and Atlantic markets.</p>
+    <p>The €300 billion platform should be sequenced around: <strong>Asset recovery → Energy expansion → Refining → Petrochemicals → Fertilizers → Metals → Manufacturing → Export diversification.</strong></p>
+    <p>The financing case rests on the ability to convert resources into <strong>bankable cash-flow-generating industrial assets</strong>, not the nominal value of resources in the ground.</p>
+  </div>
+  <div class="card-grid">
+    <div class="info-card" onclick="location.href='#resources'">
+      <div class="card-metric">303.2 Bn</div>
+      <h4>Proven Oil Barrels</h4>
+      <p>The largest national proven reserve base reported by OPEC and EIA, primarily in the Orinoco Belt.</p>
+    </div>
+    <div class="info-card" onclick="location.href='#resources'">
+      <div class="card-metric">195 Tcf</div>
+      <h4>Natural Gas Reserves</h4>
+      <p>Approximately 73% of South America's reported gas reserves, creating exceptional industrial opportunity.</p>
+    </div>
+    <div class="info-card" onclick="location.href='#funding'">
+      <div class="card-metric">€300 Bn</div>
+      <h4>Program Envelope</h4>
+      <p>Structured as a portfolio of 50–100 bankable projects, not a single unconditional loan.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RESOURCES -->
+<section class="section section-alt" id="resources">
+  <div class="section-header">
+    <div class="section-number">02</div>
+    <h2 class="section-title">Resource <span class="section-title-bold">Opportunity</span></h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="section-body">
+    <p>The distinction between <strong>reserve, resource, occurrence and historical estimate</strong> is mandatory throughout the investment program. Much of Venezuela's mineral data requires modern JORC/NI 43-101 independent verification.</p>
+  </div>
+  <table class="data-table">
+    <tr>
+      <th>Resource</th>
+      <th>Published Indication</th>
+      <th>Investment Classification</th>
+    </tr>
+    <tr>
+      <td><strong>Crude Oil</strong></td>
+      <td>~303.2 billion barrels proven</td>
+      <td>High-confidence reserve base; economic recoverability varies by field</td>
+    </tr>
+    <tr>
+      <td><strong>Natural Gas</strong></td>
+      <td>~195 Tcf</td>
+      <td>Large reserve base; monetization constrained by infrastructure</td>
+    </tr>
+    <tr>
+      <td><strong>Iron Ore</strong></td>
+      <td>~14.68 Bt resource; ~3.6 Bt reported proven</td>
+      <td>Requires modern independent certification</td>
+    </tr>
+    <tr>
+      <td><strong>Bauxite</strong></td>
+      <td>Hundreds of millions of tonnes reported</td>
+      <td>Resource estimates; modern certification required</td>
+    </tr>
+    <tr>
+      <td><strong>Gold</strong></td>
+      <td>~644 tonnes historical resource estimate</td>
+      <td>Not equivalent to bankable reserves</td>
+    </tr>
+    <tr>
+      <td><strong>Phosphate</strong></td>
+      <td>Historical estimates up to ~2.65 Bt</td>
+      <td>Requires updating and economic/reserve verification</td>
+    </tr>
+    <tr>
+      <td><strong>Coltan / Nb-Ta</strong></td>
+      <td>Reported occurrences</td>
+      <td>Strategic exploration opportunity, not bankable reserve</td>
+    </tr>
+  </table>
+</section>
+
+<!-- INDUSTRIAL -->
+<section class="section" id="industrial">
+  <div class="section-header">
+    <div class="section-number">03</div>
+    <h2 class="section-title">Industrial Development <span class="section-title-bold">Program</span></h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="section-body">
+    <p>The program is organized around five industrial corridors: <strong>Orinoco Industrial Corridor</strong> (oil, gas, iron, steel, aluminium, mining, power); <strong>Paraguaná Refining & Petrochemical Corridor</strong> (refining, crude upgrading, fuels, aromatics, olefins, polymers); <strong>José–Anzoátegui Petrochemical Corridor</strong> (methanol, ammonia, urea, polymers, industrial chemicals); <strong>Zulia–Western Energy & Industrial Corridor</strong> (oil, gas, fertilizer, petrochemicals, agriculture); and <strong>Caribbean Export Corridor</strong> (ports, storage, refining products, LNG/gas products, international shipping).</p>
+  </div>
+</section>
+
+<!-- REFINING -->
+<section class="section section-alt" id="refining">
+  <div class="section-header">
+    <div class="section-number">04</div>
+    <h2 class="section-title">Refining & <span class="section-title-bold">Petrochemicals</span></h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="section-body">
+    <p>Venezuela's refineries were operating at approximately <strong>35% of their combined 1.29 million barrels/day nameplate capacity</strong> in February 2026, processing around 450,000 barrels/day. The first investment should be <strong>rehabilitation and debottlenecking</strong>, not immediate abandonment of existing assets.</p>
+    <p><strong>Proposed Refinery No. 1:</strong> 300,000–400,000 bpd full-conversion coking/hydrocracking refinery on the Caribbean coast, with atmospheric/vacuum distillation, delayed coking, hydrocracking, diesel hydrotreating, catalytic reforming, alkylation, sulfur recovery, and hydrogen production.</p>
+    <p><strong>Proposed Refinery No. 2:</strong> Second 300,000–400,000 bpd refinery in the eastern Venezuelan industrial corridor, subject to crude availability and environmental permits. Combined potential: <strong>600,000–800,000 bpd of new capacity</strong>.</p>
+    <p>The refinery should become the first stage of a broader carbon-and-hydrocarbon value chain: <strong>Crude → Refinery → Naphtha/LPG/Ethane/Propane/Aromatics → Ethylene/Propylene/BTX → Polyethylene/Polypropylene/PET/Styrenics → Industrial Manufacturing.</strong></p>
+  </div>
+  <div class="card-grid">
+    <div class="info-card">
+      <div class="card-metric">€12–18 Bn</div>
+      <h4>Per Refinery Complex</h4>
+      <p>Preliminary screening range for highly integrated facilities including offsites and logistics. Not a bankable EPC estimate.</p>
+    </div>
+    <div class="info-card">
+      <div class="card-metric">800K</div>
+      <h4>Combined New Capacity</h4>
+      <p>Barrels per day across two world-scale full-conversion refineries optimized for Venezuelan heavy crude.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FERTILIZER -->
+<section class="section" id="fertilizer">
+  <div class="section-header">
+    <div class="section-number">05</div>
+    <h2 class="section-title">Fertilizer <span class="section-title-bold">Strategy</span></h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="section-body">
+    <p><strong>Can Venezuela produce urea at $180/tonne?</strong> Potentially as a <strong>production-cost target</strong> under favorable gas and plant-efficiency assumptions; <em>not as a guaranteed international export selling price.</em></p>
+    <p>Urea economics are dominated by natural-gas costs. At a gas price of approximately $7/MMBtu, gas-related costs alone can be a very large component of total urea cash cost. Current international prices are materially above $180/t — Middle East granular urea benchmarked at approximately <strong>$400/t in Q1 2025</strong>, with 2026 market intelligence placing Middle East granular urea around <strong>$268/t in Q2 2026</strong> and much higher delivered prices in destination markets.</p>
+    <p>The strategic target should be: <strong>Low-cost production, not artificially low selling price.</strong> A credible long-term objective is to investigate whether Venezuela can achieve approximately <strong>$150–220/tonne cash-cost economics</strong> for urea under low-cost domestic-gas scenarios, while underwriting the project against a substantially wider range of market prices.</p>
+    <p>Venezuela already has demonstrated fertilizer infrastructure. Pequiven reported historical operation of an ammonia plant at approximately 1,500 tonnes/day and a urea plant at approximately 2,200 tonnes/day at the José Antonio Anzoátegui complex.</p>
+  </div>
+</section>
+
+<!-- FUNDING -->
+<section class="section section-alt" id="funding">
+  <div class="section-header">
+    <div class="section-number">06</div>
+    <h2 class="section-title">€300 Billion Funding <span class="section-title-bold">Framework</span></h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="section-body">
+    <p>The €300 billion should be regarded as a <strong>maximum program envelope</strong>, not money to be drawn immediately. The program should be structured as a <strong>portfolio of approximately 50–100 bankable projects and project clusters</strong>, with financing released only after technical and financial milestones.</p>
+    <p>The principal recommendation is that Venezuela should <strong>not finance the entire €300 billion as conventional sovereign debt</strong>. Instead: Project Finance with SPVs, Joint Ventures, Export-Credit Financing, Development Finance, Strategic Offtake Financing, and Asset-Backed Structures.</p>
+  </div>
+  <div class="timeline">
+    <div class="timeline-phase">
+      <h4>Phase I — Stabilization</h4>
+      <div class="phase-years">2026–2028</div>
+      <div class="phase-amount">€25 Bn</div>
+      <ul>
+        <li>Oil-field rehabilitation</li>
+        <li>Refinery rehabilitation</li>
+        <li>Power rehabilitation</li>
+        <li>Gas infrastructure</li>
+        <li>Ports & logistics</li>
+        <li>Mining rehabilitation</li>
+        <li>Technical studies</li>
+      </ul>
+    </div>
+    <div class="timeline-phase">
+      <h4>Phase II — Expansion</h4>
+      <div class="phase-years">2028–2032</div>
+      <div class="phase-amount">€125 Bn</div>
+      <ul>
+        <li>Oil & upstream: €25 Bn</li>
+        <li>Natural gas: €15 Bn</li>
+        <li>Refinery No. 1: €15 Bn</li>
+        <li>Petrochemicals: €15 Bn</li>
+        <li>Mining & metals: €15 Bn</li>
+        <li>Power & grid: €12 Bn</li>
+        <li>Roads, rail, ports: €10 Bn</li>
+        <li>Fertilizers: €6 Bn</li>
+      </ul>
+    </div>
+    <div class="timeline-phase">
+      <h4>Phase III — Scale-Up</h4>
+      <div class="phase-years">2032–2037</div>
+      <div class="phase-amount">€100 Bn</div>
+      <ul>
+        <li>Refinery No. 2</li>
+        <li>Petrochemical clusters</li>
+        <li>Steel & aluminium</li>
+        <li>LNG/gas monetization</li>
+        <li>Industrial manufacturing</li>
+        <li>Export ports & rail</li>
+        <li>Power generation</li>
+        <li>Agricultural processing</li>
+      </ul>
+    </div>
+    <div class="timeline-phase">
+      <h4>Phase IV — Diversification</h4>
+      <div class="phase-years">2037–2041</div>
+      <div class="phase-amount">€50 Bn</div>
+      <ul>
+        <li>Advanced manufacturing</li>
+        <li>Chemical products</li>
+        <li>Polymers</li>
+        <li>Fabrics & machinery</li>
+        <li>Food processing</li>
+        <li>Logistics & tourism</li>
+        <li>Renewable energy</li>
+        <li>Green/low-carbon products</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ECONOMIC IMPACT -->
+<section class="section" id="economic">
+  <div class="section-header">
+    <div class="section-number">07</div>
+    <h2 class="section-title">Economic <span class="section-title-bold">Impact</span></h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="section-body">
+    <p>The program should be evaluated through measurable indicators rather than political promises. The World Bank reports that Venezuela's GDP was approximately <strong>€/$100 billion-equivalent in 2025</strong> in current U.S.-dollar terms, with real GDP growth of approximately 1.6%. The IMF's April 2026 database projects nominal GDP of approximately <strong>$111.3 billion in 2026</strong>.</p>
+    <p>Against this economic base, <strong>€300 billion is enormous</strong>. It cannot responsibly be deployed rapidly. It should be treated as a <strong>multi-cycle capital platform</strong>, with each subsequent phase dependent upon demonstrated performance of the preceding phase.</p>
+  </div>
+  <div class="card-grid">
+    <div class="info-card">
+      <div class="card-metric">€/$100 Bn</div>
+      <h4>Current GDP (2025)</h4>
+      <p>Venezuela's current economic base requires phased, disciplined capital deployment.</p>
+    </div>
+    <div class="info-card">
+      <div class="card-metric">3.0x</div>
+      <h4>Program-to-GDP Ratio</h4>
+      <p>Emphasizing why the 15-year phased approach is essential for sustainability.</p>
+    </div>
+    <div class="info-card">
+      <div class="card-metric">50–100</div>
+      <h4>Bankable Projects</h4>
+      <p>Individual SPVs with ring-fenced cash flows, not a single sovereign loan.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RISK -->
+<section class="section section-alt" id="risk">
+  <div class="section-header">
+    <div class="section-number">08</div>
+    <h2 class="section-title">Risk <span class="section-title-bold">Mitigation</span></h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="section-body">
+    <p><strong>Sanctions & Geopolitical Risk:</strong> The U.S. Treasury's OFAC Venezuela program currently contains multiple general licenses. Every transaction must undergo OFAC screening, EU sanctions review, beneficial-owner screening, and correspondent-bank review. No financing should close merely on the assumption that sanctions will remain relaxed.</p>
+    <p><strong>Commodity Price Risk:</strong> Oil, gas, urea, metals and petrochemical prices are cyclical. Projects must be stress-tested under low/base/high price scenarios, currency depreciation, and export disruption.</p>
+    <p><strong>Construction Risk:</strong> Every major EPC project should include fixed-price or appropriately structured EPC contracts, performance guarantees, liquidated damages, completion tests, independent engineer certification, and contingency reserves.</p>
+    <p><strong>Currency Risk:</strong> Revenue and debt should be matched wherever possible. Export-dollar revenue should service dollar/euro-linked debt rather than bolívar revenue servicing foreign-currency debt.</p>
+    <p><strong>Environmental Risk:</strong> Oil, mining and heavy industry require rigorous environmental governance including baseline studies, water-management plans, tailings management, methane reduction, refinery emissions controls, sulfur recovery, mine rehabilitation, biodiversity protection, and independent monitoring.</p>
+  </div>
+</section>
+
+<!-- GOVERNANCE -->
+<section class="section" id="governance">
+  <div class="section-header">
+    <div class="section-number">09</div>
+    <h2 class="section-title">Governance <span class="section-title-bold">Architecture</span></h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="section-body">
+    <p>We recommend creation of a <strong>Venezuela National Industrial Development & Investment Authority</strong> with an independent technical and financial board. The Authority would establish: Investment Committee (project approval), Technical Committee (engineering and feasibility), Financial Committee (debt capacity and financial models), Environmental & Social Committee (ESG safeguards), Procurement Committee (transparent procurement), and Independent Audit Function (annual financial and project audits).</p>
+    <p>Each project should have a dedicated SPV and ring-fenced accounts. The non-sovereign financing principle ensures that government retains policy and regulatory oversight while project cash flows service project debt.</p>
+  </div>
+</section>
+
+<!-- CONTACT / CTA -->
+<section class="cta-section" id="contact">
+  <h2>Request for Government Engagement</h2>
+  <p>MAEC CAPITAL LIMITED respectfully requests the opportunity to meet with representatives appointed by Your Office to present the €300 billion master funding architecture, preliminary project pipeline, refinery development concept, gas monetization strategy, and governance framework.</p>
+  <a class="email-btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=mussie@equaltradeglobal.org&su=Venezuela%20Economic%20Development%20Funding%20Inquiry&body=Dear%20Dr.%20Mussie%2C%0A%0AI%20would%20like%20to%20discuss%20the%20Venezuelan%20Comprehensive%20Economic%20Development%20Funding%20Program.%0A%0ABest%20regards" target="_blank">Contact Dr. Mussie Afeworki</a>
+  <p style="margin-top: 24px; font-size: 14px; opacity: 0.7;">mussie@equaltradeglobal.org</p>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>MAEC CAPITAL LIMITED — Representative for Africa & Latin America</p>
+  <p style="margin-top: 8px;">Venezuelan Comprehensive Economic Development Funding Proposal — 15 August 2026</p>
+</div>
+
+<script>
+function toggleMenu() {
+  document.getElementById('navPanel').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.menu-toggle') && !e.target.closest('.nav-panel')) {
+    document.getElementById('navPanel').classList.remove('open');
+  }
+});
+</script>
+
+</body>
+</html>
