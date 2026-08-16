@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venezuelan Comprehensive Economic Development — €300 Billion Funding Program</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-green: #1a472a;
+            --secondary-green: #2d5a27;
+            --light-green: #e8f5e9;
+            --accent-gold: #FCD116;
+            --accent-blue: #003893;
+            --accent-red: #CF142B;
+            --text-dark: #1a1a1a;
+            --text-medium: #444;
+            --text-light: #666;
+            --bg-light: #f8faf5;
+            --bg-cream: #eef4e8;
+            --white: #ffffff;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Open Sans', 'Georgia', sans-serif;
+            background: linear-gradient(180deg, var(--bg-light) 0%, var(--bg-cream) 100%);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-cream); }
+        ::-webkit-scrollbar-thumb { background: var(--secondary-green); border-radius: 4px; }
+        #menu-toggle {
+            position: fixed; top: 20px; right: 20px; z-index: 1000; cursor: pointer;
+            background: var(--secondary-green); color: white; padding: 14px 20px;
+            border-radius: 10px; font-family: 'Open Sans', sans-serif; font-weight: 700;
+            font-size: 15px; box-shadow: 0 6px 20px rgba(45,90,39,0.35);
+            transition: all 0.3s ease; border: none; letter-spacing: 0.5px;
+        }
+        #menu-toggle:hover { background: var(--primary-green); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(45,90,39,0.45); }
+        #collapsible-menu {
+            position: fixed; top: 75px; right: 20px; z-index: 999; background: var(--white);
+            border-radius: 16px; box-shadow: 0 15px 50px rgba(0,0,0,0.18); padding: 25px;
+            width: 300px; display: none; max-height: 85vh; overflow-y: auto;
+            border: 1px solid rgba(45,90,39,0.1);
+        }
+        #collapsible-menu h4 { margin: 0 0 18px 0; color: var(--primary-green); font-family: 'Playfair Display', serif; font-size: 20px; border-bottom: 3px solid var(--light-green); padding-bottom: 12px; }
+        #collapsible-menu a { display: block; padding: 10px 0; color: var(--primary-green); text-decoration: none; border-bottom: 1px solid #f0f0f0; font-size: 14px; font-weight: 600; transition: all 0.2s; }
+        #collapsible-menu a:hover { color: var(--accent-gold); padding-left: 8px; }
+        #collapsible-menu a:last-child { border-bottom: none; }
+        #hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; padding: 40px 20px; }
+        .moving-bg-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 0; }
+        .moving-bg-track { position: absolute; top: 0; left: 0; width: 500%; height: 100%; display: flex; animation: slideBg 50s linear infinite; opacity: 0.2; }
+        .moving-bg-track .bg-img { width: 20%; height: 100%; background-size: cover; background-position: center; background-repeat: no-repeat; }
+        .moving-bg-track .bg-img:nth-child(1) { background-image: url('https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?w=1400'); }
+        .moving-bg-track .bg-img:nth-child(2) { background-image: url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1400'); }
+        .moving-bg-track .bg-img:nth-child(3) { background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1400'); }
+        .moving-bg-track .bg-img:nth-child(4) { background-image: url('https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?w=1400'); }
+        .moving-bg-track .bg-img:nth-child(5) { background-image: url('https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?w=1400'); }
+        @keyframes slideBg { 0% { transform: translateX(0); } 100% { transform: translateX(-60%); } }
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(248,250,245,0.25) 0%, rgba(238,244,232,0.85) 55%, var(--bg-cream) 100%); z-index: 1; }
+        .flag-container { position: relative; z-index: 2; margin-bottom: 35px; animation: waveFlag 3.5s ease-in-out infinite; filter: drop-shadow(0 10px 30px rgba(0,0,0,0.2)); }
+        @keyframes waveFlag { 0%, 100% { transform: rotate(-2deg) scale(1); } 25% { transform: rotate(2.5deg) scale(1.02); } 50% { transform: rotate(-1deg) scale(1); } 75% { transform: rotate(1.5deg) scale(1.01); } }
+        .hero-content { position: relative; z-index: 2; text-align: center; max-width: 950px; padding: 0 20px; }
+        .hero-content h1 { font-family: 'Dancing Script', cursive; font-size: 56px; color: var(--primary-green); margin: 0 0 15px 0; text-shadow: 2px 2px 6px rgba(0,0,0,0.08); line-height: 1.15; }
+        .hero-divider { width: 140px; height: 4px; background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue), var(--accent-red)); margin: 25px auto; border-radius: 2px; }
+        .hero-content h2 { font-family: 'Playfair Display', serif; font-size: 30px; color: var(--secondary-green); font-weight: 400; margin: 0 0 25px 0; letter-spacing: 3px; }
+        .hero-content p { font-size: 18px; color: var(--text-medium); line-height: 1.9; max-width: 720px; margin: 0 auto 35px auto; }
+        .hero-badges { display: inline-flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
+        .hero-badges span { padding: 13px 30px; border-radius: 35px; font-weight: 700; font-size: 14px; letter-spacing: 0.5px; }
+        .badge-primary { background: linear-gradient(135deg, var(--secondary-green), #4a8c3f); color: white; box-shadow: 0 5px 18px rgba(45,90,39,0.35); }
+        .badge-outline { background: var(--white); color: var(--secondary-green); border: 2px solid var(--secondary-green); }
+        .scroll-indicator { position: absolute; bottom: 40px; z-index: 2; animation: bounce 2.5s infinite; }
+        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(12px); } }
+        .section-wrapper { padding: 50px 20px; max-width: 1100px; margin: 0 auto; }
+        .section-card { background: var(--white); border-radius: 20px; box-shadow: 0 6px 25px rgba(45,90,39,0.08); transition: all 0.4s ease; cursor: pointer; overflow: hidden; margin-bottom: 30px; border: 1px solid rgba(45,90,39,0.06); }
+        .section-card:hover { box-shadow: 0 14px 45px rgba(45,90,39,0.16); transform: translateY(-5px); }
+        .section-header { padding: 35px 30px; display: flex; align-items: center; gap: 22px; }
+        .section-icon { width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; flex-shrink: 0; }
+        .section-title-block { flex: 1; }
+        .section-title-block h2 { font-family: 'Dancing Script', cursive; font-size: 38px; color: var(--primary-green); margin: 0; line-height: 1.2; }
+        .section-title-block p { color: #7a9b6e; margin: 6px 0 0 0; font-size: 15px; font-weight: 600; }
+        .toggle-icon { font-size: 26px; color: var(--secondary-green); transition: transform 0.4s ease; flex-shrink: 0; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--light-green); }
+        .toggle-icon.rotated { transform: rotate(180deg); }
+        .section-content { max-height: 0; overflow: hidden; transition: max-height 0.7s ease, padding 0.5s ease; padding: 0 30px; }
+        .section-content.open { max-height: 8000px; padding: 0 30px 35px 30px; }
+        .content-inner { border-top: 2px solid var(--light-green); padding-top: 25px; }
+        .content-inner h3 { font-family: 'Playfair Display', serif; color: var(--primary-green); font-size: 22px; margin: 25px 0 12px 0; }
+        .content-inner h4 { font-family: 'Playfair Display', serif; color: var(--secondary-green); font-size: 18px; margin: 20px 0 10px 0; }
+        .content-inner p { font-size: 15.5px; color: var(--text-medium); line-height: 1.8; margin-bottom: 14px; }
+        .content-inner strong { color: var(--primary-green); }
+        .content-inner em { color: var(--secondary-green); font-style: italic; }
+        .quote-box { background: linear-gradient(135deg, #f1f8e9, #e8f5e9); padding: 28px; border-radius: 14px; margin: 22px 0; border-left: 5px solid var(--secondary-green); }
+        .quote-box p { font-size: 17px !important; font-style: italic; color: var(--primary-green) !important; margin: 0 !important; line-height: 1.8 !important; }
+        .numbered-item { display: flex; align-items: flex-start; gap: 14px; background: #fafcfa; padding: 16px 18px; border-radius: 12px; margin-bottom: 10px; border: 1px solid rgba(45,90,39,0.06); }
+        .numbered-item .num { background: var(--secondary-green); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0; }
+        .numbered-item span { color: var(--text-medium); font-size: 14.5px; }
+        .resource-card { margin-bottom: 22px; padding: 22px; border-radius: 14px; }
+        .resource-card h3 { margin: 0 0 10px 0 !important; font-size: 19px !important; }
+        .resource-bar { height: 10px; background: #e8f5e9; border-radius: 5px; overflow: hidden; margin: 10px 0; }
+        .resource-fill { height: 100%; background: linear-gradient(90deg, #4caf50, var(--secondary-green)); border-radius: 5px; transition: width 1.8s ease; }
+        .resource-tags { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+        .resource-tags span { padding: 5px 14px; border-radius: 15px; font-size: 12px; font-weight: 600; color: white; }
+        .corridor-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 20px; }
+        .corridor-card { padding: 25px; border-radius: 16px; color: white; box-shadow: 0 6px 22px rgba(0,0,0,0.15); }
+        .corridor-card h3 { color: white !important; margin: 0 0 10px 0 !important; font-size: 18px !important; }
+        .corridor-card p { color: rgba(255,255,255,0.92) !important; font-size: 13.5px !important; margin: 0 !important; }
+        .refinery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+        .refinery-card { background: white; border: 2px solid var(--light-green); border-radius: 16px; padding: 28px; }
+        .refinery-card .capacity { font-size: 40px; font-weight: 700; margin: 10px 0; }
+        .refinery-card .investment { margin-top: 15px; padding: 12px; border-radius: 10px; font-size: 14px; font-weight: 600; }
+        .funding-row { display: flex; align-items: center; gap: 15px; padding: 18px 22px; border-radius: 14px; margin-bottom: 12px; border: 1px solid rgba(45,90,39,0.08); }
+        .funding-amount { width: 90px; text-align: center; font-size: 26px; font-weight: 700; flex-shrink: 0; }
+        .funding-info { flex: 1; }
+        .funding-info strong { font-size: 15.5px; }
+        .funding-bar-mini { height: 8px; background: #e8f5e9; border-radius: 4px; overflow: hidden; margin-top: 6px; }
+        .funding-bar-mini .fill { height: 100%; background: linear-gradient(90deg, #4caf50, var(--secondary-green)); border-radius: 4px; }
+        .timeline { position: relative; padding-left: 35px; }
+        .timeline::before { content: ''; position: absolute; left: 10px; top: 0; bottom: 0; width: 4px; background: linear-gradient(180deg, #4caf50, var(--secondary-green), var(--accent-blue), #6a1b9a); border-radius: 2px; }
+        .timeline-item { position: relative; margin-bottom: 35px; }
+        .timeline-dot { position: absolute; left: -31px; top: 6px; width: 20px; height: 20px; border-radius: 50%; border: 4px solid white; box-shadow: 0 3px 10px rgba(0,0,0,0.2); }
+        .timeline-content { margin-left: 12px; padding: 25px; border-radius: 16px; }
+        .timeline-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px; }
+        .timeline-header h3 { margin: 0 !important; font-size: 20px !important; }
+        .phase-badge { padding: 7px 18px; border-radius: 25px; font-weight: 700; font-size: 13px; color: white; }
+        .phase-amount { font-size: 34px; font-weight: 700; margin-bottom: 12px; }
+        .phase-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px; font-size: 13px; }
+        .phase-grid span { background: rgba(255,255,255,0.85); padding: 9px 14px; border-radius: 10px; color: var(--text-dark); font-weight: 500; }
+        .styled-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.06); }
+        .styled-table th { background: var(--secondary-green); color: white; padding: 14px 16px; text-align: left; font-weight: 700; font-size: 13px; letter-spacing: 0.3px; }
+        .styled-table td { padding: 12px 16px; border-bottom: 1px solid #f0f0f0; color: var(--text-medium); }
+        .styled-table tr:nth-child(even) { background: #fafcfa; }
+        .styled-table tr:hover { background: #f1f8e9; }
+        .contact-section { background: linear-gradient(135deg, var(--primary-green), var(--secondary-green)); padding: 60px 20px; text-align: center; margin-top: 40px; }
+        .contact-section h2 { font-family: 'Dancing Script', cursive; font-size: 42px; color: white; margin-bottom: 15px; }
+        .contact-section p { color: rgba(255,255,255,0.9); font-size: 16px; max-width: 600px; margin: 0 auto 25px auto; line-height: 1.8; }
+        .email-btn { display: inline-block; background: var(--accent-gold); color: var(--primary-green); padding: 16px 40px; border-radius: 40px; font-weight: 700; font-size: 16px; text-decoration: none; box-shadow: 0 6px 25px rgba(252,209,22,0.35); transition: all 0.3s ease; letter-spacing: 0.5px; }
+        .email-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 35px rgba(252,209,22,0.5); }
+        footer { background: var(--primary-green); color: rgba(255,255,255,0.7); text-align: center; padding: 30px 20px; font-size: 13px; }
+        footer strong { color: white; }
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 36px; }
+            .hero-content h2 { font-size: 20px; letter-spacing: 1px; }
+            .section-header { padding: 25px 20px; flex-wrap: wrap; }
+            .section-title-block h2 { font-size: 28px; }
+            .section-icon { width: 50px; height: 50px; font-size: 24px; }
+            #collapsible-menu { width: 260px; right: 10px; }
+            .timeline-header { flex-direction: column; align-items: flex-start; }
+            .funding-row { flex-wrap: wrap; }
+        }
+    </style>
+</head>
+<body>
+
+<button id="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
+<div id="collapsible-menu">
+    <h4>Navigate Sections</h4>
+    <a href="#hero">🏠 Home</a>
+    <a href="#executive">📋 Executive Thesis</a>
+    <a href="#resources">⛽ Resource Opportunity</a>
+    <a href="#industrial">🏭 Industrial Program</a>
+    <a href="#refining">🔧 Refining &amp; Petrochemicals</a>
+    <a href="#fertilizer">🌱 Fertilizer Strategy</a>
+    <a href="#funding">💰 Funding Framework</a>
+    <a href="#phases">📅 Four Strategic Phases</a>
+    <a href="#structure">🏛️ Financing Structure</a>
+    <a href="#governance">⚖️ Governance</a>
+    <a href="#risk">🛡️ Risk Mitigation</a>
+    <a href="#contact">📧 Contact</a>
+</div>
+
+<section id="hero">
+    <div class="moving-bg-container">
+        <div class="moving-bg-track">
+            <div class="bg-img"></div>
+            <div class="bg-img"></div>
+            <div class="bg-img"></div>
+            <div class="bg-img"></div>
+            <div class="bg-img"></div>
+        </div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="flag-container">
+        <svg width="220" height="143" viewBox="0 0 200 130" style="filter: drop-shadow(0 10px 30px rgba(0,0,0,0.25));">
+            <defs><clipPath id="flagClip"><rect x="0" y="0" width="200" height="130" rx="5"/></clipPath></defs>
+            <g clip-path="url(#flagClip)">
+                <rect x="0" y="0" width="200" height="43.3" fill="#FCD116"/>
+                <rect x="0" y="43.3" width="200" height="43.3" fill="#003893"/>
+                <rect x="0" y="86.6" width="200" height="43.4" fill="#CF142B"/>
+                <g transform="translate(100, 65)">
+                    <circle cx="0" cy="0" r="15" fill="none" stroke="white" stroke-width="1.5"/>
+                    <g fill="white">
+                        <polygon points="0,-10 1,-3 8,-3 2,1 4,8 0,4 -4,8 -2,1 -8,-3 -1,-3" transform="scale(0.85)"/>
+                        <polygon points="0,-10 1,-3 8,-3 2,1 4,8 0,4 -4,8 -2,1 -8,-3 -1,-3" transform="rotate(72) scale(0.85)"/>
+                        <polygon points="0,-10 1,-3 8,-3 2,1 4,8 0,4 -4,8 -2,1 -8,-3 -1,-3" transform="rotate(144) scale(0.85)"/>
+                        <polygon points="0,-10 1,-3 8,-3 2,1 4,8 0,4 -4,8 -2,1 -8,-3 -1,-3" transform="rotate(216) scale(0.85)"/>
+                        <polygon points="0,-10 1,-3 8,-3 2,1 4,8 0,4 -4,8 -2,1 -8,-3 -1,-3" transform="rotate(288) scale(0.85)"/>
+                    </g>
+                    <circle cx="0" cy="0" r="3.5" fill="white"/>
+                    <path d="M -22,-9 Q -28,-5 -22,-2" stroke="white" fill="none" stroke-width="1"/>
+                    <path d="M 22,-9 Q 28,-5 22,-2" stroke="white" fill="none" stroke-width="1"/>
+                    <path d="M -22,9 Q -28,5 -22,2" stroke="white" fill="none" stroke-width="1"/>
+                    <path d="M 22,9 Q 28,5 22,2" stroke="white" fill="none" stroke-width="1"/>
+                </g>
+            </g>
+            <rect x="0" y="0" width="200" height="130" rx="5" fill="none" stroke="rgba(0,0,0,0.12)" stroke-width="2"/>
+        </svg>
+    </div>
+    <div class="hero-content">
+        <h1>Venezuelan Comprehensive<br>Economic Development</h1>
+        <div class="hero-divider"></div>
+        <h2>€300 BILLION FUNDING PROGRAM</h2>
+        <p>A strategic partnership for the comprehensive economic transformation, industrialization, and resource development of Venezuela through a multi-phase development funding platform.</p>
+        <div class="hero-badges">
+            <span class="badge-primary">15-Year Timeline</span>
+            <span class="badge-outline">4 Strategic Phases</span>
+            <span class="badge-outline">50-100 Bankable Projects</span>
+        </div>
+    </div>
+    <div class="scroll-indicator">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2d5a27" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+    </div>
+</section>
+
+<section id="executive" class="section-wrapper">
+    <div class="section-card" onclick="toggleSection('exec-content', this)">
+        <div class="section-header">
+            <div class="section-icon" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">📋</div>
+            <div class="section-title-block">
+                <h2>Executive Investment Thesis</h2>
+                <p>Click to explore Venezuela's extraordinary resource endowment and industrial vision</p>
+            </div>
+            <div class="toggle-icon">▼</div>
+        </div>
+        <div id="exec-content" class="section-content">
+            <div class="content-inner">
+                <p>On behalf of <strong>MAEC CAPITAL LIMITED</strong>, we respectfully extend our highest consideration to the Government and people of the Bolivarian Republic of Venezuela.</p>
+                <p>Following a preliminary review of Venezuela's extraordinary natural-resource endowment, industrial infrastructure, energy position, mineral potential, geographic location and development requirements, we respectfully submit for Your Excellency's consideration a potential <strong>Venezuelan Comprehensive Economic Development Funding Program of up to €300 billion</strong>, to be deployed progressively over approximately 15 years and subject to independent technical, commercial, legal, environmental and financial due diligence.</p>
+                <div class="quote-box">
+                    <p>"Venezuela should not merely extract and export natural resources. Venezuela should convert its hydrocarbons, natural gas, minerals, agricultural resources and human capital into increasingly higher-value industrial products, infrastructure, exports, employment and sustainable fiscal revenues."</p>
+                </div>
+                <p>The proposed program is therefore conceived not as a conventional sovereign borrowing program, but as a <strong>national industrial transformation platform</strong>, in which commercially viable projects would be financed through ring-fenced project companies, state-owned enterprises, private-sector joint ventures, strategic investors, export-credit agencies, development-finance institutions and other appropriately regulated financing channels.</p>
+                <p>The attached international precedent that informed the architecture of this proposal emphasized pilot projects, non-sovereign borrowing, parastatal/JV companies, natural-resource monetization, infrastructure, industrialization and direct engagement with the Presidency. We propose adapting that architecture to Venezuela while introducing substantially stronger lender protections, independent verification and project-finance discipline.</p>
+                <h3>Five Core Investment Principles</h3>
+                <div class="numbered-item"><div class="num">1</div><span><strong>Rehabilitate</strong> existing productive assets before duplicating them.</span></div>
+                <div class="numbered-item"><div class="num">2</div><span><strong>Monetize natural gas</strong> rather than treating it principally as an oil-production by-product.</span></div>
+                <div class="numbered-item"><div class="num">3</div><span>Move from <strong>crude exports</strong> toward refining, petrochemicals, polymers and industrial chemicals.</span></div>
+                <div class="numbered-item"><div class="num">4</div><span>Move from <strong>mineral extraction</strong> toward beneficiation, metallurgy, semi-finished products and selected downstream manufacturing.</span></div>
+                <div class="numbered-item"><div class="num">5</div><span>Ensure that major borrowing is supported by <strong>project cash flows</strong>, export contracts, receivables, offtake agreements, asset security and ring-fenced revenues rather than relying principally on an unconditional sovereign repayment promise.</span></div>
+                <h3>Venezuela's Extraordinary Asset Base</h3>
+                <p>Venezuela possesses an unusual combination of assets:</p>
+                <div class="numbered-item"><div class="num">1</div><span>One of the world's largest proven crude-oil reserves;</span></div>
+                <div class="numbered-item"><div class="num">2</div><span>Very substantial natural-gas reserves;</span></div>
+                <div class="numbered-item"><div class="num">3</div><span>Large iron-ore and bauxite resources;</span></div>
+                <div class="numbered-item"><div class="num">4</div><span>Significant gold potential;</span></div>
+                <div class="numbered-item"><div class="num">5</div><span>Nickel, phosphate, diamonds and reported coltan / critical-mineral occurrences;</span></div>
+                <div class="numbered-item"><div class="num">6</div><span>Existing oil, petrochemical, mining, power, port and pipeline infrastructure that can be rehabilitated and expanded;</span></div>
+                <div class="numbered-item"><div class="num">7</div><span>A Caribbean location strategically positioned between North American, Latin American, European and Atlantic markets;</span></div>
+                <div class="numbered-item"><div class="num">8</div><span>Significant hydroelectric resources;</span></div>
+                <div class="numbered-item"><div class="num">9</div><span>Agricultural land and freshwater resources; and</span></div>
+                <div class="numbered-item"><div class="num">10</div><span>A substantial industrial and engineering knowledge base that can be rebuilt and modernized.</span></div>
+                <p>The scale of the resource base is not itself sufficient to justify €300 billion of financing. The financing case must instead rest on the ability to convert those assets into <strong>bankable cash-flow-generating industrial platforms</strong>.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="resources" class="section-wrapper">
+    <div class="section-card" onclick="toggleSection('resource-content', this)">
+        <div class="section-header">
+            <div class="section-icon" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2);">⛽</div>
+            <div class="section-title-block">
+                <h2>Resource Opportunity</h2>
+                <p>Click to discover Venezuela's vast natural wealth</p>
+            </div>
+            <div class="toggle-icon">▼</div>
+        </div>
+        <div id="resource-content" class="section-content">
+            <div class="content-inner">
+                <div class="resource-card" style="background: linear-gradient(135deg, #fff8e1, #fffde7);">
+                    <h3 style="color: #e65100;">🛢️ Crude Oil — 303.2 Billion Barrels Proven</h3>
+                    <div class="resource-bar"><div class="resource-fill" style="width: 98%;"></div></div>
+                    <p>The world's largest proven crude-oil reserves, primarily extra-heavy crude of the Orinoco Belt. However, the existence of 303 billion barrels must not be interpreted as 303 billion barrels of immediately economic production.</p>
+                    <p>The principal investment challenge is therefore not geological scarcity but: drilling and well rehabilitation; steam and enhanced-oil-recovery systems; diluent supply; gathering systems; pipelines; upgrading; water treatment; power; storage; ports; refinery conversion; environmental remediation; skilled personnel; and access to international markets.</p>
+                    <p>EIA has previously identified inadequate investment, PDVSA financial constraints, technical limitations and sanctions as major constraints on Venezuela's petroleum development.</p>
+                    <p>Current production remains far below Venezuela's geological potential. EIA data indicate average crude production of approximately <strong>968,000 barrels per day in 2025</strong>, while OPEC-reported production was around 1.1 million barrels per day during parts of 2026.</p>
+                    <p>The program should therefore target <strong>sustainable production growth</strong>, rather than assuming an immediate return to historic production levels.</p>
+                    <h4 style="color: #e65100;">Indicative Planning Scenario</h4>
+                    <p>A preliminary investment-planning scenario could examine:</p>
+                    <div class="numbered-item"><div class="num">1</div><span>Phase I: approximately 1.2–1.5 million barrels/day;</span></div>
+                    <div class="numbered-item"><div class="num">2</div><span>Phase II: approximately 1.5–1.8 million barrels/day;</span></div>
+                    <div class="numbered-item"><div class="num">3</div><span>Long-term scenario: approximately 2.0 million barrels/day or higher,</span></div>
+                    <p>subject to reservoir engineering, drilling results, infrastructure availability, OPEC considerations, market conditions and environmental constraints. These are <strong>planning scenarios, not guaranteed production forecasts</strong>.</p>
+                    <div class="resource-tags">
+                        <span style="background: #ff9800;">Orinoco Belt</span>
+                        <span style="background: #ff9800;">Extra-Heavy Crude</span>
+                        <span style="background: #ff9800;">EOR Systems</span>
+                        <span style="background: #ff9800;">Diluent Supply</span>
+                    </div>
+                </div>
+
+                <div class="resource-card" style="background: linear-gradient(135deg, #e3f2fd, #e8f5e9);">
+                    <h3 style="color: #1565c0;">🔥 Natural Gas — 195 Trillion Cubic Feet</h3>
+                    <div class="resource-bar"><div class="resource-fill" style="width: 85%;"></div></div>
+                    <p>Venezuela has approximately <strong>195 trillion cubic feet of natural-gas reserves</strong>, representing roughly 73% of South America's reported gas reserves in EIA's assessment. Approximately 80% of produced gas has historically been associated with oil production.</p>
+                    <p>This creates an exceptional industrial opportunity. Instead of viewing gas principally as <em>Gas → reinjection / fuel</em>, the proposed strategy is:</p>
+                    <div class="quote-box"><p>Gas → processing → methane → ammonia → urea → methanol → chemicals → polymers → export products</p></div>
+                    <p>and:</p>
+                    <div class="quote-box"><p>Gas → NGLs → ethane / propane / butane → olefins → polymers</p></div>
+                    <p>Offshore gas development also deserves priority. In August 2026, BP, XRG and UCC obtained a license relating to the Loran offshore gas field, demonstrating renewed international interest in Venezuelan gas development.</p>
+                    <div class="resource-tags">
+                        <span style="background: #2196f3;">Ammonia</span>
+                        <span style="background: #2196f3;">Urea</span>
+                        <span style="background: #2196f3;">Methanol</span>
+                        <span style="background: #2196f3;">Polymers</span>
+                        <span style="background: #2196f3;">NGLs</span>
+                    </div>
+                </div>
+
+                <div class="resource-card" style="background: linear-gradient(135deg, #efebe9, #d7ccc8);">
+                    <h3 style="color: #5d4037;">⛏️ Iron Ore — 14.68 Billion Metric Tonnes</h3>
+                    <div class="resource-bar"><div class="resource-fill" style="width: 75%;"></div></div>
+                    <p>Venezuelan government-linked mineral data have reported approximately <strong>14.68 billion metric tonnes of iron-ore resources</strong>, with approximately 3.6 billion tonnes described as proven in the cited 2018 material. However, the terminology in Venezuelan mineral reporting has historically mixed "resources" and "reserves", and therefore these numbers should be independently re-certified before being used as collateral or financing support.</p>
+                    <p>The opportunity is therefore:</p>
+                    <div class="quote-box"><p>Iron ore → beneficiation → pellets → direct-reduced iron → steel → flat products → long products → fabricated steel</p></div>
+                    <p>rather than simply exporting ore.</p>
+                </div>
+
+                <div class="resource-card" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7);">
+                    <h3 style="color: #6a1b9a;">🏭 Bauxite and Aluminum — 321.5 Million Tonnes</h3>
+                    <div class="resource-bar"><div class="resource-fill" style="width: 60%;"></div></div>
+                    <p>Government mineral data have cited bauxite resources in the order of hundreds of millions of tonnes, with one cited Venezuelan catalog reporting approximately <strong>321.5 million tonnes</strong> and another categorization reporting approximately 99.4 million tonnes as measured material. These figures should be treated as <strong>resource estimates requiring independent geological verification</strong>, rather than as bankable proven reserves.</p>
+                    <p>Venezuela's existing aluminium industry provides a platform for rehabilitation and expansion. The strategic chain is:</p>
+                    <div class="quote-box"><p>Bauxite → alumina → primary aluminium → billets/slabs → extrusion → automotive/aerospace/construction products → export manufacturing.</p></div>
+                </div>
+
+                <div class="resource-card" style="background: linear-gradient(135deg, #fffde7, #fff9c4);">
+                    <h3 style="color: #f57f17;">🥇 Gold — ~644 Metric Tonnes Resource</h3>
+                    <div class="resource-bar"><div class="resource-fill" style="width: 45%;"></div></div>
+                    <p>Venezuelan mineral documentation has cited a gold resource estimate of approximately <strong>644 metric tonnes</strong>, but this is not equivalent to a modern internationally compliant proved-and-probable reserve statement. Independent geological verification, resource classification, environmental assessment and mine planning are therefore essential.</p>
+                    <p>Gold should be developed through transparent, traceable and internationally compliant mining structures, with: chain-of-custody controls; responsible sourcing; anti-money-laundering procedures; environmental monitoring; formalization of artisanal mining; land rehabilitation; and internationally recognized reporting standards.</p>
+                </div>
+
+                <div class="resource-card" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">
+                    <h3 style="color: #2d5a27;">🌱 Phosphate — ~2.65 Billion Tonnes</h3>
+                    <div class="resource-bar"><div class="resource-fill" style="width: 70%;"></div></div>
+                    <p>Venezuela has historically reported significant phosphate resources. FAO material identifies Venezuela as possessing approximately <strong>2.65 billion tonnes of phosphate-rock reserves</strong>, with typical P₂O₅ content of approximately 20–27%, although this is historical data and should not be treated as a current bankable reserve statement without re-verification.</p>
+                    <p>Riecito phosphate has previously been evaluated for partially acidulated phosphate fertilizer production, and FAO documented a potential 150,000-tonne/year PAPR project concept. This provides a foundation for a broader phosphate strategy:</p>
+                    <div class="quote-box"><p>Phosphate rock → phosphoric acid → MAP/DAP → NPK → specialty fertilizers.</p></div>
+                </div>
+
+                <div class="resource-card" style="background: linear-gradient(135deg, #eceff1, #cfd8dc);">
+                    <h3 style="color: #455a64;">💎 Diamonds, Nickel and Critical Minerals</h3>
+                    <div class="resource-bar"><div class="resource-fill" style="width: 35%;"></div></div>
+                    <p>Venezuelan sources have reported substantial occurrences of diamonds, nickel, copper, coltan, niobium/tantalum, molybdenum and other minerals. However, many published figures are historical or classified inconsistently.</p>
+                    <p>USGS production data demonstrate that Venezuela's recent actual mineral output has been far below the theoretical scale of its geological endowment. For example, USGS estimated 2022 iron-ore production at approximately 2.25 million tonnes, bauxite at approximately 250,000 tonnes and primary aluminium at approximately 47,000 tonnes. This gap between <strong>resource potential and actual production</strong> is itself an investment opportunity.</p>
+                    <p>Critical minerals should therefore enter the program only after: modern geological surveys; airborne geophysics; drilling; JORC/SAMREC/NI 43-101 or equivalent independent reporting; metallurgical testing; environmental and social assessment; and bankable feasibility studies.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="industrial" class="section-wrapper">
+    <div class="section-card" onclick="toggleSection('industrial-content', this)">
+        <div class="section-header">
+            <div class="section-icon" style="background: linear-gradient(135deg, #fce4ec, #f8bbd0);">🏭</div>
+            <div class="section-title-block">
+                <h2>Industrial Development Program</h2>
+                <p>Click to explore the five strategic industrial corridors</p>
+            </div>
+            <div class="toggle-icon">▼</div>
+        </div>
+        <div id="industrial-content" class="section-content">
+            <div class="content-inner">
+                <p>The proposed €300 billion program should not be viewed as a single loan. It should be structured as a <strong>portfolio of approximately 50–100 bankable projects and project clusters</strong>, with financing released only after technical and financial milestones.</p>
+                <p>The program should be organized around the following industrial corridors:</p>
+                <div class="corridor-grid">
+                    <div class="corridor-card" style="background: linear-gradient(135deg, #1a472a, #2d5a27);">
+                        <h3>🌿 A. Orinoco Industrial Corridor</h3>
+                        <p>Oil, gas, iron, steel, aluminium, mining, power and heavy industry.</p>
+                    </div>
+                    <div class="corridor-card" style="background: linear-gradient(135deg, #0d47a1, #1565c0);">
+                        <h3>⚗️ B. Paraguaná Refining &amp; Petrochemical</h3>
+                        <p>Refining, crude upgrading, fuels, aromatics, olefins and polymers.</p>
+                    </div>
+                    <div class="corridor-card" style="background: linear-gradient(135deg, #e65100, #f57c00);">
+                        <h3>🔬 C. José–Anzoátegui Petrochemical</h3>
+                        <p>Methanol, ammonia, urea, polymers, industrial chemicals and export logistics.</p>
+                    </div>
+                    <div class="corridor-card" style="background: linear-gradient(135deg, #4a148c, #6a1b9a);">
+                        <h3>⚡ D. Zulia–Western Energy &amp; Industrial</h3>
+                        <p>Oil, gas, fertilizer, petrochemicals, agriculture and logistics.</p>
+                    </div>
+                    <div class="corridor-card" style="background: linear-gradient(135deg, #00695c, #00897b); grid-column: 1 / -1;">
+                        <h3>🚢 E. Caribbean Export Corridor</h3>
+                        <p>Ports, storage, refining products, petrochemicals, LNG/gas products and international shipping.</p>
+                    </div>
+                </div>
+                <h3>Downstream Industrial Value Chain</h3>
+                <p>The €300 billion program should prioritize the following value chains.</p>
+                <h4>Hydrocarbon Chain</h4>
+                <div class="quote-box"><p>Crude oil → fuels → lubricants → bitumen → solvents → aromatics → olefins → polymers → plastics → packaging → pipes → automotive components → consumer goods.</p></div>
+                <h4>Gas Chain</h4>
+                <div class="quote-box"><p>Natural gas → methane → hydrogen → ammonia → urea → ammonium nitrate → nitric acid → industrial chemicals.</p></div>
+                <div class="quote-box"><p>Natural gas liquids → ethane/propane/butane → ethylene/propylene → polyethylene/polypropylene → advanced plastics.</p></div>
+                <div class="quote-box"><p>Methane → methanol → formaldehyde → acetic acid and derivatives → solvents and resins.</p></div>
+                <h4>Mining Chain</h4>
+                <div class="quote-box"><p>Iron ore → concentrate → pellets → DRI → steel → fabricated steel.</p></div>
+                <div class="quote-box"><p>Bauxite → alumina → aluminium → extrusion → fabricated products.</p></div>
+                <div class="quote-box"><p>Gold → responsible mining → refining → certified bullion.</p></div>
+                <div class="quote-box"><p>Nickel → concentrate → refined nickel → alloys / battery materials where commercially viable.</p></div>
+                <div class="quote-box"><p>Phosphate → phosphoric acid → DAP/MAP → NPK → specialty fertilizers.</p></div>
+                <h3>Other Products with Potential Cost Advantages</h3>
+                <p>Venezuela's strongest structural advantage is not cheap labor. It is <strong>resource integration</strong>. Potentially competitive products include:</p>
+                <div class="numbered-item"><div class="num">1</div><span><strong>Aluminium</strong> — Advantage: bauxite; existing industrial base; hydropower potential. Required investment: mine rehabilitation; alumina; smelter modernization; reliable electricity; downstream extrusion and fabrication.</span></div>
+                <div class="numbered-item"><div class="num">2</div><span><strong>Steel</strong> — Advantage: iron ore; natural gas; existing metallurgical infrastructure. Required investment: beneficiation; pellets; DRI; EAF steel; rolling mills; reliable power.</span></div>
+                <div class="numbered-item"><div class="num">3</div><span><strong>Urea</strong> — Advantage: natural gas; existing petrochemical infrastructure; Caribbean export location.</span></div>
+                <div class="numbered-item"><div class="num">4</div><span><strong>Methanol</strong> — Advantage: natural gas; existing petrochemical ecosystem.</span></div>
+                <div class="numbered-item"><div class="num">5</div><span><strong>Polyethylene and Polypropylene</strong> — Advantage: domestic ethane/propane/NGLs; refinery integration; petrochemical infrastructure.</span></div>
+                <div class="numbered-item"><div class="num">6</div><span><strong>Asphalt and Bitumen Products</strong> — Advantage: heavy crude; domestic infrastructure needs; export opportunities.</span></div>
+                <div class="numbered-item"><div class="num">7</div><span><strong>Sulfur and Industrial Chemicals</strong> — Advantage: refinery sulfur; natural gas; petrochemical integration.</span></div>
+                <div class="numbered-item"><div class="num">8</div><span><strong>Fertilizer</strong> — Advantage: gas + phosphate + industrial infrastructure.</span></div>
+                <div class="numbered-item"><div class="num">9</div><span><strong>Aluminium and Steel Fabricated Products</strong> — Instead of exporting primary metal: construction profiles; cables; roofing; automotive components; pipes; machinery components.</span></div>
+                <p>The strategic objective is <strong>value per tonne</strong>, not tonnes alone.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="refining" class="section-wrapper">
+    <div class="section-card" onclick="toggleSection('refining-content', this)">
+        <div class="section-header">
+            <div class="section-icon" style="background: linear-gradient(135deg, #e3f2fd, #bbdefb);">🔧</div>
+            <div class="section-title-block">
+                <h2>Refining &amp; Petrochemicals</h2>
+                <p>Click to view refinery rehabilitation and new capacity plans</p>
+            </div>
+            <div class="toggle-icon">▼</div>
+        </div>
+        <div id="refining-content" class="section-content">
+            <div class="content-inner">
+                <h3>Existing Refining Base</h3>
+                <p>Venezuela possesses a historically large refining system. EIA identifies major facilities including the Paraguana Refining Center, Puerto la Cruz and El Palito.</p>
+                <div class="quote-box" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2); border-left-color: #ff9800;">
+                    <p>In February 2026, Reuters reported that Venezuela's refineries were operating at approximately <strong>35% of their combined 1.29 million barrels/day nameplate capacity</strong>, processing around 450,000 barrels/day.</p>
+                </div>
+                <p>Therefore, the first refining investment should be <strong>rehabilitation and debottlenecking</strong>, not immediate abandonment of existing assets.</p>
+                <h3>Proposed Ultra-Modern Refinery No. 1</h3>
+                <div class="refinery-grid">
+                    <div class="refinery-card">
+                        <h3 style="color: #1565c0;">🏗️ Refinery No. 1</h3>
+                        <div class="capacity" style="color: #0d47a1;">300-400K</div>
+                        <p style="color: #666; font-size: 13px; margin: 0 0 15px 0;">barrels per day screening capacity</p>
+                        <p style="font-size: 14px; color: #555; line-height: 1.7;"><strong>Location concept:</strong> Paraguaná / Caribbean export corridor.</p>
+                        <p style="font-size: 14px; color: #555; line-height: 1.7;"><strong>Feedstock:</strong> Venezuelan heavy and extra-heavy crude; blended crude; upgraded synthetic crude; selected imported/intermediate feedstock when economically justified.</p>
+                        <p style="font-size: 14px; color: #555; line-height: 1.7;"><strong>Configuration:</strong> atmospheric and vacuum distillation; delayed coking; hydrocracking; diesel hydrotreating; naphtha hydrotreating; catalytic reforming; alkylation; sulfur recovery; hydrogen production; hydrogen recovery; residue upgrading; advanced wastewater treatment; carbon-management-ready utilities.</p>
+                        <h4 style="color: #0d47a1; margin-top: 15px;">Product Slate</h4>
+                        <p style="font-size: 14px; color: #555;">Gasoline; ultra-low-sulfur diesel; jet fuel; marine fuels; LPG; naphtha; aromatics feedstocks; petroleum coke; sulfur; refinery hydrogen. The final configuration must be determined by crude assays and product-market studies.</p>
+                        <div class="investment" style="background: #e3f2fd; color: #0d47a1;"><strong>Indicative Investment:</strong> €12–18 billion per complex</div>
+                    </div>
+                    <div class="refinery-card">
+                        <h3 style="color: #2d5a27;">🏗️ Refinery No. 2</h3>
+                        <div class="capacity" style="color: #1a472a;">300-400K</div>
+                        <p style="color: #666; font-size: 13px; margin: 0 0 15px 0;">barrels per day screening capacity</p>
+                        <p style="font-size: 14px; color: #555; line-height: 1.7;">A second approximately <strong>300,000–400,000 barrels/day</strong> refinery could be evaluated after successful rehabilitation of the existing system and demonstration of sufficient crude availability.</p>
+                        <p style="font-size: 14px; color: #555; line-height: 1.7;"><strong>Potential location concepts</strong> include the eastern Venezuelan industrial corridor, subject to environmental, marine, feedstock and logistics studies.</p>
+                        <p style="font-size: 14px; color: #555; line-height: 1.7;">The two refineries would therefore represent an <strong>indicative combined new capacity of approximately 600,000–800,000 barrels/day</strong>, but should only proceed through separate final investment decisions.</p>
+                        <p style="font-size: 14px; color: #555; line-height: 1.7;">A major Greenfield refinery can require investment on the order of many billions of euros. Recent international projects demonstrate the scale: a 400,000-barrel/day Chinese refinery project was reported at approximately <strong>US$20 billion</strong>, illustrating why Venezuelan refinery budgets must be treated as project-specific rather than assumed.</p>
+                        <p style="font-size: 14px; color: #555; line-height: 1.7;">For Venezuelan planning purposes, an initial <strong>€12–18 billion per complex</strong> could be used as a preliminary screening range for highly integrated facilities, including substantial offsites and logistics, but this is <strong>not a bankable EPC estimate</strong> and must be replaced by FEED/EPC quotations.</p>
+                        <div class="investment" style="background: #e8f5e9; color: #1a472a;"><strong>Indicative Investment:</strong> €12–18 billion per complex</div>
+                    </div>
+                </div>
+                <h3>Refinery-to-Petrochemical Integration</h3>
+                <p>The objective should not be to maximize transportation-fuel production alone. The refinery should become the first stage of a broader carbon-and-hydrocarbon value chain:</p>
+                <div class="quote-box" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7); border-left-color: #6a1b9a;">
+                    <p><strong>Crude → Refinery → Naphtha / LPG / Ethane / Propane / Aromatics / Olefins → Ethylene / Propylene / Benzene / Toluene / Xylene → Polyethylene / Polypropylene / PET / Styrenics / Solvents / Synthetic materials → Industrial and consumer manufacturing</strong></p>
+                </div>
+                <p>This creates substantially more domestic value than crude export.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="fertilizer" class="section-wrapper">
+    <div class="section-card" onclick="toggleSection('fertilizer-content', this)">
+        <div class="section-header">
+            <div class="section-icon" style="background: linear-gradient(135deg, #e8f5e9, #a5d6a7);">🌱</div>
+            <div class="section-title-block">
+                <h2>Fertilizer Strategy</h2>
+                <p>Click to explore urea cost economics and production targets</p>
+            </div>
+            <div class="toggle-icon">▼</div>
+        </div>
+        <div id="fertilizer-content" class="section-content">
+            <div class="content-inner">
+                <h3>Can Venezuela Produce Urea at $180/tonne?</h3>
+                <p>This question requires precision.</p>
+                <div class="quote-box" style="background: linear-gradient(135deg, #fff8e1, #ffecb3); border-left-color: #e65100;">
+                    <p><strong>Potentially as a production-cost target under favorable gas and plant-efficiency assumptions; not as a guaranteed international export selling price.</strong></p>
+                </div>
+                <p>Urea economics are dominated by natural-gas costs.</p>
+                <p>Yara's technical framework uses approximately 36 MMBtu of natural gas per tonne of ammonia and approximately 0.58 tonnes of ammonia per tonne of urea, plus approximately 5.2 MMBtu/tonne of process gas for urea production.</p>
+                <p>Yara's illustrative economics show that at a gas price of approximately $7/MMBtu, gas-related costs alone can be a very large component of total urea cash cost.</p>
+                <p>Current international prices are materially above $180/t. For example, Fertiglobe reported a Middle East granular urea benchmark of approximately <strong>$400/t in Q1 2025</strong>, while current 2026 market intelligence places Middle East granular urea around <strong>$268/t in Q2 2026</strong> and estimates much higher delivered prices in some destination markets.</p>
+                <p>The World Bank expects urea prices to remain unusually elevated in 2026 because of supply disruptions and tight markets.</p>
+                <h4>Urea Concept Interpretation</h4>
+                <table class="styled-table">
+                    <thead><tr><th>Urea Concept</th><th>Appropriate Interpretation</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>€/$180/t production cost</strong></td><td>Aggressive but potentially testable in a very low-cost gas environment</td></tr>
+                        <tr><td><strong>€/$180/t export price</strong></td><td>Possible only under specific market/offtake circumstances; not a base-case global price</td></tr>
+                        <tr><td><strong>€/$180/t domestic policy price</strong></td><td>Possible with subsidy or strategic agricultural policy</td></tr>
+                        <tr><td><strong>€/$180/t FOB export price</strong></td><td>Would be exceptionally competitive and requires very low production/logistics costs</td></tr>
+                        <tr><td><strong>€/$180/t delivered international price</strong></td><td>Much more difficult because freight, insurance, port and financing costs must be added</td></tr>
+                    </tbody>
+                </table>
+                <p>The appropriate project objective should therefore be:</p>
+                <div class="quote-box">
+                    <p>Design Venezuelan ammonia/urea complexes capable of targeting a long-run cash-cost position around €/$150–220 per metric tonne under low-cost domestic-gas scenarios, while underwriting the project against a wider urea selling-price range.</p>
+                </div>
+                <p>This is substantially more defensible than assuming that Venezuela can permanently sell urea internationally at $180/t.</p>
+                <p>Venezuela already has demonstrated fertilizer infrastructure. Pequiven reported historical operation of an ammonia plant at approximately 1,500 tonnes/day and a urea plant at approximately 2,200 tonnes/day at the José Antonio Anzoátegui complex.</p>
+                <p>The program should therefore rehabilitate existing plants and subsequently evaluate:</p>
+                <div class="numbered-item"><div class="num">1</div><span>1.0–1.5 million tonnes/year ammonia trains;</span></div>
+                <div class="numbered-item"><div class="num">2</div><span>1.5–2.0 million tonnes/year urea trains;</span></div>
+                <div class="numbered-item"><div class="num">3</div><span>DAP/MAP/NPK complexes;</span></div>
+                <div class="numbered-item"><div class="num">4</div><span>nitric acid;</span></div>
+                <div class="numbered-item"><div class="num">5</div><span>ammonium nitrate;</span></div>
+                <div class="numbered-item"><div class="num">6</div><span>calcium ammonium nitrate;</span></div>
+                <div class="numbered-item"><div class="num">7</div><span>specialty fertilizers.</span></div>
+                <p>These capacities are <strong>screening concepts</strong>, not committed production forecasts.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="funding" class="section-wrapper">
+    <div class="section-card" onclick="toggleSection('funding-content', this)">
+        <div class="section-header">
+            <div class="section-icon" style="background: linear-gradient(135deg, #fff8e1, #ffe082);">💰</div>
+            <div class="section-title-block">
+                <h2>€300 Billion Funding Framework</h2>
+                <p>Click to view capital allocation across sectors</p>
+            </div>
+            <div class="toggle-icon">▼</div>
+        </div>
+        <div id="funding-content" class="section-content">
+            <div class="content-inner">
+                <p>The €300 billion should be regarded as a <strong>maximum program envelope</strong>, not money to be drawn immediately.</p>
+                <h3>€300 Billion Capital Allocation</h3>
+                <div class="funding-row" style="background: linear-gradient(90deg, #fff8e1, white);">
+                    <div class="funding-amount" style="color: #e65100;">€32</div>
+                    <div class="funding-info"><strong>Oil &amp; Upstream</strong><div class="funding-bar-mini"><div class="fill" style="width: 90%;"></div></div></div>
+                </div>
+                <div class="funding-row" style="background: linear-gradient(90deg, #e3f2fd, white);">
+                    <div class="funding-amount" style="color: #1565c0;">€34</div>
+                    <div class="funding-info"><strong>Refining</strong><div class="funding-bar-mini"><div class="fill" style="width: 95%;"></div></div></div>
+                </div>
+                <div class="funding-row" style="background: linear-gradient(90deg, #f3e5f5, white);">
+                    <div class="funding-amount" style="color: #6a1b9a;">€32</div>
+                    <div class="funding-info"><strong>Mining &amp; Metals</strong><div class="funding-bar-mini"><div class="fill" style="width: 90%;"></div></div></div>
+                </div>
+                <div class="funding-row" style="background: linear-gradient(90deg, #e8f5e9, white);">
+                    <div class="funding-amount" style="color: #2d5a27;">€30</div>
+                    <div class="funding-info"><strong>Petrochemicals &amp; Chemicals</strong><div class="funding-bar-mini"><div class="fill" style="width: 85%;"></div></div></div>
+                </div>
+                <div class="funding-row" style="background: linear-gradient(90deg, #e0f2f1, white);">
+                    <div class="funding-amount" style="color: #00695c;">€22</div>
+                    <div class="funding-info"><strong>Roads, Rail, Ports &amp; Logistics</strong><div class="funding-bar-mini"><div class="fill" style="width: 62%;"></div></div></div>
+                </div>
+                <div class="funding-row" style="background: linear-gradient(90deg, #fff3e0, white);">
+                    <div class="funding-amount" style="color: #ef6c00;">€18</div>
+                    <div class="funding-info"><strong>Natural Gas</strong><div class="funding-bar-mini"><div class="fill" style="width: 50%;"></div></div></div>
+                </div>
+                <div class="funding-row" style="background: linear-gradient(90deg, #fce4ec, white);">
+                    <div class="funding-amount" style="color: #c2185b;">€15</div>
+                    <div class="funding-info"><strong>Power &amp; Grid</strong><div class="funding-bar-mini"><div class="fill" style="width: 42%;"></div></div></div>
+                </div>
+                <div class="funding-row" style="background: linear-gradient(90deg, #f1f8e9, white);">
+                    <div class="funding-amount" style="color: #558b2f;">€12</div>
+                    <div class="funding-info"><strong>Fertilizers</strong><div class="funding-bar-mini"><div class="fill" style="width: 34%;"></div></div></div>
+                </div>
+                <div class="funding-row" style="background: linear-gradient(90deg, #e8eaf6, white);">
+                    <div class="funding-amount" style="color: #303f9f;">€10</div>
+                    <div class="funding-info"><strong>Manufacturing</strong><div class="funding-bar-mini"><div class="fill" style="width: 28%;"></div></div></div>
+                </div>
+                <div class="funding-row" style="background: linear-gradient(90deg, #fff9c4, white);">
+                    <div class="funding-amount" style="color: #f9a825;">€8</div>
+                    <div class="funding-info"><strong>Agriculture &amp; Agro-industry</strong><div class="funding-bar-mini"><div class="fill" style="width: 22%;"></div></div></div>
+                </div>
+                <div class="funding-row" style="background: linear-gradient(90deg, #e0f7fa, white);">
+                    <div class="funding-amount" style="color: #00838f;">€6</div>
+                    <div class="funding-info"><strong>Water &amp; Urban Infrastructure</strong><div class="funding-bar-mini"><div class="fill" style="width: 17%;"></div></div></div>
+                </div>
+                <div class="funding-row" style="background: linear-gradient(90deg, #f3e5f5, white);">
+                    <div class="funding-amount" style="color: #7b1fa2;">€5</div>
+                    <div class="funding-info"><strong>Social Infrastructure</strong><div class="funding-bar-mini"><div class="fill" style="width: 14%;"></div></div></div>
+                </div>
+                <div class="funding-row" style="background: linear-gradient(90deg, #e0f2f1, white);">
+                    <div class="funding-amount" style="color: #00695c;">€4</div>
+                    <div class="funding-info"><strong>Digital/Technology</strong><div class="funding-bar-mini"><div class="fill" style="width: 11%;"></div></div></div>
+                </div>
+                <div class="funding-row" style="background: linear-gradient(90deg, #eceff1, white); border: 2px solid #b0bec5;">
+                    <div class="funding-amount" style="color: #455a64;">€72</div>
+                    <div class="funding-info"><strong>Project Development, Contingencies &amp; Strategic Reserve</strong><div class="funding-bar-mini"><div class="fill" style="width: 100%;"></div></div></div>
+                </div>
+                <div style="margin-top: 25px; text-align: center; padding: 30px; background: linear-gradient(135deg, #1a472a, #2d5a27); border-radius: 16px; color: white;">
+                    <div style="font-size: 48px; font-weight: bold;">€300 BILLION</div>
+                    <p style="font-size: 16px; opacity: 0.9; margin: 10px 0 0 0;">Total Program Envelope over ~15 Years</p>
+                </div>
+                <p style="margin-top: 20px; font-size: 14px; color: #666;">The €72 billion strategic reserve/project-development envelope is deliberately large because the program is intended to absorb feasibility-stage discoveries, cost escalation, working capital, infrastructure interfaces and projects that become investable only after initial rehabilitation.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="phases" class="section-wrapper">
+    <div class="section-card" onclick="toggleSection('phases-content', this)">
+        <div class="section-header">
+            <div class="section-icon" style="background: linear-gradient(135deg, #e0f7fa, #b2ebf2);">📅</div>
+            <div class="section-title-block">
+                <h2>Four Strategic Phases</h2>
+                <p>Click to explore the 15-year implementation roadmap</p>
+            </div>
+            <div class="toggle-icon">▼</div>
+        </div>
+        <div id="phases-content" class="section-content">
+            <div class="content-inner">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot" style="background: #4caf50;"></div>
+                        <div class="timeline-content" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">
+                            <div class="timeline-header">
+                                <h3 style="color: #1a472a;">Phase I — Stabilization &amp; Asset Recovery</h3>
+                                <span class="phase-badge" style="background: #2d5a27;">2026–2028</span>
+                            </div>
+                            <div class="phase-amount" style="color: #2d5a27;">€25 Billion</div>
+                            <p style="color: #555; font-size: 15px; margin-bottom: 15px;"><strong>Objective:</strong> Restore productive capacity and establish the foundation for larger investment.</p>
+                            <div class="phase-grid">
+                                <span>🛢️ Oil-field rehab: €7B</span>
+                                <span>🔧 Refinery rehab: €4B</span>
+                                <span>⚡ Power rehab: €3B</span>
+                                <span>🔥 Gas infrastructure: €3B</span>
+                                <span>🚢 Ports/logistics: €2B</span>
+                                <span>⛏️ Mining rehab: €2B</span>
+                                <span>⚗️ Petrochemical rehab: €2B</span>
+                                <span>🏙️ Water/urban: €1B</span>
+                                <span>📋 Studies/EPC: €1B</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot" style="background: #2d5a27;"></div>
+                        <div class="timeline-content" style="background: linear-gradient(135deg, #dcedc8, #c5e1a5);">
+                            <div class="timeline-header">
+                                <h3 style="color: #1a472a;">Phase II — Industrial Expansion</h3>
+                                <span class="phase-badge" style="background: #1a472a;">2028–2032</span>
+                            </div>
+                            <div class="phase-amount" style="color: #1a472a;">€125 Billion</div>
+                            <div class="phase-grid">
+                                <span>🛢️ Oil &amp; upstream: €25B</span>
+                                <span>🔥 Natural gas: €15B</span>
+                                <span>🏗️ Refinery No. 1: €15B</span>
+                                <span>⚗️ Petrochemicals: €15B</span>
+                                <span>⛏️ Mining/metals: €15B</span>
+                                <span>⚡ Power/grid: €12B</span>
+                                <span>🚢 Roads/rail/ports: €10B</span>
+                                <span>🌱 Fertilizers: €6B</span>
+                                <span>🏙️ Water/urban: €5B</span>
+                                <span>🌾 Agriculture: €4B</span>
+                                <span>💻 Digital/tech: €3B</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot" style="background: #1565c0;"></div>
+                        <div class="timeline-content" style="background: linear-gradient(135deg, #e3f2fd, #bbdefb);">
+                            <div class="timeline-header">
+                                <h3 style="color: #0d47a1;">Phase III — National Industrial Scale-Up</h3>
+                                <span class="phase-badge" style="background: #1565c0;">2032–2037</span>
+                            </div>
+                            <div class="phase-amount" style="color: #0d47a1;">€100 Billion</div>
+                            <p style="color: #555; font-size: 15px; margin-bottom: 15px;">Priority areas:</p>
+                            <div class="phase-grid">
+                                <span>🏗️ Refinery No. 2</span>
+                                <span>⚗️ Petrochemical clusters</span>
+                                <span>🏭 Steel and aluminium</span>
+                                <span>🔥 LNG/gas monetization</span>
+                                <span>🏭 Industrial manufacturing</span>
+                                <span>🚢 Export ports</span>
+                                <span>🚂 Railway freight</span>
+                                <span>⚡ Power generation</span>
+                                <span>🌾 Agricultural processing</span>
+                                <span>🏙️ Housing &amp; urban development</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot" style="background: #6a1b9a;"></div>
+                        <div class="timeline-content" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7);">
+                            <div class="timeline-header">
+                                <h3 style="color: #4a148c;">Phase IV — Export Diversification</h3>
+                                <span class="phase-badge" style="background: #6a1b9a;">2037–2041</span>
+                            </div>
+                            <div class="phase-amount" style="color: #4a148c;">€50 Billion</div>
+                            <p style="color: #555; font-size: 15px; margin-bottom: 15px;">The final phase would prioritize:</p>
+                            <div class="phase-grid">
+                                <span>🏭 Advanced manufacturing</span>
+                                <span>⚗️ Chemical products</span>
+                                <span>🔬 Polymers</span>
+                                <span>🏗️ Fabricated metals</span>
+                                <span>⚙️ Machinery</span>
+                                <span>🍞 Food processing</span>
+                                <span>🚢 Logistics</span>
+                                <span>🏖️ Tourism</span>
+                                <span>💻 Technology</span>
+                                <span>🌿 Renewable energy</span>
+                                <span>♻️ Green / low-carbon products</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 30px; text-align: center; padding: 30px; background: linear-gradient(135deg, var(--primary-green), var(--secondary-green)); border-radius: 16px; color: white;">
+                    <div style="font-size: 22px; font-weight: 600; margin-bottom: 10px;">TOTAL PROGRAM ENVELOPE</div>
+                    <div style="font-size: 42px; font-weight: bold;">€300 BILLION</div>
+                    <p style="opacity: 0.9; margin-top: 10px;">Phase I: €25B | Phase II: €125B | Phase III: €100B | Phase IV: €50B</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="structure" class="section-wrapper">
+    <div class="section-card" onclick="toggleSection('structure-content', this)">
+        <div class="section-header">
+            <div class="section-icon" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2);">🏛️</div>
+            <div class="section-title-block">
+                <h2>Proposed Financing Structure</h2>
+                <p>Click to explore non-sovereign financing principles</p>
+            </div>
+            <div class="toggle-icon">▼</div>
+        </div>
+        <div id="structure-content" class="section-content">
+            <div class="content-inner">
+                <p>The principal recommendation is that Venezuela should <strong>not finance the entire €300 billion as conventional sovereign debt</strong>.</p>
+                <h3>A. Project Finance</h3>
+                <p>Each major project should have:</p>
+                <div class="numbered-item"><div class="num">1</div><span>SPV/project company;</span></div>
+                <div class="numbered-item"><div class="num">2</div><span>independently verified assets;</span></div>
+                <div class="numbered-item"><div class="num">3</div><span>contracted feedstock;</span></div>
+                <div class="numbered-item"><div class="num">4</div><span>offtake agreements;</span></div>
+                <div class="numbered-item"><div class="num">5</div><span>audited financial model;</span></div>
+                <div class="numbered-item"><div class="num">6</div><span>debt-service reserve;</span></div>
+                <div class="numbered-item"><div class="num">7</div><span>insurance;</span></div>
+                <div class="numbered-item"><div class="num">8</div><span>security package;</span></div>
+                <div class="numbered-item"><div class="num">9</div><span>Independent technical adviser.</span></div>
+                <h3>B. Joint Ventures</h3>
+                <p>Potential partners could include:</p>
+                <div class="numbered-item"><div class="num">1</div><span>international oil companies;</span></div>
+                <div class="numbered-item"><div class="num">2</div><span>engineering companies;</span></div>
+                <div class="numbered-item"><div class="num">3</div><span>fertilizer producers;</span></div>
+                <div class="numbered-item"><div class="num">4</div><span>mining companies;</span></div>
+                <div class="numbered-item"><div class="num">5</div><span>commodity traders;</span></div>
+                <div class="numbered-item"><div class="num">6</div><span>sovereign investors;</span></div>
+                <div class="numbered-item"><div class="num">7</div><span>pension funds;</span></div>
+                <div class="numbered-item"><div class="num">8</div><span>Infrastructure funds.</span></div>
+                <h3>C. Export-Credit Financing</h3>
+                <p>Major equipment packages may potentially be supported through eligible export-credit agencies, subject to applicable country, sanctions and project rules.</p>
+                <h3>D. Development Finance</h3>
+                <p>Where eligible, development-finance institutions could participate in:</p>
+                <div class="numbered-item"><div class="num">1</div><span>infrastructure;</span></div>
+                <div class="numbered-item"><div class="num">2</div><span>power;</span></div>
+                <div class="numbered-item"><div class="num">3</div><span>water;</span></div>
+                <div class="numbered-item"><div class="num">4</div><span>agriculture;</span></div>
+                <div class="numbered-item"><div class="num">5</div><span>environmental remediation;</span></div>
+                <div class="numbered-item"><div class="num">6</div><span>Social infrastructure.</span></div>
+                <h3>E. Strategic Offtake Financing</h3>
+                <p>Long-term contracts can support financing for:</p>
+                <div class="numbered-item"><div class="num">1</div><span>crude;</span></div>
+                <div class="numbered-item"><div class="num">2</div><span>refined products;</span></div>
+                <div class="numbered-item"><div class="num">3</div><span>urea;</span></div>
+                <div class="numbered-item"><div class="num">4</div><span>methanol;</span></div>
+                <div class="numbered-item"><div class="num">5</div><span>aluminium;</span></div>
+                <div class="numbered-item"><div class="num">6</div><span>steel;</span></div>
+                <div class="numbered-item"><div class="num">7</div><span>Petrochemicals.</span></div>
+                <h3>F. Asset-Backed Structures</h3>
+                <p>Where legally permissible and independently verified, financing can be supported by:</p>
+                <div class="numbered-item"><div class="num">1</div><span>receivables;</span></div>
+                <div class="numbered-item"><div class="num">2</div><span>inventory;</span></div>
+                <div class="numbered-item"><div class="num">3</div><span>export contracts;</span></div>
+                <div class="numbered-item"><div class="num">4</div><span>project cash flows;</span></div>
+                <div class="numbered-item"><div class="num">5</div><span>equipment;</span></div>
+                <div class="numbered-item"><div class="num">6</div><span>Mineral reserves/resources after proper certification.</span></div>
+                <h3>Non-Sovereign Financing Principle</h3>
+                <p>Consistent with the structural concept in the earlier international proposal, the preferred model is:</p>
+                <div class="quote-box">
+                    <p><strong>Government</strong> → policy / concessions / regulatory framework<br><strong>National Development Holding / Investment Authority</strong> → equity / strategic oversight<br><strong>Project SPV / JV</strong> → project borrowing<br><strong>Project cash flows</strong> → debt service<br><strong>Export revenues</strong> → repayment and government revenues.</p>
+                </div>
+                <p>The objective is to minimize unnecessary sovereign balance-sheet exposure.</p>
+                <p>However, unlike an unconditional "no government liability" proposition, every financing instrument must be examined under Venezuelan law, applicable international law, creditor requirements and the specific security package.</p>
+                <p>No SBLC, insurance policy, guarantee or indemnity should be represented as eliminating economic risk.</p>
+                <h3>Potential Repayment and Revenue Sources</h3>
+                <div class="numbered-item"><div class="num">1</div><span>Refined petroleum products;</span></div>
+                <div class="numbered-item"><div class="num">2</div><span>crude-oil exports;</span></div>
+                <div class="numbered-item"><div class="num">3</div><span>natural-gas sales;</span></div>
+                <div class="numbered-item"><div class="num">4</div><span>LNG/gas exports where feasible;</span></div>
+                <div class="numbered-item"><div class="num">5</div><span>urea;</span></div>
+                <div class="numbered-item"><div class="num">6</div><span>ammonia;</span></div>
+                <div class="numbered-item"><div class="num">7</div><span>methanol;</span></div>
+                <div class="numbered-item"><div class="num">8</div><span>polymers;</span></div>
+                <div class="numbered-item"><div class="num">9</div><span>aluminium;</span></div>
+                <div class="numbered-item"><div class="num">10</div><span>steel;</span></div>
+                <div class="numbered-item"><div class="num">11</div><span>gold;</span></div>
+                <div class="numbered-item"><div class="num">12</div><span>nickel;</span></div>
+                <div class="numbered-item"><div class="num">13</div><span>phosphate fertilizers;</span></div>
+                <div class="numbered-item"><div class="num">14</div><span>port revenues;</span></div>
+                <div class="numbered-item"><div class="num">15</div><span>electricity;</span></div>
+                <div class="numbered-item"><div class="num">16</div><span>industrial water;</span></div>
+                <div class="numbered-item"><div class="num">17</div><span>logistics;</span></div>
+                <div class="numbered-item"><div class="num">18</div><span>agricultural exports;</span></div>
+                <div class="numbered-item"><div class="num">19</div><span>industrial leases;</span></div>
+                <div class="numbered-item"><div class="num">20</div><span>Royalties, taxes and dividends.</span></div>
+                <div class="quote-box">
+                    <p><strong>Debt should be serviced by the cash flows of the asset that creates the debt.</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="governance" class="section-wrapper">
+    <div class="section-card" onclick="toggleSection('governance-content', this)">
+        <div class="section-header">
+            <div class="section-icon" style="background: linear-gradient(135deg, #e8eaf6, #c5cae9);">⚖️</div>
+            <div class="section-title-block">
+                <h2>Governance &amp; Implementation</h2>
+                <p>Click to explore the governance architecture and first 24 months</p>
+            </div>
+            <div class="toggle-icon">▼</div>
+        </div>
+        <div id="governance-content" class="section-content">
+            <div class="content-inner">
+                <h3>Venezuela National Industrial Development &amp; Investment Authority</h3>
+                <p>We recommend creation of a <strong>Venezuela National Industrial Development &amp; Investment Authority</strong> with an independent technical and financial board.</p>
+                <p>The Authority would establish:</p>
+                <div class="numbered-item"><div class="num">1</div><span><strong>Investment Committee</strong> — Responsible for project approval.</span></div>
+                <div class="numbered-item"><div class="num">2</div><span><strong>Technical Committee</strong> — Responsible for engineering and feasibility.</span></div>
+                <div class="numbered-item"><div class="num">3</div><span><strong>Financial Committee</strong> — Responsible for debt capacity and financial models.</span></div>
+                <div class="numbered-item"><div class="num">4</div><span><strong>Environmental &amp; Social Committee</strong> — Responsible for ESG safeguards.</span></div>
+                <div class="numbered-item"><div class="num">5</div><span><strong>Procurement Committee</strong> — Responsible for transparent procurement.</span></div>
+                <div class="numbered-item"><div class="num">6</div><span><strong>Independent Audit Function</strong> — Responsible for annual financial and project audits.</span></div>
+                <p>Each project should have a dedicated SPV and ring-fenced accounts.</p>
+                <h3>National Asset Register</h3>
+                <p>One of the first deliverables should be a comprehensive <strong>Venezuela National Asset &amp; Resource Register</strong> covering:</p>
+                <div class="numbered-item"><div class="num">1</div><span>oil reserves;</span></div>
+                <div class="numbered-item"><div class="num">2</div><span>gas reserves;</span></div>
+                <div class="numbered-item"><div class="num">3</div><span>mineral resources;</span></div>
+                <div class="numbered-item"><div class="num">4</div><span>proven/probable reserves;</span></div>
+                <div class="numbered-item"><div class="num">5</div><span>infrastructure;</span></div>
+                <div class="numbered-item"><div class="num">6</div><span>refineries;</span></div>
+                <div class="numbered-item"><div class="num">7</div><span>petrochemical plants;</span></div>
+                <div class="numbered-item"><div class="num">8</div><span>power plants;</span></div>
+                <div class="numbered-item"><div class="num">9</div><span>ports;</span></div>
+                <div class="numbered-item"><div class="num">10</div><span>pipelines;</span></div>
+                <div class="numbered-item"><div class="num">11</div><span>railways;</span></div>
+                <div class="numbered-item"><div class="num">12</div><span>agricultural land;</span></div>
+                <div class="numbered-item"><div class="num">13</div><span>water resources;</span></div>
+                <div class="numbered-item"><div class="num">14</div><span>Industrial land.</span></div>
+                <p>Every mineral asset should be classified according to internationally recognized resource/reserve standards. This is particularly important because historical Venezuelan mineral publications have sometimes used "resource" and "reserve" interchangeably.</p>
+                <h3>Recommended First 24 Months</h3>
+                <h4>First 90 days</h4>
+                <div class="numbered-item"><div class="num">1</div><span>Establish a Presidential Economic Transformation Task Force.</span></div>
+                <div class="numbered-item"><div class="num">2</div><span>Establish a joint technical committee.</span></div>
+                <div class="numbered-item"><div class="num">3</div><span>Undertake national asset verification.</span></div>
+                <div class="numbered-item"><div class="num">4</div><span>Conduct sanctions/legal review.</span></div>
+                <div class="numbered-item"><div class="num">5</div><span>Identify the first 10 bankable projects.</span></div>
+                <div class="numbered-item"><div class="num">6</div><span>Commission refinery rehabilitation studies.</span></div>
+                <div class="numbered-item"><div class="num">7</div><span>Commission gas-monetization studies.</span></div>
+                <div class="numbered-item"><div class="num">8</div><span>Commission mining-resource verification.</span></div>
+                <div class="numbered-item"><div class="num">9</div><span>Develop the national industrial master plan.</span></div>
+                <h4>Months 4–12</h4>
+                <div class="numbered-item"><div class="num">1</div><span>Complete feasibility studies.</span></div>
+                <div class="numbered-item"><div class="num">2</div><span>Complete environmental studies.</span></div>
+                <div class="numbered-item"><div class="num">3</div><span>Establish SPVs.</span></div>
+                <div class="numbered-item"><div class="num">4</div><span>Negotiate EPC and technology agreements.</span></div>
+                <div class="numbered-item"><div class="num">5</div><span>Secure preliminary offtake agreements.</span></div>
+                <div class="numbered-item"><div class="num">6</div><span>Obtain lender technical approvals.</span></div>
+                <div class="numbered-item"><div class="num">7</div><span>Establish financing structures.</span></div>
+                <h4>Months 12–24</h4>
+                <div class="numbered-item"><div class="num">1</div><span>Financial close for first projects.</span></div>
+                <div class="numbered-item"><div class="num">2</div><span>Commence refinery rehabilitation.</span></div>
+                <div class="numbered-item"><div class="num">3</div><span>Commence oil-field rehabilitation.</span></div>
+                <div class="numbered-item"><div class="num">4</div><span>Commence gas infrastructure projects.</span></div>
+                <div class="numbered-item"><div class="num">5</div><span>Restart priority mining operations.</span></div>
+                <div class="numbered-item"><div class="num">6</div><span>Commence fertilizer rehabilitation.</span></div>
+                <div class="numbered-item"><div class="num">7</div><span>Begin priority power and logistics projects.</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="risk" class="section-wrapper">
+    <div class="section-card" onclick="toggleSection('risk-content', this)">
+        <div class="section-header">
+            <div class="section-icon" style="background: linear-gradient(135deg, #ffebee, #ffcdd2);">🛡️</div>
+            <div class="section-title-block">
+                <h2>Risk Mitigation</h2>
+                <p>Click to explore comprehensive risk management frameworks</p>
+            </div>
+            <div class="toggle-icon">▼</div>
+        </div>
+        <div id="risk-content" class="section-content">
+            <div class="content-inner">
+                <h3>A. Sanctions and Geopolitical Risk</h3>
+                <p>Venezuela's financing environment remains highly sensitive to international sanctions and regulatory restrictions.</p>
+                <p>The U.S. Treasury's OFAC Venezuela program currently contains multiple general licenses affecting oil, gas, minerals, investment and related activities.</p>
+                <p>Every transaction must therefore undergo:</p>
+                <div class="numbered-item"><div class="num">1</div><span>OFAC screening;</span></div>
+                <div class="numbered-item"><div class="num">2</div><span>EU sanctions review;</span></div>
+                <div class="numbered-item"><div class="num">3</div><span>UK sanctions review;</span></div>
+                <div class="numbered-item"><div class="num">4</div><span>beneficial-owner screening;</span></div>
+                <div class="numbered-item"><div class="num">5</div><span>correspondent-bank review;</span></div>
+                <div class="numbered-item"><div class="num">6</div><span>AML/KYC;</span></div>
+                <div class="numbered-item"><div class="num">7</div><span>export-control analysis;</span></div>
+                <div class="numbered-item"><div class="num">8</div><span>Shipping compliance.</span></div>
+                <p>No financing should close merely on the assumption that sanctions will remain relaxed.</p>
+                <h3>B. Commodity Price Risk</h3>
+                <p>Oil, gas, urea, metals and petrochemical prices are cyclical. Projects must therefore be stress-tested under:</p>
+                <div class="numbered-item"><div class="num">1</div><span>low oil price;</span></div>
+                <div class="numbered-item"><div class="num">2</div><span>base oil price;</span></div>
+                <div class="numbered-item"><div class="num">3</div><span>high oil price;</span></div>
+                <div class="numbered-item"><div class="num">4</div><span>low urea;</span></div>
+                <div class="numbered-item"><div class="num">5</div><span>high urea;</span></div>
+                <div class="numbered-item"><div class="num">6</div><span>low gas;</span></div>
+                <div class="numbered-item"><div class="num">7</div><span>high gas;</span></div>
+                <div class="numbered-item"><div class="num">8</div><span>currency depreciation;</span></div>
+                <div class="numbered-item"><div class="num">9</div><span>Export disruption.</span></div>
+                <h3>C. Construction Risk</h3>
+                <p>Every major EPC project should include:</p>
+                <div class="numbered-item"><div class="num">1</div><span>fixed-price or appropriately structured EPC contracts where feasible;</span></div>
+                <div class="numbered-item"><div class="num">2</div><span>performance guarantees;</span></div>
+                <div class="numbered-item"><div class="num">3</div><span>liquidated damages;</span></div>
+                <div class="numbered-item"><div class="num">4</div><span>completion tests;</span></div>
+                <div class="numbered-item"><div class="num">5</div><span>independent engineer certification;</span></div>
+                <div class="numbered-item"><div class="num">6</div><span>contingency;</span></div>
+                <div class="numbered-item"><div class="num">7</div><span>Commissioning guarantees.</span></div>
+                <h3>D. Currency Risk</h3>
+                <p>Revenue and debt should be matched wherever possible. For example:</p>
+                <div class="quote-box"><p><strong>Export-dollar revenue → dollar/euro-linked debt service</strong> rather than: Bolívar revenue → foreign-currency debt.</p></div>
+                <h3>E. Environmental Risk</h3>
+                <p>Oil, mining and heavy industry require rigorous environmental governance. The program should include:</p>
+                <div class="numbered-item"><div class="num">1</div><span>environmental baseline studies;</span></div>
+                <div class="numbered-item"><div class="num">2</div><span>water-management plans;</span></div>
+                <div class="numbered-item"><div class="num">3</div><span>tailings management;</span></div>
+                <div class="numbered-item"><div class="num">4</div><span>methane reduction;</span></div>
+                <div class="numbered-item"><div class="num">5</div><span>refinery emissions controls;</span></div>
+                <div class="numbered-item"><div class="num">6</div><span>sulfur recovery;</span></div>
+                <div class="numbered-item"><div class="num">7</div><span>mine rehabilitation;</span></div>
+                <div class="numbered-item"><div class="num">8</div><span>biodiversity protection;</span></div>
+                <div class="numbered-item"><div class="num">9</div><span>community consultation;</span></div>
+                <div class="numbered-item"><div class="num">10</div><span>Independent monitoring.</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="economic" class="section-wrapper">
+    <div class="section-card" onclick="toggleSection('economic-content', this)">
+        <div class="section-header">
+            <div class="section-icon" style="background: linear-gradient(135deg, #e0f2f1, #b2dfdb);">📊</div>
+            <div class="section-title-block">
+                <h2>Economic Impact &amp; KPIs</h2>
+                <p>Click to view measurable indicators and economic context</p>
+            </div>
+            <div class="toggle-icon">▼</div>
+        </div>
+        <div id="economic-content" class="section-content">
+            <div class="content-inner">
+                <p>The program should be evaluated through measurable indicators rather than political promises.</p>
+                <h3>Proposed KPIs</h3>
+                <div class="numbered-item"><div class="num">1</div><span>incremental oil production;</span></div>
+                <div class="numbered-item"><div class="num">2</div><span>refinery utilization;</span></div>
+                <div class="numbered-item"><div class="num">3</div><span>natural-gas monetization;</span></div>
+                <div class="numbered-item"><div class="num">4</div><span>electricity reliability;</span></div>
+                <div class="numbered-item"><div class="num">5</div><span>tonnes of steel;</span></div>
+                <div class="numbered-item"><div class="num">6</div><span>tonnes of aluminium;</span></div>
+                <div class="numbered-item"><div class="num">7</div><span>tonnes of urea;</span></div>
+                <div class="numbered-item"><div class="num">8</div><span>tonnes of petrochemicals;</span></div>
+                <div class="numbered-item"><div class="num">9</div><span>export revenue;</span></div>
+                <div class="numbered-item"><div class="num">10</div><span>non-oil exports;</span></div>
+                <div class="numbered-item"><div class="num">11</div><span>formal employment;</span></div>
+                <div class="numbered-item"><div class="num">12</div><span>private-sector investment;</span></div>
+                <div class="numbered-item"><div class="num">13</div><span>tax and royalty revenue;</span></div>
+                <div class="numbered-item"><div class="num">14</div><span>domestic value added;</span></div>
+                <div class="numbered-item"><div class="num">15</div><span>logistics cost;</span></div>
+                <div class="numbered-item"><div class="num">16</div><span>import substitution;</span></div>
+                <div class="numbered-item"><div class="num">17</div><span>household purchasing power;</span></div>
+                <div class="numbered-item"><div class="num">18</div><span>poverty reduction;</span></div>
+                <div class="numbered-item"><div class="num">19</div><span>carbon intensity;</span></div>
+                <div class="numbered-item"><div class="num">20</div><span>Environmental restoration.</span></div>
+                <h3>Economic Context</h3>
+                <p>The World Bank reports that Venezuela's GDP was approximately <strong>€/$100 billion-equivalent in 2025 in current U.S.-dollar terms</strong>, with real GDP growth of approximately 1.6%. The IMF's April 2026 database projects nominal GDP of approximately <strong>$111.3 billion in 2026</strong>, while simultaneously reporting extremely high inflation.</p>
+                <p>Against this economic base, <strong>€300 billion is enormous</strong>. It cannot responsibly be deployed rapidly. It should therefore be treated as a <strong>multi-cycle capital platform</strong>, with each subsequent phase dependent upon demonstrated performance of the preceding phase.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-wrapper">
+    <div class="section-card" onclick="toggleSection('selfcheck-content', this)">
+        <div class="section-header">
+            <div class="section-icon" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7);">✅</div>
+            <div class="section-title-block">
+                <h2>Self-Check / Investment Discipline Review</h2>
+                <p>Click to view the investment discipline framework</p>
+            </div>
+            <div class="toggle-icon">▼</div>
+        </div>
+        <div id="selfcheck-content" class="section-content">
+            <div class="content-inner">
+                <p>Before submission to any sovereign, lender or institutional investor, the following points should be retained:</p>
+                <div class="numbered-item"><div class="num">1</div><span><strong>No €300 billion unconditional financing commitment has been asserted.</strong> The figure is presented as a proposed program envelope.</span></div>
+                <div class="numbered-item"><div class="num">2</div><span><strong>No geological resource has been treated automatically as a bankable reserve.</strong> This is particularly important for gold, iron, bauxite, diamonds, coltan and phosphate.</span></div>
+                <div class="numbered-item"><div class="num">3</div><span><strong>No $180/t urea export-price guarantee has been made.</strong> The distinction between production cost, FOB price, domestic price and delivered international price is explicit.</span></div>
+                <div class="numbered-item"><div class="num">4</div><span><strong>No refinery return has been guaranteed.</strong> The two refinery concepts require crude assays, product-market studies, FEED, EPC pricing and FID.</span></div>
+                <div class="numbered-item"><div class="num">5</div><span><strong>No guaranteed repayment period has been promised.</strong> Project cash flows must be demonstrated before debt is incurred.</span></div>
+                <div class="numbered-item"><div class="num">6</div><span><strong>Sanctions have been treated as a live financing constraint.</strong> OFAC currently maintains multiple Venezuela-related licenses and restrictions, making transaction-specific legal review mandatory.</span></div>
+                <div class="numbered-item"><div class="num">7</div><span><strong>Existing infrastructure has been prioritized before greenfield duplication.</strong> This materially improves capital efficiency.</span></div>
+                <div class="numbered-item"><div class="num">8</div><span><strong>The €300 billion figure is large relative to Venezuela's present economic base.</strong> Therefore the program must be phased over approximately 15 years rather than deployed immediately.</span></div>
+                <div class="numbered-item"><div class="num">9</div><span><strong>The most important investment thesis is vertical integration.</strong> The highest-value transformation is: RESOURCE → ENERGY → PROCESSING → INDUSTRIAL INPUT → MANUFACTURED PRODUCT → EXPORT.</span></div>
+                <div class="numbered-item"><div class="num">10</div><span><strong>The program requires independent verification before financial close.</strong> No investor should rely solely on government resource estimates, sponsor projections or promotional valuations.</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-wrapper">
+    <div class="section-card" onclick="toggleSection('sources-content', this)">
+        <div class="section-header">
+            <div class="section-icon" style="background: linear-gradient(135deg, #e3f2fd, #bbdefb);">📚</div>
+            <div class="section-title-block">
+                <h2>Principal Sources</h2>
+                <p>Click to view reference materials and data sources</p>
+            </div>
+            <div class="toggle-icon">▼</div>
+        </div>
+        <div id="sources-content" class="section-content">
+            <div class="content-inner">
+                <div class="numbered-item"><div class="num">1</div><span><strong>U.S. Energy Information Administration — Venezuela Country Analysis</strong> — oil, gas, refining and structural energy-sector analysis.</span></div>
+                <div class="numbered-item"><div class="num">2</div><span><strong>OPEC Annual Statistical Bulletin 2025</strong> — crude reserves and petroleum statistics.</span></div>
+                <div class="numbered-item"><div class="num">3</div><span><strong>USGS Venezuela Minerals Yearbook</strong> — mineral production data.</span></div>
+                <div class="numbered-item"><div class="num">4</div><span><strong>World Bank Venezuela Data</strong> — macroeconomic indicators.</span></div>
+                <div class="numbered-item"><div class="num">5</div><span><strong>IMF Venezuela DataMapper</strong> — 2026 macroeconomic projections.</span></div>
+                <div class="numbered-item"><div class="num">6</div><span><strong>U.S. Treasury OFAC — Venezuela Sanctions</strong> — current sanctions/licensing framework.</span></div>
+                <div class="numbered-item"><div class="num">7</div><span><strong>World Bank Commodity Markets Outlook, April 2026</strong> — fertilizer/urea market outlook.</span></div>
+                <div class="numbered-item"><div class="num">8</div><span><strong>Yara ammonia and urea cost framework</strong> — technical urea/ammonia cost relationships.</span></div>
+                <div class="numbered-item"><div class="num">9</div><span><strong>FAO phosphate-rock analysis</strong> — Venezuelan phosphate resources and fertilizer conversion potential.</span></div>
+                <div class="numbered-item"><div class="num">10</div><span><strong>Reuters — Venezuela refining operations</strong> — current refinery utilization.</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="contact-section">
+    <h2>Request for Government Engagement</h2>
+    <p><strong>MAEC CAPITAL LIMITED</strong> respectfully requests the opportunity to meet with representatives appointed by Your Office, together with the relevant Ministries, PDVSA, Pequiven, mining authorities, electricity authorities, financial institutions and other designated Venezuelan stakeholders.</p>
+    <p>The purpose of the proposed meeting would <strong>not</strong> be to request immediate approval of €300 billion of debt. Rather, the objective would be to establish a disciplined process through which Venezuela can identify, develop, finance and execute a portfolio of commercially viable projects capable of transforming its natural-resource wealth into productive national assets.</p>
+    <a class="email-btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=mussie@equaltradeglobal.org&su=Venezuelan%20Comprehensive%20Economic%20Development%20Funding%20Program&body=Dear%20Dr.%20Mussie,%0A%0AI%20would%20like%20to%20discuss%20the%20€300%20billion%20Venezuelan%20Comprehensive%20Economic%20Development%20Funding%20Program.%0A%0ABest%20regards," target="_blank">📧 Contact Dr. Mussie Afeworki</a>
+    <p style="margin-top: 25px; font-size: 14px; opacity: 0.8;">mussie@equaltradeglobal.org</p>
+</section>
+
+<footer>
+    <p><strong>Mussie Afeworki (Ph.D.)</strong> — MAEC CAPITAL LIMITED — Representative for Africa &amp; Latin America</p>
+    <p style="margin-top: 8px;">Venezuelan Comprehensive Economic Development Funding Proposal — 15 August 2026</p>
+    <p style="margin-top: 8px; opacity: 0.6;">Her Excellency Delcy Rodríguez — President of the Bolivarian Republic of Venezuela — Caracas, Venezuela</p>
+</footer>
+
+<script>
+    function toggleMenu() {
+        var menu = document.getElementById('collapsible-menu');
+        if (menu.style.display === 'none' || menu.style.display === '') {
+            menu.style.display = 'block';
+        } else {
+            menu.style.display = 'none';
+        }
+    }
+    function toggleSection(contentId, cardElement) {
+        var content = document.getElementById(contentId);
+        var icon = cardElement.querySelector('.toggle-icon');
+        if (content.classList.contains('open')) {
+            content.classList.remove('open');
+            icon.classList.remove('rotated');
+            icon.innerHTML = '▼';
+        } else {
+            content.classList.add('open');
+            icon.classList.add('rotated');
+            icon.innerHTML = '▲';
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            var target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                document.getElementById('collapsible-menu').style.display = 'none';
+            }
+        });
+    });
+    document.addEventListener('click', function(e) {
+        var menu = document.getElementById('collapsible-menu');
+        var toggle = document.getElementById('menu-toggle');
+        if (!menu.contains(e.target) && e.target !== toggle) {
+            menu.style.display = 'none';
+        }
+    });
+</script>
+
+</body>
+</html>
