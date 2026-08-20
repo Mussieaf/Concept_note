@@ -5,9 +5,9 @@ import type { Order } from '@/types'
  * Swap in your own business number (country code + number, digits only).
  */
 export const STORE = {
-  name: 'Crumb & Craft',
-  whatsappNumber: '15550123456',
-  displayPhone: '+1 (555) 012-3456',
+  name: 'Acacia Trading',
+  whatsappNumber: '251902475979',
+  displayPhone: '+251 902 475 979',
   hours: 'Tue–Sun · 7:00–19:00',
   address: '48 Fournier Lane, Old Mill District',
 }
