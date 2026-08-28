@@ -1,1 +1,865 @@
-hh
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reportage Towers — Luxury Living in Addis Ababa</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #D4A017;
+  --gold-light: #F4D03F;
+  --gold-dark: #B8860B;
+  --charcoal: #1a1a1a;
+  --offwhite: #faf8f5;
+  --cream: #f5f0e8;
+  --teal: #0d7377;
+  --teal-dark: #095c5f;
+  --coral: #e85d4e;
+  --lavender: #7b68ee;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--offwhite);
+  color: var(--charcoal);
+  overflow-x: hidden;
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('https://kimi-web-img.kimi.ai/img/ethiopiarealty.com/d60979b5f91ee7f62dbc8e31838671296a88022c.jpg') center/cover no-repeat;
+  opacity: 0.35;
+  filter: brightness(0.7) saturate(1.2);
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(26,26,46,0.3) 0%, rgba(26,26,46,0.8) 70%, var(--offwhite) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  padding: 2rem;
+  animation: fadeInUp 1.2s ease-out;
+}
+
+.logo-wrap {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.logo-wrap img {
+  height: 70px;
+  filter: brightness(0) invert(1) drop-shadow(0 4px 20px rgba(0,0,0,0.3));
+  transition: transform 0.4s ease;
+}
+
+.logo-wrap img:hover { transform: scale(1.05); }
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+  text-shadow: 0 4px 30px rgba(0,0,0,0.4);
+}
+
+.hero h1 span {
+  color: var(--gold-light);
+  display: block;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
+  color: rgba(255,255,255,0.85);
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+}
+
+.hero-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  padding: 0.6rem 1.5rem;
+  border-radius: 50px;
+  color: var(--gold-light);
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: 1px solid rgba(212,160,23,0.3);
+  margin-bottom: 2.5rem;
+}
+
+.cta-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+  color: #fff;
+  box-shadow: 0 8px 30px rgba(212,160,23,0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(212,160,23,0.55);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255,255,255,0.4);
+}
+
+.btn-outline:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: var(--gold-light);
+  color: var(--gold-light);
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  animation: bounce 2s infinite;
+}
+
+.scroll-hint svg {
+  width: 32px;
+  height: 32px;
+  stroke: rgba(255,255,255,0.6);
+}
+
+/* ===== MAGAZINE STRIP ===== */
+.mag-strip {
+  background: var(--charcoal);
+  padding: 1rem 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.mag-strip-inner {
+  display: inline-block;
+  animation: scrollText 20s linear infinite;
+}
+
+.mag-strip span {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--gold-light);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0 3rem;
+  opacity: 0.9;
+}
+
+.mag-strip span:nth-child(even) { color: #fff; opacity: 0.6; }
+
+/* ===== SECTIONS ===== */
+section { padding: 6rem 1.5rem; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 0.8rem;
+  line-height: 1.15;
+}
+
+.section-header p {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.gold-line {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  margin: 1.2rem auto;
+  border-radius: 2px;
+}
+
+/* ===== FEATURES GRID ===== */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.feature-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gold), var(--coral), var(--teal), var(--lavender));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.feature-card:hover::before { opacity: 1; }
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+}
+
+.feature-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1.5rem;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+}
+
+.feature-card:nth-child(1) .feature-icon { background: linear-gradient(135deg, #fff3e0, #ffe0b2); }
+.feature-card:nth-child(2) .feature-icon { background: linear-gradient(135deg, #e0f7fa, #b2ebf2); }
+.feature-card:nth-child(3) .feature-icon { background: linear-gradient(135deg, #f3e5f5, #e1bee7); }
+.feature-card:nth-child(4) .feature-icon { background: linear-gradient(135deg, #e8f5e9, #c8e6c9); }
+.feature-card:nth-child(5) .feature-icon { background: linear-gradient(135deg, #fce4ec, #f8bbd9); }
+.feature-card:nth-child(6) .feature-icon { background: linear-gradient(135deg, #e3f2fd, #bbdefb); }
+
+.feature-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  margin-bottom: 0.6rem;
+  color: var(--charcoal);
+}
+
+.feature-card p {
+  color: #777;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+/* ===== SHOWCASE ===== */
+.showcase {
+  background: linear-gradient(180deg, var(--cream) 0%, var(--offwhite) 100%);
+}
+
+.showcase-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.showcase-img {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+}
+
+.showcase-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.showcase-img:hover img { transform: scale(1.05); }
+
+.showcase-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 50%);
+}
+
+.showcase-text h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  color: var(--charcoal);
+  line-height: 1.2;
+}
+
+.showcase-text p {
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+}
+
+.stat-row {
+  display: flex;
+  gap: 2.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.stat-item h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--gold-dark);
+  line-height: 1;
+}
+
+.stat-item span {
+  font-size: 0.85rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ===== GALLERY ===== */
+.gallery {
+  background: var(--charcoal);
+  padding: 5rem 1.5rem;
+}
+
+.gallery .section-header h2 { color: #fff; }
+.gallery .section-header p { color: rgba(255,255,255,0.6); }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 280px);
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img { transform: scale(1.08); }
+
+.gallery-item:nth-child(1) { grid-column: span 2; }
+.gallery-item:nth-child(4) { grid-column: span 2; }
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+  display: flex;
+  align-items: flex-end;
+  padding: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+
+.gallery-overlay span {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* ===== LOCATION ===== */
+.location {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.location-card {
+  background: #fff;
+  border-radius: 24px;
+  padding: 3rem;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.location-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.location-info p {
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.location-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.tag {
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.tag-gold { background: #fff3e0; color: var(--gold-dark); }
+.tag-teal { background: #e0f7fa; color: var(--teal-dark); }
+.tag-coral { background: #ffebee; color: var(--coral); }
+
+.location-visual {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 350px;
+}
+
+.location-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===== CONTACT ===== */
+.contact {
+  background: linear-gradient(135deg, var(--charcoal) 0%, #2d2d44 100%);
+  color: #fff;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(212,160,23,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.contact h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 1rem;
+}
+
+.contact > .container > p {
+  color: rgba(255,255,255,0.6);
+  max-width: 500px;
+  margin: 0 auto 3rem;
+  line-height: 1.7;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.contact-card:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: var(--gold);
+  transform: translateY(-4px);
+}
+
+.contact-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.2rem;
+}
+
+.contact-icon svg { width: 26px; height: 26px; stroke: #fff; }
+
+.contact-card h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+
+.contact-card p {
+  color: rgba(255,255,255,0.6);
+  font-size: 0.95rem;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: #111;
+  color: rgba(255,255,255,0.4);
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  font-size: 0.85rem;
+}
+
+.footer img {
+  height: 36px;
+  opacity: 0.6;
+  margin-bottom: 1rem;
+  filter: brightness(0) invert(1);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+  40% { transform: translateX(-50%) translateY(-10px); }
+  60% { transform: translateX(-50%) translateY(-5px); }
+}
+
+@keyframes scrollText {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .showcase-grid,
+  .location-card { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; }
+  .gallery-item:nth-child(1),
+  .gallery-item:nth-child(4) { grid-column: span 2; }
+}
+
+@media (max-width: 600px) {
+  .gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+  .gallery-item:nth-child(1),
+  .gallery-item:nth-child(4) { grid-column: span 1; }
+  .gallery-item { height: 220px; }
+  section { padding: 4rem 1rem; }
+  .location-card { padding: 2rem 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="logo-wrap">
+      <img src="https://kimi-web-img.kimi.ai/img/developers-eg.com/79d4a93fc64e2c84fe8e1691c324d969014f9a6d.png" alt="Reportage Properties">
+    </div>
+    <p class="hero-subtitle">Redefining Urban Luxury</p>
+    <h1>Reportage Towers <span>Addis Ababa</span></h1>
+    <div class="hero-location">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Lideta Sub-City, Woreda 10, Addis Ababa, Ethiopia
+    </div>
+    <div class="cta-group">
+      <a href="#contact" class="btn btn-primary">Reserve Your Unit</a>
+      <a href="#features" class="btn btn-outline">Explore Features</a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+  </div>
+</section>
+
+<!-- MAGAZINE STRIP -->
+<div class="mag-strip">
+  <div class="mag-strip-inner">
+    <span>Luxury Apartments</span><span>•</span>
+    <span>Twin Towers</span><span>•</span>
+    <span>31 Stories</span><span>•</span>
+    <span>Prime Location</span><span>•</span>
+    <span>World-Class Amenities</span><span>•</span>
+    <span>Smart Investment</span><span>•</span>
+    <span>Luxury Apartments</span><span>•</span>
+    <span>Twin Towers</span><span>•</span>
+    <span>31 Stories</span><span>•</span>
+    <span>Prime Location</span><span>•</span>
+    <span>World-Class Amenities</span><span>•</span>
+    <span>Smart Investment</span><span>•</span>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2>Architectural Excellence</h2>
+      <div class="gold-line"></div>
+      <p>Every detail of Reportage Towers has been meticulously crafted to deliver an unparalleled living experience in the heart of Ethiopia's capital.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon">🏢</div>
+        <h3>Twin Towers</h3>
+        <p>Iconic twin residential towers rising 31 stories, redefining Addis Ababa's skyline with bold modern architecture and premium glass facades.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">🏊</div>
+        <h3>Infinity Pool</h3>
+        <p>Resort-style swimming pool with panoramic city views, sun decks, and a dedicated children's pool for family enjoyment.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">🏃</div>
+        <h3>Jogging Track</h3>
+        <p>Elevated landscaped jogging track winding through lush gardens, offering a serene escape above the bustling city.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">🛡️</div>
+        <h3>24/7 Security</h3>
+        <p>State-of-the-art CCTV surveillance, controlled access systems, and professional security personnel ensuring resident safety.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">🌳</div>
+        <h3>Landscaped Gardens</h3>
+        <p>Expansive green spaces and meticulously designed gardens providing a tranquil oasis in the heart of the metropolis.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">🛒</div>
+        <h3>Retail & Commercial</h3>
+        <p>Over 15,000 sqm of integrated retail and commercial space, bringing world-class shopping and dining to your doorstep.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOWCASE -->
+<section class="showcase">
+  <div class="container">
+    <div class="showcase-grid">
+      <div class="showcase-img reveal">
+        <img src="https://kimi-web-img.kimi.ai/img/ethiopiarealty.com/d60979b5f91ee7f62dbc8e31838671296a88022c.jpg" alt="Reportage Towers Aerial View">
+      </div>
+      <div class="showcase-text reveal">
+        <h3>A Landmark Development on 23,000 m²</h3>
+        <p>Reportage Towers stands as a testament to modern Ethiopian ambition. Developed in partnership with the Ethiopian Army Foundation, this mixed-use development blends residential excellence with commercial vitality.</p>
+        <p>With 1,086 meticulously designed apartments across two soaring towers, the development offers a range of unit types from intimate 1-bedroom residences to expansive family homes — each finished to international standards.</p>
+        <div class="stat-row">
+          <div class="stat-item">
+            <h4>1,086</h4>
+            <span>Apartments</span>
+          </div>
+          <div class="stat-item">
+            <h4>31</h4>
+            <span>Floors</span>
+          </div>
+          <div class="stat-item">
+            <h4>15K</h4>
+            <span>Sqm Retail</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2>Visual Journey</h2>
+      <div class="gold-line"></div>
+      <p>Step inside a world where contemporary design meets Ethiopian warmth.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item reveal">
+        <img src="https://kimi-web-img.kimi.ai/img/ethiopiarealty.com/d60979b5f91ee7f62dbc8e31838671296a88022c.jpg" alt="Reportage Towers">
+        <div class="gallery-overlay"><span>Twin Towers Skyline</span></div>
+      </div>
+      <div class="gallery-item reveal">
+        <img src="https://kimi-web-img.kimi.ai/img/i0.wp.com/2e2047627e9537ef7556248bb8242b7484d215e1.jpg" alt="Luxury Interior">
+        <div class="gallery-overlay"><span>Designer Interiors</span></div>
+      </div>
+      <div class="gallery-item reveal">
+        <img src="https://kimi-web-img.kimi.ai/img/elements-resized.envatousercontent.com/4ede98e5cab44656f29cb9f48ff292ed3e924264.jpg" alt="Addis Ababa Cityscape">
+        <div class="gallery-overlay"><span>City Views</span></div>
+      </div>
+      <div class="gallery-item reveal">
+        <img src="https://kimi-web-img.kimi.ai/img/ethiopiarealty.com/6b5ecd1198d86bcc19212a148c11f1d02a9fb63b.jpg" alt="Modern Architecture">
+        <div class="gallery-overlay"><span>Modern Facade</span></div>
+      </div>
+      <div class="gallery-item reveal">
+        <img src="https://kimi-web-img.kimi.ai/img/motionarray.imgix.net/a811cb3e9e87b429f8d09229825798b7d3a2056d.jpg" alt="Addis Ababa Aerial">
+        <div class="gallery-overlay"><span>Prime Location</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="location" id="location">
+  <div class="container">
+    <div class="location-card reveal">
+      <div class="location-info">
+        <h3>Heart of Lideta</h3>
+        <p>Situated in one of Addis Ababa's most dynamic districts, Reportage Towers offers unmatched connectivity to business centers, diplomatic quarters, and cultural landmarks. Lideta's ongoing urban renewal makes it the city's most promising investment corridor.</p>
+        <div class="location-tags">
+          <span class="tag tag-gold">Business District</span>
+          <span class="tag tag-teal">Diplomatic Zone</span>
+          <span class="tag tag-coral">Cultural Hub</span>
+          <span class="tag tag-gold">Transit Access</span>
+        </div>
+      </div>
+      <div class="location-visual">
+        <img src="https://kimi-web-img.kimi.ai/img/elements-resized.envatousercontent.com/4ede98e5cab44656f29cb9f48ff292ed3e924264.jpg" alt="Addis Ababa Skyline">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <h2 class="reveal">Begin Your Journey</h2>
+    <p class="reveal">Connect with our brokerage team to reserve your unit or schedule a private viewing of Reportage Towers.</p>
+    <div class="contact-grid">
+      <a href="https://wa.me/251922466797" target="_blank" class="contact-card reveal">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </div>
+        <h4>WhatsApp</h4>
+        <p>+251 922 466 797</p>
+      </a>
+      <a href="mailto:mussie@equaltradeglobal.org" class="contact-card reveal">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <h4>Email</h4>
+        <p>mussie@equaltradeglobal.org</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <img src="https://kimi-web-img.kimi.ai/img/developers-eg.com/79d4a93fc64e2c84fe8e1691c324d969014f9a6d.png" alt="Reportage Properties">
+  <p>Reportage Real Estate One Member PLC · Principal License: EIA/PC/14/706/1174488890/2018</p>
+  <p style="margin-top:0.5rem;">Addis Ababa, Ethiopia · Federal Democratic Republic of Ethiopia</p>
+</footer>
+
+<script>
+// Scroll reveal animation
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
