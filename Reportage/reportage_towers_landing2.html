@@ -1,712 +1,869 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reportage Towers - Luxury Living in Addis Ababa</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
-
-:root {
-  --gold: #d4a017;
-  --gold-light: #f5d76e;
-  --gold-dark: #b8860b;
-  --black: #0d0d0d;
-  --charcoal: #1a1a1a;
-  --cream: #faf8f5;
-  --warm-white: #fffef9;
-  --terracotta: #c75b39;
-  --sage: #7a9e7e;
-  --slate: #4a5568;
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-  font-family: 'Inter', sans-serif;
-  background: var(--warm-white);
-  color: var(--charcoal);
-  overflow-x: hidden;
-}
-
-/* ===== HERO SECTION ===== */
-.hero {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background: linear-gradient(135deg, var(--black) 0%, #1f1f1f 40%, #2d1810 70%, var(--charcoal) 100%);
-  overflow: hidden;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: 
-    radial-gradient(circle at 20% 80%, rgba(212,160,23,0.08) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(199,91,57,0.06) 0%, transparent 50%),
-    radial-gradient(circle at 50% 50%, rgba(122,158,126,0.04) 0%, transparent 60%);
-  animation: float 20s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  33% { transform: translate(30px, -30px) rotate(1deg); }
-  66% { transform: translate(-20px, 20px) rotate(-1deg); }
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  padding: 2rem;
-  max-width: 900px;
-}
-
-.logo-wrap {
-  margin-bottom: 2.5rem;
-  display: flex;
-  justify-content: center;
-}
-
-.logo-svg {
-  width: 280px;
-  height: auto;
-  filter: drop-shadow(0 4px 20px rgba(212,160,23,0.3));
-}
-
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.5rem, 6vw, 5rem);
-  font-weight: 800;
-  color: var(--warm-white);
-  line-height: 1.1;
-  margin-bottom: 1rem;
-  letter-spacing: -0.02em;
-}
-
-.hero h1 span {
-  color: var(--gold);
-  display: block;
-  font-size: 0.6em;
-  font-weight: 500;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  margin-top: 0.5rem;
-}
-
-.hero-subtitle {
-  font-size: clamp(1rem, 2vw, 1.35rem);
-  color: rgba(255,254,249,0.7);
-  font-weight: 300;
-  margin-bottom: 2.5rem;
-  line-height: 1.6;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.cta-btn {
-  display: inline-block;
-  padding: 1rem 2.5rem;
-  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
-  color: var(--black);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.95rem;
-  letter-spacing: 0.05em;
-  border-radius: 50px;
-  box-shadow: 0 8px 30px rgba(212,160,23,0.4);
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-}
-
-.cta-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 40px rgba(212,160,23,0.5);
-  border-color: var(--gold-light);
-}
-
-/* Architectural silhouette */
-.building-silhouette {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 40vh;
-  z-index: 1;
-  opacity: 0.15;
-  background: 
-    linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 400'%3E%3Crect x='100' y='150' width='80' height='250' fill='%23fff'/%3E%3Crect x='200' y='100' width='100' height='300' fill='%23fff'/%3E%3Crect x='320' y='80' width='60' height='320' fill='%23fff'/%3E%3Crect x='400' y='120' width='90' height='280' fill='%23fff'/%3E%3Crect x='510' y='60' width='120' height='340' fill='%23fff'/%3E%3Crect x='650' y='90' width='70' height='310' fill='%23fff'/%3E%3Crect x='740' y='110' width='100' height='290' fill='%23fff'/%3E%3Crect x='860' y='70' width='80' height='330' fill='%23fff'/%3E%3Crect x='960' y='140' width='90' height='260' fill='%23fff'/%3E%3C/svg%3E");
-  background-size: cover;
-  background-position: bottom;
-  background-repeat: no-repeat;
-}
-
-/* ===== MAGAZINE SECTIONS ===== */
-.section {
-  padding: 5rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: 3.5rem;
-}
-
-.section-label {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: var(--gold-dark);
-  margin-bottom: 0.75rem;
-  display: block;
-}
-
-.section h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 700;
-  color: var(--black);
-  line-height: 1.2;
-}
-
-/* ===== FEATURED PROJECT ===== */
-.featured-project {
-  background: var(--cream);
-  position: relative;
-  overflow: hidden;
-}
-
-.featured-project::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(135deg, transparent 0%, rgba(212,160,23,0.03) 100%);
-}
-
-.project-showcase {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: center;
-}
-
-.project-visual {
-  position: relative;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.15);
-  background: linear-gradient(145deg, #2a2a2a 0%, #1a1a1a 100%);
-  min-height: 450px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 2rem;
-}
-
-.tower-illustration {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%),
-    linear-gradient(135deg, #1a1a2e 0%, #16213e 30%, #0f3460 60%, #1a1a2e 100%);
-}
-
-.tower-illustration::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 200px;
-  height: 350px;
-  background: linear-gradient(to top, rgba(212,160,23,0.2) 0%, transparent 100%);
-  clip-path: polygon(20% 100%, 25% 80%, 22% 60%, 28% 40%, 25% 20%, 30% 0%, 35% 20%, 32% 40%, 38% 60%, 35% 80%, 40% 100%);
-}
-
-.project-visual h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  color: var(--warm-white);
-  position: relative;
-  z-index: 2;
-  margin-bottom: 0.5rem;
-}
-
-.project-visual p {
-  color: rgba(255,254,249,0.7);
-  font-size: 0.9rem;
-  position: relative;
-  z-index: 2;
-}
-
-.project-badge {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  background: var(--gold);
-  color: var(--black);
-  padding: 0.5rem 1rem;
-  border-radius: 50px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  z-index: 2;
-}
-
-.project-details h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.2rem;
-  margin-bottom: 1rem;
-  color: var(--black);
-}
-
-.project-details p {
-  color: var(--slate);
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
-  font-size: 1rem;
-}
-
-.spec-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.spec-item {
-  padding: 1.25rem;
-  background: var(--warm-white);
-  border-radius: 12px;
-  border: 1px solid rgba(0,0,0,0.06);
-  transition: all 0.3s ease;
-}
-
-.spec-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-  border-color: var(--gold);
-}
-
-.spec-item .spec-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--gold-dark);
-  display: block;
-  margin-bottom: 0.25rem;
-}
-
-.spec-item .spec-label {
-  font-size: 0.8rem;
-  color: var(--slate);
-  font-weight: 500;
-}
-
-/* ===== ARCHITECTURE FEATURES ===== */
-.architecture-section {
-  background: var(--black);
-  color: var(--warm-white);
-  position: relative;
-}
-
-.architecture-section .section-label {
-  color: var(--gold);
-}
-
-.architecture-section h2 {
-  color: var(--warm-white);
-}
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-}
-
-.feature-card {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 16px;
-  padding: 2.5rem 2rem;
-  text-align: center;
-  transition: all 0.4s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.feature-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--gold), var(--terracotta), var(--sage));
-  transform: scaleX(0);
-  transition: transform 0.4s ease;
-}
-
-.feature-card:hover::before {
-  transform: scaleX(1);
-}
-
-.feature-card:hover {
-  background: rgba(255,255,255,0.06);
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-}
-
-.feature-icon {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 1.5rem;
-  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.75rem;
-}
-
-.feature-card h4 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.3rem;
-  margin-bottom: 0.75rem;
-  color: var(--warm-white);
-}
-
-.feature-card p {
-  color: rgba(255,254,249,0.6);
-  font-size: 0.9rem;
-  line-height: 1.6;
-}
-
-/* ===== LOCATION STRIP ===== */
-.location-strip {
-  background: linear-gradient(135deg, var(--terracotta) 0%, #8b4513 100%);
-  padding: 4rem 2rem;
-  text-align: center;
-  color: var(--warm-white);
-  position: relative;
-  overflow: hidden;
-}
-
-.location-strip::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h60v60H0z' fill='none'/%3E%3Cpath d='M30 0L0 30h60z' fill='rgba(255,255,255,0.03)'/%3E%3C/svg%3E");
-  background-size: 60px 60px;
-}
-
-.location-strip h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
-  margin-bottom: 1rem;
-  position: relative;
-  z-index: 1;
-}
-
-.location-strip p {
-  font-size: 1.1rem;
-  opacity: 0.9;
-  max-width: 600px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-
-/* ===== CONTACT SECTION ===== */
-.contact-section {
-  background: var(--cream);
-  text-align: center;
-}
-
-.contact-section h2 {
-  margin-bottom: 1rem;
-}
-
-.contact-section .subtitle {
-  color: var(--slate);
-  margin-bottom: 3rem;
-  font-size: 1.05rem;
-}
-
-.contact-cards {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-
-.contact-card {
-  background: var(--warm-white);
-  border-radius: 20px;
-  padding: 2.5rem 3rem;
-  min-width: 280px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.06);
-  border: 1px solid rgba(0,0,0,0.04);
-  transition: all 0.3s ease;
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
-
-.contact-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-  border-color: var(--gold);
-}
-
-.contact-icon {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  margin: 0 auto 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-}
-
-.contact-card.whatsapp .contact-icon {
-  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
-  color: white;
-}
-
-.contact-card.email .contact-icon {
-  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
-  color: var(--black);
-}
-
-.contact-card h4 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
-  color: var(--black);
-}
-
-.contact-card .contact-info {
-  color: var(--slate);
-  font-size: 0.95rem;
-  font-weight: 500;
-}
-
-/* ===== FOOTER ===== */
-.footer {
-  background: var(--black);
-  color: rgba(255,254,249,0.5);
-  text-align: center;
-  padding: 2.5rem 2rem;
-  font-size: 0.85rem;
-}
-
-.footer strong {
-  color: var(--gold);
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-  .project-showcase {
-    grid-template-columns: 1fr;
-  }
-  .features-grid {
-    grid-template-columns: 1fr;
-  }
-  .spec-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  .contact-cards {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
-/* ===== SCROLL ANIMATIONS ===== */
-.fade-in {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportage Towers — Lideta, Addis Ababa | Turning Your Dreams Into Reality</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --reportage-black: #0a0a0a;
+            --reportage-white: #ffffff;
+            --reportage-gold: #f5a623;
+            --reportage-gold-light: #fbd38d;
+            --reportage-cream: #faf8f5;
+            --reportage-gray: #6b7280;
+            --reportage-dark: #1a1a1a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--reportage-white);
+            color: var(--reportage-black);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(ellipse at 20% 50%, rgba(245, 166, 35, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(245, 166, 35, 0.1) 0%, transparent 40%),
+                linear-gradient(180deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.8) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            padding: 2rem;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(245, 166, 35, 0.2);
+            border: 1px solid var(--reportage-gold);
+            color: var(--reportage-gold);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 600;
+            color: var(--reportage-white);
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 span {
+            color: var(--reportage-gold);
+            font-style: italic;
+        }
+
+        .hero-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: rgba(255,255,255,0.8);
+            font-weight: 400;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        .hero-location {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-location svg {
+            width: 18px;
+            height: 18px;
+            color: var(--reportage-gold);
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--reportage-gold);
+            color: var(--reportage-black);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(245, 166, 35, 0.3);
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(245, 166, 35, 0.4);
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            animation: bounce 2s infinite;
+        }
+
+        .hero-scroll svg {
+            width: 24px;
+            height: 24px;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* ===== LOGO BAR ===== */
+        .logo-bar {
+            background: var(--reportage-white);
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .logo-bar img {
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .logo-bar p {
+            color: var(--reportage-gray);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* ===== MAGAZINE FEATURES ===== */
+        .features {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            color: var(--reportage-black);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--reportage-gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .gold-line {
+            width: 60px;
+            height: 3px;
+            background: var(--reportage-gold);
+            margin: 1.5rem auto;
+        }
+
+        /* Magazine Grid */
+        .mag-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .mag-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            background: var(--reportage-cream);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .mag-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.12);
+        }
+
+        .mag-card.large {
+            grid-column: span 7;
+            min-height: 500px;
+        }
+
+        .mag-card.medium {
+            grid-column: span 5;
+            min-height: 500px;
+        }
+
+        .mag-card.small {
+            grid-column: span 4;
+            min-height: 350px;
+        }
+
+        .mag-card.wide {
+            grid-column: span 8;
+            min-height: 350px;
+        }
+
+        .mag-card-img {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.6s ease;
+        }
+
+        .mag-card:hover .mag-card-img {
+            transform: scale(1.05);
+        }
+
+        .mag-card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.7) 100%);
+        }
+
+        .mag-card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            color: white;
+            z-index: 2;
+        }
+
+        .mag-card-tag {
+            display: inline-block;
+            background: var(--reportage-gold);
+            color: var(--reportage-black);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.75rem;
+        }
+
+        .mag-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .mag-card p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        /* Feature List Cards */
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .feature-item {
+            background: var(--reportage-white);
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            border-color: var(--reportage-gold);
+            box-shadow: 0 10px 40px rgba(245, 166, 35, 0.1);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--reportage-gold-light), var(--reportage-gold));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+        }
+
+        .feature-icon svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .feature-item h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            color: var(--reportage-black);
+        }
+
+        .feature-item p {
+            color: var(--reportage-gray);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* ===== STATS BAR ===== */
+        .stats-bar {
+            background: var(--reportage-black);
+            padding: 4rem 2rem;
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--reportage-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* ===== LOCATION SECTION ===== */
+        .location {
+            padding: 6rem 2rem;
+            background: var(--reportage-cream);
+        }
+
+        .location-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .location-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .location-content p {
+            color: var(--reportage-gray);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .location-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .location-detail svg {
+            width: 24px;
+            height: 24px;
+            color: var(--reportage-gold);
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+
+        .location-detail strong {
+            display: block;
+            color: var(--reportage-black);
+            margin-bottom: 0.25rem;
+        }
+
+        .location-detail span {
+            color: var(--reportage-gray);
+            font-size: 0.9rem;
+        }
+
+        .location-visual {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+        }
+
+        .location-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .location-badge {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: var(--reportage-gold);
+            color: var(--reportage-black);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--reportage-black) 0%, #1a1a2e 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+        }
+
+        .contact > p {
+            color: rgba(255,255,255,0.7);
+            font-size: 1.1rem;
+            max-width: 500px;
+            margin: 0 auto 3rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+            display: block;
+        }
+
+        .contact-card:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--reportage-gold);
+            transform: translateY(-5px);
+        }
+
+        .contact-card-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--reportage-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .contact-card-icon svg {
+            width: 28px;
+            height: 28px;
+            color: var(--reportage-black);
+        }
+
+        .contact-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .contact-card p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--reportage-black);
+            color: rgba(255,255,255,0.5);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer strong {
+            color: var(--reportage-gold);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .mag-card.large, .mag-card.medium, .mag-card.small, .mag-card.wide {
+                grid-column: span 6;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mag-card.large, .mag-card.medium, .mag-card.small, .mag-card.wide {
+                grid-column: span 12;
+                min-height: 350px;
+            }
+
+            .location-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features {
+                padding: 4rem 1.5rem;
+            }
+
+            .hero-content {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="building-silhouette"></div>
-  <div class="hero-content">
-    <div class="logo-wrap">
-      <svg class="logo-svg" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
-        <text x="10" y="75" font-family="'Inter', sans-serif" font-size="72" font-weight="800" fill="#fff">Reportage</text>
-        <circle cx="375" cy="68" r="8" fill="#d4a017"/>
-        <text x="10" y="105" font-family="'Inter', sans-serif" font-size="28" font-weight="500" fill="#888" letter-spacing="2">P R O P E R T I E S</text>
-      </svg>
-    </div>
-    <h1>Reportage Towers <span>Luxury Redefined</span></h1>
-    <p class="hero-subtitle">An iconic residential landmark rising in the heart of Lideta, Addis Ababa — where contemporary architecture meets Ethiopian elegance.</p>
-    <a href="#contact" class="cta-btn">Reserve Your Unit</a>
-  </div>
-</section>
-
-<!-- FEATURED PROJECT -->
-<section class="featured-project">
-  <div class="section" style="padding-bottom: 3rem;">
-    <div class="section-header fade-in">
-      <span class="section-label">Featured Development</span>
-      <h2>The Crown Jewel of Lideta</h2>
-    </div>
-    <div class="project-showcase">
-      <div class="project-visual fade-in">
-        <div class="tower-illustration"></div>
-        <span class="project-badge">Now Selling</span>
-        <h3>Reportage Towers</h3>
-        <p>Lideta Sub City, Woreda 10, Addis Ababa</p>
-      </div>
-      <div class="project-details fade-in">
-        <h3>A New Standard of Urban Living</h3>
-        <p>Reportage Towers stands as a testament to modern Ethiopian architecture — a sleek, contemporary residential tower designed for discerning homeowners who demand excellence in every detail. From the grand lobby to the panoramic rooftop terrace, every space is crafted to inspire.</p>
-        <p>Located in the vibrant Lideta district, this development offers unparalleled access to Addis Ababa's commercial, cultural, and diplomatic corridors while providing a serene sanctuary above the city.</p>
-        <div class="spec-grid">
-          <div class="spec-item">
-            <span class="spec-num">G+20</span>
-            <span class="spec-label">Stories</span>
-          </div>
-          <div class="spec-item">
-            <span class="spec-num">4%</span>
-            <span class="spec-label">Broker Commission</span>
-          </div>
-          <div class="spec-item">
-            <span class="spec-num">24/7</span>
-            <span class="spec-label">Security</span>
-          </div>
-          <div class="spec-item">
-            <span class="spec-num">SPA</span>
-            <span class="spec-label">Sale Agreements</span>
-          </div>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-badge">Now Selling — Addis Ababa</div>
+            <h1>Reportage <span>Towers</span></h1>
+            <p class="hero-subtitle">Turning Your Dreams Into Reality</p>
+            <div class="hero-location">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                Lideta Sub City, Woreda 10, Addis Ababa, Ethiopia
+            </div>
+            <a href="#contact" class="hero-cta">
+                Reserve Your Unit
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+        <div class="hero-scroll">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+        </div>
+    </section>
 
-<!-- ARCHITECTURE FEATURES -->
-<section class="architecture-section">
-  <div class="section">
-    <div class="section-header fade-in">
-      <span class="section-label">Architectural Excellence</span>
-      <h2>Designed for Distinction</h2>
-    </div>
-    <div class="features-grid">
-      <div class="feature-card fade-in">
-        <div class="feature-icon">&#127968;</div>
-        <h4>Modern Facade</h4>
-        <p>Striking contemporary exterior with floor-to-ceiling glazing and premium finishes that command attention from every angle.</p>
-      </div>
-      <div class="feature-card fade-in">
-        <div class="feature-icon">&#127807;</div>
-        <h4>Sky Gardens</h4>
-        <p>Lush landscaped terraces and green spaces integrated into the tower design, bringing nature to new heights.</p>
-      </div>
-      <div class="feature-card fade-in">
-        <div class="feature-icon">&#128664;</div>
-        <h4>Smart Living</h4>
-        <p>Intelligent building systems, high-speed elevators, and automated security for a seamless living experience.</p>
-      </div>
-      <div class="feature-card fade-in">
-        <div class="feature-icon">&#127775;</div>
-        <h4>Panoramic Views</h4>
-        <p>Expansive windows frame breathtaking vistas of Addis Ababa's skyline and the distant Entoto Mountains.</p>
-      </div>
-      <div class="feature-card fade-in">
-        <div class="feature-icon">&#128719;</div>
-        <h4>Wellness Center</h4>
-        <p>State-of-the-art fitness facility, spa, and relaxation areas designed for holistic wellbeing.</p>
-      </div>
-      <div class="feature-card fade-in">
-        <div class="feature-icon">&#128663;</div>
-        <h4>Premium Parking</h4>
-        <p>Secure, multi-level underground parking with EV charging stations and valet services.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- LOGO BAR -->
+    <section class="logo-bar">
+        <img src="https://dubai-property.investments/construction-companies/reportage-properties-llc/" alt="Reportage Properties" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <div style="display:none; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1.8rem; color: var(--reportage-black);">
+            Reportage<span style="color: var(--reportage-gold);">.</span>Properties
+        </div>
+        <p>Trusted Real Estate Developer — 20+ Countries — 48,100+ Units</p>
+    </section>
 
-<!-- LOCATION -->
-<section class="location-strip">
-  <h3>Prime Location</h3>
-  <p>Situated in Lideta Sub City, Woreda 10 — one of Addis Ababa's most dynamic and rapidly developing neighborhoods, with immediate access to major thoroughfares, shopping, dining, and the city's central business district.</p>
-</section>
+    <!-- FEATURES -->
+    <section class="features">
+        <div class="section-header reveal">
+            <h2>Architectural Excellence</h2>
+            <div class="gold-line"></div>
+            <p>A landmark mixed-use development blending residential luxury with premium commercial spaces, designed to international standards in the heart of Addis Ababa.</p>
+        </div>
 
-<!-- CONTACT -->
-<section class="contact-section" id="contact">
-  <div class="section">
-    <div class="section-header fade-in">
-      <span class="section-label">Get in Touch</span>
-      <h2>Begin Your Journey Home</h2>
-      <p class="subtitle">Connect with our brokerage team to schedule a private viewing or reserve your unit today.</p>
-    </div>
-    <div class="contact-cards">
-      <a href="https://wa.me/251922466797" target="_blank" class="contact-card whatsapp fade-in">
-        <div class="contact-icon">&#128172;</div>
-        <h4>WhatsApp</h4>
-        <p class="contact-info">+251 922 466 797</p>
-      </a>
-      <a href="mailto:mussie@equaltradeglobal.org" class="contact-card email fade-in">
-        <div class="contact-icon">&#9993;</div>
-        <h4>Email</h4>
-        <p class="contact-info">mussie@equaltradeglobal.org</p>
-      </a>
-    </div>
-  </div>
-</section>
+        <div class="mag-grid">
+            <div class="mag-card large reveal">
+                <div class="mag-card-img" style="background-image: url('https://images.bayut.com/8e28f06311448aed0527d199260527f9ec1a5a44.jpeg');"></div>
+                <div class="mag-card-overlay"></div>
+                <div class="mag-card-content">
+                    <span class="mag-card-tag">Residential</span>
+                    <h3>1,086 Premium Apartments</h3>
+                    <p>Two iconic residential towers offering a diverse selection of studio, one, two, and three-bedroom units with panoramic city views.</p>
+                </div>
+            </div>
 
-<!-- FOOTER -->
-<footer class="footer">
-  <p><strong>Reportage Real Estate One Member PLC</strong> &mdash; Principal Registration: EIA/PC/14/706/1174488890/2018</p>
-  <p style="margin-top: 0.5rem;">Addis Ababa, Ethiopia &copy; 2026. All rights reserved.</p>
-</footer>
+            <div class="mag-card medium reveal">
+                <div class="mag-card-img" style="background-image: url('https://api.eplogoffplan.com/90ba1d34e40e47e4af89fc6ea87e6839bf6124f7.webp');"></div>
+                <div class="mag-card-overlay"></div>
+                <div class="mag-card-content">
+                    <span class="mag-card-tag">Commercial</span>
+                    <h3>15,000 m² Retail & Office</h3>
+                    <p>Vibrant commercial podium with shops, restaurants, and business centers at your doorstep.</p>
+                </div>
+            </div>
 
-<script>
-// Simple scroll animation
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.1 });
+            <div class="mag-card small reveal">
+                <div class="mag-card-img" style="background-image: url('https://cdn.prod.website-files.com/276952e7814fbe4c9a34b44e47228e557a060d00.webp');"></div>
+                <div class="mag-card-overlay"></div>
+                <div class="mag-card-content">
+                    <span class="mag-card-tag">Lifestyle</span>
+                    <h3>Landscaped Green Areas</h3>
+                    <p>Recreational facilities and lush gardens for serene urban living.</p>
+                </div>
+            </div>
 
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-</script>
+            <div class="mag-card wide reveal">
+                <div class="mag-card-img" style="background-image: url('https://avatars.housearch.com/d9af6165f9a7572d229313f83b3592e731e9330d');"></div>
+                <div class="mag-card-overlay"></div>
+                <div class="mag-card-content">
+                    <span class="mag-card-tag">Design</span>
+                    <h3>Internationally Inspired Architecture</h3>
+                    <p>Contemporary facades with floor-to-ceiling glazing, expansive balconies, and premium finishes throughout.</p>
+                </div>
+            </div>
+        </div>
 
+        <div class="feature-list">
+            <div class="feature-item reveal">
+                <div class="feature-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                </div>
+                <h4>Modern Living Spaces</h4>
+                <p>Open-plan layouts with smart home integration, premium fixtures, and natural lighting designed for comfort and elegance.</p>
+            </div>
+
+            <div class="feature-item reveal">
+                <div class="feature-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                </div>
+                <h4>Secure Gated Community</h4>
+                <p>24/7 security, controlled access, and dedicated parking ensure peace of mind for residents and their families.</p>
+            </div>
+
+            <div class="feature-item reveal">
+                <div class="feature-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                </div>
+                <h4>Prime City Location</h4>
+                <p>Situated in Lideta, one of Addis Ababa's most dynamic districts, with excellent connectivity to the city center and airport.</p>
+            </div>
+
+            <div class="feature-item reveal">
+                <div class="feature-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
+                <h4>Flexible Payment Plans</h4>
+                <p>Attractive installment options and competitive pricing make owning your dream home more accessible than ever.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats-bar">
+        <div class="stats-grid">
+            <div class="stat-item reveal">
+                <h3>23,000</h3>
+                <p>Square Meters</p>
+            </div>
+            <div class="stat-item reveal">
+                <h3>1,086</h3>
+                <p>Apartments</p>
+            </div>
+            <div class="stat-item reveal">
+                <h3>15,000</h3>
+                <p>m² Commercial</p>
+            </div>
+            <div class="stat-item reveal">
+                <h3>20+</h3>
+                <p>Countries Present</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION -->
+    <section class="location">
+        <div class="location-grid">
+            <div class="location-content reveal">
+                <h2>A Location That <em style="color: var(--reportage-gold);">Defines</em> Convenience</h2>
+                <p>Reportage Towers sits at the crossroads of Addis Ababa's commercial and cultural heartbeat. Lideta Sub City offers unmatched access to government offices, international organizations, shopping districts, and the city's finest dining.</p>
+
+                <div class="location-detail">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    <div>
+                        <strong>Exact Address</strong>
+                        <span>Lideta Sub City, Woreda 10, Addis Ababa, Ethiopia</span>
+                    </div>
+                </div>
+
+                <div class="location-detail">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                    <div>
+                        <strong>Title Deed</strong>
+                        <span>AA000031001022 — Registered & Verified</span>
+                    </div>
+                </div>
+
+                <div class="location-detail">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                    <div>
+                        <strong>Mixed-Use Development</strong>
+                        <span>Residential towers + Commercial podium + Green spaces</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="location-visual reveal">
+                <img src="https://p5.img.cctvpic.com/419e606ab67eef254fa87dc5127e6349e76caa1a.jpg" alt="Addis Ababa Skyline" onerror="this.parentElement.style.background='linear-gradient(135deg, #1a1a2e, #0a0a0a)'; this.parentElement.style.minHeight='400px'; this.style.display='none';">
+                <div class="location-badge">Addis Ababa</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <div class="section-header reveal" style="margin-bottom: 3rem;">
+            <h2>Begin Your Journey</h2>
+            <div class="gold-line"></div>
+            <p>Connect with our brokerage team to schedule a private viewing, request a brochure, or reserve your unit today.</p>
+        </div>
+
+        <div class="contact-grid">
+            <a href="https://wa.me/251922466797" target="_blank" class="contact-card reveal">
+                <div class="contact-card-icon">
+                    <svg fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                </div>
+                <h4>WhatsApp</h4>
+                <p>+251 922 466 797</p>
+                <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.5;">Click to chat instantly</p>
+            </a>
+
+            <a href="mailto:mussie@equaltradeglobal.org" class="contact-card reveal">
+                <div class="contact-card-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                </div>
+                <h4>Email</h4>
+                <p>mussie@equaltradeglobal.org</p>
+                <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.5;">Send us your inquiry</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>Reportage Real Estate One Member PLC · Principal Registration: EIA/PC/14/706/1174488890/2018</p>
+        <p style="margin-top: 0.5rem;">Developed by <strong>Reportage Group</strong> · Headquartered in Abu Dhabi · Operating across 20+ countries</p>
+    </footer>
+
+    <script>
+        // Scroll reveal animation
+        const reveals = document.querySelectorAll('.reveal');
+
+        const revealOnScroll = () => {
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+                const revealPoint = 100;
+
+                if (elementTop < windowHeight - revealPoint) {
+                    el.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
