@@ -1054,7 +1054,20 @@ window.addEventListener('scroll', () => {
 // Mobile menu
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
-navToggle.addEventListener('click', () => {
+// Close collapsible menu on single click outside or on a nav link
+document.addEventListener('click', (e) => {
+  if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !navToggle.contains(e.target)) {
+    navLinks.classList.remove('active');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }
+});
+document.querySelectorAll('#navLinks a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+    navToggle.setAttribute('aria-expanded', 'false');
+  });
+});
+navToggle.addEventListener('click', (e) => {
   const expanded = navToggle.getAttribute('aria-expanded') === 'true';
   navToggle.setAttribute('aria-expanded', !expanded);
   navLinks.classList.toggle('active');
