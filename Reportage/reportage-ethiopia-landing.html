@@ -252,6 +252,7 @@ body { font-family:var(--font-b); color:var(--text); background:var(--bg); line-
 .gal-item img { width:100%; height:100%; object-fit:cover; transition:transform 0.8s var(--ease),filter 0.5s; filter:brightness(0.85); }
 .gal-item:hover img { transform:scale(1.05); filter:brightness(1); }
 .gal-item:first-child { grid-row:span 2; }
+.gal-item:last-child { grid-column:1 / -1; height:320px; }
 .gal-over { position:absolute; bottom:0; left:0; right:0; padding:24px; background:linear-gradient(to top,rgba(0,0,0,0.6),transparent); }
 .gal-label { font-size:0.65rem; text-transform:uppercase; letter-spacing:2px; color:var(--accent); font-weight:600; }
 
@@ -371,6 +372,7 @@ body { font-family:var(--font-b); color:var(--text); background:var(--bg); line-
   .amen-list { grid-template-columns:1fr; }
   .gal-grid { grid-template-columns:1fr; }
   .gal-item:first-child { grid-column:span 1; height:260px; }
+  .gal-item:last-child { height:260px; }
   .foot-grid { grid-template-columns:1fr; gap:32px; }
   .foot-bot { flex-direction:column; text-align:center; }
   .modal { max-height:95vh; }
@@ -869,6 +871,10 @@ body { font-family:var(--font-b); color:var(--text); background:var(--bg); line-
         <img src="https://reportagegroup.com/af/wp-content/uploads/sites/17/interior_reportage_tower_02.webp?w=600&q=80" alt="Master bedroom" loading="lazy">
         <div class="gal-over"><span class="gal-label">Master Bedroom</span></div>
       </div>
+      <div class="gal-item a si a-d3">
+        <img src="https://reportagegroup.com/af/wp-content/uploads/sites/17/extrior_reportage_tower_02.webp?w=1200&q=80" alt="Reportage Towers podium and retail level" loading="lazy">
+        <div class="gal-over"><span class="gal-label">Retail Podium & Street Level</span></div>
+      </div>  
     </div>
   </div>
 </section>
