@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ethiopia EV Charging Network — Sustainable Infrastructure Investment</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg: #fafafa;
+      --color-surface: #ffffff;
+      --color-text: #0f0f0f;
+      --color-text-secondary: #4a4a4a;
+      --color-text-muted: #8a8a8a;
+      --color-border: #e8e8e8;
+      --color-accent: #0a8f5e;
+      --color-accent-light: #e8f5ee;
+      --color-warm: #d4a017;
+      --color-blue: #2563eb;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --radius-xl: 20px;
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 20px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --space-10: 40px;
+      --space-12: 48px;
+      --space-16: 64px;
+      --space-20: 80px;
+      --space-24: 96px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* Navigation */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(250,250,250,0.92); backdrop-filter: blur(16px) saturate(1.2);
+      border-bottom: 1px solid var(--color-border);
+      transition: box-shadow 0.3s ease;
+    }
+    .nav.scrolled { box-shadow: 0 1px 20px rgba(0,0,0,0.06); }
+    .nav-inner {
+      max-width: 1280px; margin: 0 auto; padding: 0 var(--space-5);
+      display: flex; align-items: center; justify-content: space-between; height: 68px;
+    }
+    .nav-logo { 
+      font-weight: 600; font-size: 16px; letter-spacing: -0.02em; 
+      display: flex; align-items: center; gap: var(--space-2);
+    }
+    .nav-logo svg { width: 22px; height: 22px; color: var(--color-accent); }
+    .nav-links { display: flex; gap: var(--space-8); }
+    .nav-links a { 
+      font-size: 14px; font-weight: 500; color: var(--color-text-secondary); 
+      transition: color 0.2s; position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
+      background: var(--color-accent); transition: width 0.3s ease; border-radius: 1px;
+    }
+    .nav-links a:hover { color: var(--color-text); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      padding: 9px 20px; background: var(--color-text); color: #fff;
+      border-radius: var(--radius-sm); font-size: 13px; font-weight: 500;
+      transition: all 0.2s ease; border: none; cursor: pointer;
+    }
+    .nav-cta:hover { opacity: 0.85; transform: translateY(-1px); }
+
+    /* Hero */
+    .hero {
+      position: relative; min-height: 100vh; display: flex; align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background: url('https://kimi-web-img.kimi.ai/img/www.ev24.africa/7cf5d45f70026d2b00ca347e1eb837e1b13e00b7.jpg') center/cover no-repeat;
+    }
+    .hero-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.25) 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 1; max-width: 1280px; margin: 0 auto;
+      padding: var(--space-24) var(--space-5) var(--space-16); width: 100%;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      padding: 8px 18px; background: rgba(255,255,255,0.12); backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.18); border-radius: 100px;
+      color: #fff; font-size: 13px; font-weight: 500; margin-bottom: var(--space-6);
+      animation: fadeInUp 0.8s ease 0.2s both;
+    }
+    .hero-badge svg { width: 14px; height: 14px; }
+    .hero-title {
+      font-size: clamp(36px, 5.5vw, 64px); font-weight: 700; line-height: 1.08;
+      color: #fff; letter-spacing: -0.03em; max-width: 760px; margin-bottom: var(--space-5);
+      animation: fadeInUp 0.8s ease 0.4s both;
+    }
+    .hero-sub {
+      font-size: clamp(16px, 2vw, 20px); color: rgba(255,255,255,0.8);
+      max-width: 580px; line-height: 1.65; margin-bottom: var(--space-10);
+      font-weight: 400; animation: fadeInUp 0.8s ease 0.6s both;
+    }
+    .hero-cta-group { 
+      display: flex; gap: var(--space-3); flex-wrap: wrap; 
+      animation: fadeInUp 0.8s ease 0.8s both;
+    }
+    .hero-cta-primary {
+      padding: 16px 32px; background: #fff; color: var(--color-text);
+      border-radius: var(--radius-sm); font-size: 15px; font-weight: 600;
+      transition: all 0.25s ease; border: none; cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .hero-cta-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.18); }
+    .hero-cta-secondary {
+      padding: 16px 32px; background: rgba(255,255,255,0.1); color: #fff;
+      border-radius: var(--radius-sm); font-size: 15px; font-weight: 500;
+      border: 1px solid rgba(255,255,255,0.3); cursor: pointer; transition: all 0.25s ease;
+      backdrop-filter: blur(4px);
+    }
+    .hero-cta-secondary:hover { background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.45); }
+    .hero-scroll {
+      position: absolute; bottom: var(--space-8); left: 50%; transform: translateX(-50%);
+      z-index: 2; display: flex; flex-direction: column; align-items: center; gap: var(--space-2);
+      color: rgba(255,255,255,0.5); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+      animation: bounce 2s infinite;
+    }
+    .hero-scroll-line {
+      width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+      40% { transform: translateX(-50%) translateY(-8px); }
+      60% { transform: translateX(-50%) translateY(-4px); }
+    }
+
+    /* Stats bar */
+    .stats-bar {
+      background: var(--color-surface); border-bottom: 1px solid var(--color-border);
+      position: relative; z-index: 2;
+    }
+    .stats-bar-inner {
+      max-width: 1280px; margin: 0 auto; padding: var(--space-10) var(--space-5);
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-6);
+    }
+    .stat-item { text-align: center; position: relative; }
+    .stat-item:not(:last-child)::after {
+      content: ''; position: absolute; right: 0; top: 20%; bottom: 20%; width: 1px;
+      background: var(--color-border);
+    }
+    .stat-num {
+      font-size: 40px; font-weight: 700; color: var(--color-text);
+      font-variant-numeric: tabular-nums; line-height: 1; letter-spacing: -0.02em;
+    }
+    .stat-num span { font-size: 20px; font-weight: 500; color: var(--color-text-muted); }
+    .stat-label { font-size: 14px; color: var(--color-text-secondary); margin-top: var(--space-2); font-weight: 400; }
+
+    /* Section base */
+    .section {
+      max-width: 1280px; margin: 0 auto; padding: var(--space-20) var(--space-5);
+    }
+    .section-header { text-align: center; margin-bottom: var(--space-12); }
+    .section-tag {
+      display: inline-block; padding: 5px 14px; background: var(--color-accent-light);
+      color: var(--color-accent); font-size: 12px; font-weight: 600;
+      border-radius: 100px; margin-bottom: var(--space-4); text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    .section-title {
+      font-size: clamp(26px, 3.5vw, 40px); font-weight: 700; line-height: 1.15;
+      letter-spacing: -0.025em; margin-bottom: var(--space-4);
+    }
+    .section-desc {
+      font-size: 18px; color: var(--color-text-secondary); max-width: 640px; margin: 0 auto; line-height: 1.6;
+    }
+
+    /* Three-party cards */
+    .party-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5);
+    }
+    .party-card {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl); overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); position: relative;
+    }
+    .party-card:hover { 
+      box-shadow: 0 24px 60px rgba(0,0,0,0.08); transform: translateY(-6px); 
+      border-color: transparent;
+    }
+    .party-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: var(--color-accent); z-index: 2;
+    }
+    .party-card:nth-child(2)::before { background: var(--color-warm); }
+    .party-card:nth-child(3)::before { background: var(--color-blue); }
+    .party-img-wrap { position: relative; overflow: hidden; height: 200px; }
+    .party-img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .party-card:hover .party-img { transform: scale(1.08); }
+    .party-img-overlay {
+      position: absolute; inset: 0; 
+      background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 60%);
+    }
+    .party-tag-overlay {
+      position: absolute; bottom: var(--space-4); left: var(--space-5);
+      font-size: 11px; font-weight: 600; color: #fff;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      padding: 4px 10px; background: rgba(0,0,0,0.4); backdrop-filter: blur(8px);
+      border-radius: var(--radius-sm);
+    }
+    .party-body { padding: var(--space-6); }
+    .party-name { font-size: 18px; font-weight: 600; margin-bottom: var(--space-2); }
+    .party-desc { font-size: 14px; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: var(--space-5); }
+    .party-meta { display: flex; flex-direction: column; gap: var(--space-3); }
+    .party-meta-item {
+      display: flex; align-items: center; gap: var(--space-3);
+      font-size: 13px; color: var(--color-text-muted);
+    }
+    .party-meta-item svg { width: 16px; height: 16px; flex-shrink: 0; color: var(--color-accent); }
+    .party-card:nth-child(2) .party-meta-item svg { color: var(--color-warm); }
+    .party-card:nth-child(3) .party-meta-item svg { color: var(--color-blue); }
+
+    /* Image-text section */
+    .imgtext-section { 
+      background: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);
+    }
+    .imgtext { 
+      max-width: 1280px; margin: 0 auto; padding: var(--space-20) var(--space-5);
+      display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12); align-items: center;
+    }
+    .imgtext-img { border-radius: var(--radius-xl); overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.1); }
+    .imgtext-img img { width: 100%; height: 480px; object-fit: cover; transition: transform 0.6s ease; }
+    .imgtext-img:hover img { transform: scale(1.03); }
+    .imgtext-content .section-tag { margin-bottom: var(--space-4); }
+    .imgtext-content h3 { font-size: 32px; font-weight: 700; margin-bottom: var(--space-4); line-height: 1.2; letter-spacing: -0.02em; }
+    .imgtext-content p { font-size: 16px; color: var(--color-text-secondary); margin-bottom: var(--space-5); line-height: 1.7; }
+    .imgtext-list { list-style: none; }
+    .imgtext-list li {
+      display: flex; align-items: flex-start; gap: var(--space-3);
+      font-size: 15px; color: var(--color-text-secondary); margin-bottom: var(--space-4);
+    }
+    .imgtext-list li svg { width: 20px; height: 20px; color: var(--color-accent); flex-shrink: 0; margin-top: 2px; }
+    .imgtext-list li strong { color: var(--color-text); font-weight: 600; }
+
+    /* Roadmap */
+    .timeline { 
+      max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 0; position: relative;
+    }
+    .timeline::before {
+      content: ''; position: absolute; left: 28px; top: 0; bottom: 0; width: 2px;
+      background: linear-gradient(to bottom, var(--color-border), var(--color-accent), var(--color-border));
+    }
+    .tl-item { display: flex; gap: var(--space-6); padding: var(--space-6) 0; position: relative; }
+    .tl-marker {
+      width: 56px; height: 56px; border-radius: 50%; background: var(--color-surface);
+      border: 2px solid var(--color-border); display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; z-index: 1; font-size: 13px; font-weight: 700; color: var(--color-text-muted);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06); transition: all 0.3s ease;
+    }
+    .tl-item:hover .tl-marker { transform: scale(1.1); }
+    .tl-item.active .tl-marker { 
+      border-color: var(--color-accent); color: var(--color-accent); background: var(--color-accent-light);
+      box-shadow: 0 4px 16px rgba(10,143,94,0.2);
+    }
+    .tl-item.completed .tl-marker { 
+      border-color: var(--color-text); color: #fff; background: var(--color-text);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+    .tl-content { padding-top: var(--space-1); flex: 1; }
+    .tl-phase { font-size: 19px; font-weight: 600; margin-bottom: var(--space-2); letter-spacing: -0.01em; }
+    .tl-desc { font-size: 15px; color: var(--color-text-secondary); line-height: 1.65; margin-bottom: var(--space-3); }
+    .tl-year { 
+      display: inline-block; font-size: 12px; color: var(--color-text-muted); font-weight: 600;
+      padding: 3px 10px; background: var(--color-bg); border-radius: 100px; letter-spacing: 0.02em;
+    }
+    .tl-item.active .tl-year { background: var(--color-accent-light); color: var(--color-accent); }
+
+    /* Sustainability grid */
+    .sus-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-5); }
+    .sus-card {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl); overflow: hidden; display: flex; flex-direction: column;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .sus-card:hover { box-shadow: 0 20px 50px rgba(0,0,0,0.07); transform: translateY(-4px); border-color: transparent; }
+    .sus-card-img { height: 220px; overflow: hidden; position: relative; }
+    .sus-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .sus-card:hover .sus-card-img img { transform: scale(1.06); }
+    .sus-card-img::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.25), transparent 50%);
+    }
+    .sus-card-body { padding: var(--space-6); }
+    .sus-card-icon {
+      width: 44px; height: 44px; border-radius: var(--radius-md);
+      background: var(--color-accent-light); color: var(--color-accent);
+      display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-4);
+    }
+    .sus-card-icon svg { width: 22px; height: 22px; }
+    .sus-card-title { font-size: 18px; font-weight: 600; margin-bottom: var(--space-2); letter-spacing: -0.01em; }
+    .sus-card-text { font-size: 14px; color: var(--color-text-secondary); line-height: 1.65; }
+
+    /* Financial section */
+    .financial-section { background: var(--color-surface); border-top: 1px solid var(--color-border); }
+    .financial-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-10); align-items: center;
+      max-width: 1280px; margin: 0 auto; padding: var(--space-20) var(--space-5);
+    }
+    .financial-content .section-tag { margin-bottom: var(--space-4); }
+    .financial-content h3 { font-size: 32px; font-weight: 700; margin-bottom: var(--space-4); line-height: 1.2; letter-spacing: -0.02em; }
+    .financial-content p { font-size: 16px; color: var(--color-text-secondary); margin-bottom: var(--space-5); line-height: 1.7; }
+    .dividend-table {
+      width: 100%; border-collapse: collapse; margin-top: var(--space-5);
+    }
+    .dividend-table th, .dividend-table td {
+      padding: var(--space-3) var(--space-4); text-align: left; font-size: 14px;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .dividend-table th {
+      font-weight: 600; color: var(--color-text-muted); text-transform: uppercase; font-size: 11px; letter-spacing: 0.06em;
+      background: var(--color-bg);
+    }
+    .dividend-table td { color: var(--color-text-secondary); }
+    .dividend-table td strong { color: var(--color-text); font-weight: 600; }
+    .dividend-table tr:last-child td { border-bottom: none; }
+    .financial-img { border-radius: var(--radius-xl); overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.1); }
+    .financial-img img { width: 100%; height: 480px; object-fit: cover; }
+
+    /* CTA */
+    .cta-section {
+      background: var(--color-text); color: #fff; text-align: center; padding: var(--space-20) var(--space-5);
+      position: relative; overflow: hidden;
+    }
+    .cta-section::before {
+      content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+      background: radial-gradient(circle at 30% 50%, rgba(10,143,94,0.08) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 50%, rgba(212,160,23,0.06) 0%, transparent 50%);
+    }
+    .cta-section-inner { max-width: 640px; margin: 0 auto; position: relative; z-index: 1; }
+    .cta-section h2 { font-size: 36px; font-weight: 700; margin-bottom: var(--space-4); letter-spacing: -0.02em; }
+    .cta-section p { font-size: 17px; color: rgba(255,255,255,0.6); margin-bottom: var(--space-8); line-height: 1.6; }
+    .cta-btn {
+      padding: 18px 40px; background: #fff; color: var(--color-text);
+      border-radius: var(--radius-sm); font-size: 16px; font-weight: 600;
+      border: none; cursor: pointer; transition: all 0.25s ease;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.25); }
+    .cta-note { 
+      margin-top: var(--space-6); font-size: 13px; color: rgba(255,255,255,0.4);
+      display: flex; align-items: center; justify-content: center; gap: var(--space-4);
+    }
+    .cta-note span { display: flex; align-items: center; gap: var(--space-2); }
+    .cta-note svg { width: 14px; height: 14px; }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--color-border); padding: var(--space-10) var(--space-5);
+      text-align: center; font-size: 13px; color: var(--color-text-muted); background: var(--color-surface);
+    }
+    .footer p { margin-bottom: var(--space-2); }
+    .footer-links { display: flex; justify-content: center; gap: var(--space-6); margin-top: var(--space-4); }
+    .footer-links a { transition: color 0.2s; }
+    .footer-links a:hover { color: var(--color-text); }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0; transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .stats-bar-inner { grid-template-columns: repeat(2, 1fr); }
+      .stat-item:not(:last-child)::after { display: none; }
+      .party-grid { grid-template-columns: 1fr; }
+      .imgtext { grid-template-columns: 1fr; }
+      .imgtext-img img { height: 320px; }
+      .sus-grid { grid-template-columns: 1fr; }
+      .financial-grid { grid-template-columns: 1fr; }
+      .financial-img img { height: 320px; }
+      .nav-links { display: none; }
+      .hero-title { font-size: 32px; }
+    }
+    @media (max-width: 520px) {
+      .stats-bar-inner { grid-template-columns: 1fr; }
+      .hero-title { font-size: 28px; }
+      .section { padding: var(--space-12) var(--space-4); }
+      .imgtext { padding: var(--space-12) var(--space-4); }
+      .cta-section h2 { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        Ethiopia EV Charging Network
+      </div>
+      <div class="nav-links">
+        <a href="#structure">Structure</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#sustainability">Sustainability</a>
+        <a href="#financials">Financials</a>
+      </div>
+      <a href="#contact" class="nav-cta">Get involved</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+        Ethiopia National EV Infrastructure Initiative
+      </div>
+      <h1 class="hero-title">Electric Vehicle Charging Network for Sustainable Ethiopia</h1>
+      <p class="hero-sub">Building a nationwide EV charging backbone aligned with Ethiopia's 10-Year Development Plan. A three-party joint venture combining local capital, Chinese EV technology, and cross-border coordination.</p>
+      <div class="hero-cta-group">
+        <button class="hero-cta-primary" onclick="document.getElementById('structure').scrollIntoView({behavior:'smooth'})">Explore the structure</button>
+        <button class="hero-cta-secondary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Request prospectus</button>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <div class="stats-bar">
+    <div class="stats-bar-inner">
+      <div class="stat-item reveal">
+        <div class="stat-num">350<span>+</span></div>
+        <div class="stat-label">Charging stations by 2027</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-num">4,200</div>
+        <div class="stat-label">Charging piles Phase I</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-num">$35<span>M</span></div>
+        <div class="stat-label">Phase I total investment</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-num">100<span>%</span></div>
+        <div class="stat-label">Green energy powered</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Three-party structure -->
+  <section class="section" id="structure">
+    <div class="section-header reveal">
+      <span class="section-tag">Cooperation Model</span>
+      <h2 class="section-title">Three-Party Joint Venture Structure</h2>
+      <p class="section-desc">A special purpose vehicle (SPV) jointly established to oversee investment, construction, and nationwide operation of charging infrastructure across Ethiopia.</p>
+    </div>
+    <div class="party-grid">
+      <div class="party-card reveal">
+        <div class="party-img-wrap">
+          <img class="party-img" src="https://kimi-web-img.kimi.ai/img/upload.wikimedia.org/7f789f0ec8a7f67f45a28160ab25aafbab0345ce.jpg" alt="Addis Ababa Meskel Square skyline — Ethiopian local operator">
+          <div class="party-img-overlay"></div>
+          <span class="party-tag-overlay">Party A</span>
+        </div>
+        <div class="party-body">
+          <h3 class="party-name">Ethiopian Local Operator</h3>
+          <p class="party-desc">Holds franchise rights for the project, fully bears all capital investment, and manages land formalities, government approvals, and local operations across Ethiopia.</p>
+          <div class="party-meta">
+            <div class="party-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              Full cash contribution ($10M+ registered capital)
+            </div>
+            <div class="party-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              Bears operational risks jointly with Party B
+            </div>
+            <div class="party-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+              67.5% dividends pre-payback / 47.5% post-payback
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="party-card reveal">
+        <div class="party-img-wrap">
+          <img class="party-img" src="https://kimi-web-img.kimi.ai/img/carnewschina.com/4ed6fc4ff3061331353d115523cd86abe3d2ad97.jpg" alt="BYD megawatt charging station — Chinese EV equipment manufacturer">
+          <div class="party-img-overlay"></div>
+          <span class="party-tag-overlay">Party B</span>
+        </div>
+        <div class="party-body">
+          <h3 class="party-name">Chinese Equipment &amp; Tech Supplier</h3>
+          <p class="party-desc">Leading Chinese EV charging manufacturer providing full industrial chain R&amp;D, production capacity, 5-year warranty, and long-term spare parts supply as equity contribution.</p>
+          <div class="party-meta">
+            <div class="party-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              Equipment, technology &amp; 5-year warranty as equity
+            </div>
+            <div class="party-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              Bears operational risks jointly with Party A
+            </div>
+            <div class="party-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+              27.5% dividends pre-payback / 47.5% post-payback
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="party-card reveal">
+        <div class="party-img-wrap">
+          <img class="party-img" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="Cross-border business coordination">
+          <div class="party-img-overlay"></div>
+          <span class="party-tag-overlay">Party C</span>
+        </div>
+        <div class="party-body">
+          <h3 class="party-name">Cross-border Coordinator</h3>
+          <p class="party-desc">Coordinates cross-border investment, government-enterprise relations, digital charging platform development, and long-term O&amp;M services.</p>
+          <div class="party-meta">
+            <div class="party-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              Platform development &amp; business coordination
+            </div>
+            <div class="party-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+              No operational risk or debt liability
+            </div>
+            <div class="party-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+              Fixed 5% after-tax net profit dividend permanently
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision -->
+  <section class="imgtext-section">
+    <div class="imgtext">
+      <div class="imgtext-img reveal">
+        <img src="https://kimi-web-img.kimi.ai/img/ekoenergetyka.com/ef8a73efa98136e82aa54b7e67e4a5735295f700.jpg" alt="Modern EV fast charging station at night">
+      </div>
+      <div class="imgtext-content reveal">
+        <span class="section-tag">Project Vision</span>
+        <h3>Electrifying Ethiopia's Transportation Future</h3>
+        <p>Ethiopia's 10-Year Development Plan and climate commitments position the country as a leader in green mobility across East Africa. This project delivers the critical charging backbone needed to accelerate EV adoption nationwide.</p>
+        <ul class="imgtext-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+            <span><strong>Full-chain R&amp;D and production</strong> from leading Chinese EV charging manufacturers including BYD, XCharge, and Star Charge</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+            <span><strong>Digital charging platform</strong> with user app, management back-end, load dispatching, and remote equipment monitoring</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+            <span><strong>Step dividend structure</strong> ensuring investor protection and long-term profit sharing between all parties</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Roadmap -->
+  <section class="section" id="roadmap">
+    <div class="section-header reveal">
+      <span class="section-tag">Implementation</span>
+      <h2 class="section-title">Project Roadmap</h2>
+      <p class="section-desc">Strategic phased deployment from pilot stations in Addis Ababa to nationwide coverage and local manufacturing.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item completed reveal">
+        <div class="tl-marker">Q3</div>
+        <div class="tl-content">
+          <div class="tl-phase">Foundation &amp; Agreements</div>
+          <div class="tl-desc">Signing of all complete cooperation agreements, joint venture SPV registration in Ethiopia, legal framework establishment, and intermediary service agreements.</div>
+          <div class="tl-year">2026 — Quarter 3</div>
+        </div>
+      </div>
+      <div class="tl-item active reveal">
+        <div class="tl-marker">I</div>
+        <div class="tl-content">
+          <div class="tl-phase">Phase I — Pilot &amp; Nationwide Rollout</div>
+          <div class="tl-desc">Deploy 2,800–4,200 charging piles across 700+ existing gas station sites. Launch pilot stations in Addis Ababa in 2026, then promote nationwide rollout in 2027.</div>
+          <div class="tl-year">2026 – 2027</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-marker">II</div>
+        <div class="tl-content">
+          <div class="tl-phase">Phase II — Urban &amp; Highway Expansion</div>
+          <div class="tl-desc">Add 300–500 new charging stations in shopping malls, industrial parks, residential communities, and highway service areas across Ethiopia.</div>
+          <div class="tl-year">2028 – 2030</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-marker">LT</div>
+        <div class="tl-content">
+          <div class="tl-phase">Long-term — Local Production &amp; V2G</div>
+          <div class="tl-desc">Establish local charging pile production line, deploy energy storage cascade utilization and vehicle-grid interaction (V2G) services, and replicate the model across East Africa.</div>
+          <div class="tl-year">2031 – 2035</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sustainability -->
+  <section class="section" id="sustainability" style="background: var(--color-surface); border-top: 1px solid var(--color-border);">
+    <div class="section-header reveal">
+      <span class="section-tag">Green Growth</span>
+      <h2 class="section-title">Sustainable Development Focus</h2>
+      <p class="section-desc">Aligned with Ethiopia's climate resilience goals and green economy transition.</p>
+    </div>
+    <div class="sus-grid">
+      <div class="sus-card reveal">
+        <div class="sus-card-img">
+          <img src="https://kimi-web-img.kimi.ai/img/empowerafrica.com/4e03865a09247e218947e4d0308b22eeccb6b0d3.jpg" alt="Solar-powered EV charging">
+        </div>
+        <div class="sus-card-body">
+          <div class="sus-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <h3 class="sus-card-title">Carbon Neutrality Alignment</h3>
+          <p class="sus-card-text">All charging infrastructure powered by Ethiopia's abundant hydro, wind, and solar resources. A true zero-emission transport ecosystem from generation to wheel.</p>
+        </div>
+      </div>
+      <div class="sus-card reveal">
+        <div class="sus-card-img">
+          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80" alt="Local team training and job creation">
+        </div>
+        <div class="sus-card-body">
+          <div class="sus-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="sus-card-title">Local Job Creation</h3>
+          <p class="sus-card-text">Comprehensive training programs for local O&amp;M teams, engineering roles, and manufacturing positions as production lines localize by 2031.</p>
+        </div>
+      </div>
+      <div class="sus-card reveal">
+        <div class="sus-card-img">
+          <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=800&q=80" alt="Solar panels and energy storage">
+        </div>
+        <div class="sus-card-body">
+          <div class="sus-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V6a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v14"/><path d="M2 20h20"/><path d="M14 12v.01"/></svg>
+          </div>
+          <h3 class="sus-card-title">Energy Storage Integration</h3>
+          <p class="sus-card-text">Second-life battery utilization and grid-balancing vehicle-to-grid (V2G) services to stabilize renewable energy supply and maximize asset value.</p>
+        </div>
+      </div>
+      <div class="sus-card reveal">
+        <div class="sus-card-img">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Digital technology platform">
+        </div>
+        <div class="sus-card-body">
+          <div class="sus-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3 class="sus-card-title">Digital Smart Platform</h3>
+          <p class="sus-card-text">AI-powered load dispatching, remote equipment monitoring, and a user-friendly mobile app delivering a seamless charging experience nationwide.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Financials -->
+  <section class="financial-section" id="financials">
+    <div class="financial-grid">
+      <div class="financial-content reveal">
+        <span class="section-tag">Financial Structure</span>
+        <h3>Investor-Protective Dividend Model</h3>
+        <p>The project employs a two-stage step dividend mechanism that prioritizes capital recovery for the cash-contributing party before shifting to equal profit sharing.</p>
+        <table class="dividend-table">
+          <thead>
+            <tr>
+              <th>Party</th>
+              <th>Pre-Payback</th>
+              <th>Post-Payback</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Party A</strong> (Local Operator)</td>
+              <td><strong>67.5%</strong></td>
+              <td><strong>47.5%</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Party B</strong> (Tech Supplier)</td>
+              <td><strong>27.5%</strong></td>
+              <td><strong>47.5%</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Party C</strong> (Coordinator)</td>
+              <td><strong>Fixed 5%</strong></td>
+              <td><strong>Fixed 5%</strong></td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="margin-top: var(--space-4); font-size: 13px; color: var(--color-text-muted);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;display:inline;vertical-align:middle;margin-right:4px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          Payback node verified by jointly entrusted CMA-certified audit institution. Party C bears no operational risk.
+        </p>
+      </div>
+      <div class="financial-img reveal">
+        <img src="https://kimi-web-img.kimi.ai/img/chargedevs.com/c9e77576c5e3c2df6084927bd5ef6700c2037b01.jpg" alt="XCharge EV charging equipment lineup">
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="contact">
+    <div class="cta-section-inner">
+      <h2>Ready to power Ethiopia's EV future?</h2>
+      <p>Joint venture SPV registration opens Q3 2026. Early engagement and partnership discussions are welcome. Request the full investment prospectus and memorandum of understanding.</p>
+      <button class="cta-btn">Request investment prospectus</button>
+      <div class="cta-note">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg> info@ethiopia-ev.com</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Addis Ababa, Ethiopia</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p><strong>Ethiopia National EV Charging Infrastructure Project</strong> — Memorandum of Understanding Framework</p>
+    <p>Sustainable Development &nbsp;·&nbsp; Green Growth &nbsp;·&nbsp; East Africa Electrification</p>
+    <div class="footer-links">
+      <a href="#structure">Structure</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#sustainability">Sustainability</a>
+      <a href="#financials">Financials</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
