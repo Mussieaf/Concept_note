@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Reportage Towers Ethiopia | Priority Buyer Access Opposite the African Union</title>
+<meta name="description" content="Reportage Towers Ethiopia - 1,086 premium residences opposite the African Union Headquarters. Studios, 1BR, 2BR. Reserve from anywhere in the world.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAFAF8; --bg-warm: #F3F1EC; --bg-dark: #0F0F0F;
+  --text: #1A1A1A; --text-sec: #5A5A5A; --text-muted: #8C8C8C;
+  --accent: #C5A059; --accent-dark: #A8853D; --accent-light: #E8D5A8;
+  --white: #FFFFFF; --border: rgba(0,0,0,0.06); --border-dark: rgba(255,255,255,0.08);
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; font-size:16px; }
+body { font-family:var(--font-body); color:var(--text); background:var(--bg); line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden; width:100%; }
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(50px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+@keyframes scaleIn { from{opacity:0;transform:scale(0.92)} to{opacity:1;transform:scale(1)} }
+@keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.04)} }
+
+.reveal { opacity:0; transform:translateY(40px); transition:all 0.9s var(--ease-out); }
+.reveal.visible { opacity:1; transform:translateY(0); }
+.reveal-d1 { transition-delay:0.1s; } .reveal-d2 { transition-delay:0.2s; }
+.reveal-d3 { transition-delay:0.3s; } .reveal-d4 { transition-delay:0.4s; }
+.reveal-d5 { transition-delay:0.5s; }
+
+.nav { position:fixed; top:0; left:0; right:0; z-index:1000; padding:18px 0; transition:all 0.4s var(--ease-smooth); background:transparent; }
+.nav.scrolled { background:rgba(250,250,248,0.96); backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px); box-shadow:0 1px 0 var(--border); padding:12px 0; }
+.nav-inner { max-width:1400px; margin:0 auto; padding:0 24px; display:flex; justify-content:space-between; align-items:center; }
+.nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
+.nav-logo-text { font-family:var(--font-display); font-size:1.5rem; font-weight:600; color:var(--text); letter-spacing:0.5px; }
+.nav-logo-text span { color:var(--accent); }
+.nav-links { display:flex; gap:32px; align-items:center; }
+.nav-links a { font-size:0.75rem; font-weight:500; text-transform:uppercase; letter-spacing:1.8px; color:var(--text); text-decoration:none; position:relative; padding-bottom:4px; transition:color 0.3s; }
+.nav-links a::after { content:''; position:absolute; bottom:0; left:0; width:0; height:1.5px; background:var(--accent); transition:width 0.35s var(--ease-out); }
+.nav-links a:hover::after { width:100%; }
+.nav-links a:hover { color:var(--accent-dark); }
+.nav-cta { background:var(--text); color:var(--white) !important; padding:10px 22px !important; font-size:0.7rem !important; letter-spacing:1.5px; font-weight:600; transition:all 0.3s var(--ease-out); }
+.nav-cta::after { display:none !important; }
+.nav-cta:hover { background:var(--accent); color:var(--text) !important; transform:translateY(-1px); }
+.nav-mobile-btn { display:none; background:none; border:none; cursor:pointer; padding:8px; flex-direction:column; gap:5px; }
+.nav-mobile-btn span { display:block; width:24px; height:1.5px; background:var(--text); transition:all 0.3s; }
+
+.hero { position:relative; width:100vw; min-height:100vh; overflow:hidden; display:flex; flex-direction:column; justify-content:center; align-items:center; }
+.hero-media { position:absolute; inset:0; z-index:0; }
+.hero-media img { width:100%; height:100%; object-fit:cover; object-position:center 30%; filter:brightness(0.55) contrast(1.1); }
+.hero-media::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.6) 100%); }
+.hero-content { position:relative; z-index:2; text-align:center; color:var(--white); max-width:900px; padding:140px 24px 80px; width:100%; }
+.hero-eyebrow { display:inline-flex; align-items:center; gap:14px; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:3px; color:var(--accent-light); margin-bottom:24px; }
+.hero-eyebrow::before, .hero-eyebrow::after { content:''; width:40px; height:1px; background:var(--accent); }
+.hero-title { font-family:var(--font-display); font-size:clamp(2.6rem, 6vw, 5rem); font-weight:300; line-height:1.05; margin-bottom:20px; letter-spacing:-1px; }
+.hero-title em { font-style:italic; font-weight:400; color:var(--accent-light); }
+.hero-subtitle { font-size:clamp(1rem, 1.8vw, 1.25rem); font-weight:300; line-height:1.7; color:rgba(255,255,255,0.85); max-width:680px; margin:0 auto 40px; }
+.hero-ctas { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+.btn { display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:16px 36px; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:1.5px; text-decoration:none; transition:all 0.4s var(--ease-out); cursor:pointer; border:none; font-family:var(--font-body); position:relative; overflow:hidden; }
+.btn-gold { background:var(--accent); color:var(--text); }
+.btn-gold:hover { background:var(--accent-light); transform:translateY(-2px); box-shadow:0 12px 40px rgba(197,160,89,0.3); }
+.btn-outline { background:transparent; color:var(--white); border:1.5px solid rgba(255,255,255,0.35); }
+.btn-outline:hover { border-color:var(--white); background:rgba(255,255,255,0.08); }
+.btn-dark { background:var(--text); color:var(--white); }
+.btn-dark:hover { background:var(--accent); color:var(--text); }
+.btn-ghost { background:transparent; color:var(--text); border:1.5px solid var(--border); }
+.btn-ghost:hover { border-color:var(--text); }
+
+.hero-stats { position:absolute; bottom:0; left:0; right:0; z-index:3; display:grid; grid-template-columns:repeat(4, 1fr); background:rgba(0,0,0,0.5); backdrop-filter:blur(12px); border-top:1px solid rgba(255,255,255,0.1); }
+.hero-stat { text-align:center; padding:28px 16px; border-right:1px solid rgba(255,255,255,0.08); }
+.hero-stat:last-child { border-right:none; }
+.hero-stat-num { font-family:var(--font-display); font-size:clamp(1.8rem, 3vw, 2.6rem); font-weight:300; color:var(--accent-light); line-height:1; }
+.hero-stat-label { font-size:0.65rem; text-transform:uppercase; letter-spacing:2px; color:rgba(255,255,255,0.5); margin-top:8px; font-weight:500; }
+
+.section { padding:100px 0; position:relative; width:100%; }
+.section-inner { max-width:1280px; margin:0 auto; padding:0 24px; }
+.section-eyebrow { font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:3px; color:var(--accent-dark); margin-bottom:16px; display:flex; align-items:center; gap:16px; }
+.section-eyebrow::before { content:''; width:40px; height:1px; background:var(--accent); }
+.section-title { font-family:var(--font-display); font-size:clamp(2rem, 4.5vw, 3.4rem); font-weight:300; line-height:1.1; color:var(--text); margin-bottom:20px; }
+.section-title em { font-style:italic; font-weight:400; color:var(--accent-dark); }
+.section-desc { font-size:1.05rem; color:var(--text-sec); line-height:1.8; max-width:640px; font-weight:300; }
+
+.qual-bar { background:var(--bg-warm); padding:60px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+.qual-bar-inner { max-width:1280px; margin:0 auto; padding:0 24px; text-align:center; }
+.qual-bar-title { font-family:var(--font-display); font-size:clamp(1.6rem, 3vw, 2.4rem); font-weight:300; margin-bottom:12px; }
+.qual-bar-sub { font-size:0.95rem; color:var(--text-sec); margin-bottom:32px; font-weight:300; }
+.qual-steps { display:grid; grid-template-columns:repeat(5, 1fr); gap:16px; max-width:1000px; margin:0 auto; }
+.qual-step { background:var(--white); border:1px solid var(--border); padding:20px 16px; text-align:center; transition:all 0.4s var(--ease-out); cursor:pointer; }
+.qual-step:hover { border-color:var(--accent); transform:translateY(-4px); box-shadow:0 12px 32px rgba(0,0,0,0.06); }
+.qual-step-num { width:36px; height:36px; border-radius:50%; background:var(--bg-warm); display:flex; align-items:center; justify-content:center; margin:0 auto 12px; font-family:var(--font-display); font-size:1rem; font-weight:600; color:var(--accent-dark); }
+.qual-step h4 { font-size:0.8rem; font-weight:600; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px; }
+.qual-step p { font-size:0.75rem; color:var(--text-muted); line-height:1.4; }
+
+.about { background:var(--bg); }
+.about-grid { display:grid; grid-template-columns:1.1fr 1fr; gap:70px; align-items:center; }
+.about-text .section-desc { margin-bottom:16px; }
+.about-quote { font-family:var(--font-display); font-size:1.3rem; font-style:italic; font-weight:300; color:var(--text-sec); line-height:1.6; margin-top:32px; padding-left:24px; border-left:2px solid var(--accent); }
+.about-quote cite { display:block; font-family:var(--font-body); font-size:0.75rem; font-style:normal; font-weight:500; color:var(--text-muted); margin-top:12px; text-transform:uppercase; letter-spacing:1.5px; }
+.about-visual { position:relative; }
+.about-visual img { width:100%; height:480px; object-fit:cover; }
+.about-visual::before { content:''; position:absolute; top:24px; left:-24px; width:100%; height:100%; border:1px solid var(--accent); z-index:-1; opacity:0.35; }
+
+.facts { background:var(--bg-dark); color:var(--white); padding:80px 0; }
+.facts-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:0; }
+.fact-item { text-align:center; padding:32px 20px; border-right:1px solid var(--border-dark); }
+.fact-item:last-child { border-right:none; }
+.fact-num { font-family:var(--font-display); font-size:clamp(2.4rem, 4vw, 3.2rem); font-weight:300; color:var(--accent); line-height:1; margin-bottom:10px; }
+.fact-label { font-size:0.7rem; text-transform:uppercase; letter-spacing:2px; color:rgba(255,255,255,0.5); font-weight:500; }
+.fact-detail { font-size:0.8rem; color:rgba(255,255,255,0.35); margin-top:8px; font-weight:300; }
+
+.segments { background:var(--bg-warm); }
+.segments-header { text-align:center; max-width:700px; margin:0 auto 60px; }
+.segments-header .section-eyebrow { justify-content:center; }
+.segments-header .section-eyebrow::before { display:none; }
+.segments-header .section-eyebrow::after { content:''; width:40px; height:1px; background:var(--accent); margin-left:16px; }
+.segments-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:24px; }
+.segment-card { background:var(--white); border:1px solid var(--border); padding:40px 36px; transition:all 0.5s var(--ease-out); position:relative; overflow:hidden; }
+.segment-card::before { content:''; position:absolute; top:0; left:0; width:4px; height:0; background:var(--accent); transition:height 0.5s var(--ease-out); }
+.segment-card:hover { transform:translateY(-6px); box-shadow:0 20px 50px rgba(0,0,0,0.07); }
+.segment-card:hover::before { height:100%; }
+.segment-icon { font-size:2rem; margin-bottom:16px; }
+.segment-card h3 { font-family:var(--font-display); font-size:1.5rem; font-weight:400; margin-bottom:10px; }
+.segment-card p { font-size:0.9rem; color:var(--text-sec); line-height:1.7; font-weight:300; margin-bottom:20px; }
+.segment-tags { display:flex; flex-wrap:wrap; gap:8px; }
+.segment-tag { font-size:0.65rem; text-transform:uppercase; letter-spacing:1.5px; background:var(--bg-warm); color:var(--text-muted); padding:6px 12px; font-weight:500; }
+
+.residences { background:var(--bg); }
+.residences-header { text-align:center; max-width:720px; margin:0 auto 64px; }
+.residences-header .section-eyebrow { justify-content:center; }
+.residences-header .section-eyebrow::before { display:none; }
+.residences-header .section-eyebrow::after { content:''; width:40px; height:1px; background:var(--accent); margin-left:16px; }
+.residences-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:24px; }
+.res-card { background:var(--white); border:1px solid var(--border); padding:40px 32px; position:relative; overflow:hidden; transition:all 0.5s var(--ease-out); }
+.res-card::after { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--accent); transform:scaleX(0); transition:transform 0.5s var(--ease-out); }
+.res-card:hover { transform:translateY(-8px); box-shadow:0 24px 60px rgba(0,0,0,0.08); }
+.res-card:hover::after { transform:scaleX(1); }
+.res-card-type { font-family:var(--font-display); font-size:1.7rem; font-weight:400; margin-bottom:6px; }
+.res-card-count { font-size:0.7rem; text-transform:uppercase; letter-spacing:2px; color:var(--accent-dark); font-weight:600; margin-bottom:20px; }
+.res-card-desc { font-size:0.9rem; color:var(--text-sec); line-height:1.7; font-weight:300; margin-bottom:28px; }
+.res-card-features { list-style:none; }
+.res-card-features li { font-size:0.8rem; color:var(--text-muted); padding:8px 0; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:10px; }
+.res-card-features li::before { content:'-'; color:var(--accent); font-weight:700; }
+.res-card-features li:last-child { border-bottom:none; }
+
+.location { background:var(--bg-warm); }
+.location-grid { display:grid; grid-template-columns:1fr 1.2fr; gap:70px; align-items:center; }
+.location-map { position:relative; overflow:hidden; }
+.location-map img { width:100%; height:480px; object-fit:cover; filter:grayscale(20%) contrast(1.05); }
+.location-map-overlay { position:absolute; bottom:24px; left:24px; background:var(--white); padding:20px 28px; max-width:300px; }
+.location-map-overlay h4 { font-family:var(--font-display); font-size:1.2rem; font-weight:400; margin-bottom:6px; }
+.location-map-overlay p { font-size:0.8rem; color:var(--text-muted); line-height:1.5; }
+.location-prox { margin-top:36px; }
+.prox-row { display:flex; justify-content:space-between; align-items:center; padding:18px 0; border-bottom:1px solid var(--border); }
+.prox-row:first-child { border-top:1px solid var(--border); }
+.prox-name { font-size:0.95rem; font-weight:400; color:var(--text); }
+.prox-time { font-size:0.75rem; font-weight:600; color:var(--accent-dark); text-transform:uppercase; letter-spacing:1px; }
+
+.amenities { background:var(--bg); }
+.amenities-grid { display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:center; }
+.amenities-visual { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.amenities-visual img { width:100%; height:240px; object-fit:cover; transition:transform 0.6s var(--ease-out); }
+.amenities-visual img:hover { transform:scale(1.02); }
+.amenities-visual img:first-child { grid-column:span 2; height:300px; }
+.amenities-list { display:grid; grid-template-columns:1fr 1fr; gap:20px 36px; margin-top:36px; }
+.amenity { display:flex; align-items:flex-start; gap:14px; }
+.amenity-icon { width:38px; height:38px; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:1.1rem; color:var(--accent-dark); }
+.amenity h4 { font-size:0.85rem; font-weight:600; margin-bottom:3px; color:var(--text); }
+.amenity p { font-size:0.78rem; color:var(--text-muted); line-height:1.4; font-weight:300; }
+
+.developer { background:var(--bg-warm); }
+.developer-grid { display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:center; }
+.developer-visual { position:relative; }
+.developer-visual img { width:100%; height:460px; object-fit:cover; }
+.developer-stats { position:absolute; bottom:-24px; right:-24px; background:var(--text); color:var(--white); padding:36px; min-width:260px; }
+.developer-stat { margin-bottom:20px; }
+.developer-stat:last-child { margin-bottom:0; }
+.developer-stat-num { font-family:var(--font-display); font-size:1.8rem; font-weight:300; color:var(--accent); line-height:1; }
+.developer-stat-label { font-size:0.65rem; text-transform:uppercase; letter-spacing:2px; color:rgba(255,255,255,0.45); margin-top:6px; }
+.developer-quote { font-family:var(--font-display); font-size:1.25rem; font-style:italic; font-weight:300; color:var(--text-sec); line-height:1.6; padding-left:20px; border-left:2px solid var(--accent); margin:28px 0 12px; }
+.developer-quote-author { font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:1.5px; color:var(--text-muted); padding-left:20px; }
+
+.gallery { background:var(--bg-dark); color:var(--white); padding:90px 0; }
+.gallery-header { text-align:center; margin-bottom:50px; }
+.gallery-header .section-eyebrow { justify-content:center; color:var(--accent); }
+.gallery-header .section-eyebrow::before { display:none; }
+.gallery-header .section-eyebrow::after { content:''; width:40px; height:1px; background:var(--accent); margin-left:16px; }
+.gallery-header .section-title { color:var(--white); }
+.gallery-grid { display:grid; grid-template-columns:2fr 1fr 1fr; grid-template-rows:280px 280px; gap:14px; }
+.gallery-item { position:relative; overflow:hidden; cursor:pointer; }
+.gallery-item img { width:100%; height:100%; object-fit:cover; transition:transform 0.8s var(--ease-out), filter 0.5s; filter:brightness(0.85); }
+.gallery-item:hover img { transform:scale(1.05); filter:brightness(1); }
+.gallery-item:first-child { grid-row:span 2; }
+.gallery-overlay { position:absolute; bottom:0; left:0; right:0; padding:24px; background:linear-gradient(to top, rgba(0,0,0,0.6), transparent); }
+.gallery-label { font-size:0.65rem; text-transform:uppercase; letter-spacing:2px; color:var(--accent); font-weight:600; }
+
+.cta-hot { background:var(--bg-warm); text-align:center; padding:120px 24px; }
+.cta-hot-title { font-family:var(--font-display); font-size:clamp(2rem, 4.5vw, 3.2rem); font-weight:300; margin-bottom:16px; }
+.cta-hot-title em { font-style:italic; font-weight:400; color:var(--accent-dark); }
+.cta-hot-desc { font-size:1rem; color:var(--text-sec); max-width:600px; margin:0 auto 36px; font-weight:300; line-height:1.7; }
+.cta-hot-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+
+.funnel { background:var(--bg); padding:100px 0; }
+.funnel-header { text-align:center; max-width:700px; margin:0 auto 60px; }
+.funnel-header .section-eyebrow { justify-content:center; }
+.funnel-header .section-eyebrow::before { display:none; }
+.funnel-header .section-eyebrow::after { content:''; width:40px; height:1px; background:var(--accent); margin-left:16px; }
+.funnel-diagram { display:flex; align-items:center; justify-content:center; gap:12px; flex-wrap:wrap; max-width:1100px; margin:0 auto; }
+.funnel-step { background:var(--white); border:1px solid var(--border); padding:18px 24px; text-align:center; min-width:140px; transition:all 0.4s var(--ease-out); }
+.funnel-step:hover { border-color:var(--accent); transform:translateY(-3px); }
+.funnel-step h4 { font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px; }
+.funnel-step p { font-size:0.7rem; color:var(--text-muted); }
+.funnel-arrow { color:var(--accent); font-size:1.2rem; font-weight:300; }
+
+.viewing-bar { background:var(--text); color:var(--white); padding:50px 0; text-align:center; }
+.viewing-bar-inner { max-width:800px; margin:0 auto; padding:0 24px; }
+.viewing-bar h3 { font-family:var(--font-display); font-size:clamp(1.6rem, 3vw, 2.2rem); font-weight:300; margin-bottom:8px; }
+.viewing-bar p { font-size:0.95rem; color:rgba(255,255,255,0.6); margin-bottom:28px; font-weight:300; }
+.viewing-options { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+
+.contact { background:var(--bg-dark); color:var(--white); padding:90px 0 50px; }
+.contact-grid { display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:50px; margin-bottom:60px; }
+.contact-brand p { font-size:0.82rem; color:rgba(255,255,255,0.4); line-height:1.7; font-weight:300; max-width:280px; }
+.contact-col h4 { font-size:0.7rem; text-transform:uppercase; letter-spacing:2px; color:var(--accent); margin-bottom:20px; font-weight:600; }
+.contact-col a, .contact-col p { display:block; font-size:0.82rem; color:rgba(255,255,255,0.45); text-decoration:none; margin-bottom:10px; transition:color 0.3s; font-weight:300; }
+.contact-col a:hover { color:var(--accent); }
+.contact-cta-box { background:rgba(255,255,255,0.03); border:1px solid var(--border-dark); padding:28px; margin-top:6px; }
+.contact-cta-box p { font-size:0.78rem; color:rgba(255,255,255,0.4); margin-bottom:14px; line-height:1.6; }
+.contact-cta-box .btn-gold { width:100%; }
+.contact-divider { height:1px; background:rgba(255,255,255,0.06); margin-bottom:32px; }
+.contact-bottom { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+.contact-bottom p, .contact-bottom a { font-size:0.7rem; color:rgba(255,255,255,0.3); text-decoration:none; }
+.contact-bottom a:hover { color:var(--accent); }
+
+.modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.65); backdrop-filter:blur(10px); z-index:3000; display:none; align-items:center; justify-content:center; padding:20px; opacity:0; transition:opacity 0.4s; }
+.modal-overlay.active { display:flex; opacity:1; }
+.modal { background:var(--white); max-width:600px; width:100%; max-height:90vh; overflow-y:auto; position:relative; transform:translateY(30px); transition:transform 0.5s var(--ease-out); }
+.modal-overlay.active .modal { transform:translateY(0); }
+.modal-close { position:absolute; top:16px; right:16px; background:none; border:none; font-size:1.8rem; cursor:pointer; color:var(--text-muted); width:40px; height:40px; display:flex; align-items:center; justify-content:center; z-index:10; transition:color 0.3s; }
+.modal-close:hover { color:var(--text); }
+.modal-header { padding:40px 40px 0; }
+.modal-header h3 { font-family:var(--font-display); font-size:1.8rem; font-weight:400; margin-bottom:6px; }
+.modal-header p { font-size:0.85rem; color:var(--text-sec); font-weight:300; }
+.modal-body { padding:28px 40px 40px; }
+.form-group { margin-bottom:18px; }
+.form-group label { display:block; font-size:0.65rem; text-transform:uppercase; letter-spacing:1.5px; color:var(--text-muted); margin-bottom:6px; font-weight:600; }
+.form-group input, .form-group select, .form-group textarea { width:100%; padding:14px 16px; border:1.5px solid var(--border); font-family:var(--font-body); font-size:0.9rem; color:var(--text); background:var(--bg); transition:border-color 0.3s, box-shadow 0.3s; }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline:none; border-color:var(--accent); box-shadow:0 0 0 3px rgba(197,160,89,0.1); }
+.form-group textarea { resize:vertical; min-height:90px; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.form-submit { width:100%; margin-top:8px; }
+.form-note { font-size:0.72rem; color:var(--text-muted); margin-top:14px; text-align:center; }
+.form-note a { color:var(--accent-dark); text-decoration:none; font-weight:500; }
+
+.score-display { background:var(--bg-warm); border:1px solid var(--border); padding:20px; margin-bottom:24px; display:none; }
+.score-display.visible { display:block; animation:fadeUp 0.5s var(--ease-out); }
+.score-bar { height:6px; background:var(--border); border-radius:3px; overflow:hidden; margin:10px 0; }
+.score-fill { height:100%; background:linear-gradient(90deg, var(--accent), var(--accent-light)); width:0; transition:width 1s var(--ease-out); }
+.score-label { font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:1px; }
+.score-value { font-family:var(--font-display); font-size:1.6rem; font-weight:300; color:var(--accent-dark); }
+
+.whatsapp-float { position:fixed; bottom:24px; right:24px; z-index:900; width:56px; height:56px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 20px rgba(37,211,102,0.3); cursor:pointer; transition:transform 0.3s, box-shadow 0.3s; text-decoration:none; }
+.whatsapp-float:hover { transform:scale(1.1); box-shadow:0 6px 28px rgba(37,211,102,0.4); }
+.whatsapp-float svg { width:28px; height:28px; fill:white; }
+
+@media (max-width:1024px) {
+  .hero-stats { grid-template-columns:repeat(2, 1fr); }
+  .hero-stat { border-right:none; border-bottom:1px solid rgba(255,255,255,0.08); }
+  .hero-stat:nth-child(2) { border-bottom:1px solid rgba(255,255,255,0.08); }
+  .hero-stat:nth-child(3), .hero-stat:nth-child(4) { border-bottom:none; }
+  .about-grid, .location-grid, .developer-grid, .amenities-grid { grid-template-columns:1fr; gap:50px; }
+  .about-visual::before { display:none; }
+  .facts-grid { grid-template-columns:repeat(2, 1fr); }
+  .fact-item { border-right:none; border-bottom:1px solid var(--border-dark); }
+  .fact-item:nth-child(3), .fact-item:nth-child(4) { border-bottom:none; }
+  .residences-grid { grid-template-columns:1fr; max-width:520px; margin:0 auto; }
+  .segments-grid { grid-template-columns:1fr; }
+  .gallery-grid { grid-template-columns:1fr 1fr; grid-template-rows:auto; }
+  .gallery-item:first-child { grid-column:span 2; grid-row:span 1; height:320px; }
+  .contact-grid { grid-template-columns:1fr 1fr; }
+  .developer-stats { position:relative; bottom:auto; right:auto; margin-top:20px; }
+  .qual-steps { grid-template-columns:repeat(3, 1fr); }
+  .funnel-diagram { flex-direction:column; }
+  .funnel-arrow { transform:rotate(90deg); }
+}
+
+@media (max-width:768px) {
+  .nav-links { display:none; position:absolute; top:100%; left:0; right:0; background:var(--bg); flex-direction:column; padding:20px 24px; gap:16px; box-shadow:0 8px 32px rgba(0,0,0,0.08); }
+  .nav-links.active { display:flex; }
+  .nav-mobile-btn { display:flex; }
+  .section { padding:70px 0; }
+  .section-inner { padding:0 20px; }
+  .hero-content { padding:120px 20px 60px; }
+  .hero-stats { grid-template-columns:1fr; }
+  .hero-stat { border-right:none; border-bottom:1px solid rgba(255,255,255,0.08); padding:20px; }
+  .hero-stat:last-child { border-bottom:none; }
+  .facts-grid { grid-template-columns:1fr; }
+  .fact-item { border-bottom:1px solid var(--border-dark); border-right:none; padding:24px; }
+  .fact-item:last-child { border-bottom:none; }
+  .gallery-grid { grid-template-columns:1fr; }
+  .gallery-item:first-child { grid-column:span 1; height:260px; }
+  .gallery-item { height:200px; }
+  .contact-grid { grid-template-columns:1fr; gap:36px; }
+  .contact-bottom { flex-direction:column; text-align:center; }
+  .modal-header, .modal-body { padding-left:24px; padding-right:24px; }
+  .form-row { grid-template-columns:1fr; }
+  .qual-steps { grid-template-columns:1fr; max-width:400px; }
+  .amenities-list { grid-template-columns:1fr; }
+  .amenities-visual img:first-child { height:220px; }
+  .amenities-visual img { height:180px; }
+  .viewing-options { flex-direction:column; align-items:center; }
+  .viewing-options .btn { width:100%; max-width:300px; }
+}
+
+@media (max-width:480px) {
+  .hero-title { font-size:2.2rem; }
+  .hero-subtitle { font-size:0.95rem; }
+  .btn { padding:14px 24px; font-size:0.7rem; }
+  .section-title { font-size:1.8rem; }
+  .about-visual img, .location-map img, .developer-visual img { height:320px; }
+  .developer-stats { padding:24px; }
+}
+
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+:focus-visible { outline:2.5px solid var(--accent); outline-offset:3px; }
+a, button { transition:outline 0.2s; }
+
+@media (prefers-reduced-motion:reduce) {
+  *, *::before, *::after { animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
+  html { scroll-behavior:auto; }
+  .reveal { opacity:1; transform:none; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" aria-label="Reportage Properties Home">
+      <span class="nav-logo-text">Reportage<span>.</span></span>
+    </a>
+    <button class="nav-mobile-btn" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#residences">Residences</a>
+      <a href="#location">Location</a>
+      <a href="#amenities">Amenities</a>
+      <a href="#developer">Developer</a>
+      <a href="#" class="nav-cta" data-modal="qualify">Priority Access</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="hero">
+  <div class="hero-media">
+    <img src="https://kimi-web-img.kimi.ai/img/reportagegroup.com/1703f5e1a360dc437e3d92ba78ddbadaf176ce94.webp" alt="Reportage Towers - twin 110 metre residential towers with retail podium in Addis Ababa, opposite the African Union Headquarters" loading="eager">
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow reveal">Reportage Properties - Ethiopia</p>
+    <h1 class="hero-title reveal reveal-d1">The Address <em>Opposite</em><br>the African Union</h1>
+    <p class="hero-subtitle reveal reveal-d2">1,086 premium residences across twin 110-metre towers. Reserve your Studio, 1 Bedroom or 2 Bedroom apartment from anywhere in the world - with private virtual consultation, unit selection and payment guidance.</p>
+    <div class="hero-ctas reveal reveal-d3">
+      <a href="#" class="btn btn-gold" data-modal="qualify">Request Priority Unit Access</a>
+      <a href="https://wa.me/251922466797?text=Hello%2C%20I%20am%20interested%20in%20Reportage%20Towers.%20I%20would%20like%20to%20see%20available%20units%2C%20prices%20and%20payment%20options." class="btn btn-outline" target="_blank" rel="noopener">WhatsApp Buyer Desk</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat reveal"><div class="hero-stat-num">1,086</div><div class="hero-stat-label">Residences</div></div>
+    <div class="hero-stat reveal reveal-d1"><div class="hero-stat-num">110m</div><div class="hero-stat-label">Tower Height</div></div>
+    <div class="hero-stat reveal reveal-d2"><div class="hero-stat-num">29</div><div class="hero-stat-label">Floors</div></div>
+    <div class="hero-stat reveal reveal-d3"><div class="hero-stat-num">2 min</div><div class="hero-stat-label">To AU HQ</div></div>
+  </div>
+</header>
+<section class="qual-bar" id="qualify">
+  <div class="qual-bar-inner">
+    <h2 class="qual-bar-title reveal">Find Your Reportage Towers Residence</h2>
+    <p class="qual-bar-sub reveal">Five quick questions. One decisive path to your new home.</p>
+    <div class="qual-steps reveal reveal-d1">
+      <div class="qual-step" data-modal="qualify">
+        <div class="qual-step-num">1</div>
+        <h4>Location</h4>
+        <p>Where are you currently based?</p>
+      </div>
+      <div class="qual-step" data-modal="qualify">
+        <div class="qual-step-num">2</div>
+        <h4>Unit Type</h4>
+        <p>Studio, 1BR, 2BR or multiple?</p>
+      </div>
+      <div class="qual-step" data-modal="qualify">
+        <div class="qual-step-num">3</div>
+        <h4>Purpose</h4>
+        <p>Live, invest, corporate or family?</p>
+      </div>
+      <div class="qual-step" data-modal="qualify">
+        <div class="qual-step-num">4</div>
+        <h4>Budget</h4>
+        <p>Your investment range</p>
+      </div>
+      <div class="qual-step" data-modal="qualify">
+        <div class="qual-step-num">5</div>
+        <h4>Timeline</h4>
+        <p>When are you ready to buy?</p>
+      </div>
+    </div>
+    <div style="margin-top:32px;">
+      <a href="#" class="btn btn-dark" data-modal="qualify">Start Qualification</a>
+    </div>
+  </div>
+</section>
+
+<section class="section about" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text">
+        <p class="section-eyebrow reveal">The Project</p>
+        <h2 class="section-title reveal">Where Contemporary Living <em>Meets</em> Diplomatic Prestige</h2>
+        <p class="section-desc reveal">Reportage Towers rises directly opposite the African Union Headquarters in the heart of Addis Ababa - a landmark mixed-use development of two contemporary residential towers above a shared retail podium. Delivered through a strategic partnership between Reportage Properties and the Ethiopian Defence Army Foundation.</p>
+        <p class="section-desc reveal">Basement, Ground, and two podium levels support 29 upper floors reaching 110 metres, all resting on a 25,979 square metre plot. The podium houses a full shopping mall, while its rooftop transforms into a luxury amenity deck - a private sanctuary above the city.</p>
+        <blockquote class="about-quote reveal">
+          "We will be an Ethiopian company operating in Ethiopia."
+          <cite>-- Andrea Nucera, CEO & Group Managing Director, Reportage Properties</cite>
+        </blockquote>
+      </div>
+      <div class="about-visual reveal">
+        <img src="https://kimi-web-img.kimi.ai/img/ethiopiarealty.com/fc8512c20d20a6f0af600c217aa302b8187e1d35.jpg" alt="Modern high-rise residential tower exterior with contemporary architecture in Addis Ababa" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="facts" id="facts">
+  <div class="section-inner">
+    <div class="facts-grid">
+      <div class="fact-item reveal">
+        <div class="fact-num">1,086</div>
+        <div class="fact-label">Total Residences</div>
+        <div class="fact-detail">398 Studios - 458 One-Bedroom - 230 Two-Bedroom</div>
+      </div>
+      <div class="fact-item reveal reveal-d1">
+        <div class="fact-num">29</div>
+        <div class="fact-label">Residential Floors</div>
+        <div class="fact-detail">Plus Basement, Ground & 2 Podium Levels</div>
+      </div>
+      <div class="fact-item reveal reveal-d2">
+        <div class="fact-num">110m</div>
+        <div class="fact-label">Tower Height</div>
+        <div class="fact-detail">A New Vertical Landmark for Addis Ababa</div>
+      </div>
+      <div class="fact-item reveal reveal-d3">
+        <div class="fact-num">25,979</div>
+        <div class="fact-label">Square Metres</div>
+        <div class="fact-detail">Plot Area with ~15,000 sqm Commercial Space</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section segments" id="segments">
+  <div class="section-inner">
+    <div class="segments-header">
+      <p class="section-eyebrow reveal">Buyer Segments</p>
+      <h2 class="section-title reveal">Built for <em>Five</em> Distinct Buyers</h2>
+      <p class="section-desc reveal" style="margin:0 auto;">Reportage Towers is not for everyone. It is designed for decisive buyers who value location, prestige and long-term value.</p>
+    </div>
+    <div class="segments-grid">
+      <div class="segment-card reveal">
+        <div class="segment-icon">&#127758;</div>
+        <h3>Ethiopian Diaspora</h3>
+        <p>"Your home in Addis - even when you are abroad." Reserve your preferred apartment from the USA, UAE, UK, Canada, Saudi Arabia or Europe with virtual consultation and remote payment guidance.</p>
+        <div class="segment-tags">
+          <span class="segment-tag">Virtual Presentation</span>
+          <span class="segment-tag">Remote Purchase</span>
+          <span class="segment-tag">WhatsApp Desk</span>
+        </div>
+      </div>
+      <div class="segment-card reveal reveal-d1">
+        <div class="segment-icon">&#128188;</div>
+        <h3>Executives & Business Owners</h3>
+        <p>Own an address at the heart of Africa's diplomatic capital. Live within two minutes of the African Union, Mexico Square and Addis Ababa's financial district.</p>
+        <div class="segment-tags">
+          <span class="segment-tag">Private Viewing</span>
+          <span class="segment-tag">Priority Floor Selection</span>
+          <span class="segment-tag">Corporate Rates</span>
+        </div>
+      </div>
+      <div class="segment-card reveal reveal-d2">
+        <div class="segment-icon">&#127970;</div>
+        <h3>Corporate & Diplomatic Buyers</h3>
+        <p>Premium corporate residences opposite the African Union for executives, international staff and visiting professionals. Secure multiple units for your organization.</p>
+        <div class="segment-tags">
+          <span class="segment-tag">B2B Program</span>
+          <span class="segment-tag">Multiple Units</span>
+          <span class="segment-tag">Institutional Pricing</span>
+        </div>
+      </div>
+      <div class="segment-card reveal reveal-d3">
+        <div class="segment-icon">&#128176;</div>
+        <h3>Property Investors</h3>
+        <p>A prime Addis Ababa address for your next residential investment. 1,086 units across studios, 1BR and 2BR apartments create natural diversification within a single landmark development.</p>
+        <div class="segment-tags">
+          <span class="segment-tag">Investment Brief</span>
+          <span class="segment-tag">Rental Analysis</span>
+          <span class="segment-tag">Payment Plans</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section residences" id="residences">
+  <div class="section-inner">
+    <div class="residences-header">
+      <p class="section-eyebrow reveal">Residences</p>
+      <h2 class="section-title reveal">Homes Designed for <em>Modern</em> Living</h2>
+      <p class="section-desc reveal">Thoughtfully planned apartments with contemporary finishes, abundant natural light, and private balconies - each residence balances elegance with everyday functionality.</p>
+    </div>
+    <div class="residences-grid">
+      <div class="res-card reveal">
+        <h3 class="res-card-type">Studio</h3>
+        <p class="res-card-count">398 Units Available</p>
+        <p class="res-card-desc">Efficiently designed for young professionals, diplomats, and investors seeking a foothold at Addis Ababa's most prestigious address.</p>
+        <ul class="res-card-features">
+          <li>Open-plan living space</li>
+          <li>Contemporary kitchen finishes</li>
+          <li>Private balcony</li>
+          <li>Built-in wardrobes</li>
+        </ul>
+      </div>
+      <div class="res-card reveal reveal-d1">
+        <h3 class="res-card-type">One Bedroom</h3>
+        <p class="res-card-count">458 Units Available</p>
+        <p class="res-card-desc">Spacious one-bedroom residences offering comfort and sophistication for professionals and small families.</p>
+        <ul class="res-card-features">
+          <li>Separate bedroom & living area</li>
+          <li>Premium bathroom fixtures</li>
+          <li>Private balcony with city views</li>
+          <li>Contemporary kitchen cabinets</li>
+        </ul>
+      </div>
+      <div class="res-card reveal reveal-d2">
+        <h3 class="res-card-type">Two Bedroom</h3>
+        <p class="res-card-count">230 Units Available</p>
+        <p class="res-card-desc">Generous apartments for families and those who desire extra space, with expansive layouts and premium finishes throughout.</p>
+        <ul class="res-card-features">
+          <li>Master bedroom with en-suite</li>
+          <li>Spacious living & dining area</li>
+          <li>Panoramic balcony views</li>
+          <li>High-quality tiled bathrooms</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section location" id="location">
+  <div class="section-inner">
+    <div class="location-grid">
+      <div class="location-text">
+        <p class="section-eyebrow reveal">Location</p>
+        <h2 class="section-title reveal">At the Centre of <em>Everything</em> That Matters</h2>
+        <p class="section-desc reveal">Positioned directly opposite the African Union Headquarters, Reportage Towers places you at the diplomatic and commercial heart of Addis Ababa - with unparalleled access to the city's most important institutions, business districts, and lifestyle destinations.</p>
+        <div class="location-prox">
+          <div class="prox-row reveal"><span class="prox-name">African Union Headquarters</span><span class="prox-time">2 Minutes</span></div>
+          <div class="prox-row reveal reveal-d1"><span class="prox-name">Mexico Square</span><span class="prox-time">2 Minutes</span></div>
+          <div class="prox-row reveal reveal-d2"><span class="prox-name">Landmark General Hospital</span><span class="prox-time">3 Minutes</span></div>
+          <div class="prox-row reveal reveal-d3"><span class="prox-name">Addis Ababa Financial District</span><span class="prox-time">5 Minutes</span></div>
+          <div class="prox-row reveal reveal-d4"><span class="prox-name">International Community School</span><span class="prox-time">10 Minutes</span></div>
+        </div>
+      </div>
+      <div class="location-map reveal">
+        <img src="https://kimi-web-img.kimi.ai/img/images.trvl-media.com/b56b55f28bcb5d5501248b877e9095f4d8cb427c.jpg" alt="Aerial view of Addis Ababa cityscape showing the African Union Headquarters and surrounding diplomatic district" loading="lazy">
+        <div class="location-map-overlay">
+          <h4>Addis Ababa, Ethiopia</h4>
+          <p>Directly opposite the African Union Headquarters - the diplomatic capital of Africa.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section amenities" id="amenities">
+  <div class="section-inner">
+    <div class="amenities-grid">
+      <div class="amenities-visual reveal">
+        <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=800&q=80" alt="Rooftop infinity swimming pool with panoramic city views at golden hour" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80" alt="Modern fitness gymnasium with premium equipment and floor-to-ceiling windows" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Landscaped rooftop garden with outdoor lounge seating and greenery" loading="lazy">
+      </div>
+      <div class="amenities-text">
+        <p class="section-eyebrow reveal">Amenities</p>
+        <h2 class="section-title reveal">Life Elevated <em>Above</em> the Ordinary</h2>
+        <p class="section-desc reveal">The rooftop amenity deck transforms the podium into a private sanctuary - leisure, wellness, and connection suspended above the city.</p>
+        <div class="amenities-list">
+          <div class="amenity reveal"><div class="amenity-icon">&#9670;</div><div><h4>Swimming Pools</h4><p>Large adult pool plus dedicated kids' pool</p></div></div>
+          <div class="amenity reveal reveal-d1"><div class="amenity-icon">&#9670;</div><div><h4>Gymnasium</h4><p>Fully equipped fitness centre</p></div></div>
+          <div class="amenity reveal reveal-d1"><div class="amenity-icon">&#9670;</div><div><h4>Jogging Track</h4><p>Scenic rooftop running circuit</p></div></div>
+          <div class="amenity reveal reveal-d2"><div class="amenity-icon">&#9670;</div><div><h4>Outdoor Cinema</h4><p>Open-air screenings under the stars</p></div></div>
+          <div class="amenity reveal reveal-d2"><div class="amenity-icon">&#9670;</div><div><h4>Yoga Area</h4><p>Dedicated wellness practice space</p></div></div>
+          <div class="amenity reveal reveal-d3"><div class="amenity-icon">&#9670;</div><div><h4>Landscaped Gardens</h4><p>Green sanctuaries with shaded seating</p></div></div>
+          <div class="amenity reveal reveal-d3"><div class="amenity-icon">&#9670;</div><div><h4>BBQ & Coffee Lounges</h4><p>Social spaces for entertaining</p></div></div>
+          <div class="amenity reveal reveal-d4"><div class="amenity-icon">&#9670;</div><div><h4>Multipurpose Court</h4><p>Sports facilities for active living</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section developer" id="developer">
+  <div class="section-inner">
+    <div class="developer-grid">
+      <div class="developer-visual reveal">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80" alt="Modern architectural glass towers representing international real estate development excellence" loading="lazy">
+        <div class="developer-stats">
+          <div class="developer-stat"><div class="developer-stat-num">25</div><div class="developer-stat-label">Countries</div></div>
+          <div class="developer-stat"><div class="developer-stat-num">55,000+</div><div class="developer-stat-label">Units Delivered</div></div>
+          <div class="developer-stat"><div class="developer-stat-num">15,000</div><div class="developer-stat-label">Employees Worldwide</div></div>
+        </div>
+      </div>
+      <div class="developer-text">
+        <p class="section-eyebrow reveal">The Developer</p>
+        <h2 class="section-title reveal">A Global Developer with <em>Local</em> Commitment</h2>
+        <p class="section-desc reveal">Founded in 2014 and headquartered in Abu Dhabi, Reportage Properties operates across 25 countries with a portfolio spanning the UAE, Saudi Arabia, Egypt, Turkey, Pakistan, Nigeria, Rwanda, Uganda, Kenya and beyond.</p>
+        <p class="section-desc reveal">In Ethiopia, Reportage has already established a team of over 70 professionals, working with the Ethiopian Defence Army Foundation to set a new standard for residential development in East Africa.</p>
+        <blockquote class="developer-quote reveal">"Ethiopia has tremendous potential. We are committed to supporting the country's growth through developments that create value and opportunities."</blockquote>
+        <p class="developer-quote-author reveal">-- Aref Ismail Al Khoori, Chairman, Reportage Group</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="section-inner">
+    <div class="gallery-header">
+      <p class="section-eyebrow reveal">Gallery</p>
+      <h2 class="section-title reveal">The Vision <em>Unveiled</em></h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item reveal">
+        <img src="https://kimi-web-img.kimi.ai/img/ethiopiarealty.com/cce9e574c75cb0484a21c9df0f4fc9311b54afd7.jpg" alt="Aerial rendering of Reportage Towers showing twin residential towers and retail podium in Addis Ababa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-label">Aerial View - Reportage Towers</span></div>
+      </div>
+      <div class="gallery-item reveal reveal-d1">
+        <img src="https://kimi-web-img.kimi.ai/img/ethiopiarealty.com/fc8512c20d20a6f0af600c217aa302b8187e1d35.jpg" alt="Exterior architectural rendering of modern residential tower facade" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-label">Tower Exterior</span></div>
+      </div>
+      <div class="gallery-item reveal reveal-d2">
+        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80" alt="Luxury apartment interior living room with contemporary design" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-label">Interior Living</span></div>
+      </div>
+      <div class="gallery-item reveal reveal-d1">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80" alt="Modern kitchen with premium finishes and natural lighting" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-label">Contemporary Kitchen</span></div>
+      </div>
+      <div class="gallery-item reveal reveal-d2">
+        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80" alt="Master bedroom with panoramic views and elegant furnishings" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-label">Master Bedroom</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="funnel" id="funnel">
+  <div class="section-inner">
+    <div class="funnel-header">
+      <p class="section-eyebrow reveal">The System</p>
+      <h2 class="section-title reveal">From Advertisement to <em>Decisive</em> Buyer</h2>
+      <p class="section-desc reveal" style="margin:0 auto;">Our buyer acquisition system is designed to qualify, nurture and convert - not merely collect enquiries.</p>
+    </div>
+    <div class="funnel-diagram reveal">
+      <div class="funnel-step"><h4>Advertising</h4><p>Meta - Google - Direct</p></div>
+      <span class="funnel-arrow">&rarr;</span>
+      <div class="funnel-step"><h4>Landing Page</h4><p>Qualification Form</p></div>
+      <span class="funnel-arrow">&rarr;</span>
+      <div class="funnel-step"><h4>WhatsApp Desk</h4><p>Buyer Scoring</p></div>
+      <span class="funnel-arrow">&rarr;</span>
+      <div class="funnel-step"><h4>Presentation</h4><p>10-Min Decision Deck</p></div>
+      <span class="funnel-arrow">&rarr;</span>
+      <div class="funnel-step"><h4>Viewing</h4><p>Physical / Virtual</p></div>
+      <span class="funnel-arrow">&rarr;</span>
+      <div class="funnel-step"><h4>Reservation</h4><p>Unit Secured</p></div>
+      <span class="funnel-arrow">&rarr;</span>
+      <div class="funnel-step"><h4>Purchase</h4><p>Sale Completed</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-hot" id="register">
+  <div class="section-inner">
+    <p class="section-eyebrow reveal" style="justify-content:center;">Register Your Interest</p>
+    <h2 class="cta-hot-title reveal">Begin Your <em>Journey</em> Home</h2>
+    <p class="cta-hot-desc reveal">Be among the first to secure a residence at Reportage Towers. Our Buyer Desk is ready to provide detailed information, availability updates, and personalised guidance through every step of your investment.</p>
+    <div class="cta-hot-btns reveal reveal-d1">
+      <a href="#" class="btn btn-gold" data-modal="qualify">Request Priority Unit Access</a>
+      <a href="https://wa.me/251922466797?text=Hello%2C%20I%20am%20interested%20in%20Reportage%20Towers.%20I%20would%20like%20to%20see%20available%20units%2C%20prices%20and%20payment%20options." class="btn btn-ghost" target="_blank" rel="noopener">Chat on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section class="viewing-bar" id="viewing">
+  <div class="viewing-bar-inner">
+    <h3>Book a Private Viewing</h3>
+    <p>See the project in person or from anywhere in the world. Choose the experience that suits you.</p>
+    <div class="viewing-options">
+      <a href="#" class="btn btn-gold" data-modal="qualify">&#127970; Visit the Project Site</a>
+      <a href="#" class="btn btn-outline" data-modal="qualify">&#127758; Schedule Virtual Presentation</a>
+    </div>
+  </div>
+</section>
+<footer class="contact" id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="contact-brand">
+        <p style="font-family:var(--font-display); font-size:1.6rem; color:white; margin-bottom:16px;">Reportage<span style="color:var(--accent);">.</span></p>
+        <p>Reportage Towers - A landmark mixed-use development in the heart of Addis Ababa, delivered in partnership with the Ethiopian Defence Army Foundation.</p>
+      </div>
+      <div class="contact-col">
+        <h4>Project</h4>
+        <a href="#about">About the Project</a>
+        <a href="#residences">Residences</a>
+        <a href="#amenities">Amenities</a>
+        <a href="#location">Location</a>
+        <a href="#gallery">Gallery</a>
+      </div>
+      <div class="contact-col">
+        <h4>Contact</h4>
+        <a href="https://wa.me/251922466797" target="_blank" rel="noopener">WhatsApp: +251 922 466 797</a>
+        <a href="mailto:mussie@equaltradeglobal.org">Email: mussie@equaltradeglobal.org</a>
+        <p>Addis Ababa, Ethiopia</p>
+        <p>Opposite African Union HQ</p>
+      </div>
+      <div class="contact-col">
+        <h4>Developer</h4>
+        <p>Reportage Properties</p>
+        <p>Ethiopian Defence Army Foundation</p>
+        <p>Ministry of National Defence</p>
+        <div class="contact-cta-box">
+          <p>Ready to learn more? Connect with our team for availability, pricing, and investment guidance.</p>
+          <a href="https://wa.me/251922466797" class="btn btn-gold" target="_blank" rel="noopener">Enquire Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="contact-divider"></div>
+    <div class="contact-bottom">
+      <p>&copy; 2026 Reportage Properties. All rights reserved. This is a marketing landing page. All project details are subject to developer confirmation.</p>
+      <div>
+        <a href="#" style="margin-right:20px;">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <button class="modal-close" id="modalClose" aria-label="Close modal">&times;</button>
+    <div class="modal-header">
+      <h3 id="modalTitle">Request Priority Unit Access</h3>
+      <p>Complete the 5-question qualification below. Our Buyer Desk will contact you with tailored availability, pricing and next steps.</p>
+    </div>
+    <div class="modal-body">
+      <div class="score-display" id="scoreDisplay">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+          <span class="score-label">Buyer Score</span>
+          <span class="score-value" id="scoreValue">0/100</span>
+        </div>
+        <div class="score-bar"><div class="score-fill" id="scoreFill"></div></div>
+        <p id="scoreText" style="font-size:0.8rem; color:var(--text-muted); margin-top:8px;">Answer all questions to see your qualification level.</p>
+      </div>
+      <form id="qualForm" action="mailto:mussie@equaltradeglobal.org" method="post" enctype="text/plain">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="qName">Full Name *</label>
+            <input type="text" id="qName" name="name" required aria-required="true">
+          </div>
+          <div class="form-group">
+            <label for="qEmail">Email Address *</label>
+            <input type="email" id="qEmail" name="email" required aria-required="true">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="qPhone">Phone / WhatsApp *</label>
+            <input type="tel" id="qPhone" name="phone" required aria-required="true">
+          </div>
+          <div class="form-group">
+            <label for="qCountry">Where are you currently based? *</label>
+            <select id="qCountry" name="country" required aria-required="true">
+              <option value="" disabled selected>Select location</option>
+              <option value="ethiopia">Ethiopia</option>
+              <option value="uae">UAE</option>
+              <option value="saudi">Saudi Arabia</option>
+              <option value="usa">USA</option>
+              <option value="canada">Canada</option>
+              <option value="uk">UK</option>
+              <option value="europe">Europe (Other)</option>
+              <option value="africa">Africa (Other)</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="qUnit">What unit type are you looking for? *</label>
+            <select id="qUnit" name="unit_type" required aria-required="true">
+              <option value="" disabled selected>Select unit</option>
+              <option value="studio">Studio</option>
+              <option value="1br">1 Bedroom</option>
+              <option value="2br">2 Bedroom</option>
+              <option value="multiple">Multiple Units / Investment</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="qPurpose">What is your purpose? *</label>
+            <select id="qPurpose" name="purpose" required aria-required="true">
+              <option value="" disabled selected>Select purpose</option>
+              <option value="live">Primary Residence</option>
+              <option value="invest">Investment / Rental Income</option>
+              <option value="corporate">Corporate Accommodation</option>
+              <option value="family">Family Home</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="qBudget">What is your approximate budget? *</label>
+            <select id="qBudget" name="budget" required aria-required="true">
+              <option value="" disabled selected>Select budget</option>
+              <option value="under100">Under $100,000</option>
+              <option value="100-150">$100,000 - $150,000</option>
+              <option value="150-250">$150,000 - $250,000</option>
+              <option value="over250">Over $250,000</option>
+              <option value="private">Prefer to discuss privately</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="qTimeline">When are you planning to purchase? *</label>
+            <select id="qTimeline" name="timeline" required aria-required="true">
+              <option value="" disabled selected>Select timeline</option>
+              <option value="immediate">Immediately</option>
+              <option value="30days">Within 30 days</option>
+              <option value="1-3months">1 - 3 months</option>
+              <option value="3-6months">3 - 6 months</option>
+              <option value="researching">Just researching</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="qInterest">What would you like to receive? *</label>
+          <select id="qInterest" name="interest" required aria-required="true">
+            <option value="" disabled selected>Select option</option>
+            <option value="prices">Current prices & availability</option>
+            <option value="floorplans">Floor plans & unit sizes</option>
+            <option value="payment">Payment options & schedule</option>
+            <option value="investment">Investment information</option>
+            <option value="viewing">Private viewing appointment</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="qMessage">Additional requirements</label>
+          <textarea id="qMessage" name="message" placeholder="Tell us about your requirements, preferred floor, view, or any questions..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold form-submit">Get Priority Unit Access</button>
+        <p class="form-note">Prefer WhatsApp? <a href="https://wa.me/251922466797?text=Hello%2C%20I%20am%20interested%20in%20Reportage%20Towers.%20I%20would%20like%20to%20see%20available%20units%2C%20prices%20and%20payment%20options." target="_blank" rel="noopener">Chat with our Buyer Desk directly</a></p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<a href="https://wa.me/251922466797?text=Hello%2C%20I%20am%20interested%20in%20Reportage%20Towers.%20I%20would%20like%20to%20see%20available%20units%2C%20prices%20and%20payment%20options." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+(function() {
+  // Navigation scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 50) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
+
+  // Mobile menu
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', function() {
+    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', !expanded);
+    navLinks.classList.toggle('active');
+  });
+
+  // Intersection Observer for reveals
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { root: null, rootMargin: '0px', threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+
+  // Modal system
+  const modal = document.getElementById('modal');
+  const modalClose = document.getElementById('modalClose');
+  const scoreDisplay = document.getElementById('scoreDisplay');
+  const scoreValue = document.getElementById('scoreValue');
+  const scoreFill = document.getElementById('scoreFill');
+  const scoreText = document.getElementById('scoreText');
+
+  function openModal(e) {
+    if (e) e.preventDefault();
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function() { document.getElementById('qName').focus(); }, 100);
+  }
+
+  function closeModal() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('[data-modal="qualify"]').forEach(function(btn) {
+    btn.addEventListener('click', openModal);
+  });
+
+  modalClose.addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && modal.classList.contains('active')) closeModal(); });
+
+  // Buyer Score Calculator
+  const scoreFields = ['qCountry', 'qUnit', 'qPurpose', 'qBudget', 'qTimeline', 'qInterest'];
+  const weights = {
+    qCountry: { ethiopia: 5, uae: 5, saudi: 5, usa: 5, canada: 5, uk: 5, europe: 5, africa: 4, other: 3 },
+    qUnit: { studio: 8, '1br': 10, '2br': 10, multiple: 10 },
+    qPurpose: { live: 15, invest: 15, corporate: 15, family: 12 },
+    qBudget: { under100: 5, '100-150': 15, '150-250': 25, over250: 30, private: 12 },
+    qTimeline: { immediate: 30, '30days': 25, '1-3months': 18, '3-6months': 10, researching: 3 },
+    qInterest: { prices: 10, floorplans: 8, payment: 8, investment: 10, viewing: 10 }
+  };
+
+  function calculateScore() {
+    let total = 0;
+    scoreFields.forEach(function(id) {
+      const el = document.getElementById(id);
+      if (el && el.value) {
+        const val = weights[id][el.value];
+        if (val) total += val;
+      }
+    });
+    return total;
+  }
+
+  function updateScore() {
+    const score = calculateScore();
+    if (score > 0) {
+      scoreDisplay.classList.add('visible');
+      scoreValue.textContent = score + '/100';
+      scoreFill.style.width = score + '%';
+      let label = '';
+      let color = '';
+      if (score >= 80) { label = 'HOT BUYER - Immediate sales intervention recommended'; color = '#C0392B'; }
+      else if (score >= 60) { label = 'WARM BUYER - Schedule presentation within 24 hours'; color = '#E67E22'; }
+      else if (score >= 40) { label = 'NURTURE - Automated follow-up sequence'; color = '#F1C40F'; }
+      else { label = 'COLD - Low-cost remarketing only'; color = '#95A5A6'; }
+      scoreText.textContent = label;
+      scoreText.style.color = color;
+    }
+  }
+
+  scoreFields.forEach(function(id) {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('change', updateScore);
+  });
+
+  // Smooth scroll for anchors
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href !== '#' && !this.hasAttribute('data-modal')) {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Form submission handler
+  const qualForm = document.getElementById('qualForm');
+  qualForm.addEventListener('submit', function(e) {
+    const score = calculateScore();
+    const scoreInput = document.createElement('input');
+    scoreInput.type = 'hidden';
+    scoreInput.name = 'buyer_score';
+    scoreInput.value = score;
+    qualForm.appendChild(scoreInput);
+  });
+})();
+</script>
+</body>
+</html>
