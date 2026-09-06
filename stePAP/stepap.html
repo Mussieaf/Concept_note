@@ -1,1 +1,817 @@
-hh
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>stePAP Pharmaceuticals PLC — Interactive Profile</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fafbfc;
+    --bg-card: #ffffff;
+    --bg-muted: #f0f2f5;
+    --text-primary: #1a1a2e;
+    --text-secondary: #4a5568;
+    --text-muted: #8892a0;
+    --border: #e2e8f0;
+    --accent: #2d6a4f;
+    --accent-light: #d8f3dc;
+    --accent-hover: #1b4332;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.10);
+    --shadow-lg: 0 12px 40px rgba(0,0,0,0.12);
+    --radius: 14px;
+    --radius-sm: 8px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ===== HEADER ===== */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+  }
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text-primary);
+  }
+  .logo-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--accent);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .logo-text {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  .logo-text span {
+    display: block;
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+    margin-top: -2px;
+  }
+
+  /* ===== HAMBURGER MENU ===== */
+  .menu-btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+    position: relative;
+    z-index: 1002;
+  }
+  .menu-btn:hover { background: var(--bg-muted); }
+  .menu-btn span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    transition: var(--transition);
+    transform-origin: center;
+  }
+  .menu-btn.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .menu-btn.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .menu-btn.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ===== DROPDOWN MENU ===== */
+  .menu-dropdown {
+    position: fixed;
+    top: 64px;
+    right: 0;
+    width: 280px;
+    max-height: 0;
+    overflow: hidden;
+    background: var(--bg-card);
+    border-left: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    border-radius: 0 0 0 var(--radius);
+    box-shadow: var(--shadow-lg);
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    opacity: 0;
+    z-index: 999;
+  }
+  .menu-dropdown.open {
+    max-height: 500px;
+    opacity: 1;
+  }
+  .menu-dropdown ul {
+    list-style: none;
+    padding: 12px 0;
+  }
+  .menu-dropdown li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 24px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: var(--transition);
+    border-left: 3px solid transparent;
+  }
+  .menu-dropdown li a:hover {
+    background: var(--bg-muted);
+    color: var(--accent);
+    border-left-color: var(--accent);
+    padding-left: 28px;
+  }
+  .menu-dropdown li a svg {
+    width: 18px;
+    height: 18px;
+    opacity: 0.6;
+  }
+  .menu-dropdown .menu-footer {
+    padding: 16px 24px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  /* Overlay */
+  .menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.15);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 998;
+  }
+  .menu-overlay.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    text-align: center;
+    padding: 60px 24px 40px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+  }
+  .hero-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
+  .hero h1 {
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero p {
+    font-size: 18px;
+    color: var(--text-secondary);
+    max-width: 560px;
+    margin: 0 auto 32px;
+    line-height: 1.6;
+  }
+  .hero-cta {
+    display: inline-flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .btn {
+    padding: 12px 28px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    cursor: pointer;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: white;
+    box-shadow: 0 4px 14px rgba(45,106,79,0.35);
+  }
+  .btn-primary:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(45,106,79,0.4);
+  }
+  .btn-secondary {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+  }
+  .btn-secondary:hover {
+    background: var(--bg-muted);
+    transform: translateY(-2px);
+  }
+
+  /* ===== IMAGE CAROUSEL ===== */
+  .carousel-section {
+    padding: 40px 0 60px;
+    overflow: hidden;
+  }
+  .carousel-header {
+    text-align: center;
+    margin-bottom: 32px;
+    padding: 0 24px;
+  }
+  .carousel-header h2 {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .carousel-track-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: scroll 30s linear infinite;
+    padding: 8px 0;
+  }
+  .carousel-track:hover {
+    animation-play-state: paused;
+  }
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .carousel-card {
+    width: 320px;
+    height: 220px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    cursor: pointer;
+  }
+  .carousel-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: var(--shadow-md);
+    z-index: 10;
+  }
+  .carousel-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  .carousel-card:hover img {
+    transform: scale(1.08);
+  }
+  .carousel-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 16px 16px;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+    color: white;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: var(--transition);
+  }
+  .carousel-card:hover .carousel-card-overlay {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .carousel-card-overlay h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .carousel-card-overlay p {
+    font-size: 12px;
+    opacity: 0.85;
+  }
+
+  /* ===== CONTENT SECTIONS ===== */
+  .content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px 60px;
+  }
+  .section-block {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 36px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    transition: var(--transition);
+  }
+  .section-block:hover {
+    box-shadow: var(--shadow-md);
+  }
+  .section-block h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-block h3 .num {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent);
+    background: var(--accent-light);
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .section-block p {
+    color: var(--text-secondary);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .section-block p + p { margin-top: 12px; }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .chip {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px;
+    background: var(--bg-muted);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+    transition: var(--transition);
+  }
+  .chip:hover {
+    background: var(--accent-light);
+    color: var(--accent);
+    transform: translateY(-2px);
+  }
+  .chip svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    opacity: 0.7;
+  }
+
+  /* ===== CONTACT BAR ===== */
+  .contact-bar {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+    color: white;
+    padding: 48px 24px;
+    text-align: center;
+  }
+  .contact-bar h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .contact-bar p {
+    opacity: 0.85;
+    margin-bottom: 24px;
+    font-size: 15px;
+  }
+  .contact-grid {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    opacity: 0.9;
+  }
+  .contact-item svg {
+    width: 18px;
+    height: 18px;
+    opacity: 0.7;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    .hero { padding: 40px 20px 30px; }
+    .section-block { padding: 24px; }
+    .carousel-card { width: 260px; height: 180px; }
+    .contact-grid { gap: 16px; }
+    .menu-dropdown { width: 100%; border-radius: 0; border-left: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">SP</div>
+      <div class="logo-text">
+        stePAP Pharmaceuticals
+        <span>Pathology Equipment & Consumables</span>
+      </div>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<!-- OVERLAY -->
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<!-- DROPDOWN MENU -->
+<nav class="menu-dropdown" id="menuDropdown">
+  <ul>
+    <li><a href="#about"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>About Us</a></li>
+    <li><a href="#objectives"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V9h10v2z"/></svg>Objectives</a></li>
+    <li><a href="#vision"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>Vision & Mission</a></li>
+    <li><a href="#values"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>Core Values</a></li>
+    <li><a href="#contact"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>Contact</a></li>
+  </ul>
+  <div class="menu-footer">
+    stePAP Pharmaceuticals PLC &middot; TIN: 0086283991
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">Company Profile 2026</div>
+  <h1>Advancing Pathology<br>Across Africa</h1>
+  <p>stePAP Pharmaceuticals PLC delivers quality-assured anatomic pathology equipment and consumables to healthcare facilities — ensuring sustainable supply at affordable prices.</p>
+  <div class="hero-cta">
+    <a href="#about" class="btn btn-primary">Explore Profile</a>
+    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+  </div>
+</section>
+
+<!-- IMAGE CAROUSEL -->
+<section class="carousel-section">
+  <div class="carousel-header">
+    <h2>Our World — Pathology & Diagnostics</h2>
+  </div>
+  <div class="carousel-track-wrapper">
+    <div class="carousel-track" id="carouselTrack">
+      <!-- Cards duplicated for seamless loop -->
+      <div class="carousel-card">
+        <img src="https://kimi-web-img.kimi.ai/img/www.elacapathology.co.za/e85cb0fe150571284750dc56215193a582add90b.webp" alt="Modern Pathology Laboratory">
+        <div class="carousel-card-overlay">
+          <h4>Modern Laboratory</h4>
+          <p>State-of-the-art diagnostic facilities</p>
+        </div>
+      </div>
+      <div class="carousel-card">
+        <img src="https://kimi-web-img.kimi.ai/img/www.leicabiosystems.com/6dc2222ac0809149509d2de9c2da1c44120438b9.jpg" alt="Histology Equipment">
+        <div class="carousel-card-overlay">
+          <h4>Histology Equipment</h4>
+          <p>Precision tissue processing systems</p>
+        </div>
+      </div>
+      <div class="carousel-card">
+        <img src="https://kimi-web-img.kimi.ai/img/cdn11.bigcommerce.com/94bfe22f181bee70c3d44a0b354a8beb00bb5b79.jpg" alt="Pathology Microscope">
+        <div class="carousel-card-overlay">
+          <h4>Advanced Microscopy</h4>
+          <p>High-resolution diagnostic imaging</p>
+        </div>
+      </div>
+      <div class="carousel-card">
+        <img src="https://kimi-web-img.kimi.ai/img/cdn.prod.website-files.com/6ebc26a564722d40b82471790e5f794f052bdc6a.jpg" alt="Cancer Center">
+        <div class="carousel-card-overlay">
+          <h4>Oncology Centers</h4>
+          <p>Supporting cancer diagnostics nationwide</p>
+        </div>
+      </div>
+      <div class="carousel-card">
+        <img src="https://kimi-web-img.kimi.ai/img/www.carolina.com/f4ae8ac4af3c8ebf1bbb3e4cea92b9fc029fc3d0.jpg" alt="Histopathology Slides">
+        <div class="carousel-card-overlay">
+          <h4>Quality Consumables</h4>
+          <p>Certified slides and reagents</p>
+        </div>
+      </div>
+      <div class="carousel-card">
+        <img src="https://kimi-web-img.kimi.ai/img/iita.org/743a23be337327f9177ae0619d01cab57c437b89.png" alt="African Research Lab">
+        <div class="carousel-card-overlay">
+          <h4>African Research</h4>
+          <p>Empowering local pathology expertise</p>
+        </div>
+      </div>
+      <!-- Duplicate set for seamless infinite scroll -->
+      <div class="carousel-card">
+        <img src="https://kimi-web-img.kimi.ai/img/www.elacapathology.co.za/e85cb0fe150571284750dc56215193a582add90b.webp" alt="Modern Pathology Laboratory">
+        <div class="carousel-card-overlay">
+          <h4>Modern Laboratory</h4>
+          <p>State-of-the-art diagnostic facilities</p>
+        </div>
+      </div>
+      <div class="carousel-card">
+        <img src="https://kimi-web-img.kimi.ai/img/www.leicabiosystems.com/6dc2222ac0809149509d2de9c2da1c44120438b9.jpg" alt="Histology Equipment">
+        <div class="carousel-card-overlay">
+          <h4>Histology Equipment</h4>
+          <p>Precision tissue processing systems</p>
+        </div>
+      </div>
+      <div class="carousel-card">
+        <img src="https://kimi-web-img.kimi.ai/img/cdn11.bigcommerce.com/94bfe22f181bee70c3d44a0b354a8beb00bb5b79.jpg" alt="Pathology Microscope">
+        <div class="carousel-card-overlay">
+          <h4>Advanced Microscopy</h4>
+          <p>High-resolution diagnostic imaging</p>
+        </div>
+      </div>
+      <div class="carousel-card">
+        <img src="https://kimi-web-img.kimi.ai/img/cdn.prod.website-files.com/6ebc26a564722d40b82471790e5f794f052bdc6a.jpg" alt="Cancer Center">
+        <div class="carousel-card-overlay">
+          <h4>Oncology Centers</h4>
+          <p>Supporting cancer diagnostics nationwide</p>
+        </div>
+      </div>
+      <div class="carousel-card">
+        <img src="https://kimi-web-img.kimi.ai/img/www.carolina.com/f4ae8ac4af3c8ebf1bbb3e4cea92b9fc029fc3d0.jpg" alt="Histopathology Slides">
+        <div class="carousel-card-overlay">
+          <h4>Quality Consumables</h4>
+          <p>Certified slides and reagents</p>
+        </div>
+      </div>
+      <div class="carousel-card">
+        <img src="https://kimi-web-img.kimi.ai/img/iita.org/743a23be337327f9177ae0619d01cab57c437b89.png" alt="African Research Lab">
+        <div class="carousel-card-overlay">
+          <h4>African Research</h4>
+          <p>Empowering local pathology expertise</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENT -->
+<main class="content">
+
+  <section class="section-block" id="about">
+    <h3><span class="num">01</span> Company History</h3>
+    <p>stePAP Pharmaceuticals PLC is a legal entity established by <strong>pathologists, histotechnologists, and business experts</strong>. Recognizing the critical lack of awareness and supply issues in the field of anatomic pathology equipment and consumables across Africa, the company was founded to provide uninterrupted access to high-quality products at affordable prices.</p>
+    <p>Founded in <strong>2023</strong> and headquartered in Addis Ababa, Ethiopia, stePAP is committed to bridging healthcare infrastructure gaps and empowering cancer diagnostic centers with the tools they need to save lives.</p>
+  </section>
+
+  <section class="section-block" id="objectives">
+    <h3><span class="num">02</span> Strategic Objectives</h3>
+    <div class="grid-2">
+      <div class="chip">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+        Promote proper use of equipment for durability
+      </div>
+      <div class="chip">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+        Ensure sustainable supply at affordable prices
+      </div>
+      <div class="chip">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V9h10v2z"/></svg>
+        Develop cancer diagnostic & oncology centers
+      </div>
+      <div class="chip">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>
+        Fund education & on-the-job training
+      </div>
+    </div>
+  </section>
+
+  <section class="section-block" id="vision">
+    <h3><span class="num">03</span> Vision & Mission</h3>
+    <div class="grid-2">
+      <div>
+        <h4 style="font-size:16px;font-weight:600;margin-bottom:8px;color:var(--accent)">Our Vision</h4>
+        <p>To become the most recognized pharmaceutical company specializing in anatomic pathology in Africa.</p>
+      </div>
+      <div>
+        <h4 style="font-size:16px;font-weight:600;margin-bottom:8px;color:var(--accent)">Our Mission</h4>
+        <p>To ensure a sustainable supply of quality-assured anatomic pathology equipment and consumables to healthcare facilities at affordable prices through committed demand, accountability, strong inventory management, and knowledgeable staff.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-block" id="values">
+    <h3><span class="num">04</span> Core Values & Principles</h3>
+    <div class="grid-3">
+      <div class="chip"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>Customer First</div>
+      <div class="chip"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>Integrity</div>
+      <div class="chip"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>Professionalism</div>
+      <div class="chip"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>Impartiality</div>
+      <div class="chip"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>Respect for Law</div>
+      <div class="chip"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>Innovation</div>
+    </div>
+  </section>
+
+</main>
+
+<!-- CONTACT BAR -->
+<section class="contact-bar" id="contact">
+  <h2>Let's Connect</h2>
+  <p>Reach out to discuss how we can support your pathology needs.</p>
+  <div class="contact-grid">
+    <div class="contact-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      stepap.plc@gmail.com
+    </div>
+    <div class="contact-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+      +251 935 352 425
+    </div>
+    <div class="contact-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      Addis Ababa, Lemi Kura, Woreda 07
+    </div>
+    <div class="contact-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
+      TIN: 0086283991
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  stePAP Pharmaceuticals PLC &middot; Bank of Abyssinia &middot; September 2026
+</footer>
+
+<script>
+  // ===== MENU TOGGLE =====
+  const menuBtn = document.getElementById('menuBtn');
+  const menuDropdown = document.getElementById('menuDropdown');
+  const menuOverlay = document.getElementById('menuOverlay');
+
+  function toggleMenu() {
+    const isOpen = menuDropdown.classList.contains('open');
+    menuDropdown.classList.toggle('open', !isOpen);
+    menuOverlay.classList.toggle('open', !isOpen);
+    menuBtn.classList.toggle('active', !isOpen);
+    menuBtn.setAttribute('aria-expanded', String(!isOpen));
+  }
+
+  menuBtn.addEventListener('click', toggleMenu);
+  menuOverlay.addEventListener('click', toggleMenu);
+
+  // Close menu on link click
+  document.querySelectorAll('.menu-dropdown a').forEach(link => {
+    link.addEventListener('click', () => {
+      menuDropdown.classList.remove('open');
+      menuOverlay.classList.remove('open');
+      menuBtn.classList.remove('active');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Close menu on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menuDropdown.classList.contains('open')) {
+      toggleMenu();
+    }
+  });
+
+  // ===== SMOOTH SCROLL =====
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // ===== CAROUSEL PAUSE ON HOVER (already handled by CSS, but add touch support) =====
+  const track = document.getElementById('carouselTrack');
+  let isDragging = false;
+  let startX, scrollLeft;
+
+  track.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    track.style.animationPlayState = 'paused';
+    startX = e.pageX;
+  });
+  track.addEventListener('mouseleave', () => {
+    isDragging = false;
+    track.style.animationPlayState = 'running';
+  });
+  track.addEventListener('mouseup', () => {
+    isDragging = false;
+    track.style.animationPlayState = 'running';
+  });
+
+  // ===== HEADER SHADOW ON SCROLL =====
+  const header = document.querySelector('.header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 10) {
+      header.style.boxShadow = '0 1px 3px rgba(0,0,0,0.08)';
+    } else {
+      header.style.boxShadow = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>
