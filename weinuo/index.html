@@ -567,13 +567,14 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
       </div>
     </div>
     <div class="contact-form">
+     <form action="mailto:mussie@equaltradeglobal.org" method="POST" enctype="text/plain">
       <div class="form-group">
         <label>Your Name</label>
-        <input type="text" placeholder="Full name">
+        <input type="text" name="Name" placeholder="Full name" required>
       </div>
       <div class="form-group">
         <label>Email Address</label>
-        <input type="email" placeholder="you@company.com">
+        <input type="email" name="Email" placeholder="you@company.com" required>
       </div>
       <div class="form-group">
         <label>Project Type</label>
@@ -587,7 +588,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
       </div>
       <div class="form-group">
         <label>Do you have drawings or a window schedule ready?</label>
-        <select>
+        <select name="Drawings_Ready">
           <option>Select an option...</option>
           <option>Yes, I have architectural drawings</option>
           <option>Yes, I have a window schedule / BOQ</option>
@@ -596,9 +597,10 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
       </div>
       <div class="form-group">
         <label>Message</label>
-        <textarea placeholder="Tell us about your project, quantities, and any specific requirements..."></textarea>
+        <textarea name="Message" placeholder="Tell us about your project, quantities, and any specific requirements..." required></textarea>
       </div>
-      <button class="form-submit">Send Inquiry</button>
+      <input type="submit" class="form-submit" value="Send Inquiry">
+     </form>
     </div>
   </div>
 </section>
