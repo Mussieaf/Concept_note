@@ -77,6 +77,49 @@ body { font-family: inherit; color: #1a1a1a; background: #f7f7f8; padding: 24px;
   .rt-filters input, .rt-filters select { width: 100%; }
   .rt-header h2 { font-size: 20px; }
 }
+  /* CTA button inside each unit row */
+  .wa-cta{
+    display:inline-flex; align-items:center; justify-content:center; gap:6px;
+    background:#25D366; color:#fff !important;
+    padding:8px 14px; border-radius:20px;
+    font:600 13px/1 Arial,Helvetica,sans-serif;
+    text-decoration:none; white-space:nowrap;
+    box-shadow:0 2px 6px rgba(0,0,0,.2);
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .wa-cta:hover{ transform:scale(1.05); box-shadow:0 3px 10px rgba(0,0,0,.3); }
+  .wa-cta i{ font-size:15px; }
+
+  /* TABLET (768–1024px): tighter cells, horizontal scroll */
+  @media (max-width:1024px){
+    .wa-table-scroll{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
+    .wa-table{ font-size:13px; }
+    .wa-table th, .wa-table td{ padding:7px 9px; }
+    .wa-cta{ padding:7px 11px; font-size:12px; }
+  }
+
+  /* MOBILE (≤767px): each row becomes a stacked card */
+  @media (max-width:767px){
+    .wa-table-scroll{ overflow-x:visible; }
+    .wa-table, .wa-table thead, .wa-table tbody,
+    .wa-table th, .wa-table td, .wa-table tr{ display:block; width:100%; }
+    .wa-table thead{ display:none; }
+    .wa-table tr{
+      margin:0 0 14px; padding:6px 0;
+      border:1px solid #dfe4e9; border-radius:10px;
+      background:#fff; box-shadow:0 2px 6px rgba(0,0,0,.06);
+    }
+    .wa-table td{
+      display:flex; justify-content:space-between; align-items:center;
+      gap:12px; padding:8px 12px; border:none;
+      border-bottom:1px solid #f0f2f5; font-size:13px; text-align:right;
+    }
+    .wa-table td:last-child{ border-bottom:none; }
+    .wa-table td::before{
+      content:attr(data-label); font-weight:700; color:#0d2b45; text-align:left;
+    }
+    .wa-cta{ width:100%; padding:11px; font-size:14px; border-radius:8px; }
+  }
 </style>
 </head>
 <body>
@@ -402,6 +445,57 @@ applyFilters();
     a.innerHTML = '<i class="fa-brands fa-whatsapp"></i> Inquire';
     td.appendChild(a);
     row.appendChild(td);
+  });
+})()
+(function(){
+  var PHONE = '251922466797';
+
+  /* 1. Find the units table (header contains "Unit") */
+  var table = null;
+  document.querySelectorAll('table').forEach(function(t){
+    if (!table && /\bunit\b/i.test(t.textContent) && t.querySelector('th')) table = t;
+  });
+  if (!table) return;
+
+  /* 2. Wrap it for the tablet scroll fallback */
+  table.classList.add('wa-table');
+  var wrap = document.createElement('div');
+  wrap.className = 'wa-table-scroll';
+  table.parentNode.insertBefore(wrap, table);
+  wrap.appendChild(table);
+
+  /* 3. Add the "WhatsApp" column header */
+  var headRow = table.querySelector('thead tr') || table.querySelector('tr');
+  var th = document.createElement('th');
+  th.textContent = 'WhatsApp';
+  headRow.appendChild(th);
+
+  /* 4. Add an "Inquire via WhatsApp" button to EVERY unit row,
+        pre-filling the chatbot greeting + that row's unit code */
+  table.querySelectorAll('tr').forEach(function(row){
+    if (row === headRow || row.querySelector('.wa-cta')) return;
+    var firstCell = row.querySelector('td');
+    if (!firstCell) return;
+    var unit = firstCell.textContent.trim().replace(/\s+/g,' ');
+    var msg = 'Hello! Thank you for reaching out to us via WhatsApp. How can we assist you today? ' +
+              'I am interested in unit ' + unit + ' at Reportage Towers.';
+    var td = document.createElement('td');
+    td.innerHTML = '<a class="wa-cta" target="_blank" rel="noopener" ' +
+                   'aria-label="Inquire about unit ' + unit + ' via WhatsApp" ' +
+                   'href="https://wa.me/' + PHONE + '?text=' + encodeURIComponent(msg) + '">' +
+                   '<i class="fa-brands fa-whatsapp"></i> Inquire via WhatsApp</a>';
+    row.appendChild(td);
+  });
+
+  /* 5. Tag each cell with its column label for the mobile card layout */
+  var labels = Array.prototype.map.call(headRow.children, function(h){
+    return h.textContent.trim();
+  });
+  table.querySelectorAll('tr').forEach(function(row){
+    if (row === headRow) return;
+    Array.prototype.forEach.call(row.children, function(cell, i){
+      cell.setAttribute('data-label', labels[i] || '');
+    });
   });
 })();
 </script>
