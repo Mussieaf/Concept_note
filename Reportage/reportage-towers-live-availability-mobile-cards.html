@@ -411,7 +411,6 @@ applyFilters();
 </script>
 <!-- ============================================================
      WHATSAPP INQUIRY INTEGRATION — Reportage Towers
-     Phone: +251 922 466 797  |  Paste this block just before </body>
      ============================================================ -->
 <style>
   /* --- Floating WhatsApp button (bottom-right) --- */
@@ -436,7 +435,15 @@ applyFilters();
     color:#fff;
   }
   .wa-float i{ font-size:26px; }
-
+  /* --- MOBILE: lift button above the pagination bar so it never covers pager buttons --- */
+  @media (max-width:768px){
+    .wa-float{
+      bottom:96px;   /* clears .rt-paging (pager + ~16px gap) */
+      right:16px;
+      padding:12px 14px;
+    }
+    .wa-float::before{ animation:none; }   /* no pulse ring on mobile — avoids tap-target overlap */
+  }
   /* --- Pulse ring to draw attention --- */
   .wa-float::before{
     content:"";
