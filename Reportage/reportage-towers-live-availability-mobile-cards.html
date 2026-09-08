@@ -358,7 +358,7 @@ function renderPaging() {
   const from = (page-1)*PER + 1;
   const to = Math.min(filtered.length, page*PER);
   let btns = `<button onclick="setPage(${page-1})" ${page===1?'disabled':''}>Prev</button>`;
-  const maxBtns = 3;
+  const maxBtns = 1;
   let s = Math.max(1, page - 3);
   let e = Math.min(totalPages, s + maxBtns - 1);
   if (e - s < maxBtns - 1) s = Math.max(1, e - maxBtns + 1);
