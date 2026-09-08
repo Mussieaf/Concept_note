@@ -325,10 +325,10 @@ function renderCards() {
   }
   el.innerHTML = pageData.map((u,i) => {
     const waMsg = encodeURIComponent(
-      'Hello! Thank you for reaching out to us via WhatsApp. How can we assist you today?\n\n' +
-      'I am interested in the following unit at Reportage Towers:\n' +
+      'Hello! Thank you for reaching out to us through WhatsApp. We are pleased to assist you to day.\n\n' +
+      'Your choice of unit at Reportage Towers:\n' +
       `• Unit: ${u.unit}\n• Tower: ${u.tower}\n• Floor: ${u.floorLabel}\n• Type: ${u.typeLabel} (${u.typeCode})\n• View: ${u.viewLabel}\n• Price: ${fmt(u.priceUSD)} (${fmtA(u.priceAED)})\n\n` +
-      'Please let me know the next steps. Thank you!');
+      'Please let us know your next steps. Thank you!');
     return `<div class="ucard" id="ucard-${i}">` +
       `<button class="ucard-head" onclick="toggleCard(${i})" aria-expanded="false">` +
         `<div class="ucard-title"><strong>${u.unit}</strong> <span class="rt-tag rt-tag-${u.type}">${u.typeCode}</span></div>` +
