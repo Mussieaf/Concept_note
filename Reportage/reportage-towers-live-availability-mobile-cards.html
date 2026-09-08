@@ -145,7 +145,7 @@ body { font-family: inherit; color: #1a1a1a; background: #f7f7f8; padding: 24px;
     .ucard-meta{ font-size:12.5px; color:#666; margin-top:4px; line-height:1.45; }
     .ucard-price{ font-size:15px; font-weight:700; margin-top:6px; font-variant-numeric:tabular-nums; }
     .ucard-chev{
-      position:absolute; top:18px; right:14px; color:#999; font-size:12px;
+      position:absolute; top:16px; right:12px; color:#999; font-size:20px; line-height:1;
       transition:transform .2s ease;
     }
     .ucard.open .ucard-chev{ transform:rotate(180deg); }
@@ -358,7 +358,7 @@ function renderPaging() {
   const from = (page-1)*PER + 1;
   const to = Math.min(filtered.length, page*PER);
   let btns = `<button onclick="setPage(${page-1})" ${page===1?'disabled':''}>Prev</button>`;
-  const maxBtns = 7;
+  const maxBtns = 3;
   let s = Math.max(1, page - 3);
   let e = Math.min(totalPages, s + maxBtns - 1);
   if (e - s < maxBtns - 1) s = Math.max(1, e - maxBtns + 1);
