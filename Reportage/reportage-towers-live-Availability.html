@@ -257,5 +257,61 @@ window.setPage = function(p) {
 
 applyFilters();
 </script>
+<!-- ============================================================
+     WHATSAPP INQUIRY INTEGRATION — Reportage Towers
+     Phone: +251 922 466 797  |  Paste this block just before </body>
+     ============================================================ -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  /* --- Floating WhatsApp button (bottom-right) --- */
+  .wa-float{
+    position:fixed;
+    bottom:24px; right:24px;
+    z-index:9999;
+    display:flex; align-items:center; gap:10px;
+    background:#25D366;
+    color:#fff;
+    padding:14px 18px;
+    border-radius:50px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:16px; font-weight:600;
+    text-decoration:none;
+    box-shadow:0 4px 14px rgba(0,0,0,.35);
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .wa-float:hover{
+    transform:scale(1.06);
+    box-shadow:0 6px 20px rgba(0,0,0,.45);
+    color:#fff;
+  }
+  .wa-float i{ font-size:26px; }
+
+  /* --- Pulse ring to draw attention --- */
+  .wa-float::before{
+    content:"";
+    position:absolute; inset:0;
+    border-radius:50px;
+    box-shadow:0 0 0 0 rgba(37,211,102,.6);
+    animation:waPulse 2s infinite;
+  }
+  @keyframes waPulse{
+    0%   { box-shadow:0 0 0 0 rgba(37,211,102,.55); }
+    70%  { box-shadow:0 0 0 18px rgba(37,211,102,0); }
+    100% { box-shadow:0 0 0 0 rgba(37,211,102,0); }
+  }
+
+  /* --- Label hidden on small screens --- */
+  @media (max-width:480px){
+    .wa-float span{ display:none; }
+    .wa-float{ padding:16px; border-radius:50%; }
+  }
+</style>
+
+<a class="wa-float"
+   href="https://wa.me/251922466797?text=Hello!%20Thank%20you%20for%20reaching%20out%20to%20us%20via%20WhatsApp.%20How%20can%20we%20assist%20you%20today%3F"
+   target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+  <span>Chat with us on WhatsApp</span>
+</a>
 </body>
 </html>
