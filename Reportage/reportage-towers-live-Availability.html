@@ -78,50 +78,55 @@ body { font-family: inherit; color: #1a1a1a; background: #f7f7f8; padding: 24px;
   .rt-filters input, .rt-filters select { width: 100%; }
   .rt-header h2 { font-size: 20px; }
 }
-  /* CTA button inside each unit row */
+  /* ═══ WhatsApp CTA column (built into every table render) ═══ */
+  .wa-table-header{ text-align:center !important; }
+  .wa-cell{ text-align:center; }
   .wa-cta{
     display:inline-flex; align-items:center; justify-content:center; gap:6px;
-    background:#25D366; color:#fff !important;
-    padding:8px 14px; border-radius:20px;
-    font:600 13px/1 Arial,Helvetica,sans-serif;
+    background:#25D366; color:#fff;
+    padding:7px 12px; border-radius:20px;
+    font:600 12.5px/1 Arial, Helvetica, sans-serif;
     text-decoration:none; white-space:nowrap;
-    box-shadow:0 2px 6px rgba(0,0,0,.2);
-    transition:transform .15s ease, box-shadow .15s ease;
+    box-shadow:0 2px 6px rgba(0,0,0,.18);
+    transition:transform .15s ease, background .15s ease;
   }
-  .wa-cta:hover{ transform:scale(1.05); box-shadow:0 3px 10px rgba(0,0,0,.3); }
-  .wa-cta i{ font-size:15px; }
+  .wa-cta:hover{ background:#1ebe5b; transform:scale(1.05); color:#fff; }
+  .wa-cta i{ font-size:14px; }
 
-  /* TABLET (768–1024px): tighter cells, horizontal scroll */
+  /* ═══ TABLET (≤1024px): tighter cells + horizontal scroll fallback ═══ */
   @media (max-width:1024px){
-    .wa-table-scroll{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
-    .wa-table{ font-size:13px; }
-    .wa-table th, .wa-table td{ padding:7px 9px; }
-    .wa-cta{ padding:7px 11px; font-size:12px; }
+    .rt-table-wrap{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
+    .rt-table th, .rt-table td{ padding:10px; font-size:12.5px; }
+    .wa-cta{ padding:6px 10px; font-size:12px; }
   }
 
-  /* MOBILE (≤767px): each row becomes a stacked card */
-  @media (max-width:767px){
-    .wa-table-scroll{ overflow-x:visible; }
-    .wa-table, .wa-table thead, .wa-table tbody,
-    .wa-table th, .wa-table td, .wa-table tr{ display:block; width:100%; }
-    .wa-table thead{ display:none; }
-    .wa-table tr{
+  /* ═══ MOBILE (≤768px): each unit row becomes a stacked card ═══ */
+  @media (max-width:768px){
+    .rt-table-wrap{ overflow-x:visible; border:none; background:transparent; box-shadow:none; }
+    .rt-table, .rt-table tbody, .rt-table tr, .rt-table td{ display:block; width:100%; }
+    .rt-table thead{ display:none; }               /* column labels shown via data-label */
+    .rt-table tr{
       margin:0 0 14px; padding:6px 0;
-      border:1px solid #dfe4e9; border-radius:10px;
-      background:#fff; box-shadow:0 2px 6px rgba(0,0,0,.06);
+      border:1px solid #e5e5e5; border-radius:12px;
+      background:#fff; box-shadow:0 1px 3px rgba(0,0,0,.04);
     }
-    .wa-table td{
+    .rt-table tr:hover td{ background:transparent; }
+    .rt-table td{
       display:flex; justify-content:space-between; align-items:center;
-      gap:12px; padding:8px 12px; border:none;
-      border-bottom:1px solid #f0f2f5; font-size:13px; text-align:right;
+      gap:12px; white-space:normal; text-align:right;
+      padding:9px 14px; font-size:13px;
+      border-bottom:1px solid #f2f2f2;
     }
-    .wa-table td:last-child{ border-bottom:none; }
-    .wa-table td::before{
-      content:attr(data-label); font-weight:700; color:#0d2b45; text-align:left;
+    .rt-table td:last-child{ border-bottom:none; }
+    .rt-table td::before{
+      content:attr(data-label);
+      font-size:11px; font-weight:600; text-transform:uppercase;
+      letter-spacing:.6px; color:#888; text-align:left;
     }
-    .wa-cta{ width:100%; padding:11px; font-size:14px; border-radius:8px; }
+    .wa-cta{ width:100%; padding:11px; border-radius:8px; font-size:14px; }
   }
 </style>
+<base target="_blank">
 </head>
 <body>
 <div class="rt-app" id="app">
@@ -225,7 +230,7 @@ function renderTable() {
   const start = (page-1)*PER;
   const pageData = filtered.slice(start, start+PER);
   if (pageData.length === 0) {
-    $('table').innerHTML = '<tr><td colspan="8" class="rt-empty">No units match your filters.</td></tr>';
+    $('table').innerHTML = '<tr><td colspan="9" class="rt-empty">No units match your filters.</td></tr>';
     return;
   }
   const headers = [
@@ -236,10 +241,30 @@ function renderTable() {
     {k:'viewLabel',l:'View'},
     {k:'area',l:'Area (m²)'},
     {k:'priceUSD',l:'Price (USD)'},
-    {k:'priceAED',l:'Price (AED)'}
+    {k:'priceAED',l:'Price (AED)'},
+    {k:null,l:'WhatsApp'}
   ];
-  let html = '<thead><tr>' + headers.map(h => `<th onclick="setSort('${h.k}')">${h.l}${sortCol===h.k?(sortAsc?' ▲':' ▼'):''}</th>`).join('') + '</tr></thead><tbody>';
-  html += pageData.map(u => `<tr><td><strong>${u.unit}</strong></td><td>${u.tower}</td><td>${u.floorLabel}</td><td><span class="rt-tag rt-tag-${u.type}">${u.typeCode}</span></td><td>${u.viewLabel}</td><td>${u.area} <span style="color:#bbb;font-size:11px">/ ${u.sqft} sq ft</span></td><td class="rt-price">${fmt(u.priceUSD)}</td><td style="color:#666">${fmtA(u.priceAED)}</td></tr>`).join('');
+  let html = '<thead><tr>' + headers.map(h => h.k
+    ? `<th onclick="setSort('${h.k}')">${h.l}${sortCol===h.k?(sortAsc?' ▲':' ▼'):''}</th>`
+    : `<th class="wa-table-header">${h.l}</th>`).join('') + '</tr></thead><tbody>';
+  html += pageData.map(u => {
+    const waMsg = encodeURIComponent(
+      'Hello! Thank you for reaching out to us via WhatsApp. How can we assist you today?\n\n' +
+      'I am interested in the following unit at Reportage Towers:\n' +
+      `• Unit: ${u.unit}\n• Tower: ${u.tower}\n• Floor: ${u.floorLabel}\n• Type: ${u.typeLabel} (${u.typeCode})\n• View: ${u.viewLabel}\n• Price: ${fmt(u.priceUSD)} (${fmtA(u.priceAED)})\n\n` +
+      'Please let me know the next steps. Thank you!');
+    return `<tr>` +
+      `<td data-label="Unit"><strong>${u.unit}</strong></td>` +
+      `<td data-label="Tower">${u.tower}</td>` +
+      `<td data-label="Floor">${u.floorLabel}</td>` +
+      `<td data-label="Type"><span class="rt-tag rt-tag-${u.type}">${u.typeCode}</span></td>` +
+      `<td data-label="View">${u.viewLabel}</td>` +
+      `<td data-label="Area">${u.area} <span style="color:#bbb;font-size:11px">/ ${u.sqft} sq ft</span></td>` +
+      `<td data-label="Price (USD)" class="rt-price">${fmt(u.priceUSD)}</td>` +
+      `<td data-label="Price (AED)" style="color:#666">${fmtA(u.priceAED)}</td>` +
+      `<td data-label="WhatsApp" class="wa-cell"><a class="wa-cta" target="_blank" rel="noopener" href="https://wa.me/251922466797?text=${waMsg}" aria-label="Inquire about unit ${u.unit} via WhatsApp"><i class="fa-brands fa-whatsapp"></i> Inquire</a></td>` +
+      `</tr>`;
+  }).join('');
   html += '</tbody>';
   $('table').innerHTML = html;
 }
@@ -357,148 +382,6 @@ applyFilters();
   <i class="fa-brands fa-whatsapp"></i>
   <span>Chat with us on WhatsApp</span>
 </a>
-<!-- ============================================================
-     WHATSAPP CTA — "Inquire via WhatsApp" per unit row
-     Phone: +251 922 466 797
-     Paste this block just before </body> (after the float button snippet)
-     Auto-adds an Inquire button to every row of the units table.
-     ============================================================ -->
-<style>
-  /* --- Per-row WhatsApp CTA --- */
-  .wa-inquire-btn{
-    display:inline-flex; align-items:center; gap:6px;
-    background:#25D366; color:#fff;
-    border:none; border-radius:6px;
-    padding:6px 12px;
-    font-size:13px; font-weight:600; font-family:Arial, Helvetica, sans-serif;
-    cursor:pointer; text-decoration:none;
-    white-space:nowrap;
-    transition:background .15s ease, transform .15s ease;
-  }
-  .wa-inquire-btn:hover{ background:#1ebe5b; transform:translateY(-1px); color:#fff; }
-  .wa-inquire-btn i{ font-size:15px; }
-  .wa-table-header{ text-align:center !important; }
-</style>
 
-<script>
-(function () {
-  var PHONE = "251922466797";
-
-  // Greeting + guided-flow opener (step 1 of your chatbot script)
-  function buildMessage(cells) {
-    var unit  = (cells[0] || "").trim();
-    var tower = (cells[1] || "").trim();
-    var floor = (cells[2] || "").trim();
-    var type  = (cells[3] || "").trim();
-    var view  = (cells[4] || "").trim();
-    var price = (cells[6] || "").trim();
-
-    var msg =
-      "Hello! Thank you for reaching out to us via WhatsApp. How can we assist you today?\n\n" +
-      "I am interested in the following unit at Reportage Towers:\n" +
-      "• Unit: " + unit + "\n" +
-      "• Tower: " + tower + "\n" +
-      "• Floor: " + floor + "\n" +
-      "• Type: " + type + "\n" +
-      (view  ? "• View: " + view + "\n" : "") +
-      (price ? "• Price: " + price + "\n" : "") +
-      "\nPlease let me know the next steps. Thank you!";
-    return msg;
-  }
-
-  // Find the availability table: the one whose first header cell is "Unit"
-  var tables = document.querySelectorAll("table");
-  var target = null;
-  tables.forEach(function (t) {
-    var firstHeader = t.querySelector("thead th, thead td, tr:first-child th, tr:first-child td");
-    if (firstHeader && /unit/i.test(firstHeader.textContent)) { target = t; }
-  });
-  if (!target) { console.warn("WhatsApp CTA: units table not found."); return; }
-
-  // Add a header cell for the new column (skip if already added)
-  var headRow = target.querySelector("thead tr") || target.querySelector("tr");
-  if (headRow && !headRow.querySelector(".wa-table-header")) {
-    var th = document.createElement("th");
-    th.className = "wa-table-header";
-    th.textContent = "Inquire";
-    headRow.appendChild(th);
-  }
-
-  // Add an Inquire button to each body row
-  var rows = target.querySelectorAll("tbody tr");
-  if (!rows.length) { // fallback if no <tbody>
-    var allRows = target.querySelectorAll("tr");
-    rows = Array.prototype.slice.call(allRows, 1);
-  }
-  rows.forEach(function (row) {
-    if (row.querySelector(".wa-inquire-btn")) return;
-    var tds = row.querySelectorAll("td");
-    if (!tds.length) return;
-    var cells = Array.prototype.map.call(tds, function (td) { return td.textContent; });
-
-    var td = document.createElement("td");
-    td.style.textAlign = "center";
-    var a = document.createElement("a");
-    a.className = "wa-inquire-btn";
-    a.target = "_blank";
-    a.rel = "noopener";
-    a.href = "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(buildMessage(cells));
-    a.innerHTML = '<i class="fa-brands fa-whatsapp"></i> Inquire';
-    td.appendChild(a);
-    row.appendChild(td);
-  });
-})()
-(function(){
-  var PHONE = '251922466797';
-
-  /* 1. Find the units table (header contains "Unit") */
-  var table = null;
-  document.querySelectorAll('table').forEach(function(t){
-    if (!table && /\bunit\b/i.test(t.textContent) && t.querySelector('th')) table = t;
-  });
-  if (!table) return;
-
-  /* 2. Wrap it for the tablet scroll fallback */
-  table.classList.add('wa-table');
-  var wrap = document.createElement('div');
-  wrap.className = 'wa-table-scroll';
-  table.parentNode.insertBefore(wrap, table);
-  wrap.appendChild(table);
-
-  /* 3. Add the "WhatsApp" column header */
-  var headRow = table.querySelector('thead tr') || table.querySelector('tr');
-  var th = document.createElement('th');
-  th.textContent = 'WhatsApp';
-  headRow.appendChild(th);
-
-  /* 4. Add an "Inquire via WhatsApp" button to EVERY unit row,
-        pre-filling the chatbot greeting + that row's unit code */
-  table.querySelectorAll('tr').forEach(function(row){
-    if (row === headRow || row.querySelector('.wa-cta')) return;
-    var firstCell = row.querySelector('td');
-    if (!firstCell) return;
-    var unit = firstCell.textContent.trim().replace(/\s+/g,' ');
-    var msg = 'Hello! Thank you for reaching out to us via WhatsApp. How can we assist you today? ' +
-              'I am interested in unit ' + unit + ' at Reportage Towers.';
-    var td = document.createElement('td');
-    td.innerHTML = '<a class="wa-cta" target="_blank" rel="noopener" ' +
-                   'aria-label="Inquire about unit ' + unit + ' via WhatsApp" ' +
-                   'href="https://wa.me/' + PHONE + '?text=' + encodeURIComponent(msg) + '">' +
-                   '<i class="fa-brands fa-whatsapp"></i> Inquire via WhatsApp</a>';
-    row.appendChild(td);
-  });
-
-  /* 5. Tag each cell with its column label for the mobile card layout */
-  var labels = Array.prototype.map.call(headRow.children, function(h){
-    return h.textContent.trim();
-  });
-  table.querySelectorAll('tr').forEach(function(row){
-    if (row === headRow) return;
-    Array.prototype.forEach.call(row.children, function(cell, i){
-      cell.setAttribute('data-label', labels[i] || '');
-    });
-  });
-})();
-</script>
 </body>
 </html>
