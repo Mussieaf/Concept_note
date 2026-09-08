@@ -313,5 +313,97 @@ applyFilters();
   <i class="fa-brands fa-whatsapp"></i>
   <span>Chat with us on WhatsApp</span>
 </a>
+<!-- ============================================================
+     WHATSAPP CTA — "Inquire via WhatsApp" per unit row
+     Phone: +251 922 466 797
+     Paste this block just before </body> (after the float button snippet)
+     Auto-adds an Inquire button to every row of the units table.
+     ============================================================ -->
+<style>
+  /* --- Per-row WhatsApp CTA --- */
+  .wa-inquire-btn{
+    display:inline-flex; align-items:center; gap:6px;
+    background:#25D366; color:#fff;
+    border:none; border-radius:6px;
+    padding:6px 12px;
+    font-size:13px; font-weight:600; font-family:Arial, Helvetica, sans-serif;
+    cursor:pointer; text-decoration:none;
+    white-space:nowrap;
+    transition:background .15s ease, transform .15s ease;
+  }
+  .wa-inquire-btn:hover{ background:#1ebe5b; transform:translateY(-1px); color:#fff; }
+  .wa-inquire-btn i{ font-size:15px; }
+  .wa-table-header{ text-align:center !important; }
+</style>
+
+<script>
+(function () {
+  var PHONE = "251922466797";
+
+  // Greeting + guided-flow opener (step 1 of your chatbot script)
+  function buildMessage(cells) {
+    var unit  = (cells[0] || "").trim();
+    var tower = (cells[1] || "").trim();
+    var floor = (cells[2] || "").trim();
+    var type  = (cells[3] || "").trim();
+    var view  = (cells[4] || "").trim();
+    var price = (cells[6] || "").trim();
+
+    var msg =
+      "Hello! Thank you for reaching out to us via WhatsApp. How can we assist you today?\n\n" +
+      "I am interested in the following unit at Reportage Towers:\n" +
+      "• Unit: " + unit + "\n" +
+      "• Tower: " + tower + "\n" +
+      "• Floor: " + floor + "\n" +
+      "• Type: " + type + "\n" +
+      (view  ? "• View: " + view + "\n" : "") +
+      (price ? "• Price: " + price + "\n" : "") +
+      "\nPlease let me know the next steps. Thank you!";
+    return msg;
+  }
+
+  // Find the availability table: the one whose first header cell is "Unit"
+  var tables = document.querySelectorAll("table");
+  var target = null;
+  tables.forEach(function (t) {
+    var firstHeader = t.querySelector("thead th, thead td, tr:first-child th, tr:first-child td");
+    if (firstHeader && /unit/i.test(firstHeader.textContent)) { target = t; }
+  });
+  if (!target) { console.warn("WhatsApp CTA: units table not found."); return; }
+
+  // Add a header cell for the new column (skip if already added)
+  var headRow = target.querySelector("thead tr") || target.querySelector("tr");
+  if (headRow && !headRow.querySelector(".wa-table-header")) {
+    var th = document.createElement("th");
+    th.className = "wa-table-header";
+    th.textContent = "Inquire";
+    headRow.appendChild(th);
+  }
+
+  // Add an Inquire button to each body row
+  var rows = target.querySelectorAll("tbody tr");
+  if (!rows.length) { // fallback if no <tbody>
+    var allRows = target.querySelectorAll("tr");
+    rows = Array.prototype.slice.call(allRows, 1);
+  }
+  rows.forEach(function (row) {
+    if (row.querySelector(".wa-inquire-btn")) return;
+    var tds = row.querySelectorAll("td");
+    if (!tds.length) return;
+    var cells = Array.prototype.map.call(tds, function (td) { return td.textContent; });
+
+    var td = document.createElement("td");
+    td.style.textAlign = "center";
+    var a = document.createElement("a");
+    a.className = "wa-inquire-btn";
+    a.target = "_blank";
+    a.rel = "noopener";
+    a.href = "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(buildMessage(cells));
+    a.innerHTML = '<i class="fa-brands fa-whatsapp"></i> Inquire';
+    td.appendChild(a);
+    row.appendChild(td);
+  });
+})();
+</script>
 </body>
 </html>
