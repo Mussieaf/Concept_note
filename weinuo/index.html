@@ -567,7 +567,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
       </div>
     </div>
     <div class="contact-form">
-     <form action="mailto:mussie@equaltradeglobal.org" method="POST" enctype="text/plain">
+     <form id="inquiryForm" action="mailto:mussie@equaltradeglobal.org" method="POST" enctype="text/plain">
       <div class="form-group">
         <label>Your Name</label>
         <input type="text" name="Name" placeholder="Full name" required>
@@ -599,8 +599,12 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
         <label>Message</label>
         <textarea name="Message" placeholder="Tell us about your project, quantities, and any specific requirements..." required></textarea>
       </div>
-      <input type="submit" class="form-submit" value="Send Inquiry">
+      <button type="submit" class="form-submit">Send Inquiry</button>
      </form>
+     <div id="successMessage" style="display:none; margin-top:1.5rem; padding:1.2rem; background:#e8f5e9; border-left:4px solid #4caf50; border-radius:4px;">
+       <p style="color:#2e7d32; font-weight:600; margin:0 0 0.4rem 0; font-size:1rem;">✓ Inquiry Sent Successfully</p>
+       <p style="color:#555; margin:0; font-size:0.9rem;">Thank you for reaching out. A WEINUO sales representative will revert to you within <strong>12 hours</strong>.</p>
+     </div>
     </div>
   </div>
 </section>
@@ -631,7 +635,25 @@ window.addEventListener('scroll', () => {
     nav.style.boxShadow = 'none';
   }
 });
+// Inquiry form: open mailto with composed message and show confirmation
+const inquiryForm = document.getElementById('inquiryForm');
+const successMsg = document.getElementById('successMessage');
+if (inquiryForm) {
+  inquiryForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const fd = new FormData(inquiryForm);
+    const name = fd.get('Name') || '';
+    const email = fd.get('Email') || '';
+    const project = fd.get('Project_Type') || '';
+    const drawings = fd.get('Drawings_Ready') || '';
+    const message = fd.get('Message') || '';
+    const body = 'Name: ' + name + '%0D%0AEmail: ' + email + '%0D%0AProject Type: ' + project + '%0D%0ADrawings/BOQ: ' + drawings + '%0D%0A%0D%0AMessage:%0D%0A' + message;
+    window.location.href = 'mailto:mussie@equaltradeglobal.org?subject=WEINUO%20Product%20Inquiry&body=' + body;
+    inquiryForm.reset();
+    if (successMsg) successMsg.style.display = 'block';
+    inquiryForm.style.display = 'none';
+  });
+}
 </script>
-
 </body>
 </html>
