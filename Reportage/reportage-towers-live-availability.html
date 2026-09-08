@@ -294,10 +294,10 @@ function renderTable() {
     : `<th class="wa-table-header">${h.l}</th>`).join('') + '</tr></thead><tbody>';
   html += pageData.map(u => {
     const waMsg = encodeURIComponent(
-      'Hello! Thank you for reaching out to us via WhatsApp. How can we assist you today?\n\n' +
-      'I am interested in the following unit at Reportage Towers:\n' +
+      'Hello! Thank you for reaching out to us via WhatsApp. We are pleased to assist you today.\n\n' +
+      'Your choice of unit at Reportage Towers:\n' +
       `• Unit: ${u.unit}\n• Tower: ${u.tower}\n• Floor: ${u.floorLabel}\n• Type: ${u.typeLabel} (${u.typeCode})\n• View: ${u.viewLabel}\n• Price: ${fmt(u.priceUSD)} (${fmtA(u.priceAED)})\n\n` +
-      'Please let me know the next steps. Thank you!');
+      'Please let us know the next steps. Thank you!');
     return `<tr>` +
       `<td data-label="Unit"><strong>${u.unit}</strong></td>` +
       `<td data-label="Tower">${u.tower}</td>` +
@@ -325,7 +325,7 @@ function renderCards() {
   }
   el.innerHTML = pageData.map((u,i) => {
     const waMsg = encodeURIComponent(
-      'Hello! Thank you for reaching out to us through WhatsApp. We are pleased to assist you to day.\n\n' +
+      'Hello! Thank you for reaching out to us through WhatsApp. We are pleased to assist you today.\n\n' +
       'Your choice of unit at Reportage Towers:\n' +
       `• Unit: ${u.unit}\n• Tower: ${u.tower}\n• Floor: ${u.floorLabel}\n• Type: ${u.typeLabel} (${u.typeCode})\n• View: ${u.viewLabel}\n• Price: ${fmt(u.priceUSD)} (${fmtA(u.priceAED)})\n\n` +
       'Please let us know your next steps. Thank you!');
