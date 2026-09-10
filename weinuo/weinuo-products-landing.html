@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Equal Trade Global — Products Sourced from China & Ethiopia | Steel Tubes · Thermal Break Windows · Tantalum</title>
+<meta name="description" content="Premium steel tubes, thermal break aluminum windows, tantalum and custom profiles — reliably sourced from China and Ethiopia for global construction, manufacturing and infrastructure projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAF9F6; --bg-warm: #F5F3EE; --bg-dark: #1A1A1A;
+  --text: #1A1A1A; --text-sec: #5C5C5C; --text-muted: #8A8A8A;
+  --accent: #C4A35A; --accent-dark: #A88B45; --white: #FFFFFF;
+  --border: rgba(0,0,0,0.08);
+  --font-d: 'Cormorant Garamond', Georgia, serif;
+  --font-b: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; font-size:16px; overflow-x:hidden; }
+body { font-family:var(--font-b); color:var(--text); background:var(--bg); line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(40px)} to{opacity:1;transform:translateY(0)} }
+@keyframes scaleIn { from{opacity:0;transform:scale(0.95)} to{opacity:1;transform:scale(1)} }
+@keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.03)} }
+@keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+.a { opacity:0; }
+.a.v { animation:fadeUp 0.8s var(--ease) forwards; }
+.a-d1 { animation-delay:0.1s; } .a-d2 { animation-delay:0.2s; }
+.a-d3 { animation-delay:0.3s; } .a-d4 { animation-delay:0.4s; }
+.a-d5 { animation-delay:0.5s; }
+.si.v { animation:scaleIn 0.9s var(--ease) forwards; }
+
+/* ============ NAV ============ */
+.nav { position:fixed; top:0; left:0; right:0; z-index:1000; padding:18px 0; transition:all 0.4s; background:transparent; }
+.nav.s { background:rgba(250,249,246,0.96); backdrop-filter:blur(20px); box-shadow:0 1px 0 var(--border); padding:12px 0; }
+.nav-in { max-width:1280px; margin:0 auto; padding:0 40px; display:flex; justify-content:space-between; align-items:center; }
+.nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
+.logo-mark { width:38px; height:38px; flex-shrink:0; }
+.nav-logo-text { display:flex; flex-direction:column; line-height:1.1; }
+.nav-logo-text b { font-family:var(--font-d); font-size:1.35rem; font-weight:600; color:var(--text); letter-spacing:0.5px; }
+.nav-logo-text b i { color:var(--accent); font-style:normal; }
+.nav-logo-text small { font-size:0.58rem; text-transform:uppercase; letter-spacing:2.5px; color:var(--text-muted); font-weight:500; }
+.nav-signature { font-family:'Great Vibes', cursive; font-size:1.35rem; color:var(--accent); margin-left:14px; letter-spacing:1px; line-height:1; opacity:0.92; pointer-events:none; }
+.nav-links { display:flex; gap:32px; align-items:center; }
+.nav-links a { font-size:0.78rem; font-weight:500; text-transform:uppercase; letter-spacing:1.5px; color:var(--text); text-decoration:none; position:relative; padding-bottom:3px; }
+.nav-links a::after { content:''; position:absolute; bottom:0; left:0; width:0; height:1px; background:var(--accent); transition:width 0.3s var(--ease); }
+.nav-links a:hover::after { width:100%; }
+.nav-cta { background:var(--text); color:var(--white)!important; padding:10px 22px!important; font-size:0.72rem!important; letter-spacing:1.5px; transition:all 0.3s var(--ease); }
+.nav-cta::after { display:none!important; }
+.nav-cta:hover { background:var(--accent); transform:translateY(-1px); }
+.nav-mob { display:none; background:none; border:none; cursor:pointer; padding:8px; flex-direction:column; gap:5px; }
+.nav-mob span { display:block; width:22px; height:1.5px; background:var(--text); transition:all 0.3s; }
+
+/* ============ HERO ============ */
+.hero { min-height:100vh; position:relative; display:flex; align-items:center; overflow:hidden; background:var(--bg-warm); }
+.hero-bg { position:absolute; inset:0; background:linear-gradient(135deg,#F5F3EE 0%,#EAE7E0 50%,#DDD8CE 100%); }
+.hero-bg::before { content:''; position:absolute; top:-50%; right:-20%; width:80%; height:150%; background:radial-gradient(ellipse at center,rgba(196,163,90,0.08) 0%,transparent 70%); pointer-events:none; }
+.hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(0,0,0,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,0.025) 1px,transparent 1px); background-size:80px 80px; pointer-events:none; }
+.hero-in { max-width:1280px; margin:0 auto; padding:130px 40px 40px; position:relative; z-index:2; width:100%; }
+.hero-content { max-width:640px; margin:0 auto; text-align:center; }
+.hero-tag { display:inline-flex; align-items:center; gap:10px; background:rgba(196,163,90,0.12); border:1px solid rgba(196,163,90,0.25); padding:8px 18px; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:2px; color:var(--accent-dark); margin-bottom:24px; }
+.hero-tag::before { content:'◆'; font-size:0.6rem; }
+.hero-title { font-family:var(--font-d); font-size:clamp(2.6rem,4.8vw,4.2rem); font-weight:300; line-height:1.08; color:var(--text); margin-bottom:20px; letter-spacing:-0.5px; }
+.hero-title em { font-style:italic; font-weight:400; color:var(--accent-dark); }
+.hero-sub { font-size:1rem; color:var(--text-sec); line-height:1.7; margin-bottom:32px; font-weight:300; max-width:600px; margin-left:auto; margin-right:auto; }
+.hero-cta-row { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-bottom:24px; }
+.btn { display:inline-flex; align-items:center; justify-content:center; padding:15px 32px; font-size:0.78rem; font-weight:500; text-transform:uppercase; letter-spacing:1.5px; text-decoration:none; transition:all 0.4s var(--ease); cursor:pointer; border:none; font-family:var(--font-b); }
+.btn-pri { background:var(--text); color:var(--white); }
+.btn-pri:hover { background:var(--accent); transform:translateY(-2px); box-shadow:0 12px 32px rgba(196,163,90,0.25); }
+.btn-sec { background:transparent; color:var(--text); border:1px solid var(--border); }
+.btn-sec:hover { border-color:var(--text); background:var(--white); }
+.btn-gold { background:var(--accent); color:var(--text); }
+.btn-gold:hover { background:var(--accent-dark); color:var(--white); transform:translateY(-2px); }
+
+/* --- Marquee strip of five images --- */
+.hero-strip-wrap { position:relative; z-index:2; width:100%; margin-top:44px; }
+.hero-strip { display:flex; gap:16px; width:max-content; animation:marquee 45s linear infinite; }
+.hero-strip:hover { animation-play-state:paused; }
+.strip-card { position:relative; flex:0 0 auto; width:380px; height:230px; overflow:hidden; }
+.strip-card img { width:100%; height:100%; object-fit:cover; filter:brightness(0.92) contrast(1.05); transition:transform 0.8s var(--ease); }
+.strip-card:hover img { transform:scale(1.06); }
+.strip-cap { position:absolute; bottom:0; left:0; right:0; padding:12px 16px; background:linear-gradient(to top,rgba(0,0,0,0.55),transparent); color:var(--white); font-size:0.62rem; letter-spacing:1.5px; text-transform:uppercase; font-weight:500; }
+.strip-fade-l, .strip-fade-r { position:absolute; top:0; bottom:0; width:80px; z-index:3; pointer-events:none; }
+.strip-fade-l { left:0; background:linear-gradient(to right,var(--bg-warm),transparent); }
+.strip-fade-r { right:0; background:linear-gradient(to left,var(--bg-warm),transparent); }
+.hero-scroll { display:flex; flex-direction:column; align-items:center; gap:6px; color:var(--text-muted); font-size:0.6rem; text-transform:uppercase; letter-spacing:2px; text-decoration:none; margin-top:36px; }
+.hero-scroll-line { width:1px; height:36px; background:linear-gradient(to bottom,var(--accent),transparent); animation:pulse 2s ease-in-out infinite; }
+
+/* ============ TRUST BAR ============ */
+.trust { background:var(--text); color:var(--white); padding:28px 0; }
+.trust-in { max-width:1280px; margin:0 auto; padding:0 40px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; }
+.trust-item { text-align:center; }
+.trust-num { font-family:var(--font-d); font-size:1.6rem; font-weight:300; color:var(--accent); line-height:1; }
+.trust-lbl { font-size:0.65rem; text-transform:uppercase; letter-spacing:1.5px; color:rgba(255,255,255,0.45); margin-top:4px; font-weight:500; }
+
+/* ============ SECTION BASE ============ */
+.sec { padding:100px 0; position:relative; }
+.sec-in { max-width:1280px; margin:0 auto; padding:0 40px; }
+.eyebrow { font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:3px; color:var(--accent-dark); margin-bottom:14px; display:flex; align-items:center; gap:14px; }
+.eyebrow::before { content:''; width:36px; height:1px; background:var(--accent); }
+.eyebrow.c { justify-content:center; }
+.eyebrow.c::before { display:none; }
+.eyebrow.c::after { content:''; width:36px; height:1px; background:var(--accent); margin-left:14px; }
+.title { font-family:var(--font-d); font-size:clamp(1.9rem,3.5vw,2.8rem); font-weight:300; line-height:1.12; color:var(--text); margin-bottom:20px; }
+.title em { font-style:italic; font-weight:400; color:var(--accent-dark); }
+.desc { font-size:0.95rem; color:var(--text-sec); line-height:1.75; max-width:600px; font-weight:300; }
+
+/* ============ PRODUCTS (magazine editorial) ============ */
+.products { background:var(--bg); }
+.prod-feature { display:grid; grid-template-columns:1.2fr 1fr; gap:60px; align-items:center; margin-bottom:100px; }
+.prod-feature:last-child { margin-bottom:0; }
+.prod-feature.rev { grid-template-columns:1fr 1.2fr; }
+.prod-vis { position:relative; overflow:hidden; }
+.prod-vis img { width:100%; height:480px; object-fit:cover; transition:transform 0.8s var(--ease); }
+.prod-vis:hover img { transform:scale(1.04); }
+.prod-cap { position:absolute; bottom:20px; left:20px; background:rgba(255,255,255,0.95); padding:12px 20px; font-size:0.65rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--text-sec); font-weight:500; }
+.prod-no { position:absolute; top:16px; left:20px; font-family:var(--font-d); font-size:3.4rem; font-weight:300; color:var(--white); text-shadow:0 2px 18px rgba(0,0,0,0.35); line-height:1; }
+.prod-body .title { margin-bottom:14px; }
+.prod-sub { font-size:0.72rem; text-transform:uppercase; letter-spacing:2px; color:var(--accent-dark); font-weight:600; margin-bottom:18px; }
+.prod-body .desc { margin-bottom:24px; }
+.spec-table { width:100%; border-collapse:collapse; margin-bottom:26px; }
+.spec-table td { padding:10px 0; border-bottom:1px solid var(--border); font-size:0.82rem; }
+.spec-table td:first-child { font-size:0.68rem; text-transform:uppercase; letter-spacing:1.5px; color:var(--text-muted); font-weight:500; width:38%; }
+.spec-table td:last-child { color:var(--text); font-weight:400; }
+.badge-row { display:flex; gap:10px; flex-wrap:wrap; }
+.badge { padding:8px 16px; font-size:0.65rem; text-transform:uppercase; letter-spacing:1.5px; font-weight:600; background:rgba(196,163,90,0.12); color:var(--accent-dark); border:1px solid rgba(196,163,90,0.25); }
+
+/* ============ PROCESS ============ */
+.process { background:var(--bg-warm); }
+.proc-head { text-align:center; max-width:700px; margin:0 auto 60px; }
+.proc-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+.proc-card { background:var(--white); border:1px solid var(--border); padding:36px 28px; position:relative; overflow:hidden; transition:all 0.5s var(--ease); }
+.proc-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--accent); transform:scaleX(0); transition:transform 0.5s var(--ease); }
+.proc-card:hover { transform:translateY(-6px); box-shadow:0 20px 50px rgba(0,0,0,0.08); }
+.proc-card:hover::before { transform:scaleX(1); }
+.proc-num { font-family:var(--font-d); font-size:2.6rem; font-weight:300; color:var(--accent); line-height:1; margin-bottom:14px; }
+.proc-title { font-family:var(--font-d); font-size:1.35rem; font-weight:400; margin-bottom:8px; }
+.proc-desc { font-size:0.82rem; color:var(--text-sec); line-height:1.6; font-weight:300; }
+
+/* ============ GALLERY ============ */
+.gal { background:var(--bg-dark); color:var(--white); padding:80px 0; }
+.gal-head { text-align:center; margin-bottom:48px; }
+.gal-head .eyebrow { color:var(--accent); }
+.gal-head .title { color:var(--white); }
+.gal-head .desc { color:rgba(255,255,255,0.5); margin:0 auto; }
+.gal-grid { display:grid; grid-template-columns:repeat(6,1fr); grid-auto-rows:190px; gap:14px; }
+.gal-item { position:relative; overflow:hidden; cursor:pointer; }
+.gal-item img { width:100%; height:100%; object-fit:cover; transition:transform 0.8s var(--ease),filter 0.5s; filter:brightness(0.88); }
+.gal-item:hover img { transform:scale(1.05); filter:brightness(1); }
+.gal-over { position:absolute; bottom:0; left:0; right:0; padding:20px; background:linear-gradient(to top,rgba(0,0,0,0.6),transparent); opacity:0; transition:opacity 0.4s var(--ease); }
+.gal-item:hover .gal-over { opacity:1; }
+.gal-label { font-size:0.65rem; text-transform:uppercase; letter-spacing:2px; color:var(--accent); font-weight:600; }
+.g-wide { grid-column:span 6; grid-row:span 2; }
+.g-tall { grid-column:span 2; grid-row:span 2; }
+.g-half { grid-column:span 2; }
+.g-wide2 { grid-column:span 6; grid-row:span 2; }
+
+/* ============ WHY US ============ */
+.why { background:var(--bg); }
+.why-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:56px; }
+.why-card { background:var(--white); border:1px solid var(--border); padding:40px 32px; position:relative; overflow:hidden; transition:all 0.5s var(--ease); }
+.why-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--accent); transform:scaleX(0); transition:transform 0.5s var(--ease); }
+.why-card:hover { transform:translateY(-6px); box-shadow:0 20px 50px rgba(0,0,0,0.08); }
+.why-card:hover::before { transform:scaleX(1); }
+.why-icon { width:46px; height:46px; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; margin-bottom:20px; color:var(--accent); }
+.why-icon svg { width:22px; height:22px; }
+.why-title { font-family:var(--font-d); font-size:1.35rem; font-weight:400; margin-bottom:8px; }
+.why-desc { font-size:0.84rem; color:var(--text-sec); line-height:1.65; font-weight:300; }
+
+/* ============ INQUIRY ============ */
+.inq { background:var(--bg-warm); }
+.inq-head { text-align:center; max-width:680px; margin:0 auto 56px; }
+.inq-head .desc { margin:0 auto; }
+.inq-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; max-width:1020px; margin:0 auto; }
+.inq-card { background:var(--white); border:1px solid var(--border); padding:48px 42px; position:relative; }
+.inq-card.dark { background:var(--text); color:var(--white); border-color:var(--text); }
+.inq-badge { width:52px; height:52px; display:flex; align-items:center; justify-content:center; margin-bottom:22px; border:1px solid var(--border); }
+.inq-badge svg { width:26px; height:26px; }
+.inq-card.dark .inq-badge { border-color:rgba(255,255,255,0.15); }
+.inq-card h3 { font-family:var(--font-d); font-size:1.6rem; font-weight:400; margin-bottom:8px; }
+.inq-card.dark h3 { color:var(--white); }
+.inq-card > p { font-size:0.85rem; color:var(--text-sec); line-height:1.65; margin-bottom:26px; font-weight:300; }
+.inq-card.dark > p { color:rgba(255,255,255,0.5); }
+.form-g { margin-bottom:16px; }
+.form-g label { display:block; font-size:0.68rem; text-transform:uppercase; letter-spacing:1.5px; color:var(--text-muted); margin-bottom:6px; font-weight:500; }
+.form-g input, .form-g select, .form-g textarea { width:100%; padding:12px 14px; border:1.5px solid var(--border); font-family:var(--font-b); font-size:0.88rem; color:var(--text); background:var(--bg); transition:border-color 0.3s; }
+.form-g input:focus, .form-g select:focus, .form-g textarea:focus { outline:none; border-color:var(--accent); }
+.form-g textarea { resize:vertical; min-height:90px; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.inq-mail-link { display:block; text-align:center; margin-top:16px; font-size:0.82rem; color:var(--accent-dark); text-decoration:none; font-weight:500; }
+.inq-mail-link:hover { text-decoration:underline; }
+.wa-num { font-family:var(--font-d); font-size:2rem; font-weight:400; color:var(--accent); margin-bottom:20px; letter-spacing:0.5px; }
+.wa-steps { margin-bottom:28px; }
+.wa-step { display:flex; align-items:flex-start; gap:14px; margin-bottom:16px; }
+.wa-step-num { width:28px; height:28px; border:1px solid var(--accent); color:var(--accent); display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:600; flex-shrink:0; }
+.wa-step-text p { font-size:0.8rem; color:rgba(255,255,255,0.55); line-height:1.5; font-weight:300; }
+.inq-card .btn { width:100%; }
+.inq-note { font-size:0.75rem; color:rgba(255,255,255,0.35); text-align:center; margin-top:14px; }
+.inq-note a { color:var(--accent); text-decoration:none; }
+
+/* ============ FOOTER ============ */
+.foot { background:var(--bg-dark); color:var(--white); padding:80px 0 50px; }
+.foot-grid { display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:48px; margin-bottom:60px; }
+.foot-brand .nav-logo-text b { color:var(--white); }
+.foot-brand .nav-logo-text small { color:rgba(255,255,255,0.4); }
+.foot-brand p { font-size:0.82rem; color:rgba(255,255,255,0.35); line-height:1.7; font-weight:300; max-width:280px; margin-top:16px; }
+.foot-col h4 { font-size:0.72rem; text-transform:uppercase; letter-spacing:2px; color:var(--accent); margin-bottom:20px; font-weight:600; }
+.foot-col a, .foot-col p { display:block; font-size:0.82rem; color:rgba(255,255,255,0.45); text-decoration:none; margin-bottom:10px; transition:color 0.3s; font-weight:300; }
+.foot-col a:hover { color:var(--accent); }
+.foot-cta { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:24px; margin-top:6px; }
+.foot-cta p { font-size:0.78rem; color:rgba(255,255,255,0.35); margin-bottom:14px; line-height:1.5; }
+.foot-div { height:1px; background:rgba(255,255,255,0.06); margin-bottom:32px; }
+.foot-bot { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+.foot-bot p { font-size:0.72rem; color:rgba(255,255,255,0.25); }
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:1024px) {
+  .prod-feature, .prod-feature.rev { grid-template-columns:1fr; gap:36px; margin-bottom:70px; }
+  .proc-grid { grid-template-columns:repeat(2,1fr); }
+  .why-grid { grid-template-columns:repeat(2,1fr); }
+  .inq-grid { grid-template-columns:1fr; }
+  .foot-grid { grid-template-columns:1fr 1fr; }
+  .gal-grid { grid-template-columns:repeat(4,1fr); }
+  .g-wide, .g-wide2 { grid-column:span 4; }
+  .g-tall { grid-column:span 2; }
+  .g-half { grid-column:span 2; }
+}
+@media(max-width:768px) {
+  .nav-links { display:none; }
+  .nav-links.active { display:flex; position:fixed; inset:0; padding:100px 0; justify-content:center; align-items:center; flex-direction:column; z-index:998; background:var(--bg); gap:22px; }
+  .nav-mob { display:flex; }
+  .nav-signature { display:none; }
+  .sec-in, .nav-in { padding:0 24px; }
+  .hero-in { padding:110px 24px 30px; }
+  .sec { padding:70px 0; }
+  .strip-card { width:280px; height:180px; }
+  .proc-grid, .why-grid { grid-template-columns:1fr; }
+  .gal-grid { grid-template-columns:1fr 1fr; grid-auto-rows:160px; }
+  .g-wide, .g-wide2 { grid-column:span 2; }
+  .g-tall { grid-column:span 1; }
+  .g-half { grid-column:span 1; }
+  .form-row { grid-template-columns:1fr; }
+  .foot-grid { grid-template-columns:1fr; gap:32px; }
+  .foot-bot { flex-direction:column; text-align:center; }
+  .prod-vis img { height:340px; }
+  .trust-in { justify-content:center; }
+  .trust-item { flex:1 1 45%; }
+}
+
+/* Accessibility */
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after { animation-duration:0.01ms!important; animation-iteration-count:1!important; transition-duration:0.01ms!important; }
+  html { scroll-behavior:auto; }
+  .hero-strip { animation:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<nav class="nav" id="nav" role="navigation" aria-label="Main">
+  <div class="nav-in">
+    <a href="#top" class="nav-logo" aria-label="Equal Trade Global">
+      <svg class="logo-mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="24" cy="24" r="22" stroke="#C4A35A" stroke-width="1.5"/>
+        <ellipse cx="24" cy="24" rx="10" ry="22" stroke="#C4A35A" stroke-width="1"/>
+        <line x1="2" y1="24" x2="46" y2="24" stroke="#C4A35A" stroke-width="1"/>
+        <path d="M10 12 Q24 19 38 12" stroke="#C4A35A" stroke-width="1" fill="none"/>
+        <path d="M10 36 Q24 29 38 36" stroke="#C4A35A" stroke-width="1" fill="none"/>
+        <circle cx="24" cy="24" r="3.2" fill="#C4A35A"/>
+      </svg>
+      <span class="nav-logo-text"><b>Equal Trade<i>.</i></b><small>Global Sourcing</small></span>
+    </a>
+    <span class="nav-signature">| Sourcing from China &amp; Ethiopia</span>
+    <button class="nav-mob" id="navToggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="#products">Products</a>
+      <a href="#process">Process</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#why">Why Us</a>
+      <a href="#inquiry" class="nav-cta">Send Inquiry</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-in">
+    <div class="hero-content">
+      <div class="hero-tag a">FACTORY DIRECT · OEM / ODM · PROJECT &amp; WHOLESALE SUPPLY</div>
+      <h1 class="hero-title a a-d1">Strength, Precision &amp; <em>Global Supply</em> — Direct from the Source</h1>
+      <p class="hero-sub a a-d2">Premium steel tubes, thermal break aluminum windows, tantalum and custom profiles — reliably sourced from China's world-class manufacturing hubs and Ethiopia's strategic mineral reserves, delivered to your projects worldwide.</p>
+      <div class="hero-cta-row a a-d3">
+        <a href="#inquiry" class="btn btn-pri">Send Us Inquiry</a>
+        <a href="https://wa.me/251922466797?text=Hello%2C%20I%20am%20interested%20in%20your%20sourced%20products%20from%20China.%20Please%20share%20specifications%20and%20prices." class="btn btn-sec" target="_blank" rel="noopener">Chat on WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- Five horizontally moving images -->
+    <div class="hero-strip-wrap a a-d3">
+      <div class="strip-fade-l"></div>
+      <div class="strip-fade-r"></div>
+      <div class="hero-strip">
+        <div class="strip-card"><img src="roll-forming-line.jpg" alt="High-precision roll forming line producing thin-wall steel tubes"><div class="strip-cap">Roll Forming — Shengfang, China</div></div>
+        <div class="strip-card"><img src="thermal-break-windows.jpg" alt="Thermal break aluminum windows factory assembly and quality inspection"><div class="strip-cap">Thermal Break Windows</div></div>
+        <div class="strip-card"><img src="warehouse-tube-stacks.jpg" alt="Galvanized square and round steel tubes stacked in warehouse"><div class="strip-cap">Galvanized Tube Stock</div></div>
+        <div class="strip-card"><img src="tantalum-mineral.png" alt="Ethiopian sourced tantalum ore and refined metal"><div class="strip-cap">Ethiopian Tantalum</div></div>
+        <div class="strip-card"><img src="container-loading.jpg" alt="Steel tubes being loaded into export containers"><div class="strip-cap">Export &amp; Loading</div></div>
+        <!-- duplicate set for seamless loop -->
+        <div class="strip-card" aria-hidden="true"><img src="roll-forming-line.jpg" alt=""><div class="strip-cap">Roll Forming — Shengfang, China</div></div>
+        <div class="strip-card" aria-hidden="true"><img src="thermal-break-windows.jpg" alt=""><div class="strip-cap">Thermal Break Windows</div></div>
+        <div class="strip-card" aria-hidden="true"><img src="warehouse-tube-stacks.jpg" alt=""><div class="strip-cap">Galvanized Tube Stock</div></div>
+        <div class="strip-card" aria-hidden="true"><img src="tantalum-mineral.png" alt=""><div class="strip-cap">Ethiopian Tantalum</div></div>
+        <div class="strip-card" aria-hidden="true"><img src="container-loading.jpg" alt=""><div class="strip-cap">Export &amp; Loading</div></div>
+      </div>
+    </div>
+    <div class="hero-scroll a a-d4"><span>Scroll</span><div class="hero-scroll-line"></div></div>
+  </div>
+</header>
+
+<!-- ================= TRUST BAR ================= -->
+<section class="trust">
+  <div class="trust-in">
+    <div class="trust-item a"><div class="trust-num">20+</div><div class="trust-lbl">Years Export Experience</div></div>
+    <div class="trust-item a a-d1"><div class="trust-num">50+</div><div class="trust-lbl">Countries Served</div></div>
+    <div class="trust-item a a-d2"><div class="trust-num">0.8–12mm</div><div class="trust-lbl">Tube Thickness Range</div></div>
+    <div class="trust-item a a-d3"><div class="trust-num">Q235 / Q345</div><div class="trust-lbl">Steel Grades</div></div>
+    <div class="trust-item a a-d4"><div class="trust-num">GB / ASTM</div><div class="trust-lbl">Standards Compliance</div></div>
+  </div>
+</section>
+
+<!-- ================= PRODUCTS ================= -->
+<section class="sec products" id="products">
+  <div class="sec-in">
+    <div style="text-align:center;max-width:700px;margin:0 auto 70px;">
+      <p class="eyebrow c a">Our Product Portfolio</p>
+      <h2 class="title a">Sourced with Care. <em>Built for Your Projects.</em></h2>
+      <p class="desc a" style="margin:0 auto;">From construction steel to critical minerals, every product in our portfolio is selected for reliable quality, competitive pricing and long-term value.</p>
+    </div>
+
+    <!-- 01 Steel Tubes -->
+    <div class="prod-feature">
+      <div class="prod-vis a si">
+        <img src="thin-wall-steel-tubes.jpg" alt="Thin-wall steel tubes from Shengfang Industrial Area, Bazhou, China">
+        <div class="prod-no">01</div>
+        <div class="prod-cap">Shengfang Industrial Area · Bazhou · China</div>
+      </div>
+      <div class="prod-body a">
+        <p class="prod-sub">China Sourced · Construction &amp; Manufacturing</p>
+        <h3 class="title">Thin-Wall <em>Steel Tubes</em></h3>
+        <p class="desc">Premium thin-wall steel tubes produced on high-precision roll forming lines in China's Shengfang Industrial Area. Lighter solutions, stronger possibilities — ideal for construction, manufacturing, shelving, furniture frames, greenhouse structures and fencing components.</p>
+        <table class="spec-table">
+          <tr><td>Shapes</td><td>Square &amp; Rectangular · Round · Oval · Flat-Oval · Custom Profiles</td></tr>
+          <tr><td>Thickness</td><td>From 0.8mm – 12mm (customizable)</td></tr>
+          <tr><td>Length</td><td>Standard 6m / 12m (customizable)</td></tr>
+          <tr><td>Grades</td><td>Q235, Q345 and other standard grades</td></tr>
+          <tr><td>Standards</td><td>GB / ASTM (as per request)</td></tr>
+        </table>
+        <div class="badge-row">
+          <span class="badge">High Strength</span><span class="badge">Lightweight</span>
+          <span class="badge">Easy Fabrication</span><span class="badge">Galvanized Finish</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 02 Thermal Break Windows -->
+    <div class="prod-feature rev">
+      <div class="prod-body a">
+        <p class="prod-sub">Factory Direct · OEM / ODM</p>
+        <h3 class="title">Thermal Break <em>Aluminum Windows</em></h3>
+        <p class="desc">Energy-efficient thermal break aluminum window systems manufactured factory-direct. From precision profile cutting to assembly, hardware installation, quality inspection and export packaging — every stage is controlled in-house for consistent quality.</p>
+        <table class="spec-table">
+          <tr><td>Supply Model</td><td>Factory Direct · OEM / ODM · Project &amp; Wholesale Supply</td></tr>
+          <tr><td>Production</td><td>Cutting → Assembly → Hardware → Inspection → Packaging</td></tr>
+          <tr><td>Systems</td><td>Casement · Sliding · Tilt &amp; Turn · Fixed · Custom Sizes</td></tr>
+          <tr><td>Finishes</td><td>Powder Coated · Anodized · Thermal Break Polyamide</td></tr>
+        </table>
+        <div class="badge-row">
+          <span class="badge">Energy Efficient</span><span class="badge">Noise Reduction</span>
+          <span class="badge">Custom Sizes</span><span class="badge">Export Packing</span>
+        </div>
+      </div>
+      <div class="prod-vis a si">
+        <img src="thermal-break-windows.jpg" alt="Thermal break aluminum window production, assembly and quality inspection">
+        <div class="prod-no">02</div>
+        <div class="prod-cap">Cutting · Assembly · Inspection · Loading</div>
+      </div>
+    </div>
+
+    <!-- 03 Tantalum -->
+    <div class="prod-feature">
+      <div class="prod-vis a si">
+        <img src="tantalum-mineral.png" alt="Ethiopian-sourced tantalum ore and refined tantalum metal ingots">
+        <div class="prod-no">03</div>
+        <div class="prod-cap">Premium Ethiopian Origin · Responsible Sourcing</div>
+      </div>
+      <div class="prod-body a">
+        <p class="prod-sub">Ethiopian-Sourced · Critical Mineral</p>
+        <h3 class="title">Tantalum — <em>A Strategic Source</em></h3>
+        <p class="desc">A critical mineral from a strategic source. Premium Ethiopian-origin tantalum with responsible sourcing practices and global supply potential — serving technology, electronics and advanced manufacturing industries worldwide.</p>
+        <table class="spec-table">
+          <tr><td>Origin</td><td>Ethiopia — responsible sourcing, global supply potential</td></tr>
+          <tr><td>Applications</td><td>Electronics · Semiconductors · Advanced Manufacturing</td></tr>
+          <tr><td>Forms</td><td>Ore Concentrate · Refined Metal (as per specification)</td></tr>
+          <tr><td>Terms</td><td>Specifications &amp; commercial terms on request</td></tr>
+        </table>
+        <div class="badge-row">
+          <span class="badge">Critical Mineral</span><span class="badge">Responsible Sourcing</span>
+          <span class="badge">Global Supply</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04 Glass & Custom Profiles -->
+    <div class="prod-feature rev">
+      <div class="prod-body a">
+        <p class="prod-sub">Custom Fabrication · Interior &amp; Architectural</p>
+        <h3 class="title">Glass Partitions &amp; <em>Custom Profiles</em></h3>
+        <p class="desc">Beyond standard tubes and windows, we source custom steel and aluminum profiles — including elegant glass partition systems for offices, showrooms and modern interiors. Precision dimensions, premium surface finishes, and consistent quality on every order.</p>
+        <table class="spec-table">
+          <tr><td>Profiles</td><td>Standard &amp; Custom — round, square, rectangular, oval, special shapes</td></tr>
+          <tr><td>Glass Systems</td><td>Frameless &amp; Framed Partitions · Sliding Systems</td></tr>
+          <tr><td>Finish</td><td>Excellent Surface Finish · Galvanization &amp; corrosion resistance</td></tr>
+        </table>
+        <div class="badge-row">
+          <span class="badge">Custom Profiles</span><span class="badge">Wide Range of Sizes</span>
+          <span class="badge">OEM / ODM Support</span>
+        </div>
+      </div>
+      <div class="prod-vis a si">
+        <img src="glass-partition.jpg" alt="Modern glass partition system in an elegant showroom interior">
+        <div class="prod-no">04</div>
+        <div class="prod-cap">Custom Profiles &amp; Glass Solutions</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section class="sec process" id="process">
+  <div class="sec-in">
+    <div class="proc-head">
+      <p class="eyebrow c a">How We Work</p>
+      <h2 class="title a">From Factory Floor <em>to Your Site</em></h2>
+      <p class="desc a" style="margin:0 auto;">A disciplined supply chain — every stage inspected, every shipment secured, every delivery on time.</p>
+    </div>
+    <div class="proc-grid">
+      <div class="proc-card a"><div class="proc-num">01</div><h3 class="proc-title">Precision Production</h3><p class="proc-desc">High-precision roll forming and cutting of profiles on modern production lines in Shengfang, Bazhou — the heart of China's steel tube industry.</p></div>
+      <div class="proc-card a a-d1"><div class="proc-num">02</div><h3 class="proc-title">Assembly &amp; Hardware</h3><p class="proc-desc">Professional assembly and hardware installation for window systems and fabricated components, to OEM/ODM specifications.</p></div>
+      <div class="proc-card a a-d2"><div class="proc-num">03</div><h3 class="proc-title">Quality Inspection</h3><p class="proc-desc">Strict dimensional, surface and strength checks at every stage — consistent quality meeting GB and ASTM standards.</p></div>
+      <div class="proc-card a a-d3"><div class="proc-num">04</div><h3 class="proc-title">Packaging &amp; Loading</h3><p class="proc-desc">Export-grade bundling, crating and container loading — reliable logistics and timely delivery to 50+ countries.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section class="gal" id="gallery">
+  <div class="sec-in">
+    <div class="gal-head">
+      <p class="eyebrow c a">Gallery</p>
+      <h2 class="title a">The Product <em>Story</em></h2>
+      <p class="desc a">From raw coil to finished tube, from mineral to refined metal — a visual journey through our sourcing network.</p>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item g-wide a si"><img src="roll-forming-line.jpg" alt="High-precision roll forming line with steel coils and finished square tubes"><div class="gal-over"><span class="gal-label">High-Precision Roll Forming — Shengfang, Bazhou</span></div></div>
+      <div class="gal-item g-tall a si a-d1"><img src="tantalum-mineral.png" alt="Tantalum ore and refined metal portrait composition"><div class="gal-over"><span class="gal-label">Ethiopian Tantalum</span></div></div>
+      <div class="gal-item g-half a si a-d2"><img src="thermal-break-windows.jpg" alt="Thermal break aluminum window production collage"><div class="gal-over"><span class="gal-label">Thermal Break Windows</span></div></div>
+      <div class="gal-item g-half a si a-d3"><img src="container-loading.jpg" alt="Forklift loading steel tubes into export container"><div class="gal-over"><span class="gal-label">Export Loading</span></div></div>
+      <div class="gal-item g-half a si a-d1"><img src="warehouse-tube-stacks.jpg" alt="Stacked galvanized square and round tubes in warehouse"><div class="gal-over"><span class="gal-label">Galvanized Stock — Square &amp; Round</span></div></div>
+      <div class="gal-item g-half a si a-d2"><img src="glass-partition.jpg" alt="Glass partition system in a modern interior"><div class="gal-over"><span class="gal-label">Glass Partition Systems</span></div></div>
+      <div class="gal-item g-wide2 a si a-d2"><img src="steel-tubes-custom-profiles.jpg" alt="Steel tubes and custom profiles export catalog showcase"><div class="gal-over"><span class="gal-label">Steel Tubes &amp; Custom Profiles — Trusted in 50+ Countries</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY US ================= -->
+<section class="sec why" id="why">
+  <div class="sec-in">
+    <div style="text-align:center;max-width:680px;margin:0 auto;">
+      <p class="eyebrow c a">Why Equal Trade Global</p>
+      <h2 class="title a">Reliable Supply. <em>Stable Quality.</em></h2>
+      <p class="desc a" style="margin:0 auto;">We don't just source products — we build supply partnerships that keep your business moving.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card a">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></div>
+        <h3 class="why-title">Consistent Quality</h3>
+        <p class="why-desc">Strict control and reliable performance — precision manufacturing and rigorous standards on every batch, every shipment.</p>
+      </div>
+      <div class="why-card a a-d1">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="18" height="13" rx="1"/><path d="M8 7V4h8v3M3 12h18"/></svg></div>
+        <h3 class="why-title">OEM / ODM Support</h3>
+        <p class="why-desc">Your ideas, our manufacturing expertise — custom dimensions, profiles and finishes tailored to your exact requirements.</p>
+      </div>
+      <div class="why-card a a-d2">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 17V7h11v10M14 10h4l3 3v4h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg></div>
+        <h3 class="why-title">Fast Delivery</h3>
+        <p class="why-desc">On-time export logistics from China's ports — stable supply chains that keep your projects on schedule.</p>
+      </div>
+      <div class="why-card a">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14 0 18M12 3c-3 3.5-3 14 0 18"/></svg></div>
+        <h3 class="why-title">Global Reach</h3>
+        <p class="why-desc">Trusted in 50+ countries and regions — Eastern Europe, Middle East, Africa, Southeast Asia and South America.</p>
+      </div>
+      <div class="why-card a a-d1">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v18M5 8l7-5 7 5M5 8v8a2 2 0 002 2h10a2 2 0 002-2V8"/></svg></div>
+        <h3 class="why-title">Competitive Pricing</h3>
+        <p class="why-desc">Factory-direct sourcing means better margins for your business — reliable quality at prices that compete globally.</p>
+      </div>
+      <div class="why-card a a-d2">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 11a4 4 0 118 0v6H8v-6zM5 17h14M12 3v2"/></svg></div>
+        <h3 class="why-title">Professional Export Service</h3>
+        <p class="why-desc">Dedicated support and a smoother trade experience — documentation, inspection and after-sales handled end to end.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= INQUIRY ================= -->
+<section class="sec inq" id="inquiry">
+  <div class="sec-in">
+    <div class="inq-head">
+      <p class="eyebrow c a">Get In Touch</p>
+      <h2 class="title a">Send Us <em>Inquiry</em></h2>
+      <p class="desc a">Tell us what you need — specifications, quantities, destination — and our team will respond with pricing, availability and lead times.</p>
+    </div>
+    <div class="inq-grid">
+      <!-- Email option -->
+      <div class="inq-card a">
+        <div class="inq-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#A88B45" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 7l9 6 9-6"/></svg></div>
+        <h3>Send a Message by Email</h3>
+        <p>Fill in the form below and your message will be sent directly to our sourcing team.</p>
+        <form id="contactForm" action="#" novalidate>
+          <div class="form-row">
+            <div class="form-g"><label for="cName">Full Name</label><input type="text" id="cName" name="name" required></div>
+            <div class="form-g"><label for="cCompany">Company</label><input type="text" id="cCompany" name="company"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-g"><label for="cEmail">Email</label><input type="email" id="cEmail" name="email" required></div>
+            <div class="form-g"><label for="cPhone">Phone / WhatsApp</label><input type="tel" id="cPhone" name="phone"></div>
+          </div>
+          <div class="form-g"><label for="cProduct">Product Interest</label>
+            <select id="cProduct" name="product">
+              <option value="">Select a product...</option>
+              <option value="Steel Tubes">Steel Tubes (Square / Rectangular / Round)</option>
+              <option value="Thermal Break Aluminum Windows">Thermal Break Aluminum Windows</option>
+              <option value="Tantalum">Tantalum (Ethiopian Origin)</option>
+              <option value="Glass Partitions & Custom Profiles">Glass Partitions &amp; Custom Profiles</option>
+              <option value="Other">Other / Multiple Products</option>
+            </select>
+          </div>
+          <div class="form-g"><label for="cMessage">Message</label><textarea id="cMessage" name="message" placeholder="Tell us your specifications, quantities and destination..."></textarea></div>
+          <button type="submit" class="btn btn-pri">Send Message</button>
+        </form>
+        <a class="inq-mail-link" href="mailto:mussie@equaltradeglobal.org">or write directly to mussie@equaltradeglobal.org</a>
+      </div>
+
+      <!-- WhatsApp option -->
+      <div class="inq-card dark a a-d1">
+        <div class="inq-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#C4A35A" stroke-width="1.5"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2z"/><path d="M8.5 9.5c0 3.5 2.5 6 6 6l1.5-1.5-2-1.5-1 .7a5.3 5.3 0 01-2.7-2.7l.7-1-1.5-2-1 2z"/></svg></div>
+        <h3>Contact Us on WhatsApp</h3>
+        <p>Fastest response — chat with our sourcing desk directly on WhatsApp for quotations, specifications and order updates.</p>
+        <div class="wa-num">+251 922 466 797</div>
+        <div class="wa-steps">
+          <div class="wa-step"><div class="wa-step-num">1</div><div class="wa-step-text"><p>Send us your product requirements and quantities</p></div></div>
+          <div class="wa-step"><div class="wa-step-num">2</div><div class="wa-step-text"><p>Receive specifications, pricing and lead times within hours</p></div></div>
+          <div class="wa-step"><div class="wa-step-num">3</div><div class="wa-step-text"><p>Confirm your order — we handle production, inspection and shipping</p></div></div>
+        </div>
+        <a href="https://wa.me/251922466797?text=Hello%2C%20I%20am%20interested%20in%20your%20sourced%20products%20from%20China.%20Please%20share%20specifications%20and%20prices." class="btn btn-gold" target="_blank" rel="noopener">Chat on WhatsApp Now</a>
+        <p class="inq-note">Available for export buyers worldwide · <a href="mailto:mussie@equaltradeglobal.org">mussie@equaltradeglobal.org</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="foot">
+  <div class="sec-in">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#top" class="nav-logo" aria-label="Equal Trade Global">
+          <svg class="logo-mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="24" cy="24" r="22" stroke="#C4A35A" stroke-width="1.5"/>
+            <ellipse cx="24" cy="24" rx="10" ry="22" stroke="#C4A35A" stroke-width="1"/>
+            <line x1="2" y1="24" x2="46" y2="24" stroke="#C4A35A" stroke-width="1"/>
+            <path d="M10 12 Q24 19 38 12" stroke="#C4A35A" stroke-width="1" fill="none"/>
+            <path d="M10 36 Q24 29 38 36" stroke="#C4A35A" stroke-width="1" fill="none"/>
+            <circle cx="24" cy="24" r="3.2" fill="#C4A35A"/>
+          </svg>
+          <span class="nav-logo-text"><b>Equal Trade<i>.</i></b><small>Global Sourcing</small></span>
+        </a>
+        <p>Equal Trade Global connects world-class manufacturers in China and strategic mineral sources in Ethiopia with buyers across 50+ countries. Quality. Reliability. Global reach.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Products</h4>
+        <a href="#products">Steel Tubes</a>
+        <a href="#products">Thermal Break Windows</a>
+        <a href="#products">Tantalum</a>
+        <a href="#products">Glass &amp; Custom Profiles</a>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <a href="#process">Our Process</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#why">Why Us</a>
+        <a href="#inquiry">Send Inquiry</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <a href="mailto:mussie@equaltradeglobal.org">mussie@equaltradeglobal.org</a>
+        <a href="https://wa.me/251922466797" target="_blank" rel="noopener">WhatsApp: +251 922 466 797</a>
+        <div class="foot-cta">
+          <p>Ready to source? Get specifications and pricing for your next project.</p>
+          <a href="#inquiry" class="btn btn-gold" style="width:100%;">Enquire Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-div"></div>
+    <div class="foot-bot">
+      <p>&#169; 2026 Equal Trade Global. All rights reserved. Specifications subject to manufacturer confirmation.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Navigation scroll effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) { nav.classList.add('s'); } else { nav.classList.remove('s'); }
+});
+
+// Collapsible mobile menu
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+  navToggle.setAttribute('aria-expanded', String(!expanded));
+  navLinks.classList.toggle('active');
+});
+document.addEventListener('click', (e) => {
+  if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !navToggle.contains(e.target)) {
+    navLinks.classList.remove('active');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }
+});
+document.querySelectorAll('#navLinks a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+    navToggle.setAttribute('aria-expanded', 'false');
+  });
+});
+
+// Intersection Observer for scroll animations
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('v'); obs.unobserve(entry.target); } });
+}, { root: null, rootMargin: '0px', threshold: 0.1 });
+document.querySelectorAll('.a, .si').forEach(el => obs.observe(el));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (href.length > 1) {
+      const target = document.querySelector(href);
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    }
+  });
+});
+
+// Email inquiry form -> opens user's mail client with pre-filled message
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const name = document.getElementById('cName').value.trim();
+  const company = document.getElementById('cCompany').value.trim();
+  const email = document.getElementById('cEmail').value.trim();
+  const phone = document.getElementById('cPhone').value.trim();
+  const product = document.getElementById('cProduct').value || 'General inquiry';
+  const message = document.getElementById('cMessage').value.trim();
+  const subject = encodeURIComponent('Product Inquiry — ' + product + (name ? ' — ' + name : ''));
+  const body = encodeURIComponent(
+    'Name: ' + name + '\n' +
+    'Company: ' + (company || '—') + '\n' +
+    'Email: ' + email + '\n' +
+    'Phone/WhatsApp: ' + (phone || '—') + '\n' +
+    'Product Interest: ' + product + '\n\n' +
+    'Message:\n' + (message || '—')
+  );
+  window.location.href = 'mailto:mussie@equaltradeglobal.org?subject=' + subject + '&body=' + body;
+});
+</script>
+</body>
+</html>
