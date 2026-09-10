@@ -83,7 +83,7 @@ body { font-family:var(--font-b); color:var(--text); background:var(--bg); line-
 
 /* ============ HERO ============ */
 .hero { min-height:100vh; position:relative; display:flex; align-items:center; overflow:hidden; background:var(--bg-warm); }
-.hero-bg { position:absolute; inset:0; background:linear-gradient(135deg,#F5F3EE 0%,#EAE7E0 50%,#DDD8CE 100%); }
+.hero-bg { position:absolute; inset:0; background-image:linear-gradient(rgba(250,249,246,0.90),rgba(245,243,238,0.86)),url('thin-wall-steel-tubes.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat; }     
 .hero-bg::before { content:''; position:absolute; top:-50%; right:-20%; width:80%; height:150%; background:radial-gradient(ellipse at center,rgba(196,163,90,0.08) 0%,transparent 70%); pointer-events:none; }
 .hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(0,0,0,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,0.025) 1px,transparent 1px); background-size:80px 80px; pointer-events:none; }
 .hero-in { max-width:1280px; margin:0 auto; padding:130px 40px 40px; position:relative; z-index:2; width:100%; }
