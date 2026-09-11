@@ -147,9 +147,10 @@ header{
 .fade-r{right:0;background:linear-gradient(-90deg,var(--bg),transparent)}
 
 /* ---------- Stats ---------- */
-.stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2)}
+.stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2);margin:0 22px}
 .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:20px;padding:38px 0}
-.stat b{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(30px,3.2vw,44px);font-weight:600;color:var(--gold-deep)}
+.stat b{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(30px,3.2vw,44px);font-weight:600;color:var(--gold-deep);display:block;text-align:center}
+.stat{text-align:center}
 .stat span{display:block;font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px}
 
 /* ---------- Sections ---------- */
@@ -264,6 +265,7 @@ footer .base{margin-top:44px;padding-top:22px;border-top:1px solid #3a342a;font-
 /* responsive */
 @media(max-width:900px){
   .marquee-zone{margin:48px 14px 0;border-radius:16px}
+  .stats{margin:0 14px}
   .wrap{padding:0 22px}
   .hero{padding:118px 0 0}
   .hero-cta .btn{flex:1 1 100%;justify-content:center}
