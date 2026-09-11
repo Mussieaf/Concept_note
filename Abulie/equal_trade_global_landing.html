@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Equal Trade Global — Fine Minerals, Stones &amp; Metals</title>
+<meta name="description" content="Premium minerals, gemstones, ores and natural stones sourced from China and trusted origins worldwide. Gold doré, emerald, kyanite, lepidolite, quartz and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#faf6ef;            /* friendly warm ivory — reference light background */
+  --bg-2:#f3ecdf;
+  --card:#ffffff;
+  --ink:#23201a;
+  --ink-soft:#5c554a;
+  --line:#e7ddcc;
+  --gold:#b8860b;
+  --gold-deep:#8f6708;
+  --accent:#1f6f5f;
+  --radius:18px;
+  --shadow:0 14px 40px rgba(35,32,26,.10);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;letter-spacing:0;line-height:1.12}
+em.accent{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:500;color:var(--gold-deep)}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:1200px;margin:0 auto;padding:0 34px}
+
+/* ---------- Header ---------- */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(250,246,239,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-mark{
+  width:42px;height:42px;border-radius:12px;flex:none;
+  background:linear-gradient(135deg,#d4a017,#8f6708);
+  display:grid;place-items:center;box-shadow:0 6px 16px rgba(184,134,11,.35);
+}
+.logo-text{font-size:15px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;line-height:1.15}
+.logo-text small{display:block;font-size:9px;font-weight:500;letter-spacing:.32em;color:var(--ink-soft);margin-top:2px}
+.menu-btn{
+  width:48px;height:48px;border:1px solid var(--line);border-radius:14px;background:var(--card);
+  display:grid;place-items:center;cursor:pointer;gap:0;transition:.25s;box-shadow:0 4px 12px rgba(35,32,26,.06);
+}
+.menu-btn:hover{border-color:var(--gold)}
+.menu-btn span{display:block;width:20px;height:2px;background:var(--ink);margin:2.5px 0;border-radius:2px;transition:.3s}
+.menu-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menu-btn.open span:nth-child(2){opacity:0}
+.menu-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* collapsible slide-in menu */
+.drawer{
+  position:fixed;top:0;right:0;height:100vh;width:min(360px,88vw);z-index:99;
+  background:var(--card);border-left:1px solid var(--line);box-shadow:-20px 0 60px rgba(35,32,26,.15);
+  transform:translateX(105%);transition:transform .45s cubic-bezier(.22,.8,.24,1);
+  padding:110px 38px 40px;display:flex;flex-direction:column;
+}
+.drawer.open{transform:translateX(0)}
+.drawer a.drawer-link{
+  font-size:22px;font-weight:600;padding:14px 0;border-bottom:1px solid var(--line);
+  display:flex;justify-content:space-between;align-items:center;transition:.2s;
+}
+.drawer a.drawer-link:hover{color:var(--gold-deep);padding-left:8px}
+.drawer a.drawer-link span{font-size:13px;color:var(--gold)}
+.drawer-foot{margin-top:auto;font-size:13px;color:var(--ink-soft)}
+.drawer-foot a{color:var(--gold-deep);font-weight:600}
+.overlay{position:fixed;inset:0;background:rgba(35,32,26,.35);z-index:98;opacity:0;pointer-events:none;transition:.4s}
+.overlay.show{opacity:1;pointer-events:auto}
+
+/* ---------- Hero ---------- */
+.hero{padding:138px 0 0}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:22px}
+.kicker::before{content:"";width:34px;height:1px;background:var(--gold)}
+.hero h1{font-size:clamp(34px,6.4vw,84px);max-width:16ch}
+.hero p.lede{max-width:58ch;margin-top:26px;font-size:clamp(15px,1.6vw,19px);color:var(--ink-soft)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;padding:15px 30px;border-radius:999px;
+  font-weight:600;font-size:15px;cursor:pointer;transition:.25s;border:1px solid transparent;
+}
+.btn-gold{background:var(--gold);color:#fff;box-shadow:0 10px 24px rgba(184,134,11,.35)}
+.btn-gold:hover{background:var(--gold-deep);transform:translateY(-2px)}
+.btn-ghost{background:transparent;border-color:var(--ink);color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--bg)}
+
+/* horizontally dynamic moving strip (5 images) */
+.marquee-zone{margin:64px 22px 0;position:relative;width:auto;max-width:100%;overflow:hidden;padding:18px 0;border-radius:22px}
+.marquee{
+  display:flex;gap:18px;width:max-content;
+  animation:slide 42s linear infinite;
+}
+.marquee-zone:hover .marquee{animation-play-state:paused}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.m-card{
+  position:relative;width:clamp(240px,26vw,360px);height:clamp(320px,34vw,470px);
+  border-radius:var(--radius);overflow:hidden;flex:none;box-shadow:var(--shadow);
+  transform:translateZ(0);
+}
+.m-card img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.22,.8,.24,1)}
+.m-card:hover img{transform:scale(1.06)}
+.m-card .tag{
+  position:absolute;left:14px;bottom:14px;background:rgba(250,246,239,.94);
+  padding:7px 16px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+}
+.fade-l,.fade-r{position:absolute;top:0;bottom:0;width:70px;z-index:2;pointer-events:none}
+.fade-l{left:0;background:linear-gradient(90deg,var(--bg),transparent)}
+.fade-r{right:0;background:linear-gradient(-90deg,var(--bg),transparent)}
+
+/* ---------- Stats ---------- */
+.stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2)}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:20px;padding:38px 0}
+.stat b{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(30px,3.2vw,44px);font-weight:600;color:var(--gold-deep)}
+.stat span{display:block;font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px}
+
+/* ---------- Sections ---------- */
+section{padding:96px 0}
+.sec-head{margin-bottom:52px;max-width:760px}
+.sec-head h2{font-size:clamp(30px,4vw,52px);margin-top:14px}
+.sec-head p{color:var(--ink-soft);margin-top:16px;font-size:17px}
+
+/* editorial feature */
+.feature{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.feature .ph{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.feature .ph img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+.pull{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:400;font-size:clamp(22px,2.4vw,30px);color:var(--gold-deep);border-left:3px solid var(--gold);padding-left:22px;margin:26px 0}
+.checks{list-style:none;margin-top:10px}
+.checks li{padding:9px 0 9px 34px;position:relative;color:var(--ink-soft)}
+.checks li::before{content:"◆";position:absolute;left:0;color:var(--gold);font-size:13px;top:12px}
+
+/* categories */
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+.cat{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:34px 28px;
+  transition:.3s;position:relative;overflow:hidden;
+}
+.cat:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--gold)}
+.cat .ico{width:54px;height:54px;border-radius:16px;background:var(--bg-2);display:grid;place-items:center;margin-bottom:20px}
+.cat h3{font-size:20px;margin-bottom:10px}
+.cat p{font-size:14.5px;color:var(--ink-soft)}
+.cat .num{position:absolute;top:22px;right:26px;font-size:13px;font-weight:800;color:var(--line);letter-spacing:.1em}
+
+/* ---------- Gallery ---------- */
+.gallery{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.masonry{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:130px;gap:18px}
+.g-item{
+  border-radius:var(--radius);overflow:hidden;position:relative;background:#ddd;
+  box-shadow:0 8px 24px rgba(35,32,26,.08);
+}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.22,.8,.24,1)}
+.g-item:hover img{transform:scale(1.05)}
+.g-item .cap{
+  position:absolute;left:0;right:0;bottom:0;padding:34px 18px 14px;
+  background:linear-gradient(transparent,rgba(20,17,12,.86));
+  color:#fdf9f1;opacity:0;transform:translateY(10px);transition:.35s;
+}
+.g-item:hover .cap{opacity:1;transform:translateY(0)}
+.g-item .cap b{display:block;font-size:14.5px;letter-spacing:.04em}
+.g-item .cap span{font-size:12px;color:#e8ddc8;line-height:1.45;display:block;margin-top:3px}
+.g-item .pin{
+  position:absolute;top:12px;left:12px;background:rgba(250,246,239,.92);border-radius:999px;
+  padding:5px 14px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);
+}
+/* varied size combinations */
+.w6{grid-column:span 6}.w4{grid-column:span 4}.w3{grid-column:span 3}.w2{grid-column:span 2}
+.h2{grid-row:span 2}.h3{grid-row:span 3}.h4{grid-row:span 4}
+.r-wide img{object-fit:cover}
+.p-tall{aspect-ratio:auto}
+
+/* footnotes under each figure */
+.footnote{
+  background:var(--card);border:1px solid var(--line);border-top:none;
+  padding:16px 20px 18px;margin:-6px 0 0;border-radius:0 0 var(--radius) var(--radius);
+}
+.footnote b{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:15.5px;color:var(--gold-deep)}
+.footnote p{font-size:13.5px;color:var(--ink-soft);margin-top:4px}
+.fig{display:flex;flex-direction:column}
+.fig .g-item{flex:1}
+
+/* accordion wrappers: invisible on desktop — figure + footnote remain direct grid items */
+.acc-item{display:contents}
+.acc-head{display:none}
+.acc-panel{display:contents}
+
+/* ---------- Inquiry ---------- */
+.inquiry-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:10px}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:42px 38px;transition:.3s;
+}
+.card:hover{box-shadow:var(--shadow);transform:translateY(-4px)}
+.card .big-ico{width:62px;height:62px;border-radius:18px;display:grid;place-items:center;margin-bottom:22px}
+.card h3{font-size:24px}
+.card p{color:var(--ink-soft);font-size:15px;margin:10px 0 24px}
+.card .contact-line{font-weight:600;font-size:clamp(14px,1.6vw,17px);letter-spacing:.01em;margin-bottom:24px;word-break:break-word;overflow-wrap:anywhere}
+.form{display:flex;flex-direction:column;gap:12px;margin-top:8px}
+.form input,.form textarea{
+  font-family:inherit;font-size:16px;padding:14px 18px;border-radius:12px;
+  border:1px solid var(--line);background:var(--bg);color:var(--ink);outline:none;transition:.2s;width:100%;
+}
+.form input:focus,.form textarea:focus{border-color:var(--gold);background:#fff}
+.form textarea{min-height:120px;resize:vertical}
+
+/* footer */
+footer{background:#211d16;color:#cfc6b4;padding:56px 0 30px}
+footer .cols{display:flex;flex-wrap:wrap;justify-content:space-between;gap:32px}
+footer h4{color:#faf6ef;font-size:15px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px}
+footer a:hover{color:var(--gold)}
+footer .base{margin-top:44px;padding-top:22px;border-top:1px solid #3a342a;font-size:13px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+
+.script{font-family:'Great Vibes',cursive;font-weight:400;font-size:1.22em;color:var(--gold-deep);line-height:1;padding-right:.08em}
+.signature{font-family:'Great Vibes',cursive;font-size:34px;color:var(--gold);line-height:1}
+/* reveal on scroll */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* whatsapp float */
+.wa-float{
+  position:fixed;right:22px;bottom:22px;z-index:90;width:58px;height:58px;border-radius:50%;
+  background:#25d366;display:grid;place-items:center;box-shadow:0 12px 30px rgba(37,211,102,.45);
+  transition:.25s;
+}
+.wa-float:hover{transform:scale(1.08)}
+
+/* responsive */
+@media(max-width:900px){
+  .marquee-zone{margin:48px 14px 0;border-radius:16px}
+  .wrap{padding:0 22px}
+  .hero{padding:118px 0 0}
+  .hero-cta .btn{flex:1 1 100%;justify-content:center}
+  .drawer{padding:96px 30px 34px}
+  footer .cols{flex-direction:column;gap:26px}
+  .card{padding:34px 26px}
+
+  .feature{grid-template-columns:1fr}
+  .inquiry-grid{grid-template-columns:1fr}
+  section{padding:64px 0}
+}
+
+/* tablet grid fallback: 561–900px (2 columns) */
+@media(max-width:900px) and (min-width:561px){
+  .masonry{grid-template-columns:repeat(2,1fr);grid-auto-rows:170px}
+  .w6,.w4,.w3,.w2{grid-column:span 2}
+  .w2{grid-column:span 1}
+}
+
+/* ---------- MOBILE GALLERY: horizontal interactive accordion (≤768px) ---------- */
+@media(max-width:768px){
+  /* strip becomes an internal, snap-scrolling rail — the PAGE never scrolls sideways */
+  .masonry{display:flex;gap:10px;height:min(78vh,660px);min-height:480px;overflow-x:auto;overflow-y:hidden;
+          scroll-snap-type:x proximity;padding:4px 2px 14px;scrollbar-width:thin;scrollbar-color:var(--gold) var(--bg-2)}
+  .masonry::-webkit-scrollbar{height:6px}
+  .masonry::-webkit-scrollbar-track{background:var(--bg-2);border-radius:999px}
+  .masonry::-webkit-scrollbar-thumb{background:var(--gold);border-radius:999px}
+
+  .acc-item{display:flex;flex-direction:column;flex:0 0 auto;width:62px;scroll-snap-align:start;
+            border-radius:16px;overflow:hidden;background:var(--card);border:1px solid var(--line);
+            box-shadow:0 8px 24px rgba(35,32,26,.08);transition:width .55s cubic-bezier(.25,.8,.25,1)}
+  .acc-item.expanded{width:min(84vw,540px);scroll-snap-align:center}
+
+  .acc-head{display:flex;flex-direction:column;align-items:center;gap:12px;padding:16px 0;width:100%;
+            background:var(--card);border:0;cursor:pointer;font-family:inherit;color:var(--ink);flex:1 1 auto;min-height:0;text-align:center}
+  .acc-head:focus-visible{outline:2px solid var(--gold);outline-offset:-3px;border-radius:14px}
+  .acc-num{font-size:10px;font-weight:600;letter-spacing:.22em;color:var(--gold);font-family:'Inter',sans-serif}
+  .acc-title{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:19px;line-height:1.1;
+             writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap;flex:1 0 auto}
+  .acc-chev{flex:none;color:var(--ink-soft);transition:transform .35s}
+  .acc-item.expanded .acc-head{flex:0 0 auto;flex-direction:row;justify-content:space-between;gap:10px;
+            padding:12px 16px;border-bottom:1px solid var(--line);text-align:left}
+  .acc-item.expanded .acc-title{writing-mode:horizontal-tb;transform:none;font-size:21px;flex:0 1 auto;white-space:normal}
+  .acc-item.expanded .acc-chev{transform:rotate(180deg)}
+
+  .acc-panel{display:none;flex:1;min-height:0;flex-direction:column}
+  .acc-item.expanded .acc-panel{display:flex}
+
+  .acc-panel .g-item{flex:1 1 auto;min-height:0;border-radius:0;box-shadow:none;overflow:hidden;position:relative;display:block}
+  .acc-panel .g-item img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .acc-panel .g-item .cap{opacity:1;transform:none}
+  .acc-panel .footnote{flex:none;border:0;border-top:1px solid var(--line);border-radius:0;margin:0 !important;
+            padding:12px 16px;max-height:38%;overflow:auto}
+}
+@media(max-width:768px) and (prefers-reduced-motion:reduce){
+  .acc-item{transition:none}
+}
+
+@media(max-width:768px){
+  /* photo thumbnail behind each collapsed panel title */
+  .acc-head{position:relative;overflow:hidden}
+  .acc-thumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .acc-head::after{content:"";position:absolute;inset:0;z-index:0;
+      background:linear-gradient(180deg,rgba(250,246,239,.42),rgba(250,246,239,.78) 55%,rgba(250,246,239,.94))}
+  .acc-head .acc-num,.acc-head .acc-title,.acc-head .acc-chev{position:relative;z-index:1}
+  .acc-item.expanded .acc-thumb{display:none}
+  .acc-item.expanded .acc-head::after{display:none}
+  .acc-item.expanded .acc-head{overflow:visible}
+}
+
+/* visible keyboard focus everywhere */
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+/* respect reduced-motion preferences globally */
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .marquee{animation:none}
+  *,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important;animation-iteration-count:1 !important}
+}
+
+@media(max-width:560px){
+  .hero{padding:104px 0 0}
+  .header-inner{height:64px}
+  .logo-text{font-size:13px}
+  .logo-text small{letter-spacing:.22em}
+  .menu-btn{width:44px;height:44px}
+  .kicker{letter-spacing:.2em;font-size:11px}
+  section{padding:56px 0}
+  .sec-head h2{font-size:clamp(26px,8vw,34px)}
+  .m-card{width:min(72vw,300px);height:min(96vw,400px)}
+  .marquee{gap:12px}
+  .stats-grid{padding:28px 0;gap:14px}
+  .g-item .cap{opacity:1;transform:none}
+  .wa-float{width:52px;height:52px;right:16px;bottom:16px}
+  .script{font-size:1.12em}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="wrap header-inner">
+    <a class="logo" href="#top">
+      <span class="logo-mark">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L21 9L12 22L3 9L12 2Z" fill="#fff" opacity=".95"/><path d="M3 9H21M12 2L8 9L12 22L16 9L12 2Z" stroke="#8f6708" stroke-width="1.1" fill="none"/></svg>
+      </span>
+      <span class="logo-text">Equal Trade<small>Global Minerals</small></span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- collapsible menu -->
+<div class="overlay" id="overlay"></div>
+<nav class="drawer" id="drawer" aria-label="Main navigation">
+  <a class="drawer-link" href="#collection">The Collection <span>01</span></a>
+  <a class="drawer-link" href="#story">Our Story <span>02</span></a>
+  <a class="drawer-link" href="#categories">Product Lines <span>03</span></a>
+  <a class="drawer-link" href="#gallery">Gallery <span>04</span></a>
+  <a class="drawer-link" href="#inquiry">Send Us Inquiry <span>05</span></a>
+  <div class="drawer-foot">
+    <p>Equal Trade Global — Addis Ababa, Ethiopia</p>
+    <p style="margin-top:8px"><a href="mailto:mussie@equaltradeglobal.org">mussie@equaltradeglobal.org</a></p>
+    <p style="margin-top:4px"><a href="https://wa.me/251922466797" target="_blank" rel="noopener">WhatsApp +251 922 466 797</a></p>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <span class="kicker">Minerals · Gemstones · Ores · Natural Stone</span>
+    <h1>Earth's finest treasures,<br><span class="script">curated</span> for global trade.</h1>
+    <p class="lede">Equal Trade Global sources premium minerals, gemstones, ores and natural stones — hand-graded at origin, quality-assured, and delivered worldwide. From gold doré and emerald rough to industrial kyanite, lepidolite and quartz, every lot is selected for collectors, jewelers and industry.</p>
+    <div class="hero-cta">
+      <a class="btn btn-gold" href="#inquiry">Send Us Inquiry</a>
+      <a class="btn btn-ghost" href="#gallery">Explore the Gallery</a>
+    </div>
+  </div>
+
+  <!-- five horizontally dynamic moving images -->
+  <div class="marquee-zone" id="collection">
+    <div class="fade-l"></div><div class="fade-r"></div>
+    <div class="marquee" id="marquee">
+      <div class="m-card"><img src="images/gold_dore_bars.jpg" alt="Gold doré bars"><span class="tag">Gold Doré</span></div>
+      <div class="m-card"><img src="images/emerald_rough.jpg" alt="Emerald rough in matrix"><span class="tag">Emerald Rough</span></div>
+      <div class="m-card"><img src="images/pyrite_cluster.jpg" alt="Pyrite crystal cluster"><span class="tag">Pyrite</span></div>
+      <div class="m-card"><img src="images/smoky_quartz.jpg" alt="Smoky quartz crystals"><span class="tag">Smoky Quartz</span></div>
+      <div class="m-card"><img src="images/kyanite_blades.jpg" alt="Kyanite blades"><span class="tag">Kyanite</span></div>
+      <!-- duplicate set for seamless loop -->
+      <div class="m-card" aria-hidden="true"><img src="images/gold_dore_bars.jpg" alt=""><span class="tag">Gold Doré</span></div>
+      <div class="m-card" aria-hidden="true"><img src="images/emerald_rough.jpg" alt=""><span class="tag">Emerald Rough</span></div>
+      <div class="m-card" aria-hidden="true"><img src="images/pyrite_cluster.jpg" alt=""><span class="tag">Pyrite</span></div>
+      <div class="m-card" aria-hidden="true"><img src="images/smoky_quartz.jpg" alt=""><span class="tag">Smoky Quartz</span></div>
+      <div class="m-card" aria-hidden="true"><img src="images/kyanite_blades.jpg" alt=""><span class="tag">Kyanite</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STATS ================= -->
+<div class="stats">
+  <div class="wrap stats-grid">
+    <div class="stat"><b>20+</b><span>Stone Varieties</span></div>
+    <div class="stat"><b>3</b><span>Continents Served</span></div>
+    <div class="stat"><b>100%</b><span>Natural &amp; Untreated*</span></div>
+    <div class="stat"><b>48h</b><span>Inquiry Response</span></div>
+    <div class="stat"><b>FOB</b><span>Worldwide Shipping</span></div>
+  </div>
+</div>
+
+<!-- ================= STORY / FEATURE ================= -->
+<section id="story">
+  <div class="wrap feature reveal">
+    <div>
+      <span class="kicker">The Equal Trade Story</span>
+      <h2>From mountain vein to <em class="accent">world market.</em></h2>
+      <p class="pull">"Every stone in our catalogue was chosen by hand at the source — we trade only what we would proudly place on our own table."</p>
+      <p style="color:var(--ink-soft)">Our buyers work directly with mining communities and trusted partners across East Africa and China, securing everything from gem-grade emerald and collectible mineral specimens to bulk industrial minerals and construction aggregate. Each consignment is photographed, graded and documented before shipment.</p>
+      <ul class="checks">
+        <li>Direct-from-source pricing with full traceability</li>
+        <li>Specimen, jewelry-grade and industrial lots available</li>
+        <li>Export documentation, assay reports and secure logistics</li>
+        <li>Wholesale, retail and collector-friendly quantities</li>
+      </ul>
+    </div>
+    <div class="ph"><img src="images/graphite_ore.jpg" alt="Natural graphite ore specimen"></div>
+  </div>
+</section>
+
+<!-- ================= CATEGORIES ================= -->
+<section id="categories" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Product Lines</span>
+      <h2>Four families of <em class="accent">natural wealth.</em></h2>
+      <p>Whatever your trade — jewelry, industry, energy or construction — our catalogue moves with your demand.</p>
+    </div>
+    <div class="cat-grid reveal">
+      <div class="cat"><span class="num">/01</span>
+        <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#b8860b" stroke-width="1.7"><path d="M12 2L21 9L12 22L3 9L12 2Z"/><path d="M3 9h18M12 2l-4 7 4 13 4-7-4-13"/></svg></div>
+        <h3>Precious Metals</h3>
+        <p>Gold doré bars and precious-metal lots, each piece stamped, weighed and ready for refining or investment.</p>
+      </div>
+      <div class="cat"><span class="num">/02</span>
+        <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1f6f5f" stroke-width="1.7"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 15l6-6"/></svg></div>
+        <h3>Gemstones &amp; Specimens</h3>
+        <p>Emerald rough, kyanite, labradorite, smoky and milky quartz, lepidolite and pyrite — for jewelers and collectors.</p>
+      </div>
+      <div class="cat"><span class="num">/03</span>
+        <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#8f6708" stroke-width="1.7"><path d="M3 20h18M6 20V9l6-5 6 5v11"/><path d="M10 20v-5h4v5"/></svg></div>
+        <h3>Industrial Minerals</h3>
+        <p>Graphite, chromite, magnetite and lithium-bearing pegmatite — feedstock for steel, batteries and refractories.</p>
+      </div>
+      <div class="cat"><span class="num">/04</span>
+        <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5c554a" stroke-width="1.7"><path d="M4 18l4-8 4 5 3-6 5 9H4z"/></svg></div>
+        <h3>Dimension &amp; Aggregate Stone</h3>
+        <p>Mica schist, conglomerate and crushed aggregate in controlled grades for construction and landscaping.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">The Catalogue</span>
+      <h2>A magazine of <em class="accent">stone &amp; ore.</em></h2>
+      <p>Hover any plate on desktop — or tap a numbered panel on mobile — to read its story. Every specimen ships with a matching footnote description.</p>
+    </div>
+
+    <div class="masonry">
+
+      <!-- 1 FULL WIDTH -->
+      <div class="acc-item">
+        <button class="acc-head" id="ab1" aria-expanded="false" aria-controls="ap1"><img class="acc-thumb" src="images/aggregate_stockpile.jpg" alt="" aria-hidden="true" loading="lazy">
+          <span class="acc-num">01</span>
+          <span class="acc-title">Crushed Stone &amp; Aggregate</span>
+          <svg class="acc-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="acc-panel" id="ap1" role="region" aria-labelledby="ab1">
+          <figure class="fig g-item w6 h3 r-wide reveal" style="margin:0">
+        <img src="images/aggregate_stockpile.jpg" alt="Crushed aggregate stockpile at the mine site">
+        <span class="pin">Industrial</span>
+        <div class="cap"><b>Crushed Aggregate Stockpile</b><span>Graded construction stone, ready for load-out.</span></div>
+      </figure>
+          <div class="footnote w6" style="margin:-6px 0 0;grid-column:span 6"><b>◆ Crushed Stone &amp; Aggregate —</b> hard-rock gravel screened into controlled grades; the essential skeleton of concrete, roads and rail ballast, supplied by the tonne.</div>
+        </div>
+      </div>
+
+      <!-- 2 PORTRAIT -->
+      <div class="acc-item">
+        <button class="acc-head" id="ab2" aria-expanded="false" aria-controls="ap2"><img class="acc-thumb" src="images/kyanite_blades.jpg" alt="" aria-hidden="true" loading="lazy">
+          <span class="acc-num">02</span>
+          <span class="acc-title">Kyanite</span>
+          <svg class="acc-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="acc-panel" id="ap2" role="region" aria-labelledby="ab2">
+          <figure class="fig g-item w2 h4 reveal" style="margin:0">
+        <img src="images/kyanite_blades.jpg" alt="Kyanite bladed crystals">
+        <span class="pin">Industrial</span>
+        <div class="cap"><b>Kyanite Blades</b><span>Aluminosilicate blades from a metamorphic vein.</span></div>
+      </figure>
+          <div class="footnote" style="grid-column:span 2"><b>◆ Kyanite —</b> Al₂SiO₅. Sky-blue bladed crystals with a curious split personality: hardness 4.5 along the length, 7 across it. A premium refractory and ceramic raw material.</div>
+        </div>
+      </div>
+
+      <!-- 3 PORTRAIT -->
+      <div class="acc-item">
+        <button class="acc-head" id="ab3" aria-expanded="false" aria-controls="ap3"><img class="acc-thumb" src="images/emerald_rough.jpg" alt="" aria-hidden="true" loading="lazy">
+          <span class="acc-num">03</span>
+          <span class="acc-title">Emerald (Green Beryl)</span>
+          <svg class="acc-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="acc-panel" id="ap3" role="region" aria-labelledby="ab3">
+          <figure class="fig g-item w2 h4 reveal" style="margin:0">
+        <img src="images/emerald_rough.jpg" alt="Emerald crystals in host rock">
+        <span class="pin">Gemstone</span>
+        <div class="cap"><b>Emerald Rough</b><span>Green beryl in its natural host matrix.</span></div>
+      </figure>
+          <div class="footnote" style="grid-column:span 2"><b>◆ Emerald (Green Beryl) —</b> Be₃Al₂Si₆O₁₈ colored green by chromium/vanadium. Treasured for millennia; the May birthstone and one of the "big four" gems.</div>
+        </div>
+      </div>
+
+      <!-- 4 LANDSCAPE -->
+      <div class="acc-item">
+        <button class="acc-head" id="ab4" aria-expanded="false" aria-controls="ap4"><img class="acc-thumb" src="images/gold_dore_bars.jpg" alt="" aria-hidden="true" loading="lazy">
+          <span class="acc-num">04</span>
+          <span class="acc-title">Gold Doré</span>
+          <svg class="acc-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="acc-panel" id="ap4" role="region" aria-labelledby="ab4">
+          <figure class="fig g-item w2 h4 reveal" style="margin:0">
+        <img src="images/gold_dore_bars.jpg" alt="Gold doré bars">
+        <span class="pin">Precious</span>
+        <div class="cap"><b>Gold Doré Bars</b><span>Unrefined gold–silver alloy, stamped and weighed.</span></div>
+      </figure>
+          <div class="footnote" style="grid-column:span 2"><b>◆ Gold Doré —</b> a semi-pure alloy of gold and silver cast at the mine, typically 85–95% Au, refined to bullion purity by the buyer. The raw heartbeat of the precious-metals trade.</div>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="acc-item">
+        <button class="acc-head" id="ab5" aria-expanded="false" aria-controls="ap5"><img class="acc-thumb" src="images/pyrite_cluster.jpg" alt="" aria-hidden="true" loading="lazy">
+          <span class="acc-num">05</span>
+          <span class="acc-title">Pyrite</span>
+          <svg class="acc-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="acc-panel" id="ap5" role="region" aria-labelledby="ab5">
+          <figure class="fig g-item w3 h3 reveal" style="margin:0">
+        <img src="images/pyrite_cluster.jpg" alt="Pyrite crystal cluster">
+        <span class="pin">Specimen</span>
+        <div class="cap"><b>Pyrite Cluster</b><span>Brassy cubic crystals — "fool's gold".</span></div>
+      </figure>
+          <div class="footnote" style="grid-column:span 3"><b>◆ Pyrite —</b> FeS₂. Brass-yellow metallic luster, pale green-black streak; cubic crystal habit. Sulfuric-acid feedstock and a favorite of mineral collectors.</div>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="acc-item">
+        <button class="acc-head" id="ab6" aria-expanded="false" aria-controls="ap6"><img class="acc-thumb" src="images/labradorite_rough.jpg" alt="" aria-hidden="true" loading="lazy">
+          <span class="acc-num">06</span>
+          <span class="acc-title">Labradorite</span>
+          <svg class="acc-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="acc-panel" id="ap6" role="region" aria-labelledby="ab6">
+          <figure class="fig g-item w3 h3 reveal" style="margin:0">
+        <img src="images/labradorite_rough.jpg" alt="Labradorite rough chunks">
+        <span class="pin">Gemstone</span>
+        <div class="cap"><b>Labradorite Rough</b><span>Blue-gray feldspar with hidden fire.</span></div>
+      </figure>
+          <div class="footnote" style="grid-column:span 3"><b>◆ Labradorite —</b> a plagioclase feldspar famed for labradorescence — flashes of blue, green and gold that appear as the stone turns. Prized for cabochons and slabs.</div>
+        </div>
+      </div>
+
+      <!-- 7 -->
+      <div class="acc-item">
+        <button class="acc-head" id="ab7" aria-expanded="false" aria-controls="ap7"><img class="acc-thumb" src="images/lepidolite.jpg" alt="" aria-hidden="true" loading="lazy">
+          <span class="acc-num">07</span>
+          <span class="acc-title">Lepidolite</span>
+          <svg class="acc-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="acc-panel" id="ap7" role="region" aria-labelledby="ab7">
+          <figure class="fig g-item w3 h4 reveal" style="margin:0">
+        <img src="images/lepidolite.jpg" alt="Lepidolite lilac mica">
+        <span class="pin">Lithium</span>
+        <div class="cap"><b>Lepidolite</b><span>Lilac lithium mica, shimmering in scales.</span></div>
+      </figure>
+          <div class="footnote" style="grid-column:span 3"><b>◆ Lepidolite —</b> K(Li,Al)₃(Si,Al)₄O₁₀(F,OH)₂. A lilac to rose-pink mica and one of the richest sources of lithium — the metal powering the world's batteries.</div>
+        </div>
+      </div>
+
+      <!-- 8 -->
+      <div class="acc-item">
+        <button class="acc-head" id="ab8" aria-expanded="false" aria-controls="ap8"><img class="acc-thumb" src="images/smoky_quartz.jpg" alt="" aria-hidden="true" loading="lazy">
+          <span class="acc-num">08</span>
+          <span class="acc-title">Smoky Quartz</span>
+          <svg class="acc-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="acc-panel" id="ap8" role="region" aria-labelledby="ab8">
+          <figure class="fig g-item w3 h4 reveal" style="margin:0">
+        <img src="images/smoky_quartz.jpg" alt="Smoky quartz points with feldspar">
+        <span class="pin">Gemstone</span>
+        <div class="cap"><b>Smoky Quartz Points</b><span>Natural citrine-hued crystals on feldspar.</span></div>
+      </figure>
+          <div class="footnote" style="grid-column:span 3"><b>◆ Smoky Quartz —</b> SiO₂ colored brown by natural irradiation. Transparent, hexagonal prisms; a durable (Mohs 7) favorite for jewelry and carving.</div>
+        </div>
+      </div>
+
+      <!-- 9 -->
+      <div class="acc-item">
+        <button class="acc-head" id="ab9" aria-expanded="false" aria-controls="ap9"><img class="acc-thumb" src="images/graphite_ore.jpg" alt="" aria-hidden="true" loading="lazy">
+          <span class="acc-num">09</span>
+          <span class="acc-title">Graphite</span>
+          <svg class="acc-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="acc-panel" id="ap9" role="region" aria-labelledby="ab9">
+          <figure class="fig g-item w2 h4 reveal" style="margin:0">
+        <img src="images/graphite_ore.jpg" alt="Natural graphite ore">
+        <span class="pin">Industrial</span>
+        <div class="cap"><b>Graphite Ore</b><span>Soft, dark carbon rock — writes on paper.</span></div>
+      </figure>
+          <div class="footnote" style="grid-column:span 2"><b>◆ Graphite —</b> crystalline carbon: steel-gray to black, greasy feel, marks paper. Essential for batteries, electrodes, lubricants and — famously — pencils.</div>
+        </div>
+      </div>
+
+      <!-- 10 -->
+      <div class="acc-item">
+        <button class="acc-head" id="ab10" aria-expanded="false" aria-controls="ap10"><img class="acc-thumb" src="images/chromite_massive.jpg" alt="" aria-hidden="true" loading="lazy">
+          <span class="acc-num">10</span>
+          <span class="acc-title">Chromite</span>
+          <svg class="acc-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="acc-panel" id="ap10" role="region" aria-labelledby="ab10">
+          <figure class="fig g-item w2 h4 reveal" style="margin:0">
+        <img src="images/chromite_massive.jpg" alt="Massive chromite with metallic fracture">
+        <span class="pin">Ore</span>
+        <div class="cap"><b>Chromite Mass</b><span>Heavy, dark chromium ore, metallic sheen.</span></div>
+      </figure>
+          <div class="footnote" style="grid-column:span 2"><b>◆ Chromite —</b> FeCr₂O₄, the only commercial chromium ore. Black-brown, submetallic luster, very dense; the backbone of stainless steel and ferrochrome.</div>
+        </div>
+      </div>
+
+      <!-- 11 -->
+      <div class="acc-item">
+        <button class="acc-head" id="ab11" aria-expanded="false" aria-controls="ap11"><img class="acc-thumb" src="images/milky_quartz_cluster.jpg" alt="" aria-hidden="true" loading="lazy">
+          <span class="acc-num">11</span>
+          <span class="acc-title">Milky Quartz</span>
+          <svg class="acc-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="acc-panel" id="ap11" role="region" aria-labelledby="ab11">
+          <figure class="fig g-item w2 h4 reveal" style="margin:0">
+        <img src="images/milky_quartz_cluster.jpg" alt="Milky quartz cluster">
+        <span class="pin">Specimen</span>
+        <div class="cap"><b>Milky Quartz Cluster</b><span>Snow-white quartz points in harmony.</span></div>
+      </figure>
+          <div class="footnote" style="grid-column:span 2"><b>◆ Milky Quartz —</b> common SiO₂ made opaque by countless fluid inclusions. Sacred in many cultures; today a workhorse of glass, ceramics and electronics.</div>
+        </div>
+      </div>
+
+      <!-- 12 -->
+      <div class="acc-item">
+        <button class="acc-head" id="ab12" aria-expanded="false" aria-controls="ap12"><img class="acc-thumb" src="images/lithium_pegmatite.jpg" alt="" aria-hidden="true" loading="lazy">
+          <span class="acc-num">12</span>
+          <span class="acc-title">Lithium Pegmatite</span>
+          <svg class="acc-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="acc-panel" id="ap12" role="region" aria-labelledby="ab12">
+          <figure class="fig g-item w3 h3 reveal" style="margin:0">
+        <img src="images/lithium_pegmatite.jpg" alt="Lithium pegmatite with lepidolite and quartz">
+        <span class="pin">Lithium</span>
+        <div class="cap"><b>Lithium Pegmatite</b><span>Lepidolite &amp; quartz in a giant-grain rock.</span></div>
+      </figure>
+          <div class="footnote" style="grid-column:span 3"><b>◆ Lithium Pegmatite —</b> an exceptionally coarse igneous rock where leftover magma grows meter-scale crystals of quartz, feldspar and lithium micas — a direct source battery-metal feedstock.</div>
+        </div>
+      </div>
+
+      <!-- 13 -->
+      <div class="acc-item">
+        <button class="acc-head" id="ab13" aria-expanded="false" aria-controls="ap13"><img class="acc-thumb" src="images/pegmatite_feldspar.jpg" alt="" aria-hidden="true" loading="lazy">
+          <span class="acc-num">13</span>
+          <span class="acc-title">Pegmatite</span>
+          <svg class="acc-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="acc-panel" id="ap13" role="region" aria-labelledby="ab13">
+          <figure class="fig g-item w3 h3 reveal" style="margin:0">
+        <img src="images/pegmatite_feldspar.jpg" alt="Coarse pegmatite with feldspar">
+        <span class="pin">Industrial</span>
+        <div class="cap"><b>Feldspar Pegmatite</b><span>Interlocking giant crystals of the granite family.</span></div>
+      </figure>
+          <div class="footnote" style="grid-column:span 3"><b>◆ Pegmatite —</b> the coarsest rock on Earth, with interlocking crystals of quartz, feldspar and mica several centimeters across. Mother-rock of many gems and rare elements.</div>
+        </div>
+      </div>
+
+      <!-- 14 -->
+      <div class="acc-item">
+        <button class="acc-head" id="ab14" aria-expanded="false" aria-controls="ap14"><img class="acc-thumb" src="images/mica_schist.jpg" alt="" aria-hidden="true" loading="lazy">
+          <span class="acc-num">14</span>
+          <span class="acc-title">Mica Schist</span>
+          <svg class="acc-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="acc-panel" id="ap14" role="region" aria-labelledby="ab14">
+          <figure class="fig g-item w3 h4 reveal" style="margin:0">
+        <img src="images/mica_schist.jpg" alt="Silvery mica schist pieces">
+        <span class="pin">Stone</span>
+        <div class="cap"><b>Mica Schist</b><span>Silvery foliated metamorphic slabs.</span></div>
+      </figure>
+          <div class="footnote" style="grid-column:span 3"><b>◆ Mica Schist —</b> a metamorphic rock layered with sparkling muscovite mica. Splits along its foliation; valued for decorative walling, paving and natural finishes.</div>
+        </div>
+      </div>
+
+      <!-- 15 -->
+      <div class="acc-item">
+        <button class="acc-head" id="ab15" aria-expanded="false" aria-controls="ap15"><img class="acc-thumb" src="images/tourmaline_pegmatite.jpg" alt="" aria-hidden="true" loading="lazy">
+          <span class="acc-num">15</span>
+          <span class="acc-title">Tourmaline Pegmatite</span>
+          <svg class="acc-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="acc-panel" id="ap15" role="region" aria-labelledby="ab15">
+          <figure class="fig g-item w3 h4 reveal" style="margin:0">
+        <img src="images/tourmaline_pegmatite.jpg" alt="Pegmatite with black tourmaline in feldspar">
+        <span class="pin">Specimen</span>
+        <div class="cap"><b>Tourmaline Pegmatite</b><span>Black schorl veins in white feldspar.</span></div>
+      </figure>
+          <div class="footnote" style="grid-column:span 3"><b>◆ Tourmaline Pegmatite —</b> feldspar–quartz matrix streaked with black schorl tourmaline (NaFe₃Al₆(BO₃)₃Si₆O₁₈(OH)₄) — a classic combination from lithium-rich pegmatite fields.</div>
+        </div>
+      </div>
+
+      <!-- 16 -->
+      <div class="acc-item">
+        <button class="acc-head" id="ab16" aria-expanded="false" aria-controls="ap16"><img class="acc-thumb" src="images/magnetite_lumps.jpg" alt="" aria-hidden="true" loading="lazy">
+          <span class="acc-num">16</span>
+          <span class="acc-title">Magnetite</span>
+          <svg class="acc-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="acc-panel" id="ap16" role="region" aria-labelledby="ab16">
+          <figure class="fig g-item w2 h4 reveal" style="margin:0">
+        <img src="images/magnetite_lumps.jpg" alt="Magnetite iron ore lumps">
+        <span class="pin">Ore</span>
+        <div class="cap"><b>Magnetite Lumps</b><span>Natural iron oxide, magnetic and dense.</span></div>
+      </figure>
+          <div class="footnote" style="grid-column:span 2"><b>◆ Magnetite —</b> Fe₃O₄, the most magnetic mineral on Earth. Black, submetallic, ~72% iron — the highest-grade iron ore known and vital to the steel industry.</div>
+        </div>
+      </div>
+
+      <!-- 17 -->
+      <div class="acc-item">
+        <button class="acc-head" id="ab17" aria-expanded="false" aria-controls="ap17"><img class="acc-thumb" src="images/conglomerate.jpg" alt="" aria-hidden="true" loading="lazy">
+          <span class="acc-num">17</span>
+          <span class="acc-title">Conglomerate</span>
+          <svg class="acc-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="acc-panel" id="ap17" role="region" aria-labelledby="ab17">
+          <figure class="fig g-item w2 h4 reveal" style="margin:0">
+        <img src="images/conglomerate.jpg" alt="Conglomerate decorative stone">
+        <span class="pin">Stone</span>
+        <div class="cap"><b>Conglomerate</b><span>Ancient river pebbles cemented in stone.</span></div>
+      </figure>
+          <div class="footnote" style="grid-column:span 2"><b>◆ Conglomerate —</b> sedimentary rock of rounded pebbles bound in a sandy matrix — natural "pudding stone". A characterful choice for feature walls and landscaping.</div>
+        </div>
+      </div>
+
+      <!-- 18 -->
+      <div class="acc-item">
+        <button class="acc-head" id="ab18" aria-expanded="false" aria-controls="ap18"><img class="acc-thumb" src="images/kyanite_pieces.jpg" alt="" aria-hidden="true" loading="lazy">
+          <span class="acc-num">18</span>
+          <span class="acc-title">Kyanite (weathered)</span>
+          <svg class="acc-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="acc-panel" id="ap18" role="region" aria-labelledby="ab18">
+          <figure class="fig g-item w2 h4 reveal" style="margin:0">
+        <img src="images/kyanite_pieces.jpg" alt="Kyanite pieces with iron staining">
+        <span class="pin">Industrial</span>
+        <div class="cap"><b>Kyanite Pieces</b><span>Blade fragments, iron-stained at the edges.</span></div>
+      </figure>
+          <div class="footnote" style="grid-column:span 2"><b>◆ Kyanite (weathered) —</b> blade fragments with rust-brown iron-oxide staining at the surface; the blue interior remains the same prized aluminosilicate used in high-alumina refractories.</div>
+        </div>
+      </div>
+
+      <!-- 19 -->
+      <div class="acc-item">
+        <button class="acc-head" id="ab19" aria-expanded="false" aria-controls="ap19"><img class="acc-thumb" src="images/quartz_chunks.jpg" alt="" aria-hidden="true" loading="lazy">
+          <span class="acc-num">19</span>
+          <span class="acc-title">Massive Milky Quartz</span>
+          <svg class="acc-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="acc-panel" id="ap19" role="region" aria-labelledby="ab19">
+          <figure class="fig g-item w3 h3 reveal" style="margin:0">
+        <img src="images/quartz_chunks.jpg" alt="Milky quartz chunks">
+        <span class="pin">Specimen</span>
+        <div class="cap"><b>Quartz Chunks</b><span>Frosted white lumps of pure SiO₂.</span></div>
+      </figure>
+          <div class="footnote" style="grid-column:span 3"><b>◆ Massive Milky Quartz —</b> frosted white lumps of silicon dioxide, Mohs hardness 7. Raw material for glass, foundry sands, and lapidary work worldwide.</div>
+        </div>
+      </div>
+
+      <!-- 20 -->
+      <div class="acc-item">
+        <button class="acc-head" id="ab20" aria-expanded="false" aria-controls="ap20"><img class="acc-thumb" src="images/muscovite_schist.jpg" alt="" aria-hidden="true" loading="lazy">
+          <span class="acc-num">20</span>
+          <span class="acc-title">Muscovite Mica Schist</span>
+          <svg class="acc-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="acc-panel" id="ap20" role="region" aria-labelledby="ab20">
+          <figure class="fig g-item w3 h3 reveal" style="margin:0">
+        <img src="images/muscovite_schist.jpg" alt="Muscovite mica schist">
+        <span class="pin">Stone</span>
+        <div class="cap"><b>Muscovite Schist</b><span>Silver-rose mica sheen in foliated layers.</span></div>
+      </figure>
+          <div class="footnote" style="grid-column:span 3"><b>◆ Muscovite Mica Schist —</b> silvery to rose-tinted mica sheets within a schistose matrix; muscovite (KAl₂(AlSi₃O₁₀)(OH)₂) is valued for insulation, paints and pearlescent finishes.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= INQUIRY ================= -->
+<section id="inquiry">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Send Us Inquiry</span>
+      <h2>Let's talk <em class="accent">stone.</em></h2>
+      <p>Tell us what you're looking for — a single collector's specimen or a full container load. Reach us directly by email or WhatsApp, or drop a message below.</p>
+    </div>
+    <div class="inquiry-grid reveal">
+      <div class="card">
+        <div class="big-ico" style="background:#f3ecdf">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#8f6708" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>
+        </div>
+        <h3>Email Us</h3>
+        <p>For quotations, assay reports, shipping schedules and wholesale terms — write to our trade desk any time.</p>
+        <p class="contact-line">mussie@equaltradeglobal.org</p>
+        <form class="form" onsubmit="sendEmail(event)">
+          <input type="text" id="fName" placeholder="Your name" required>
+          <input type="text" id="fMsg" placeholder="Which stone / quantity are you interested in?" required>
+          <button class="btn btn-gold" type="submit" style="justify-content:center">Send Message by Email</button>
+        </form>
+      </div>
+      <div class="card">
+        <div class="big-ico" style="background:#e5f8ee">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="#25d366"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.1-.3 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.4 3.9 2.6 1.1 2.6.7 3.1.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.6-.3z"/></svg>
+        </div>
+        <h3>WhatsApp Us</h3>
+        <p>Fastest reply — send photos of what you need, request videos of current stock, or arrange a live video call to the warehouse.</p>
+        <p class="contact-line">+251 922 466 797</p>
+        <a class="btn" style="background:#25d366;color:#fff;justify-content:center;box-shadow:0 10px 24px rgba(37,211,102,.35)" href="https://wa.me/251922466797?text=Hello%20Equal%20Trade%20Global%2C%20I%27m%20interested%20in%20your%20minerals%20and%20stones." target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>
+          Chat on WhatsApp
+        </a>
+        <p style="font-size:12.5px;margin-top:16px">Available Mon–Sat · GMT+3 (East Africa Time)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap cols">
+    <div style="max-width:320px">
+      <h4>Equal Trade Global</h4>
+      <p style="font-size:14px;line-height:1.7">Fine minerals, gemstones, ores and natural stones — sourced, graded and shipped worldwide from Addis Ababa, Ethiopia.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <p><a href="#collection">The Collection</a></p>
+      <p style="margin-top:8px"><a href="#categories">Product Lines</a></p>
+      <p style="margin-top:8px"><a href="#gallery">Gallery</a></p>
+      <p style="margin-top:8px"><a href="#inquiry">Send Us Inquiry</a></p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p><a href="mailto:mussie@equaltradeglobal.org">mussie@equaltradeglobal.org</a></p>
+      <p style="margin-top:8px"><a href="https://wa.me/251922466797" target="_blank" rel="noopener">WhatsApp +251 922 466 797</a></p>
+      <p style="margin-top:8px">Addis Ababa, Ethiopia</p>
+    </div>
+  </div>
+  <div class="wrap" style="text-align:center;margin-top:14px"><span class="signature">Equal Trade Global</span></div>
+  <div class="wrap base">
+    <span>© 2026 Equal Trade Global. All rights reserved.</span>
+    <span>*Gemstones sold as natural; treatments disclosed per lot where applicable.</span>
+  </div>
+</footer>
+
+<!-- whatsapp float -->
+<a class="wa-float" href="https://wa.me/251922466797" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.6 12.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.1-.3 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.4 3.9 2.6 1.1 2.6.7 3.1.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.6-.3z"/></svg>
+</a>
+
+<script>
+// collapsible menu
+const btn=document.getElementById('menuBtn'),drawer=document.getElementById('drawer'),overlay=document.getElementById('overlay');
+function toggleMenu(force){
+  const open=force!==undefined?force:!drawer.classList.contains('open');
+  drawer.classList.toggle('open',open);overlay.classList.toggle('show',open);
+  btn.classList.toggle('open',open);btn.setAttribute('aria-expanded',open);
+  document.body.style.overflow=open?'hidden':'';
+}
+btn.addEventListener('click',()=>toggleMenu());
+overlay.addEventListener('click',()=>toggleMenu(false));
+drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>toggleMenu(false)));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')toggleMenu(false)});
+
+// inquiry form -> mailto
+function sendEmail(e){
+  e.preventDefault();
+  const n=document.getElementById('fName').value.trim();
+  const m=document.getElementById('fMsg').value.trim();
+  const subject=encodeURIComponent('Product Inquiry — '+n);
+  const body=encodeURIComponent('Hello Equal Trade Global,\n\nMy name is '+n+'.\n\n'+m+'\n\nPlease send me availability, grades and pricing.\n\nThank you.');
+  window.location.href='mailto:mussie@equaltradeglobal.org?subject='+subject+'&body='+body;
+}
+
+// reveal on scroll
+const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('visible');io.unobserve(en.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ---- Gallery accordion: touch-friendly, one panel open at a time ---- */
+(function(){
+  const items=[...document.querySelectorAll('.acc-item')];
+  const heads=items.map(it=>it.querySelector('.acc-head'));
+  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+  heads.forEach((h,i)=>{
+    h.addEventListener('click',()=>{
+      const it=h.parentElement, was=it.classList.contains('expanded');
+      items.forEach(x=>{x.classList.remove('expanded');x.querySelector('.acc-head').setAttribute('aria-expanded','false')});
+      if(!was){
+        it.classList.add('expanded'); h.setAttribute('aria-expanded','true');
+        requestAnimationFrame(()=>it.scrollIntoView({behavior:reduced.matches?'auto':'smooth',inline:'center',block:'nearest'}));
+      }
+    });
+    h.addEventListener('keydown',e=>{
+      const n=heads.length;
+      if(e.key==='ArrowRight'||e.key==='ArrowDown'){e.preventDefault();heads[(i+1)%n].focus();}
+      else if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();heads[(i-1+n)%n].focus();}
+      else if(e.key==='Home'){e.preventDefault();heads[0].focus();}
+      else if(e.key==='End'){e.preventDefault();heads[n-1].focus();}
+    });
+  });
+})();
+</script>
+</body>
+</html>
