@@ -335,6 +335,7 @@ function renderTable() {
       `<td data-label="Area">${u.area} <span style="color:#bbb;font-size:11px">/ ${u.sqft} sq ft</span></td>` +
       `<td data-label="Price (USD)" class="rt-price">${fmt(u.priceUSD)}</td>` +
       `<td data-label="Price (AED)" style="color:#666">${fmtA(u.priceAED)}</td>` +
+      `<td data-label="Payment" class="rt-pay-plan"> + <strong>${fmt(pay.usd)}</strong> + <span>${paymentSummary(pay)}</span> + (pay.down !== null ? <span>Down: ${fmt(pay.down)} · Monthly: ${fmt(pay.monthly)}</span> : '') + </td>` +
       `<td data-label="WhatsApp" class="wa-cell"><a class="wa-cta" target="_blank" rel="noopener" href="https://wa.me/251922466797?text=${waMsg}" aria-label="Inquire about unit ${u.unit} via WhatsApp"><i class="fa-brands fa-whatsapp"></i> Inquire</a></td>` +
       `</tr>`;
   }).join('');
