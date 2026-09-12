@@ -1026,6 +1026,47 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     });
   });
 })();
+  
+/* ---- Stone Specimens: load widget, build vertical collapsible stack ---- */
+(function(){
+  const stack=document.getElementById('stack');
+  if(!stack) return;
+  fetch('EqualTrade_Stone_Gallery_Widget.html')
+    .then(r=>{ if(!r.ok) throw 0; return r.text(); })
+    .then(html=>{
+      const doc=new DOMParser().parseFromString(html,'text/html');
+      const items=[...doc.querySelectorAll('.stone')];
+      if(!items.length) throw 0;
+      stack.innerHTML=items.map(st=>{
+        const name=st.querySelector('h2').textContent;
+        const cat =st.querySelector('.pin').textContent;
+        const src =st.querySelector('img').getAttribute('src');
+        const blurb=st.querySelector('.blurb').innerHTML;
+        const table=st.querySelector('.stone-table').outerHTML;
+        return `<div class="s-item">
+          <button class="s-head" aria-expanded="false">
+            <img class="s-thumb" src="${src}" alt="" aria-hidden="true" loading="lazy">
+            <span class="s-title">${name}</span>
+            <span class="s-cat">${cat}</span>
+            <svg class="s-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="s-panel"><div class="s-panel-inner">
+            <img src="${src}" alt="${name}">
+            <div><p class="s-blurb">${blurb}</p>${table}</div>
+          </div></div>
+        </div>`;
+      }).join('');
+      const heads=[...stack.querySelectorAll('.s-head')];
+      heads.forEach(h=>h.addEventListener('click',()=>{
+        const it=h.parentElement, was=it.classList.contains('open');
+        stack.querySelectorAll('.s-item').forEach(x=>{x.classList.remove('open');x.querySelector('.s-head').setAttribute('aria-expanded','false');});
+        if(!was){ it.classList.add('open'); h.setAttribute('aria-expanded','true'); }
+      }));
+    })
+    .catch(()=>{
+      stack.innerHTML='<p style="color:var(--ink-soft)">The full specimen catalogue is available in the <a href="EqualTrade_Stone_Gallery_Widget.html" style="color:var(--gold-deep);font-weight:600">Stone Gallery Widget</a>.</p>';
+    });
+})();
 </script>
 </body>
 </html>
