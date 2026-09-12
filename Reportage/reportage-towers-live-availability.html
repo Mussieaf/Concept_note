@@ -251,6 +251,24 @@ const PER = 15;
 function $(id) { return document.getElementById(id); }
 function fmt(n) { return '$' + n.toLocaleString(); }
 function fmtA(n) { return 'AED ' + n.toLocaleString(); }
+function paymentInfo(u) {
+  const fullPayment = $('flt-payment').value === 'full';
+  const usd = fullPayment ? Math.round(u.priceUSD * 0.60) : u.priceUSD;
+
+  return {
+    mode: fullPayment ? 'Full payment' : '10% down + 1% monthly',
+    usd,
+    aed: aed(usd),
+    down: fullPayment ? null : Math.round(u.priceUSD * 0.10),
+    monthly: fullPayment ? null : Math.round(u.priceUSD * 0.01)
+  };
+}
+
+function paymentSummary(p) {
+  return p.mode === 'Full payment'
+    ? ${p.mode} (40% discount)
+    : ${p.mode} until Handover;
+}
 
 function renderStats() {
   const st = {total: filtered.length, st:0, b1:0, b2:0, min:Infinity, max:0};
