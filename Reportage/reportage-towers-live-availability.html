@@ -363,12 +363,17 @@ function renderCards() {
       `<button class="ucard-head" onclick="toggleCard(${i})" aria-expanded="false">` +
         `<div class="ucard-title"><strong>${u.unit}</strong> <span class="rt-tag rt-tag-${u.type}">${u.typeCode}</span></div>` +
         `<div class="ucard-meta">Tower ${u.tower} &middot; ${u.floorLabel} &middot; ${u.viewLabel}</div>` +
-        `<div class="ucard-price">${fmt(u.priceUSD)}</div>` +
+        `<div class="ucard-price">${fmt(pay.usd)}</div>` +
         `<span class="ucard-chev">&#9662;</span>` +
       `</button>` +
       `<div class="ucard-body">` +
         `<div class="ucard-row"><span>Area</span><span>${u.area} m&sup2; / ${u.sqft} sq ft</span></div>` +
         `<div class="ucard-row"><span>Price (AED)</span><span>${fmtA(u.priceAED)}</span></div>` +
+        `<div class="ucard-row"><span>Price (AED)</span><span>${fmtA(pay.aed)}</span></div>` +
+        `<div class="ucard-row"><span>Payment</span><span>${paymentSummary(pay)}</span></div>` +
+        (pay.down !== null ?
+       `<div class="ucard-row"><span>Down Payment</span><span>${fmt(pay.down)}</span></div>` +
+       `<div class="ucard-row"><span>Monthly Installment</span><span>${fmt(pay.monthly)}</span></div>`: '') +                              
         `<a class="wa-cta ucard-wa" target="_blank" rel="noopener" href="https://wa.me/251922466797?text=${waMsg}" aria-label="Inquire about unit ${u.unit} via WhatsApp"><i class="fa-brands fa-whatsapp"></i> Inquire on WhatsApp</a>` +
       `</div>` +
     `</div>`;
