@@ -436,7 +436,7 @@ window.setPage = function(p) {
   renderPaging();
 };
 
-['flt-tower','flt-type','flt-view','flt-search'].forEach(id => {
+['flt-tower','flt-type','flt-view','flt-payment','flt-payment'].forEach(id => {
   const el = $(id);
   el.addEventListener('change', applyFilters);
   if (el.tagName === 'INPUT') el.addEventListener('input', applyFilters);
