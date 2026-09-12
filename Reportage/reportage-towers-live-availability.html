@@ -320,10 +320,11 @@ function renderTable() {
     ? `<th onclick="setSort('${h.k}')">${h.l}${sortCol===h.k?(sortAsc?' ▲':' ▼'):''}</th>`
     : `<th class="wa-table-header">${h.l}</th>`).join('') + '</tr></thead><tbody>';
   html += pageData.map(u => {
+    const pay = paymentInfo(u) 
     const waMsg = encodeURIComponent(
       'Hello! Thank you for reaching out to us via WhatsApp. We are pleased to assist us today.\n\n' +
       'Our choice of unit at Reportage Towers:\n\n' +
-      `• Unit: ${u.unit}\n• Tower: ${u.tower}\n• Floor: ${u.floorLabel}\n• Type: ${u.typeLabel} (${u.typeCode})\n• View: ${u.viewLabel}\n• Price: ${fmt(u.priceUSD)} (${fmtA(u.priceAED)})\n\n` +
+      `• Unit: ${u.unit}\n• Tower: ${u.tower}\n• Floor: ${u.floorLabel}\n• Type: ${u.typeLabel} (${u.typeCode})\n• View: ${u.viewLabel}\n• Price: ${fmt(u.priceUSD)} (${fmtA(u.priceAED)})\n + • Payment: ${paymentSummary(pay)} — ${fmt(pay.usd)} (${fmtA(pay.aed)})\n + (pay.down !== null ? • Down payment: ${fmt(pay.down)}\n• Monthly installment: ${fmt(pay.monthly)} until Handover\n : '') + \n +
       'Please let us know your next steps. Thank you!');
     return `<tr>` +
       `<td data-label="Unit"><strong>${u.unit}</strong></td>` +
