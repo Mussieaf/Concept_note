@@ -184,53 +184,68 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
 
 /* Video Section */
 .video-section {
-  background: var(--primary); padding: 4rem 5%;
+  background: var(--primary); padding: 6rem 5%;
 }
-.video-section .section-header { margin-bottom: 2.5rem; }
 .video-section .section-label { color: var(--accent); }
 .video-section .section-header h2 { color: var(--white); }
 .video-section .section-header p { color: rgba(255,255,255,0.7); }
-/* Six craftsmanship clips in a 3x2 grid of identical clusters */
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 14px;
-  width: min(1080px, 94vw);
-  height: min(54vh, 540px);
-  margin: 0 auto;
+/* Horizontal accordion — See Our Craftsmanship */
+.h-accordion {
+  display: flex; gap: 8px;
+  max-width: 1280px; margin: 0 auto;
+  height: min(80vh, 640px);
 }
-.video-cell {
-  position: relative;
-  border-radius: 8px;
-  overflow: hidden;
-  background: #000;
-  box-shadow: 0 16px 40px rgba(0,0,0,0.45);
-  min-height: 0;
-}
-.video-cell video {
-  width: 100%; height: 100%;
-  object-fit: cover; display: block;
+.h-panel {
+  position: relative; flex: 1; min-width: 0;
+  overflow: hidden; border-radius: 8px;
+  background: #000 center/cover no-repeat;
   cursor: pointer;
+  transition: flex 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
-.video-tag {
-  position: absolute; left: 0; right: 0; bottom: 0;
-  padding: 1.4rem 0.75rem 0.5rem;
-  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-  color: rgba(255,255,255,0.92);
-  font-size: 0.68rem; letter-spacing: 1.5px; text-transform: uppercase;
-  pointer-events: none;
+.h-panel.active { flex: 9; cursor: default; }
+.h-panel::after {
+  content: ''; position: absolute; inset: 0; z-index: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0.15));
 }
-@media (max-width: 760px) {
-  .video-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: none;
-    height: auto;
-  }
-  .video-cell { aspect-ratio: 1 / 1; }
+.h-tab {
+  position: absolute; inset: 0; z-index: 2; width: 100%;
+  background: transparent; border: none; cursor: pointer;
+  color: rgba(255,255,255,0.9);
+  font-family: 'Inter', sans-serif; font-size: 0.72rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  display: flex; align-items: flex-end; justify-content: center;
+  padding: 1.4rem 0.4rem;
+  writing-mode: vertical-rl; transform: rotate(180deg);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+  transition: opacity 0.3s;
 }
-@media (max-width: 380px) {
-  .video-grid { grid-template-columns: 1fr; }
+.h-tab .num { color: var(--accent); font-weight: 600; margin-bottom: 0.6rem; }
+.h-panel.active .h-tab { opacity: 0; pointer-events: none; }
+.h-body {
+  position: absolute; inset: 0; z-index: 1;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.45s ease 0.2s, visibility 0s linear 0.65s;
+}
+.h-panel.active .h-body {
+  opacity: 1; visibility: visible;
+  transition: opacity 0.45s ease 0.2s;
+}
+.h-body video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.h-fs {
+  position: absolute; right: 12px; bottom: 12px; z-index: 3;
+  background: rgba(0,0,0,0.55); color: #fff;
+  border: 1px solid rgba(255,255,255,0.35);
+  padding: 0.45rem 0.9rem; font-size: 0.72rem; letter-spacing: 1px;
+  cursor: pointer; border-radius: 4px; opacity: 0; transition: opacity 0.3s;
+}
+.h-panel.active .h-fs { opacity: 1; }
+.h-fs:hover { background: var(--accent); }
+@media (max-width: 900px) {
+  .h-accordion { flex-direction: column; height: auto; gap: 6px; }
+  .h-panel { height: 68px; flex: none; transition: height 0.5s cubic-bezier(0.4,0,0.2,1); }
+  .h-panel.active { height: 58vh; flex: none; }
+  .h-tab { writing-mode: horizontal-tb; transform: none; align-items: center; justify-content: flex-start; padding: 0 1.2rem; }
 }
 
 /* Products */
@@ -429,53 +444,129 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
   <div class="section-header">
     <span class="section-label">See Our Craftsmanship</span>
     <h2>Aluminum Systems in Action</h2>
-    <p>Experience the seamless integration of our thermal-break aluminum windows and doors in real-world installations.</p>
+    <p>Experience the seamless integration of our thermal-break aluminum windows and doors in real-world installations. Click a clip to expand it to full size.</p>
   </div>
-  <div class="video-grid">
+  <div class="h-accordion" id="craftAccordion">
 
-    <div class="video-cell">
-      <video controls playsinline preload="metadata" poster="image/1788774716138.jpg">
-        <source src="video/1788774716138.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <div class="video-tag">Caps · Plugs · Tube Inserts &nbsp;·&nbsp; 2:3</div>
-    </div>
-    <div class="video-cell">
-      <video controls playsinline preload="metadata" poster="image/1788774716137.jpg">
-        <source src="video/1788774716137.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <div class="video-tag">Color-Coded Tube Inserts &nbsp;·&nbsp; 2:3</div>
-    </div>
-    <div class="video-cell">
-      <video controls playsinline preload="metadata" poster="image/1788774716139.jpg">
-        <source src="video/1788774716139.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <div class="video-tag">Tube End Protection &nbsp;·&nbsp; 2:3</div>
-    </div>
-    <div class="video-cell">
-      <video controls playsinline preload="metadata" poster="image/1788774716140.jpg">
-        <source src="video/1788774716140.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <div class="video-tag">Window Hardware System &nbsp;·&nbsp; 2:3</div>
-    </div>
-    <div class="video-cell">
-      <video controls playsinline preload="metadata" poster="image/1788774716141.jpg">
-        <source src="video/1788774716141.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <div class="video-tag">Curtain Wall + Hardware &nbsp;·&nbsp; 2:3</div>
-    </div>
-    <div class="video-cell">
-      <video controls playsinline preload="metadata" poster="image/1788774716136.jpg">
-        <source src="video/1788774716136.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <div class="video-tag">Glass Sunroom &nbsp;·&nbsp; 9:16</div>
+    <div class="h-panel active" style="background-image:url('thumb-1.jpg')">
+      <button class="h-tab" aria-expanded="true"><span class="num">01</span>Caps &middot; Plugs &middot; Tube Inserts</button>
+      <div class="h-body">
+        <video controls preload="metadata" poster="thumb-1.jpg">
+          <source src="craftsmanship-1-caps-plugs.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <button class="h-fs" title="Full screen">&#x26F6; Full Screen</button>
+      </div>
     </div>
 
+    <div class="h-panel" style="background-image:url('thumb-2.jpg')">
+      <button class="h-tab" aria-expanded="false"><span class="num">02</span>Color-Coded Tube Inserts</button>
+      <div class="h-body">
+        <video controls preload="metadata" poster="thumb-2.jpg">
+          <source src="craftsmanship-2-tube-inserts.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <button class="h-fs" title="Full screen">&#x26F6; Full Screen</button>
+      </div>
+    </div>
+
+    <div class="h-panel" style="background-image:url('thumb-3.jpg')">
+      <button class="h-tab" aria-expanded="false"><span class="num">03</span>Tube End Protection</button>
+      <div class="h-body">
+        <video controls preload="metadata" poster="thumb-3.jpg">
+          <source src="craftsmanship-3-end-protection.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <button class="h-fs" title="Full screen">&#x26F6; Full Screen</button>
+      </div>
+    </div>
+
+    <div class="h-panel" style="background-image:url('thumb-4.jpg')">
+      <button class="h-tab" aria-expanded="false"><span class="num">04</span>Window Hardware System</button>
+      <div class="h-body">
+        <video controls preload="metadata" poster="thumb-4.jpg">
+          <source src="craftsmanship-4-window-hardware.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <button class="h-fs" title="Full screen">&#x26F6; Full Screen</button>
+      </div>
+    </div>
+
+    <div class="h-panel" style="background-image:url('thumb-5.jpg')">
+      <button class="h-tab" aria-expanded="false"><span class="num">05</span>Windows + Curtain Wall + Hardware</button>
+      <div class="h-body">
+        <video controls preload="metadata" poster="thumb-5.jpg">
+          <source src="craftsmanship-5-curtain-wall.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <button class="h-fs" title="Full screen">&#x26F6; Full Screen</button>
+      </div>
+    </div>
+
+    <div class="h-panel" style="background-image:url('thumb-6.jpg')">
+      <button class="h-tab" aria-expanded="false"><span class="num">06</span>Glass Sunroom Installation</button>
+      <div class="h-body">
+        <video controls preload="metadata" poster="thumb-6.jpg">
+          <source src="craftsmanship-6-sunroom.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <button class="h-fs" title="Full screen">&#x26F6; Full Screen</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Products -->
+<section class="section" id="products">
+  <div class="section-header">
+    <span class="section-label">Product Range</span>
+    <h2>Comprehensive Window & Door Solutions</h2>
+    <p>High-strength aluminum alloy and thermal-break frames with double-layer insulated glass for superior sound and thermal insulation.</p>
+  </div>
+  <div class="products-grid">
+    <div class="product-card">
+      <img src="1000244301.jpg" alt="Casement Windows">
+      <div class="product-card-content">
+        <h3>Casement Windows</h3>
+        <p>Side-hinged design offering excellent ventilation and unobstructed views. Ideal for modern residential and commercial facades.</p>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="1000244307.jpg" alt="Sliding Windows & Doors">
+      <div class="product-card-content">
+        <h3>Sliding Windows & Doors</h3>
+        <p>Space-efficient horizontal operation with smooth glide mechanisms. Perfect for balconies, patios, and areas with limited swing space.</p>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="1000244300.jpg" alt="Folding Doors">
+      <div class="product-card-content">
+        <h3>Folding Doors</h3>
+        <p>Bi-fold systems that create expansive openings, seamlessly connecting indoor and outdoor living spaces with panoramic elegance.</p>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="1000244302.jpg" alt="Tilt-and-Turn Windows">
+      <div class="product-card-content">
+        <h3>Tilt-and-Turn Windows</h3>
+        <p>Dual-function hardware allowing both inward tilting for secure ventilation and full swing opening for easy cleaning and egress.</p>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="1000244306.jpg" alt="Curtain Walls">
+      <div class="product-card-content">
+        <h3>Curtain Walls</h3>
+        <p>Non-structural outer coverings for multi-story buildings, delivering striking glass facades with outstanding thermal performance.</p>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="1000244305.jpg" alt="Custom Solutions">
+      <div class="product-card-content">
+        <h3>Custom Solutions</h3>
+        <p>Tailored sizes, finishes, colors, and hardware configurations designed to match your architectural vision and performance requirements.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -658,6 +749,36 @@ window.addEventListener('scroll', () => {
     nav.style.boxShadow = 'none';
   }
 });
+
+// Horizontal accordion — See Our Craftsmanship
+// Click a collapsed strip to expand it to full width; click it again to collapse.
+const craftPanels = document.querySelectorAll('#craftAccordion .h-panel');
+craftPanels.forEach(panel => {
+  const tab = panel.querySelector('.h-tab');
+  tab.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const wasActive = panel.classList.contains('active');
+    craftPanels.forEach(p => {
+      p.classList.remove('active');
+      p.querySelector('.h-tab').setAttribute('aria-expanded', 'false');
+    });
+    if (!wasActive) {
+      panel.classList.add('active');
+      tab.setAttribute('aria-expanded', 'true');
+    }
+  });
+  // Video/player clicks must not collapse the panel
+  panel.querySelector('.h-body').addEventListener('click', (e) => e.stopPropagation());
+  // True full screen via the Fullscreen API
+  const fsBtn = panel.querySelector('.h-fs');
+  const vid = panel.querySelector('video');
+  fsBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (vid.requestFullscreen) vid.requestFullscreen();
+    else if (vid.webkitRequestFullscreen) vid.webkitRequestFullscreen();
+    else if (vid.msRequestFullscreen) vid.msRequestFullscreen();
+  });
+});
 // Inquiry form: open mailto with composed message and show confirmation
 const inquiryForm = document.getElementById('inquiryForm');
 const successMsg = document.getElementById('successMessage');
@@ -677,18 +798,6 @@ if (inquiryForm) {
     inquiryForm.style.display = 'none';
   });
 }
-
-// "See Our Craftsmanship" grid: click a video to play/pause; auto-pause the others
-document.querySelectorAll('.video-cell video').forEach(function(v) {
-  v.addEventListener('click', function() {
-    if (v.paused) { v.play(); } else { v.pause(); }
-  });
-  v.addEventListener('play', function() {
-    document.querySelectorAll('.video-cell video').forEach(function(other) {
-      if (other !== v) { other.pause(); }
-    });
-  });
-});
 </script>
 </body>
 </html>
