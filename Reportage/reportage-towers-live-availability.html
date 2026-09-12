@@ -301,7 +301,7 @@ function renderTable() {
   const start = (page-1)*PER;
   const pageData = filtered.slice(start, start+PER);
   if (pageData.length === 0) {
-    $('table').innerHTML = '<tr><td colspan="9" class="rt-empty">No units match your filters.</td></tr>';
+    $('table').innerHTML = '<tr><td colspan="10" class="rt-empty">No units match your filters.</td></tr>';
     return;
   }
   const headers = [
