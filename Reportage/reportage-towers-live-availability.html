@@ -7,11 +7,11 @@
 <meta name="description" content="584 Units · Handover Q4 2029 · Parking USD 5,000 · VAT 15% on unit & parking.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="shortcut icon" type="image/x-icon" href="https://github.githubassets.com/favicons/favicon.svg"> 
+<link rel="shortcut icon" type="image/x-icon" href="https://github.githubassets.com/favicons/favicon.svg">
 <link rel="icon" type="image/svg+xml" href="https://github.githubassets.com/favicons/favicon.svg">
 
-<!-- Open Graph / Facebook, whatsapp -->
-<meta property="og:title" content=" Reportage Towers — Live Availability" />
+<!-- Open Graph / Facebook, WhatsApp -->
+<meta property="og:title" content="Reportage Towers — Live Availability" />
 <meta property="og:description" content="584 Units · Handover Q4 2029 · Parking USD 5,000 · VAT 15% on unit & parking." />
 <meta property="og:image" content="https://mussieaf.github.io/Concept_note/availability.jpg?v=2" />
 <meta property="og:image:secure_url" content="https://mussieaf.github.io/Concept_note/availability.jpg?v=2" />
@@ -19,19 +19,18 @@
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Reportage Towers — Live Availability" />
 <meta property="og:image:type" content="image/jpg" />
-<meta property="og:url" content="https://mussieaf.github.io/Concept_note/Reportage/reportage-towers-live-Availability.html" />
+<meta property="og:url" content="https://mussieaf.github.io/Concept_note/Reportage/reportage-towers-live-availability.html" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Reportage Towers" />
 <meta property="og:locale" content="en_US" />
 
 <!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image"/ >
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Reportage Towers — Live Availability" />
 <meta name="twitter:description" content="584 Units · Handover Q4 2029 · Parking USD 5,000 · VAT 15% on unit & parking." />
 <meta name="twitter:image" content="https://mussieaf.github.io/Concept_note/availability.jpg?v=2" />
 <meta name="twitter:image:alt" content="Reportage Towers — Live Availability" />
-<meta name="description" content="584 Units · Handover Q4 2029 · Parking USD 5,000 · VAT 15% on unit & parking." /> 
-     
+
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -81,97 +80,97 @@ body { font-family: inherit; color: #1a1a1a; background: #f7f7f8; padding: 24px;
   .rt-filters input, .rt-filters select { width: 100%; }
   .rt-header h2 { font-size: 20px; }
 }
-  /* ═══ WhatsApp CTA column (built into every table render) ═══ */
-  .wa-table-header{ text-align:center !important; }
-  .wa-cell{ text-align:center; }
-  .wa-cta{
-    display:inline-flex; align-items:center; justify-content:center; gap:6px;
-    background:#25D366; color:#fff;
-    padding:7px 12px; border-radius:20px;
-    font:600 12.5px/1 Arial, Helvetica, sans-serif;
-    text-decoration:none; white-space:nowrap;
-    box-shadow:0 2px 6px rgba(0,0,0,.18);
-    transition:transform .15s ease, background .15s ease;
-  }
-  .wa-cta:hover{ background:#1ebe5b; transform:scale(1.05); color:#fff; }
-  .wa-cta i{ font-size:14px; }
+/* WhatsApp CTA column */
+.wa-table-header{ text-align:center !important; }
+.wa-cell{ text-align:center; }
+.wa-cta{
+  display:inline-flex; align-items:center; justify-content:center; gap:6px;
+  background:#25D366; color:#fff;
+  padding:7px 12px; border-radius:20px;
+  font:600 12.5px/1 Arial, Helvetica, sans-serif;
+  text-decoration:none; white-space:nowrap;
+  box-shadow:0 2px 6px rgba(0,0,0,.18);
+  transition:transform .15s ease, background .15s ease;
+}
+.wa-cta:hover{ background:#1ebe5b; transform:scale(1.05); color:#fff; }
+.wa-cta i{ font-size:14px; }
 
-  /* ═══ TABLET (≤1024px): tighter cells + horizontal scroll fallback ═══ */
-  @media (max-width:1024px){
-    .rt-table-wrap{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
-    .rt-table th, .rt-table td{ padding:10px; font-size:12.5px; }
-    .wa-cta{ padding:6px 10px; font-size:12px; }
-  }
+/* Tablet */
+@media (max-width:1024px){
+  .rt-table-wrap{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .rt-table th, .rt-table td{ padding:10px; font-size:12.5px; }
+  .wa-cta{ padding:6px 10px; font-size:12px; }
+}
 
-  /* ═══ MOBILE (≤768px): each unit row becomes a stacked card ═══ */
-  @media (max-width:768px){
-    .rt-table-wrap{ overflow-x:visible; border:none; background:transparent; box-shadow:none; }
-    .rt-table, .rt-table tbody, .rt-table tr, .rt-table td{ display:block; width:100%; }
-    .rt-table thead{ display:none; }               /* column labels shown via data-label */
-    .rt-table tr{
-      margin:0 0 14px; padding:6px 0;
-      border:1px solid #e5e5e5; border-radius:12px;
-      background:#fff; box-shadow:0 1px 3px rgba(0,0,0,.04);
-    }
-    .rt-table tr:hover td{ background:transparent; }
-    .rt-table td{
-      display:flex; justify-content:space-between; align-items:center;
-      gap:12px; white-space:normal; text-align:right;
-      padding:9px 14px; font-size:13px;
-      border-bottom:1px solid #f2f2f2;
-    }
-    .rt-table td:last-child{ border-bottom:none; }
-    .rt-table td::before{
-      content:attr(data-label);
-      font-size:11px; font-weight:600; text-transform:uppercase;
-      letter-spacing:.6px; color:#888; text-align:left;
-    }
-    .wa-cta{ width:100%; padding:11px; border-radius:8px; font-size:14px; }
+/* Mobile table fallback */
+@media (max-width:768px){
+  .rt-table-wrap{ overflow-x:visible; border:none; background:transparent; box-shadow:none; }
+  .rt-table, .rt-table tbody, .rt-table tr, .rt-table td{ display:block; width:100%; }
+  .rt-table thead{ display:none; }
+  .rt-table tr{
+    margin:0 0 14px; padding:6px 0;
+    border:1px solid #e5e5e5; border-radius:12px;
+    background:#fff; box-shadow:0 1px 3px rgba(0,0,0,.04);
   }
+  .rt-table tr:hover td{ background:transparent; }
+  .rt-table td{
+    display:flex; justify-content:space-between; align-items:center;
+    gap:12px; white-space:normal; text-align:right;
+    padding:9px 14px; font-size:13px;
+    border-bottom:1px solid #f2f2f2;
+  }
+  .rt-table td:last-child{ border-bottom:none; }
+  .rt-table td::before{
+    content:attr(data-label);
+    font-size:11px; font-weight:600; text-transform:uppercase;
+    letter-spacing:.6px; color:#888; text-align:left;
+  }
+  .wa-cta{ width:100%; padding:11px; border-radius:8px; font-size:14px; }
+}
 
-  /* ═══ MOBILE COLLAPSIBLE UNIT CARDS (≤768px) ═══ */
-  .rt-cards{ display:none; }
-  @media (max-width:768px){
-    .rt-table-wrap{ display:none; }                /* table replaced by cards */
-    .rt-cards{ display:block; }
-    .ucard{
-      background:#fff; border:1px solid #e5e5e5; border-radius:14px;
-      margin-bottom:12px; box-shadow:0 1px 3px rgba(0,0,0,.04);
-      overflow:hidden;
-    }
-    .ucard-head{
-      display:block; width:100%; text-align:left; background:none; border:none;
-      padding:14px 40px 14px 16px; font-family:inherit; cursor:pointer; position:relative;
-      -webkit-tap-highlight-color:transparent;
-    }
-    .ucard-title{ display:flex; align-items:center; gap:8px; font-size:16px; }
-    .ucard-meta{ font-size:12.5px; color:#666; margin-top:4px; line-height:1.45; }
-    .ucard-price{ font-size:15px; font-weight:700; margin-top:6px; font-variant-numeric:tabular-nums; }
-    .ucard-chev{
-      position:absolute; top:16px; right:12px; color:#999; font-size:20px; line-height:1;
-      transition:transform .2s ease;
-    }
-    .ucard.open .ucard-chev{ transform:rotate(180deg); }
-    .ucard-body{
-      max-height:0; overflow:hidden;
-      transition:max-height .25s ease;
-    }
-    .ucard.open .ucard-body{ max-height:320px; }
-    .ucard-row{
-      display:flex; justify-content:space-between; align-items:center; gap:12px;
-      padding:9px 16px; font-size:13px; border-top:1px solid #f2f2f2;
-      font-variant-numeric:tabular-nums;
-    }
-    .ucard-row > span:first-child{
-      font-size:11px; font-weight:600; text-transform:uppercase;
-      letter-spacing:.6px; color:#888;
-    }
-    .ucard-wa{
-      display:flex; width:calc(100% - 32px); margin:10px 16px 14px;
-      padding:12px; border-radius:10px; font-size:14px;
-    }
-    .rt-cards .rt-empty{ background:#fff; border:1px solid #e5e5e5; border-radius:14px; }
+/* Mobile cards */
+.rt-cards{ display:none; }
+@media (max-width:768px){
+  .rt-table-wrap{ display:none; }
+  .rt-cards{ display:block; }
+  .ucard{
+    background:#fff; border:1px solid #e5e5e5; border-radius:14px;
+    margin-bottom:12px; box-shadow:0 1px 3px rgba(0,0,0,.04);
+    overflow:hidden;
   }
+  .ucard-head{
+    display:block; width:100%; text-align:left; background:none; border:none;
+    padding:14px 40px 14px 16px; font-family:inherit; cursor:pointer; position:relative;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .ucard-title{ display:flex; align-items:center; gap:8px; font-size:16px; }
+  .ucard-meta{ font-size:12.5px; color:#666; margin-top:4px; line-height:1.45; }
+  .ucard-price{ font-size:15px; font-weight:700; margin-top:6px; font-variant-numeric:tabular-nums; }
+  .ucard-chev{
+    position:absolute; top:16px; right:12px; color:#999; font-size:20px; line-height:1;
+    transition:transform .2s ease;
+  }
+  .ucard.open .ucard-chev{ transform:rotate(180deg); }
+  .ucard-body{
+    max-height:0; overflow:hidden;
+    transition:max-height .25s ease;
+  }
+  .ucard.open .ucard-body{ max-height:360px; }
+  .ucard-row{
+    display:flex; justify-content:space-between; align-items:center; gap:12px;
+    padding:9px 16px; font-size:13px; border-top:1px solid #f2f2f2;
+    font-variant-numeric:tabular-nums;
+  }
+  .ucard-row > span:first-child{
+    font-size:11px; font-weight:600; text-transform:uppercase;
+    letter-spacing:.6px; color:#888;
+  }
+  .ucard-wa{
+    display:flex; width:calc(100% - 32px); margin:10px 16px 14px;
+    padding:12px; border-radius:10px; font-size:14px;
+  }
+  .rt-cards .rt-empty{ background:#fff; border:1px solid #e5e5e5; border-radius:14px; }
+}
 </style>
 <base target="_blank">
 </head>
@@ -180,13 +179,13 @@ body { font-family: inherit; color: #1a1a1a; background: #f7f7f8; padding: 24px;
   <div class="rt-header">
     <h2>Reportage Towers — Live Availability</h2>
     <p>584 Units · Handover Q4 2029 · Parking USD 5,000 · VAT 15% on unit & parking</p>
-    <p>10% down payment upfront, monthly installments of 1% until Handover · Full payemet for a 40% discount</p>
+    <p>10% down payment upfront, monthly installments of 1% until Handover · Full payment for a 40% discount</p>
   </div>
   <div class="rt-filters">
     <select id="flt-tower"><option value="">All Towers</option><option value="A">Tower A</option><option value="B">Tower B</option></select>
     <select id="flt-type"><option value="">All Types</option><option value="0">Studio</option><option value="1">1 Bedroom</option><option value="2">2 Bedroom</option></select>
     <select id="flt-view"><option value="">All Views</option><option value="0">African Union</option><option value="1">Mexico Square</option><option value="2">Hill View</option></select>
-    <select id="flt-payment" aria-label="Payment option"><option value="installments">10% down + 1% monthly</option><option value="full">Full payment — 40% discount</option></select>   
+    <select id="flt-payment" aria-label="Payment option"><option value="installments">10% down + 1% monthly</option><option value="full">Full payment — 40% discount</option></select>
     <input type="text" id="flt-search" placeholder="Search unit (e.g. A-301)">
   </div>
   <div class="rt-stats" id="stats"></div>
@@ -197,7 +196,7 @@ body { font-family: inherit; color: #1a1a1a; background: #f7f7f8; padding: 24px;
   <div class="rt-paging" id="paging"></div>
 </div>
 <script>
-const RAW = "A30120,A30300,A30420,A30511,A30611,A30811,A40300,A41002,A41102,A41312,A41412,A41502,A41602,A41702,A41812,A41912,A50511,A50611,A50711,A50811,A51002,A51102,A51312,A51412,A51502,A51602,A51702,A51812,A51912,A60611,A61002,A61102,A61312,A61502,A61602,A61702,A61812,A61912,A70200,A70300,A70611,A70711,A70811,A70922,A71002,A71102,A71222,A71312,A71412,A71502,A71602,A71702,A71812,A71912,A80120,A80200,A80300,A80420,A80511,A80611,A80711,A80811,A81002,A81102,A81222,A81312,A81412,A81502,A81602,A81702,A81812,A81912,A90120,A90200,A90300,A90420,A90511,A90611,A90711,A90811,A90922,A91002,A91102,A91222,A91312,A91502,A91602,A91702,A91812,A91912,A100120,A100420,A100511,A100611,A100711,A100811,A100921,A101002,A101102,A101222,A101312,A101412,A101502,A101602,A101702,A101812,A101912,A110120,A110200,A110300,A110420,A110611,A110711,A110811,A110922,A111002,A111102,A111222,A111312,A111412,A111502,A111602,A111702,A111812,A111912,A120200,A120300,A120420,A120511,A120611,A120711,A120921,A121002,A121102,A121312,A121412,A121502,A121602,A121702,A130200,A130300,A131002,A131102,A131502,A131602,A131702,A140200,A140300,A141002,A141102,A141502,A141602,A141702,A150200,A150300,A151002,A151102,A151502,A151602,A151702,A160200,A160300,A161002,A161102,A161502,A161602,A161702,A170200,A170300,A171002,A171102,A171222,A171502,A171602,A171702,A180200,A180300,A180420,A180921,A181002,A181102,A181222,A181502,A181602,A181702,A190120,A190200,A190300,A190420,A190611,A190711,A190811,A190922,A191002,A191102,A191222,A191312,A191412,A191502,A191602,A191702,A191812,A191912,A200120,A200200,A200300,A200420,A200511,A200611,A200711,A200811,A200921,A201002,A201312,A201412,A201502,A201602,A201702,A201812,A201912,A210120,A210200,A210300,A210511,A210611,A210711,A210811,A210922,A211002,A211102,A211222,A211312,A211412,A211502,A211602,A211702,A211812,A211912,A220120,A220200,A220300,A220420,A220511,A220611,A220711,A220811,A220921,A221002,A221102,A221222,A221312,A221412,A221502,A221602,A221702,A221812,A221912,A230120,A230200,A230300,A230420,A230511,A230611,A230711,A230811,A230922,A231002,A231102,A231222,A231312,A231412,A231502,A231602,A231702,A231812,A231912,A240120,A240200,A240300,A240420,A240511,A240611,A240711,A240811,A240921,A241002,A241102,A241222,A241312,A241412,A241502,A241602,A241702,A241812,A241912,A250120,A250200,A250300,A250420,A250511,A250611,A250711,A250811,A250922,A251002,A251102,A251222,A251312,A251412,A251502,A251602,A251702,A251812,A251912,A260120,A260200,A260300,A260420,A260511,A260611,A260711,A260811,A260921,A261002,A261102,A261222,A261312,A261412,A261502,A261602,A261702,A261812,A261912,A270120,A270200,A270300,A270420,A270511,A270611,A270711,A270811,A270922,A271002,A271102,A271222,A271312,A271412,A271502,A271602,A271702,A271812,A271912,A280120,A280200,A280300,A280420,A280511,A280611,A280711,A280811,A280921,A281002,A281102,A281222,A281312,A281412,A281502,A281602,A281702,A281812,A281912,A290120,A290200,A290300,A290420,A290511,A290611,A290711,A290811,A290922,A291002,A291102,A291222,A291312,A291412,A291502,A291602,A291702,A291812,A291912,A300120,A300200,A300300,A300420,A300511,A300611,A300711,A300811,A300921,A301002,A301102,A301222,A301312,A301412,A301502,A301602,A301702,A301812,A301912,A310120,A310200,A310300,A310420,A310511,A310611,A310711,A310811,A310922,A311002,A311102,A311222,A311312,A311412,A311502,A311602,A311702,A311812,A311912,B30121,B30201,B30301,B30511,B30611,B30711,B30811,B31001,B31111,B40300,B40511,B40711,B40811,B41002,B41102,B41222,B41312,B41412,B41502,B41602,B41702,B41812,B41912,B50120,B50200,B50300,B50420,B50511,B50611,B50711,B50811,B50922,B51002,B51102,B51222,B51312,B51412,B51502,B51602,B51702,B51812,B51912,B231412,B231502,B231602,B231702,B231812,B231912,B240120,B240200,B240300,B240420,B240511,B240611,B251222,B251312,B251412,B251812,B251912,B260120,B260420,B260511,B260611,B260711,B260811,B260921,B261222,B261312,B261412,B261812,B261912,B270120,B270420,B270511,B270611,B270711,B270811,B270922,B271222,B271312,B271412,B271812,B271912,B280120,B280300,B280420,B280511,B280611,B280711,B280811,B280921,B281002,B281102,B281222,B281312,B281412,B281502,B281602,B281702,B281812,B281912,B290300,B290420,B290511,B290611,B290711,B290811,B290922,B291002,B291102,A291222,B291312,B291412,B291502,B291602,B291702,B291812,B291912,B300120,B300200,B300300,B300420,B300511,B300611,B300711,B300811,B300921,B301002,B301102,B301222,B301312,B301412,B301502,B301602,B301702,B301812,B301912,B310120,B310200,B310300,B310420,B310511,B310611,B310711,B310811,B310922,B311002,B311102,B311222,B311312,B311412,B311502,B311602,B311702,B311812,B311912";
+const RAW = "A30120,A30300,A30420,A30511,A30611,A30811,A40300,A41002,A41102,A41312,A41412,A41502,A41602,A41702,A41812,A41912,A50511,A50611,A50711,A50811,A51002,A51102,A51312,A51412,A51502,A51602,A51702,A51812,A51912,A60611,A61002,A61102,A61312,A61502,A61602,A61702,A61812,A61912,A70200,A70300,A70611,A70711,A70811,A70922,A71002,A71102,A71222,A71312,A71412,A71502,A71602,A71702,A71812,A71912,A80120,A80200,A80300,A80420,A80511,A80611,A80711,A80811,A81002,A81102,A81222,A81312,A81412,A81502,A81602,A81702,A81812,A81912,A90120,A90200,A90300,A90420,A90511,A90611,A90711,A90811,A90922,A91002,A91102,A91222,A91312,A91502,A91602,A91702,A91812,A91912,A100120,A100420,A100511,A100611,A100711,A100811,A100921,A101002,A101102,A101222,A101312,A101412,A101502,A101602,A101702,A101812,A101912,A110120,A110200,A110300,A110420,A110611,A110711,A110811,A110922,A111002,A111102,A111222,A111312,A111412,A111502,A111602,A111702,A111812,A111912,A120200,A120300,A120420,A120511,A120611,A120711,A120921,A121002,A121102,A121312,A121412,A121502,A121602,A121702,A130200,A130300,A131002,A131102,A131502,A131602,A131702,A140200,A140300,A141002,A141102,A141502,A141602,A141702,A150200,A150300,A151002,A151102,A151502,A151602,A151702,A160200,A160300,A161002,A161102,A161502,A161602,A161702,A170200,A170300,A171002,A171102,A171222,A171502,A171602,A171702,A180200,A180300,A180420,A180921,A181002,A181102,A181222,A181502,A181602,A181702,A190120,A190200,A190300,A190420,A190611,A190711,A190811,A190922,A191002,A191102,A191222,A191312,A191412,A191502,A191602,A191702,A191812,A191912,A200120,A200200,A200300,A200420,A200511,A200611,A200711,A200811,A200921,A201002,A201312,A201412,A201502,A201602,A201702,A201812,A201912,A210120,A210200,A210300,A210511,A210611,A210711,A210811,A210922,A211002,A211102,A211222,A211312,A211412,A211502,A211602,A211702,A211812,A211912,A220120,A220200,A220300,A220420,A220511,A220611,A220711,A220811,A220921,A221002,A221102,A221222,A221312,A221412,A221502,A221602,A221702,A221812,A221912,A230120,A230200,A230300,A230420,A230511,A230611,A230711,A230811,A230922,A231002,A231102,A231222,A231312,A231412,A231502,A231602,A231702,A231812,A231912,A240120,A240200,A240300,A240420,A240511,A240611,A240711,A240811,A240921,A241002,A241102,A241222,A241312,A241412,A241502,A241602,A241702,A241812,A241912,A250120,A250200,A250300,A250420,A250511,A250611,A250711,A250811,A250922,A251002,A251102,A251222,A251312,A251412,A251502,A251602,A251702,A251812,A251912,A260120,A260200,A260300,A260420,A260511,A260611,A260711,A260811,A260921,A261002,A261102,A261222,A261312,A261412,A261502,A261602,A261702,A261812,A261912,A270120,A270200,A270300,A270420,A270511,A270611,A270711,A270811,A270922,A271002,A271102,A271222,A271312,A271412,A271502,A271602,A271702,A271812,A271912,A280120,A280200,A280300,A280420,A280511,A280611,A280711,A280811,A280921,A281002,A281102,A281222,A281312,A281412,A281502,A281602,A281702,A281812,A281912,A290120,A290200,A290300,A290420,A290511,A290611,A290711,A290811,A290922,A291002,A291102,A291222,A291312,A291412,A291502,A291602,A291702,A291812,A291912,A300120,A300200,A300300,A300420,A300511,A300611,A300711,A300811,A300921,A301002,A301102,A301222,A301312,A301412,A301502,A301602,A301702,A301812,A301912,A310120,A310200,A310300,A310420,A310511,A310611,A310711,A310811,A310922,A311002,A311102,A311222,A311312,A311412,A311502,A311602,A311702,A311812,A311912,B30121,B30201,B30301,B30511,B30611,B30711,B30811,B31001,B31111,B40300,B40511,B40711,B40811,B41002,B41102,B41222,B41312,B41412,B41502,B41602,B41702,B41812,B41912,B50120,B50200,B50300,B50420,B50511,B50611,B50711,B50811,B50922,B51002,B51102,B51222,B51312,B51412,B51502,B51602,B51702,B51812,B51912,B231412,B231502,B231602,B231702,B231812,B231912,B240120,B240200,B240300,B240420,B240511,B240611,B251222,B251312,B251412,B251812,B251912,B260120,B260420,B260511,B260611,B260711,B260811,B260921,B261222,B261312,B261412,B261812,B261912,B270120,B270420,B270511,B270611,B270711,B270811,B270922,B271222,B271312,B271412,B271812,B271912,B280120,B280300,B280420,B280511,B280611,B280711,B280811,B280921,B281002,B281102,B281222,B281312,B281412,B281502,B281602,B281702,B281812,B281912,B290300,B290420,B290511,B290611,B290711,B290811,B290922,B291002,B291102,B291222,B291312,B291412,B291502,B291602,B291702,B291812,B291912,B300120,B300200,B300300,B300420,B300511,B300611,B300711,B300811,B300921,B301002,B301102,B301222,B301312,B301412,B301502,B301602,B301702,B301812,B301912,B310120,B310200,B310300,B310420,B310511,B310611,B310711,B310811,B310922,B311002,B311102,B311222,B311312,B311412,B311502,B311602,B311702,B311812,B311912";
 
 const TYPES = ['Studio','1 Bedroom','2 Bedroom'];
 const TYPEC = ['ST','1B','2B'];
@@ -217,15 +216,15 @@ function aed(usd) { return Math.round(usd * 3.67); }
 function parseData() {
   return RAW.split(',').map(c => {
     const tower = c[0];
-    const type = parseInt(c[c.length-2]);
-    const view = parseInt(c[c.length-1]);
+    const type = parseInt(c[c.length - 2], 10);
+    const view = parseInt(c[c.length - 1], 10);
     const unum = c.slice(1, -2);
-    const floor = parseInt(unum.length > 3 ? unum.slice(0,2) : unum[0]);
+    const floor = parseInt(unum.length > 3 ? unum.slice(0, 2) : unum[0], 10);
     const pr = price(type, floor);
     return {
       unit: tower + '-' + unum,
       tower, floor,
-      floorLabel: floor + (floor===3?'rd':'th') + ' Floor',
+      floorLabel: floor + (floor === 3 ? 'rd' : 'th') + ' Floor',
       type, view,
       typeLabel: TYPES[type],
       typeCode: TYPEC[type],
@@ -248,8 +247,10 @@ const PER = 15;
 function $(id) { return document.getElementById(id); }
 function fmt(n) { return '$' + n.toLocaleString(); }
 function fmtA(n) { return 'AED ' + n.toLocaleString(); }
+
 function paymentInfo(u) {
-  const fullPayment = $('flt-payment').value === 'full';
+  const paymentEl = $('flt-payment');
+  const fullPayment = paymentEl && paymentEl.value === 'full';
   const usd = fullPayment ? Math.round(u.priceUSD * 0.60) : u.priceUSD;
 
   return {
@@ -263,15 +264,15 @@ function paymentInfo(u) {
 
 function paymentSummary(p) {
   return p.mode === 'Full payment'
-    ? ${p.mode} (40% discount)
-    : ${p.mode} until Handover;
+    ? `${p.mode} (40% discount)`
+    : `${p.mode} until Handover`;
 }
 
 function renderStats() {
   const st = {total: filtered.length, st:0, b1:0, b2:0, min:Infinity, max:0};
   filtered.forEach(u => {
-    if (u.type===0) st.st++;
-    else if (u.type===1) st.b1++;
+    if (u.type === 0) st.st++;
+    else if (u.type === 1) st.b1++;
     else st.b2++;
     st.min = Math.min(st.min, u.priceUSD);
     st.max = Math.max(st.max, u.priceUSD);
@@ -286,17 +287,17 @@ function renderStats() {
 }
 
 function sortData() {
-  filtered.sort((a,b) => {
+  filtered.sort((a, b) => {
     let av = a[sortCol], bv = b[sortCol];
     if (typeof av === 'string') { av = av.toLowerCase(); bv = bv.toLowerCase(); }
-    return av < bv ? (sortAsc?-1:1) : av > bv ? (sortAsc?1:-1) : 0;
+    return av < bv ? (sortAsc ? -1 : 1) : av > bv ? (sortAsc ? 1 : -1) : 0;
   });
 }
 
 function renderTable() {
   sortData();
-  const start = (page-1)*PER;
-  const pageData = filtered.slice(start, start+PER);
+  const start = (page - 1) * PER;
+  const pageData = filtered.slice(start, start + PER);
   if (pageData.length === 0) {
     $('table').innerHTML = '<tr><td colspan="10" class="rt-empty">No units match your filters.</td></tr>';
     return;
@@ -310,18 +311,24 @@ function renderTable() {
     {k:'area',l:'Area (m²)'},
     {k:'priceUSD',l:'Price (USD)'},
     {k:'priceAED',l:'Price (AED)'},
-    {k:null,l:'Payment'}
-    {k:null,l:'WhatsApp'}
+    {k:null,l:'Payment'},
+    {k:null,l:'WhatsApp',wa:true}
   ];
   let html = '<thead><tr>' + headers.map(h => h.k
-    ? `<th onclick="setSort('${h.k}')">${h.l}${sortCol===h.k?(sortAsc?' ▲':' ▼'):''}</th>`
-    : `<th class="wa-table-header">${h.l}</th>`).join('') + '</tr></thead><tbody>';
+    ? `<th onclick="setSort('${h.k}')">${h.l}${sortCol === h.k ? (sortAsc ? ' ▲' : ' ▼') : ''}</th>`
+    : `<th${h.wa ? ' class="wa-table-header"' : ''}>${h.l}</th>`).join('') + '</tr></thead><tbody>';
   html += pageData.map(u => {
-    const pay = paymentInfo(u) 
+    const pay = paymentInfo(u);
+    const paymentLines =
+      `• Payment: ${paymentSummary(pay)} — ${fmt(pay.usd)} (${fmtA(pay.aed)})\n` +
+      (pay.down !== null
+        ? `• Down payment: ${fmt(pay.down)}\n• Monthly installment: ${fmt(pay.monthly)} until Handover`
+        : '');
     const waMsg = encodeURIComponent(
-      'Hello! Thank you for reaching out to us via WhatsApp. We are pleased to assist us today.\n\n' +
+      'Hello! Thank you for reaching out to us via WhatsApp. We are pleased to assist you today.\n\n' +
       'Our choice of unit at Reportage Towers:\n\n' +
-      `• Unit: ${u.unit}\n• Tower: ${u.tower}\n• Floor: ${u.floorLabel}\n• Type: ${u.typeLabel} (${u.typeCode})\n• View: ${u.viewLabel}\n`• Price: ${fmt(u.priceUSD)} (${fmtA(u.priceAED)})\n` +`• Payment: ${paymentSummary(pay)} — ${fmt(pay.usd)} (${fmtA(pay.aed)})\n` +(pay.down !== null ? `• Down payment: ${fmt(pay.down)}\n• Monthly installment: ${fmt(pay.monthly)} until Handover\n` : '') +`\n` +
+      `• Unit: ${u.unit}\n• Tower: ${u.tower}\n• Floor: ${u.floorLabel}\n• Type: ${u.typeLabel} (${u.typeCode})\n• View: ${u.viewLabel}\n` +
+      `• Price: ${fmt(u.priceUSD)} (${fmtA(u.priceAED)})\n${paymentLines}\n\n` +
       'Please let us know your next steps. Thank you!');
     return `<tr>` +
       `<td data-label="Unit"><strong>${u.unit}</strong></td>` +
@@ -332,9 +339,14 @@ function renderTable() {
       `<td data-label="Area">${u.area} <span style="color:#bbb;font-size:11px">/ ${u.sqft} sq ft</span></td>` +
       `<td data-label="Price (USD)" class="rt-price">${fmt(u.priceUSD)}</td>` +
       `<td data-label="Price (AED)" style="color:#666">${fmtA(u.priceAED)}</td>` +
-      `<td data-label="Payment" class="rt-pay-plan"> + <strong>${fmt(pay.usd)}</strong> + <span>${paymentSummary(pay)}</span> + (pay.down !== null ? <span>Down: ${fmt(pay.down)} · Monthly: ${fmt(pay.monthly)}</span> : '') + </td>` +
+      `<td data-label="Payment" class="rt-pay-plan">` +
+        `<strong>${fmt(pay.usd)}</strong>` +
+        `<span>${fmtA(pay.aed)}</span>` +
+        `<span>${paymentSummary(pay)}</span>` +
+        (pay.down !== null ? `<span>Down: ${fmt(pay.down)} · Monthly: ${fmt(pay.monthly)}</span>` : '') +
+      `</td>` +
       `<td data-label="WhatsApp" class="wa-cell"><a class="wa-cta" target="_blank" rel="noopener" href="https://wa.me/251922466797?text=${waMsg}" aria-label="Inquire about unit ${u.unit} via WhatsApp"><i class="fa-brands fa-whatsapp"></i> Inquire</a></td>` +
-      `</tr>`;
+    `</tr>`;
   }).join('');
   html += '</tbody>';
   $('table').innerHTML = html;
@@ -342,19 +354,25 @@ function renderTable() {
 
 function renderCards() {
   sortData();
-  const start = (page-1)*PER;
-  const pageData = filtered.slice(start, start+PER);
+  const start = (page - 1) * PER;
+  const pageData = filtered.slice(start, start + PER);
   const el = $('cards');
   if (pageData.length === 0) {
     el.innerHTML = '<div class="rt-empty">No units match your filters.</div>';
     return;
   }
-  el.innerHTML = pageData.map((u,i) => {
+  el.innerHTML = pageData.map((u, i) => {
     const pay = paymentInfo(u);
+    const paymentLines =
+      `• Payment: ${paymentSummary(pay)} — ${fmt(pay.usd)} (${fmtA(pay.aed)})\n` +
+      (pay.down !== null
+        ? `• Down payment: ${fmt(pay.down)}\n• Monthly installment: ${fmt(pay.monthly)} until Handover`
+        : '');
     const waMsg = encodeURIComponent(
-      'Hello! Thank you for reaching out to us through WhatsApp. We are pleased to assist us today.\n\n' +
+      'Hello! Thank you for reaching out to us through WhatsApp. We are pleased to assist you today.\n\n' +
       'Our choice of unit at Reportage Towers:\n\n' +
-      `• Unit: ${u.unit}\n• Tower: ${u.tower}\n• Floor: ${u.floorLabel}\n• Type: ${u.typeLabel} (${u.typeCode})\n• View: ${u.viewLabel}\n`• Price: ${fmt(u.priceUSD)} (${fmtA(u.priceAED)})\n` +`• Payment: ${paymentSummary(pay)} — ${fmt(pay.usd)} (${fmtA(pay.aed)})\n` +(pay.down !== null ? `• Down payment: ${fmt(pay.down)}\n• Monthly installment: ${fmt(pay.monthly)} until Handover\n` : '') +`\n` +
+      `• Unit: ${u.unit}\n• Tower: ${u.tower}\n• Floor: ${u.floorLabel}\n• Type: ${u.typeLabel} (${u.typeCode})\n• View: ${u.viewLabel}\n` +
+      `• Price: ${fmt(u.priceUSD)} (${fmtA(u.priceAED)})\n${paymentLines}\n\n` +
       'Please let us know your next steps. Thank you!');
     return `<div class="ucard" id="ucard-${i}">` +
       `<button class="ucard-head" onclick="toggleCard(${i})" aria-expanded="false">` +
@@ -365,12 +383,12 @@ function renderCards() {
       `</button>` +
       `<div class="ucard-body">` +
         `<div class="ucard-row"><span>Area</span><span>${u.area} m&sup2; / ${u.sqft} sq ft</span></div>` +
-        `<div class="ucard-row"><span>Price (AED)</span><span>${fmtA(u.priceAED)}</span></div>` +
         `<div class="ucard-row"><span>Price (AED)</span><span>${fmtA(pay.aed)}</span></div>` +
         `<div class="ucard-row"><span>Payment</span><span>${paymentSummary(pay)}</span></div>` +
-        (pay.down !== null ?
-       `<div class="ucard-row"><span>Down Payment</span><span>${fmt(pay.down)}</span></div>` +
-       `<div class="ucard-row"><span>Monthly Installment</span><span>${fmt(pay.monthly)}</span></div>`: '') +                              
+        (pay.down !== null
+          ? `<div class="ucard-row"><span>Down Payment</span><span>${fmt(pay.down)}</span></div>` +
+            `<div class="ucard-row"><span>Monthly Installment</span><span>${fmt(pay.monthly)}</span></div>`
+          : '') +
         `<a class="wa-cta ucard-wa" target="_blank" rel="noopener" href="https://wa.me/251922466797?text=${waMsg}" aria-label="Inquire about unit ${u.unit} via WhatsApp"><i class="fa-brands fa-whatsapp"></i> Inquire on WhatsApp</a>` +
       `</div>` +
     `</div>`;
@@ -387,17 +405,17 @@ window.toggleCard = function(i) {
 function renderPaging() {
   const totalPages = Math.ceil(filtered.length / PER);
   if (totalPages <= 1) { $('paging').innerHTML = ''; return; }
-  const from = (page-1)*PER + 1;
-  const to = Math.min(filtered.length, page*PER);
-  let btns = `<button onclick="setPage(${page-1})" ${page===1?'disabled':''}>Prev</button>`;
+  const from = (page - 1) * PER + 1;
+  const to = Math.min(filtered.length, page * PER);
+  let btns = `<button onclick="setPage(${page - 1})" ${page === 1 ? 'disabled' : ''}>Prev</button>`;
   const maxBtns = 1;
   let s = Math.max(1, page - 3);
   let e = Math.min(totalPages, s + maxBtns - 1);
   if (e - s < maxBtns - 1) s = Math.max(1, e - maxBtns + 1);
   if (s > 1) btns += `<button onclick="setPage(1)">1</button>` + (s > 2 ? `<span style="padding:4px">…</span>` : '');
-  for (let i = s; i <= e; i++) btns += `<button class="${i===page?'active':''}" onclick="setPage(${i})">${i}</button>`;
+  for (let i = s; i <= e; i++) btns += `<button class="${i === page ? 'active' : ''}" onclick="setPage(${i})">${i}</button>`;
   if (e < totalPages) btns += (e < totalPages - 1 ? `<span style="padding:4px">…</span>` : '') + `<button onclick="setPage(${totalPages})">${totalPages}</button>`;
-  btns += `<button onclick="setPage(${page+1})" ${page===totalPages?'disabled':''}>Next</button>`;
+  btns += `<button onclick="setPage(${page + 1})" ${page === totalPages ? 'disabled' : ''}>Next</button>`;
   $('paging').innerHTML = `<span>Showing ${from}-${to} of ${filtered.length}</span><div class="rt-paging-btns">${btns}</div>`;
 }
 
@@ -408,32 +426,35 @@ function applyFilters() {
   const sr = $('flt-search').value.trim().toLowerCase();
   filtered = ALL.filter(u => {
     if (tw && u.tower !== tw) return false;
-    if (ty !== '' && u.type !== parseInt(ty)) return false;
-    if (vw !== '' && u.view !== parseInt(vw)) return false;
+    if (ty !== '' && u.type !== parseInt(ty, 10)) return false;
+    if (vw !== '' && u.view !== parseInt(vw, 10)) return false;
     if (sr && !u.unit.toLowerCase().includes(sr)) return false;
     return true;
   });
   page = 1;
   renderStats();
-  renderTable(); renderCards();
+  renderTable();
+  renderCards();
   renderPaging();
 }
 
 window.setSort = function(col) {
   if (sortCol === col) sortAsc = !sortAsc;
   else { sortCol = col; sortAsc = true; }
-  renderTable(); renderCards();
+  renderTable();
+  renderCards();
 };
 
 window.setPage = function(p) {
   const totalPages = Math.ceil(filtered.length / PER);
   if (p < 1 || p > totalPages) return;
   page = p;
-  renderTable(); renderCards();
+  renderTable();
+  renderCards();
   renderPaging();
 };
 
-['flt-tower','flt-type','flt-view','flt-payment','flt-payment'].forEach(id => {
+['flt-tower','flt-type','flt-view','flt-payment','flt-search'].forEach(id => {
   const el = $(id);
   el.addEventListener('change', applyFilters);
   if (el.tagName === 'INPUT') el.addEventListener('input', applyFilters);
@@ -441,60 +462,54 @@ window.setPage = function(p) {
 
 applyFilters();
 </script>
-<!-- ============================================================
-     WHATSAPP INQUIRY INTEGRATION — Reportage Towers
-     ============================================================ -->
-<style>
-  /* --- Floating WhatsApp button (bottom-right) --- */
-  .wa-float{
-    position:fixed;
-    bottom:24px; right:24px;
-    z-index:9999;
-    display:flex; align-items:center; gap:10px;
-    background:#25D366;
-    color:#fff;
-    padding:14px 18px;
-    border-radius:50px;
-    font-family:Arial, Helvetica, sans-serif;
-    font-size:16px; font-weight:600;
-    text-decoration:none;
-    box-shadow:0 4px 14px rgba(0,0,0,.35);
-    transition:transform .2s ease, box-shadow .2s ease;
-  }
-  .wa-float:hover{
-    transform:scale(1.06);
-    box-shadow:0 6px 20px rgba(0,0,0,.45);
-    color:#fff;
-  }
-  .wa-float i{ font-size:26px; }
-  /* --- MOBILE: lift button above the pagination bar so it never covers pager buttons --- */
-  @media (max-width:768px){
-    .wa-float{
-      bottom:96px;   /* clears .rt-paging (pager + ~16px gap) */
-      right:16px;
-      padding:12px 14px;
-    }
-    .wa-float::before{ animation:none; }   /* no pulse ring on mobile — avoids tap-target overlap */
-  }
-  /* --- Pulse ring to draw attention --- */
-  .wa-float::before{
-    content:"";
-    position:absolute; inset:0;
-    border-radius:50px;
-    box-shadow:0 0 0 0 rgba(37,211,102,.6);
-    animation:waPulse 2s infinite;
-  }
-  @keyframes waPulse{
-    0%   { box-shadow:0 0 0 0 rgba(37,211,102,.55); }
-    70%  { box-shadow:0 0 0 18px rgba(37,211,102,0); }
-    100% { box-shadow:0 0 0 0 rgba(37,211,102,0); }
-  }
 
-  /* --- Label hidden on small screens --- */
-  @media (max-width:480px){
-    .wa-float span{ display:none; }
-    .wa-float{ padding:16px; border-radius:50%; }
+<!-- Floating WhatsApp inquiry -->
+<style>
+.wa-float{
+  position:fixed;
+  bottom:24px; right:24px;
+  z-index:9999;
+  display:flex; align-items:center; gap:10px;
+  background:#25D366;
+  color:#fff;
+  padding:14px 18px;
+  border-radius:50px;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:16px; font-weight:600;
+  text-decoration:none;
+  box-shadow:0 4px 14px rgba(0,0,0,.35);
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.wa-float:hover{
+  transform:scale(1.06);
+  box-shadow:0 6px 20px rgba(0,0,0,.45);
+  color:#fff;
+}
+.wa-float i{ font-size:26px; }
+@media (max-width:768px){
+  .wa-float{
+    bottom:96px;
+    right:16px;
+    padding:12px 14px;
   }
+  .wa-float::before{ animation:none; }
+}
+.wa-float::before{
+  content:"";
+  position:absolute; inset:0;
+  border-radius:50px;
+  box-shadow:0 0 0 0 rgba(37,211,102,.6);
+  animation:waPulse 2s infinite;
+}
+@keyframes waPulse{
+  0%   { box-shadow:0 0 0 0 rgba(37,211,102,.55); }
+  70%  { box-shadow:0 0 0 18px rgba(37,211,102,0); }
+  100% { box-shadow:0 0 0 0 rgba(37,211,102,0); }
+}
+@media (max-width:480px){
+  .wa-float span{ display:none; }
+  .wa-float{ padding:16px; border-radius:50%; }
+}
 </style>
 
 <a class="wa-float"
@@ -503,6 +518,5 @@ applyFilters();
   <i class="fa-brands fa-whatsapp"></i>
   <span>Chat with us on WhatsApp</span>
 </a>
-
 </body>
 </html>
