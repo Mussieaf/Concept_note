@@ -1316,7 +1316,239 @@ function calculateScore() {
     <button class="rtcw-x" id="rtcw-close" aria-label="Close chat">&times;</button>
   </div>
 
+<script>
+(function(){
+  "use strict";
+  /* ================= CONFIG ================= */
+  var RTCB_CONFIG = {
+    whatsappNumber: "251922466797",                 // buyer desk WhatsApp (from availability page wa.me links)
+    availabilityUrl: "https://mussieaf.github.io/Concept_note/Reportage/reportage-towers-live-availability.html",
+    position: "left"                                 // "left" avoids the existing WhatsApp float on the right
+  };
+  /* ============ END CONFIG — KB below ======== */
 
-     
+  var KB = {
+    vatNote: "All prices exclude 15% VAT (VAT applies to the unit and to parking, as listed).",
+    types: {
+      studio: {name:"Studio", size:"35.6 m\u00B2 (383 sq ft)", range:"$66,152 \u2013 $76,074", count:236},
+      "1br":  {name:"1 Bedroom", size:"57.2 m\u00B2 (616 sq ft)", range:"$95,979 \u2013 $110,376", count:241},
+      "2br":  {name:"2 Bedroom", size:"124.8 m\u00B2 (1,343 sq ft)", range:"$182,508 \u2013 $209,884", count:107}
+    }
+  };
+
+  var state = { purpose:null, unitType:null, greeted:false };
+
+  var body = document.getElementById("rtcw-body"),
+      chipsEl = document.getElementById("rtcw-chips"),
+      field = document.getElementById("rtcw-field"),
+      panel = document.getElementById("rtcw-panel"),
+      launch = document.getElementById("rtcw-launch");
+
+  /* ---------- plumbing ---------- */
+  function scroll(){ body.scrollTop = body.scrollHeight; }
+  function addMsg(text, who){
+    var d = document.createElement("div");
+    d.className = "rtcw-msg " + who;
+    d.textContent = text;
+    body.appendChild(d); scroll();
+    return d;
+  }
+  function addBotHTML(html){
+    var d = document.createElement("div");
+    d.className = "rtcw-msg bot";
+    d.innerHTML = html;
+    body.appendChild(d); scroll();
+  }
+  function typing(cb, delay){
+    var t = document.createElement("div");
+    t.className = "rtcw-typing";
+    t.innerHTML = "<i></i><i></i><i></i>";
+    body.appendChild(t); scroll();
+    setTimeout(function(){ t.remove(); cb(); }, delay || 700);
+  }
+  function setChips(list){
+    chipsEl.innerHTML = "";
+    list.forEach(function(c){
+      var b = document.createElement("button");
+      b.className = "rtcw-chip";
+      b.textContent = c.label;
+      b.onclick = function(){ c.action ? c.action() : send(c.label); };
+      chipsEl.appendChild(b);
+    });
+  }
+  function waHandoff(extra){
+    var msg = "Hello! I'm interested in Reportage Towers, Addis Ababa.\n" +
+      "\u2022 Purpose: " + (state.purpose || "Not specified") + "\n" +
+      "\u2022 Unit type: " + (state.unitType || "Not sure yet") + "\n" +
+      "\u2022 I'd like: " + (extra || "current pricing and floor plans") + "\n" +
+      "Please advise on next steps. Thank you!";
+    window.open("https://wa.me/" + RTCB_CONFIG.whatsappNumber + "?text=" + encodeURIComponent(msg), "_blank");
+  }
+  function openAvailability(){
+    window.open(RTCB_CONFIG.availabilityUrl, "_blank");
+  }
+
+  /* ---------- bot replies ---------- */
+  function replyFor(raw){
+    var t = raw.toLowerCase();
+
+    /* greetings */
+    if (/\b(hi|hello|hey|good (morning|afternoon|evening)|salam)\b/.test(t) && t.length < 40){
+      return {text:"Welcome to Reportage Towers, Addis Ababa \u2014 1,086 premium residences in twin 110m towers, directly opposite the African Union Headquarters. Are you looking to buy a home, or invest in property?",
+              chips:[{label:"Buy a home"},{label:"Invest"},{label:"See prices"}]};
+    }
+    /* purpose: invest */
+    if (/\b(invest|investment|yield|rental income|capital appreciation)\b/.test(t)){
+      state.purpose = "Invest";
+      return {text:"Reportage Towers is positioned for both capital appreciation and rental income \u2014 the AU-district location drives strong demand from diplomats, embassy staff, and executives. 584 units are currently available, starting at $66,152 for studios (the lowest entry point). What would you like next?",
+              chips:[{label:"Browse availability", action:openAvailability},{label:"Request Investor Brief", action:function(){waHandoff("the confidential Investment Brief (prices, payment terms, yield analysis)");}},{label:"Talk to sales", action:function(){waHandoff("an investment consultation");}}]};
+    }
+    /* purpose: buy */
+    if (/\b(buy|home|live|family|reside)\b/.test(t) && !state.purpose){
+      state.purpose = "Buy a home";
+    }
+    /* corporate */
+    if (/\b(corporate|embassy|company|ngo|organization|organisation|staff accommodation|multinational)\b/.test(t)){
+      state.purpose = "Corporate";
+      return {text:"Our Corporate Residence Program secures premium accommodation opposite the African Union for executives and international staff, with multi-unit packages available. Shall I connect you with the buyer desk to discuss your organization's needs?",
+              chips:[{label:"Chat on WhatsApp", action:function(){waHandoff("a Corporate Residence Program enquiry");}}]};
+    }
+    /* diaspora */
+    if (/\b(abroad|overseas|diaspora|remote|usa|canada|uk|uae|saudi|germany|sweden|netherlands|australia)\b/.test(t)){
+      state.purpose = state.purpose || "Buy from abroad (diaspora)";
+      return {text:"Diaspora buyers are our #1 priority. We offer virtual presentations, remote unit selection, and dedicated payment guidance from anywhere in the world \u2014 we've assisted buyers from the USA, Canada, UK, UAE, Saudi Arabia, Germany, Sweden, Netherlands, and Australia. You can reserve your apartment without travelling to Addis.",
+              chips:[{label:"Book virtual presentation", action:function(){waHandoff("a virtual presentation and remote unit selection");}},{label:"Browse availability", action:openAvailability}]};
+    }
+    /* unit types & sizes */
+    if (/\b(studio)\b/.test(t) && !/\b(price|cost|much)\b/.test(t)){
+      state.unitType = "Studio";
+      var s = KB.types.studio;
+      return {text:s.name+" \u2014 "+s.size+", open-plan living with private balcony. "+s.count+" studios are currently available, listed at "+s.range+". "+KB.vatNote,
+              chips:[{label:"See available studios", action:openAvailability},{label:"Payment options"},{label:"Talk to sales", action:function(){waHandoff("studio availability and floor plans");}}]};
+    }
+    if (/\b(1\s?-?\s?bed|one bed|1br)\b/.test(t) && !/\b(price|cost|much)\b/.test(t)){
+      state.unitType = "1 Bedroom";
+      var o = KB.types["1br"];
+      return {text:o.name+" \u2014 "+o.size+", separate bedroom & living area with private balcony. "+o.count+" one-bedroom units are currently available, listed at "+o.range+". "+KB.vatNote,
+              chips:[{label:"See available 1BRs", action:openAvailability},{label:"Payment options"},{label:"Talk to sales", action:function(){waHandoff("1-bedroom availability and floor plans");}}]};
+    }
+    if (/\b(2\s?-?\s?bed|two bed|2br)\b/.test(t) && !/\b(price|cost|much)\b/.test(t)){
+      state.unitType = "2 Bedroom";
+      var w = KB.types["2br"];
+      return {text:w.name+" \u2014 "+w.size+", master bedroom with en-suite and panoramic balcony. "+w.count+" two-bedroom units are currently available, listed at "+w.range+". "+KB.vatNote,
+              chips:[{label:"See available 2BRs", action:openAvailability},{label:"Payment options"},{label:"Talk to sales", action:function(){waHandoff("2-bedroom availability and floor plans");}}]};
+    }
+    /* prices */
+    if (/\b(price|cost|how much|range|budget|expensive)\b/.test(t)){
+      return {text:"Current listed ranges (excluding 15% VAT):\n\u2022 Studio: $66,152 \u2013 $76,074\n\u2022 1 Bedroom: $95,979 \u2013 $110,376\n\u2022 2 Bedroom: $182,508 \u2013 $209,884\nPrices vary by floor and view \u2014 higher floors carry a premium. AED equivalents are shown on the availability page.",
+              chips:[{label:"Open Live Availability", action:openAvailability},{label:"Payment options"},{label:"Talk to sales", action:function(){waHandoff("exact unit pricing for my shortlisted units");}}]};
+    }
+    /* availability */
+    if (/\b(availab|units|left|in stock|browse)\b/.test(t)){
+      return {text:"584 units are currently available across Towers A & B: 236 studios, 241 one-bedrooms, and 107 two-bedrooms. On the Live Availability page you can filter by tower, view, unit type, and payment option, then inquire about any unit directly.",
+              chips:[{label:"Open Live Availability", action:openAvailability},{label:"Payment options"}]};
+    }
+    /* payment */
+    if (/\b(payment|pay|installment|monthly|down payment|deposit|plan)\b/.test(t) && !/\b(full|cash|discount)\b/.test(t)){
+      return {text:"Two payment options are listed:\n1) Installment plan \u2014 10% down, then 1% of the unit price per month until handover. On a $99,581 1-bedroom: $9,958 down + ~$996/month.\n2) Full payment \u2014 a 40% discount is listed.\nHandover is scheduled for Q4 2029. Parking is listed at US$5,000; 15% VAT applies to the unit and parking. Confirm final terms with our sales team.",
+              chips:[{label:"See units & plans", action:openAvailability},{label:"Talk to sales", action:function(){waHandoff("payment plan guidance");}}]};
+    }
+    /* full payment discount */
+    if (/\b(full|cash|discount|40%|lump)\b/.test(t)){
+      return {text:"A 40% discount is listed for full payment \u2014 the payable amount is 60% of the unit price. How the discount interacts with VAT and parking should be confirmed with the sales team before committing.",
+              chips:[{label:"Talk to sales", action:function(){waHandoff("full-payment terms and the 40% discount");}}]};
+    }
+    /* handover */
+    if (/\b(handover|delivery|complete|completion|finished|when.*(ready|done)|move in|timeline)\b/.test(t)){
+      return {text:"Handover is scheduled for Q4 2029 \u2014 roughly three years from now, which is why the installment plan runs monthly until then. Early buyers lock in today's pricing. Exact dates are always confirmed in writing with the sales team.",
+              chips:[{label:"Payment options"},{label:"Talk to sales", action:function(){waHandoff("handover timeline confirmation");}}]};
+    }
+    /* parking */
+    if (/\b(parking|garage|car)\b/.test(t)){
+      return {text:"Dedicated private parking is available; parking is listed at US$5,000, with 15% VAT applying to parking as well. Allocation details (per unit, one-time vs. recurring) should be confirmed with the sales team.",
+              chips:[{label:"Talk to sales", action:function(){waHandoff("parking allocation details");}}]};
+    }
+    /* vat / fees */
+    if (/\b(vat|tax|fee|fees|hidden)\b/.test(t)){
+      return {text:"15% VAT applies to the unit and to parking, as listed. The prices I quote exclude VAT. Any other costs will be itemized in writing by the sales team.",
+              chips:[{label:"Talk to sales", action:function(){waHandoff("a full cost breakdown including VAT");}}]};
+    }
+    /* location */
+    if (/\b(where|location|address|near|distance|far)\b/.test(t)){
+      return {text:"Reportage Towers sits directly opposite the African Union Headquarters in Addis Ababa. Approximate drive times: AU HQ 2 min \u00B7 Mexico Square 2 min \u00B7 Landmark General Hospital 3 min \u00B7 Financial District 5 min \u00B7 International Community School 10 min.",
+              chips:[{label:"See prices"},{label:"Open Live Availability", action:openAvailability}]};
+    }
+    /* amenities */
+    if (/\b(amenit|pool|gym|fitness|rooftop|podium|retail|shop)\b/.test(t)){
+      return {text:"The project includes world-class rooftop amenities, dedicated private parking, and a full retail podium (\u224815,000 m\u00B2 of commercial space across \u224825,979 m\u00B2 total). Every residence has a private balcony, contemporary kitchen finishes, and built-in wardrobes. A detailed amenity list can be shared by the buyer desk.",
+              chips:[{label:"Talk to sales", action:function(){waHandoff("the full amenities list and floor plans");}}]};
+    }
+    /* developer */
+    if (/\b(developer|builder|who.*(build|develop)|reportage|trust|reputation)\b/.test(t)){
+      return {text:"Reportage Towers is delivered by Reportage Properties in partnership with the Ethiopian Defence Army Foundation. The project comprises 1,086 residences in twin 110m towers with 29 residential floors above a B+G+2 podium.",
+              chips:[{label:"See prices"},{label:"Talk to sales", action:function(){waHandoff("developer and project documentation");}}]};
+    }
+    /* floor plans */
+    if (/\b(floor plan|plan|brochure|layout|drawing)\b/.test(t)){
+      return {text:"Floor plans aren't published online \u2014 the buyer desk shares them directly, along with today's price for your preferred unit." + (state.unitType ? " I'll note you're interested in a " + state.unitType + "." : ""),
+              chips:[{label:"Chat on WhatsApp", action:function(){waHandoff("floor plans and current pricing");}}]};
+    }
+    /* views */
+    if (/\b(view|views|city view|au view)\b/.test(t)){
+      return {text:"Each tower offers three view orientations: African Union View, Mexico Square View, and Hill View. You can filter by view on the Live Availability page.",
+              chips:[{label:"Open Live Availability", action:openAvailability}]};
+    }
+    /* human / whatsapp */
+    if (/\b(agent|human|whatsapp|contact|call|phone|person|sales|salesperson|talk)\b/.test(t)){
+      return {text:"Happy to connect you \u2014 opening WhatsApp with your details pre-filled so the buyer desk can pick up right away." + (state.unitType ? " (Interest noted: " + state.unitType + ".)" : ""),
+              chips:[{label:"Open WhatsApp", action:function(){waHandoff("general assistance");}}],
+              auto:function(){waHandoff("general assistance");}};
+    }
+    /* fallback */
+    return {text:"That's a great question \u2014 it's beyond what I can confirm here. Our buyer desk can help within minutes on WhatsApp, or try one of these topics:",
+            chips:[{label:"See prices"},{label:"Payment options"},{label:"Open Live Availability", action:openAvailability},{label:"Chat on WhatsApp", action:function(){waHandoff("a question about Reportage Towers");}}]};
+  }
+
+  function botRespond(userText){
+    var r = replyFor(userText);
+    typing(function(){
+      addMsg(r.text, "bot");
+      if (r.chips) setChips(r.chips);
+      if (r.auto) setTimeout(r.auto, 900);
+    }, 550 + Math.min(900, userText.length * 12));
+  }
+
+  function send(text){
+    var v = (text || field.value).trim();
+    if (!v) return;
+    addMsg(v, "user");
+    field.value = "";
+    setChips([]);
+    botRespond(v);
+  }
+
+  /* ---------- events ---------- */
+  document.getElementById("rtcw-send").onclick = function(){ send(); };
+  field.addEventListener("keydown", function(e){ if (e.key === "Enter") send(); });
+  launch.onclick = function(){
+    panel.classList.toggle("open");
+    if (panel.classList.contains("open") && !state.greeted){
+      state.greeted = true;
+      typing(function(){
+        addMsg("Welcome to Reportage Towers, Addis Ababa \u2014 1,086 premium residences in twin 110m towers, directly opposite the African Union Headquarters. Are you looking to buy a home, or invest in property?", "bot");
+        setChips([{label:"Buy a home"},{label:"Invest"},{label:"See prices"}]);
+      }, 600);
+    }
+  };
+  document.getElementById("rtcw-close").onclick = function(){ panel.classList.remove("open"); };
+
+  /* honor config position */
+  if (RTCB_CONFIG.position === "right"){
+    launch.style.left = "auto"; launch.style.right = "24px";
+    panel.style.left = "auto"; panel.style.right = "24px";
+  }
+})();
+</script>
+<!-- ==================== RT CHATBOT WIDGET END ==================== -->
 </body>
 </html>
