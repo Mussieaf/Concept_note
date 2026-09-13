@@ -7,68 +7,52 @@
 <meta name="description" content="Shengjianghui — professional manufacturer & exporter of medical plastic supplies: sharps containers, clinical waste bins, specimen containers and medical consumables.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<!-- Open Graph / Facebook, whatsapp -->
-<meta property="og:title" content=" Shengjianghui — Medical Plastic Supplies" />
-<meta property="og:description" content="Shengjianghui — professional manufacturer & exporter of medical plastic supplies: sharps containers, clinical waste bins, specimen containers and medical consumables." />
-<meta property="og:image" content="https://mussieaf.github.io/Concept_note/medical.jpg?v=2" />
-<meta property="og:image:secure_url" content="https://mussieaf.github.io/Concept_note/medical.jpg?v=2" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Shengjianghui — Medical Plastic Supplies" />
-<meta property="og:image:type" content="image/jpg" />
-<meta property="og:url" content="https://mussieaf.github.io/Concept_note/Shengjianghui/index.html" />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Medical Plastic Supplies" />
-<meta property="og:locale" content="en_US" />
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image"/ >
-<meta name="twitter:title" content=" Shengjianghui — Medical Plastic Supplies" />
-<meta name="twitter:description" content="Shengjianghui — professional manufacturer & exporter of medical plastic supplies: sharps containers, clinical waste bins, specimen containers and medical consumables." />
-<meta name="twitter:image" content="https://mussieaf.github.io/Concept_note/medical.jpg?v=2" />
-<meta name="twitter:image:alt" content="Shengjianghui — Medical Plastic Supplies" />
-<meta name="description" content="Shengjianghui — professional manufacturer & exporter of medical plastic supplies: sharps containers, clinical waste bins, specimen containers and medical consumables." /> 
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">     
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">  
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
+/* ============================================================
+   [T1] DESIGN TOKENS — typography & palette (Cormorant Garamond
+   + Inter, warm neutrals, gold accent) — <head> > <style> top
+   ============================================================ */
 :root{
   --ink:#1A1A1A; --ink-soft:#5C5C5C; --line:rgba(0,0,0,0.08); --bg:#FAF9F6; --tint:#F5F3EE;
-  --accent:#C4A35A; --accent-dark:#A88B45; --gold:#C4A35A; --green:#0d6e5c; --green-dark:#0a5447;
+  --accent:#C4A35A; --accent-dark:#A88B45;
+  --green:#0d6e5c; --green-dark:#0a5447;
   --serif:"Cormorant Garamond",Georgia,serif;
   --sans:"Inter","Segoe UI",Helvetica,Arial,sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;overflow-x:clip}
-body{overflow-x:clip}
-h1,h2,h3,p,a,span,li{overflow-wrap:break-word}
-body{font-family:var(--sans);font-weight:300;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
-img,video{max-width:100%;display:block}
-a{color:inherit}
-.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
+body{font-family:var(--sans);font-weight:300;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip;overflow-wrap:break-word}
+img,video{max-width:100%;height:auto;display:block}
+.wrap{max-width:1180px;margin:0 auto}
+/* ============================================================
+   [M1] GLOBAL LEFT/RIGHT MARGINS — fluid clamp: 24px minimum on
+   phones → 64px maximum on wide screens. Applied to every
+   section via .wrap (header, hero, collection, range, films,
+   contact, footer). Location: <style> → .wrap rule
+   ============================================================ */
+.wrap{padding-left:clamp(24px,5vw,64px);padding-right:clamp(24px,5vw,64px)}
 .kicker{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--accent-dark);font-weight:600;display:flex;align-items:center;gap:14px}
 .kicker::before{content:'';width:36px;height:1px;background:var(--accent);flex:none}
 h1,h2,h3{font-family:var(--serif);font-weight:300;line-height:1.12;color:var(--ink)}
 h1 em,h2 em,h3 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
-.eyebrow-rule{width:42px;height:2px;background:var(--gold);margin:14px 0 0}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
 /* ---------- Header ---------- */
-header{position:sticky;top:0;z-index:60;background:rgba(253,253,253,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header{position:sticky;top:0;z-index:60;background:rgba(250,249,246,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
-.brand{font-family:var(--serif);font-size:20px;font-weight:700;letter-spacing:.02em;text-decoration:none}
+.brand{font-family:var(--serif);font-size:20px;font-weight:500;letter-spacing:.02em;text-decoration:none}
 .brand small{display:block;font-family:var(--sans);font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
 .nav-links{display:flex;gap:34px;list-style:none}
 .nav-links a{text-decoration:none;font-size:13.5px;letter-spacing:.04em;color:var(--ink-soft);transition:color .2s}
-.nav-links a:hover{color:var(--accent)}
-.nav-cta{background:var(--ink);color:#fff;text-decoration:none;font-size:13px;letter-spacing:.06em;padding:11px 22px;border-radius:999px;transition:background .2s}
+.nav-links a:hover{color:var(--accent-dark)}
+.nav-cta{background:var(--ink);color:#fff;text-decoration:none;font-size:13px;letter-spacing:.06em;padding:11px 22px;border-radius:999px;transition:all .2s}
 .nav-cta:hover{background:var(--accent);color:var(--ink)}
 @media(max-width:860px){.nav-links{display:none}}
 
 /* ---------- Hero ---------- */
-.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding:84px 0 72px}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding-top:84px;padding-bottom:72px}
 .hero h1{font-size:clamp(2.6rem,4.6vw,3.9rem);letter-spacing:-.5px;margin:18px 0 22px}
-.hero h1 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
 .hero p.lede{font-size:17px;color:var(--ink-soft);max-width:52ch;margin-bottom:34px}
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-size:14px;letter-spacing:.04em;padding:14px 28px;border-radius:999px;transition:all .2s;border:1px solid transparent}
@@ -77,50 +61,61 @@ header{position:sticky;top:0;z-index:60;background:rgba(253,253,253,.92);backdro
 .btn-ghost{border-color:var(--line);color:var(--ink)}
 .btn-ghost:hover{border-color:var(--ink)}
 .hero-figure{position:relative;min-width:0}
-.hero-figure img{width:100%;height:auto;max-width:100%}
-.hero-figure img{border-radius:18px;border:1px solid var(--line);box-shadow:0 30px 60px -30px rgba(20,36,47,.25)}
-.badge-iso{position:absolute;left:14px;bottom:26px;max-width:calc(100% - 28px);background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px;box-shadow:0 16px 40px -18px rgba(20,36,47,.3)}
+.hero-figure img{width:100%;height:auto;border-radius:18px;border:1px solid var(--line);box-shadow:0 30px 60px -30px rgba(20,36,47,.25)}
+.badge-iso{position:absolute;left:-14px;bottom:26px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px;box-shadow:0 16px 40px -18px rgba(20,36,47,.3)}
 .badge-iso strong{display:block;font-size:13px;letter-spacing:.06em}
 .badge-iso span{font-size:11.5px;color:var(--ink-soft)}
 .hero-stats{display:flex;gap:40px;margin-top:44px;padding-top:30px;border-top:1px solid var(--line)}
 .hero-stats div strong{font-family:var(--serif);font-weight:300;font-size:28px;display:block}
 .hero-stats div span{font-size:12.5px;color:var(--ink-soft);letter-spacing:.04em}
-@media(max-width:640px){.wrap{padding:0 18px}}
-@media(max-width:920px){.hero{grid-template-columns:1fr;padding:56px 0}}.hero-figure img{width:100%}.badge-iso{left:12px;bottom:14px}}
+@media(max-width:920px){.hero{grid-template-columns:1fr;padding-top:56px;padding-bottom:56px;gap:40px}}
 
-/* ---------- Marquee strip ---------- */
+/* ---------- Strip ---------- */
 .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--tint)}
-.strip .wrap{display:flex;justify-content:space-between;gap:20px;padding:16px 24px;flex-wrap:wrap}
+.strip .wrap{display:flex;justify-content:space-between;gap:12px 20px;padding-top:16px;padding-bottom:16px;flex-wrap:wrap}
 .strip span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
-.strip b{color:var(--accent)}
+.strip b{color:var(--accent-dark)}
 
-/* ---------- Sections ---------- */
-section{padding:88px 0}
+section{padding-top:88px;padding-bottom:88px}
 .sec-head{max-width:640px;margin-bottom:52px}
 .sec-head h2{font-size:clamp(30px,3.4vw,44px);margin:16px 0 14px}
 .sec-head p{color:var(--ink-soft);font-size:16px}
+.eyebrow-rule{width:42px;height:2px;background:var(--accent);margin:14px 0 0}
 
-/* ---------- Gallery ---------- */
-.gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:22px}
-.g-item{position:relative;min-width:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);cursor:zoom-in;background:var(--tint)}
-.g-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
-.g-item:hover img{transform:scale(1.035)}
-.g-item .cap{position:absolute;left:0;right:0;bottom:0;padding:34px 20px 16px;background:linear-gradient(transparent,rgba(15,25,32,.72));color:#fff;font-size:13px;letter-spacing:.03em}
-.g-tall{grid-column:span 5;grid-row:span 2;min-height:0;height:100%;max-height:86vh}
-.g-wide{grid-column:span 7;min-height:250px}
-.g-half{grid-column:span 4;min-height:250px}
-@media(max-width:860px){.gallery .g-item{grid-column:span 12 !important;grid-row:auto !important;min-height:220px}}
+/* ============================================================
+   [G1] GALLERY IMAGE ACCORDION — CSS. Horizontal stack, one
+   panel open at a time, smooth flex/height transitions.
+   Location: <style> → after section rules
+   ============================================================ */
+.gallery-acc{display:flex;gap:12px;height:540px}
+.g-acc-panel{position:relative;flex:1;min-width:0;margin:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);cursor:pointer;background:#101c24;transition:flex .65s cubic-bezier(.25,.8,.25,1)}
+.g-acc-panel.active{flex:4.4;cursor:zoom-in}
+.g-acc-panel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.4;transition:opacity .5s,transform .8s cubic-bezier(.2,.7,.2,1)}
+.g-acc-panel.active img{opacity:1}
+.g-acc-panel:not(.active) img{transform:scale(1.06)}
+.g-acc-panel .g-tab{position:absolute;top:18px;left:50%;transform:translateX(-50%) rotate(180deg);writing-mode:vertical-rl;color:#fff;font-size:12px;letter-spacing:.2em;text-transform:uppercase;white-space:nowrap;background:rgba(15,25,32,.55);padding:8px 6px;border-radius:8px;pointer-events:none;transition:opacity .3s}
+.g-acc-panel.active .g-tab{opacity:0}
+.g-acc-panel figcaption{position:absolute;left:0;right:0;bottom:0;padding:30px 22px 18px;background:linear-gradient(transparent,rgba(8,15,20,.88));color:#fff;font-size:13px;letter-spacing:.03em;opacity:0;transform:translateY(14px);transition:opacity .45s .12s,transform .45s .12s;pointer-events:none}
+.g-acc-panel.active figcaption{opacity:1;transform:none}
+/* Tablet/mobile: vertical accordion */
+@media(max-width:820px){
+  .gallery-acc{flex-direction:column;height:auto;gap:10px}
+  .g-acc-panel{height:72px;flex:none;transition:height .55s cubic-bezier(.25,.8,.25,1)}
+  .g-acc-panel.active{height:380px}
+  .g-acc-panel .g-tab{top:50%;left:16px;transform:translateY(-50%);writing-mode:horizontal-tb;rotate:0deg}
+}
 
 /* ---------- Lightbox ---------- */
 .lightbox{position:fixed;inset:0;z-index:100;background:rgba(12,20,26,.9);display:none;align-items:center;justify-content:center;padding:32px}
 .lightbox.open{display:flex}
-.lightbox figure{max-width:min(920px,94vw);width:100%;max-height:88vh;display:flex;flex-direction:column;gap:12px;margin:0 auto}
-.lightbox img{max-width:100%;width:auto;max-height:78vh;object-fit:contain;border-radius:12px}
+.lightbox figure{max-width:min(920px,94vw);max-height:88vh;display:flex;flex-direction:column;gap:12px;margin:0}
+.lightbox img{max-width:100%;max-height:78vh;object-fit:contain;border-radius:12px}
 .lightbox figcaption{color:#cfd8dd;font-size:14px;text-align:center}
 .lightbox .lb-close{position:absolute;top:22px;right:26px;background:none;border:1px solid rgba(255,255,255,.4);color:#fff;width:44px;height:44px;border-radius:50%;font-size:18px;cursor:pointer}
 .lightbox .lb-close:hover{background:rgba(255,255,255,.12)}
+@media(max-width:480px){.lightbox{padding:16px}}
 
-/* ---------- Product range cards ---------- */
+/* ---------- Product range ---------- */
 .range{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
 .card{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;transition:box-shadow .3s,transform .3s}
 .card:hover{box-shadow:0 22px 44px -22px rgba(20,36,47,.22);transform:translateY(-4px)}
@@ -128,14 +123,18 @@ section{padding:88px 0}
 .card .body{padding:22px}
 .card h3{font-size:19px;margin-bottom:8px}
 .card p{font-size:13.5px;color:var(--ink-soft)}
-.card .tag{display:inline-block;margin-top:14px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:4px 12px}
+.card .tag{display:inline-block;margin-top:14px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-dark);border:1px solid var(--accent);border-radius:999px;padding:4px 12px}
 @media(max-width:980px){.range{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.range{grid-template-columns:1fr}}
+@media(max-width:560px){.range{grid-template-columns:1fr;gap:16px}}
 
-/* ---------- Video accordion ---------- */
+/* ============================================================
+   [V1] VIDEO ACCORDION — CSS. All videos visible as stacked
+   panels; one expands at a time; second click collapses.
+   Location: <style> → after .range rules
+   ============================================================ */
 .videos{background:var(--tint);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.accordion{display:flex;gap:12px;height:min(480px,72vh)}
-.acc-panel{position:relative;flex:1 1 0;min-width:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);cursor:pointer;transition:flex .65s cubic-bezier(.25,.8,.25,1);background:#0e1a22}
+.accordion{display:flex;gap:12px;height:480px}
+.acc-panel{position:relative;flex:1;min-width:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);cursor:pointer;transition:flex .65s cubic-bezier(.25,.8,.25,1);background:#0e1a22}
 .acc-panel.active{flex:4.4;cursor:default}
 .acc-panel video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55;transition:opacity .5s}
 .acc-panel.active video{opacity:1}
@@ -147,12 +146,13 @@ section{padding:88px 0}
 .panel-body p{font-size:13.5px;color:#d5dee3;max-width:52ch;margin-bottom:14px}
 .panel-controls{display:flex;gap:10px;align-items:center}
 .play-btn{background:#fff;color:var(--ink);border:none;border-radius:999px;padding:9px 20px;font-size:13px;letter-spacing:.05em;cursor:pointer;font-family:var(--sans)}
-.play-btn:hover{background:var(--accent);color:#fff}
-.progress{flex:1;height:3px;background:rgba(255,255,255,.28);border-radius:99px;overflow:hidden}
-.progress i{display:block;height:100%;width:0;background:var(--gold)}
+.play-btn:hover{background:var(--accent);color:var(--ink)}
+.progress{flex:1;height:3px;background:rgba(255,255,255,.28);border-radius:99px;overflow:hidden;min-width:40px}
+.progress i{display:block;height:100%;width:0;background:var(--accent)}
 .acc-hint{margin-top:18px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+/* Tablet/mobile: vertical accordion */
 @media(max-width:820px){
-  .accordion{flex-direction:column;height:auto}
+  .accordion{flex-direction:column;height:auto;gap:10px}
   .acc-panel{height:74px;flex:none;transition:height .55s cubic-bezier(.25,.8,.25,1)}
   .acc-panel.active{height:380px}
   .acc-panel .panel-tab{top:50%;left:20px;transform:translateY(-50%);writing-mode:horizontal-tb}
@@ -163,33 +163,33 @@ section{padding:88px 0}
 .trust-list{list-style:none;margin-top:26px}
 .trust-list li{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
 .trust-list li:last-child{border-bottom:none}
-.trust-list .dot{flex:none;width:38px;height:38px;border-radius:50%;background:var(--tint);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--accent);font-weight:700;font-size:14px}
-.trust-list strong{display:block;font-size:15px}
+.trust-list .dot{flex:none;width:38px;height:38px;border-radius:50%;background:var(--tint);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--accent-dark);font-weight:600;font-size:14px}
+.trust-list strong{display:block;font-size:15px;font-weight:500}
 .trust-list span{font-size:13.5px;color:var(--ink-soft)}
-.contact-card{background:var(--ink);color:#eaf1f3;min-width:0;border-radius:20px;padding:38px;position:sticky;top:96px}
+.contact-card{background:var(--ink);color:#eaf1f3;border-radius:20px;padding:38px;position:sticky;top:96px}
 .contact-card h3{font-size:26px;color:#fff;margin-bottom:8px}
 .contact-card p{font-size:14px;color:#b9c8ce;margin-bottom:24px}
 .c-row{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:14px}
 .c-row span{color:#8fa3ab;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding-top:2px}
 .c-row a{color:#fff;text-decoration:none;text-align:right;word-break:break-all}
-.c-row a:hover{color:var(--gold)}
+.c-row a:hover{color:var(--accent)}
 .contact-card .btn-primary{margin-top:26px;width:100%;justify-content:center}
 @media(max-width:920px){.trust{grid-template-columns:1fr}.contact-card{position:static}}
 
 footer{border-top:1px solid var(--line);padding:34px 0;font-size:12.5px;color:var(--ink-soft)}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
-/* ---------- Chatbot ---------- */
+/* ---------- Chatbot (WhatsApp-inspired, original design) ---------- */
 .chat-fab{position:fixed;right:24px;bottom:24px;z-index:90;width:60px;height:60px;border-radius:50%;background:var(--green);border:none;cursor:pointer;box-shadow:0 14px 34px -10px rgba(13,110,92,.55);display:flex;align-items:center;justify-content:center;transition:transform .2s}
 .chat-fab:hover{transform:scale(1.06)}
 .chat-fab svg{width:28px;height:28px;fill:#fff}
 .chat-fab .ping{position:absolute;top:2px;right:2px;width:13px;height:13px;background:#e5484d;border-radius:50%;border:2px solid #fff}
-.chat-window{font-family:var(--sans);position:fixed;right:24px;bottom:96px;z-index:90;width:min(380px,calc(100vw - 32px));height:min(560px,calc(100vh - 140px));background:#fff;border-radius:18px;box-shadow:0 34px 80px -22px rgba(10,25,20,.4);display:none;flex-direction:column;overflow:hidden;border:1px solid var(--line)}
+.chat-window{font-family:var(--sans);position:fixed;right:24px;bottom:96px;z-index:90;width:min(380px,calc(100vw - 32px));height:min(560px,calc(100vh - 140px));height:min(560px,calc(100dvh - 140px));background:#fff;border-radius:18px;box-shadow:0 34px 80px -22px rgba(10,25,20,.4);display:none;flex-direction:column;overflow:hidden;border:1px solid var(--line)}
 .chat-window.open{display:flex;animation:pop .28s cubic-bezier(.2,.9,.3,1.2)}
 @keyframes pop{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}
 .chat-head{background:var(--green);color:#fff;padding:16px 18px;display:flex;align-items:center;gap:12px}
-.chat-head .avatar{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:700;font-size:16px}
-.chat-head strong{font-size:15px;display:block;line-height:1.25}
+.chat-head .avatar{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:500;font-size:16px}
+.chat-head strong{font-size:15px;display:block;line-height:1.25;font-weight:500}
 .chat-head span{font-size:11.5px;opacity:.85;display:flex;align-items:center;gap:6px}
 .chat-head span::before{content:"";width:7px;height:7px;border-radius:50%;background:#7dffb0}
 .chat-close{margin-left:auto;background:none;border:none;color:#fff;font-size:20px;cursor:pointer;opacity:.85}
@@ -197,22 +197,49 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .msg{max-width:82%;padding:11px 14px;border-radius:14px;font-size:13.5px;line-height:1.5;animation:pop .22s ease}
 .msg.bot{background:#fff;border:1px solid var(--line);border-bottom-left-radius:4px;align-self:flex-start}
 .msg.user{background:#dcf3e8;border-bottom-right-radius:4px;align-self:flex-end}
-.msg.bot a{color:var(--green);font-weight:600}
+.msg.bot a{color:var(--green);font-weight:500}
 .chips{display:flex;flex-wrap:wrap;gap:8px;align-self:flex-start}
 .chips button{border:1px solid var(--green);color:var(--green);background:#fff;border-radius:999px;padding:7px 13px;font-size:12.5px;cursor:pointer;font-family:var(--sans);transition:all .2s}
 .chips button:hover{background:var(--green);color:#fff}
 .chat-input{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line);background:#fff}
-.chat-input input{flex:1;border:1px solid var(--line);border-radius:999px;padding:11px 16px;font-size:13.5px;font-family:var(--sans);outline:none}
+.chat-input input{flex:1;min-width:0;border:1px solid var(--line);border-radius:999px;padding:11px 16px;font-size:13.5px;font-family:var(--sans);outline:none}
 .chat-input input:focus{border-color:var(--green)}
-.chat-input button{width:44px;height:44px;border-radius:50%;border:none;background:var(--green);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.chat-input button{flex:none;width:44px;height:44px;border-radius:50%;border:none;background:var(--green);cursor:pointer;display:flex;align-items:center;justify-content:center}
 .chat-input button svg{width:18px;height:18px;fill:#fff}
 .chat-disclaimer{font-size:10.5px;color:var(--ink-soft);padding:8px 14px;background:#fff;border-top:1px solid var(--line);text-align:center}
 .typing{display:inline-flex;gap:4px;padding:12px 14px;background:#fff;border:1px solid var(--line);border-radius:14px;border-bottom-left-radius:4px;align-self:flex-start}
 .typing i{width:6px;height:6px;border-radius:50%;background:#9db3a9;animation:blink 1.1s infinite}
 .typing i:nth-child(2){animation-delay:.18s}.typing i:nth-child(3){animation-delay:.36s}
 @keyframes blink{0%,80%,100%{opacity:.25}40%{opacity:1}}
+
+/* ============================================================
+   [R1] SMALL-SCREEN LAYER (≤480px & ≤360px) — tighter margins,
+   compact accordions, smaller chat affordances
+   ============================================================ */
+@media(max-width:480px){
+  section{padding-top:60px;padding-bottom:60px}
+  .hero{padding-top:44px;padding-bottom:40px}
+  .hero-stats{gap:18px;flex-wrap:wrap}
+  .hero-stats div strong{font-size:22px}
+  .badge-iso{left:8px;bottom:14px;padding:10px 14px}
+  .g-acc-panel{height:64px}
+  .g-acc-panel.active{height:300px}
+  .acc-panel{height:64px}
+  .acc-panel.active{height:320px}
+  .panel-body h3{font-size:19px}
+  .contact-card{padding:26px 20px}
+  .chat-fab{right:16px;bottom:16px;width:54px;height:54px}
+  .chat-window{right:16px;bottom:80px}
+  .brand{font-size:17px}
+  .nav-cta{padding:9px 14px;font-size:12px}
+}
+@media(max-width:360px){
+  .hero-stats{gap:14px}
+  .hero-actions .btn{padding:12px 20px;font-size:13px}
+  .g-acc-panel.active{height:240px}
+  .acc-panel.active{height:280px}
+}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -232,7 +259,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
 <main id="top">
 
-<!-- HERO -->
+<!-- ==================== HERO ==================== -->
+<!-- [H1] HERO — inherits [M1] margins via .wrap; image fluid via width:100%/height:auto -->
 <section class="hero wrap">
   <div>
     <span class="kicker">Professional Manufacturer &amp; Exporter</span>
@@ -249,7 +277,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     </div>
   </div>
   <div class="hero-figure">
-    <img src="assets/hero.jpg" alt="Shengjianghui complete range of medical plastic products" width="1280" height="672">
+    <img src="assets/hero.jpg" alt="Shengjianghui complete range of medical plastic products" width="1280" height="853">
     <div class="badge-iso"><strong>SAFE · HYGIENIC · RELIABLE</strong><span>Compliant with international quality standards</span></div>
   </div>
 </section>
@@ -265,47 +293,57 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   </div>
 </div>
 
-<!-- GALLERY -->
+<!-- ==================== GALLERY ==================== -->
+<!-- [G2] GALLERY ACCORDION MARKUP — <main> > <section id="collection">.
+     Behaviour ([G3] JS): click a closed panel to expand it (others close);
+     click the open panel to zoom it in the lightbox. -->
 <section id="collection" class="wrap">
   <div class="sec-head">
     <span class="kicker">The Collection</span>
     <h2>An editorial look at the range</h2>
-    <p>Sterile. Safe. Reliable. Every product photographed as supplied — click any image to view it in full.</p>
+    <p>Sterile. Safe. Reliable. Every product photographed as supplied — select a panel to explore, click the open panel to view it in full.</p>
     <div class="eyebrow-rule"></div>
   </div>
-  <div class="gallery">
-    <figure class="g-item g-tall" data-cap="Medical plastic consumables — specimen tubes, racks, sharps containers and protective eyewear">
-      <img src="assets/consumables-1.jpg" alt="Medical plastic consumables arranged on a table: test tubes, racks, sharps containers, safety goggles" loading="lazy">
-      <figcaption class="cap">Medical Plastic Consumables</figcaption>
+  <div class="gallery-acc" id="galleryAcc" role="group" aria-label="Product image gallery accordion">
+    <figure class="g-acc-panel active" tabindex="0" role="button" aria-expanded="true" aria-label="Expand image: Medical Plastic Consumables">
+      <img src="assets/consumables-1.jpg" alt="Medical plastic consumables: specimen tubes, racks, sharps containers and protective eyewear" loading="lazy">
+      <span class="g-tab">01 · Consumables</span>
+      <figcaption>Medical plastic consumables — specimen tubes, racks, sharps containers and protective eyewear</figcaption>
     </figure>
-    <figure class="g-item g-wide" data-cap="A complete medical waste product range: sharps containers, clinical waste boxes, waste bags and facility bins">
-      <img src="assets/poster-range.jpg" alt="Complete medical waste product range poster showing sharps containers, turnover boxes, waste bags and facility bins" loading="lazy">
-      <figcaption class="cap">Complete Medical Waste Product Range</figcaption>
+    <figure class="g-acc-panel" tabindex="0" role="button" aria-expanded="false" aria-label="Expand image: Complete Medical Waste Range">
+      <img src="assets/poster-range.jpg" alt="Complete medical waste product range: sharps containers, turnover boxes, waste bags and facility bins" loading="lazy">
+      <span class="g-tab">02 · Full Range</span>
+      <figcaption>A complete medical waste product range — sharps containers, clinical waste boxes, waste bags and facility bins</figcaption>
     </figure>
-    <figure class="g-item g-half" data-cap="Pedal and wheeled waste bins — 15L to 240L, color-coded for waste management">
+    <figure class="g-acc-panel" tabindex="0" role="button" aria-expanded="false" aria-label="Expand image: Pedal and Wheeled Bins">
       <img src="assets/poster-bins.jpg" alt="Pedal and wheeled waste bins in yellow, red, blue and green with medical waste symbols" loading="lazy">
-      <figcaption class="cap">Pedal &amp; Wheeled Bins · 15L–240L</figcaption>
+      <span class="g-tab">03 · Facility Bins</span>
+      <figcaption>Pedal and wheeled waste bins — 15L to 240L, color-coded for waste management</figcaption>
     </figure>
-    <figure class="g-item g-half" data-cap="Round sharps containers — a practical capacity ladder from 0.5L to 18L, virgin PP, puncture- and leakage-resistant">
+    <figure class="g-acc-panel" tabindex="0" role="button" aria-expanded="false" aria-label="Expand image: Round Sharps Containers">
       <img src="assets/poster-sharps.jpg" alt="Round yellow sharps containers in sizes 0.5L to 18L with red lids and biohazard markings" loading="lazy">
-      <figcaption class="cap">Round Sharps Containers · 0.5L–18L</figcaption>
+      <span class="g-tab">04 · Sharps</span>
+      <figcaption>Round sharps containers — 0.5L to 18L; virgin PP, puncture- and leakage-resistant</figcaption>
     </figure>
-    <figure class="g-item g-half" data-cap="Reusable turnover boxes — 20L to 120L — with supporting consumables: medical waste bags, warning labels, hang tags and cable ties">
+    <figure class="g-acc-panel" tabindex="0" role="button" aria-expanded="false" aria-label="Expand image: Clinical Turnover Boxes">
       <img src="assets/poster-turnover.jpg" alt="Yellow clinical waste turnover boxes from 20L to 120L with medical waste bags and warning accessories" loading="lazy">
-      <figcaption class="cap">Clinical Turnover Boxes · 20L–120L</figcaption>
+      <span class="g-tab">05 · Turnover</span>
+      <figcaption>Reusable clinical turnover boxes — 20L to 120L — with medical waste bags, warning labels, hang tags and cable ties</figcaption>
     </figure>
-    <figure class="g-item g-half" data-cap="Built for private-label distribution — ISO 13485, ISO 9001, ISO 45001, ISO 14001 quality systems">
+    <figure class="g-acc-panel" tabindex="0" role="button" aria-expanded="false" aria-label="Expand image: OEM and Private Label">
       <img src="assets/poster-oem.jpg" alt="Private label and OEM manufacturing program poster with ISO certification badges and product lineup" loading="lazy">
-      <figcaption class="cap">OEM &amp; Private Label Programs</figcaption>
+      <span class="g-tab">06 · OEM &amp; Label</span>
+      <figcaption>Built for private-label distribution — ISO 13485, ISO 9001, ISO 45001 and ISO 14001 quality systems</figcaption>
     </figure>
-    <figure class="g-item g-half" data-cap="Consumables arrangement — sterile specimen tubes, measuring cups, trays and precision tools">
+    <figure class="g-acc-panel" tabindex="0" role="button" aria-expanded="false" aria-label="Expand image: Sterile Consumables">
       <img src="assets/consumables-2.jpg" alt="Medical plastic consumables: specimen tubes in racks, sharps containers, measuring cup and tweezers" loading="lazy">
-      <figcaption class="cap">Sterile Consumables</figcaption>
+      <span class="g-tab">07 · Sterile</span>
+      <figcaption>Sterile consumables — specimen tubes, measuring cups, trays and precision tools</figcaption>
     </figure>
   </div>
 </section>
 
-<!-- LIGHTBOX -->
+<!-- [LB1] LIGHTBOX MARKUP — zoomed view of the open gallery panel -->
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
   <button class="lb-close" id="lbClose" aria-label="Close image viewer">✕</button>
   <figure>
@@ -314,7 +352,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   </figure>
 </div>
 
-<!-- PRODUCT RANGE -->
+<!-- ==================== PRODUCT RANGE ==================== -->
 <section id="range" class="wrap">
   <div class="sec-head">
     <span class="kicker">Product Range</span>
@@ -358,62 +396,65 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   </div>
 </section>
 
-<!-- VIDEO ACCORDION -->
+<!-- ==================== VIDEO ACCORDION ==================== -->
+<!-- [V2] VIDEO ACCORDION MARKUP — <main> > <section id="films">.
+     Behaviour ([V3] JS): all 3 videos always visible as stacked panels;
+     one expands at a time; clicking the open panel collapses it. -->
 <section class="videos" id="films">
   <div class="wrap">
     <div class="sec-head">
       <span class="kicker">Product Films</span>
       <h2>See the range in motion</h2>
-      <p>Select a panel to expand it, then press play. Videos are muted by default — sound can be enabled from the player controls.</p>
+      <p>Select a panel to expand it, press play to watch. Click an open panel to collapse it. Videos are muted by default.</p>
       <div class="eyebrow-rule"></div>
     </div>
 
     <div class="accordion" id="accordion">
       <div class="acc-panel active" data-title="Medical Supplies" tabindex="0" role="button" aria-expanded="true" aria-label="Expand video: Medical Supplies">
-        <video src="assets/video-supplies.mp4" preload="metadata" muted playsinline poster="assets/video-supplies.jpg"></video>
+        <video src="assets/video-supplies.mp4" preload="metadata" muted playsinline poster="assets/consumables-1.jpg"></video>
         <span class="panel-tab">01 · Medical Supplies</span>
         <div class="panel-body">
           <h3>Medical Supplies</h3>
           <p>Sharps containers, specimen tubes and biohazard disposal essentials — arranged in a clinical environment.</p>
           <div class="panel-controls">
-            <button class="play-btn">▶ Play</button>
+            <button class="play-btn" type="button">▶ Play</button>
             <div class="progress"><i></i></div>
-            <button class="play-btn sound" aria-label="Toggle sound">🔇</button>
+            <button class="play-btn sound" type="button" aria-label="Toggle sound">🔇</button>
           </div>
         </div>
       </div>
       <div class="acc-panel" data-title="Waste Management" tabindex="0" role="button" aria-expanded="false" aria-label="Expand video: Medical Waste Management">
-        <video src="assets/video-waste.mp4" preload="metadata" muted playsinline poster="assets/video-waste.jpg"></video>
+        <video src="assets/video-waste.mp4" preload="metadata" muted playsinline poster="assets/poster-range.jpg"></video>
         <span class="panel-tab">02 · Waste Management</span>
         <div class="panel-body">
           <h3>Medical Waste Management</h3>
           <p>The full waste-management lineup — sharps containers, clinical waste bins, facility bins and specimen bags.</p>
           <div class="panel-controls">
-            <button class="play-btn">▶ Play</button>
+            <button class="play-btn" type="button">▶ Play</button>
             <div class="progress"><i></i></div>
-            <button class="play-btn sound" aria-label="Toggle sound">🔇</button>
+            <button class="play-btn sound" type="button" aria-label="Toggle sound">🔇</button>
           </div>
         </div>
       </div>
       <div class="acc-panel" data-title="Plastic Consumables" tabindex="0" role="button" aria-expanded="false" aria-label="Expand video: Medical Plastic Consumables">
-        <video src="assets/video-consumables.mp4" preload="metadata" muted playsinline poster="assets/video-consumables.jpg"></video>
+        <video src="assets/video-consumables.mp4" preload="metadata" muted playsinline poster="assets/consumables-2.jpg"></video>
         <span class="panel-tab">03 · Plastic Consumables</span>
         <div class="panel-body">
           <h3>Medical Plastic Consumables</h3>
           <p>Clean, safe, reliable — precision-made laboratory and clinical consumables for everyday care.</p>
           <div class="panel-controls">
-            <button class="play-btn">▶ Play</button>
+            <button class="play-btn" type="button">▶ Play</button>
             <div class="progress"><i></i></div>
-            <button class="play-btn sound" aria-label="Toggle sound">🔇</button>
+            <button class="play-btn sound" type="button" aria-label="Toggle sound">🔇</button>
           </div>
         </div>
       </div>
     </div>
-    <p class="acc-hint" aria-hidden="true">Click a panel to expand · Keyboard: Tab + Enter</p>
+    <p class="acc-hint" aria-hidden="true">Click a panel to expand · Click the open panel to collapse · Keyboard: Tab + Enter</p>
   </div>
 </section>
 
-<!-- TRUST + CONTACT -->
+<!-- ==================== TRUST + CONTACT ==================== -->
 <section class="wrap" id="contact">
   <div class="trust">
     <div>
@@ -449,8 +490,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   </div>
 </footer>
 
-<!-- CHATBOT -->
-<button class="chat-fab" id="chatFab" aria-label="Open product assistant chat">
+<!-- ==================== CHATBOT ==================== -->
+<!-- [C1] CHATBOT MARKUP — floating assistant, WhatsApp-inspired palette -->
+<button class="chat-fab" id="chatFab" aria-label="Open product assistant chat" aria-expanded="false">
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4 0-.5.1-.7l.4-.5c.1-.1.2-.3.3-.4.1-.1 0-.3 0-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.8.8-.8 2s.8 2.3 1 2.5c.1.1 1.7 2.6 4.1 3.6 2.4 1 2.4.7 2.8.6.4 0 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.2-.5-.3z"/></svg>
   <span class="ping" aria-hidden="true"></span>
 </button>
@@ -470,42 +512,62 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 </div>
 
 <script>
-/* ---------- Lightbox ---------- */
+/* ============================================================
+   [LB2] LIGHTBOX + [G3] GALLERY ACCORDION JS
+   Location: <body> end > <script> top
+   ============================================================ */
 const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg'),lbCap=document.getElementById('lbCap');
-document.querySelectorAll('.g-item').forEach(f=>{
-  const open=()=>{lbImg.src=f.querySelector('img').src;lbImg.alt=f.querySelector('img').alt;
-    lbCap.textContent=f.dataset.cap||'';lb.classList.add('open');document.getElementById('lbClose').focus();};
-  f.addEventListener('click',open);
-  f.setAttribute('tabindex','0');f.setAttribute('role','button');
-  f.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}});
-});
-const closeLb=()=>{lb.classList.remove('open');lbImg.src='';};
-document.getElementById('lbClose').addEventListener('click',closeLb);
-lb.addEventListener('click',e=>{if(e.target===lb)closeLb();});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLb();closeChat();}});
+function openLightbox(src,alt,cap){lbImg.src=src;lbImg.alt=alt;lbCap.textContent=cap||'';lb.classList.add('open');document.getElementById('lbClose').focus();}
+function closeLightbox(){lb.classList.remove('open');lbImg.src='';}
+document.getElementById('lbClose').addEventListener('click',closeLightbox);
+lb.addEventListener('click',e=>{if(e.target===lb)closeLightbox();});
 
-/* ---------- Video accordion ---------- */
+/* [G3] Gallery accordion: click closed panel → expand (one at a time);
+   click open panel → lightbox zoom. Keyboard: Enter/Space. */
+const gPanels=[...document.querySelectorAll('.g-acc-panel')];
+gPanels.forEach(p=>{
+  const img=p.querySelector('img'),cap=p.querySelector('figcaption').textContent;
+  const actOrView=()=>{
+    if(!p.classList.contains('active')){
+      gPanels.forEach(x=>{const on=x===p;x.classList.toggle('active',on);x.setAttribute('aria-expanded',on);});
+    }else{
+      openLightbox(img.src,img.alt,cap);
+    }
+  };
+  p.addEventListener('click',e=>{if(e.target.closest('figcaption'))return;actOrView();});
+  p.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();actOrView();}});
+});
+
+/* ============================================================
+   [V3] VIDEO ACCORDION JS — one open at a time; second click on
+   the open panel collapses it; controls never trigger toggle.
+   Location: <script> → after gallery JS
+   ============================================================ */
 const panels=[...document.querySelectorAll('.acc-panel')];
 function activate(p){
   panels.forEach(x=>{
     const on=x===p;
     x.classList.toggle('active',on);
     x.setAttribute('aria-expanded',on);
-    if(!on){x.querySelector('video').pause();}
+    if(!on)x.querySelector('video').pause();
   });
-  p.querySelector('.panel-body').querySelector('.play-btn').focus({preventScroll:true});
 }
 panels.forEach(p=>{
   const v=p.querySelector('video'),playBtn=p.querySelector('.play-btn'),sndBtn=p.querySelector('.sound'),bar=p.querySelector('.progress i');
   p.addEventListener('click',e=>{
-    if(!p.classList.contains('active'))activate(p);
     if(e.target.closest('.play-btn,.sound,.progress'))return;
+    if(p.classList.contains('active')){p.classList.remove('active');p.setAttribute('aria-expanded','false');v.pause();}
+    else activate(p);
   });
-  p.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&!p.classList.contains('active')){e.preventDefault();activate(p);}});
+  p.addEventListener('keydown',e=>{
+    if((e.key==='Enter'||e.key===' ')&&!p.classList.contains('active')){e.preventDefault();activate(p);}
+  });
   playBtn.addEventListener('click',e=>{
     e.stopPropagation();
-    if(v.paused){panels.forEach(x=>{if(x!==p)x.querySelector('video').pause();});v.muted=false;sndBtn.textContent='🔊';v.play();playBtn.textContent='❚❚ Pause';}
-    else{v.pause();playBtn.textContent='▶ Play';}
+    if(v.paused){
+      panels.forEach(x=>{if(x!==p)x.querySelector('video').pause();});
+      v.play();playBtn.textContent='❚❚ Pause';
+    }else{v.pause();playBtn.textContent='▶ Play';}
   });
   sndBtn.addEventListener('click',e=>{e.stopPropagation();v.muted=!v.muted;sndBtn.textContent=v.muted?'🔇':'🔊';});
   v.addEventListener('timeupdate',()=>{if(v.duration)bar.style.width=(v.currentTime/v.duration*100)+'%';});
@@ -514,7 +576,9 @@ panels.forEach(p=>{
   v.addEventListener('pause',()=>{if(!v.ended)playBtn.textContent='▶ Play';});
 });
 
-/* ---------- Chatbot ---------- */
+/* ============================================================
+   [C2] CHATBOT JS — grounded answers, quick replies, disclaimer
+   ============================================================ */
 const fab=document.getElementById('chatFab'),win=document.getElementById('chatWindow'),
       body=document.getElementById('chatBody'),form=document.getElementById('chatForm'),
       input=document.getElementById('chatText');
@@ -534,7 +598,7 @@ const kb=[
  {k:['hello','hi','hey'],a:'Hello! I can help with our sharps containers, waste bins, turnover boxes, waste bags, specimen containers and consumables — including sizes, certifications and OEM options. What would you like to know?'},
 ];
 const chips=['Product sizes','Certifications','OEM / private label','Request pricing','Contact details'];
-function bubble(html,who){const d=document.createElement('div');d.className='msg '+who;d.innerHTML=html;body.appendChild(d);body.scrollTop=body.scrollHeight;return d;}
+function bubble(html,who){const d=document.createElement('div');d.className='msg '+who;d.innerHTML=html;body.appendChild(d);body.scrollTop=body.scrollHeight;}
 function showChips(){
   const c=document.createElement('div');c.className='chips';
   chips.forEach(t=>{const b=document.createElement('button');b.type='button';b.textContent=t;
@@ -559,6 +623,7 @@ function closeChat(){win.classList.remove('open');fab.setAttribute('aria-expande
 fab.addEventListener('click',()=>win.classList.contains('open')?closeChat():openChat());
 document.getElementById('chatClose').addEventListener('click',closeChat);
 form.addEventListener('submit',e=>{e.preventDefault();const v=input.value.trim();if(!v)return;input.value='';userSend(v);});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLightbox();if(win.classList.contains('open'))closeChat();}});
 </script>
 </body>
 </html>
