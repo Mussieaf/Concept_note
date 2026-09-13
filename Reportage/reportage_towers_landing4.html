@@ -2331,17 +2331,6 @@ body { font-family:var(--font-b); color:var(--text); background:var(--bg); line-
 </div>
 
 <!-- ==================== RT CHATBOT WIDGET START ==================== -->
-<style>
-#rtcw-launch{position:fixed;bottom:24px;left:24px;z-index:9998;width:60px;height:60px;border-radius:50%;
-  border:none;cursor:pointer;background:#111;color:#fff;font-size:26px;line-height:1;
-  box-shadow:0 6px 20px rgba(0,0,0,.35);transition:transform .2s ease;display:flex;align-items:center;justify-content:center;}
-#rtcw-launch:hover{transform:scale(1.08);}
-#rtcw-launch::before{content:"";position:absolute;inset:0;border-radius:50%;
-  box-shadow:0 0 0 0 rgba(17,17,17,.45);animation:rtcwPulse 2.4s infinite;}
-@keyframes rtcwPulse{0%{box-shadow:0 0 0 0 rgba(17,17,17,.45)}70%{box-shadow:0 0 0 16px rgba(17,17,17,0)}100%{box-shadow:0 0 0 0 rgba(17,17,17,0)}}
-#rtcw-panel{position:fixed;bottom:96px;left:24px;z-index:9999;width:360px;max-width:calc(100vw - 32px);
-  height:520px;max-height:calc(100vh - 130px);background:#fff;border-radius:16px;overflow:hidden;
-  box-shadow:0 12px 44px rgba(0,0,0,.30);display:flex;flex-direction:column;
   opacity:0;transform:translateY(14px) scale(.97);pointer-events:none;transition:opacity .22s ease,transform .22s ease;
   font-family:'Segoe UI',-apple-system,Roboto,Helvetica,Arial,sans-serif;font-size:14px;color:#1a1a1a;}
 #rtcw-panel.open{opacity:1;transform:none;pointer-events:auto;}
@@ -2377,6 +2366,23 @@ body { font-family:var(--font-b); color:var(--text); background:var(--bg); line-
   #rtcw-launch{left:16px;bottom:16px;}
 }
 </style>
+
+<button id="rtcw-launch" aria-label="Chat with us" title="Chat with us">&#128172;</button>
+<div id="rtcw-panel" role="dialog" aria-label="Reportage Towers assistant">
+  <div class="rtcw-head">
+    <div class="rtcw-avatar">R</div>
+    <div class="rtcw-titles"><b>Reportage Towers</b><span>Buyer assistant &middot; typically replies instantly</span></div>
+    <button class="rtcw-x" id="rtcw-close" aria-label="Close chat">&times;</button>
+  </div>
+  <div id="rtcw-body"></div>
+  <div id="rtcw-chips"></div>
+  <div id="rtcw-input">
+    <input id="rtcw-field" type="text" placeholder="Ask about prices, payment, handover..." autocomplete="off">
+    <button id="rtcw-send" aria-label="Send">&#10148;</button>
+  </div>
+</div>
+
+
 
 <button id="rtcw-launch" aria-label="Chat with us" title="Chat with us">&#128172;</button>
 <div id="rtcw-panel" role="dialog" aria-label="Reportage Towers assistant">
