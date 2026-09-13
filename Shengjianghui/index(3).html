@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shengjianghui — Medical Plastic Supplies</title>
+<meta name="description" content="Shengjianghui — professional manufacturer & exporter of medical plastic supplies: sharps containers, clinical waste bins, specimen containers and medical consumables.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   [T1] DESIGN TOKENS — typography & palette (Cormorant Garamond
+   + Inter, warm neutrals, gold accent) — <head> > <style> top
+   ============================================================ */
+:root{
+  --ink:#1A1A1A; --ink-soft:#5C5C5C; --line:rgba(0,0,0,0.08); --bg:#FAF9F6; --tint:#F5F3EE;
+  --accent:#C4A35A; --accent-dark:#A88B45;
+  --green:#0d6e5c; --green-dark:#0a5447;
+  --serif:"Cormorant Garamond",Georgia,serif;
+  --sans:"Inter","Segoe UI",Helvetica,Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font-family:var(--sans);font-weight:300;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip;overflow-wrap:break-word}
+img,video{max-width:100%;height:auto;display:block}
+.wrap{max-width:1180px;margin:0 auto}
+/* ============================================================
+   [M1] GLOBAL LEFT/RIGHT MARGINS — fluid clamp: 24px minimum on
+   phones → 64px maximum on wide screens. Applied to every
+   section via .wrap (header, hero, collection, range, films,
+   contact, footer). Location: <style> → .wrap rule
+   ============================================================ */
+.wrap{padding-left:clamp(24px,5vw,64px);padding-right:clamp(24px,5vw,64px)}
+.kicker{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--accent-dark);font-weight:600;display:flex;align-items:center;gap:14px}
+.kicker::before{content:'';width:36px;height:1px;background:var(--accent);flex:none}
+h1,h2,h3{font-family:var(--serif);font-weight:300;line-height:1.12;color:var(--ink)}
+h1 em,h2 em,h3 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* ---------- Header ---------- */
+header{position:sticky;top:0;z-index:60;background:rgba(250,249,246,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{font-family:var(--serif);font-size:20px;font-weight:500;letter-spacing:.02em;text-decoration:none}
+.brand small{display:block;font-family:var(--sans);font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+.nav-links{display:flex;gap:34px;list-style:none}
+.nav-links a{text-decoration:none;font-size:13.5px;letter-spacing:.04em;color:var(--ink-soft);transition:color .2s}
+.nav-links a:hover{color:var(--accent-dark)}
+.nav-cta{background:var(--ink);color:#fff;text-decoration:none;font-size:13px;letter-spacing:.06em;padding:11px 22px;border-radius:999px;transition:all .2s}
+.nav-cta:hover{background:var(--accent);color:var(--ink)}
+@media(max-width:860px){.nav-links{display:none}}
+
+/* ---------- Hero ---------- */
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding-top:84px;padding-bottom:72px}
+.hero h1{font-size:clamp(2.6rem,4.6vw,3.9rem);letter-spacing:-.5px;margin:18px 0 22px}
+.hero p.lede{font-size:17px;color:var(--ink-soft);max-width:52ch;margin-bottom:34px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-size:14px;letter-spacing:.04em;padding:14px 28px;border-radius:999px;transition:all .2s;border:1px solid transparent}
+.btn-primary{background:var(--ink);color:#fff}
+.btn-primary:hover{background:var(--accent);color:var(--ink)}
+.btn-ghost{border-color:var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--ink)}
+.hero-figure{position:relative;min-width:0}
+.hero-figure img{width:100%;height:auto;border-radius:18px;border:1px solid var(--line);box-shadow:0 30px 60px -30px rgba(20,36,47,.25)}
+.badge-iso{position:absolute;left:-14px;bottom:26px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px;box-shadow:0 16px 40px -18px rgba(20,36,47,.3)}
+.badge-iso strong{display:block;font-size:13px;letter-spacing:.06em}
+.badge-iso span{font-size:11.5px;color:var(--ink-soft)}
+.hero-stats{display:flex;gap:40px;margin-top:44px;padding-top:30px;border-top:1px solid var(--line)}
+.hero-stats div strong{font-family:var(--serif);font-weight:300;font-size:28px;display:block}
+.hero-stats div span{font-size:12.5px;color:var(--ink-soft);letter-spacing:.04em}
+@media(max-width:920px){.hero{grid-template-columns:1fr;padding-top:56px;padding-bottom:56px;gap:40px}}
+
+/* ---------- Strip ---------- */
+.strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--tint)}
+.strip .wrap{display:flex;justify-content:space-between;gap:12px 20px;padding-top:16px;padding-bottom:16px;flex-wrap:wrap}
+.strip span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.strip b{color:var(--accent-dark)}
+
+section{padding-top:88px;padding-bottom:88px}
+.sec-head{max-width:640px;margin-bottom:52px}
+.sec-head h2{font-size:clamp(30px,3.4vw,44px);margin:16px 0 14px}
+.sec-head p{color:var(--ink-soft);font-size:16px}
+.eyebrow-rule{width:42px;height:2px;background:var(--accent);margin:14px 0 0}
+
+/* ============================================================
+   [G1] GALLERY IMAGE ACCORDION — CSS. Horizontal stack, one
+   panel open at a time, smooth flex/height transitions.
+   Location: <style> → after section rules
+   ============================================================ */
+.gallery-acc{display:flex;gap:12px;height:540px}
+.g-acc-panel{position:relative;flex:1;min-width:0;margin:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);cursor:pointer;background:#101c24;transition:flex .65s cubic-bezier(.25,.8,.25,1)}
+.g-acc-panel.active{flex:4.4;cursor:zoom-in}
+.g-acc-panel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.4;transition:opacity .5s,transform .8s cubic-bezier(.2,.7,.2,1)}
+.g-acc-panel.active img{opacity:1}
+.g-acc-panel:not(.active) img{transform:scale(1.06)}
+.g-acc-panel .g-tab{position:absolute;top:18px;left:50%;transform:translateX(-50%) rotate(180deg);writing-mode:vertical-rl;color:#fff;font-size:12px;letter-spacing:.2em;text-transform:uppercase;white-space:nowrap;background:rgba(15,25,32,.55);padding:8px 6px;border-radius:8px;pointer-events:none;transition:opacity .3s}
+.g-acc-panel.active .g-tab{opacity:0}
+.g-acc-panel figcaption{position:absolute;left:0;right:0;bottom:0;padding:30px 22px 18px;background:linear-gradient(transparent,rgba(8,15,20,.88));color:#fff;font-size:13px;letter-spacing:.03em;opacity:0;transform:translateY(14px);transition:opacity .45s .12s,transform .45s .12s;pointer-events:none}
+.g-acc-panel.active figcaption{opacity:1;transform:none}
+/* Tablet/mobile: vertical accordion */
+@media(max-width:820px){
+  .gallery-acc{flex-direction:column;height:auto;gap:10px}
+  .g-acc-panel{height:72px;flex:none;transition:height .55s cubic-bezier(.25,.8,.25,1)}
+  .g-acc-panel.active{height:380px}
+  .g-acc-panel .g-tab{top:50%;left:16px;transform:translateY(-50%);writing-mode:horizontal-tb;rotate:0deg}
+}
+
+/* ---------- Lightbox ---------- */
+.lightbox{position:fixed;inset:0;z-index:100;background:rgba(12,20,26,.9);display:none;align-items:center;justify-content:center;padding:32px}
+.lightbox.open{display:flex}
+.lightbox figure{max-width:min(920px,94vw);max-height:88vh;display:flex;flex-direction:column;gap:12px;margin:0}
+.lightbox img{max-width:100%;max-height:78vh;object-fit:contain;border-radius:12px}
+.lightbox figcaption{color:#cfd8dd;font-size:14px;text-align:center}
+.lightbox .lb-close{position:absolute;top:22px;right:26px;background:none;border:1px solid rgba(255,255,255,.4);color:#fff;width:44px;height:44px;border-radius:50%;font-size:18px;cursor:pointer}
+.lightbox .lb-close:hover{background:rgba(255,255,255,.12)}
+@media(max-width:480px){.lightbox{padding:16px}}
+
+/* ---------- Product range ---------- */
+.range{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.card{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;transition:box-shadow .3s,transform .3s}
+.card:hover{box-shadow:0 22px 44px -22px rgba(20,36,47,.22);transform:translateY(-4px)}
+.card img{width:100%;height:210px;object-fit:cover;object-position:top;border-bottom:1px solid var(--line)}
+.card .body{padding:22px}
+.card h3{font-size:19px;margin-bottom:8px}
+.card p{font-size:13.5px;color:var(--ink-soft)}
+.card .tag{display:inline-block;margin-top:14px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-dark);border:1px solid var(--accent);border-radius:999px;padding:4px 12px}
+@media(max-width:980px){.range{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.range{grid-template-columns:1fr;gap:16px}}
+
+/* ============================================================
+   [V1] VIDEO ACCORDION — CSS. All videos visible as stacked
+   panels; one expands at a time; second click collapses.
+   Location: <style> → after .range rules
+   ============================================================ */
+.videos{background:var(--tint);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.accordion{display:flex;gap:12px;height:480px}
+.acc-panel{position:relative;flex:1;min-width:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);cursor:pointer;transition:flex .65s cubic-bezier(.25,.8,.25,1);background:#0e1a22}
+.acc-panel.active{flex:4.4;cursor:default}
+.acc-panel video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55;transition:opacity .5s}
+.acc-panel.active video{opacity:1}
+.acc-panel .panel-tab{position:absolute;top:18px;left:50%;transform:translateX(-50%) rotate(180deg);writing-mode:vertical-rl;color:#fff;font-size:13px;letter-spacing:.22em;text-transform:uppercase;white-space:nowrap;opacity:.95;transition:opacity .3s;pointer-events:none}
+.acc-panel.active .panel-tab{opacity:0}
+.acc-panel .panel-body{position:absolute;left:0;right:0;bottom:0;padding:28px;background:linear-gradient(transparent,rgba(8,15,20,.88));color:#fff;opacity:0;transform:translateY(14px);transition:opacity .45s .15s,transform .45s .15s;pointer-events:none}
+.acc-panel.active .panel-body{opacity:1;transform:none;pointer-events:auto}
+.panel-body h3{font-size:24px;color:#fff;margin-bottom:6px}
+.panel-body p{font-size:13.5px;color:#d5dee3;max-width:52ch;margin-bottom:14px}
+.panel-controls{display:flex;gap:10px;align-items:center}
+.play-btn{background:#fff;color:var(--ink);border:none;border-radius:999px;padding:9px 20px;font-size:13px;letter-spacing:.05em;cursor:pointer;font-family:var(--sans)}
+.play-btn:hover{background:var(--accent);color:var(--ink)}
+.progress{flex:1;height:3px;background:rgba(255,255,255,.28);border-radius:99px;overflow:hidden;min-width:40px}
+.progress i{display:block;height:100%;width:0;background:var(--accent)}
+.acc-hint{margin-top:18px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+/* Tablet/mobile: vertical accordion */
+@media(max-width:820px){
+  .accordion{flex-direction:column;height:auto;gap:10px}
+  .acc-panel{height:74px;flex:none;transition:height .55s cubic-bezier(.25,.8,.25,1)}
+  .acc-panel.active{height:380px}
+  .acc-panel .panel-tab{top:50%;left:20px;transform:translateY(-50%);writing-mode:horizontal-tb}
+}
+
+/* ---------- Trust / contact ---------- */
+.trust{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start}
+.trust-list{list-style:none;margin-top:26px}
+.trust-list li{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.trust-list li:last-child{border-bottom:none}
+.trust-list .dot{flex:none;width:38px;height:38px;border-radius:50%;background:var(--tint);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--accent-dark);font-weight:600;font-size:14px}
+.trust-list strong{display:block;font-size:15px;font-weight:500}
+.trust-list span{font-size:13.5px;color:var(--ink-soft)}
+.contact-card{background:var(--ink);color:#eaf1f3;border-radius:20px;padding:38px;position:sticky;top:96px}
+.contact-card h3{font-size:26px;color:#fff;margin-bottom:8px}
+.contact-card p{font-size:14px;color:#b9c8ce;margin-bottom:24px}
+.c-row{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:14px}
+.c-row span{color:#8fa3ab;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding-top:2px}
+.c-row a{color:#fff;text-decoration:none;text-align:right;word-break:break-all}
+.c-row a:hover{color:var(--accent)}
+.contact-card .btn-primary{margin-top:26px;width:100%;justify-content:center}
+@media(max-width:920px){.trust{grid-template-columns:1fr}.contact-card{position:static}}
+
+footer{border-top:1px solid var(--line);padding:34px 0;font-size:12.5px;color:var(--ink-soft)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* ---------- Chatbot (WhatsApp-inspired, original design) ---------- */
+.chat-fab{position:fixed;right:24px;bottom:24px;z-index:90;width:60px;height:60px;border-radius:50%;background:var(--green);border:none;cursor:pointer;box-shadow:0 14px 34px -10px rgba(13,110,92,.55);display:flex;align-items:center;justify-content:center;transition:transform .2s}
+.chat-fab:hover{transform:scale(1.06)}
+.chat-fab svg{width:28px;height:28px;fill:#fff}
+.chat-fab .ping{position:absolute;top:2px;right:2px;width:13px;height:13px;background:#e5484d;border-radius:50%;border:2px solid #fff}
+.chat-window{font-family:var(--sans);position:fixed;right:24px;bottom:96px;z-index:90;width:min(380px,calc(100vw - 32px));height:min(560px,calc(100vh - 140px));height:min(560px,calc(100dvh - 140px));background:#fff;border-radius:18px;box-shadow:0 34px 80px -22px rgba(10,25,20,.4);display:none;flex-direction:column;overflow:hidden;border:1px solid var(--line)}
+.chat-window.open{display:flex;animation:pop .28s cubic-bezier(.2,.9,.3,1.2)}
+@keyframes pop{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}
+.chat-head{background:var(--green);color:#fff;padding:16px 18px;display:flex;align-items:center;gap:12px}
+.chat-head .avatar{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:500;font-size:16px}
+.chat-head strong{font-size:15px;display:block;line-height:1.25;font-weight:500}
+.chat-head span{font-size:11.5px;opacity:.85;display:flex;align-items:center;gap:6px}
+.chat-head span::before{content:"";width:7px;height:7px;border-radius:50%;background:#7dffb0}
+.chat-close{margin-left:auto;background:none;border:none;color:#fff;font-size:20px;cursor:pointer;opacity:.85}
+.chat-body{flex:1;overflow-y:auto;padding:18px;background:#f0f4f1;display:flex;flex-direction:column;gap:10px}
+.msg{max-width:82%;padding:11px 14px;border-radius:14px;font-size:13.5px;line-height:1.5;animation:pop .22s ease}
+.msg.bot{background:#fff;border:1px solid var(--line);border-bottom-left-radius:4px;align-self:flex-start}
+.msg.user{background:#dcf3e8;border-bottom-right-radius:4px;align-self:flex-end}
+.msg.bot a{color:var(--green);font-weight:500}
+.chips{display:flex;flex-wrap:wrap;gap:8px;align-self:flex-start}
+.chips button{border:1px solid var(--green);color:var(--green);background:#fff;border-radius:999px;padding:7px 13px;font-size:12.5px;cursor:pointer;font-family:var(--sans);transition:all .2s}
+.chips button:hover{background:var(--green);color:#fff}
+.chat-input{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line);background:#fff}
+.chat-input input{flex:1;min-width:0;border:1px solid var(--line);border-radius:999px;padding:11px 16px;font-size:13.5px;font-family:var(--sans);outline:none}
+.chat-input input:focus{border-color:var(--green)}
+.chat-input button{flex:none;width:44px;height:44px;border-radius:50%;border:none;background:var(--green);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.chat-input button svg{width:18px;height:18px;fill:#fff}
+.chat-disclaimer{font-size:10.5px;color:var(--ink-soft);padding:8px 14px;background:#fff;border-top:1px solid var(--line);text-align:center}
+.typing{display:inline-flex;gap:4px;padding:12px 14px;background:#fff;border:1px solid var(--line);border-radius:14px;border-bottom-left-radius:4px;align-self:flex-start}
+.typing i{width:6px;height:6px;border-radius:50%;background:#9db3a9;animation:blink 1.1s infinite}
+.typing i:nth-child(2){animation-delay:.18s}.typing i:nth-child(3){animation-delay:.36s}
+@keyframes blink{0%,80%,100%{opacity:.25}40%{opacity:1}}
+
+/* ============================================================
+   [R1] SMALL-SCREEN LAYER (≤480px & ≤360px) — tighter margins,
+   compact accordions, smaller chat affordances
+   ============================================================ */
+@media(max-width:480px){
+  section{padding-top:60px;padding-bottom:60px}
+  .hero{padding-top:44px;padding-bottom:40px}
+  .hero-stats{gap:18px;flex-wrap:wrap}
+  .hero-stats div strong{font-size:22px}
+  .badge-iso{left:8px;bottom:14px;padding:10px 14px}
+  .g-acc-panel{height:64px}
+  .g-acc-panel.active{height:300px}
+  .acc-panel{height:64px}
+  .acc-panel.active{height:320px}
+  .panel-body h3{font-size:19px}
+  .contact-card{padding:26px 20px}
+  .chat-fab{right:16px;bottom:16px;width:54px;height:54px}
+  .chat-window{right:16px;bottom:80px}
+  .brand{font-size:17px}
+  .nav-cta{padding:9px 14px;font-size:12px}
+}
+@media(max-width:360px){
+  .hero-stats{gap:14px}
+  .hero-actions .btn{padding:12px 20px;font-size:13px}
+  .g-acc-panel.active{height:240px}
+  .acc-panel.active{height:280px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">Shengjianghui<small>Medical Plastic Supplies</small></a>
+    <ul class="nav-links">
+      <li><a href="#collection">Collection</a></li>
+      <li><a href="#range">Product Range</a></li>
+      <li><a href="#films">Films</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="#contact">Request Catalog</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ==================== HERO ==================== -->
+<!-- [H1] HERO — inherits [M1] margins via .wrap; image fluid via width:100%/height:auto -->
+<section class="hero wrap">
+  <div>
+    <span class="kicker">Professional Manufacturer &amp; Exporter</span>
+    <h1>Medical plastic supplies,<br>engineered for a <em>safer world</em>.</h1>
+    <p class="lede">One-stop solution for hospitals, clinics, laboratories and healthcare facilities worldwide — sharps containers, clinical waste bins, specimen containers and a complete range of sterile medical consumables.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#collection">Explore the Collection</a>
+      <a class="btn btn-ghost" href="#contact">Get a Quote</a>
+    </div>
+    <div class="hero-stats">
+      <div><strong>ISO / CE</strong><span>Certified quality</span></div>
+      <div><strong>0.5L – 240L</strong><span>Capacity range</span></div>
+      <div><strong>OEM / ODM</strong><span>Private label</span></div>
+    </div>
+  </div>
+  <div class="hero-figure">
+    <img src="assets/hero.jpg" alt="Shengjianghui complete range of medical plastic products" width="1280" height="853">
+    <div class="badge-iso"><strong>SAFE · HYGIENIC · RELIABLE</strong><span>Compliant with international quality standards</span></div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap">
+    <span><b>Sharps Containers</b></span>
+    <span><b>Medical Waste Bins</b></span>
+    <span><b>Waste Bags</b></span>
+    <span><b>Specimen Containers</b></span>
+    <span><b>IV Accessories</b></span>
+    <span><b>Trays &amp; Boxes</b></span>
+  </div>
+</div>
+
+<!-- ==================== GALLERY ==================== -->
+<!-- [G2] GALLERY ACCORDION MARKUP — <main> > <section id="collection">.
+     Behaviour ([G3] JS): click a closed panel to expand it (others close);
+     click the open panel to zoom it in the lightbox. -->
+<section id="collection" class="wrap">
+  <div class="sec-head">
+    <span class="kicker">The Collection</span>
+    <h2>An editorial look at the range</h2>
+    <p>Sterile. Safe. Reliable. Every product photographed as supplied — select a panel to explore, click the open panel to view it in full.</p>
+    <div class="eyebrow-rule"></div>
+  </div>
+  <div class="gallery-acc" id="galleryAcc" role="group" aria-label="Product image gallery accordion">
+    <figure class="g-acc-panel active" tabindex="0" role="button" aria-expanded="true" aria-label="Expand image: Medical Plastic Consumables">
+      <img src="assets/consumables-1.jpg" alt="Medical plastic consumables: specimen tubes, racks, sharps containers and protective eyewear" loading="lazy">
+      <span class="g-tab">01 · Consumables</span>
+      <figcaption>Medical plastic consumables — specimen tubes, racks, sharps containers and protective eyewear</figcaption>
+    </figure>
+    <figure class="g-acc-panel" tabindex="0" role="button" aria-expanded="false" aria-label="Expand image: Complete Medical Waste Range">
+      <img src="assets/poster-range.jpg" alt="Complete medical waste product range: sharps containers, turnover boxes, waste bags and facility bins" loading="lazy">
+      <span class="g-tab">02 · Full Range</span>
+      <figcaption>A complete medical waste product range — sharps containers, clinical waste boxes, waste bags and facility bins</figcaption>
+    </figure>
+    <figure class="g-acc-panel" tabindex="0" role="button" aria-expanded="false" aria-label="Expand image: Pedal and Wheeled Bins">
+      <img src="assets/poster-bins.jpg" alt="Pedal and wheeled waste bins in yellow, red, blue and green with medical waste symbols" loading="lazy">
+      <span class="g-tab">03 · Facility Bins</span>
+      <figcaption>Pedal and wheeled waste bins — 15L to 240L, color-coded for waste management</figcaption>
+    </figure>
+    <figure class="g-acc-panel" tabindex="0" role="button" aria-expanded="false" aria-label="Expand image: Round Sharps Containers">
+      <img src="assets/poster-sharps.jpg" alt="Round yellow sharps containers in sizes 0.5L to 18L with red lids and biohazard markings" loading="lazy">
+      <span class="g-tab">04 · Sharps</span>
+      <figcaption>Round sharps containers — 0.5L to 18L; virgin PP, puncture- and leakage-resistant</figcaption>
+    </figure>
+    <figure class="g-acc-panel" tabindex="0" role="button" aria-expanded="false" aria-label="Expand image: Clinical Turnover Boxes">
+      <img src="assets/poster-turnover.jpg" alt="Yellow clinical waste turnover boxes from 20L to 120L with medical waste bags and warning accessories" loading="lazy">
+      <span class="g-tab">05 · Turnover</span>
+      <figcaption>Reusable clinical turnover boxes — 20L to 120L — with medical waste bags, warning labels, hang tags and cable ties</figcaption>
+    </figure>
+    <figure class="g-acc-panel" tabindex="0" role="button" aria-expanded="false" aria-label="Expand image: OEM and Private Label">
+      <img src="assets/poster-oem.jpg" alt="Private label and OEM manufacturing program poster with ISO certification badges and product lineup" loading="lazy">
+      <span class="g-tab">06 · OEM &amp; Label</span>
+      <figcaption>Built for private-label distribution — ISO 13485, ISO 9001, ISO 45001 and ISO 14001 quality systems</figcaption>
+    </figure>
+    <figure class="g-acc-panel" tabindex="0" role="button" aria-expanded="false" aria-label="Expand image: Sterile Consumables">
+      <img src="assets/consumables-2.jpg" alt="Medical plastic consumables: specimen tubes in racks, sharps containers, measuring cup and tweezers" loading="lazy">
+      <span class="g-tab">07 · Sterile</span>
+      <figcaption>Sterile consumables — specimen tubes, measuring cups, trays and precision tools</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- [LB1] LIGHTBOX MARKUP — zoomed view of the open gallery panel -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lb-close" id="lbClose" aria-label="Close image viewer">✕</button>
+  <figure>
+    <img id="lbImg" src="" alt="">
+    <figcaption id="lbCap"></figcaption>
+  </figure>
+</div>
+
+<!-- ==================== PRODUCT RANGE ==================== -->
+<section id="range" class="wrap">
+  <div class="sec-head">
+    <span class="kicker">Product Range</span>
+    <h2>Four families, one supply program</h2>
+    <p>Details below are taken directly from the manufacturer’s published materials.</p>
+    <div class="eyebrow-rule"></div>
+  </div>
+  <div class="range">
+    <article class="card">
+      <img src="assets/poster-sharps.jpg" alt="Sharps containers family" loading="lazy">
+      <div class="body">
+        <h3>Sharps Containers</h3>
+        <p>Round and square formats from 0.5L to 30L. Puncture-resistant, leak-proof, permanent-locking design in virgin PP. Compliant with international standards; custom logo and color available.</p>
+        <span class="tag">0.5L – 30L</span>
+      </div>
+    </article>
+    <article class="card">
+      <img src="assets/poster-turnover.jpg" alt="Clinical waste boxes family" loading="lazy">
+      <div class="body">
+        <h3>Clinical Waste Boxes</h3>
+        <p>Reusable turnover boxes in 20L–120L with leakage-resistant structure, visible identification and warning markings. Matching consumables: waste bags, warning labels, hang tags, cable ties.</p>
+        <span class="tag">20L – 120L</span>
+      </div>
+    </article>
+    <article class="card">
+      <img src="assets/poster-bins.jpg" alt="Facility waste bins family" loading="lazy">
+      <div class="body">
+        <h3>Facility Waste Bins</h3>
+        <p>Pedal and wheeled bins from 15L to 240L, color-coded for waste management. Heavy-duty construction, hygienic hands-free operation, multiple sizes and colors.</p>
+        <span class="tag">15L – 240L</span>
+      </div>
+    </article>
+    <article class="card">
+      <img src="assets/hero.jpg" alt="Specimen containers and consumables family" loading="lazy">
+      <div class="body">
+        <h3>Consumables &amp; More</h3>
+        <p>Specimen containers (urine cups, stool cups, sample tubes), medical waste bags, instrument trays, disinfection bottles and IV accessories — sterile and non-sterile options.</p>
+        <span class="tag">One-Stop Supply</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ==================== VIDEO ACCORDION ==================== -->
+<!-- [V2] VIDEO ACCORDION MARKUP — <main> > <section id="films">.
+     Behaviour ([V3] JS): all 3 videos always visible as stacked panels;
+     one expands at a time; clicking the open panel collapses it. -->
+<section class="videos" id="films">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Product Films</span>
+      <h2>See the range in motion</h2>
+      <p>Select a panel to expand it, press play to watch. Click an open panel to collapse it. Videos are muted by default.</p>
+      <div class="eyebrow-rule"></div>
+    </div>
+
+    <div class="accordion" id="accordion">
+      <div class="acc-panel active" data-title="Medical Supplies" tabindex="0" role="button" aria-expanded="true" aria-label="Expand video: Medical Supplies">
+        <video src="assets/video-supplies.mp4" preload="metadata" muted playsinline poster="assets/consumables-1.jpg"></video>
+        <span class="panel-tab">01 · Medical Supplies</span>
+        <div class="panel-body">
+          <h3>Medical Supplies</h3>
+          <p>Sharps containers, specimen tubes and biohazard disposal essentials — arranged in a clinical environment.</p>
+          <div class="panel-controls">
+            <button class="play-btn" type="button">▶ Play</button>
+            <div class="progress"><i></i></div>
+            <button class="play-btn sound" type="button" aria-label="Toggle sound">🔇</button>
+          </div>
+        </div>
+      </div>
+      <div class="acc-panel" data-title="Waste Management" tabindex="0" role="button" aria-expanded="false" aria-label="Expand video: Medical Waste Management">
+        <video src="assets/video-waste.mp4" preload="metadata" muted playsinline poster="assets/poster-range.jpg"></video>
+        <span class="panel-tab">02 · Waste Management</span>
+        <div class="panel-body">
+          <h3>Medical Waste Management</h3>
+          <p>The full waste-management lineup — sharps containers, clinical waste bins, facility bins and specimen bags.</p>
+          <div class="panel-controls">
+            <button class="play-btn" type="button">▶ Play</button>
+            <div class="progress"><i></i></div>
+            <button class="play-btn sound" type="button" aria-label="Toggle sound">🔇</button>
+          </div>
+        </div>
+      </div>
+      <div class="acc-panel" data-title="Plastic Consumables" tabindex="0" role="button" aria-expanded="false" aria-label="Expand video: Medical Plastic Consumables">
+        <video src="assets/video-consumables.mp4" preload="metadata" muted playsinline poster="assets/consumables-2.jpg"></video>
+        <span class="panel-tab">03 · Plastic Consumables</span>
+        <div class="panel-body">
+          <h3>Medical Plastic Consumables</h3>
+          <p>Clean, safe, reliable — precision-made laboratory and clinical consumables for everyday care.</p>
+          <div class="panel-controls">
+            <button class="play-btn" type="button">▶ Play</button>
+            <div class="progress"><i></i></div>
+            <button class="play-btn sound" type="button" aria-label="Toggle sound">🔇</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="acc-hint" aria-hidden="true">Click a panel to expand · Click the open panel to collapse · Keyboard: Tab + Enter</p>
+  </div>
+</section>
+
+<!-- ==================== TRUST + CONTACT ==================== -->
+<section class="wrap" id="contact">
+  <div class="trust">
+    <div>
+      <span class="kicker">Why Buyers Choose Us</span>
+      <h2 style="font-size:clamp(30px,3.4vw,44px);margin:16px 0 10px">A coordinated supply program</h2>
+      <p style="color:var(--ink-soft);font-size:16px">Built for distributors, healthcare suppliers, public-health projects and clinical waste management programs.</p>
+      <ul class="trust-list">
+        <li><span class="dot">01</span><div><strong>Broad product range</strong><span>One-stop solutions covering sharps disposal, waste collection, sampling and laboratory consumables.</span></div></li>
+        <li><span class="dot">02</span><div><strong>OEM &amp; private label</strong><span>Your brand, our manufacturing expertise — custom color, logo and packaging.</span></div></li>
+        <li><span class="dot">03</span><div><strong>Certified quality systems</strong><span>ISO 13485, ISO 9001, ISO 45001 and ISO 14001 manufacturing partner quality systems.</span></div></li>
+        <li><span class="dot">04</span><div><strong>Stable export supply</strong><span>On-time delivery, global shipping and professional support with quick response.</span></div></li>
+      </ul>
+    </div>
+    <aside class="contact-card">
+      <h3>Request Catalog &amp; Price</h3>
+      <p>Speak directly with our export team. Typical response within one business day.</p>
+      <div class="c-row"><span>Contact</span><a href="mailto:Jessica@shengjianghui.cn">Jessica Zhang</a></div>
+      <div class="c-row"><span>Email</span><a href="mailto:Jessica@shengjianghui.cn">Jessica@shengjianghui.cn</a></div>
+      <div class="c-row"><span>WhatsApp</span><a href="https://wa.me/8615006892975" rel="noopener">+86 150 0689 2975</a></div>
+      <div class="c-row"><span>Mobile / WeChat</span><a href="tel:+8613506334057">+86 135 0633 4057</a></div>
+      <div class="c-row"><span>Web</span><a href="https://www.shengjianghui.cn" rel="noopener">www.shengjianghui.cn</a></div>
+      <a class="btn btn-primary" href="mailto:Jessica@shengjianghui.cn?subject=Catalog%20%26%20Price%20Request">Start an Inquiry</a>
+    </aside>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Shengjianghui · Global Supply, Healthy Tomorrow</span>
+    <span>Medical plastic products for a safer world.</span>
+  </div>
+</footer>
+
+<!-- ==================== CHATBOT ==================== -->
+<!-- [C1] CHATBOT MARKUP — floating assistant, WhatsApp-inspired palette -->
+<button class="chat-fab" id="chatFab" aria-label="Open product assistant chat" aria-expanded="false">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4 0-.5.1-.7l.4-.5c.1-.1.2-.3.3-.4.1-.1 0-.3 0-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.8.8-.8 2s.8 2.3 1 2.5c.1.1 1.7 2.6 4.1 3.6 2.4 1 2.4.7 2.8.6.4 0 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.2-.5-.3z"/></svg>
+  <span class="ping" aria-hidden="true"></span>
+</button>
+
+<div class="chat-window" id="chatWindow" role="dialog" aria-label="Product assistant">
+  <div class="chat-head">
+    <div class="avatar">SJ</div>
+    <div><strong>Shengjianghui Assistant</strong><span>Online · replies instantly</span></div>
+    <button class="chat-close" id="chatClose" aria-label="Close chat">✕</button>
+  </div>
+  <div class="chat-body" id="chatBody"></div>
+  <form class="chat-input" id="chatForm">
+    <input id="chatText" type="text" placeholder="Ask about products, sizes, OEM…" aria-label="Type your message" autocomplete="off">
+    <button type="submit" aria-label="Send message"><svg viewBox="0 0 24 24"><path d="M2.7 21.3 23 12 2.7 2.7 2.6 10l14 2-14 2z"/></svg></button>
+  </form>
+  <div class="chat-disclaimer">Product information assistant only — does not replace professional medical advice.</div>
+</div>
+
+<script>
+/* ============================================================
+   [LB2] LIGHTBOX + [G3] GALLERY ACCORDION JS
+   Location: <body> end > <script> top
+   ============================================================ */
+const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg'),lbCap=document.getElementById('lbCap');
+function openLightbox(src,alt,cap){lbImg.src=src;lbImg.alt=alt;lbCap.textContent=cap||'';lb.classList.add('open');document.getElementById('lbClose').focus();}
+function closeLightbox(){lb.classList.remove('open');lbImg.src='';}
+document.getElementById('lbClose').addEventListener('click',closeLightbox);
+lb.addEventListener('click',e=>{if(e.target===lb)closeLightbox();});
+
+/* [G3] Gallery accordion: click closed panel → expand (one at a time);
+   click open panel → lightbox zoom. Keyboard: Enter/Space. */
+const gPanels=[...document.querySelectorAll('.g-acc-panel')];
+gPanels.forEach(p=>{
+  const img=p.querySelector('img'),cap=p.querySelector('figcaption').textContent;
+  const actOrView=()=>{
+    if(!p.classList.contains('active')){
+      gPanels.forEach(x=>{const on=x===p;x.classList.toggle('active',on);x.setAttribute('aria-expanded',on);});
+    }else{
+      openLightbox(img.src,img.alt,cap);
+    }
+  };
+  p.addEventListener('click',e=>{if(e.target.closest('figcaption'))return;actOrView();});
+  p.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();actOrView();}});
+});
+
+/* ============================================================
+   [V3] VIDEO ACCORDION JS — one open at a time; second click on
+   the open panel collapses it; controls never trigger toggle.
+   Location: <script> → after gallery JS
+   ============================================================ */
+const panels=[...document.querySelectorAll('.acc-panel')];
+function activate(p){
+  panels.forEach(x=>{
+    const on=x===p;
+    x.classList.toggle('active',on);
+    x.setAttribute('aria-expanded',on);
+    if(!on)x.querySelector('video').pause();
+  });
+}
+panels.forEach(p=>{
+  const v=p.querySelector('video'),playBtn=p.querySelector('.play-btn'),sndBtn=p.querySelector('.sound'),bar=p.querySelector('.progress i');
+  p.addEventListener('click',e=>{
+    if(e.target.closest('.play-btn,.sound,.progress'))return;
+    if(p.classList.contains('active')){p.classList.remove('active');p.setAttribute('aria-expanded','false');v.pause();}
+    else activate(p);
+  });
+  p.addEventListener('keydown',e=>{
+    if((e.key==='Enter'||e.key===' ')&&!p.classList.contains('active')){e.preventDefault();activate(p);}
+  });
+  playBtn.addEventListener('click',e=>{
+    e.stopPropagation();
+    if(v.paused){
+      panels.forEach(x=>{if(x!==p)x.querySelector('video').pause();});
+      v.play();playBtn.textContent='❚❚ Pause';
+    }else{v.pause();playBtn.textContent='▶ Play';}
+  });
+  sndBtn.addEventListener('click',e=>{e.stopPropagation();v.muted=!v.muted;sndBtn.textContent=v.muted?'🔇':'🔊';});
+  v.addEventListener('timeupdate',()=>{if(v.duration)bar.style.width=(v.currentTime/v.duration*100)+'%';});
+  v.addEventListener('ended',()=>{playBtn.textContent='▶ Replay';bar.style.width='0';});
+  v.addEventListener('play',()=>playBtn.textContent='❚❚ Pause');
+  v.addEventListener('pause',()=>{if(!v.ended)playBtn.textContent='▶ Play';});
+});
+
+/* ============================================================
+   [C2] CHATBOT JS — grounded answers, quick replies, disclaimer
+   ============================================================ */
+const fab=document.getElementById('chatFab'),win=document.getElementById('chatWindow'),
+      body=document.getElementById('chatBody'),form=document.getElementById('chatForm'),
+      input=document.getElementById('chatText');
+let greeted=false;
+const kb=[
+ {k:['sharps','needle','syringe'],a:'Our <b>sharps containers</b> come in round and square formats from <b>0.5L to 30L</b>. They are puncture-resistant, leak-proof, made of virgin PP with permanent-locking design, and comply with international standards. Custom logo and color are available.'},
+ {k:['bin','wheeled','pedal','240'],a:'We supply <b>pedal and wheeled facility waste bins</b> from <b>15L to 240L</b>, color-coded for waste management (yellow clinical/medical, red hazardous, blue recyclable, green food, grey general). Heavy-duty construction with hygienic hands-free pedal operation.'},
+ {k:['turnover','box','reusable'],a:'Our <b>reusable clinical turnover boxes</b> range from <b>20L to 120L</b> with leakage-resistant structure and visible warning markings. Supporting consumables include medical waste bags, warning labels, hang tags and cable ties.'},
+ {k:['bag','liner'],a:'We produce <b>medical waste bags</b> in various sizes and thicknesses — strong, leak-proof and reliable, with biohazard printing available and high tensile strength.'},
+ {k:['specimen','urine','stool','sample','tube'],a:'Our <b>specimen containers</b> include urine cups, stool cups and sample tubes, in sterile and non-sterile options, with clear graduation and leak-proof design.'},
+ {k:['consumable','tray','iv','disinfection'],a:'Beyond waste management we supply <b>instrument trays, storage boxes, kidney dishes, disinfection bottles, hand-sanitizer bottles and IV accessories</b> (caps, clamps, connectors) — a true one-stop program.'},
+ {k:['iso','ce','certif','quality'],a:'Our manufacturing partner quality systems include <b>ISO 13485</b> (medical devices), <b>ISO 9001</b> (quality management), <b>ISO 45001</b> (occupational health &amp; safety) and <b>ISO 14001</b> (environmental management). Products comply with international standards.'},
+ {k:['oem','private','label','custom','brand','logo'],a:'Yes — we run a focused <b>OEM / private-label export program</b>: share your target models → we match products and documents → confirm samples and quotation → proceed with production. Custom color, logo and packaging supported.'},
+ {k:['price','quote','cost','catalog','catalogue','moq'],a:'For pricing and the full catalog, please email <a href="mailto:Jessica@shengjianghui.cn">Jessica@shengjianghui.cn</a> or WhatsApp <b>+86 150 0689 2975</b>. You can also use the contact card on this page — we respond quickly.'},
+ {k:['contact','email','whatsapp','wechat','phone','buy','order'],a:'You can reach our export team directly:<br>• Jessica Zhang — <a href="mailto:Jessica@shengjianghui.cn">Jessica@shengjianghui.cn</a><br>• WhatsApp: <b>+86 150 0689 2975</b><br>• Mobile &amp; WeChat: <b>+86 135 0633 4057</b><br>• Web: www.shengjianghui.cn'},
+ {k:['ship','deliver','export','country'],a:'We offer <b>stable export supply</b> with on-time delivery and global shipping, backed by large production capacity. Tell us your destination and volumes for a tailored logistics plan.'},
+ {k:['hello','hi','hey'],a:'Hello! I can help with our sharps containers, waste bins, turnover boxes, waste bags, specimen containers and consumables — including sizes, certifications and OEM options. What would you like to know?'},
+];
+const chips=['Product sizes','Certifications','OEM / private label','Request pricing','Contact details'];
+function bubble(html,who){const d=document.createElement('div');d.className='msg '+who;d.innerHTML=html;body.appendChild(d);body.scrollTop=body.scrollHeight;}
+function showChips(){
+  const c=document.createElement('div');c.className='chips';
+  chips.forEach(t=>{const b=document.createElement('button');b.type='button';b.textContent=t;
+    b.addEventListener('click',()=>{c.remove();userSend(t);});c.appendChild(b);});
+  body.appendChild(c);body.scrollTop=body.scrollHeight;
+}
+function reply(q){
+  const t=document.createElement('div');t.className='typing';t.innerHTML='<i></i><i></i><i></i>';body.appendChild(t);body.scrollTop=body.scrollHeight;
+  const low=q.toLowerCase();
+  const hit=kb.find(e=>e.k.some(k=>low.includes(k)));
+  const ans=hit?hit.a:'Thanks for your inquiry! For detailed specifications, pricing and samples, please contact Jessica Zhang at <a href="mailto:Jessica@shengjianghui.cn">Jessica@shengjianghui.cn</a> or WhatsApp <b>+86 150 0689 2975</b> — or tap “Contact details” below.';
+  setTimeout(()=>{t.remove();bubble(ans,'bot');showChips();},650);
+}
+function userSend(text){bubble(text.replace(/</g,'&lt;'),'user');reply(text);}
+function openChat(){
+  win.classList.add('open');fab.setAttribute('aria-expanded','true');
+  if(!greeted){greeted=true;
+    setTimeout(()=>{bubble('Welcome to <b>Shengjianghui</b> — professional manufacturer &amp; exporter of medical plastic supplies. How can I help you today?','bot');showChips();},250);}
+  input.focus();
+}
+function closeChat(){win.classList.remove('open');fab.setAttribute('aria-expanded','false');fab.focus();}
+fab.addEventListener('click',()=>win.classList.contains('open')?closeChat():openChat());
+document.getElementById('chatClose').addEventListener('click',closeChat);
+form.addEventListener('submit',e=>{e.preventDefault();const v=input.value.trim();if(!v)return;input.value='';userSend(v);});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLightbox();if(win.classList.contains('open'))closeChat();}});
+</script>
+</body>
+</html>
