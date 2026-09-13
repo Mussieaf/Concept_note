@@ -7,7 +7,7 @@
 <meta name="description" content="Premium Thermal-Break Aluminum Windows & Doors. Engineered for global residential and commercial construction. Custom-manufactured with precision, delivered with excellence." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="shortcut icon" type="image/x-icon" href="https://github.githubassets.com/favicons/favicon.svg">
+<link rel="shortcut icon" type="image/x-icon" href="https://github.githubassets.com/favicons/favicon.svg"> 
 <link rel="icon" type="image/svg+xml" href="https://github.githubassets.com/favicons/favicon.svg">
 
 <!-- Open Graph / Facebook, whatsapp -->
@@ -30,7 +30,7 @@
 <meta name="twitter:description" content="Premium Thermal-Break Aluminum Windows & Doors. Engineered for global residential and commercial construction. Custom-manufactured with precision, delivered with excellence." />
 <meta name="twitter:image" content="https://mussieaf.github.io/Concept_note/weinuo.jpg?v=2" />
 <meta name="twitter:image:alt" content="Premium Thermal-Break Aluminum Windows & Doors" />
-<meta name="description" content="Premium Thermal-Break Aluminum Windows & Doors." />
+<meta name="description" content="Premium Thermal-Break Aluminum Windows & Doors." /> 
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
@@ -182,60 +182,70 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
 .stat h4 { font-size: 2rem; color: var(--accent); font-family: 'Playfair Display', serif; }
 .stat p { font-size: 0.85rem; color: var(--text-light); margin-top: 0.3rem; }
 
-/* Video Section — Vertical Accordion */
+/* Video Section */
 .video-section {
   background: var(--primary); padding: 6rem 5%;
 }
 .video-section .section-label { color: var(--accent); }
 .video-section .section-header h2 { color: var(--white); }
 .video-section .section-header p { color: rgba(255,255,255,0.7); }
-
-/* Collapsible vertical stack */
-.video-accordion {
-  max-width: 1200px; margin: 0 auto;
-  display: flex; flex-direction: column; gap: 0.75rem;
+/* Horizontal accordion — See Our Craftsmanship */
+.h-accordion {
+  display: flex; gap: 8px;
+  max-width: 1280px; margin: 0 auto;
+  height: min(80vh, 640px);
 }
-.video-item {
-  background: #141414;
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 8px; overflow: hidden;
-  transition: border-color 0.3s;
+.h-panel {
+  position: relative; flex: 1; min-width: 0;
+  overflow: hidden; border-radius: 8px;
+  background: #000 center/cover no-repeat;
+  cursor: pointer;
+  transition: flex 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
-.video-item.open { border-color: var(--accent); }
-
-/* Clickable header row (the "video link") */
-.video-header {
-  width: 100%; display: flex; align-items: center; gap: 1rem;
-  padding: 1.1rem 1.5rem; background: transparent; border: none;
-  cursor: pointer; color: var(--white); font-family: 'Inter', sans-serif;
-  font-size: 1rem; font-weight: 500; letter-spacing: 0.5px; text-align: left;
+.h-panel.active { flex: 9; cursor: default; }
+.h-panel::after {
+  content: ''; position: absolute; inset: 0; z-index: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0.15));
 }
-.video-header:hover { background: rgba(201,169,110,0.08); }
-.video-number { color: var(--accent); font-size: 0.8rem; font-weight: 600; letter-spacing: 2px; min-width: 2rem; }
-.video-title { flex: 1; }
-.video-ratio {
-  font-size: 0.7rem; color: rgba(255,255,255,0.45);
-  border: 1px solid rgba(255,255,255,0.2); border-radius: 999px;
-  padding: 0.15rem 0.7rem; letter-spacing: 1px;
+.h-tab {
+  position: absolute; inset: 0; z-index: 2; width: 100%;
+  background: transparent; border: none; cursor: pointer;
+  color: rgba(255,255,255,0.9);
+  font-family: 'Inter', sans-serif; font-size: 0.72rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  display: flex; align-items: flex-end; justify-content: center;
+  padding: 1.4rem 0.4rem;
+  writing-mode: vertical-rl; transform: rotate(180deg);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+  transition: opacity 0.3s;
 }
-.video-toggle { font-size: 1.3rem; color: var(--accent); line-height: 1; transition: transform 0.35s; }
-.video-item.open .video-toggle { transform: rotate(45deg); } /* + becomes × */
-
-/* Expandable panel — opens to the full window height */
-.video-panel {
-  max-height: 0; overflow: hidden;
-  transition: max-height 0.55s ease;
+.h-tab .num { color: var(--accent); font-weight: 600; margin-bottom: 0.6rem; }
+.h-panel.active .h-tab { opacity: 0; pointer-events: none; }
+.h-body {
+  position: absolute; inset: 0; z-index: 1;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.45s ease 0.2s, visibility 0s linear 0.65s;
 }
-.video-item.open .video-panel { max-height: 100vh; }
-.video-panel-inner {
-  height: 100vh;              /* panel fixed to window height */
-  background: #000;
-  display: flex; align-items: center; justify-content: center;
+.h-panel.active .h-body {
+  opacity: 1; visibility: visible;
+  transition: opacity 0.45s ease 0.2s;
 }
-.video-panel video {
-  width: 100%; height: 100%;
-  object-fit: contain;        /* full video height always visible, no cropping */
-  display: block;
+.h-body video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.h-fs {
+  position: absolute; right: 12px; bottom: 12px; z-index: 3;
+  background: rgba(0,0,0,0.55); color: #fff;
+  border: 1px solid rgba(255,255,255,0.35);
+  padding: 0.45rem 0.9rem; font-size: 0.72rem; letter-spacing: 1px;
+  cursor: pointer; border-radius: 4px; opacity: 0; transition: opacity 0.3s;
+}
+.h-panel.active .h-fs { opacity: 1; }
+.h-fs:hover { background: var(--accent); }
+@media (max-width: 900px) {
+  .h-accordion { flex-direction: column; height: auto; gap: 6px; }
+  .h-panel { height: 68px; flex: none; transition: height 0.5s cubic-bezier(0.4,0,0.2,1); }
+  .h-panel.active { height: 58vh; flex: none; }
+  .h-tab { writing-mode: horizontal-tb; transform: none; align-items: center; justify-content: flex-start; padding: 0 1.2rem; }
 }
 
 /* Products */
@@ -360,7 +370,6 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
   .gallery-grid img:nth-child(1) { grid-column: span 1; }
   .about-images { grid-template-columns: 1fr; }
   .about-images img:first-child { grid-column: span 1; }
-  .video-ratio { display: none; }
 }
 </style>
 </head>
@@ -430,114 +439,78 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
   </div>
 </section>
 
-<!-- Video Section — Vertical Accordion -->
+<!-- Video Section -->
 <section class="video-section" id="video">
   <div class="section-header">
     <span class="section-label">See Our Craftsmanship</span>
     <h2>Aluminum Systems in Action</h2>
-    <p>Experience the seamless integration of our thermal-break aluminum windows and doors in real-world installations.</p>
+    <p>Experience the seamless integration of our thermal-break aluminum windows and doors in real-world installations. Click a clip to expand it to full size.</p>
   </div>
-  <div class="video-accordion">
+  <div class="h-accordion" id="craftAccordion">
 
-    <div class="video-item">
-      <button class="video-header" type="button" aria-expanded="false">
-        <span class="video-number">01</span>
-        <span class="video-title">Caps &middot; Plugs &middot; Tube Inserts</span>
-        <span class="video-ratio">3:4</span>
-        <span class="video-toggle">+</span>
-      </button>
-      <div class="video-panel">
-        <div class="video-panel-inner">
-          <video controls preload="none" poster="image/1788774716138.jpg">
-            <source src="video/1788774716138.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
+    <div class="h-panel active" style="background-image:url('image/1788774716138.jpg')">
+      <button class="h-tab" aria-expanded="true"><span class="num">01</span>Caps &middot; Plugs &middot; Tube Inserts</button>
+      <div class="h-body">
+        <video controls preload="metadata" poster="image/1788774716138.jpg">
+          <source src="video/1788774716138.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <button class="h-fs" title="Full screen">&#x26F6; Full Screen</button>
       </div>
     </div>
 
-    <div class="video-item">
-      <button class="video-header" type="button" aria-expanded="false">
-        <span class="video-number">02</span>
-        <span class="video-title">Color-Coded Tube Inserts</span>
-        <span class="video-ratio">16:9</span>
-        <span class="video-toggle">+</span>
-      </button>
-      <div class="video-panel">
-        <div class="video-panel-inner">
-          <video controls preload="none" poster="image/1788774716137.jpg">
-            <source src="video/1788774716137.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
+    <div class="h-panel" style="background-image:url('image/1788774716137.jpg')">
+      <button class="h-tab" aria-expanded="false"><span class="num">02</span>Color-Coded Tube Inserts</button>
+      <div class="h-body">
+        <video controls preload="metadata" poster="image/1788774716137.jpg">
+          <source src="video/1788774716137.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <button class="h-fs" title="Full screen">&#x26F6; Full Screen</button>
       </div>
     </div>
 
-    <div class="video-item">
-      <button class="video-header" type="button" aria-expanded="false">
-        <span class="video-number">03</span>
-        <span class="video-title">Tube End Protection</span>
-        <span class="video-ratio">1:1</span>
-        <span class="video-toggle">+</span>
-      </button>
-      <div class="video-panel">
-        <div class="video-panel-inner">
-          <video controls preload="none" poster="image/1788774716139.jpg">
-            <source src="video/1788774716139.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
+    <div class="h-panel" style="background-image:url('image/1788774716139.jpg')">
+      <button class="h-tab" aria-expanded="false"><span class="num">03</span>Tube End Protection</button>
+      <div class="h-body">
+        <video controls preload="metadata" poster="image/1788774716139.jpg">
+          <source src="video/1788774716139.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <button class="h-fs" title="Full screen">&#x26F6; Full Screen</button>
       </div>
     </div>
 
-    <div class="video-item">
-      <button class="video-header" type="button" aria-expanded="false">
-        <span class="video-number">04</span>
-        <span class="video-title">Window Hardware System</span>
-        <span class="video-ratio">4:3</span>
-        <span class="video-toggle">+</span>
-      </button>
-      <div class="video-panel">
-        <div class="video-panel-inner">
-          <video controls preload="none" poster="image/1788774716140.jpg">
-            <source src="video/1788774716140.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
+    <div class="h-panel" style="background-image:url('image/1788774716140.jpg')">
+      <button class="h-tab" aria-expanded="false"><span class="num">04</span>Window Hardware System</button>
+      <div class="h-body">
+        <video controls preload="metadata" poster="image/1788774716140.jpg">
+          <source src="video/1788774716140.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <button class="h-fs" title="Full screen">&#x26F6; Full Screen</button>
       </div>
     </div>
 
-    <div class="video-item">
-      <button class="video-header" type="button" aria-expanded="false">
-        <span class="video-number">05</span>
-        <span class="video-title">Windows + Curtain Wall + Hardware</span>
-        <span class="video-ratio">21:9</span>
-        <span class="video-toggle">+</span>
-      </button>
-      <div class="video-panel">
-        <div class="video-panel-inner">
-          <video controls preload="none" poster="image/1788774716141.jpg">
-            <source src="video/1788774716141.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
+    <div class="h-panel" style="background-image:url('image/1788774716141.jpg')">
+      <button class="h-tab" aria-expanded="false"><span class="num">05</span>Windows + Curtain Wall + Hardware</button>
+      <div class="h-body">
+        <video controls preload="metadata" poster="image/1788774716141.jpg">
+          <source src="video/1788774716141.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <button class="h-fs" title="Full screen">&#x26F6; Full Screen</button>
       </div>
     </div>
 
-    <div class="video-item">
-      <button class="video-header" type="button" aria-expanded="false">
-        <span class="video-number">06</span>
-        <span class="video-title">Glass Sunroom Installation</span>
-        <span class="video-ratio">9:16</span>
-        <span class="video-toggle">+</span>
-      </button>
-      <div class="video-panel">
-        <div class="video-panel-inner">
-          <video controls preload="none" poster="image/1788774716136.jpg">
-            <source src="video/1788774716136.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
+    <div class="h-panel" style="background-image:url('image/1788774716136.jpg')">
+      <button class="h-tab" aria-expanded="false"><span class="num">06</span>Glass Sunroom Installation</button>
+      <div class="h-body">
+        <video controls preload="metadata" poster="image/1788774716136.jpg">
+          <source src="video/1788774716136.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <button class="h-fs" title="Full screen">&#x26F6; Full Screen</button>
       </div>
     </div>
 
@@ -777,6 +750,35 @@ window.addEventListener('scroll', () => {
   }
 });
 
+// Horizontal accordion — See Our Craftsmanship
+// Click a collapsed strip to expand it to full width; click it again to collapse.
+const craftPanels = document.querySelectorAll('#craftAccordion .h-panel');
+craftPanels.forEach(panel => {
+  const tab = panel.querySelector('.h-tab');
+  tab.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const wasActive = panel.classList.contains('active');
+    craftPanels.forEach(p => {
+      p.classList.remove('active');
+      p.querySelector('.h-tab').setAttribute('aria-expanded', 'false');
+    });
+    if (!wasActive) {
+      panel.classList.add('active');
+      tab.setAttribute('aria-expanded', 'true');
+    }
+  });
+  // Video/player clicks must not collapse the panel
+  panel.querySelector('.h-body').addEventListener('click', (e) => e.stopPropagation());
+  // True full screen via the Fullscreen API
+  const fsBtn = panel.querySelector('.h-fs');
+  const vid = panel.querySelector('video');
+  fsBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (vid.requestFullscreen) vid.requestFullscreen();
+    else if (vid.webkitRequestFullscreen) vid.webkitRequestFullscreen();
+    else if (vid.msRequestFullscreen) vid.msRequestFullscreen();
+  });
+});
 // Inquiry form: open mailto with composed message and show confirmation
 const inquiryForm = document.getElementById('inquiryForm');
 const successMsg = document.getElementById('successMessage');
@@ -796,26 +798,397 @@ if (inquiryForm) {
     inquiryForm.style.display = 'none';
   });
 }
-
-// Vertical accordion behaviour for "See Our Craftsmanship"
-document.querySelectorAll('.video-header').forEach(header => {
-  header.addEventListener('click', () => {
-    const item = header.closest('.video-item');
-    const wasOpen = item.classList.contains('open');
-    // collapse any other open panel and pause its video
-    document.querySelectorAll('.video-item.open').forEach(openItem => {
-      openItem.classList.remove('open');
-      openItem.querySelector('.video-header').setAttribute('aria-expanded', 'false');
-      const v = openItem.querySelector('video');
-      if (v) v.pause();
-    });
-    // expand the clicked panel (toggle)
-    if (!wasOpen) {
-      item.classList.add('open');
-      header.setAttribute('aria-expanded', 'true');
-    }
-  });
-});
 </script>
+
+<!-- ==================== WEINUO WhatsApp chatbot (added) ==================== -->
+<style>
+/* Floating WhatsApp launcher — lower right corner */
+#wnchat-fab {
+  position: fixed; right: 20px; bottom: 20px; z-index: 9999;
+  width: 60px; height: 60px; border-radius: 50%;
+  background: #25D366; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+#wnchat-fab:hover { transform: scale(1.06); box-shadow: 0 6px 20px rgba(0,0,0,0.35); }
+#wnchat-fab::after {
+  content: ''; position: absolute; inset: 0; border-radius: 50%;
+  border: 2px solid #25D366; animation: wnpulse 2.4s ease-out infinite;
+}
+@keyframes wnpulse {
+  0% { transform: scale(1); opacity: 0.7; }
+  70%, 100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* Chat panel — lower right, compact so the landing page stays visible */
+#wnchat-panel {
+  position: fixed; right: 20px; bottom: 92px; z-index: 9999;
+  width: 360px; max-width: calc(100vw - 40px);
+  height: 540px; max-height: calc(100vh - 130px);
+  background: #ECE5DD; border-radius: 12px; overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+  display: none; flex-direction: column;
+  font-family: 'Inter', sans-serif;
+}
+#wnchat-panel.wnopen { display: flex; }
+@media (max-width: 480px) {
+  #wnchat-panel { right: 12px; bottom: 84px; width: calc(100vw - 24px); height: 60vh; }
+  #wnchat-fab { right: 12px; bottom: 12px; }
+}
+
+/* WhatsApp header */
+.wn-head {
+  background: #075E54; color: #fff; padding: 10px 12px;
+  display: flex; align-items: center; gap: 10px; flex-shrink: 0;
+}
+.wn-avatar {
+  width: 38px; height: 38px; border-radius: 50%; background: #fff;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.wn-title { font-size: 15px; font-weight: 600; line-height: 1.25; }
+.wn-status { font-size: 12px; color: rgba(255,255,255,0.75); display: flex; align-items: center; gap: 5px; }
+.wn-dot { width: 7px; height: 7px; border-radius: 50%; background: #4CE080; flex-shrink: 0; }
+.wn-head-btns { margin-left: auto; display: flex; gap: 4px; }
+.wn-hbtn {
+  width: 32px; height: 32px; border-radius: 50%; border: none; cursor: pointer;
+  background: transparent; color: #fff; display: flex; align-items: center; justify-content: center;
+  transition: background 0.15s;
+}
+.wn-hbtn:hover { background: rgba(255,255,255,0.15); }
+
+/* Message log — WhatsApp wallpaper */
+.wn-log {
+  flex: 1; overflow-y: auto; padding: 14px 10px 8px;
+  background-color: #ECE5DD;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cg fill='%23d5ccc3' fill-opacity='0.4'%3E%3Ccircle cx='18' cy='20' r='2.5'/%3E%3Cpath d='M66 10l5 9h-10z'/%3E%3Crect x='108' y='22' width='9' height='9' rx='2' transform='rotate(24 112 26)'/%3E%3Cpath d='M22 62c5-7 14-7 19 0' stroke='%23d5ccc3' stroke-width='2.4' fill='none'/%3E%3Ccircle cx='112' cy='78' r='3.4'/%3E%3Crect x='34' y='104' width='12' height='7' rx='3.5'/%3E%3Cpath d='M84 106l7 12h-14z'/%3E%3Cpath d='M124 118a6 6 0 1 1-12 0 6 6 0 0 1 12 0z'/%3E%3C/g%3E%3C/svg%3E");
+  display: flex; flex-direction: column; gap: 6px;
+}
+.wn-row { display: flex; gap: 6px; align-items: flex-end; animation: wnin 0.18s ease-out; max-width: 100%; }
+.wn-row.bot { justify-content: flex-start; }
+.wn-row.user { justify-content: flex-end; }
+@keyframes wnin { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+.wn-bubble {
+  max-width: 82%; padding: 7px 9px 6px; font-size: 13.6px; line-height: 1.45;
+  border-radius: 8px; position: relative; word-break: break-word; color: #111b21;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.12);
+}
+.wn-row.bot .wn-bubble { background: #ffffff; border-top-left-radius: 2px; }
+.wn-row.user .wn-bubble { background: #DCF8C6; border-top-right-radius: 2px; }
+.wn-meta { float: right; font-size: 10.5px; color: #8696a0; margin: 6px 0 -2px 8px; display: inline-flex; align-items: center; gap: 3px; }
+.wn-meta .wn-tick { color: #34B7F1; font-size: 12px; letter-spacing: -3px; }
+.wn-bubble ul { margin: 3px 0 2px; padding-left: 17px; }
+.wn-bubble li { margin: 2px 0; }
+.wn-typing { display: inline-flex; gap: 4px; padding: 11px 12px; }
+.wn-typing span { width: 6px; height: 6px; border-radius: 50%; background: #9aa8b0; animation: wnblink 1.2s infinite; }
+.wn-typing span:nth-child(2) { animation-delay: .18s; }
+.wn-typing span:nth-child(3) { animation-delay: .36s; }
+@keyframes wnblink { 0%,80%,100% { opacity: .25; transform: translateY(0); } 40% { opacity: 1; transform: translateY(-2px); } }
+
+/* Quick replies */
+.wn-chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 6px 10px 4px; background: #ECE5DD; flex-shrink: 0; }
+.wn-chip {
+  border: 1px solid #00a5f4; background: #ffffff; color: #075E54;
+  border-radius: 14px; padding: 5px 11px; font-size: 12.5px; line-height: 1.35;
+  cursor: pointer; text-align: left; font-family: 'Inter', sans-serif;
+  transition: background 0.15s, color 0.15s;
+}
+.wn-chip:hover { background: #128C7E; border-color: #128C7E; color: #fff; }
+
+/* Input bar */
+.wn-inputbar { display: flex; gap: 8px; padding: 8px 10px; background: #f0f0f0; align-items: center; flex-shrink: 0; }
+.wn-input {
+  flex: 1; border: none; outline: none; border-radius: 20px;
+  padding: 9px 14px; font-size: 13.6px; font-family: 'Inter', sans-serif;
+  background: #ffffff; color: #111b21;
+}
+.wn-input::placeholder { color: #8696a0; }
+.wn-send {
+  width: 40px; height: 40px; border-radius: 50%; border: none; cursor: pointer;
+  background: #25D366; color: #fff; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.15s, opacity 0.15s;
+}
+.wn-send:hover { background: #1fb457; }
+.wn-send:disabled { opacity: .4; cursor: default; }
+</style>
+
+<button id="wnchat-fab" aria-label="Chat with WEINUO on WhatsApp">
+  <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path fill="#ffffff" d="M16.004 0h-.008C7.174 0 .002 7.176.002 16.004c0 2.81.734 5.549 2.126 7.967L.09 31.916l8.13-2.032a15.93 15.93 0 0 0 6.762 1.55h.008c8.826 0 15.998-7.176 15.998-16.004C31.996 7.178 24.824.002 16.004.002zM16 29.13a13.2 13.2 0 0 1-6.716-1.836l-.48-.286-4.824 1.206 1.286-4.704-.312-.492a13.2 13.2 0 0 1-2.026-7.056C2.934 8.22 8.87 2.286 16 2.286c7.132 0 13.066 5.934 13.066 13.066 0 7.132-5.934 12.778-13.066 12.778zm7.208-9.572c-.394-.198-2.334-1.152-2.696-1.284-.362-.132-.626-.198-.89.198-.264.394-1.022 1.284-1.254 1.548-.23.264-.462.296-.856.098-.394-.198-1.664-.614-3.168-1.956-1.17-1.042-1.96-2.33-2.19-2.724-.23-.394-.024-.606.172-.802.178-.178.394-.462.592-.694.198-.23.264-.394.394-.66.132-.264.066-.494-.032-.692-.1-.198-.89-2.144-1.218-2.938-.32-.78-.648-.676-.89-.688-.23-.012-.494-.014-.758-.014-.264 0-.692.098-1.054.494-.362.394-1.384 1.354-1.384 3.302 0 1.946 1.416 3.826 1.614 4.09.198.264 2.79 4.264 6.756 5.978.944.408 1.682.652 2.256.834.948.302 1.81.26 2.492.158.76-.114 2.334-.954 2.662-1.876.328-.922.328-1.712.23-1.876-.1-.164-.362-.262-.756-.46z"/></svg>
+</button>
+
+<div id="wnchat-panel" role="dialog" aria-label="WEINUO WhatsApp chat">
+  <div class="wn-head">
+    <div class="wn-avatar">
+      <svg width="24" height="24" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path fill="#25D366" d="M16.004 0h-.008C7.174 0 .002 7.176.002 16.004c0 2.81.734 5.549 2.126 7.967L.09 31.916l8.13-2.032a15.93 15.93 0 0 0 6.762 1.55h.008c8.826 0 15.998-7.176 15.998-16.004C31.996 7.178 24.824.002 16.004.002zM16 29.13a13.2 13.2 0 0 1-6.716-1.836l-.48-.286-4.824 1.206 1.286-4.704-.312-.492a13.2 13.2 0 0 1-2.026-7.056C2.934 8.22 8.87 2.286 16 2.286c7.132 0 13.066 5.934 13.066 13.066 0 7.132-5.934 12.778-13.066 12.778z"/></svg>
+    </div>
+    <div>
+      <div class="wn-title">WEINUO assistant</div>
+      <div class="wn-status"><span class="wn-dot"></span>online</div>
+    </div>
+    <div class="wn-head-btns">
+      <button class="wn-hbtn" id="wnRestart" title="Restart conversation" aria-label="Restart conversation">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 5V2L7 6l5 4V7c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46A7.93 7.93 0 0 0 20 13c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 8.74A7.93 7.93 0 0 0 4 13c0 4.42 3.58 8 8 8v3l5-4-5-4v3z" fill="currentColor"/></svg>
+      </button>
+      <button class="wn-hbtn" id="wnClose" title="Close chat" aria-label="Close chat">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.3 5.71a1 1 0 0 0-1.41 0L12 10.59 7.11 5.7A1 1 0 0 0 5.7 7.11L10.59 12 5.7 16.89a1 1 0 0 0 1.41 1.41L12 13.41l4.89 4.89a1 1 0 0 0 1.41-1.41L13.41 12l4.89-4.89a1 1 0 0 0 0-1.4z" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="wn-log" id="wnLog"></div>
+  <div class="wn-chips" id="wnChips"></div>
+  <div class="wn-inputbar">
+    <input class="wn-input" id="wnInput" type="text" placeholder="Type a message" autocomplete="off">
+    <button class="wn-send" id="wnSend" aria-label="Send message">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" fill="currentColor"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+(function () {
+  var fab = document.getElementById('wnchat-fab');
+  var panel = document.getElementById('wnchat-panel');
+  var log = document.getElementById('wnLog');
+  var chipsEl = document.getElementById('wnChips');
+  var input = document.getElementById('wnInput');
+  var sendBtn = document.getElementById('wnSend');
+  var closeBtn = document.getElementById('wnClose');
+  var restartBtn = document.getElementById('wnRestart');
+  var busy = false;
+  var ended = false;
+  var started = false;
+
+  var NODES = {
+    greeting: {
+      bot: ["Hello! How can I assist you today?"],
+      chips: ["Hi! I'd like to know more about your services and how they can help me."]
+    },
+    overview: {
+      bot: [
+        "Welcome to WEINUO! We manufacture premium thermal-break aluminum windows and doors, factory-direct from Shandong, China, and ship to 50+ countries. Here's what we offer:",
+        "<ul><li><b>Custom windows & doors</b> — casement, sliding, tilt-and-turn, and bi-fold systems, made to your exact specifications</li><li><b>Personalized recommendations</b> — products tailored to your climate, building type, and style preferences</li><li><b>24/7 support</b> — a dedicated specialist answers any time, at every stage of your project</li><li><b>User-friendly guidance</b> — from measurement to delivery, we walk you through each step</li></ul>Would you like to see a specific service in detail or perhaps ask about pricing options?"
+      ],
+      chips: [
+        "Yes, I'm particularly interested in the personalized recommendations. How does that work?",
+        "Can I see a specific service in detail?",
+        "What are the pricing options?"
+      ]
+    },
+    recommend: {
+      bot: [
+        "Our personalized recommendations are tailored based on your preferences and previous interactions. By analyzing your input — such as your climate zone, residential or commercial project type, energy-efficiency goals, and design tastes — we can suggest options that align closely with your needs."
+      ],
+      chips: [
+        "That sounds great! Can you show me an example of how the recommendations are generated?",
+        "What are the next steps to get started?"
+      ]
+    },
+    detail: {
+      bot: [
+        "Here are our core product lines in detail:",
+        "<ul><li><b>Casement windows</b> — side-hinged design, excellent ventilation and unobstructed views</li><li><b>Sliding windows & doors</b> — space-efficient horizontal glide, ideal for balconies and patios</li><li><b>Folding (bi-fold) doors</b> — expansive openings connecting indoor and outdoor living</li><li><b>Tilt-and-turn windows</b> — dual-function hardware for secure ventilation and easy cleaning</li><li><b>Curtain walls</b> — striking glass facades with outstanding thermal performance</li></ul>Every unit is custom-manufactured with 15+ years of engineering expertise behind it."
+      ],
+      chips: [
+        "I'm particularly interested in the personalized recommendations. How does that work?",
+        "What are the pricing options?",
+        "What are the next steps to get started?"
+      ]
+    },
+    pricing: {
+      bot: [
+        "Because every project is 100% custom, pricing depends on profile series, glazing, dimensions, finish, and order volume. Being factory-direct means no middlemen — you get manufacturer pricing with full quality control. Share your project details and I'll connect you with a specialist for a tailored quote, usually within 24 hours."
+      ],
+      chips: [
+        "I'm particularly interested in the personalized recommendations. How does that work?",
+        "What are the next steps to get started?"
+      ]
+    },
+    example: {
+      bot: [
+        "Here's a simulated example: last month a customer told us she was renovating a coastal apartment, valued sea-view visibility, and had previously asked about noise reduction. Our system combined those signals and recommended our 70-series sliding windows with double glazed low-E glass and a marine-grade finish — matching her ventilation needs, her view, and the salty-air climate. Had her past choices favored security instead, we'd have proposed our multi-point-lock casement series. Every suggestion grows out of what you've told us."
+      ],
+      chips: [
+        "What are the next steps to get started?"
+      ]
+    },
+    steps: {
+      bot: [
+        "Getting started is simple — I'll guide you through it:",
+        "<ul><li><b>Step 1</b> — Share your project basics: building type, rough sizes, and your priorities (insulation, security, views)</li><li><b>Step 2</b> — Receive personalized product recommendations and a free consultation</li><li><b>Step 3</b> — Approve your tailored quote and technical drawings</li><li><b>Step 4</b> — We custom-manufacture and deliver to your site, with 24/7 support until installation is complete</li></ul>Which would you like to do next?"
+      ],
+      chips: ["Get a quote", "That's all for now, thank you!"]
+    },
+    quote: {
+      bot: [
+        "To prepare your quote, just send us your project location, approximate dimensions, preferred product type, and quantity. A WEINUO specialist will reply with pricing and technical advice within 24 hours. You can also tap \"Get a Quote\" on our website anytime."
+      ],
+      chips: ["That's all for now, thank you!"]
+    },
+    end: {
+      bot: [
+        "Thank you for reaching out! If you have any more questions or need assistance in the future, don't hesitate to message me again. Have a wonderful day!"
+      ],
+      chips: []
+    }
+  };
+
+  var ROUTES = [
+    [/recommend|personal|tailor/i, "recommend"],
+    [/example|scenario|generated/i, "example"],
+    [/price|pricing|cost|quote/i, "pricing"],
+    [/detail|service|product|casement|sliding|fold|tilt|curtain|window|door/i, "detail"],
+    [/step|start|get started|next/i, "steps"],
+    [/hi|hello|help/i, "overview"]
+  ];
+
+  function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+  function now(){
+    var d = new Date();
+    var h = d.getHours(), m = d.getMinutes();
+    var ap = h >= 12 ? 'PM' : 'AM';
+    h = h % 12; if (h === 0) h = 12;
+    return h + ':' + (m < 10 ? '0' : '') + m + ' ' + ap;
+  }
+
+  function addUser(text){
+    var row = document.createElement('div');
+    row.className = 'wn-row user';
+    var b = document.createElement('div');
+    b.className = 'wn-bubble';
+    b.innerHTML = esc(text) + '<span class="wn-meta">' + now() + ' <span class="wn-tick">✓✓</span></span>';
+    row.appendChild(b);
+    log.appendChild(row);
+    log.scrollTop = log.scrollHeight;
+  }
+
+  function addBot(html){
+    var row = document.createElement('div');
+    row.className = 'wn-row bot';
+    var b = document.createElement('div');
+    b.className = 'wn-bubble';
+    b.innerHTML = html + '<span class="wn-meta">' + now() + '</span>';
+    row.appendChild(b);
+    log.appendChild(row);
+    log.scrollTop = log.scrollHeight;
+  }
+
+  function showTyping(){
+    var row = document.createElement('div');
+    row.className = 'wn-row bot';
+    row.id = 'wnTyping';
+    row.innerHTML = '<div class="wn-bubble wn-typing"><span></span><span></span><span></span></div>';
+    log.appendChild(row);
+    log.scrollTop = log.scrollHeight;
+  }
+
+  function hideTyping(){
+    var t = document.getElementById('wnTyping');
+    if (t) t.parentNode.removeChild(t);
+  }
+
+  function setChips(list){
+    chipsEl.innerHTML = '';
+    list.forEach(function(text){
+      var b = document.createElement('button');
+      b.className = 'wn-chip';
+      b.textContent = text;
+      b.addEventListener('click', function(){ pick(text); });
+      chipsEl.appendChild(b);
+    });
+  }
+
+  function playBot(msgs, next){
+    var i = 0;
+    function nextMsg(){
+      if (i >= msgs.length){
+        if (next === 'end'){
+          ended = true;
+          setChips(['Restart conversation']);
+        } else {
+          setChips(NODES[next].chips);
+        }
+        busy = false;
+        return;
+      }
+      showTyping();
+      var delay = Math.min(600 + msgs[i].length * 10, 2000);
+      setTimeout(function(){
+        hideTyping();
+        addBot(msgs[i]);
+        i++;
+        nextMsg();
+      }, delay);
+    }
+    nextMsg();
+  }
+
+  function pick(text){
+    if (busy) return;
+    if (text === 'Restart conversation'){ start(); return; }
+    if (ended) return;
+    addUser(text);
+    chipsEl.innerHTML = '';
+    busy = true;
+    if (text.indexOf('know more about your services') > -1) playBot(NODES.overview.bot, 'overview');
+    else if (text.indexOf('personalized recommendations') > -1 && text.indexOf('How does that work') > -1) playBot(NODES.recommend.bot, 'recommend');
+    else if (text.indexOf('specific service in detail') > -1) playBot(NODES.detail.bot, 'detail');
+    else if (text.indexOf('pricing options') > -1) playBot(NODES.pricing.bot, 'pricing');
+    else if (text.indexOf('example') > -1) playBot(NODES.example.bot, 'example');
+    else if (text.indexOf('next steps') > -1) playBot(NODES.steps.bot, 'steps');
+    else if (text === 'Get a quote') playBot(NODES.quote.bot, 'quote');
+    else if (text.indexOf('all for now') > -1) playBot(NODES.end.bot, 'end');
+    else fallback();
+  }
+
+  function fallback(){
+    showTyping();
+    setTimeout(function(){
+      hideTyping();
+      addBot("I want to make sure I give you exactly the right information — could you pick one of the suggested topics below? Or ask me about <b>services</b>, <b>pricing</b>, <b>recommendations</b>, or <b>getting started</b>.");
+      busy = false;
+    }, 900);
+  }
+
+  function handleFreeText(){
+    var text = input.value.trim();
+    if (!text || busy) return;
+    input.value = '';
+    if (ended) return;
+    addUser(text);
+    chipsEl.innerHTML = '';
+    busy = true;
+    for (var r = 0; r < ROUTES.length; r++){
+      if (ROUTES[r][0].test(text)){
+        var key = ROUTES[r][1];
+        playBot(NODES[key].bot, key);
+        return;
+      }
+    }
+    fallback();
+  }
+
+  function start(){
+    log.innerHTML = '';
+    chipsEl.innerHTML = '';
+    busy = false;
+    ended = false;
+    playBot(NODES.greeting.bot, 'greeting');
+  }
+
+  fab.addEventListener('click', function(){
+    var opening = !panel.classList.contains('wnopen');
+    panel.classList.toggle('wnopen');
+    if (opening && !started){ started = true; start(); }
+    if (opening) input.focus();
+  });
+  closeBtn.addEventListener('click', function(){ panel.classList.remove('wnopen'); });
+  restartBtn.addEventListener('click', function(){ if (!busy) start(); });
+  sendBtn.addEventListener('click', handleFreeText);
+  input.addEventListener('keydown', function(e){ if (e.key === 'Enter') handleFreeText(); });
+})();
+</script>
+<!-- ==================== /WEINUO WhatsApp chatbot ==================== -->
 </body>
 </html>
