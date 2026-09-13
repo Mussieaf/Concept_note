@@ -3,29 +3,44 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reportage Towers — Chatbot Widget (Demo + Embed)</title>
+<title>Reportage Towers — Standalone Chatbot Widget</title>
+<!--
+  ============================================================================
+  REPORTAGE TOWERS — STANDALONE CHATBOT WIDGET (v2.0, 2026-09-13)
+  ----------------------------------------------------------------------------
+  HOW TO USE THIS FILE
+  1. Standalone: open this file in any browser to test the bot immediately.
+  2. Embed in the landing page (only change required to
+     reportage_towers_landing4.html): copy everything between
+     "RT CHATBOT WIDGET START" and "RT CHATBOT WIDGET END" below and paste
+     it just before </body> in the landing page. No other edits needed.
+  ----------------------------------------------------------------------------
+  FEATURES
+  - All 20 topics: greetings, invest, buy, corporate, diaspora, unit types &
+    sizes, prices, availability, payment, full-payment discount, handover,
+    parking, VAT/fees, location, amenities, developer, floor plans, views,
+    human/WhatsApp handoff, fallback.
+  - Guided flow mirroring the approved sample dialogue.
+  - Refresh button (top of chat) restarts the conversation at any point.
+  - All facts verified against the two live pages (see fact-check report).
+  ============================================================================
+-->
 <style>
   body.demo { font-family: Georgia, serif; background:#f4f2ee; margin:0; padding:48px 24px; color:#1a1a1a; }
   body.demo .demo-note { max-width:760px; margin:0 auto 32px; background:#fff; border:1px solid #e2ddd2; border-radius:12px; padding:28px 32px; line-height:1.65; font-size:15px; }
   body.demo .demo-note h1 { font-size:22px; margin:0 0 12px; }
   body.demo .demo-note code { background:#f0ede6; padding:2px 6px; border-radius:4px; font-size:13px; }
   body.demo .demo-note ol { padding-left:20px; }
-  body.demo .demo-note li { margin:6px 0; }
   body.demo .fake-page { max-width:760px; margin:0 auto; background:#fff; border:1px solid #e2ddd2; border-radius:12px; padding:40px; text-align:center; color:#8a8578; }
 </style>
 </head>
 <body class="demo">
 <div class="demo-note">
-  <h1>Reportage Towers — Chatbot Widget</h1>
-  <p>This file is a working demo. To embed the bot on the landing page, copy everything between
+  <h1>Reportage Towers — Chatbot Widget (Standalone)</h1>
+  <p>This file runs on its own as a demo. To add the bot to the landing page, copy everything between
   <code>&lt;!-- RT CHATBOT WIDGET START --&gt;</code> and <code>&lt;!-- RT CHATBOT WIDGET END --&gt;</code>
-  (the <code>&lt;style&gt;</code>, <code>&lt;div&gt;</code> and <code>&lt;script&gt;</code> blocks)
-  and paste them just before <code>&lt;/body&gt;</code> in <code>reportage_towers_landing4.html</code>.</p>
-  <ol>
-    <li>Self-contained — no external dependencies except Font Awesome (optional; falls back gracefully).</li>
-    <li>Default launch button sits <strong>bottom-left</strong> so it won't collide with the existing WhatsApp float (bottom-right) on either page. Change <code>position</code> in <code>RTCB_CONFIG</code> if preferred.</li>
-    <li>All facts hardcoded from the verified knowledge base. Update <code>RTCB_CONFIG.whatsappNumber</code> if the buyer-desk number changes.</li>
-  </ol>
+  and paste it just before <code>&lt;/body&gt;</code> in <code>reportage_towers_landing4.html</code> — no other changes required.
+  The ⟲ button at the top of the chat restarts the conversation at any time.</p>
 </div>
 <div class="fake-page">[ your landing page content ]</div>
 
@@ -39,37 +54,36 @@
   box-shadow:0 0 0 0 rgba(17,17,17,.45);animation:rtcwPulse 2.4s infinite;}
 @keyframes rtcwPulse{0%{box-shadow:0 0 0 0 rgba(17,17,17,.45)}70%{box-shadow:0 0 0 16px rgba(17,17,17,0)}100%{box-shadow:0 0 0 0 rgba(17,17,17,0)}}
 #rtcw-panel{position:fixed;bottom:96px;left:24px;z-index:9999;width:360px;max-width:calc(100vw - 32px);
-  height:520px;max-height:calc(100vh - 130px);background:#fff;border-radius:16px;overflow:hidden;
+  height:540px;max-height:calc(100vh - 130px);background:#fff;border-radius:16px;overflow:hidden;
   box-shadow:0 12px 44px rgba(0,0,0,.30);display:flex;flex-direction:column;
   opacity:0;transform:translateY(14px) scale(.97);pointer-events:none;transition:opacity .22s ease,transform .22s ease;
   font-family:'Segoe UI',-apple-system,Roboto,Helvetica,Arial,sans-serif;font-size:14px;color:#1a1a1a;}
 #rtcw-panel.open{opacity:1;transform:none;pointer-events:auto;}
 .rtcw-head{background:#111;color:#fff;padding:14px 16px;display:flex;align-items:center;gap:10px;flex:none;}
 .rtcw-head .rtcw-avatar{width:34px;height:34px;border-radius:50%;background:#c9a45c;color:#111;font-weight:700;
-  display:flex;align-items:center;justify-content:center;font-size:15px;font-family:Georgia,serif;}
-.rtcw-head .rtcw-titles{flex:1;line-height:1.25;}
+  display:flex;align-items:center;justify-content:center;font-size:15px;font-family:Georgia,serif;flex:none;}
+.rtcw-head .rtcw-titles{flex:1;line-height:1.25;min-width:0;}
 .rtcw-head .rtcw-titles b{font-size:14.5px;display:block;}
 .rtcw-head .rtcw-titles span{font-size:11.5px;color:#bdbdbd;}
-.rtcw-head .rtcw-x{background:none;border:none;color:#fff;font-size:20px;cursor:pointer;opacity:.75;padding:0 2px;}
-.rtcw-head .rtcw-x:hover{opacity:1;}
+.rtcw-hbtn{background:none;border:none;color:#fff;font-size:19px;cursor:pointer;opacity:.75;padding:0 3px;line-height:1;flex:none;}
+.rtcw-hbtn:hover{opacity:1;}
 #rtcw-body{flex:1;overflow-y:auto;padding:14px;background:#f7f7f8;display:flex;flex-direction:column;gap:8px;}
-.rtcw-msg{max-width:84%;padding:10px 13px;border-radius:14px;line-height:1.5;white-space:pre-line;animation:rtcwIn .25s ease;}
+.rtcw-msg{max-width:84%;padding:10px 13px;border-radius:14px;line-height:1.5;white-space:pre-line;animation:rtcwIn .25s ease;word-wrap:break-word;}
 @keyframes rtcwIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 .rtcw-msg.bot{background:#fff;border:1px solid #e6e6e6;border-bottom-left-radius:4px;align-self:flex-start;}
 .rtcw-msg.user{background:#111;color:#fff;border-bottom-right-radius:4px;align-self:flex-end;}
-.rtcw-msg a{color:#1a73e8;}
 .rtcw-typing{align-self:flex-start;background:#fff;border:1px solid #e6e6e6;border-radius:14px;
   border-bottom-left-radius:4px;padding:12px 14px;display:flex;gap:4px;}
 .rtcw-typing i{width:6px;height:6px;border-radius:50%;background:#999;animation:rtcwB 1s infinite;}
 .rtcw-typing i:nth-child(2){animation-delay:.15s}.rtcw-typing i:nth-child(3){animation-delay:.3s}
 @keyframes rtcwB{0%,60%,100%{transform:none;opacity:.4}30%{transform:translateY(-4px);opacity:1}}
-#rtcw-chips{flex:none;display:flex;flex-wrap:wrap;gap:6px;padding:10px 12px;background:#fff;border-top:1px solid #eee;}
+#rtcw-chips{flex:none;display:flex;flex-wrap:wrap;gap:6px;padding:10px 12px;background:#fff;border-top:1px solid #eee;min-height:24px;}
 .rtcw-chip{border:1px solid #ddd;background:#fff;border-radius:16px;padding:7px 12px;font-size:12.5px;cursor:pointer;
   transition:all .15s;color:#1a1a1a;font-family:inherit;}
 .rtcw-chip:hover{background:#111;color:#fff;border-color:#111;}
 #rtcw-input{display:flex;flex:none;border-top:1px solid #eee;background:#fff;}
-#rtcw-input input{flex:1;border:none;padding:13px 14px;font-size:14px;outline:none;font-family:inherit;}
-#rtcw-input button{border:none;background:#111;color:#fff;padding:0 18px;cursor:pointer;font-size:16px;}
+#rtcw-input input{flex:1;border:none;padding:13px 14px;font-size:14px;outline:none;font-family:inherit;min-width:0;}
+#rtcw-input button{border:none;background:#111;color:#fff;padding:0 18px;cursor:pointer;font-size:16px;flex:none;}
 #rtcw-input button:hover{background:#333;}
 @media (max-width:480px){
   #rtcw-panel{left:8px;right:8px;bottom:92px;width:auto;height:70vh;}
@@ -81,8 +95,9 @@
 <div id="rtcw-panel" role="dialog" aria-label="Reportage Towers assistant">
   <div class="rtcw-head">
     <div class="rtcw-avatar">R</div>
-    <div class="rtcw-titles"><b>Reportage Towers</b><span>Buyer assistant &middot; typically replies instantly</span></div>
-    <button class="rtcw-x" id="rtcw-close" aria-label="Close chat">&times;</button>
+    <div class="rtcw-titles"><b>Reportage Towers</b><span>Buyer assistant &middot; replies instantly</span></div>
+    <button class="rtcw-hbtn" id="rtcw-restart" title="Start over" aria-label="Restart conversation">&#8635;</button>
+    <button class="rtcw-hbtn" id="rtcw-close" title="Close chat" aria-label="Close chat">&times;</button>
   </div>
   <div id="rtcw-body"></div>
   <div id="rtcw-chips"></div>
@@ -99,26 +114,32 @@
   var RTCB_CONFIG = {
     whatsappNumber: "251922466797",                 // buyer desk WhatsApp (from availability page wa.me links)
     availabilityUrl: "https://mussieaf.github.io/Concept_note/Reportage/reportage-towers-live-availability.html",
-    position: "left"                                 // "left" avoids the existing WhatsApp float on the right
+    position: "left"                                // "left" avoids collision with the existing WhatsApp float (bottom-right)
   };
-  /* ============ END CONFIG — KB below ======== */
+  /* ============ END CONFIG ================= */
 
+  /* Verified facts (landing page + live availability page, checked 2026-09-13) */
   var KB = {
     vatNote: "All prices exclude 15% VAT (VAT applies to the unit and to parking, as listed).",
     types: {
-      studio: {name:"Studio", size:"35.6 m\u00B2 (383 sq ft)", range:"$66,152 \u2013 $76,074", count:236},
-      "1br":  {name:"1 Bedroom", size:"57.2 m\u00B2 (616 sq ft)", range:"$95,979 \u2013 $110,376", count:241},
-      "2br":  {name:"2 Bedroom", size:"124.8 m\u00B2 (1,343 sq ft)", range:"$182,508 \u2013 $209,884", count:107}
-    }
+      studio: {label:"Studio",     name:"studio",        size:"35.6 m\u00B2 (383 sq ft)",   range:"$66,152 \u2013 $76,074",   count:236},
+      "1br":  {label:"1 Bedroom",  name:"1-bedroom",     size:"57.2 m\u00B2 (616 sq ft)",   range:"$95,979 \u2013 $110,376", count:241},
+      "2br":  {label:"2 Bedroom",  name:"2-bedroom",     size:"124.8 m\u00B2 (1,343 sq ft)",range:"$182,508 \u2013 $209,884",count:107}
+    },
+    totalResidences: 1086, availableNow: 584, handover: "Q4 2029",
+    parking: "US$5,000", vat: "15%", discount: "40%"
   };
 
-  var state = { purpose:null, unitType:null, greeted:false };
+  var state, body, chipsEl, field, panel, launch;
 
-  var body = document.getElementById("rtcw-body"),
-      chipsEl = document.getElementById("rtcw-chips"),
-      field = document.getElementById("rtcw-field"),
-      panel = document.getElementById("rtcw-panel"),
-      launch = document.getElementById("rtcw-launch");
+  function initState(){ state = { purpose:null, unitType:null, stage:"purpose", greeted:false }; }
+  initState();
+
+  body     = document.getElementById("rtcw-body");
+  chipsEl  = document.getElementById("rtcw-chips");
+  field    = document.getElementById("rtcw-field");
+  panel    = document.getElementById("rtcw-panel");
+  launch   = document.getElementById("rtcw-launch");
 
   /* ---------- plumbing ---------- */
   function scroll(){ body.scrollTop = body.scrollHeight; }
@@ -127,171 +148,225 @@
     d.className = "rtcw-msg " + who;
     d.textContent = text;
     body.appendChild(d); scroll();
-    return d;
-  }
-  function addBotHTML(html){
-    var d = document.createElement("div");
-    d.className = "rtcw-msg bot";
-    d.innerHTML = html;
-    body.appendChild(d); scroll();
   }
   function typing(cb, delay){
     var t = document.createElement("div");
     t.className = "rtcw-typing";
     t.innerHTML = "<i></i><i></i><i></i>";
     body.appendChild(t); scroll();
-    setTimeout(function(){ t.remove(); cb(); }, delay || 700);
+    setTimeout(function(){ if (t.parentNode) t.remove(); cb(); }, delay || 700);
   }
   function setChips(list){
     chipsEl.innerHTML = "";
-    list.forEach(function(c){
+    (list || []).forEach(function(c){
       var b = document.createElement("button");
       b.className = "rtcw-chip";
       b.textContent = c.label;
-      b.onclick = function(){ c.action ? c.action() : send(c.label); };
+      b.onclick = function(){ if (c.action) { addMsg(c.label, "user"); setChips([]); c.action(); } else { send(c.label); } };
       chipsEl.appendChild(b);
     });
   }
-  function waHandoff(extra){
+  function respond(text, chips, auto){
+    typing(function(){
+      addMsg(text, "bot");
+      setChips(chips);
+      if (auto) setTimeout(auto, 900);
+    }, 550 + Math.min(800, (text || "").length * 4));
+  }
+  function waHandoff(need){
     var msg = "Hello! I'm interested in Reportage Towers, Addis Ababa.\n" +
       "\u2022 Purpose: " + (state.purpose || "Not specified") + "\n" +
       "\u2022 Unit type: " + (state.unitType || "Not sure yet") + "\n" +
-      "\u2022 I'd like: " + (extra || "current pricing and floor plans") + "\n" +
+      "\u2022 I'd like: " + (need || "current pricing and floor plans") + "\n" +
       "Please advise on next steps. Thank you!";
     window.open("https://wa.me/" + RTCB_CONFIG.whatsappNumber + "?text=" + encodeURIComponent(msg), "_blank");
   }
-  function openAvailability(){
-    window.open(RTCB_CONFIG.availabilityUrl, "_blank");
+  function openAvailability(){ window.open(RTCB_CONFIG.availabilityUrl, "_blank"); }
+
+  /* ---------- greeting & guided flow ---------- */
+  var GREETING = "Welcome to Reportage Towers, Addis Ababa \u2014 premium residences located opposite the African Union Headquarters. Are you looking to buy a home or invest in property?";
+
+  function greet(){
+    respond(GREETING, [
+      {label:"Buy a home", action:flowBuy},
+      {label:"Invest",     action:flowInvest},
+      {label:"Corporate enquiry", action:flowCorporate},
+      {label:"Buying from abroad", action:flowDiaspora}
+    ]);
   }
 
-  /* ---------- bot replies ---------- */
+  function flowBuy(){
+    state.purpose = "Buy a home"; state.stage = "unit";
+    respond("Wonderful. We offer three residence types at Reportage Towers:\n" +
+      "\u2022 Studio \u2014 35.6 m\u00B2 (383 sq ft), open-plan living with private balcony\n" +
+      "\u2022 1 Bedroom \u2014 57.2 m\u00B2 (616 sq ft), separate bedroom & living area\n" +
+      "\u2022 2 Bedroom \u2014 124.8 m\u00B2 (1,343 sq ft), master bedroom with en-suite\n" +
+      "The project includes rooftop amenities, private parking, and a full retail podium. Which unit type interests you?",
+      [ {label:"Studio",   action:function(){ flowUnit("studio"); }},
+        {label:"1 Bedroom",action:function(){ flowUnit("1br"); }},
+        {label:"2 Bedroom",action:function(){ flowUnit("2br"); }},
+        {label:"Just show me prices"} ]);
+  }
+
+  function flowUnit(key){
+    var u = KB.types[key];
+    state.unitType = u.label; state.stage = "explore";
+    respond("Excellent choice \u2014 the " + u.name + " at " + u.size + ". " + u.count + " " + u.name +
+      " units are currently available, listed at " + u.range + ". " + KB.vatNote +
+      " You can browse them \u2014 with live filters for tower, floor, and view \u2014 on the Live Availability page. Would you like to take a look?",
+      [ {label:"Open Live Availability", action:openAvailability},
+        {label:"Payment options"},
+        {label:"Floor plans & price", action:function(){ flowFloorPlans(); }} ]);
+  }
+
+  function flowInvest(){
+    state.purpose = "Invest"; state.stage = "explore";
+    respond("Reportage Towers is positioned for both capital appreciation and rental income \u2014 the AU-district location drives strong demand from diplomats, embassy staff, and executives. 584 units are currently available, starting at $66,152 for studios (the lowest entry point). What would you like next?",
+      [ {label:"Browse availability", action:openAvailability},
+        {label:"Request Investor Brief", action:function(){ respond("Opening WhatsApp \u2014 I'll request the confidential Investment Brief (unit prices, payment terms, yield analysis) for you.", null, function(){ waHandoff("the confidential Investment Brief with unit prices, payment terms, and yield analysis"); }); }},
+        {label:"Talk to sales", action:function(){ flowWhatsApp("an investment consultation"); }} ]);
+  }
+
+  function flowCorporate(){
+    state.purpose = "Corporate"; state.stage = "explore";
+    respond("Welcome! Our Corporate Residence Program secures premium accommodation opposite the African Union for executives and international staff, with multi-unit packages available. Which best describes your organization?",
+      [ {label:"Embassy / Consulate", action:function(){ flowWhatsApp("a Corporate Residence Program enquiry (Embassy / Consulate)"); }},
+        {label:"International org / NGO", action:function(){ flowWhatsApp("a Corporate Residence Program enquiry (International organization / NGO)"); }},
+        {label:"Multinational company", action:function(){ flowWhatsApp("a Corporate Residence Program enquiry (Multinational company)"); }} ]);
+  }
+
+  function flowDiaspora(){
+    state.purpose = state.purpose || "Buy from abroad (diaspora)"; state.stage = "explore";
+    respond("Diaspora buyers are our #1 priority. We offer virtual presentations, remote unit selection, and dedicated payment guidance from anywhere in the world \u2014 we've assisted buyers from the USA, Canada, UK, UAE, Saudi Arabia, Germany, Sweden, Netherlands, and Australia. You can reserve your apartment without travelling to Addis.",
+      [ {label:"Book virtual presentation", action:function(){ flowWhatsApp("a virtual presentation and remote unit selection"); }},
+        {label:"Browse availability", action:openAvailability},
+        {label:"Payment options"} ]);
+  }
+
+  function flowPayment(){
+    state.stage = "explore";
+    respond("Two payment options are listed:\n1) Installment plan \u2014 10% down payment upfront, followed by monthly installments of 1% of the unit price until handover. On a $99,581 one-bedroom: $9,958 down + ~$996/month.\n2) Full payment \u2014 a 40% discount is listed (you pay 60% of the unit price).\nHandover is scheduled for Q4 2029. Parking is listed at US$5,000, and 15% VAT applies to the unit and parking. Final terms should be confirmed with the sales team.",
+      [ {label:"How the 40% discount works"},
+        {label:"See units & plans", action:openAvailability},
+        {label:"Talk to sales", action:function(){ flowWhatsApp("payment plan guidance"); }} ]);
+  }
+
+  function flowFloorPlans(){
+    respond("I can connect you with the buyer desk for current pricing, floor plans, unit selection, and payment guidance" +
+      (state.unitType ? " \u2014 I'll note your interest in a " + state.unitType : "") +
+      ". Would you like to request priority unit access via WhatsApp?",
+      [ {label:"Yes, chat on WhatsApp", action:function(){ flowWhatsApp("floor plans, current pricing, and priority unit access"); }},
+        {label:"Keep browsing", action:openAvailability} ]);
+  }
+
+  function flowWhatsApp(need){
+    respond("Great \u2014 opening WhatsApp with your details pre-filled. The Reportage Towers Buyer Desk will assist you with the next steps. Talk soon!",
+      [{label:"Restart conversation", action:restart}], function(){ waHandoff(need); });
+  }
+
+  /* ---------- intent engine (all 20 topics) ---------- */
   function replyFor(raw){
     var t = raw.toLowerCase();
 
-    /* greetings */
-    if (/\b(hi|hello|hey|good (morning|afternoon|evening)|salam)\b/.test(t) && t.length < 40){
-      return {text:"Welcome to Reportage Towers, Addis Ababa \u2014 1,086 premium residences in twin 110m towers, directly opposite the African Union Headquarters. Are you looking to buy a home, or invest in property?",
-              chips:[{label:"Buy a home"},{label:"Invest"},{label:"See prices"}]};
+    /* 1 greetings */
+    if (/^\s*(hi|hello|hey|good (morning|afternoon|evening)|salam|start|restart)\s*$/.test(t) || (/\b(hi|hello|hey)\b/.test(t) && t.length < 25)){
+      return {text:GREETING, chips:[
+        {label:"Buy a home", action:flowBuy},{label:"Invest", action:flowInvest},
+        {label:"Corporate enquiry", action:flowCorporate},{label:"Buying from abroad", action:flowDiaspora}]};
     }
-    /* purpose: invest */
-    if (/\b(invest|investment|yield|rental income|capital appreciation)\b/.test(t)){
-      state.purpose = "Invest";
-      return {text:"Reportage Towers is positioned for both capital appreciation and rental income \u2014 the AU-district location drives strong demand from diplomats, embassy staff, and executives. 584 units are currently available, starting at $66,152 for studios (the lowest entry point). What would you like next?",
-              chips:[{label:"Browse availability", action:openAvailability},{label:"Request Investor Brief", action:function(){waHandoff("the confidential Investment Brief (prices, payment terms, yield analysis)");}},{label:"Talk to sales", action:function(){waHandoff("an investment consultation");}}]};
-    }
-    /* purpose: buy */
-    if (/\b(buy|home|live|family|reside)\b/.test(t) && !state.purpose){
-      state.purpose = "Buy a home";
-    }
-    /* corporate */
-    if (/\b(corporate|embassy|company|ngo|organization|organisation|staff accommodation|multinational)\b/.test(t)){
-      state.purpose = "Corporate";
-      return {text:"Our Corporate Residence Program secures premium accommodation opposite the African Union for executives and international staff, with multi-unit packages available. Shall I connect you with the buyer desk to discuss your organization's needs?",
-              chips:[{label:"Chat on WhatsApp", action:function(){waHandoff("a Corporate Residence Program enquiry");}}]};
-    }
-    /* diaspora */
-    if (/\b(abroad|overseas|diaspora|remote|usa|canada|uk|uae|saudi|germany|sweden|netherlands|australia)\b/.test(t)){
-      state.purpose = state.purpose || "Buy from abroad (diaspora)";
-      return {text:"Diaspora buyers are our #1 priority. We offer virtual presentations, remote unit selection, and dedicated payment guidance from anywhere in the world \u2014 we've assisted buyers from the USA, Canada, UK, UAE, Saudi Arabia, Germany, Sweden, Netherlands, and Australia. You can reserve your apartment without travelling to Addis.",
-              chips:[{label:"Book virtual presentation", action:function(){waHandoff("a virtual presentation and remote unit selection");}},{label:"Browse availability", action:openAvailability}]};
-    }
-    /* unit types & sizes */
-    if (/\b(studio)\b/.test(t) && !/\b(price|cost|much)\b/.test(t)){
-      state.unitType = "Studio";
+    /* 2 purpose: invest */
+    if (/\b(invest|investment|yield|rental income|capital appreciation|investor brief)\b/.test(t)){ flowInvest(); return null; }
+    /* 3 purpose: buy */
+    if (/\b(buy|buying|home|family|live|reside|owner-occupier)\b/.test(t) && !state.purpose){ flowBuy(); return null; }
+    if (/\bapartment options|what (do|can) you offer|unit types?\b/.test(t)){ flowBuy(); return null; }
+    /* 4 corporate */
+    if (/\b(corporate|embassy|consulate|company|ngo|organization|organisation|staff accommodation|multinational|b2b)\b/.test(t)){ flowCorporate(); return null; }
+    /* 5 diaspora */
+    if (/\b(abroad|overseas|diaspora|remote|virtual presentation|usa|canada|uk|uae|saudi|germany|sweden|netherlands|australia)\b/.test(t)){ flowDiaspora(); return null; }
+    /* 6 unit types & sizes */
+    if (/\bstudio\b/.test(t)){
+      state.unitType = "Studio"; state.stage = "explore";
       var s = KB.types.studio;
-      return {text:s.name+" \u2014 "+s.size+", open-plan living with private balcony. "+s.count+" studios are currently available, listed at "+s.range+". "+KB.vatNote,
-              chips:[{label:"See available studios", action:openAvailability},{label:"Payment options"},{label:"Talk to sales", action:function(){waHandoff("studio availability and floor plans");}}]};
+      return {text:"The " + s.name + " is " + s.size + " \u2014 efficiently designed with open-plan living, contemporary kitchen, private balcony, and built-in wardrobes. " + s.count + " studios are currently available, listed at " + s.range + ". " + KB.vatNote,
+        chips:[{label:"Open Live Availability", action:openAvailability},{label:"Payment options"},{label:"Floor plans & price", action:flowFloorPlans}]};
     }
-    if (/\b(1\s?-?\s?bed|one bed|1br)\b/.test(t) && !/\b(price|cost|much)\b/.test(t)){
-      state.unitType = "1 Bedroom";
+    if (/\b(1\s?-?\s?bed|one bed|1br)\b/.test(t)){
+      state.unitType = "1 Bedroom"; state.stage = "explore";
       var o = KB.types["1br"];
-      return {text:o.name+" \u2014 "+o.size+", separate bedroom & living area with private balcony. "+o.count+" one-bedroom units are currently available, listed at "+o.range+". "+KB.vatNote,
-              chips:[{label:"See available 1BRs", action:openAvailability},{label:"Payment options"},{label:"Talk to sales", action:function(){waHandoff("1-bedroom availability and floor plans");}}]};
+      return {text:"The 1-bedroom is " + o.size + " \u2014 separate bedroom and living area, premium bathroom fixtures, private balcony with city views. " + o.count + " one-bedroom units are currently available, listed at " + o.range + ". " + KB.vatNote,
+        chips:[{label:"Open Live Availability", action:openAvailability},{label:"Payment options"},{label:"Floor plans & price", action:flowFloorPlans}]};
     }
-    if (/\b(2\s?-?\s?bed|two bed|2br)\b/.test(t) && !/\b(price|cost|much)\b/.test(t)){
-      state.unitType = "2 Bedroom";
+    if (/\b(2\s?-?\s?bed|two bed|2br)\b/.test(t)){
+      state.unitType = "2 Bedroom"; state.stage = "explore";
       var w = KB.types["2br"];
-      return {text:w.name+" \u2014 "+w.size+", master bedroom with en-suite and panoramic balcony. "+w.count+" two-bedroom units are currently available, listed at "+w.range+". "+KB.vatNote,
-              chips:[{label:"See available 2BRs", action:openAvailability},{label:"Payment options"},{label:"Talk to sales", action:function(){waHandoff("2-bedroom availability and floor plans");}}]};
+      return {text:"The 2-bedroom is " + w.size + " \u2014 master bedroom with en-suite, spacious living & dining area, and panoramic balcony views. " + w.count + " two-bedroom units are currently available, listed at " + w.range + ". " + KB.vatNote,
+        chips:[{label:"Open Live Availability", action:openAvailability},{label:"Payment options"},{label:"Floor plans & price", action:flowFloorPlans}]};
     }
-    /* prices */
-    if (/\b(price|cost|how much|range|budget|expensive)\b/.test(t)){
+    /* 7 prices */
+    if (/\b(price|cost|how much|range|budget|expensive|afford)\b/.test(t)){
       return {text:"Current listed ranges (excluding 15% VAT):\n\u2022 Studio: $66,152 \u2013 $76,074\n\u2022 1 Bedroom: $95,979 \u2013 $110,376\n\u2022 2 Bedroom: $182,508 \u2013 $209,884\nPrices vary by floor and view \u2014 higher floors carry a premium. AED equivalents are shown on the availability page.",
-              chips:[{label:"Open Live Availability", action:openAvailability},{label:"Payment options"},{label:"Talk to sales", action:function(){waHandoff("exact unit pricing for my shortlisted units");}}]};
+        chips:[{label:"Open Live Availability", action:openAvailability},{label:"Payment options"},{label:"Talk to sales", action:function(){ flowWhatsApp("exact unit pricing for my shortlisted units"); }}]};
     }
-    /* availability */
-    if (/\b(availab|units|left|in stock|browse)\b/.test(t)){
-      return {text:"584 units are currently available across Towers A & B: 236 studios, 241 one-bedrooms, and 107 two-bedrooms. On the Live Availability page you can filter by tower, view, unit type, and payment option, then inquire about any unit directly.",
-              chips:[{label:"Open Live Availability", action:openAvailability},{label:"Payment options"}]};
+    /* 8 availability */
+    if (/\b(availab|units|left|in stock|browse|inventory)\b/.test(t)){
+      return {text:"584 units are currently available across Towers A & B, out of 1,086 residences project-wide: 236 studios, 241 one-bedrooms, and 107 two-bedrooms. On the Live Availability page you can filter by tower, view, unit type, and payment option, then inquire about any unit directly.",
+        chips:[{label:"Open Live Availability", action:openAvailability},{label:"Payment options"}]};
     }
-    /* payment */
-    if (/\b(payment|pay|installment|monthly|down payment|deposit|plan)\b/.test(t) && !/\b(full|cash|discount)\b/.test(t)){
-      return {text:"Two payment options are listed:\n1) Installment plan \u2014 10% down, then 1% of the unit price per month until handover. On a $99,581 1-bedroom: $9,958 down + ~$996/month.\n2) Full payment \u2014 a 40% discount is listed.\nHandover is scheduled for Q4 2029. Parking is listed at US$5,000; 15% VAT applies to the unit and parking. Confirm final terms with our sales team.",
-              chips:[{label:"See units & plans", action:openAvailability},{label:"Talk to sales", action:function(){waHandoff("payment plan guidance");}}]};
-    }
-    /* full payment discount */
-    if (/\b(full|cash|discount|40%|lump)\b/.test(t)){
+    /* 9 payment */
+    if (/\b(payment|pay|installment|monthly|down payment|deposit|finance|mortgage)\b/.test(t) && !/\b(full|cash|discount)\b/.test(t)){ flowPayment(); return null; }
+    /* 10 full payment discount */
+    if (/\b(full payment|full|cash|discount|40%|lump sum)\b/.test(t)){
       return {text:"A 40% discount is listed for full payment \u2014 the payable amount is 60% of the unit price. How the discount interacts with VAT and parking should be confirmed with the sales team before committing.",
-              chips:[{label:"Talk to sales", action:function(){waHandoff("full-payment terms and the 40% discount");}}]};
+        chips:[{label:"Talk to sales", action:function(){ flowWhatsApp("full-payment terms and the 40% discount"); }}]};
     }
-    /* handover */
-    if (/\b(handover|delivery|complete|completion|finished|when.*(ready|done)|move in|timeline)\b/.test(t)){
+    /* 11 handover */
+    if (/\b(handover|delivery|complete|completion|finished|when.*(ready|done)|move in|timeline|2029)\b/.test(t)){
       return {text:"Handover is scheduled for Q4 2029 \u2014 roughly three years from now, which is why the installment plan runs monthly until then. Early buyers lock in today's pricing. Exact dates are always confirmed in writing with the sales team.",
-              chips:[{label:"Payment options"},{label:"Talk to sales", action:function(){waHandoff("handover timeline confirmation");}}]};
+        chips:[{label:"Payment options"},{label:"Talk to sales", action:function(){ flowWhatsApp("handover timeline confirmation"); }}]};
     }
-    /* parking */
+    /* 12 parking */
     if (/\b(parking|garage|car)\b/.test(t)){
-      return {text:"Dedicated private parking is available; parking is listed at US$5,000, with 15% VAT applying to parking as well. Allocation details (per unit, one-time vs. recurring) should be confirmed with the sales team.",
-              chips:[{label:"Talk to sales", action:function(){waHandoff("parking allocation details");}}]};
+      return {text:"Dedicated private parking is included in the project, and parking is listed at US$5,000. 15% VAT applies to parking as well. Allocation details (per unit, one-time vs. recurring) should be confirmed with the sales team.",
+        chips:[{label:"Talk to sales", action:function(){ flowWhatsApp("parking allocation details"); }}]};
     }
-    /* vat / fees */
-    if (/\b(vat|tax|fee|fees|hidden)\b/.test(t)){
-      return {text:"15% VAT applies to the unit and to parking, as listed. The prices I quote exclude VAT. Any other costs will be itemized in writing by the sales team.",
-              chips:[{label:"Talk to sales", action:function(){waHandoff("a full cost breakdown including VAT");}}]};
+    /* 13 VAT / fees */
+    if (/\b(vat|tax|fee|fees|hidden|extra cost)\b/.test(t)){
+      return {text:"15% VAT applies to the unit and to parking, as listed. All prices I quote exclude VAT. Any other costs will be itemized in writing by the sales team.",
+        chips:[{label:"Talk to sales", action:function(){ flowWhatsApp("a full cost breakdown including VAT"); }}]};
     }
-    /* location */
-    if (/\b(where|location|address|near|distance|far)\b/.test(t)){
+    /* 14 location */
+    if (/\b(where|location|address|near|distance|far|situat)\b/.test(t)){
       return {text:"Reportage Towers sits directly opposite the African Union Headquarters in Addis Ababa. Approximate drive times: AU HQ 2 min \u00B7 Mexico Square 2 min \u00B7 Landmark General Hospital 3 min \u00B7 Financial District 5 min \u00B7 International Community School 10 min.",
-              chips:[{label:"See prices"},{label:"Open Live Availability", action:openAvailability}]};
+        chips:[{label:"See prices"},{label:"Open Live Availability", action:openAvailability}]};
     }
-    /* amenities */
-    if (/\b(amenit|pool|gym|fitness|rooftop|podium|retail|shop)\b/.test(t)){
+    /* 15 amenities */
+    if (/\b(amenit|pool|gym|fitness|rooftop|podium|retail|shop|concierge|security)\b/.test(t)){
       return {text:"The project includes world-class rooftop amenities, dedicated private parking, and a full retail podium (\u224815,000 m\u00B2 of commercial space across \u224825,979 m\u00B2 total). Every residence has a private balcony, contemporary kitchen finishes, and built-in wardrobes. A detailed amenity list can be shared by the buyer desk.",
-              chips:[{label:"Talk to sales", action:function(){waHandoff("the full amenities list and floor plans");}}]};
+        chips:[{label:"Talk to sales", action:function(){ flowWhatsApp("the full amenities list and floor plans"); }}]};
     }
-    /* developer */
-    if (/\b(developer|builder|who.*(build|develop)|reportage|trust|reputation)\b/.test(t)){
+    /* 16 developer */
+    if (/\b(developer|builder|who.*(build|develop)|reportage|trust|reputation|army foundation)\b/.test(t)){
       return {text:"Reportage Towers is delivered by Reportage Properties in partnership with the Ethiopian Defence Army Foundation. The project comprises 1,086 residences in twin 110m towers with 29 residential floors above a B+G+2 podium.",
-              chips:[{label:"See prices"},{label:"Talk to sales", action:function(){waHandoff("developer and project documentation");}}]};
+        chips:[{label:"See prices"},{label:"Talk to sales", action:function(){ flowWhatsApp("developer and project documentation"); }}]};
     }
-    /* floor plans */
-    if (/\b(floor plan|plan|brochure|layout|drawing)\b/.test(t)){
-      return {text:"Floor plans aren't published online \u2014 the buyer desk shares them directly, along with today's price for your preferred unit." + (state.unitType ? " I'll note you're interested in a " + state.unitType + "." : ""),
-              chips:[{label:"Chat on WhatsApp", action:function(){waHandoff("floor plans and current pricing");}}]};
+    /* 17 floor plans */
+    if (/\b(floor plan|floorplan|plan|brochure|layout|drawing)\b/.test(t)){ flowFloorPlans(); return null; }
+    /* 18 views */
+    if (/\b(view|views|city view|au view|square view|hill view)\b/.test(t)){
+      return {text:"Each tower offers three view orientations: African Union View, Mexico Square View, and Hill View. You can filter by view on the Live Availability page \u2014 AU-view units are the most requested.",
+        chips:[{label:"Open Live Availability", action:openAvailability}]};
     }
-    /* views */
-    if (/\b(view|views|city view|au view)\b/.test(t)){
-      return {text:"Each tower offers three view orientations: African Union View, Mexico Square View, and Hill View. You can filter by view on the Live Availability page.",
-              chips:[{label:"Open Live Availability", action:openAvailability}]};
-    }
-    /* human / whatsapp */
-    if (/\b(agent|human|whatsapp|contact|call|phone|person|sales|salesperson|talk)\b/.test(t)){
-      return {text:"Happy to connect you \u2014 opening WhatsApp with your details pre-filled so the buyer desk can pick up right away." + (state.unitType ? " (Interest noted: " + state.unitType + ".)" : ""),
-              chips:[{label:"Open WhatsApp", action:function(){waHandoff("general assistance");}}],
-              auto:function(){waHandoff("general assistance");}};
-    }
-    /* fallback */
+    /* 19 human / whatsapp */
+    if (/\b(agent|human|whatsapp|contact|call|phone|person|sales|salesperson|talk|priority access|yes)\b/.test(t)){ flowWhatsApp("general assistance"); return null; }
+    /* 20 fallback */
     return {text:"That's a great question \u2014 it's beyond what I can confirm here. Our buyer desk can help within minutes on WhatsApp, or try one of these topics:",
-            chips:[{label:"See prices"},{label:"Payment options"},{label:"Open Live Availability", action:openAvailability},{label:"Chat on WhatsApp", action:function(){waHandoff("a question about Reportage Towers");}}]};
+      chips:[{label:"See prices"},{label:"Payment options"},{label:"Open Live Availability", action:openAvailability},{label:"Chat on WhatsApp", action:function(){ flowWhatsApp("a question about Reportage Towers"); }}]};
   }
 
   function botRespond(userText){
     var r = replyFor(userText);
-    typing(function(){
-      addMsg(r.text, "bot");
-      if (r.chips) setChips(r.chips);
-      if (r.auto) setTimeout(r.auto, 900);
-    }, 550 + Math.min(900, userText.length * 12));
+    if (!r) return; /* flow function already handled it */
+    respond(r.text, r.chips, r.auto);
   }
 
   function send(text){
@@ -303,20 +378,25 @@
     botRespond(v);
   }
 
+  /* ---------- restart ---------- */
+  function restart(){
+    initState();
+    state.greeted = true;
+    body.innerHTML = "";
+    setChips([]);
+    greet();
+  }
+
   /* ---------- events ---------- */
   document.getElementById("rtcw-send").onclick = function(){ send(); };
   field.addEventListener("keydown", function(e){ if (e.key === "Enter") send(); });
   launch.onclick = function(){
+    var opening = !panel.classList.contains("open");
     panel.classList.toggle("open");
-    if (panel.classList.contains("open") && !state.greeted){
-      state.greeted = true;
-      typing(function(){
-        addMsg("Welcome to Reportage Towers, Addis Ababa \u2014 1,086 premium residences in twin 110m towers, directly opposite the African Union Headquarters. Are you looking to buy a home, or invest in property?", "bot");
-        setChips([{label:"Buy a home"},{label:"Invest"},{label:"See prices"}]);
-      }, 600);
-    }
+    if (opening && !state.greeted){ state.greeted = true; greet(); }
   };
   document.getElementById("rtcw-close").onclick = function(){ panel.classList.remove("open"); };
+  document.getElementById("rtcw-restart").onclick = function(e){ e.stopPropagation(); restart(); };
 
   /* honor config position */
   if (RTCB_CONFIG.position === "right"){
