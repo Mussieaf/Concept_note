@@ -4,35 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Green Grid Ethiopia — National EV Charging Infrastructure Program | 绿色电网埃塞俄比亚 | ግሪን ግሪድ ኢትዮጵያ</title>
-<meta name="uilding a nationwide EV charging backbone aligned with Ethiopia's 10-Year Development Plan. A three-party joint venture combining local capital, Chinese EV technology, and cross-border coordination.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="shortcut icon" type="image/x-icon" href="https://github.githubassets.com/favicons/favicon.svg"> 
-<link rel="icon" type="image/svg+xml" href="https://github.githubassets.com/favicons/favicon.svg">
-
-<!-- Open Graph / Facebook, whatsapp -->
-<meta property="og:title" content="Green Grid Ethiopia — National EV Charging Infrastructure Program | 绿色电网埃塞俄比亚 | ግሪን ግሪድ ኢትዮጵያ" />
-<meta property="og:description" content="Building a nationwide EV charging backbone aligned with Ethiopia's 10-Year Development Plan. A three-party joint venture combining local capital, Chinese EV technology, and cross-border coordination." />
-<meta property="og:image" content="https://mussieaf.github.io/Concept_note/wuling.jpg?v=2" />
-<meta property="og:image:secure_url" content="https://mussieaf.github.io/Concept_note/wuling.jpg?v=2" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Ethiopia EV Charging Network — Sustainable Infrastructure Investment" />
-<meta property="og:image:type" content="image/jpg" />
-<meta property="og:url" content="https://mussieaf.github.io/Concept_note/TG-EV/green-grid-ethiopia.html" />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Ethiopia EV Charging Network" />
-<meta property="og:locale" content="en_US" />
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Green Grid Ethiopia — National EV Charging Infrastructure Program | 绿色电网埃塞俄比亚 | ግሪን ግሪድ ኢትዮጵያ" />
-<meta name="twitter:description" content="Building a nationwide EV charging backbone aligned with Ethiopia's 10-Year Development Plan. A three-party joint venture combining local capital, Chinese EV technology, and cross-border coordination.">
-<meta name="twitter:image" content="https://mussieaf.github.io/Concept_note/wuling.jpg?v=2">
-<meta name="twitter:image:alt" content="Building a nationwide EV charging backbone aligned with Ethiopia's 10-Year Development Plan.">
-<meta name="description" content="Building a nationwide EV charging backbone aligned with Ethiopia's 10-Year Development Plan.">
- 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap');
 
@@ -71,11 +42,34 @@
   .flag.et::after{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:6px;height:6px;background:#FFDE00;
     clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);}
 
+  /* ---------- NAV ---------- */
+  html{scroll-behavior:smooth;}
+  .mainnav{position:sticky;top:0;z-index:50;background:rgba(7,40,22,.93);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid rgba(201,162,39,.35);}
+  .mainnav-inner{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,40px);height:58px;display:flex;align-items:center;justify-content:space-between;position:relative;}
+  .brand{font-family:var(--font-display);color:var(--gold);font-size:19px;letter-spacing:.06em;text-decoration:none;white-space:nowrap;}
+  .navlinks{display:flex;gap:4px;list-style:none;margin:0;padding:0;}
+  .navlinks a{display:block;color:#e9e4d4;text-decoration:none;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;padding:8px 12px;border-radius:6px;}
+  .navlinks a:hover{color:var(--gold);background:rgba(255,255,255,.06);}
+  .nav-toggle{display:none;background:none;border:1px solid rgba(201,162,39,.5);color:#f3e9c9;border-radius:6px;padding:7px 13px;font-size:16px;line-height:1;cursor:pointer;}
+  @media(max-width:860px){
+    .nav-toggle{display:block;}
+    .navlinks{display:none;position:absolute;top:58px;left:0;right:0;flex-direction:column;background:rgba(7,40,22,.98);padding:12px clamp(20px,4vw,40px) 20px;gap:2px;border-bottom:1px solid rgba(201,162,39,.35);}
+    .navlinks.open{display:flex;}
+    .navlinks a{padding:13px 8px;border-bottom:1px solid rgba(255,255,255,.07);}
+  }
+
+  /* ---------- BOTTOM CONTACT STRIP ---------- */
+  .contact-strip{background:#0a0d0f;display:flex;flex-wrap:wrap;gap:14px;justify-content:center;align-items:center;padding:24px 20px;}
+  .contact-item{display:inline-flex;align-items:center;gap:10px;color:#e9e4d4;text-decoration:none;font-size:15px;letter-spacing:.03em;
+    padding:10px 22px;border:1px solid rgba(201,162,39,.45);border-radius:999px;transition:background .2s,color .2s;}
+  .contact-item:hover{background:var(--gold);color:var(--ink);}
+  .contact-item svg{width:20px;height:20px;flex:none;fill:currentColor;}
+
   /* ---------- HERO ---------- */
   .hero{position:relative;min-height:92vh;display:flex;flex-direction:column;justify-content:flex-end;
     background:
-      radial-gradient(1200px 600px at 80% 0%, rgba(201,162,39,.18), transparent 60%),
-      linear-gradient(180deg, rgba(7,20,12,.55) 0%, rgba(7,20,12,.92) 78%),
+      linear-gradient(180deg, rgba(7,20,12,.66) 0%, rgba(7,20,12,.5) 38%, rgba(7,20,12,.93) 100%),
+      url('highway-fast-charge-hub.jpg') center/cover no-repeat,
       repeating-linear-gradient(115deg, #0b6b3a 0 26px, #074a28 26px 52px);
     color:#fdfbf4;overflow:hidden;}
   .hero::after{content:"";position:absolute;inset:0;pointer-events:none;
@@ -116,9 +110,8 @@
   .feature{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
   .feature .f-img{grid-column:1/6;min-height:520px;
     background:linear-gradient(160deg,#0b6b3a 0%,#074a28 55%,#052e18 100%);position:relative;overflow:hidden;}
-  .f-img .bolt{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:200px;color:rgba(201,162,39,.28);
-    font-family:var(--font-display);line-height:1;}
-  .f-img .f-cap{position:absolute;bottom:26px;left:30px;right:30px;color:#e8e2cf;font-size:13px;letter-spacing:.12em;text-transform:uppercase;}
+  .f-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+  .f-img .f-cap{position:absolute;bottom:0;left:0;right:0;padding:48px 30px 22px;color:#f3eedd;font-size:13px;letter-spacing:.12em;text-transform:uppercase;background:linear-gradient(180deg,transparent,rgba(0,0,0,.75));}
   .feature .f-body{grid-column:6/13;padding:70px clamp(30px,5vw,60px);}
   .f-body h2{font-size:clamp(26px,3vw,44px);line-height:1.15;margin-bottom:22px;}
   .f-body p{color:var(--grey);margin-bottom:16px;font-size:16px;}
@@ -211,7 +204,7 @@
 </head>
 <body>
 
-<div class="topbar">
+<div class="topbar" id="top">
   <div class="langs">
     <button data-l="en" class="active">EN</button>
     <button data-l="zh">中文</button>
@@ -221,6 +214,21 @@
         data-zh='绿色电网埃塞俄比亚 <span class="tb-sep">◆</span> 谅解备忘录版 <span class="tb-sep">◆</span> 亚的斯亚贝巴 · 北京 · 2026'
         data-am='ግሪን ግሪድ ኢትዮጵያ <span class="tb-sep">◆</span> የአቋም ማስታወሻ እትም <span class="tb-sep">◆</span> አዲስ አበባ · ቤዥንግ · 2026'>Green Grid Ethiopia <span class="tb-sep">◆</span> Memorandum of Understanding Edition <span class="tb-sep">◆</span> Addis Ababa · Beijing · 2026</span>
 </div>
+
+<nav class="mainnav">
+  <div class="mainnav-inner">
+    <a class="brand" href="#top">Green Grid Ethiopia</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+    <ul class="navlinks" id="navLinks">
+      <li><a href="#story" data-en="Story" data-zh="背景" data-am="ታሪክ">Story</a></li>
+      <li><a href="#program" data-en="Program" data-zh="项目" data-am="ፕሮግራም">Program</a></li>
+      <li><a href="#phases" data-en="Phases" data-zh="阶段" data-am="ደረጃዎች">Phases</a></li>
+      <li><a href="#structure" data-en="Structure" data-zh="架构" data-am="ቅርጸታ">Structure</a></li>
+      <li><a href="#roadmap" data-en="Roadmap" data-zh="路线图" data-am="መንገድ ካርታ">Roadmap</a></li>
+      <li><a href="#contact" data-en="Contact" data-zh="联系" data-am="እናገናኛለን">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
 <header class="hero">
   <div class="ribbon" data-en="Concept · Ethiopia" data-zh="概念 · 埃塞俄比亚" data-am="ኮንሴፕት · ኢትዮጵያ">Concept · Ethiopia</div>
@@ -239,7 +247,7 @@
   </div>
 </header>
 
-<section>
+<section id="story">
   <div class="cols-2">
     <div>
       <div class="sec-label" data-en="01 — The Story" data-zh="01 — 项目背景" data-am="01 — ታሪክ">01 — The Story</div>
@@ -266,9 +274,9 @@
   </div>
 </section>
 
-<div class="feature">
+<div class="feature" id="program">
   <div class="f-img">
-    <div class="bolt">⚡</div>
+    <img src="highway-fast-charge-hub.jpg" alt="Highway fast-charge hub artist concept — Addis Ababa–Adama corridor">
     <div class="f-cap" data-en="Artist concept — highway fast-charge hub, Addis Ababa–Adama corridor" data-zh="概念图——亚的斯亚贝巴–阿达玛走廊高速快充枢纽" data-am="የኪነጥበብ ሐሳብ——አዲስ አበባ–አዳማ ኮሪዶር ሀይዌይ ፈጣን ማጫወቻ ማዕከል">Artist concept — highway fast-charge hub, Addis Ababa–Adama corridor</div>
   </div>
   <div class="f-body">
@@ -289,7 +297,7 @@
   </div>
 </div>
 
-<section>
+<section id="phases">
   <div class="sec-label" data-en="03 — Build-Out Map" data-zh="03 — 建设蓝图" data-am="03 — የግንባታ ካርታ">03 — Build-Out Map</div>
   <h2 class="sec-title" data-en="From pilot to national grid" data-zh="从试点到全国网络" data-am="ከሙከራ ወደ ብሔራዊ መረብ">From pilot to national grid</h2>
   <p class="sec-sub" data-en="Quantities flex with site acquisition, grid-connection capacity, EV penetration and the actual availability of government incentives and preferential loans." data-zh="实际数量根据场站获取进度、电网接入容量、电动车渗透率及政府补贴与优惠贷款落地情况动态调整。" data-am="ብዛቶች በቦታ ግዢ、 የኃይል ግንኙነት አቅም、 የኤቪ ስርጭት እና የመንግሥት ማበረታቻ እንደሚገኝ ይለያያሉ።">Quantities flex with site acquisition, grid-connection capacity, EV penetration and the actual availability of government incentives and preferential loans.</p>
@@ -333,7 +341,7 @@
   </div>
 </section>
 
-<section class="structure">
+<section class="structure" id="structure">
   <div class="sec-label" data-en="04 — Deal Architecture" data-zh="04 — 交易架构" data-am="04 — የግብይት አቀራረብ">04 — Deal Architecture</div>
   <h2 class="sec-title" data-en="The ring-fenced SPV at the center" data-zh="资产隔离SPV居于核心" data-am="በመሃል የሚገኝ የተከበበ SPV">The ring-fenced SPV at the center</h2>
   <p style="color:#c9c4b4;max-width:720px;" data-en="A jointly registered Ethiopian special-purpose vehicle (preferred form: PLC / Private Limited Company under the Ethiopian Commercial Code) holds all charging and user data, signs all site and grid agreements, and is the exclusive borrower of pension-fund debt."
@@ -381,7 +389,7 @@
   </div>
 </section>
 
-<section>
+<section id="roadmap">
   <div class="cols-2">
     <div>
       <div class="sec-label" data-en="05 — Roadmap" data-zh="05 — 路线图" data-am="05 — መንገድ ካርታ">05 — Roadmap</div>
@@ -452,18 +460,29 @@
   </div>
 </section>
 
-<section>
+<section id="contact">
   <div class="cta">
     <div>
       <h2 data-en="The grid is ready. The capital is structured. The corridor is open." data-zh="电网已就绪，资金已结构化，走廊已打开。" data-am="ኃይል መረብ ዝግጁ ነው። ካፒታል ተቀምጧል። ኮሪዶር ክፍት ነው።">The grid is ready. The capital is structured. The corridor is open.</h2>
       <p data-en="Next step: signature of the full agreement suite and registration of the Ethiopian SPV — then first steel goes into the ground in Addis Ababa within the year." data-zh="下一步：签署全套正式协议并注册埃塞俄比亚SPV——年内亚的斯亚贝巴即可破土动工。" data-am="ቀጣይ እርምጃ：ሙሉ ስምምነት መፈራመጥ እና የኢትዮጵያ SPV ምዝገጃ——በዚህ አመት ውስጥ በአዲስ አበባ ግንባታ ይጀምራል።">Next step: signature of the full agreement suite and registration of the Ethiopian SPV — then first steel goes into the ground in Addis Ababa within the year.</p>
     </div>
     <div>
-      <a class="btn" href="#contact" data-en="Request the Data Room" data-zh="申请数据室" data-am="ዳታ ማህደር ይጠይቁ">Request the Data Room</a>
-      <a class="btn ghost" href="#roadmap" data-en="View Roadmap" data-zh="查看路线图" data-am="የመንገድ ካርታ ይመልከቱ">View Roadmap</a>
+      <a class="btn" href="#" title="Placeholder link" data-en="Request the Data Room" data-zh="申请数据室" data-am="ዳታ ማህደር ይጠይቁ">Request the Data Room</a>
+      <a class="btn ghost" href="#" title="Placeholder link" data-en="View Roadmap" data-zh="查看路线图" data-am="የመንገድ ካርታ ይመልከቱ">View Roadmap</a>
     </div>
   </div>
 </section>
+
+<div class="contact-strip">
+  <a class="contact-item" href="https://wa.me/25122466797" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span>WhatsApp&nbsp;+251&nbsp;224&nbsp;466&nbsp;797</span>
+  </a>
+  <a class="contact-item" href="mailto:mussie@equaltradeglobal.org">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+    <span>mussie@equaltradeglobal.org</span>
+  </a>
+</div>
 
 <footer data-en="<b>GREEN GRID ETHIOPIA</b> · National EV Charging Infrastructure Program · Concept publication based on the tri-party Memorandum of Understanding · Addis Ababa — Beijing · 2026 · All program parameters subject to the formal Joint Venture Agreement"
         data-zh="<b>绿色电网埃塞俄比亚</b> · 全国电动汽车充电基础设施项目 · 基于三方谅解备忘录的概念出版物 · 亚的斯亚贝巴 — 北京 · 2026 · 所有项目参数以正式《合资经营协议》为准"
@@ -490,6 +509,14 @@
     (function(b){
       b.addEventListener('click', function(){ setLang(b.getAttribute('data-l')); });
     })(btns[k]);
+  }
+  var nt = document.getElementById('navToggle'), nl = document.getElementById('navLinks');
+  if (nt && nl){
+    nt.addEventListener('click', function(){ nl.classList.toggle('open'); });
+    var nlinks = nl.querySelectorAll('a');
+    for (var m=0;m<nlinks.length;m++){
+      nlinks[m].addEventListener('click', function(){ nl.classList.remove('open'); });
+    }
   }
   var saved = 'en';
   try { saved = localStorage.getItem('gge-lang') || 'en'; } catch(e){}
