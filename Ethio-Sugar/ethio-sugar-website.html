@@ -1,1 +1,598 @@
-ethio-sugar-website.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ethio Sugar Manufacturing Industry S.C. — Investing in Ethiopia's Sweet Future | Wonji/Shoa · Metehara · Hamer</title>
+<meta name="description" content="Ethio Sugar Manufacturing Industry S.C. — a private share company (est. 2018) pioneering agribusiness investment and sugar complex privatization in Ethiopia. Wonji/Shoa & Metehara acquisition plus a 10,000-hectare sugarcane development in Hamer, Omo Zone. Explore investment opportunities.">
+<meta name="keywords" content="Ethiopia sugar, sugar investment Ethiopia, Ethio Sugar Manufacturing, Wonji Shoa sugar factory, Metehara sugar factory, Hamer sugarcane Omo Zone, agribusiness Africa, ESIG, sugar privatization Ethiopia, Ethiopia sugar deficit">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#1a5c2e">
+<meta property="og:title" content="Ethio Sugar Manufacturing Industry S.C. — Ethiopia's Private Sugar Champion">
+<meta property="og:description" content="Pioneering private investment in Ethiopia's sugar industry — Wonji/Shoa & Metehara privatization, 10,000 ha in Hamer (Omo Zone). Join us.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.ethiosugarmfg.et/">
+<meta property="og:image" content="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=70">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ethio Sugar Manufacturing Industry S.C.">
+<meta name="twitter:description" content="Private share company leading Ethiopia's sugar privatization — Wonji/Shoa, Metehara, and 10,000 ha in Hamer.">
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"Organization",
+ "name":"Ethio Sugar Manufacturing Industry S.C.",
+ "alternateName":"Ethio Sugar Mfg.",
+ "url":"https://www.ethiosugarmfg.et",
+ "logo":"https://www.ethiosugarmfg.et/logo.svg",
+ "foundingDate":"2018",
+ "description":"Private share company engaged in agribusiness, sugar manufacturing and sugar complex privatization in Ethiopia.",
+ "email":"info@ethiosugarmfg.et",
+ "address":{"@type":"PostalAddress","streetAddress":"Africa Avenue, Bole Sub-city","addressLocality":"Addis Ababa","addressCountry":"ET"},
+ "areaServed":"Ethiopia",
+ "knowsAbout":["Sugar manufacturing","Agribusiness","Sugarcane farming","Agro-processing","Privatization"]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#1a5c2e; --green-d:#0f3a1d; --green-l:#2e8b47;
+  --gold:#c4a35a; --gold-d:#a88b45;
+  --bg:#faf9f6; --bg-warm:#f5f3ee; --ink:#1a1a1a; --ink2:#5c5c5c; --muted:#8a8a8a;
+  --border:rgba(0,0,0,.08); --white:#fff;
+  --fd:'Cormorant Garamond',Georgia,serif;
+  --fb:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%}
+h1,h2,h3,h4{font-family:var(--fd);font-weight:400}
+a{text-decoration:none}
+
+/* ---------- NAV ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 0;transition:all .4s;background:transparent}
+.nav.s{background:rgba(250,249,246,.97);backdrop-filter:blur(18px);box-shadow:0 1px 0 var(--border);padding:10px 0}
+.nav-in{max-width:1280px;margin:0 auto;padding:0 40px;display:flex;justify-content:space-between;align-items:center}
+.brand{display:flex;align-items:center;gap:12px}
+.brand svg{height:46px;width:auto;transition:transform .3s}
+.brand:hover svg{transform:scale(1.04)}
+.brand-txt{line-height:1.1}
+.brand-txt b{font-family:var(--fd);font-size:1.28rem;font-weight:600;letter-spacing:.4px;color:#fff;transition:color .4s}
+.brand-txt small{display:block;font-size:.58rem;letter-spacing:2.6px;text-transform:uppercase;color:var(--gold);font-weight:600}
+.nav.s .brand-txt b{color:var(--ink)}
+.nav-links{display:flex;gap:30px;align-items:center}
+.nav-links a{font-size:.74rem;font-weight:500;text-transform:uppercase;letter-spacing:1.6px;color:#fff;position:relative;padding-bottom:3px;transition:color .4s}
+.nav.s .nav-links a{color:var(--ink)}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1.5px;background:var(--gold);transition:width .3s var(--ease)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{background:var(--gold);color:var(--ink)!important;padding:10px 22px;font-size:.7rem!important;letter-spacing:1.6px;font-weight:600;transition:all .3s var(--ease)}
+.nav-cta::after{display:none!important}
+.nav-cta:hover{background:var(--green);color:#fff!important;transform:translateY(-2px)}
+.nav-mob{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:8px}
+.nav-mob span{display:block;width:24px;height:2px;background:#fff;transition:all .3s}
+.nav.s .nav-mob span{background:var(--ink)}
+
+/* ---------- HERO ---------- */
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden;
+  background:linear-gradient(100deg,rgba(15,58,29,.92) 0%,rgba(26,92,46,.72) 55%,rgba(26,92,46,.35) 100%),
+  url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1800&q=70') center/cover}
+.hero::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:90px 90px;pointer-events:none}
+.hero-in{max-width:1280px;margin:0 auto;padding:150px 40px 90px;position:relative;z-index:2;width:100%}
+.hero-tag{display:inline-flex;align-items:center;gap:10px;background:rgba(196,163,90,.14);border:1px solid rgba(196,163,90,.35);padding:8px 18px;font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:2.2px;color:var(--gold);margin-bottom:26px}
+.hero-tag::before{content:'';width:7px;height:7px;background:var(--gold);transform:rotate(45deg)}
+.hero-title{font-size:clamp(2.5rem,5vw,4.1rem);font-weight:300;line-height:1.08;color:#fff;max-width:820px;margin-bottom:22px;letter-spacing:-.5px}
+.hero-title em{font-style:italic;font-weight:400;color:var(--gold)}
+.hero-sub{font-size:1.02rem;color:#e4efe6;line-height:1.75;max-width:620px;font-weight:300;margin-bottom:34px}
+.hero-cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:15px 32px;font-size:.76rem;font-weight:600;text-transform:uppercase;letter-spacing:1.6px;cursor:pointer;border:none;font-family:var(--fb);transition:all .35s var(--ease)}
+.btn-pri{background:var(--gold);color:var(--ink)}
+.btn-pri:hover{background:#fff;transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.25)}
+.btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.45)}
+.btn-ghost:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.hero-stats{display:flex;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.18);padding-top:32px;max-width:900px}
+.hstat{padding:0 44px 0 0;margin-right:44px;border-right:1px solid rgba(255,255,255,.18)}
+.hstat:last-child{border:none}
+.hstat b{font-family:var(--fd);font-size:2.1rem;font-weight:300;color:var(--gold);display:block;line-height:1}
+.hstat span{font-size:.64rem;text-transform:uppercase;letter-spacing:1.8px;color:#cfe2d3;font-weight:500}
+
+/* ---------- MARQUEE ---------- */
+.marquee{background:var(--ink);padding:22px 0;overflow:hidden;position:relative}
+.m-track{display:flex;gap:18px;width:max-content;animation:mscroll 32s linear infinite}
+.marquee:hover .m-track{animation-play-state:paused}
+@keyframes mscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.m-item{position:relative;flex:none}
+.m-item img{width:360px;height:230px;object-fit:cover;border-radius:12px;filter:saturate(.92)}
+.m-item figcaption{position:absolute;left:14px;bottom:12px;font-size:.62rem;text-transform:uppercase;letter-spacing:2px;color:#fff;background:rgba(15,58,29,.75);padding:5px 12px;border-radius:20px;font-weight:600}
+
+/* ---------- SECTIONS ---------- */
+.sec{padding:100px 0}
+.sec-in{max-width:1280px;margin:0 auto;padding:0 40px}
+.eyebrow{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:3px;color:var(--gold-d);margin-bottom:14px;display:flex;align-items:center;gap:14px}
+.eyebrow::before{content:'';width:36px;height:1px;background:var(--gold)}
+.eyebrow.c{justify-content:center}
+.eyebrow.c::before{display:none}
+.eyebrow.c::after{content:'';width:36px;height:1px;background:var(--gold);margin-left:14px}
+.title{font-size:clamp(1.9rem,3.4vw,2.7rem);font-weight:300;line-height:1.14;margin-bottom:20px}
+.title em{font-style:italic;font-weight:400;color:var(--gold-d)}
+.desc{font-size:.95rem;color:var(--ink2);line-height:1.75;max-width:640px;font-weight:300}
+.dark{background:var(--ink);color:#fff}
+.dark .title{color:#fff}
+.dark .desc{color:rgba(255,255,255,.55)}
+.dark .eyebrow{color:var(--gold)}
+
+/* reveal animation */
+.a{opacity:0;transform:translateY(36px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.a.v{opacity:1;transform:none}
+
+/* cards */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:54px}
+.card{background:var(--white);border:1px solid var(--border);padding:38px 32px;position:relative;overflow:hidden;transition:all .5s var(--ease)}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.card:hover{transform:translateY(-8px);box-shadow:0 22px 55px rgba(26,92,46,.13)}
+.card:hover::before{transform:scaleX(1)}
+.card .ic{font-size:1.9rem;margin-bottom:16px}
+.card h3{font-size:1.45rem;margin-bottom:8px}
+.card .sub{font-size:.72rem;text-transform:uppercase;letter-spacing:1.8px;color:var(--gold-d);font-weight:600;margin-bottom:14px}
+.card p{font-size:.87rem;color:var(--ink2);line-height:1.65;font-weight:300}
+
+/* trust bar */
+.trust{background:var(--green-d);color:#fff;padding:34px 0}
+.trust-in{max-width:1280px;margin:0 auto;padding:0 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
+.trust-item{text-align:center;flex:1;min-width:140px}
+.trust-num{font-family:var(--fd);font-size:1.9rem;font-weight:300;color:var(--gold);line-height:1}
+.trust-lbl{font-size:.62rem;text-transform:uppercase;letter-spacing:1.6px;color:rgba(255,255,255,.5);margin-top:6px;font-weight:500}
+
+/* ---------- HORIZONTAL ACCORDION GALLERY ---------- */
+.h-acc{display:flex;gap:12px;height:540px;margin-top:50px}
+.h-panel{flex:1;position:relative;overflow:hidden;border-radius:16px;cursor:pointer;transition:flex .8s var(--ease);min-width:0}
+.h-panel.active{flex:4.6}
+.h-panel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.5) saturate(.75);transition:filter .8s,transform 6s ease;transform:scale(1.02)}
+.h-panel.active img{filter:brightness(.92) saturate(1);transform:scale(1.06)}
+.h-panel .h-num{position:absolute;top:18px;left:18px;font-family:var(--fd);font-size:1.5rem;color:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.35);width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(0,0,0,.25);backdrop-filter:blur(4px)}
+.h-cap{position:absolute;bottom:0;left:0;right:0;padding:26px;background:linear-gradient(to top,rgba(10,20,12,.85),transparent);color:#fff}
+.h-cap h3{font-size:1.55rem;margin-bottom:4px;white-space:nowrap}
+.h-cap .loc{font-size:.66rem;text-transform:uppercase;letter-spacing:2px;color:var(--gold);font-weight:600;margin-bottom:10px}
+.h-cap p{font-size:.85rem;color:#d6e6da;font-weight:300;line-height:1.6;max-width:480px;opacity:0;max-height:0;overflow:hidden;transition:opacity .6s .25s,max-height .8s var(--ease)}
+.h-panel.active .h-cap p{opacity:1;max-height:200px}
+.h-hint{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;font-size:1.4rem;opacity:.7;transition:opacity .4s}
+.h-panel.active .h-hint{opacity:0}
+
+/* ---------- VERTICAL ACCORDION VIDEO GALLERY ---------- */
+.v-list{margin-top:50px;display:flex;flex-direction:column;gap:14px}
+.v-item{border:1px solid var(--border);border-radius:16px;overflow:hidden;background:var(--white);transition:box-shadow .4s}
+.v-item.open{box-shadow:0 18px 45px rgba(26,92,46,.15)}
+.v-head{display:flex;align-items:center;gap:20px;padding:22px 26px;cursor:pointer;user-select:none}
+.v-thumb{width:110px;height:66px;object-fit:cover;border-radius:10px;flex:none}
+.v-head-txt{flex:1;min-width:0}
+.v-head-txt h3{font-size:1.35rem;margin-bottom:2px}
+.v-head-txt span{font-size:.72rem;color:var(--muted);font-weight:400;font-family:var(--fb);text-transform:uppercase;letter-spacing:1.4px}
+.v-plus{width:38px;height:38px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--green);flex:none;transition:all .4s var(--ease)}
+.v-item.open .v-plus{transform:rotate(45deg);background:var(--green);color:#fff;border-color:var(--green)}
+.v-body{max-height:0;overflow:hidden;transition:max-height .7s var(--ease)}
+.v-item.open .v-body{max-height:640px}
+.v-frame{padding:0 26px 26px}
+.v-frame iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:12px;background:#000}
+
+/* timeline */
+.timeline{margin-top:54px;position:relative;padding-left:38px;border-left:2px solid var(--gold)}
+.t-item{margin-bottom:40px;position:relative}
+.t-item::before{content:'';position:absolute;left:-49px;top:6px;width:14px;height:14px;background:var(--gold);border-radius:50%;box-shadow:0 0 0 6px rgba(196,163,90,.2)}
+.t-item b{font-family:var(--fd);font-size:1.3rem;font-weight:500;color:var(--green-d)}
+.t-item p{font-size:.9rem;color:var(--ink2);font-weight:300;margin-top:4px;max-width:640px}
+
+/* invest CTA */
+.invest-box{max-width:820px;margin:0 auto;text-align:center;background:linear-gradient(135deg,var(--green-d),var(--green));color:#fff;border-radius:26px;padding:70px 48px;box-shadow:0 26px 70px rgba(15,58,29,.35);position:relative;overflow:hidden}
+.invest-box::before{content:'';position:absolute;top:-60%;right:-15%;width:60%;height:200%;background:radial-gradient(ellipse at center,rgba(196,163,90,.16),transparent 70%)}
+.invest-box h2{color:#fff}
+.invest-box p{color:#d6e6da;margin:16px auto 32px;max-width:560px;font-weight:300}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:46px}
+.form-g{margin-bottom:16px}
+.form-g label{display:block;font-size:.66rem;text-transform:uppercase;letter-spacing:1.6px;color:var(--muted);margin-bottom:6px;font-weight:500}
+.form-g input,.form-g select,.form-g textarea{width:100%;padding:13px 15px;border:1.5px solid var(--border);font-family:var(--fb);font-size:.9rem;background:var(--bg);border-radius:4px;transition:border-color .3s;color:var(--ink)}
+.form-g input:focus,.form-g select:focus,.form-g textarea:focus{outline:none;border-color:var(--gold)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+/* ---------- FOOTER / ADDRESS ---------- */
+.foot{background:var(--ink);color:#fff;padding:80px 0 0}
+.foot-grid{max-width:1280px;margin:0 auto;padding:0 40px 56px;display:grid;grid-template-columns:1.4fr 1fr 1.2fr;gap:56px}
+.foot-brand p{font-size:.84rem;color:rgba(255,255,255,.4);line-height:1.7;font-weight:300;max-width:300px;margin-top:16px}
+.foot-col h4{font-size:.72rem;text-transform:uppercase;letter-spacing:2.2px;color:var(--gold);margin-bottom:20px;font-weight:600;font-family:var(--fb)}
+.foot-col a,.foot-col p{display:block;font-size:.84rem;color:rgba(255,255,255,.5);margin-bottom:10px;font-weight:300;transition:color .3s}
+.foot-col a:hover{color:var(--gold)}
+address{font-style:normal}
+address .addr-line{display:flex;gap:12px;margin-bottom:14px;font-size:.85rem;color:rgba(255,255,255,.55);line-height:1.6;font-weight:300}
+address .addr-line .ic{color:var(--gold);flex:none}
+address a{color:rgba(255,255,255,.7)!important}
+address a:hover{color:var(--gold)!important}
+.socials{display:flex;gap:12px;margin-top:22px}
+.socials a{width:42px;height:42px;border:1px solid rgba(255,255,255,.16);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .3s var(--ease);margin:0!important}
+.socials a svg{width:18px;height:18px;fill:rgba(255,255,255,.7);transition:fill .3s}
+.socials a:hover{background:var(--gold);border-color:var(--gold);transform:translateY(-4px)}
+.socials a:hover svg{fill:var(--ink)}
+.foot-div{height:1px;background:rgba(255,255,255,.07)}
+.foot-bot{max-width:1280px;margin:0 auto;padding:26px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.foot-bot p{font-size:.72rem;color:rgba(255,255,255,.28)}
+.foot-bot a{color:rgba(255,255,255,.35);font-size:.72rem;transition:color .3s}
+.foot-bot a:hover{color:var(--gold)}
+
+@media(max-width:1024px){
+  .grid3{grid-template-columns:1fr;max-width:520px;margin-left:auto;margin-right:auto}
+  .contact-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr;gap:40px}
+  .h-acc{height:460px}
+}
+@media(max-width:768px){
+  .nav-links{display:none;position:fixed;inset:0;background:var(--bg);flex-direction:column;justify-content:center;align-items:center;gap:26px;z-index:998;margin:0}
+  .nav-links.active{display:flex}
+  .nav-links a{color:var(--ink)!important;font-size:.95rem}
+  .nav-mob{display:flex;z-index:999}
+  .sec-in,.nav-in{padding:0 24px}
+  .hero-in{padding:130px 24px 70px}
+  .sec{padding:70px 0}
+  .h-acc{flex-direction:column;height:auto}
+  .h-panel{height:120px;flex:none;transition:height .8s var(--ease)}
+  .h-panel.active{height:420px;flex:none}
+  .h-cap h3{white-space:normal}
+  .form-row{grid-template-columns:1fr}
+  .v-head-txt h3{font-size:1.1rem}
+  .v-thumb{width:84px;height:52px}
+  .trust-item{flex:1 1 45%}
+  .foot-bot{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<nav class="nav" id="nav">
+  <div class="nav-in">
+    <a href="#hero" class="brand" aria-label="Ethio Sugar Manufacturing Industry S.C.">
+      <svg viewBox="0 0 56 56" fill="none" aria-hidden="true">
+        <rect x="2" y="2" width="52" height="52" rx="12" fill="#0f3a1d"/>
+        <rect x="2" y="2" width="52" height="52" rx="12" stroke="#c4a35a" stroke-width="1.6"/>
+        <path d="M34 46 L38 14" stroke="#c4a35a" stroke-width="3.2" stroke-linecap="round"/>
+        <path d="M37 20 L43 15" stroke="#c4a35a" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M36.4 27 L45 24" stroke="#c4a35a" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M38 14 C38 8 42 6 47 6 C47 11 43 14 38 14 Z" fill="#2e8b47"/>
+        <path d="M38 14 C34 9 29 8 25 10 C27 14 32 16 38 14 Z" fill="#2e8b47" opacity=".8"/>
+        <rect x="14" y="32" width="13" height="13" rx="2.5" transform="rotate(8 14 32)" fill="#faf9f6"/>
+        <rect x="17" y="35" width="7" height="7" rx="1.5" transform="rotate(8 17 35)" fill="#c4a35a"/>
+      </svg>
+      <span class="brand-txt"><b>Ethio Sugar</b><small>Manufacturing Industry S.C.</small></span>
+    </a>
+    <button class="nav-mob" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#operations">Operations</a>
+      <a href="#sector">Sugar Sector</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#videos">Videos</a>
+      <a href="#journey">Journey</a>
+      <a href="#invest" class="nav-cta">Invest With Us</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="hero">
+  <div class="hero-in">
+    <div class="hero-tag a">Private Share Company · Est. 2018 · Addis Ababa, Ethiopia</div>
+    <h1 class="hero-title a">Sweetening Ethiopia's Future Through <em>Private Agribusiness</em> Leadership</h1>
+    <p class="hero-sub a">Ethio Sugar Manufacturing Industry S.C. stands at the forefront of Ethiopia's sugar sector transformation — acquiring, modernizing and expanding sugar complexes from the historic Wonji/Shoa plains to 10,000 hectares of prime development land in the Omo Zone.</p>
+    <div class="hero-cta-row a">
+      <a href="#invest" class="btn btn-pri">Explore Investment Opportunities</a>
+      <a href="#gallery" class="btn btn-ghost">Discover Our Operations</a>
+    </div>
+    <div class="hero-stats a">
+      <div class="hstat"><b>2018</b><span>Established</span></div>
+      <div class="hstat"><b>10,000 ha</b><span>Land in Hamer</span></div>
+      <div class="hstat"><b>2+</b><span>Complexes Targeted</span></div>
+      <div class="hstat"><b>1,000s</b><span>Local Jobs Planned</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= MARQUEE (5 dynamic images) ================= -->
+<div class="marquee" aria-label="Operations showcase">
+  <div class="m-track" id="mTrack">
+    <figure class="m-item"><img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=640&q=70" alt="Vast cultivated farmland at golden hour" loading="lazy"><figcaption>Sugarcane Belt</figcaption></figure>
+    <figure class="m-item"><img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=640&q=70" alt="Modern tractor working agricultural fields" loading="lazy"><figcaption>Mechanized Farming</figcaption></figure>
+    <figure class="m-item"><img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&w=640&q=70" alt="Lush green crop rows under irrigation" loading="lazy"><figcaption>Irrigated Estates</figcaption></figure>
+    <figure class="m-item"><img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?auto=format&fit=crop&w=640&q=70" alt="Tractor spraying crops across large-scale farm" loading="lazy"><figcaption>Field Operations</figcaption></figure>
+    <figure class="m-item"><img src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=640&q=70" alt="Terraced green agricultural landscape" loading="lazy"><figcaption>Omo Valley Lands</figcaption></figure>
+  </div>
+</div>
+
+<!-- ================= TRUST BAR ================= -->
+<section class="trust">
+  <div class="trust-in">
+    <div class="trust-item a"><div class="trust-num">6,250</div><div class="trust-lbl">Tons Cane / Day — Wonji Shoa Design</div></div>
+    <div class="trust-item a"><div class="trust-num">174,946</div><div class="trust-lbl">Tons Sugar / Year — Wonji Shoa</div></div>
+    <div class="trust-item a"><div class="trust-num">10,230 ha</div><div class="trust-lbl">Metehara Cane Plantation</div></div>
+    <div class="trust-item a"><div class="trust-num">8</div><div class="trust-lbl">Operational State Factories</div></div>
+    <div class="trust-item a"><div class="trust-num">~400K tn</div><div class="trust-lbl">Annual Imports to Bridge Deficit</div></div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="sec" id="about">
+  <div class="sec-in">
+    <p class="eyebrow a">Who We Are</p>
+    <h2 class="title a">A Private Champion of Ethiopia's <em>Sugar Privatization</em></h2>
+    <p class="desc a">Established in 2018 as a private share company, Ethio Sugar Manufacturing Industry S.C. was formed to seize one of Africa's most compelling agribusiness opportunities: the privatization of Ethiopia's state-owned sugar complexes. Headquartered on Africa Avenue in Addis Ababa's Bole Sub-city, we pair deep local insight with modern agricultural and industrial expertise.</p>
+    <div class="grid3">
+      <div class="card a"><div class="ic">🏭</div><h3>Acquire &amp; Modernize</h3><p class="sub">Wonji/Shoa · Metehara</p><p>Strategic participation in the privatization of flagship complexes — bringing fresh capital, modern technology and disciplined management to Ethiopia's most storied sugar estates.</p></div>
+      <div class="card a"><div class="ic">🌱</div><h3>Greenfield Development</h3><p class="sub">Hamer · Omo Zone</p><p>Acquisition of an agro-processing plant and 10,000 hectares of prime land in Hamer, Omo Zone, dedicated to sugarcane cultivation and value-added processing.</p></div>
+      <div class="card a"><div class="ic">🤝</div><h3>Community &amp; Jobs</h3><p class="sub">Shared Prosperity</p><p>Our Omo Zone expansion is engineered around local job creation, skills transfer and lasting prosperity for the communities surrounding our estates.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OPERATIONS (dark) ================= -->
+<section class="sec dark" id="operations">
+  <div class="sec-in">
+    <p class="eyebrow a">Core Operations</p>
+    <h2 class="title a">From Field to Factory — <em>Built for Scale</em></h2>
+    <p class="desc a">Our integrated model spans sugarcane cultivation, agro-processing and industrial manufacturing — engineered to close Ethiopia's sugar deficit and serve domestic and regional markets.</p>
+    <div class="grid3">
+      <div class="card a"><div class="ic">🚜</div><h3>Sugarcane Cultivation</h3><p class="sub">10,000 Hectares</p><p>Large-scale mechanized farming across Hamer, leveraging the Omo Zone's ideal climate and irrigation potential.</p></div>
+      <div class="card a"><div class="ic">⚙️</div><h3>Agro-Processing</h3><p class="sub">Plant &amp; Refinery</p><p>A dedicated processing plant converts cane into refined sugar plus by-products — molasses, ethanol feedstock and bio-energy.</p></div>
+      <div class="card a"><div class="ic">📈</div><h3>Complex Revitalization</h3><p class="sub">Wonji/Shoa · Metehara</p><p>Investment in privatized complexes upgrades capacity, efficiency and product quality at Ethiopia's historic estates.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= IMAGE GALLERY — HORIZONTAL ACCORDION ================= -->
+<section class="sec" id="gallery">
+  <div class="sec-in">
+    <p class="eyebrow c a">Gallery — Click a Panel to Expand</p>
+    <h2 class="title a" style="text-align:center">Our World, <em>Side by Side</em></h2>
+    <div class="h-acc" id="hAcc">
+      <div class="h-panel active" data-cap="wonji">
+        <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1200&q=70" alt="Lush green estate fields">
+        <span class="h-num">01</span><span class="h-hint">＋</span>
+        <div class="h-cap"><div class="loc">Oromia Region · 110 km SE of Addis</div><h3>Wonji/Shoa Sugar Complex</h3><p>Ethiopia's oldest and most storied sugar estate — pioneer of the nation's sugar industry and a cornerstone of our acquisition strategy under the government's privatization program.</p></div>
+      </div>
+      <div class="h-panel" data-cap="metehara">
+        <img src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=1200&q=70" alt="Terraced irrigated farmland">
+        <span class="h-num">02</span><span class="h-hint">＋</span>
+        <div class="h-cap"><div class="loc">East Shewa · Oromia</div><h3>Metehara Sugar Complex</h3><p>A 10,230-hectare cane plantation with the potential to produce over 130,000 tons of sugar annually — plus ethanol production and bagasse power generation.</p></div>
+      </div>
+      <div class="h-panel" data-cap="hamer">
+        <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?auto=format&fit=crop&w=1200&q=70" alt="Large-scale mechanized agriculture">
+        <span class="h-num">03</span><span class="h-hint">＋</span>
+        <div class="h-cap"><div class="loc">Hamer · Omo Zone · SNNPR</div><h3>10,000 ha Hamer Development</h3><p>Our greenfield flagship: an acquired agro-processing plant and vast land bank for sugarcane development, local processing and large-scale job creation.</p></div>
+      </div>
+      <div class="h-panel" data-cap="processing">
+        <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&w=1200&q=70" alt="Irrigated crop rows">
+        <span class="h-num">04</span><span class="h-hint">＋</span>
+        <div class="h-cap"><div class="loc">Integrated Value Chain</div><h3>Agro-Processing Plant</h3><p>Modern milling, refining and packaging infrastructure that turns raw cane into premium refined sugar and high-value by-products for domestic and export markets.</p></div>
+      </div>
+      <div class="h-panel" data-cap="hq">
+        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=70" alt="Golden farmland horizon">
+        <span class="h-num">05</span><span class="h-hint">＋</span>
+        <div class="h-cap"><div class="loc">Bole Sub-city · Africa Avenue</div><h3>Addis Ababa Headquarters</h3><p>Our corporate home on Africa Avenue — the strategic command centre for investor relations, government partnership and nationwide operations.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VIDEO GALLERY — VERTICAL ACCORDION ================= -->
+<section class="sec dark" id="videos">
+  <div class="sec-in">
+    <p class="eyebrow c a">Video Gallery — Click to Expand</p>
+    <h2 class="title a" style="text-align:center">See the Sector <em>in Motion</em></h2>
+    <p class="desc a" style="margin:0 auto;text-align:center">Documentaries and features from Ethiopia's sugar heartland.</p>
+    <div class="v-list" id="vList">
+      <div class="v-item open">
+        <div class="v-head">
+          <img class="v-thumb" src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=320&q=60" alt="">
+          <div class="v-head-txt"><h3>Wonji Sugar Factory</h3><span>The pioneer of Ethiopia's sugar industry · 2022</span></div>
+          <div class="v-plus">＋</div>
+        </div>
+        <div class="v-body"><div class="v-frame"><iframe data-src="https://www.youtube-nocookie.com/embed/VhJygLkgDuY" title="Wonji Sugar Factory" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>
+      </div>
+      <div class="v-item">
+        <div class="v-head">
+          <img class="v-thumb" src="https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&w=320&q=60" alt="">
+          <div class="v-head-txt"><h3>Metahara Sugar Factory Documentary</h3><span>Inside Ethiopia's second sugar mill · 2023</span></div>
+          <div class="v-plus">＋</div>
+        </div>
+        <div class="v-body"><div class="v-frame"><iframe data-src="https://www.youtube-nocookie.com/embed/rJYR--B8jlY" title="Metahara Sugar Factory Documentary" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>
+      </div>
+      <div class="v-item">
+        <div class="v-head">
+          <img class="v-thumb" src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?auto=format&fit=crop&w=320&q=60" alt="">
+          <div class="v-head-txt"><h3>Sugar Factory Operation in Ethiopia</h3><span>Working principles of Wonji, Metehara &amp; Finchaa · 2021</span></div>
+          <div class="v-plus">＋</div>
+        </div>
+        <div class="v-body"><div class="v-frame"><iframe data-src="https://www.youtube-nocookie.com/embed/4RtUKr9IeiE" title="Sugar Factory Operation in Ethiopia" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>
+      </div>
+      <div class="v-item">
+        <div class="v-head">
+          <img class="v-thumb" src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=320&q=60" alt="">
+          <div class="v-head-txt"><h3>How Billions of Tons of Sugarcane Become Sugar</h3><span>Modern industrial sugar production · 2025</span></div>
+          <div class="v-plus">＋</div>
+        </div>
+        <div class="v-body"><div class="v-frame"><iframe data-src="https://www.youtube-nocookie.com/embed/8-MoxR-sfxc" title="How sugarcane becomes sugar" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SECTOR ================= -->
+<section class="sec" id="sector">
+  <div class="sec-in">
+    <p class="eyebrow a">The Bigger Picture</p>
+    <h2 class="title a">Ethiopia's Sugar Sector: A <em>National Priority</em></h2>
+    <p class="desc a">The state-owned Ethiopian Sugar Industry Group (ESIG) manages the country's major factories — Wonji Shoa, Metehara, Finchaa and Kessem. National production goals and privatization initiatives are opening the door for private investors to bridge Ethiopia's sugar deficit and power industrial growth.</p>
+    <div class="grid3">
+      <div class="card a"><div class="ic">🏛️</div><h3>ESIG Oversight</h3><p class="sub">State Industry Group</p><p>Ethiopian Sugar Industry Group manages major operational factories including Wonji Shoa, Metehara, Finchaa and Kessem.</p></div>
+      <div class="card a"><div class="ic">🎯</div><h3>Deficit Reduction</h3><p class="sub">Import Substitution</p><p>Privatization and development programs aim to close the national sugar gap and replace imports with homegrown output.</p></div>
+      <div class="card a"><div class="ic">🌍</div><h3>Export Potential</h3><p class="sub">Regional Markets</p><p>Positioned at the heart of East Africa, Ethiopia's sugar sector holds strong regional and export market upside.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= JOURNEY ================= -->
+<section class="sec dark" id="journey">
+  <div class="sec-in">
+    <p class="eyebrow a">Milestones</p>
+    <h2 class="title a">Our Journey of <em>Growth</em></h2>
+    <div class="timeline">
+      <div class="t-item a"><b>2018 — Founded in Addis Ababa</b><p style="color:#cfe2d3">Ethio Sugar Manufacturing Industry S.C. is established as a private share company to lead agribusiness investment and sugar privatization participation.</p></div>
+      <div class="t-item a"><b>Privatization Participation</b><p style="color:#cfe2d3">The company moves to acquire and invest in major sugar complexes including Wonji/Shoa and Metehara under government privatization programs.</p></div>
+      <div class="t-item a"><b>Hamer Expansion — 10,000 Hectares</b><p style="color:#cfe2d3">Acquisition of an agro-processing plant and vast land in Hamer (Omo Zone) launches our greenfield sugarcane development and local job creation agenda.</p></div>
+      <div class="t-item a"><b>Scaling Toward National Impact</b><p style="color:#cfe2d3">Ongoing growth initiatives aim to boost domestic sugar output, create thousands of jobs, and attract strategic domestic and international partners.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= INVEST ================= -->
+<section class="sec" id="invest">
+  <div class="sec-in">
+    <div class="invest-box a">
+      <p class="eyebrow c" style="color:var(--gold)">Partner With Us</p>
+      <h2 class="title" style="color:#fff">Invest in Africa's <em style="color:var(--gold)">Sweetest Opportunity</em></h2>
+      <p>Join a proven private player in Ethiopia's sugar transformation. Whether you're an institutional investor, strategic partner or development financier — there's a seat at our table.</p>
+      <a href="#contact" class="btn btn-pri">Request the Investor Deck</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="sec" id="contact" style="background:var(--bg-warm)">
+  <div class="sec-in">
+    <p class="eyebrow a">Get In Touch</p>
+    <h2 class="title a">Contact <em>Us</em></h2>
+    <div class="contact-grid">
+      <form onsubmit="event.preventDefault();alert('Thank you! Our investor relations team will respond within 2 business days.');">
+        <div class="form-row">
+          <div class="form-g"><label for="fn">Full Name</label><input id="fn" type="text" required></div>
+          <div class="form-g"><label for="fe">Email Address</label><input id="fe" type="email" required></div>
+        </div>
+        <div class="form-g"><label for="fi">I am interested in…</label>
+          <select id="fi" required>
+            <option value="">Select…</option>
+            <option>Investment / Share Purchase</option>
+            <option>Strategic Partnership</option>
+            <option>Supplier / Vendor Relations</option>
+            <option>Media / Press</option>
+          </select>
+        </div>
+        <div class="form-g"><label for="fm">Your Message</label><textarea id="fm" rows="5" required></textarea></div>
+        <button type="submit" class="btn btn-pri" style="width:100%">Send Message →</button>
+      </form>
+      <div>
+        <p class="desc" style="margin-bottom:28px">Reach out for investment inquiries, partnerships, supplier relationships or media requests.</p>
+        <div class="t-item" style="margin-bottom:26px;border-left:2px solid var(--gold);padding-left:22px"><b style="font-size:1.15rem">Headquarters</b><p>Africa Avenue, Bole Sub-city, Addis Ababa, Ethiopia</p></div>
+        <div class="t-item" style="margin-bottom:26px;border-left:2px solid var(--gold);padding-left:22px"><b style="font-size:1.15rem">Operations</b><p>Wonji/Shoa · Metehara · Hamer (Omo Zone)</p></div>
+        <div class="t-item" style="border-left:2px solid var(--gold);padding-left:22px"><b style="font-size:1.15rem">Investor Relations</b><p>info@ethiosugarmfg.et<br>+251 11 XXX XXXX</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER / ADDRESS ================= -->
+<footer class="foot">
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <a href="#hero" class="brand">
+        <svg viewBox="0 0 56 56" fill="none" style="height:52px" aria-hidden="true">
+          <rect x="2" y="2" width="52" height="52" rx="12" fill="#c4a35a"/>
+          <path d="M34 46 L38 14" stroke="#0f3a1d" stroke-width="3.2" stroke-linecap="round"/>
+          <path d="M37 20 L43 15" stroke="#0f3a1d" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M36.4 27 L45 24" stroke="#0f3a1d" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M38 14 C38 8 42 6 47 6 C47 11 43 14 38 14 Z" fill="#0f3a1d"/>
+          <path d="M38 14 C34 9 29 8 25 10 C27 14 32 16 38 14 Z" fill="#0f3a1d" opacity=".75"/>
+          <rect x="14" y="32" width="13" height="13" rx="2.5" transform="rotate(8 14 32)" fill="#0f3a1d"/>
+          <rect x="17" y="35" width="7" height="7" rx="1.5" transform="rotate(8 17 35)" fill="#faf9f6"/>
+        </svg>
+        <span class="brand-txt"><b style="color:#fff">Ethio Sugar</b><small>Manufacturing Industry S.C.</small></span>
+      </a>
+      <p>A private share company pioneering agribusiness investment and sugar complex privatization across Ethiopia — from the historic estates of Wonji/Shoa and Metehara to 10,000 hectares of greenfield development in the Omo Zone.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Explore</h4>
+      <a href="#about">About the Company</a>
+      <a href="#operations">Operations</a>
+      <a href="#gallery">Image Gallery</a>
+      <a href="#videos">Video Gallery</a>
+      <a href="#journey">Our Journey</a>
+      <a href="#invest">Investor Relations</a>
+    </div>
+    <div class="foot-col">
+      <h4>Address &amp; Contact</h4>
+      <address>
+        <div class="addr-line"><span class="ic">📍</span><span>Africa Avenue, Bole Sub-city,<br>Addis Ababa, Ethiopia</span></div>
+        <div class="addr-line"><span class="ic">✉️</span><a href="mailto:info@ethiosugarmfg.et">info@ethiosugarmfg.et</a></div>
+        <div class="addr-line"><span class="ic">🌐</span><a href="https://www.ethiosugarmfg.et" target="_blank" rel="noopener">www.ethiosugarmfg.et</a></div>
+        <div class="addr-line"><span class="ic">📞</span><a href="tel:+251110000000">+251 11 XXX XXXX</a></div>
+        <div class="addr-line"><span class="ic">🏭</span><span>Wonji/Shoa · Metehara · Hamer (Omo Zone)</span></div>
+      </address>
+      <div class="socials">
+        <a href="https://www.linkedin.com/company/ethio-sugar-manufacturing-industry" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="https://www.facebook.com/ethiosugarmfg" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a href="https://www.instagram.com/ethiosugarmfg" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        <a href="https://x.com/ethiosugarmfg" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="https://www.youtube.com/@ethiosugarmfg" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        <a href="https://wa.me/251911000000" target="_blank" rel="noopener" aria-label="WhatsApp Channel"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-div"></div>
+  <div class="foot-bot">
+    <p>© 2026 Ethio Sugar Manufacturing Industry S.C. — Addis Ababa, Ethiopia · Established 2018 · All rights reserved.</p>
+    <div><a href="#">Privacy Policy</a> · <a href="#">Terms of Use</a></div>
+  </div>
+</footer>
+
+<script>
+/* Nav scroll + mobile menu */
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('s',window.scrollY>50)});
+const navToggle=document.getElementById('navToggle'),navLinks=document.getElementById('navLinks');
+navToggle.addEventListener('click',e=>{e.stopPropagation();navLinks.classList.toggle('active')});
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('active')));
+document.addEventListener('click',e=>{if(navLinks.classList.contains('active')&&!navLinks.contains(e.target))navLinks.classList.remove('active')});
+
+/* Duplicate marquee track for seamless loop */
+const mt=document.getElementById('mTrack');
+mt.innerHTML+=mt.innerHTML;
+
+/* Scroll reveal */
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('v');obs.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.a').forEach(el=>obs.observe(el));
+
+/* Horizontal image accordion */
+const panels=document.querySelectorAll('.h-panel');
+panels.forEach(p=>p.addEventListener('click',()=>{
+  panels.forEach(x=>x.classList.remove('active'));
+  p.classList.add('active');
+}));
+
+/* Vertical video accordion (lazy iframe load) */
+document.querySelectorAll('.v-item').forEach(item=>{
+  item.querySelector('.v-head').addEventListener('click',()=>{
+    const wasOpen=item.classList.contains('open');
+    document.querySelectorAll('.v-item').forEach(i=>{
+      i.classList.remove('open');
+      const f=i.querySelector('iframe'); if(f)f.src='';
+    });
+    if(!wasOpen){
+      item.classList.add('open');
+      const f=item.querySelector('iframe');
+      if(f&&!f.src)f.src=f.dataset.src;
+    }
+  });
+});
+/* preload first open video */
+(function(){const f=document.querySelector('.v-item.open iframe');if(f)f.src=f.dataset.src;})();
+</script>
+</body>
+</html>
