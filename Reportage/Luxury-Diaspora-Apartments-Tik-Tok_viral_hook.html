@@ -1,0 +1,183 @@
+<!-- TikTok Mobile Optimized Styles -->
+<style>
+  :root {
+    --primary-navy: #0b2c56;
+    --gold: #dfb23f;
+    --wa-green: #25D366;
+    --light-bg: #f8f9fa;
+  }
+  
+  .tiktok-container {
+    max-width: 450px;
+    margin: 15px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  .property-badge {
+    background: var(--primary-navy);
+    color: white;
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .price-tag {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--gold);
+    margin: 5px 0 15px 0;
+  }
+
+  /* Core Action Buttons */
+  .cta-block {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    transition: transform 0.2s;
+    text-align: center;
+  }
+
+  .btn-action:active {
+    transform: scale(0.98);
+  }
+
+  .btn-whatsapp {
+    background-color: var(--wa-green);
+    color: white;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+  }
+
+  .btn-phone {
+    background-color: var(--primary-navy);
+    color: white;
+  }
+
+  /* Viral Share Engine Box */
+  .viral-lock-box {
+    margin-top: 25px;
+    background: var(--light-bg);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px dashed #cbd5e1;
+    text-align: center;
+  }
+
+  .viral-text {
+    font-size: 14px;
+    color: #475569;
+    line-height: 1.5;
+    margin-bottom: 15px;
+  }
+
+  .btn-share {
+    background: transparent;
+    border: 2px solid var(--wa-green);
+    color: var(--wa-green);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  #secret-download {
+    display: none;
+    margin-top: 15px;
+    background: #ecfdf5;
+    color: #065f46;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    animation: slideDown 0.3s ease-out;
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<!-- Main Interface -->
+<div class="tiktok-container">
+  <span class="property-badge">📍 Bole / CMC • Addis Ababa</span>
+  <h2 style="margin:0; font-size:22px; color:var(--primary-navy);">Luxury Diaspora Apartments</h2>
+  <div class="price-tag">Starting at $145,000 USD</div>
+  
+  <p style="font-size:14px; color:#64748b; margin-bottom:20px; line-height:1.4;">
+    Modern 2 & 3 bedroom configurations. Secure underground parking, backup generators, and premium finishes. Perfect for investment or moving back home.
+  </p>
+
+  <!-- PRIMARY CALL TO ACTIONS -->
+  <div class="cta-block">
+    <!-- Replace 251911223344 with your real phone number with country code -->
+    <a href="https://wa.me?" 
+       class="btn-action btn-whatsapp" 
+       target="_blank">
+       💬 Text via WhatsApp Now
+    </a>
+
+    <a href="tel:+251911223344" class="btn-action btn-phone">
+       📞 Call Agent Directly
+    </a>
+  </div>
+
+  <!-- VIRAL SHARE ENGINE FOR DIASPORA GROUPS -->
+  <div class="viral-lock-box">
+    <h4 style="margin: 0 0 8px 0; color: #1e293b;">🎁 Get the Off-Market Price List</h4>
+    <p class="viral-text">
+      Share this page with 1 Diaspora group or relative on WhatsApp to immediately unlock our unlisted luxury floor plans.
+    </p>
+    
+    <!-- VIRAL BUTTON: Custom encoded text for sharing -->
+    <a href="https://whatsapp.com" 
+       target="_blank" 
+       class="btn-share" 
+       id="tiktok-share-btn">
+       ♻️ Share to WhatsApp
+    </a>
+
+    <!-- Unlocked State -->
+    <div id="secret-download">
+      ✅ Access Unlocked! <br>
+      <a href="YOUR_FLOORPLAN_LINK.pdf" target="_blank" style="color: #047857; text-decoration: underline;">👉 Click here to View Floor Plans & Prices (PDF)</a>
+    </div>
+  </div>
+</div>
+
+<!-- JavaScript Logic -->
+<script>
+  document.getElementById('tiktok-share-btn').addEventListener('click', function() {
+    // Small delay ensures the script triggers smoothly even within TikTok's internal browser view
+    setTimeout(function() {
+      document.getElementById('secret-download').style.display = 'block';
+      document.getElementById('tiktok-share-btn').style.display = 'none';
+    }, 1500); 
+  });
+</script>
