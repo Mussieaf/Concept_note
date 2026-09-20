@@ -1,0 +1,172 @@
+<!-- START AUTOMATED DIASPORA VIRAL LOOP SYSTEM -->
+<style>
+  :root {
+    --au-navy: #0b2c56;
+    --au-gold: #dfb23f;
+    --wa-green: #25D366;
+  }
+  .viral-container {
+    max-width: 460px;
+    margin: 25px auto;
+    padding: 24px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(11, 44, 86, 0.12);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    border: 1px solid #e2e8f0;
+    text-align: center;
+  }
+  .viral-badge-pulse {
+    background: #fff1f2;
+    color: #e11d48;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+    animation: pulseGlow 2s infinite;
+  }
+  .viral-share-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: var(--wa-green);
+    color: white;
+    padding: 16px 24px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+    transition: all 0.2s ease;
+  }
+  .viral-share-btn:active {
+    transform: scale(0.96);
+  }
+  #unlocked-leads-zone {
+    display: none;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px dashed #cbd5e1;
+    animation: systemSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .success-banner {
+    background-color: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    color: #15803d;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .action-deck {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .direct-cta-btn {
+    padding: 15px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+    transition: transform 0.2s;
+  }
+  .direct-cta-btn:active {
+    transform: scale(0.97);
+  }
+  .cta-wa-sales {
+    background-color: #075E54;
+    color: white;
+  }
+  .cta-phone-sales {
+    background-color: var(--au-navy);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  @keyframes pulseGlow {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.4); }
+    70% { transform: scale(1.02); box-shadow: 0 0 0 8px rgba(225, 29, 72, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(225, 29, 72, 0); }
+  }
+  @keyframes systemSlideUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<div class="viral-container">
+  <div id="locked-view">
+    <span class="viral-badge-pulse">⚠️ Limited Availability</span>
+    <h3 style="margin: 0 0 8px 0; color: var(--au-navy); font-size: 22px; font-weight:800;">Get USD/Euro Investment Brief</h3>
+    <p style="margin: 0 0 22px 0; color: #475569; font-size: 14px; line-height: 1.5;">
+      Unlock confidential unit pricing structures, floor plans, and rental yield analysis for <strong>Reportage Towers opposite the African Union</strong>.
+      <br><br>
+      Share this to 1 WhatsApp Diaspora Group or relative to instantly unlock the secure data vault.
+    </p>
+    
+    <!-- This button dynamically generates an automated viral hook using JavaScript below -->
+    <a href="#" target="_blank" class="viral-share-btn" id="viral-rotation-trigger">
+      📲 Share via WhatsApp to View
+    </a>
+  </div>
+
+  <!-- INSTANT CONVERSION ZONE (Revealed after automated share) -->
+  <div id="unlocked-leads-zone">
+    <div class="success-banner">
+      ✅ Access Granted! PDF Download & Line Unlocked
+    </div>
+    
+    <a href="#" style="display:block; text-decoration:underline; font-weight:700; color:#16a34a; margin-bottom:20px; font-size:15px;">
+      👉 Click to Download Confidential Brief (PDF)
+    </a>
+    
+    <div class="action-deck">
+      <!-- Direct line routing straight to your structured Sales Desk -->
+      <a href="https://wa.me." 
+         class="direct-cta-btn cta-wa-sales" 
+         target="_blank">
+         💬 Instant Text via WhatsApp
+      </a>
+      
+      <a href="tel:+251922466797" class="direct-cta-btn cta-phone-sales">
+         📞 Direct Call Phone Desk
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    var landingPageUrl = "https://mussieaf.github.io/Concept_note/Reportage/reportage_towers_landing4.html";
+    
+    // Automated array of rotating copy blocks targeting specific diaspora desires to force high CTR
+    var viralMessages = [
+      "Wow! Check out these premium Reportage Towers apartments right opposite the African Union in Addis Ababa. Complete USD/Euro payment options for diaspora buyers: ",
+      "If you are looking for a secure property investment in Addis Ababa with high rental yields, look at Reportage Towers. Virtual presentations from abroad: ",
+      "Finally! Transparent USD pricing structures for luxury 1 & 2 bedroom apartments in Addis. Opposite the AU HQ. Check it out: "
+    ];
+
+    // Selects a message completely at random every page generation instance to maximize viral reach variety
+    var randomizedMessage = viralMessages[Math.floor(Math.random() * viralMessages.length)];
+    var encodedShareText = encodeURIComponent(randomizedMessage + landingPageUrl);
+    
+    var shareButton = document.getElementById('viral-rotation-trigger');
+    shareButton.href = "https://whatsapp.com" + encodedShareText;
+
+    // Track the tap event and automatically transition states natively
+    shareButton.addEventListener('click', function() {
+      setTimeout(function() {
+        document.getElementById('locked-view').style.display = 'none';
+        document.getElementById('unlocked-leads-zone').style.display = 'block';
+      }, 1100);
+    });
+  })();
+</script>
+<!-- END AUTOMATED DIASPORA VIRAL LOOP SYSTEM -->
