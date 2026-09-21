@@ -1444,6 +1444,27 @@ function calculateScore() {
   const waText = encodeURIComponent(`Hello, I completed the Reportage Towers buyer qualification and received a score of ${score}. I would like to discuss available units and next steps.`);
   ctaEl.href = `https://wa.me/251922466797?text=${waText}`;
 }
+
+function sendModalToWhatsApp(e){
+  e.preventDefault();
+  const f = document.getElementById('contactForm');
+  const data = new FormData(f);
+  const msg = encodeURIComponent(
+    'Hello, I am requesting priority unit access for Reportage Towers.\n' +
+    Name: ${data.get('name') || ''}\n +
+    Email: ${data.get('email') || ''}\n +
+    Phone: ${data.get('phone') || ''}\n +
+    Location: ${data.get('country') || ''}\n +
+    Unit: ${data.get('unit') || ''}\n +
+    Purpose: ${data.get('purpose') || ''}\n +
+    Message: ${data.get('message') || ''}
+  );
+  window.open('https://wa.me/251922466797?text=' + msg, '_blank', 'noopener');
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+  f.reset();
+  return false;
+}    
 </script>
 
 <!-- ==================== RT CHATBOT WIDGET START ==================== -->
