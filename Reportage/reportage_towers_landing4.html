@@ -1968,7 +1968,7 @@ function calculateScore() {
     var encodedShareText = encodeURIComponent(randomizedMessage + landingPageUrl);
     
     var shareButton = document.getElementById('viral-rotation-trigger');
-    shareButton.href = "https://whatsapp.com" + encodedShareText;
+    shareButton.href = "https://wa.me/?text=" + encodedShareText;
 
     // Track the tap event and automatically transition states natively
     shareButton.addEventListener('click', function() {
