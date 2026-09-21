@@ -1447,25 +1447,33 @@ function calculateScore() {
 
 function sendModalToWhatsApp(e){
   e.preventDefault();
-  const f = document.getElementById('contactForm');
-  const data = new FormData(f);
-  const msg = encodeURIComponent(
+
+  var f = document.getElementById('contactForm');
+  if (!f) return false;
+
+  function v(name){
+    var el = f.querySelector('[name="' + name + '"]');
+    return el ? (el.value || '').trim() : '';
+  }
+  var msg = encodeURIComponent(
     'Hello, I am requesting priority unit access for Reportage Towers.\n' +
-    Name: ${data.get('name') || ''}\n +
-    Email: ${data.get('email') || ''}\n +
-    Phone: ${data.get('phone') || ''}\n +
-    Location: ${data.get('country') || ''}\n +
-    Unit: ${data.get('unit') || ''}\n +
-    Purpose: ${data.get('purpose') || ''}\n +
-    Message: ${data.get('message') || ''}
+    'Name: ' + v('name') + '\n' +
+    'Email: ' + v('email') + '\n' +
+    'Phone: ' + v('phone') + '\n' +
+    'Location: ' + v('country') + '\n' +
+    'Unit: ' + v('unit') + '\n' +
+    'Purpose: ' + v('purpose') + '\n' +
+    'Message: ' + v('message')
   );
+
   window.open('https://wa.me/251922466797?text=' + msg, '_blank', 'noopener');
-  modal.classList.remove('active');
+
+  var m = document.getElementById('modal');
+  if (m) m.classList.remove('active');
   document.body.style.overflow = '';
   f.reset();
   return false;
 }
-    
 </script>
 
 <!-- ==================== RT CHATBOT WIDGET START ==================== -->
