@@ -1196,7 +1196,8 @@ body { font-family:var(--font-b); color:var(--text); background:var(--bg); line-
       <p>Complete the form below. Our team will contact you with detailed project information, availability, and next steps.</p>
     </div>
     <div class="modal-b">
-      <form id="contactForm" action="mailto:mussie@equaltradeglobal.org" method="post" enctype="text/plain">
+     <!-- <form id="contactForm" action="mailto:mussie@equaltradeglobal.org" method="post" enctype="text/plain"> -->
+      <form id="contactForm" onsubmit="return sendModalToWhatsApp(event)">
         <div class="form-row">
           <div class="form-g"><label for="mName">Full Name</label><input type="text" id="mName" name="name" required></div>
           <div class="form-g"><label for="mEmail">Email</label><input type="email" id="mEmail" name="email" required></div>
