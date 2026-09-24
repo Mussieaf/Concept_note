@@ -1311,7 +1311,7 @@ body { font-family:var(--font-b); color:var(--text); background:var(--bg); line-
 <div class="bank-verification-footer">
     <div class="bank-flex-container">
         <!-- Awash Bank Logo (image file) -->
-        <img src="images/awash_logo.jpg" alt="Awash Bank" class="bank-logo-jpg"/>          
+        <img src="images/awash_logo.jpg" alt="Awash Bank" class="bank-logo-jpg" width="55" height="55" loading="lazy">
         <div class="bank-text-column">
             <h5>Unit Reservation Requirement</h5>
             <p>To finalize your off-plan reservation escrow at Reportage Towers, pipeline buyers are adviced to open an account at <span>Awash Bank - Mexico Sarbiet Branch</span>.</p>
@@ -1342,6 +1342,14 @@ body { font-family:var(--font-b); color:var(--text); background:var(--bg); line-
         gap: 20px;
         text-align: left;
     }
+
+    .bank-logo-jpg {
+        width: 55px;
+        height: 55px;
+        object-fit: contain;
+        flex-shrink: 0;
+    }
+     
     .bank-logo-svg {
         width: 55px;
         height: 55px;
